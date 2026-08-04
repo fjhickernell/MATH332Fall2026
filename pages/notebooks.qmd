@@ -1,0 +1,26 @@
+---
+title: "Jupyter Notebooks"
+---
+
+Course notebooks will provide executable demonstrations and exercises for
+numerical matrix computation, exact symbolic computation, visualization, and
+experimentation.
+
+::: {.callout-note}
+## Content in development
+
+Notebook links will be added only after each notebook has been developed and
+validated. The introductory notebook is still a structural placeholder.
+:::
+
+## Demonstrations
+
+Instructor demonstrations will illustrate linear algebra concepts and connect
+algebraic calculations with geometric interpretation. Validated notebook links
+will appear here.
+
+## Exercises
+
+Student exercises will provide opportunities to explore matrices, vector
+spaces, transformations, eigenvalues, and inner products computationally.
+Validated notebook links will appear here.

@@ -1,0 +1,16 @@
+.quarto/
+_site/
+site_libs/
+*_files/
+**/*.quarto_ipynb
+.DS_Store
+**/.DS_Store
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+
+/.quarto/

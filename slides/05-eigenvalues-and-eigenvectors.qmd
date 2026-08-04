@@ -1,0 +1,21 @@
+---
+title: "{{< meta course_title >}}"
+deck_id: d05
+deck_title: "{{< meta decks.d05.title >}}"
+deck_short_title: "{{< meta decks.d05.short_title >}}"
+subtitle: "<span class='deck-title'>{{< meta deck_title >}}</span>"
+include-after-body:
+  - text: |
+      <script id="deck-nav-meta" type="application/json">
+      {
+        "deck_prev_file": "{{< meta decks.d04.file >}}",
+        "deck_prev_title": "{{< meta decks.d04.title >}}",
+        "deck_next_file": "{{< meta decks.d06.file >}}",
+        "deck_next_title": "{{< meta decks.d06.title >}}"
+      }
+      </script>
+---
+
+# Eigenvalues and eigenvectors
+
+Chapter 5 content will be developed in this deck.

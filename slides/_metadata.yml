@@ -1,0 +1,54 @@
+metadata-files:
+  - ../classlib/classlib/quarto/slides/hickernell-slides.yml
+
+course_title: "MATH 332 — Fall 2026"
+author: "Fred J. Hickernell"
+date: today
+date-format: "MMMM D, YYYY"
+course_website: https://fjhickernell.github.io/MATH332Fall2026/
+
+decks:
+  d00:
+    file: 00-why-linear-algebra.html
+    title: Why Linear Algebra?
+    short_title: Why Linear Algebra?
+  d01:
+    file: 01-systems-and-matrices.html
+    title: Systems of Linear Equations and Matrices
+    short_title: Systems and Matrices
+  d02:
+    file: 02-determinants.html
+    title: Determinants
+    short_title: Determinants
+  d03:
+    file: 03-euclidean-vector-spaces.html
+    title: Euclidean Vector Spaces
+    short_title: Euclidean Spaces
+  d04:
+    file: 04-general-vector-spaces.html
+    title: General Vector Spaces
+    short_title: Vector Spaces
+  d05:
+    file: 05-eigenvalues-and-eigenvectors.html
+    title: Eigenvalues and Eigenvectors
+    short_title: Eigenvalues
+  d06:
+    file: 06-inner-product-spaces.html
+    title: Inner Product Spaces
+    short_title: Inner Products
+
+format:
+  revealjs:
+    navigation-mode: grid
+    controls: true
+    theme:
+      - simple
+      - ../classlib/classlib/quarto/slides/hickernell-slides.scss
+    html-math-method:
+      method: mathjax
+      url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js
+execute:
+  warning: false
+  message: false
+  freeze: false
+  fig-path: "{basename}_files/figure-revealjs/"

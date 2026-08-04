@@ -1,0 +1,11 @@
+project:
+  type: default
+  output-dir: _site
+  resources:
+    - ../classlib/**/*
+
+format:
+  revealjs: {}
+
+course_repo: "https://github.com/fjhickernell/MATH332Fall2026"
+course_repo_label: "MATH332Fall2026 on GitHub"

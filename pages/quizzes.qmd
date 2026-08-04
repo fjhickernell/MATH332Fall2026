@@ -1,0 +1,20 @@
+---
+title: "Quizzes"
+---
+
+## Quiz administration
+
+::: {.callout-note}
+## Provisional plan
+
+Quizzes will probably be administered through Canvas. The Canvas link, quiz
+format, attempt policy, and grading policy are **TBD**.
+:::
+
+## Quiz schedule
+
+Quiz coverage and dates will be added after they are finalized.
+
+| Quiz | Coverage | Date |
+|:---|:---|:---|
+| Quiz 1 — TBD | TBD | TBD |

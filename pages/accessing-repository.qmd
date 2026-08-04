@@ -1,0 +1,71 @@
+---
+title: "Accessing the Course Repository"
+---
+
+The course repository contains the website source, slides, notebooks, assets,
+and a shared-library submodule. Students should treat the instructor's
+repository as read-only. Coursework will not be submitted through Git.
+
+## Prerequisites
+
+Install Git and choose either HTTPS or SSH authentication for GitHub.
+
+## Clone the repository
+
+Choose one method.
+
+### HTTPS
+
+```bash
+git clone --recurse-submodules https://github.com/fjhickernell/MATH332Fall2026.git
+cd MATH332Fall2026
+```
+
+### SSH
+
+```bash
+git clone --recurse-submodules git@github.com:fjhickernell/MATH332Fall2026.git
+cd MATH332Fall2026
+```
+
+::: {.callout-note}
+The GitHub repository link will become usable after the repository is
+published. Until then, these commands document the intended setup.
+:::
+
+## Verify the submodule
+
+```bash
+git submodule status
+```
+
+If `classlib` was not initialized, run:
+
+```bash
+git submodule update --init --recursive
+```
+
+## Get course updates
+
+From the repository directory, run:
+
+```bash
+git pull --ff-only
+git submodule update --init --recursive
+```
+
+The second command checks out the shared library version recorded by the
+course repository. Do not use `git submodule update --remote` unless the
+instructor explicitly requests it.
+
+## If you have local changes
+
+Check your work before updating:
+
+```bash
+git status
+```
+
+Copy important work outside the course repository or commit it to your own
+private repository before pulling updates. Ask for help rather than discarding
+changes you want to keep.

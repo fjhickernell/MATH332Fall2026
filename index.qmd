@@ -1,0 +1,123 @@
+---
+title: "Welcome to MATH 332"
+subtitle: "Fall 2026"
+metadata-files:
+  - classlib/classlib/quarto/website/hickernell-website.yml
+title-block-banner: false
+---
+
+## Linear Algebra: Theory and Applications
+
+This is the course website for **MATH 332 — Fall 2026** at Illinois Institute
+of Technology. The first class is **Tuesday, August 18, 2026**.
+
+## Course Description
+
+This course develops the theory and applications of linear algebra through
+systems of equations, matrices, determinants, vector spaces, eigenvalues and
+eigenvectors, and inner product spaces. Python will support visualization,
+numerical computation, symbolic computation, and experimentation.
+
+<details>
+<summary><strong>Instructor:</strong> Fred J. Hickernell</summary>
+
+[![](classlib/classlib/quarto/assets/images/fredplaidshirtcropped.jpg){.instructor-photo alt="Fred J. Hickernell"}](classlib/classlib/quarto/assets/images/fredplaidshirtcropped.jpg)
+
+* *Office hours:* TBD
+* *Email:* <hickernell@illinoistech.edu>
+* [_Illinois Tech profile_](https://www.iit.edu/directory/people/fred-hickernell)
+
+</details>
+
+<div style="margin-top:1em; margin-bottom:0.4em;">
+<strong>Required textbook:</strong> Howard Anton, <em>Elementary Linear Algebra: Applications Version</em>, 12th edition
+</div>
+
+<details>
+<summary><strong>Recommended resources</strong></summary>
+
+* [Python](https://www.python.org)
+* [Jupyter](https://docs.jupyter.org/en/latest/)
+* [NumPy](https://numpy.org)
+* [SciPy](https://scipy.org)
+* [Matplotlib](https://matplotlib.org)
+* [SymPy](https://www.sympy.org)
+* [Course repository](https://github.com/fjhickernell/MATH332Fall2026)
+
+</details>
+
+<details>
+<summary><strong>Prerequisites and requirements</strong></summary>
+
+Prerequisites and other course requirements are **TBD**.
+
+</details>
+
+<details>
+<summary><strong>Where to Find It</strong></summary>
+
+| **This course website** | **Canvas website** |
+|---|---|
+| [Course information](index.qmd) | Grades |
+| [Schedule](pages/schedule.qmd) | Announcements |
+| [Schedule and slides](pages/schedule.qmd) | Discussions |
+| [Notebooks](pages/notebooks.qmd) | TBD |
+| [Assignments](pages/assignments.qmd) | Assignments and submissions |
+| [Quizzes](pages/quizzes.qmd) | Quizzes |
+| [Tests](pages/tests.qmd) | TBD |
+| [Resources](pages/resources.qmd) | TBD |
+| [Policies](pages/policies.qmd) | TBD |
+| [Course repository](https://github.com/fjhickernell/MATH332Fall2026) | |
+
+</details>
+
+## Course Outline
+
+<details>
+<summary><strong>Systems of Linear Equations and Matrices</strong></summary>
+
+Anton, Chapter 1. Detailed pacing is **TBD**.
+
+</details>
+
+<details>
+<summary><strong>Determinants</strong></summary>
+
+Anton, Chapter 2. Detailed pacing is **TBD**.
+
+</details>
+
+<details>
+<summary><strong>Euclidean Vector Spaces</strong></summary>
+
+Anton, Chapter 3. Detailed pacing is **TBD**.
+
+</details>
+
+<details>
+<summary><strong>General Vector Spaces</strong></summary>
+
+Anton, Chapter 4. Detailed pacing is **TBD**.
+
+</details>
+
+<details>
+<summary><strong>Eigenvalues and Eigenvectors</strong></summary>
+
+Anton, Chapter 5. Detailed pacing is **TBD**.
+
+</details>
+
+<details>
+<summary><strong>Inner Product Spaces</strong></summary>
+
+Anton, Chapter 6. Detailed pacing is **TBD**.
+
+</details>
+
+## Assessment
+
+- [**Assignments:**](pages/assignments.qmd) details and grading weight **TBD**
+- [**Quizzes:**](pages/quizzes.qmd) format, dates, and grading weight **TBD**
+- [**Tests and final examination:**](pages/tests.qmd) details and grading
+  weight **TBD**

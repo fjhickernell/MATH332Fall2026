@@ -1,0 +1,20 @@
+---
+title: "Assignments"
+---
+
+## Assignment policies
+
+::: {.callout-note}
+## Policies pending
+
+Collaboration rules, submission requirements, late-work policies, and Canvas
+procedures are **TBD**.
+:::
+
+## List of assignments
+
+Assignment details and due dates will be added as they are finalized.
+
+| Assignment | Coverage | Due Date |
+|:---|:---|:---|
+| Assignment 1 — TBD | TBD | TBD |

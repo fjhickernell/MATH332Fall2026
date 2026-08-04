@@ -1,0 +1,73 @@
+project:
+  type: website
+  render:
+    - "*.qmd"
+    - "pages/**/*.qmd"
+    - "!classlib/**"
+    - "!notebooks/**"
+    - "!slides/**"
+  resources:
+    - assets/**
+    - classlib/classlib/quarto/assets/**
+    - classlib/classlib/quarto/css/**
+    - classlib/classlib/quarto/js/**
+    - classlib/classlib/quarto/slides/**
+    - classlib/classlib/quarto/website/*.css
+    - classlib/classlib/notebooks/**
+
+format:
+  html:
+    css:
+      - classlib/classlib/quarto/website/hickernell-website.css
+    link-external-newwindow: true
+
+metadata:
+  instructor_photo: classlib/classlib/quarto/assets/images/fredplaidshirtcropped.jpg
+
+metadata-files:
+  - classlib/classlib/quarto/metadata/hickernell-texts.yml
+
+# Navigation remains course-specific here. Shared layout and typography come
+# from classlib through the page metadata and project-level stylesheet.
+website:
+  title: "MATH 332 — Fall 2026"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Welcome
+      - href: pages/schedule.qmd
+        text: Schedule
+      - href: pages/notebooks.qmd
+        text: Notebooks
+      - href: pages/assignments.qmd
+        text: Assignments
+      - href: pages/quizzes.qmd
+        text: Quizzes
+      - href: pages/tests.qmd
+        text: Tests
+      - text: Resources
+        menu:
+          - href: pages/resources.qmd
+            text: Course Resources
+          - href: pages/policies.qmd
+            text: Policies
+          - href: pages/accessing-repository.qmd
+            text: Accessing the Course Repository
+          - href: https://www.siam.org/membership/individual-membership/student-membership/
+            text: 🆓 SIAM Student Membership
+    right:
+      - text: Related
+        menu:
+          - text: MATH 565 — Fall 2026
+            href: https://fjhickernell.github.io/MATH565Fall2026/
+          - text: MATH 565 — Fall 2025
+            href: https://qmcsoftware.github.io/MATH565Fall2025/
+          - text: MATH 476 — Statistics
+            href: https://fjhickernell.github.io/MATH476Spring2026/
+          - text: MATH 563 — Mathematical Statistics
+            href: https://fjhickernell.github.io/MATH563Spring2026/
+  page-footer:
+    left: "© 2026 Fred J. Hickernell · Illinois Institute of Technology"
+
+course_repo: "https://github.com/fjhickernell/MATH332Fall2026"
+course_repo_label: "MATH332Fall2026 on GitHub"

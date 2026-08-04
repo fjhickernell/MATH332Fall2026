@@ -1,0 +1,53 @@
+---
+title: "Schedule"
+---
+
+The meeting days, meeting time, and classroom are **TBD**. This schedule will
+be updated as meeting dates, textbook-section pacing, assignments, quizzes,
+holidays, and examinations are finalized.
+
+::: {.key-point}
+The first class is **Tuesday, August 18, 2026**.
+:::
+
+### August
+
+| Week | Date | Topic | Slides / Materials |
+|---:|:---|:---|:---|
+| 1 | Tue Aug 18 | Why linear algebra? and course introduction | [Why Linear Algebra?](../slides/00-why-linear-algebra.html) |
+| — | TBD | Remaining August meetings and topics | TBD |
+
+### September
+
+| Week | Date | Topic | Slides / Materials |
+|---:|:---|:---|:---|
+| TBD | TBD | Systems of Linear Equations and Matrices | [Systems and Matrices](../slides/01-systems-and-matrices.html) |
+| TBD | TBD | Determinants | [Determinants](../slides/02-determinants.html) |
+
+### October
+
+| Week | Date | Topic | Slides / Materials |
+|---:|:---|:---|:---|
+| TBD | TBD | Euclidean Vector Spaces | [Euclidean Vector Spaces](../slides/03-euclidean-vector-spaces.html) |
+| TBD | TBD | General Vector Spaces | [General Vector Spaces](../slides/04-general-vector-spaces.html) |
+
+### November
+
+| Week | Date | Topic | Slides / Materials |
+|---:|:---|:---|:---|
+| TBD | TBD | Eigenvalues and Eigenvectors | [Eigenvalues and Eigenvectors](../slides/05-eigenvalues-and-eigenvectors.html) |
+| TBD | TBD | Inner Product Spaces | [Inner Product Spaces](../slides/06-inner-product-spaces.html) |
+
+### December
+
+| Week | Date | Topic | Slides / Materials |
+|---:|:---|:---|:---|
+| TBD | TBD | Review and remaining course material | TBD |
+
+### Final examinations
+
+The final-examination date, time, location, format, and coverage are **TBD**.
+
+| Week | Date | Assessment | Materials |
+|---:|:---|:---|:---|
+| TBD | TBD | Final examination | TBD |

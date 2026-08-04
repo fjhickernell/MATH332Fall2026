@@ -1,0 +1,41 @@
+---
+title: "Resources"
+---
+
+## Required textbook
+
+Howard Anton, *Elementary Linear Algebra: Applications Version*, 12th
+edition.
+
+## Computing resources
+
+The course will use Python for numerical and symbolic matrix computation,
+visualization, and experimentation. Setup instructions and demonstrations
+will be added as they are validated.
+
+<details>
+<summary><strong>Initial Python environment</strong></summary>
+
+- NumPy for array and numerical matrix computation
+- SciPy for scientific computing
+- Matplotlib for visualization
+- SymPy for exact symbolic computation
+- JupyterLab for demonstrations and exercises
+
+</details>
+
+## Course systems
+
+| Resource | Location |
+|:---|:---|
+| Canvas | **TBD** |
+| Course repository | [MATH332Fall2026 on GitHub](https://github.com/fjhickernell/MATH332Fall2026) |
+| Repository setup | [Accessing the Course Repository](accessing-repository.qmd) |
+| Notebooks | [Demonstrations and exercises](notebooks.qmd) |
+| Python demonstrations | Links will be added after validation |
+| Python exercises | Links will be added after validation |
+
+## Professional community
+
+Students interested in applied mathematics can explore
+[SIAM student membership](https://www.siam.org/membership/individual-membership/student-membership/).

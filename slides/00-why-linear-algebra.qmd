@@ -1,0 +1,37 @@
+---
+title: "{{< meta course_title >}}"
+deck_id: d00
+deck_title: "{{< meta decks.d00.title >}}"
+deck_short_title: "{{< meta decks.d00.short_title >}}"
+subtitle: "<span class='deck-title'>{{< meta deck_title >}}</span>"
+include-after-body:
+  - text: |
+      <script id="deck-nav-meta" type="application/json">
+      {
+        "deck_prev_file": "",
+        "deck_prev_title": "",
+        "deck_next_file": "{{< meta decks.d01.file >}}",
+        "deck_next_title": "{{< meta decks.d01.title >}}"
+      }
+      </script>
+---
+
+# Why linear algebra?
+
+Opening question placeholder.
+
+# Applications
+
+Applications placeholder.
+
+# The big picture
+
+Big-picture placeholder.
+
+# How the course is organized
+
+Organization placeholder.
+
+# Where we are going
+
+Roadmap placeholder.
