@@ -1,0 +1,33 @@
+# Comments on Project Presentations
+
+::: {.key-point}
+
+“Anything worth doing is worth doing [well]{.alert}.”  — source unknown
+
+:::
+
+In general
+
+- You were excited about your topics
+- I learned a lot
+- Good stories were told
+- Motivation was clear
+- Slides were of high quality
+- The time limit was honored
+- There were clear explanations of the strengths and limitations of the article or simulation study
+
+---
+
+::: {.key-point}
+
+“Anything worth doing is worth doing [badly]{.alert}.”  — source unknown
+
+:::
+
+May this experience make your next presentation even better.  For some presentations
+
+- Mathematical notation was not typeset well, i.e., ugly
+- Mathematical notation was not clearly defined
+- The slides were too full
+- Presenters did not explain well what was on their slides
+- It was unclear what part of the presentation was a summary of the article, what was a critque, and what was the presenter's own work

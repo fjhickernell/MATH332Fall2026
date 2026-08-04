@@ -1,0 +1,712 @@
+# Least Squares Linear Regression {#lsqregress}
+
+- Model: $Y = \vx^\top \vbeta + \varepsilon \qquad$ with $\Ex(\varepsilon)=0,
+\quad \var(\varepsilon)=\sigma^2$
+  - $x_j$ may be a variable or a function of variables
+
+- Model with data: 
+$\displaystyle
+\overbrace{\begin{pmatrix}Y_1 \\ Y_2 \\ \vdots \\ \vdots \\ Y_n\end{pmatrix}}^{\vY} 
+= \overbrace{\begin{pmatrix} x_{11} & x_{12} & \cdots & x_{1d} \\ x_{21} & x_{22} & \cdots & x_{2d} \\ \vdots & \vdots & \ddots & \vdots \\ \vdots & \vdots & \ddots & \vdots  \\ x_{n1} & x_{n2} & \cdots & x_{nd} \end{pmatrix}}^{\mX}\, \overbrace{\begin{pmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_d \end{pmatrix}}^{\vbeta} + \overbrace{\begin{pmatrix} \varepsilon_1 \\ \varepsilon_2 \\ \vdots \\ \vdots \\ \varepsilon_n \end{pmatrix}}^{\vveps}
+$
+
+  - $\mX$ is fixed and has full column rank (must have $n \ge d$)
+
+## Estimation of $\vbeta$ by least squares
+
+$$
+\argmin_{\vb \in \reals^d} \lVert \vY -   \mX \vb \rVert^2 = (\mX^\top \mX)^{-1} \mX^\top \vY =: \hvbeta
+$$
+
+### Proof
+Let $\hvbeta$ be defined as above, and let $\vb$ be any other vector in $\reals^d$:
+\begin{align*}
+ \lVert \vY -   \mX \vb \rVert^2 & =
+ \lVert (\vY - \mX \hvbeta) + \mX (\hvbeta - \vb) \rVert^2 \\
+ & = \lVert \vY - \mX \hvbeta \rVert^2 + 2 (\hvbeta - \vb)^\top \class{alert}{\mX^\top (\vY - \mX \hvbeta)} + \lVert \mX (\hvbeta - \vb) \rVert^2 \\
+ & = \lVert \vY - \mX \hvbeta \rVert^2 + 2 (\hvbeta - \vb)^\top \class{alert}{\mX^\top (\vY - \mX (\mX^\top \mX)^{-1} \mX^\top \vY)}  + \lVert \mX (\hvbeta - \vb) \rVert^2 \\
+ & = \lVert \vY - \mX \hvbeta \rVert^2 + 2 (\hvbeta - \vb)^\top \class{alert}{[\mX^\top \vY - \mX^\top \mX (\mX^\top \mX)^{-1} \mX^\top \vY]}  + \lVert \mX (\hvbeta - \vb) \rVert^2 \\
+  & = \lVert \vY - \mX \hvbeta \rVert^2 + \lVert \mX (\hvbeta - \vb) \rVert^2  \ge \lVert \vY - \mX \hvbeta \rVert^2
+\end{align*}
+
+
+---
+
+Furthermore
+
+- $\hmu(\vx) := \vx^\top \hvbeta$ is an estimator of $\mu(\vx) := \Ex(Y \mid \vx) = \vx^\top \vbeta$
+
+- $\hvY : = \mX \hvbeta = \underbrace{\mX (\mX^\top \mX)^{-1} \mX^\top}_{\href{https://en.wikipedia.org/wiki/Projection_matrix}{\text{projection matrix }} \mP} \vY$ is an estimator of $\mu(\vX) = \Ex(\vY)$
+
+- $\mP$ is the projection matrix onto $\cc(\mX)$, the column space of $\mX$, which means the set of all linear combinations of the columns of $\mX$.  This means that
+  - $\mP^2 = \mP$ (idempotent), and so $\mP$ has eigenvalues of $0$ and $1$ only
+  - $\mP^\top = \mP$ (symmetric) 
+  - $\mP \mX = \mX$ (projection onto $\cc(\mX)$)   
+  - $(\mI - \mP) \mX = \mzero$ (projection onto the orthogonal complement of $\cc(\mX)$ )
+
+- $\hvveps : = \vY - \hvY = (\mI - \mP) \vY$ is the vector of [residuals]{.alert}, 
+  - Orthogonal to all columns of $\mX$, i.e., orthogonal to $\cc(\mX)$
+  - $\cc(\mX)$ is the set of all linear combinations of the columns of $\mX$
+
+---
+
+### Geometric interpretation of least squares regression
+```{python}
+#| echo: false
+#| fig-width: 14
+#| fig-height: 7
+#| out-width: 100%
+#| fig-align: center
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Polygon
+
+fig, ax = plt.subplots(figsize=(14,7))
+
+# --------------------------------
+# Key points
+# --------------------------------
+O = np.array([0.0,0.0])
+Yhat = np.array([6.2,1.9])
+E = np.array([0.0,2.8])
+Y = Yhat + E
+
+# --------------------------------
+# Plane (larger parallelogram)
+# --------------------------------
+plane = np.array([
+    [-1.5,-1.0],
+    [11.5,-1.0],
+    [13.5,3.8],
+    [0.5,3.8]
+])
+
+ax.add_patch(
+    Polygon(
+        plane,
+        closed=True,
+        fill=False,
+        linewidth=3.0,
+        edgecolor="gray"
+    )
+)
+
+# --------------------------------
+# Vectors
+# --------------------------------
+def draw_arrow(start,end,color,lw=3):
+    ax.annotate(
+        "",
+        xy=end,
+        xytext=start,
+        arrowprops=dict(
+            arrowstyle="->",
+            linewidth=lw,
+            color=color
+        )
+    )
+
+draw_arrow(O,Yhat,"blue")
+draw_arrow(Yhat,Y,"red")
+draw_arrow(O,Y,"black")
+
+# dashed side of triangle
+ax.plot(
+    [Yhat[0],Y[0]],
+    [Yhat[1],Y[1]],
+    "--",
+    linewidth=2,
+    color="black"
+)
+
+# --------------------------------
+# Labels
+# --------------------------------
+Y_mid = 0.52 * Y
+ax.text(
+    Y_mid[0]-0.9,
+    Y_mid[1]+0.35,
+    r"$\boldsymbol{Y}$",
+    fontsize=36,
+    color="black"
+)
+
+Yhat_mid = 0.55 * Yhat
+ax.text(
+    Yhat_mid[0]+0.2,
+    Yhat_mid[1]-1.0,
+    r"$\widehat{\boldsymbol{Y}}=\mathsf{X}\widehat{\boldsymbol{\beta}}$",
+    fontsize=30,
+    color="blue"
+)
+
+E_mid = Yhat + 0.48*E
+ax.text(
+    E_mid[0]+0.35,
+    E_mid[1],
+    r"$\widehat{\boldsymbol{\varepsilon}}$",
+    fontsize=36,
+    color="red"
+)
+
+ax.text(
+    10.3,2.7,
+    r"$\mathcal{C}(\mathsf{X})$",
+    fontsize=30,
+    color="gray"
+)
+
+
+# --------------------------------
+# Appearance
+# --------------------------------
+ax.set_xlim(-2.2,14.0)
+ax.set_ylim(-2.0,6.2)
+
+ax.set_aspect("equal")
+ax.axis("off")
+
+plt.show()
+```
+
+
+## Unbiasedness of estimators
+
+Recall that $Y = \mX \vbeta + \vveps$, with $\Ex(\vveps)=0, \ \cov(\vveps)=\sigma^2 \mI$, where $\mX$ is fixed and of full column rank
+
+### Unbiasedness of $\hvbeta$ and $\hmu(\vx)$
+
+\begin{align*}
+\hvbeta & = (\mX^\top \mX)^{-1} \mX^\top \vY = (\mX^\top \mX)^{-1} \mX^\top \left(\mX \vbeta + \vveps\right) = \vbeta + (\mX^\top \mX)^{-1} \mX^\top \vveps \\
+\implies
+\Ex(\hvbeta)
+& = \vbeta \qquad \text{so $\hvbeta$ is \class{alert}{unbiased}} \\[12pt]
+\hmu(\vx) & = \vx^\top \hvbeta =  \vx^\top \vbeta + \vx^\top (\mX^\top \mX)^{-1} \mX^\top \vveps \\
+\implies
+\Ex(\hmu(\vx))
+&= \vx^\top \vbeta = \mu(\vx) \qquad \text{so $\hmu(\vx)$ is \class{alert}{unbiased}} \\[12pt]
+\hvveps &= \vY - \hvY = (\mI-\mP)\vY,
+\qquad
+\mP := \mX(\mX^\top \mX)^{-1}\mX^\top \\
+& = (\mI-\mP)(\mX \vbeta + \vveps) \\
+& = (\mI-\mP)\vveps \qquad \text{since $(\mI-\mP)\mX = \mzero$} \\
+\implies \Ex(\hvveps) & = \vzero
+\end{align*}
+
+---
+
+### Residual sum of squares and unbiased estimation of $\sigma^2$
+
+Since $\hvveps = (\mI-\mP)\vveps$, it follows that
+\begin{equation*}
+\Ex\bigl(\lVert \hvveps \rVert^2\bigr)
+= \Ex\bigl(\vveps^\top (\mI-\mP)\vveps\bigr) \\
+= \sigma^2 \trace(\mI-\mP) = \sigma^2 (n - \trace(\mP))
+\end{equation*}
+
+Now $\mP$ is a projection matrix onto $\cc(\mX)$, it has eigenvalues of $0$ and $1$ only, so
+$$
+\trace(\mP)=\rank(\mP)=\rank(\mX)=d
+$$
+
+Therefore $\Ex\bigl(\lVert \hvveps \rVert^2\bigr)
+= \sigma^2 (n-d)
+$
+and so 
+$$
+S^2 := \frac 1{n-d} \sum_{i=1}^{n} \lvert Y_i - \vx_i^\top \hvbeta \rvert^2
+= \frac{\lVert \hvveps \rVert^2}{n-d}
+= \frac{1}{n-d}\,\vY^\top(\mI-\mP)\vY \quad \text{
+is an \class{alert}{unbiased} estimator of $\sigma^2$}
+$$
+
+# Inference for regression parameters and predictions assuming $\vveps \sim \Norm(\vzero,\sigma^2 \mI)$
+
+So far, we have only used the assumptions that 
+
+  - $\mX$ is fixed and of full column rank
+  - $\Ex(\vveps)=\vzero$ and $\cov(\vveps)=\sigma^2 \mI$
+
+Going forward, we will assume that $\vveps \sim \Norm(\vzero,\sigma^2 \mI)$.  This allows us to
+
+- Make probabilistic statements about the estimators $\hvbeta$ and $\hmu(\vx)$
+- Construct confidence intervals for $\vbeta$, $\mu(\vx)$, and $\sigma^2$
+- Construct prediction intervals for $Y \mid \vx$
+- Perform hypothesis tests about $\vbeta$ and $\mu(\vx)$
+- Assess model fit and compare models
+
+## Confidence regions for $\vbeta$ and $\mu(\vx)$ assuming $\vveps \sim \Norm(\vzero,\sigma^2 \mI)$
+
+Now we assume that $\vveps \sim \Norm(\vzero,\sigma^2 \mI)$.  Since a [linear combination of normal random variables is normal]{.alert}, the following [data-based]{.alert} quantities are all normally distributed:
+
+- $\vY = \mX \vbeta + \vveps \sim \Norm(\mX\vbeta,\sigma^2 \mI)$
+
+- $\hvbeta = (\mX^\top \mX)^{-1} \mX^\top \vY = (\mX^\top\mX)^{-1}\mX^\top (\mX \vbeta + \vveps) = \vbeta + (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\vbeta,\sigma^2 (\mX^\top \mX)^{-1}\right)$
+
+- $\hvveps = (\mI-\mP)\vveps \sim \Norm(\vzero,\sigma^2 (\mI-\mP))$
+
+- $\hmu(\vx) = \vx^\top \hvbeta  = \mu(\vx) + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\mu(\vx),\sigma^2 \vx^\top (\mX^\top \mX)^{-1} \vx\right)$
+
+---
+
+### Confidence ellipsoid for $\vbeta$ assuming $\vveps \sim \Norm(\vzero,\sigma^2 \mI)$
+
+From the normal distribution of $\hvbeta$, it follows that
+$$\frac{
+(\hvbeta-\vbeta)^\top
+(\mX^\top\mX)
+(\hvbeta-\vbeta)
+}{\sigma^2}
+\sim \chi^2_d
+$$
+
+$\hvbeta$ depends on the projection of $\vY$ onto $\cc(\mX)$, while $S^2$ depends on the projection onto $\cc(\mX)^\perp$; under normality, these orthogonal components are independent.
+Therefore, replacing $\sigma^2$ with $S^2$ gives
+
+$$
+\frac{
+(\hvbeta-\vbeta)^\top(\mX^\top\mX)(\hvbeta-\vbeta)
+}{dS^2}
+\sim F_{d,n-d}
+$$
+
+Therefore 
+
+$$
+(\hvbeta-\vbeta)^\top
+(\mX^\top\mX)
+(\hvbeta-\vbeta)
+\le
+d S^2
+F_{d,n-d,\alpha}, \quad \text{where } \Prob(F_{d,n-d} > F_{d,n-d,\alpha}) = \alpha
+$$
+
+defines a $\class{alert}{(1-\alpha)\text{ confidence ellipsoid for }\vbeta}$ centered at $\hvbeta$
+
+---
+
+### Individual confidence intervals for the $\beta_j$ assuming $\vveps \sim \Norm(\vzero,\sigma^2 \mI)$
+
+Since $\hvbeta \sim
+\Norm\!\left(
+\vbeta,\;
+\sigma^2(\mX^\top\mX)^{-1}
+\right)
+$, it follows that for each $j=1,\dots,d$,
+
+$$
+\hbeta_j \sim \Norm\!\left(
+\beta_j,\;
+\sigma^2\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}
+\right)
+$$
+
+where $\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}$ denotes the $j$th diagonal entry of $(\mX^\top\mX)^{-1}$.
+
+Replacing $\sigma^2$ by $S^2$ gives
+
+$$
+\frac{
+\hbeta_j-\beta_j
+}{
+S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}}
+}
+\sim t_{n-d}
+$$
+
+
+Therefore
+
+\begin{multline*}
+\hbeta_j
+\pm
+t_{n-d,\alpha/2}
+\;
+S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}} \\
+\text{is an }\class{alert}{(1-\alpha)\text{ confidence interval for }\beta_j} \text{ for each } j=1,\dots,d
+\end{multline*}
+
+--- 
+### Joint vs individual confidence statements
+
+\begin{gather*}
+(\hvbeta-\vbeta)^\top
+(\mX^\top\mX)
+(\hvbeta-\vbeta)
+\le
+dS^2F_{d,n-d,\alpha} \quad \text{is a joint confidence region \class{alert}{for the whole vector $\vbeta$}}
+\\
+\hbeta_j
+\pm
+t_{n-d,\alpha/2}
+\;
+S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}},
+\; j=1,\dots,d, \quad \text{are \class{alert}{individual confidence intervals for each $\beta_j$}}
+\end{gather*}
+
+:::{.key-point}
+
+Joint confidence for $\vbeta$ is not the same as simultaneous confidence for all $\beta_j$
+
+:::
+
+### Caution about many intervals
+
+If we form separate $(1-\alpha)$ confidence intervals for each $\beta_j$,
+the probability that \class{alert}{all} of them are simultaneously correct is generally less than $(1-\alpha)$
+
+So:
+
+- individual confidence intervals control each $\beta_j$ separately
+- the confidence ellipsoid controls $\vbeta$ jointly
+
+
+## Confidence interval for $\mu(\vx)$ assuming $\vveps \sim \Norm(\vzero,\sigma^2 \mI)$
+
+Recall $\mu(\vx)=\vx^\top\vbeta$, $\hmu(\vx)= \mu(\vx) + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\mu(\vx),\sigma^2 \vx^\top (\mX^\top \mX)^{-1} \vx\right)$
+
+Replacing $\sigma^2$ by $S^2$ gives
+
+$$
+\frac{
+\hmu(\vx)-\mu(\vx)
+}{
+S
+\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+}
+\sim t_{n-d}
+$$
+
+
+
+Therefore
+
+$$
+\hmu(\vx)
+\pm
+t_{n-d,\alpha/2}
+\;
+S
+\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+$$
+
+is a [$(1-\alpha)$ confidence interval for $\mu(\vx)$]{.alert}
+
+
+## Prediction interval for $Y\mid \vx$
+
+A _new_ observation, $Y \mid \vx = Y_{\text{new}}=\vx^\top\vbeta+\varepsilon_{\text{new}}$, depends both on 
+
+- the value of $\vx$ and 
+- the new error $\varepsilon_{\text{new}}\sim\Norm(0,\sigma^2)$ that is independent of the data used to fit the model
+
+Predicting $Y_{\text{new}}$ by $\hmu(\vx)$ has uncertainty coming both from the uncertainty in the model parameters and the new error term:
+
+\begin{align*}
+Y_{\text{new}}-\hmu(\vx) & = \bigl(\vx^\top\vbeta+\varepsilon_{\text{new}}\bigr) - \bigl(\vx^\top\vbeta + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \bigr) \\
+& = \varepsilon_{\text{new}} - \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps\\
+& \sim \Norm\!\left(0,\;
+\sigma^2\left(
+1+\vx^\top(\mX^\top\mX)^{-1}\vx
+\right)\right) \qquad \text{since $\varepsilon_{\text{new}}$ is independent of $\vveps$}
+\end{align*}
+
+Replacing $\sigma^2$ by $S^2$ gives a $t$-distribution for the standardized prediction error. A [$(1-\alpha)$ prediction interval]{.alert} for $Y_{\text{new}}$ is then given by
+
+$$
+Y_{\text{new}}
+\in
+\hmu(\vx)
+\pm
+t_{n-d,\alpha/2}
+S
+\sqrt{
+1+\vx^\top(\mX^\top\mX)^{-1}\vx
+}
+$$
+
+## Mean vs prediction intervals
+
+::: {.columns}
+
+::: {.column width="49%"}
+
+Confidence interval for mean response:
+
+$$
+\hmu(\vx)
+\pm
+t_{n-d,\alpha/2}
+S
+\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+$$
+
+:::
+
+::: {.column width="2%"}
+
+:::
+
+::: {.column width="49%"}
+
+Prediction interval for a new observation:
+
+$$
+\hmu(\vx)
+\pm
+t_{n-d,\alpha/2}
+S
+\sqrt{
+1+\vx^\top(\mX^\top\mX)^{-1}\vx
+}
+$$
+
+:::
+
+:::
+
+::: {.key-point}
+
+Prediction intervals are wider
+
+:::
+
+
+# Regression diagnostics and model selection
+
+Up to this point, we have assumed that the chosen linear model is appropriate.  
+In practice, we should also check whether the model assumptions are reasonable and whether the chosen set of predictors is adequate.
+
+## Regression diagnostics
+
+Regression diagnostics help us assess whether the assumptions behind least squares regression are reasonable.
+
+The main questions are:
+
+- Is the mean response approximately linear in the chosen predictors?
+- Does the variability of the errors stay roughly constant?
+- Are the errors approximately normally distributed?
+- Are there unusual or influential observations that strongly affect the fit?
+
+### Residuals and fitted values
+
+Recall that
+
+$$
+\hvY = \mX \hvbeta, 
+\qquad
+\hvveps = \vY - \hvY
+$$
+
+The residuals $\hat\varepsilon_i = Y_i - \hat Y_i$ estimate the unknown errors $\varepsilon_i$.
+
+A good first diagnostic is a plot of residuals versus fitted values.
+
+### Residuals versus fitted values
+
+If the linear model is appropriate, then the residual plot should show
+
+- points scattered around $0$
+- no strong curve or pattern
+- roughly constant vertical spread across the range of fitted values
+
+Possible warning signs:
+
+- a curved pattern suggests that the mean response is not linear
+- a funnel shape suggests nonconstant variance
+- isolated large residuals suggest possible outliers
+
+:::{.key-point}
+A residual plot should look like random noise around zero, not like a pattern.
+:::
+
+### Normal Q-Q plot
+
+Many inference procedures for regression assume that the errors are normally distributed.
+
+A normal Q-Q plot compares the residuals to what we would expect under normality.
+
+- If the residuals are approximately normal, the points should lie roughly on a straight line.
+- Strong bending or heavy tails suggest departures from normality.
+
+This matters most for small samples.  
+For large samples, moderate nonnormality is often less serious for estimation, though it may still affect inference.
+
+### Hat matrix and leverage
+
+The fitted values satisfy
+
+$$
+\hvY = \mH \vY,
+\qquad
+\mH := \mX(\mX^\top \mX)^{-1}\mX^\top
+$$
+
+The matrix $\mH$ is called the [hat matrix]{.alert} because it puts a “hat” on $\vY$.
+
+Its diagonal entries $h_{ii}$ are called the [leverages]{.alert}.
+
+- A large value of $h_{ii}$ means that observation $i$ has an unusual predictor vector $\vx_i$.
+- Such observations can have a large effect on the fitted regression line or surface.
+
+### Standardized residuals
+
+Since the variability of $\hat\varepsilon_i$ depends on $h_{ii}$, it is useful to scale residuals.
+
+A standardized residual is
+
+$$
+r_i
+=
+\frac{\hat\varepsilon_i}{S\sqrt{1-h_{ii}}}
+$$
+
+Large values of $|r_i|$ indicate observations whose responses are unusual relative to the fitted model.
+
+As a rough rule of thumb, values with $|r_i|>2$ deserve attention, and values with $|r_i|>3$ deserve serious attention.
+
+### Influence and Cook's distance
+
+An observation can be unusual in two different ways:
+
+- it can have a large residual
+- it can have high leverage
+
+An observation that combines both may be [influential]{.alert}, meaning that removing it could noticeably change the fitted model.
+
+A common summary measure is Cook's distance:
+
+$$
+D_i
+=
+\frac{r_i^2}{d}\frac{h_{ii}}{1-h_{ii}}
+$$
+
+Large values of $D_i$ indicate potentially influential observations.
+
+### Summary of common diagnostic plots
+
+Common diagnostic plots include:
+
+- residuals versus fitted values  
+  checks linearity and constant variance
+
+- normal Q-Q plot  
+  checks approximate normality of residuals
+
+- scale-location plot  
+  checks whether residual spread is roughly constant
+
+- residuals versus leverage, often with Cook's distance shown  
+  checks for influential observations
+
+### What to do if diagnostics look bad
+
+If diagnostics reveal problems, possible responses include:
+
+- transforming the response or some predictors
+- adding nonlinear terms such as $x^2$
+- adding interaction terms
+- using weighted least squares if variance is not constant
+- checking for data-entry errors or unusual observations
+- reconsidering whether a different model is more appropriate
+
+:::{.key-point}
+Diagnostics do not automatically tell us the right fix, but they do tell us where the model may be going wrong.
+:::
+
+## Model selection
+
+In regression, adding more predictors almost always improves the fit to the observed data.  
+However, a more complicated model is not always better.
+
+Model selection aims to balance
+
+- goodness of fit
+- model simplicity
+- interpretability
+- predictive performance
+
+### Comparing nested models
+
+Suppose we compare two [nested]{.alert} models:
+
+- a reduced model with $d_0$ parameters and residual sum of squares $\text{RSS}_0$
+- a full model with $d_1>d_0$ parameters and residual sum of squares $\text{RSS}_1$
+
+Since the full model has more predictors, we always have
+
+$$
+\text{RSS}_1 \le \text{RSS}_0
+$$
+
+The question is whether the reduction in RSS is large enough to justify the extra parameters.
+
+### F-test for nested models
+
+To test whether the additional predictors in the full model are needed, use
+
+$$
+F
+=
+\frac{(\text{RSS}_0-\text{RSS}_1)/(d_1-d_0)}{\text{RSS}_1/(n-d_1)}
+$$
+
+Under the null hypothesis that the extra coefficients are all zero,
+
+$$
+F \sim F_{d_1-d_0,\;n-d_1}
+$$
+
+A large value of $F$ gives evidence that the extra predictors improve the model.
+
+### Measures of model quality
+
+Several criteria are commonly used to compare models.
+
+#### Adjusted $R^2$
+
+Ordinary $R^2$ never decreases when more predictors are added.  
+Adjusted $R^2$ corrects for this by penalizing model complexity:
+
+$$
+R^2_{\text{adj}}
+=
+1-\frac{\text{RSS}/(n-d)}{\text{TSS}/(n-1)}
+$$
+
+Larger values of adjusted $R^2$ are better.
+
+#### AIC and BIC
+
+Two widely used criteria are:
+
+- AIC = Akaike information criterion
+- BIC = Bayesian information criterion
+
+Both reward good fit but penalize overly complicated models.
+
+- AIC usually favors somewhat larger models
+- BIC usually favors simpler models more strongly
+
+### Training fit versus prediction
+
+A model that fits the observed data extremely well may still predict poorly on new data.
+
+This is called [overfitting]{.alert}.
+
+So in practice, we should not judge a model only by how small its RSS is on the training data.
+
+### Practical principles for model selection
+
+When comparing regression models:
+
+- prefer simpler models if they explain the data nearly as well
+- use subject-matter knowledge, not just automatic procedures
+- check diagnostics again after selecting a model
+- remember that the “best” model for explanation may differ from the “best” model for prediction
+
+:::{.key-point}
+A good regression model should fit well, make scientific sense, and pass basic diagnostic checks.
+:::

@@ -1,0 +1,263 @@
+# Confidence regions for $\vbeta$
+
+## Distribution of $\hvbeta$
+
+Assume
+
+$$
+\vveps \sim \Norm(\vzero,\sigma^2\mI)
+$$
+
+Recall
+
+$$
+\hvbeta = (\mX^\top\mX)^{-1}\mX^\top\vY
+$$
+
+Since $\vY = \mX\vbeta + \vveps$,
+
+$$
+\hvbeta
+= (\mX^\top\mX)^{-1}\mX^\top(\mX\vbeta+\vveps)
+= \vbeta + (\mX^\top\mX)^{-1}\mX^\top\vveps
+$$
+
+Therefore
+
+$$
+\Ex(\hvbeta) = \vbeta
+$$
+
+and
+
+$$
+\cov(\hvbeta)
+= \sigma^2(\mX^\top\mX)^{-1}
+$$
+
+Thus
+
+$$
+\hvbeta \sim
+\Norm\!\left(
+\vbeta,\;
+\sigma^2(\mX^\top\mX)^{-1}
+\right)
+$$
+
+------------------------------------------------------------------------
+
+# Confidence ellipsoid for $\vbeta$
+
+## Quadratic form
+
+From the normal distribution of $\hvbeta$,
+
+$$
+\frac{
+(\hvbeta-\vbeta)^\top
+(\mX^\top\mX)
+(\hvbeta-\vbeta)
+}{\sigma^2}
+\sim \chi^2_d
+$$
+
+Replacing $\sigma^2$ with
+
+$$
+S^2=\frac{\|\hvveps\|^2}{n-d}
+$$
+
+gives
+
+$$
+\frac{
+(\hvbeta-\vbeta)^\top(\mX^\top\mX)(\hvbeta-\vbeta)
+}{dS^2}
+\sim F_{d,n-d}
+$$
+
+------------------------------------------------------------------------
+
+## $(1-\alpha)$ confidence region
+
+Therefore
+
+$$
+(\hvbeta-\vbeta)^\top
+(\mX^\top\mX)
+(\hvbeta-\vbeta)
+\le
+d S^2
+F_{d,n-d,1-\alpha}
+$$
+
+defines a
+
+$$
+\class{alert}{(1-\alpha)\text{ confidence ellipsoid for }\vbeta}
+$$
+
+centered at $\hvbeta$.
+
+------------------------------------------------------------------------
+
+# Confidence interval for $\mu(\vx)$
+
+Recall
+
+$$
+\mu(\vx)=\vx^\top\vbeta
+\qquad
+\hmu(\vx)=\vx^\top\hvbeta
+$$
+
+Since $\hvbeta$ is normal,
+
+$$
+\hmu(\vx)
+\sim
+\Norm\!\left(
+\mu(\vx),\;
+\sigma^2
+\vx^\top(\mX^\top\mX)^{-1}\vx
+\right)
+$$
+
+------------------------------------------------------------------------
+
+## Standardized statistic
+
+Replacing $\sigma^2$ by $S^2$ gives
+
+$$
+\frac{
+\hmu(\vx)-\mu(\vx)
+}{
+S
+\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+}
+\sim t_{n-d}
+$$
+
+------------------------------------------------------------------------
+
+## $(1-\alpha)$ confidence interval
+
+Therefore
+
+$$
+\hmu(\vx)
+\pm
+t_{n-d,1-\alpha/2}
+\;
+S
+\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+$$
+
+is a
+
+$$
+\class{alert}{(1-\alpha)\text{ confidence interval for }\mu(\vx)}
+$$
+
+------------------------------------------------------------------------
+
+# Prediction interval for $Y\mid \vx$
+
+## Future observation
+
+For a new observation
+
+$$
+Y_{\text{new}}=\vx^\top\vbeta+\varepsilon_{\text{new}}
+$$
+
+with
+
+$$
+\varepsilon_{\text{new}}\sim\Norm(0,\sigma^2)
+$$
+
+independent of the data.
+
+------------------------------------------------------------------------
+
+## Variance
+
+Then
+
+$$
+Y_{\text{new}}-\hmu(\vx)
+=
+\varepsilon_{\text{new}}
+-
+\vx^\top(\hvbeta-\vbeta)
+$$
+
+so
+
+$$
+\var(Y_{\text{new}}-\hmu(\vx))
+=
+\sigma^2
+\left(
+1+\vx^\top(\mX^\top\mX)^{-1}\vx
+\right)
+$$
+
+------------------------------------------------------------------------
+
+## $(1-\alpha)$ prediction interval
+
+Therefore
+
+$$
+Y_{\text{new}}
+\in
+\hmu(\vx)
+\pm
+t_{n-d,1-\alpha/2}
+S
+\sqrt{
+1+\vx^\top(\mX^\top\mX)^{-1}\vx
+}
+$$
+
+which is the
+
+$$
+\class{alert}{(1-\alpha)\text{ prediction interval for }Y|\vx}
+$$
+
+------------------------------------------------------------------------
+
+# Mean vs prediction intervals
+
+Confidence interval for mean response:
+
+$$
+\hmu(\vx)
+\pm
+t_{n-d,1-\alpha/2}
+S
+\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+$$
+
+Prediction interval for a new observation:
+
+$$
+\hmu(\vx)
+\pm
+t_{n-d,1-\alpha/2}
+S
+\sqrt{
+1+\vx^\top(\mX^\top\mX)^{-1}\vx
+}
+$$
+
+Key point:
+
+$$
+\class{alert}{\text{Prediction intervals are wider}}
+$$

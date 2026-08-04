@@ -1,0 +1,222 @@
+# Statistics{data-state="goldborder"}
+
+<div class="h3">Principled</div>
+- Clear assumptions 
+- Probability as a basis
+- Efficient and accurate computation
+
+<div class="h3">Inference about a population</div>
+- Want to know parameters that describe a large number of individuals or the relationships among them
+- Should provide a level of uncertainty
+
+<div class="h3">From Data</div> 
+- Carefully sampled
+- Observations, surveys, experiments, or computer simulations
+
+::: {.vspace}
+See [Big Statistics Questions]({{< meta course_website >}}classlib/classlib/quarto/pages/stats-qs.html)
+::: 
+
+# Examples
+
+Let's look at 
+
+- [Approval ratings](#approval-ratings)
+- [Life expectancy explained by gross domestic (GDP) product per capita](#life-gdp)
+- [Numerical integration (quadrature)](#trapezoidal)
+
+## Approval ratings {#approval-ratings}
+
+The Gallup Poll tracks the [approval ratings of US presidents](https://news.gallup.com/poll/203198/presidential-approval-ratings-donald-trump.aspx) according to a [careful polling methodology](https://www.gallup.com/224855/gallup-poll-work.aspx)
+
+- Each week they telephone $n=1500$ adults 
+- Their sampling error for the approval ratings is about $4\%$
+
+Let $Y \sim \Bern(\mu)$, a [Bernoulli]{.alert} (free throw shooting) distribution with probability of success $\mu$, 
+$$
+\Prob(Y =y) = \begin{cases} \mu, & y=1, \text{ (yes, approve)}\\
+1-\mu, & y = 0, \text{ (no, do not approve)}
+\end{cases}
+$$
+
+:::: {.columns}
+::: {.column width="70%"}
+
+If $Y_1, \ldots, Y_n \IIDsim \Bern(\mu)$, then
+\begin{align*}
+T &:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \; \Prob(T = t) = \binom{n}{t} \mu^t (1-\mu)^{n-t}\\
+\barY &:= \frac 1n (Y_1 + \cdots + Y_n) \\
+& \appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}}
+\end{align*}
+:::
+
+::: {.column width="27%"}
+
+![]({{< meta course_website >}}classlib/classlib/quarto/assets/figures/approval_rating/ybar_histogram_approval.png){fig-align="center" width="100%"}
+:::
+
+::::
+
+---
+
+If $Y_1, \ldots, Y_n \IIDsim \Bern(\mu)$, then we can construct a [confidence interval]{.alert} that [captures]{.alert} the true approval rating with high probability:
+\begin{align*}
+T &:= Y_1 + \cdots + Y_n \sim \Bin(n,\mu), \quad \Prob(T = t) = \binom{n}{t} \mu^t (1-\mu)^{n-t}\\
+\barY &:= \frac 1n (Y_1 + \cdots + Y_n) \appxsim  \Norm\bigl(\mu,\mu(1-\mu)/n\bigr) \quad \text{by the }\class{alert}{\text{Central Limit Theorem}}
+\end{align*}
+
+:::: {.columns}
+
+::: {.column width="75%"}
+
+<div class="fragment" data-fragment-index="1" style="width:100%; margin:0;" markdown="1">
+\begin{align*}
+95\% & \approx \Prob\Bigl[\mu - 1.96\sqrt{\mu(1-\mu)/n} \le \class{alert}{\barY} \le \mu + 1.96\sqrt{\mu(1-\mu)/n}\Bigr] \\
+& = \Prob\Bigl[\barY - 1.96\sqrt{\mu(1-\mu)/n} \le \class{alert}{\mu} \le \barY + 1.96\sqrt{\mu(1-\mu)/n}\Bigr] \\
+& \approx \Prob\Bigl[\barY - 1.96\sqrt{\barY(1-\barY)/n} \le \class{alert}{\mu} \le \barY + 1.96\sqrt{\barY(1-\barY)/n}\Bigr] \\
+& \le \Prob\Bigl[\barY - 1/\sqrt{n} \le \class{alert}{\mu} \le \barY + 1/\sqrt{n} \Bigr] \quad \text{since } \sqrt{\barY(1-\barY)} \le 1/2
+\end{align*}
+For $n = 1000$ we get $1/\sqrt{n} \approx 3\%$.
+<a class="button" style="margin-left:2em;" href="../classlib/classlib/notebooks/approval_rating_bernoulli_binomial_clt_ci.ipynb" download>
+⬇ Approval Rating Jupyter 📓
+</a>
+</div>
+
+:::
+
+::: {.column width="23%"}
+
+::: {.fragment data-fragment-index="1"}
+![]({{< meta course_website >}}classlib/classlib/quarto/assets/figures/approval_rating/ci_failure_approval.png){fig-align="center" width="100%"}
+:::
+
+:::
+
+:::: 
+
+---
+
+- [Population]{.alert} is US adults
+- [Model]{.alert} 
+  - Bernoulli distribution
+  - Ignores demographic factors that might explain approvals
+- [Uncertainty]{.alert} of the estimate of the proportion, $\mu$
+  - Provided by a [confidence interval (CI)]{.alert}
+  - Facilitated by the [Central Limit Theorem]{.alert}
+  - This is the CI capturing $\mu$, _not_ probability of $\mu$ in the CI
+
+## Life expectancy vs gross domestic product (GDP) per capita {#life-gdp}
+
+Countries differ dramatically in both [life expectancy]{.alert} and
+[economic output]{.alert}. A classic dataset (World Bank / Gapminder) records, for each country,
+
+- Life $=$ Life expectancy at birth (years)
+- GDP $=$ Gross domestic product per capita (USD, purchasing-power adjusted)
+
+Each point represents **one country**, not one individual.  We are interested in the conditional behavior of life expectancy with given national income:
+
+:::: {.columns}
+::: {.column width="50%"}
+
+$$
+\Ex(\text{Life} | \text{GDP} = x)
+$$
+:::
+
+::: {.column width="47%"}
+
+![]({{< meta course_website >}}classlib/classlib/quarto/assets/figures/health_wealth_gapminder/health_wealth_linear_scale.png){fig-align="center" width="100%"}
+:::
+
+::::
+
+
+---
+
+The scatterplot of life expectancy versus GDP per capita reveals two important statistical features.
+
+### Nonlinearity
+Increases in GDP have a [much larger effect]{.alert} on life expectancy at low
+income levels than at high income levels
+
+### Heteroscedasticity
+Countries with low GDP exhibit [much greater variability]{.alert} in life
+expectancy
+
+:::: {.columns}
+::: {.column width="65%"}
+
+Take logarithm to treat this
+$$
+\Ex(\text{Life}  \mid \text{GDP} = x) \approx \alpha + \beta \log(x)
+$$
+
+- $\beta$ measures years of life gained per [multiplicative]{.alert} increase in GDP
+- The log scale naturally reflects [diminishing returns]{.alert}
+
+<a class="button" style="margin-left:2em;" href="../classlib/classlib/notebooks/health_wealth_gapminder_regression.ipynb" download>
+⬇ Health vs. Wealth 📓
+</a>
+:::
+
+::: {.column width="35%"}
+
+![]({{< meta course_website >}}classlib/classlib/quarto/assets/figures/health_wealth_gapminder/health_wealth_semilogx_scale.png){fig-align="center" width="100%"}
+
+
+:::
+
+::::
+
+
+---
+
+- [Population]{.alert} is all hypothetical countries
+- [Model]{.alert} 
+  - Linear regression 
+  - Incorporates transformation of the explanatory variable
+- [Uncertainty]{.alert}
+  - $R^2$ measures the proportion of variance in $Y$ captured by the model
+- [Interpretation]{.alert}
+  - This describes relationship, not cause and effect
+  - The variation in the residuals point to other explanatory factors that have been left out of the model
+
+## Numerical integration {#trapezoidal}
+
+Computational mathematics seems distinct from statistics, but there is an overlap.
+
+Suppose that $f$ is a random function defined in $[0,1]$, in particular, a [Gaussian process]{.alert}, i.e., $f \sim \GP(0,K)$.  This means that for any distinct $x_1, \ldots, x_n \in [0,1]$, the random vector of function values, $\vf := \bigl(f(x_1), \ldots, f(x_n) \bigr)^\top$, has a [multivariate Gaussian distribution]{.alert} with 
+
+- [Mean]{.alert} $\vmu = \Ex(\vf) = \vzero$
+- [Covariance matrix]{.alert} $\mSigma := \Ex(\vf \vf^\top) = \bigl(\Ex[f(x_i)f(x_j)]\bigr)_{i,j=1}^n  = \bigl(K(x_i,x_j)\bigr)_{i,j=1}^n =: \mK$
+
+<div class="fragment" data-fragment-index="1" style="width:100%; margin:0;" markdown="1">
+If this is the Bayesian prior belief about $f$, then the [Bayesian posterior]{.alert} mean of the function conditioned on the data $\vf = \vy$ is
+$$
+\Ex\bigl[f(x) \mid \vf  = \vy\bigr] = \vy^\top \mK^{-1} \vk(x) , \quad 
+\text{where } \vk(x) = \bigl( K(x,x_i) \bigr)_{i=1}^n
+$$
+
+The Bayesian posterior mean integral of $f$ conditioned on the data is
+
+$$
+\Ex\biggl[\int_0^1 f(x) \, \dif x \mid \vf  = \vy\biggr] = \vy^\top \mK^{-1} \int_0^1 \vk(x) \, \dif x
+$$
+
+For $K(t,x) = 2 - \lvert t - x\rvert$ this is the [trapezoidal rule]{.alert}.  <a class="button" style="margin-left:2em;" href="../classlib/classlib/notebooks/Bayesian_quadrature.ipynb" download>
+⬇ Bayesian Quadrature 📓
+</a>
+</div>
+
+---
+
+- [Population]{.alert} all (continuous) functions
+- [Model]{.alert} 
+  - Stochastic processes
+  - Bayesian inference
+  - Often one would estimate the parameters in $K$ from data
+- [Uncertainty]{.alert}
+  - You may construct Bayesian credible intervals, but they depend on your confidence in choosing a reasonable $K$
+- [Interpretation]{.alert}
+  - Provides a statistical interpretation of computational mathematics
+

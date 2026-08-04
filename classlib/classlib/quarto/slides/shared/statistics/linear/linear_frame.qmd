@@ -1,0 +1,121 @@
+## Comparison of inference for linear models and population parameters
+
+| | Linear models | Population parameters |
+|--|--------|--------|
+| Model | $Y = \vx^\top \vbeta + \varepsilon$, &nbsp; $\Ex(\varepsilon) = 0$, $\var(\varepsilon) = \sigma^2$ <br> $\Ex(Y) = \vx^\top \vbeta =: \mu(\vx)$ | $Y \sim \Bern(p)$, $Y \sim \Exp(\lambda)$, $Y \sim \Norm(\mu,\sigma^2)$, ...  |
+| Parameters  | $\vbeta \in \reals^d$ | $\mu$, $\sigma^2$, $p$, $\lambda$ |
+| Fixed| $\vx$ |
+| Random | $Y$, $\varepsilon$ | $Y$ |
+| Data | $(\vx_1,Y_1),\dots,(\vx_n,Y_n)$ | $Y_1,\dots,Y_n$ |
+| Model with data | $Y_i = \vx_i^\top \vbeta + \varepsilon_i$ <br> $\underbrace{\vY}_{n \times 1} = \underbrace{\mX}_{n \times d}\, \underbrace{\vbeta}_{d \times 1} + \underbrace{\vveps}_{n \times 1}$ | $Y_i \sim \Bern(p)$, $Y_i \sim \Exp(\lambda)$, $Y_i \sim \Norm(\mu,\sigma^2)$, ...  |
+| Not observable | $\varepsilon_1,\dots,\varepsilon_n$ |  |
+
+--- 
+
+| | Linear models | Population parameters |
+|--|--------|--------|
+| Model | $Y = \vx^\top \vbeta + \varepsilon$, &nbsp; $\Ex(\varepsilon) = 0$, $\var(\varepsilon) = \sigma^2$ <br> $\Ex(Y) = \vx^\top \vbeta =: \mu(\vx)$ | $Y \sim \Bern(p)$, $Y \sim \Exp(\lambda)$, $Y \sim \Norm(\mu,\sigma^2)$, ...  |
+| Model with data | $Y_i = \vx_i^\top \vbeta + \varepsilon_i$ <br> $\underbrace{\vY}_{n \times 1} = \underbrace{\mX}_{n \times d}\, \underbrace{\vbeta}_{d \times 1} + \underbrace{\vveps}_{n \times 1}$ | $Y_i \sim \Bern(p)$, $Y_i \sim \Exp(\lambda)$, $Y_i \sim \Norm(\mu,\sigma^2)$, ...  |
+| Point estimators | $\hbeta = (\mX^\top \mX)^{-1} \mX^\top \vY$, $\hvY = \mX \hbeta$ | $\barY$, $S^2$, $\hlambda_{\MLE}$, $\hp_{\MLE}$, ... |
+| Confidence/ prediction regions for | $\vbeta$, $\mu(\vx)$, $Y \mid \vx$ | $\mu$, $\sigma^2$, $p$, $\lambda$, $Y$ |
+
+
+## Parameters: truth, candidates, and estimates
+
+A parameter symbol often has two jobs:
+
+- $\vbeta$ in the [model]{.alert} represents the unknown truth
+
+- $\vbeta$ in the [likelihood]{.alert} is a candidate value we try out
+
+To avoid clutter, we usually write 
+
+- the model as $\vY \sim f(\vy \mid \vbeta)$ and
+
+- the likelihood as $L(\vbeta \mid \vy) = f(\vy \mid \vbeta)$
+
+Then the maximum likelihood estimate is $\hvbeta
+=
+\argmax_{\vbeta \in \ct} L(\vbeta \mid \vy)$
+
+When the distinction matters, write the true value explicitly:
+
+$$
+\hvbeta \approx \vbeta_{\text{true}},
+\qquad
+\hvbeta \pto \vbeta_{\text{true}}
+$$
+
+::: {.key-point}
+The same symbol $\vbeta$ can mean “the true parameter” or “a candidate value”  
+
+Context tells us which role it is playing
+:::
+
+## Random data vs observed data
+
+Before observing data use [upper case]{.alert} for random variables: $\displaystyle
+\vY =
+\begin{pmatrix}
+Y_1\\
+\vdots\\
+Y_n
+\end{pmatrix}
+$
+
+After observing use [lowercase]{.alert}: $\displaystyle
+\vy =
+\begin{pmatrix}
+y_1\\
+\vdots\\
+y_n
+\end{pmatrix}$
+
+The likelihood from the observed data: $L(\vbeta \mid \vy) = f(\vy \mid \vbeta)$, 
+$\hat{\vbeta}(\vy)
+=
+\argmax_{\vbeta \in \ct} L(\vbeta \mid \vy)$
+
+Sampling distributions and asymptotic results are statements about random data:
+$$
+\hat{\vbeta}(\vY)
+=
+\argmax_{\vbeta \in \ct} L(\vbeta \mid \vY), \quad \text{e.g., } 
+2\left[
+\ell(\hvbeta_{\text{full}}(\vY) \mid \vY)
+-
+\ell(\hvbeta_{\text{red}}(\vY) \mid \vY)
+\right]
+\appxsim
+\chi^2_{\text{df}}
+$$
+
+::: {.key-point}
+Use lowercase data to compute the estimate you actually report
+
+Use uppercase random data when describing what would happen under repeated sampling
+:::
+
+## Estimator vs estimate
+
+- An [estimator]{.alert} is a function of random data, e.g., $\hat{\vbeta}(\vY)$ depends on $\vY$ → [random quantity]{.alert}
+
+- An [estimate]{.alert} is the realized value after observing data, e.g., $\hat{\vbeta}(\vy)$ depends on $\vy$ → [fixed number]{.alert}
+
+
+### Same formula, different roles
+
+\begin{gather*}
+\hvbeta = \argmax_{\vbeta} L(\vbeta \mid \vY)
+\quad \text{(estimator)}
+\\
+\hvbeta = \arg\max_{\vbeta \in \ct} L(\vbeta \mid \vy)
+\quad \text{(estimate)}
+\end{gather*}
+
+
+::: {.key-point}
+Before observing data: $\hvbeta(\vY)$ is random 
+
+After observing data: $\hvbeta(\vy)$ is a number
+:::

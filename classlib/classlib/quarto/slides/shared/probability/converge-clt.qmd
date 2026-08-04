@@ -1,0 +1,301 @@
+## Types of convergence{#type-conv}
+
+[({{< meta texts.cb.initials >}} §§5.5)]{.small} &nbsp; &nbsp;  Let $X_1, X_2, \ldots$ be random variables and $X$ another random variable
+
+### Almost Sure Convergence
+$$
+X_n \convas X \iff \Prob \left( \lim_{n \to \infty} X_n = X \right) = 1
+$$
+For almost every outcome the sequence $X_n$ converges to $X$
+
+### Convergence in Probability
+$$
+X_n \convp X \iff \forall \varepsilon > 0, \; 
+\Prob\big( |X_n - X| > \varepsilon \big) \;\longrightarrow\; 0.
+$$
+The probability that $X_n$ differs significantly from $X$ goes to zero
+
+### Convergence in Distribution
+$$
+X_n \convd X \iff 
+\lim_{n \to \infty} F_{X_n}(x) = F_X(x)
+\quad \text{for all continuity points of } F_X
+$$
+The distributions of $X_n$ approach the distribution of $X$
+
+---
+
+### Convergence strength
+$$
+X_n \convas X
+\;\Longrightarrow\;
+X_n \convp X
+\;\Longrightarrow\;
+X_n \convd X,
+$$
+and none of the reverse implications hold in general
+
+- $X, X_1, X_2, \ldots \IIDsim \Norm(0,1)$ satisfies $X_n \convd X$, but $X_n \nconvp X$
+
+- $X=0$ and $\Prob(X_n =x ) = \begin{cases} 1/n, & x=1 \\ 1-1/n, & x=0 \end{cases} \;$  satisfies
+$$
+\Prob(\lvert X_n - X \rvert > \varepsilon ) = \Prob(X_n =1) = 1/n \to 0 \text{ as } n \to \infty \text{ so } X_n \convp X
+$$
+Assuming the $X_n$ are independent,
+$\Prob (X_n =1 \text{ infinitely often}) = 1$ since
+$$
+\sum_{n=1}^{\infty} \Prob(X_n=1) = \sum_{n=1}^{\infty} \frac 1n = \infty
+$$
+so  $X_n \ \, \nconvas X$
+
+---
+
+## Central Limit Theorem{#clt data-state="goldborder"}
+
+[({{< meta texts.cb.initials >}} §5.5; {{< meta texts.wms.initials >}} §§7.3--7.5)]{.small}
+
+If $X_1, X_2, \ldots \IIDsim$ some distribution with finite moment generating function, $M(t) := \Ex\bigl(\exp(tX_1)\bigr)$, that exists for $t$ near $0$, and $\mu = \Ex(X_1)$ and $\sigma^2 = \var(X_1)$, and
+$$
+\barX_n := \frac 1n \left(X_1 + \cdots + X_n \right),
+$$
+then 
+$$
+\frac{\barX_n - \mu}{\sigma /\sqrt{n}} \convd \Norm(0,1)
+$$
+[Note that IID means independent and identically distributed]{.alert}
+
+## Proof of the Central Limit Theorem
+
+1. Define a standardized (mean $0$, variance $1$) random variable, $Y_i := (X_i - \mu)/\sigma$ and note that $Y_1, Y_2, \dots$ are IID with  mean $0$ and variance $1$:
+
+\begin{align*}
+Z_n: &= \frac{\barX_n - \mu}{\sigma /\sqrt{n}} = \frac{Y_1 + \cdots + Y_n}{\sqrt{n}} \\
+M_{Z_n}(t) &= \Ex[\exp(tZ_n)] = \Ex[\exp(tY_1/\sqrt{n} + \cdots + tY_n/\sqrt{n})]\\
+& = \Ex[\exp(tY_1/\sqrt{n}) \cdots \exp(tY_n/\sqrt{n})] \\
+& =  \{\Ex[\exp(tY_1/\sqrt{n})]\}^n \qquad \text{by independence} \\
+& = [M_Y(t/\sqrt{n})]^n \\
+\lim_{n \to \infty}M_{Z_n}(t) &= [M_Y(0)]^\infty = 1^\infty \quad \class{alert}{\text{(undetermined)}}
+\end{align*}
+
+---
+
+2. Take the limit of $M_{Z_n}(t)$ as $n \to \infty$ using [L’Hôpital’s rule]{.alert}
+\begin{align*}
+\text{Note that } M_Y(0) & = 1 \\
+M'_Y(0) & = \Ex(Y_1) = 0 \\
+M''_Y(0) & = \Ex(Y_1^2) = 1 \\
+\text{Then }\lim_{n \to \infty} \log\bigl(M_{Z_n}(t)  \bigr) & = \lim_{n \to \infty} n  \log \bigl(M_Y(t/\sqrt{n}) \bigr) 
+=  \lim_{n \to \infty} \frac{\log \bigl(M_Y(t/\sqrt{n}) \bigr) }{n^{-1}} = \frac{0}{0} \quad \class{alert}{\text{(undetermined)}}\\
+& = \lim_{n \to \infty} 
+\frac{ \dfrac{-t}{2n^{3/2}} \dfrac{M'_Y(t/\sqrt{n})}{M_Y(t/\sqrt{n})} }
+     { -n^{-2} }
+=   \frac t2  \lim_{n \to \infty}  \frac{\dfrac{M'_Y(t/\sqrt{n})}{M_Y(t/\sqrt{n})}}{ n^{-1/2} }
+= \frac{0}{0} \quad \class{alert}{\text{(undetermined)}} \\
+& =  \frac t2  \lim_{n \to \infty} \frac{ \dfrac{-t}{2 n^{3/2}} \dfrac{M_Y(t/\sqrt{n}) M''_Y(t/\sqrt{n}) - [M'_Y(t/\sqrt{n})]^2 }{ [M_Y(t/\sqrt{n})]^2}} { -n^{-3/2}/2 } = \frac{t^2}{2} \\
+\lim_{n \to \infty} M_{Z_n}(t)  & = \exp(t^2/2)
+\end{align*}
+
+---
+
+3. Note that if $Z \sim \Norm(0,1)$ then 
+\begin{align*}
+M_Z(t) & = \Ex[\exp(tZ)] = \int_{-\infty}^{\infty} \frac 1{\sqrt{2 \pi}} \exp(tz - z^2/2) \, \dif z \\
+& = \int_{-\infty}^{\infty} \frac 1{\sqrt{2 \pi}} \exp\bigl(-(z - t)^2/2 \bigr) \, \exp(t^2/2) \, \dif z = \exp(t^2/2) \\
+ &= \lim_{n \to \infty} M_{Z_n}(t) 
+\end{align*}
+
+By uniqueness of moment generating functions,
+$$
+Z_n \convd \Norm(0,1)
+$$
+$\square$
+
+## Chebyshev (Markov) Inequality
+
+[({{< meta texts.cb.initials >}} §3.6, §3.8)]{.small}
+$$
+\Prob\bigl( f(X) \ge r \bigr) \le \frac{\Ex[f(X)]}{r} \qquad \text{for } f \class{alert}{\text{ non-negative}}, \ r > 0
+$$
+
+
+### Proof
+\begin{align*}
+\Prob(f(X)\ge r)
+&= \Ex\bigl[\indic\bigl(f(X)\ge r\bigr)\bigr] \\
+&= \Ex\Bigl[\Ex\bigl[\indic\bigl(f(X)\ge r\bigr)\mid X\bigr]\Bigr]
+\qquad \text{(total expectation)} \\
+&\le \Ex\Bigl[\Ex\bigl[f(X)/r \mid X\bigr]\Bigr]
+\qquad \text{since } \indic\bigl(f(X)\ge r\bigr)\le f(X)/r \text{ a.s.} \\
+&= \Ex\bigl[f(X)/r\bigr] = \Ex[f(X)]/r
+\end{align*}
+
+### Important special cases
+\begin{gather*}
+\Prob\bigl( \lvert X - \mu \rvert^2 \ge r^2 \bigr) \le \frac{\sigma^2}{r^2} \quad \text{where } \mu = \Ex(X), \ \sigma^2 = \var(X) \\
+\Prob\bigl( \lvert X - \med(X) \rvert \ge r \bigr) \le \frac{\Ex (\lvert X - \med(X)\rvert)}{r}
+\end{gather*}
+
+## Normal tails vs Chebyshev bounds
+
+Let $X\sim \Norm(0,1)$ and compare $\Prob(|X|>r)$ with two bounds
+
+Here $\Ex\lvert X \rvert \exeq \sqrt{2/\pi} \approx 0.798$ and $\Ex(X^2)=1$
+
+```{python}
+#| output: asis
+import math
+
+rs = [1, 2, 6, 10, 100]
+E_absX = math.sqrt(2 / math.pi)
+
+def tail_abs_normal(r):
+    return math.erfc(r / math.sqrt(2))
+
+def fmt_prob(x):
+    return f"{x:.6g}"
+
+def fmt_over(x):
+    if x == math.inf:
+        return "(∞)"
+    return f"({x:.2g}×)"
+
+print(
+    "| $r$ | $\\Prob(|X|>r)$ (exact) | "
+    "$\\le \sqrt{2/\pi}\,/r$ (Markov) | "
+    "$\\le 1/r^2$ (Chebyshev) |"
+)
+print("|-:|---:|-----:|-----:|")
+
+for r in rs:
+    exact = tail_abs_normal(r)
+    markov = E_absX / r
+    cheb = 1.0 / (r*r)
+
+    if exact == 0.0:
+        m_over = math.inf
+        c_over = math.inf
+    else:
+        m_over = markov / exact
+        c_over = cheb / exact
+
+    print(
+        f"| {r} | {fmt_prob(exact)} | "
+        f"{fmt_prob(markov)} {fmt_over(m_over)} | "
+        f"{fmt_prob(cheb)} {fmt_over(c_over)} |"
+    )
+```
+
+- The Markov and Chebyshev bounds are much looser, but more general
+- CLT bounds for means will resemble the exact; we are willing to live with approximate bounds that are tighter than absolute bounds
+- These guaranteed Markov and Chebyshev bounds still depend on knowing or approximating $\sigma^2$ or $\Ex \lvert X - \med(X)\rvert$
+
+## Student $t$ tails vs Markov/Chebyshev bounds
+
+Let $T_\nu \sim t_\nu$ and compare $\Prob(|T_\nu|>r)$ with two bounds
+
+```{python}
+#| output: asis
+import mpmath as mp
+
+mp.mp.dps = 50
+
+dfs = [2, 3, 5]
+rs  = [1, 2, 6]
+
+def t_pdf(x, nu):
+    c = mp.gamma((nu+1)/2) / (mp.sqrt(nu*mp.pi) * mp.gamma(nu/2))
+    return c * (1 + (x*x)/nu) ** (-(nu+1)/2)
+
+def tail_abs_t_exact(r, nu):
+    x = nu / (nu + r*r)
+    return mp.betainc(nu/2, mp.mpf('0.5'), 0, x, regularized=True)
+
+def E_abs_t(nu):
+    if nu <= 1:
+        return mp.inf
+    f = lambda x: x * t_pdf(x, nu)
+    return 2 * mp.quad(f, [0, mp.inf])
+
+def E_t2(nu):
+    if nu <= 2:
+        return mp.inf
+    return nu / (nu - 2)
+
+def fmt_prob(x):
+    if x == mp.inf:
+        return "inf"
+    return f"{float(x):.3g}"
+
+def fmt_over(x):
+    if x == mp.inf:
+        return "(∞)"
+    return f"({float(x):.0f}×)"
+
+print("| $\\nu$ | $r$ | $\\Prob(|T_\\nu|>r)$ (exact) | $\\le \\Ex(|T_\\nu|)/r$ (Markov) | $\\le \\Ex(T_\\nu^2)/r^2$ (Chebyshev) |")
+print("|-:|-:|---:|---:|----:|")
+
+for nu in dfs:
+    Eabs = E_abs_t(nu)
+    Et2  = E_t2(nu)
+    for r in rs:
+        exact = tail_abs_t_exact(r, nu)
+
+        markov = (Eabs / r) if mp.isfinite(Eabs) else mp.inf
+        cheb   = (Et2  / (r*r)) if mp.isfinite(Et2) else mp.inf
+
+        m_over = markov / exact if mp.isfinite(markov) else mp.inf
+        c_over = cheb   / exact if mp.isfinite(cheb)   else mp.inf
+
+        print(
+            f"| {nu} | {r} | {fmt_prob(exact)} | "
+            f"{fmt_prob(markov)} {fmt_over(m_over)} | "
+            f"{fmt_prob(cheb)} {fmt_over(c_over)} |"
+        )
+```
+
+
+## Weak Law of Large Numbers (via Chebyshev)
+
+### Theorem (WLLN)
+Let $X_1,X_2,\dots$ be IID with $\Ex[X_1]=\mu$ and $\var(X_1)=\sigma^2<\infty$.
+Define the sample mean as $\displaystyle\barX_n := \frac1n\sum_{i=1}^n X_i$.  Then $\barX_n \convp \mu$.
+
+### Proof
+By Chebyshev's inequality,
+$\displaystyle \Prob\bigl(|\barX_n-\mu|\ge \varepsilon\bigr)
+\le \frac{\var(\barX_n)}{\varepsilon^2}$
+
+Using independence,
+$$
+\var(\barX_n)
+=
+\var\!\left(\frac1n\sum_{i=1}^n X_i\right)
+=
+\frac{1}{n^2}\sum_{i=1}^n \var(X_i)
+=
+\frac{1}{n^2}\cdot n\sigma^2
+=
+\frac{\sigma^2}{n}
+$$
+Therefore,
+$$
+\Prob\bigl(|\barX_n-\mu|\ge \varepsilon\bigr)
+\le
+\frac{\sigma^2}{n\varepsilon^2}
+\to 0 \quad \text{as } n \to \infty \qquad \square
+$$
+
+## Slutsky's Theorem
+If
+\begin{align*}
+X_n &\convd X  \quad \text{and} \\
+Y_n &\convp c \quad \text{for some constant } c
+\end{align*}
+Then
+\begin{align*}
+X_n + Y_n &\convd X + c \\
+X_n Y_n &\convd cX \\
+\frac{X_n}{Y_n} &\convd \frac{X}{c} \quad \text{if } c \neq 0
+\end{align*}
+
+> Random quantities converging to constants behave like constants asymptotically

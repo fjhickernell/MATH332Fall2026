@@ -1,0 +1,545 @@
+# Do we have the right estimators to summarize our data and construct confidence intervals?
+
+- [Sufficiency](#sufficiency) 
+
+  - Do we have a statistic that captures *all* of the information about $\vtheta$ in the data?
+  - Do we have a *minimal* statistic that compresses the data as much as possible without losing information about $\vtheta$?
+
+- [Rao--Blackwell](#rao-blackwell) — better estimators through conditioning
+
+- [Completeness](#completeness) — eliminating hidden unbiased estimators
+
+- [Cramér--Rao](#cramer-rao) — lower bounds on the variance of unbiased estimators
+
+
+## Sufficiency {#sufficiency}
+
+Let $\vX =(X_1,\dots,X_n)$ have joint PMF/PDF $\varrho(\vx \mid \vtheta)$.
+
+&nbsp;
+
+A statistic $T(\vX)$ is [sufficient]{.alert} for $\vtheta$ if
+
+the conditional distribution of $\vX$ given $T(\vX)$
+
+does **NOT** depend on $\vtheta$.
+
+&nbsp;
+
+::: {.key-point}
+
+If a sufficient statistic, $T$, is known, then the sample contains no additional information about $\vtheta$
+
+:::
+
+
+## Factorization Theorem
+
+$T(\vX)$ is [sufficient]{.alert} for $\vtheta$ iff
+
+\begin{align*}
+\varrho(\vx \mid \vtheta) = L(\vtheta \mid \vx)
+& =
+g(T(\vx), \vtheta)\, h(\vx) \\
+\text{or equivalently } \qquad \ell(\vtheta \mid \vx)  = \log(L(\vtheta \mid \vx)) & = \tg(T(\vx), \vtheta) + \tildeh(\vx)
+\end{align*}
+
+where
+
+-   $g$ depends on data only through $T$
+-   $h$ does not depend on $\vtheta$
+
+This is the fundamental practical tool for proving sufficiency
+
+---
+
+_Example_: For $X_1, \ldots, X_n \IIDsim \Bern(p)$, the log likelihood is
+$$
+\ell(p \mid \vx) = \sum_{i=1}^n \left [ x_i \log(p) + (1-x_i)\log(1-p) \right]
+= \left(\sum_{i=1}^n x_i \right) [\log(p) - \log(1-p)]  + n\log(1-p)
+$$
+so $\displaystyle T(\vX) = \sum_{i=1}^n X_i$ is sufficient for $p$.
+
+&nbsp;
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span><span>
+For $X_1, \ldots, X_n \IIDsim \Bern(p)$
+<span class="exsub">Is the statistic $T(\vX)=X_1+X_2$ sufficient for $p$?</span>
+<span class="exsub">Is the statistic $T(\vX)=\left(X_1+X_2, \sum_{i=3}^n X_i\right)$ sufficient for $p$?</span>
+</span>
+:::
+
+---
+
+$\exstar$ For $X_1, \ldots, X_n \IIDsim \Exp(\lambda)$, the statistic $\displaystyle T(\vX) = \sum_{i=1}^n X_i$ is sufficient for $\lambda$
+
+$\exstar$ For $X_1, \ldots, X_n \IIDsim \Norm(\mu,\sigma^2)$, the statistic $\displaystyle T(\vX) = \sum_{i=1}^n X_i$ is not sufficient for $\mu$ and $\sigma^2$.  
+
+$\exstar$ Find a sufficient (vector) statistic for $\mu$ and $\sigma^2$ for $X_1, \ldots, X_n \IIDsim \Norm(\mu,\sigma^2)$
+
+
+## Minimal Sufficiency
+
+A sufficient statistic $T$ is *minimal sufficient* if
+
+-   it is sufficient, and
+
+-   it is a function of every other sufficient statistic.
+
+::: {.key-point}
+
+A minimial sufficient statistic compresses the data as much as possible
+without losing information about $\vtheta$
+
+:::
+
+
+**Theorem**: A statistic $T(\vX)$ is minimal sufficient if for all sample points $\vx$, $\vy$,
+
+$$
+\left . \begin{array}{r} \displaystyle \frac{L(\vtheta \mid \vx)}{L(\vtheta \mid \vy)} \\
+\text{ or equivalently} \quad \ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy) \end{array} \right \}
+\text{ is independent of } \vtheta
+\quad
+\Longleftrightarrow
+\quad
+T(\vx) = T(\vy)
+$$
+
+---
+
+**Theorem**: A statistic $T(\vX)$ is minimal sufficient if for all sample points $\vx$, $\vy$,
+
+$$
+\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy)
+\text{ is independent of } \vtheta
+\quad
+\Longleftrightarrow
+\quad
+T(\vx) = T(\vy)
+$$
+
+_Proof that $T(\vX)$ is sufficient_: 
+
+Suppose that $\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy)$ is independent of $\vtheta$ iff $T(\vx) = T(\vy)$. Let 
+
+- $\cx$ be the sample space of the data, $\vX$
+- $\ct : = T(\vtheta \mid \cx)$ be the image of $T$
+
+For each $t \in \ct$, find one $\vx_t \in \cx$ such that $T(\vx_t) = t$, and define 
+
+- $\tildeh(x) : = \ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vx_{T(\vx)})\quad \forall x\in \cx \qquad$ (independent of $\vtheta$ by the hypothesis)
+
+- $\tg(t,\vtheta) : = \ell(\vtheta \mid \vx_t)\quad \forall \vtheta, \forall t \in \ct$
+
+Then for any $\vx \in \cx$,
+
+$$
+\ell(\vtheta \mid \vx) \underbrace{=}_{\text{def. of } \tildeh} \tildeh(\vx) + \ell(\vtheta \mid \vx_{T(\vx)}) \underbrace{=}_{\text{def. of } \tg}  \tildeh(\vx) + \tg(T(\vx),\vtheta)  
+\quad  \forall \vtheta, \ \forall \vx \in \cx
+$$
+
+so $T$ is sufficient
+
+---
+
+_Proof that $T(\vX)$ is minimal sufficient_:  
+
+Let $T'(\vX)$ be any other sufficient statistic, so
+
+ $$\ell(\vtheta \mid \vx) = \tg'(T'(\vx),\vtheta) + \tildeh'(\vx) \quad \text{by the Factorization Theorem}$$
+
+For any $\vx, \vy \in \cx$ with $T'(\vx) = T'(\vy)$, we have
+$$
+\ell(\vtheta \mid \vx) - \ell(\vtheta \mid \vy) = \tg'(T'(\vx),\vtheta) + \tildeh'(\vx) - \tg'(T'(\vy),\vtheta) - \tildeh'(\vy) \underbrace{=}_{\text{since } T'(\vx) = T'(\vy)} \tildeh'(\vx) - \tildeh'(\vy)$$
+which does not depend on $\vtheta$.  Thus, $T(\vx) = T(\vy)$ by the hypothesis of the theorem.
+
+&nbsp;
+
+Since $T'(\vx) = T'(\vy) \implies T(\vx) = T(\vy)$, it follows that  $T$ is a function of $T'$  $\qquad \square$
+
+---
+
+_Example_: For $X_1, \ldots, X_n \IIDsim \Bern(p)$, $\displaystyle T(\vX) = \sum_{i=1}^n X_i$ is a sufficient statistic for $p$.  To show that it is minimal sufficient, note that for any $\vx$, $\vy$,
+$$
+\ell(p \mid \vx) - \ell(p \mid \vy) = \bigl(T(\vx) - T(\vy) \bigr) [\log(p) - \log(1-p)]  = 0 \iff T(\vx) = T(\vy)
+$$
+so $T(\vX)$ is minimal sufficient for $p$
+
+&nbsp;
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span><span>For $X_1, \ldots, X_n \IIDsim \Bern(p)$, is the statistic $T'(\vX)=\left(X_1+X_2, \sum_{i=3}^n X_i\right)$ minimal sufficient for $p$?</span>
+:::
+---
+
+## Rao--Blackwell Theorem {#rao-blackwell}
+
+Let $\vTheta$ be unbiased and let $T$ be sufficient
+
+Define
+
+$$
+\widetilde{\vTheta} := \Ex(\vTheta \mid T)
+$$
+
+Then
+
+-   $\widetilde{\vTheta}$ is unbiased\
+-   $\var(\widetilde{\vTheta}) \le \var(\vTheta)$
+
+&nbsp;
+
+::: {.key-point}
+
+Conditioning on sufficient statistics improves estimators
+
+:::
+
+
+---
+
+_Example_: For $X_1, \ldots, X_n \IIDsim \Bern(p)$, the statistic $\displaystyle T(\vX) = \sum_{i=1}^n X_i$ is sufficient for $p$.  The estimator $\Theta := X_1$ is unbiased for $p$, but it is not a function of $T$.  The Rao--Blackwell improvement of $\Theta$ is
+$$
+\widetilde{\Theta} = \Ex(X_1 \mid T) = \frac{T}{n} =   \frac 1n \sum_{i=1}^n X_i = \barX
+$$
+
+---
+
+## Completeness {#completeness}
+
+A statistic $T$ is *complete* if
+
+$$
+\Ex_\vtheta[g(T)] = 0 \quad \forall \vtheta
+\quad \implies \quad
+g(T)=0 \text{ a.s.}
+$$
+
+Completeness eliminates hidden unbiased estimators
+
+It is the key hypothesis in Lehmann--Scheffé
+
+---
+
+_Example_: For $X_1, \ldots, X_n \IIDsim \Bern(p)$, the statistic $\displaystyle T(\vX) = \sum_{i=1}^n X_i$ is sufficient for $p$.  To show that it is complete, note that if $\Ex_p[g(T)] = 0$ 
+\begin{align*}
+0 & =\sum_{t=0}^n g(t) \binom{n}{t} p^t (1-p)^{n-t} \\
+\implies & 0 =  \sum_{t=0}^n g(t) \binom{n}{t} \left( \frac{p}{1-p} \right)^t
+\end{align*}
+Since the right hand side is a polynomial in $p/(1-p)$ with coefficients $g(t) \binom{n}{t}$ that is zero for all $p \in (0,1)$, we must have $g(t) = 0$ for all $t \in \{0, \ldots, n\}$, so $g(T) = 0$ a.s.  
+
+&nbsp;
+
+Thus, $T(\vX)$ is complete for $p\in (0,1)$  
+
+---
+
+### Minimal sufficient $\notimplies$ complete
+
+Let $X_1, \ldots, X_n \IIDsim \Norm(\mu,\sigma^2)$.  We show later that the statistic $T(\vX) = (\barX, S^2)$ is minimial sufficient for $(\mu,\sigma^2)$
+
+&nbsp;
+
+We know $\barX \sim \Norm(\mu,\sigma^2/n)$.  Define
+
+$$
+g(T) = \barX^2 - \frac{\sigma^2}{n} - \mu^2
+$$
+
+Then
+
+$$
+\mathbb{E}[g(T)] = 0
+\quad \text{for all } (\mu,\sigma^2)
+$$
+
+but $g(T)$ is not almost surely zero. Therefore,
+
+$$
+T \text{ is not complete}
+$$
+
+---
+
+### Complete $\notimplies$  minimal sufficient
+
+Let $X_1, \ldots, X_n \IIDsim \Bern(p)$ with $n>1$, and $U=X_1$.  
+
+&nbsp;
+
+We know that $U$ is not sufficient for $p$
+
+&nbsp;
+
+Let $g:\{0,1\}\to\reals$. Then
+$$
+\Ex_p[g(U)] = (1-p)g(0) + p g(1) = g(0) + p(g(1)-g(0))
+$$
+If $\Ex_p[g(U)]=0$ for all $p\in(0,1)$, then this linear polynomial in $p$ must be identically zero, so $g(0)= g(1)=0$
+
+&nbsp;
+
+Hence $g(U)=0$ a.s., and $U$ is complete
+
+## Lehmann--Scheffé Theorem 
+
+If
+
+-   $T$ is complete and sufficient\
+-   $\vTheta = g(T)$ is unbiased estimator of $\theta$
+
+then $\vTheta$ is the unique [minimum variance unbiased estimator (MVUE)]{.alert} of $\theta$
+
+This is the main structural route to minimum variance unbiased
+estimators
+
+---
+
+## MVUE for $\theta$ in $\text{Unif}(0,\theta)$
+
+Let $X_1,\ldots,X_n \IIDsim \Unif(0,\theta)$ with $\theta>0$. Let $T = X_{(n)} = \max_i X_i$.
+
+### 1. Sufficiency
+
+The joint density of the data $\vX = (X_1,\ldots,X_n)$ is
+
+$$
+\varrho(\vx\mid\theta)
+=
+\frac{1}{\theta^n}
+\indic(0 < x_{(n)} < \theta)
+$$
+
+and depends on the sample only through $X_{(n)}$
+
+&nbsp;
+
+Thus $T$ is sufficient (indeed minimal sufficient) for $\theta$
+
+------------------------------------------------------------------------
+
+### 2. Completeness
+
+The pdf of $T = X_{(n)}$ is
+
+$$
+\varrho_T(t\mid\theta)
+=
+\frac{n t^{n-1}}{\theta^n},
+\qquad 0<t<\theta
+$$
+
+Then
+
+\begin{align*}
+\Ex_\theta[g(T)] = 0 \quad \forall \theta & \implies \int_0^\theta g(t)\frac{n t^{n-1}}{\theta^n}\, \dif t = 0 \quad \forall \theta > 0 \\
+& \implies \int_0^\theta g(t) t^{n-1}\, \dif t = 0 \quad \forall \theta > 0 \\
+& \implies g(\theta)\theta^{n-1} = 0 \quad \forall \theta > 0 \\
+& \implies g(\theta) = 0 \quad \forall \theta > 0
+\end{align*}
+
+Hence $T$ is complete
+
+---
+
+### 3. Unbiased Estimator
+
+$$
+Ex_\theta[T] = \frac{n}{n+1}\theta, \qquad \text{so } \Theta : =\frac{n+1}{n}T \text{ is unbiased for } \theta
+$$
+
+&nbsp;
+
+### 4. Conclusion (Lehmann--Scheffé)
+
+Since $X_{(n)}$ is complete sufficient,
+
+$$
+\hat\theta_{\text{MVUE}} = \frac{n+1}{n} X_{(n)}
+$$
+
+
+
+## Cramér--Rao Lower Bound {#cramer-rao}
+
+Under regularity conditions,
+
+$$
+\var(\Theta)
+\ge
+\frac{1}{I(\theta)}
+$$
+
+where
+
+$$
+I(\theta)
+=
+\Ex\!\left[
+\left(
+\frac{\partial \ell(\theta \mid \vX)}{\partial \theta}
+\right)^2
+\right]
+=
+- 
+\Ex\!
+\left(
+\frac{\partial^2 \ell(\theta \mid \vX)}{\partial \theta^2}
+\right)
+$$
+
+This gives a universal lower bound on variance of unbiased estimators
+
+---
+
+### Bernoulli example
+
+Let $X_1, \dots, X_n \IIDsim \Bern(p)$
+
+\begin{align*}
+\text{log likelihood} \quad \ell(p)
+& =
+\sum_{i=1}^n
+\left[
+X_i \log p
++
+(1 - X_i)\log(1-p)
+\right] \\
+\text{score function} \quad \ell'(p) &=
+\sum_{i=1}^n
+\left(
+\frac{X_i}{p}
+-
+\frac{1 - X_i}{1-p}
+\right)
+=
+\frac{1}{p(1-p)}
+\sum_{i=1}^n (X_i - p) \\
+\text{second derivative} \quad \ell''(p) & =
+-
+\sum_{i=1}^n
+\left(
+\frac{X_i}{p^2}
++
+\frac{1 - X_i}{(1-p)^2}
+\right) \\
+\text{Fisher information} \quad I_n(p) & = 
+- \Ex[\ell''(p)] = n
+\left(
+\frac{p}{p^2}
++
+\frac{1-p}{(1-p)^2}
+\right)
+=
+\frac{n}{p(1-p)} \\
+\text{CRLB} \quad \var(P) & \ge \frac{1}{I_n(p)} = \frac{p(1-p)}{n} = \var(\barX)
+\end{align*}
+
+## Why are the two definitions of Fisher information equal?
+
+### Set-up
+
+- $\ell(\theta \mid \vX) = \log \bigl( \varrho(\vX \mid \theta) \bigr)$ is the [log-likelihood function]{.alert}
+
+- $\displaystyle U(\theta \mid \vX) =
+\frac{\partial}{\partial \theta}
+\ell(\theta \mid X)
+$ is the [score function]{.alert}
+
+Assume:
+
+- the support of $\varrho(\vx\mid\theta)$ does not depend on $\theta$
+- differentiation and integration may be interchanged
+
+---
+
+### Score has mean zero for all $\theta$
+
+\begin{align*}
+0 & = \frac{\partial}{\partial \theta}
+\int \varrho(\vx \mid \theta)\, \dif \vx \qquad \text{because densities always integrate to 1} \\
+& = \int
+\frac{\partial}{\partial \theta}
+\varrho(\vx \mid \theta)
+\, \dif \vx \qquad \text{since differentiation and integration may be interchanged} \\
+& = \int
+\varrho(\vx \mid \theta) \,
+\frac{\partial}{\partial \theta}
+\log \varrho(\vx \mid \theta) 
+\, \dif \vx \qquad \text{since }\frac{\partial}{\partial \theta}\varrho(\vx \mid \theta) = \varrho(\vx \mid \theta) \frac{\partial}{\partial \theta} \log \varrho(\vx \mid \theta) \\
+& = \int
+\varrho(\vx \mid \theta)
+\frac{\partial}{\partial \theta}
+\ell(\theta \mid \vx) \, \dif \vx = \Ex[U(\theta \mid \vX)]
+\end{align*}
+
+---
+
+### Differentiate again
+
+\begin{align*}
+0 & = \frac{\partial}{\partial \theta} \Ex[U(\theta \mid \vX)] = \frac{\partial}{\partial \theta}
+\int \varrho(\vx \mid \theta)\, U(\theta \mid \vx) \, \dif \vx \\
+& = \int
+\left[
+\frac{\partial \varrho(\theta \mid \vx)}{\partial \theta}\, U(\theta \mid \vx)
++
+\varrho (\theta \mid \vx) \frac{\partial U(\theta \mid \vx)}{\partial \theta}
+\right]
+\, \dif \vx  \\
+& \qquad \qquad \text{since differentiation and integration may be interchanged} \\
+& = \int
+\left[ \varrho (\theta \mid \vx)
+\{U(\theta \mid \vx)\}^2
++
+\varrho (\theta \mid \vx) \frac{\partial U(\theta \mid \vx)}{\partial \theta}
+\right]
+\, \dif \vx \\
+& = \Ex\bigl[U^2(\theta \mid \vX)\bigr]
++
+\Ex\!\left[\frac{\partial U(\theta \mid \vX)}{\partial \theta}\right]
+\end{align*}
+
+That is,
+
+$$
+ I_n(\theta) = \Ex\!\left[
+\left(
+\frac{\partial \ell(\theta \mid X)}{\partial \theta}
+\right)^2
+\right] = \Ex\bigl[U^2(\theta \mid \vX)\bigr] = - \Ex\!\left[\frac{\partial U(\theta \mid \vX)}{\partial \theta}\right] = - \Ex\!\left[\frac{\partial^2 \ell(\theta \mid \vX)}{\partial \theta^2}\right]
+$$
+
+## Conceptual Pipeline
+
+Data\
+$\longrightarrow$ Sufficient statistic\
+$\longrightarrow$ Complete sufficient statistic\
+$\longrightarrow$ MVUE (Lehmann--Scheffé)
+
+This is the classical parametric estimation framework.
+
+
+## Connection to [Exponential Families](#exp-families)
+
+Recall that for IID data, the [log-likelihood for exponential families](#exp-families-estimators) is
+$$
+\ell(\vtheta \mid \vX) : = \log(L(\vtheta \mid \vX))
+= \sum_{i=1}^n \log \bigl(h(X_i) \bigr) + 	n \log \bigl(c(\vtheta) \bigr) +\sum_{k} w_k(\vtheta)\Biggl[ \sum_{i=1}^{n} t_k(X_i) \Biggr]
+$$
+
+Under regularity conditions
+$$
+T(\vX) := \left(\sum_{i=1}^n t_1(X_i),  \sum_{i=1}^n t_2(X_i), \ldots \right) \text{ is minimal sufficient for } \vtheta
+$$
+
+&nbsp;
+
+For one-parameter full exponential families, $T(\vX) := \sum_{i=1}^n t(X_i)$ is typically complete, which makes Lehmann-Scheffé especially powerful
+
+&nbsp;
+
+The Fisher information is often tractable, which makes the Cramér--Rao lower bound especially powerful
+

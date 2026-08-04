@@ -1,0 +1,53 @@
+format:
+  revealjs:
+    navigation-mode: grid
+    controls: true
+    reveal-options:
+      disableLayout: true
+
+    embed-resources: true
+    self-contained-math: true
+
+    html-math-method: mathjax
+
+
+    include-in-header:
+      - ../classlib/classlib/quarto/slides/hickernell-latex-macros.js
+      - text: |
+          <link rel="preload"
+                href="../classlib/classlib/quarto/assets/images/campus/IllinoisTech_MiesCampus_slide.jpg"
+                as="image">
+
+    include-after-body:
+      - ../classlib/classlib/quarto/slides/reveal-scale-var.html
+      - ../classlib/classlib/quarto/slides/reveal-nav-reset.html
+      - ../classlib/classlib/quarto/slides/qmcpy-pypi-impact.html
+
+    preview-links: auto
+    incremental: false
+    transition: none
+    background-transition: none
+
+    title-slide-attributes:
+      data-background-image: ../classlib/classlib/quarto/assets/images/campus/IllinoisTech_MiesCampus_slide.jpg
+      data-background-size: cover
+      data-background-position: center center
+
+    theme:
+      - simple
+      - ../classlib/classlib/quarto/slides/hickernell-slides.scss
+      - ../classlib/classlib/quarto/slides/research/research-slides.scss
+
+    slide-number: c/t
+    show-slide-number: all
+
+    footer: |
+      Fred J. Hickernell · Illinois Institute of Technology · assisted by ChatGPT
+
+    width: 1600
+    height: 1000
+    margin: 0.00
+    center: false
+    slide-level: 2
+
+

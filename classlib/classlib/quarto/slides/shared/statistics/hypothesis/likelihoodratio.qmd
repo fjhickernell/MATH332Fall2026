@@ -1,0 +1,396 @@
+# Optimal Tests and Likelihood Methods
+
+[({{< meta texts.cb.initials >}} §8.2–8.3; {{< meta texts.wms.initials >}} §10.10-10.11)]{.small}
+
+- [Likelihood ratio tests (LRT)](#likelihoodratiotests_simple)
+
+- [Neyman–Pearson lemma](#neymanpearson)
+
+- [Likelihood ratio tests for composite hypotheses](#likelihoodratiotests_composite)
+
+- [Large-sample behavior of the likelihood ratio statistic](#largesamplelikelihoodratio)
+
+
+## From procedures to optimality {#likelihoodratiotests}
+
+We have constructed tests, and we have computed their size and power, but 
+
+::: {.key-point}
+Among all tests with size $\alpha$, which test has the highest power
+against a fixed alternative?
+:::
+
+To compare two hypotheses
+
+$$
+H_0: \theta = \theta_0 \qquad \text{vs} \qquad H_A: \theta = \theta_A
+$$
+
+Consider the likelihood ratio statistic constructed from the
+ratio of the [likelihood](02-estimator.html#maximum-likelihood-estimators)
+values based on data $\vX = (X_1,\dots,X_n)$:
+$$
+\Lambda(\vX)
+=
+\frac{L(\theta_0 \mid \vX)}
+     {L(\theta_A \mid \vX)}
+= \frac{\varrho_{\vX}(\vX \mid \theta_0)}{\varrho_{\vX}(\vX \mid \theta_A)}
+$$
+
+If the data are much more likely under $H_A$ than under $H_0$,
+the ratio $\Lambda(\vX)$ will be small, and this is [evidence against $H_0$]{.alert}
+
+
+## Neyman–Pearson lemma (simple vs simple) {#neymanpearson}
+
+Test
+
+$$
+H_0:\theta=\theta_0
+\qquad\text{vs}\qquad
+H_A:\theta=\theta_A
+$$
+
+::: {.key-point}
+Among all tests with size $\alpha$, the test that rejects for
+sufficiently small likelihood ratio is most powerful
+:::
+
+Reject $H_0$ when
+
+$$
+\Lambda(\vX) 
+= 
+\frac{L(\theta_0 \mid \vX)}
+     {L(\theta_A \mid \vX)}
+< 
+k
+$$
+
+where $k$ is chosen so that
+
+$$
+\Prob(\text{reject }H_0 \mid \theta = \theta_0)= \Prob(\Lambda(\vX) < k \mid \theta = \theta_0) = \alpha
+$$
+
+::: {.key-point}
+A test that is most powerful for *all* alternatives in a class
+is called *uniformly most powerful (UMP)*
+:::
+
+---
+
+### Example: mean of IID Normal data with known $\sigma$, testing simple vs simple
+
+$$
+H_0:\mu=\mu_0
+\qquad
+H_A:\mu=\mu_A \quad \text{with } \mu_A > \mu_0
+$$
+
+Suppose $X_1,\dots,X_n \IIDsim \Norm(\mu,\sigma^2)$.  The [likelihood ratio]{.alert} test statistic based on this data, $\vX = (X_1,\dots,X_n)$, is
+
+$$
+\Lambda
+=
+\frac{L(\mu_0 \mid \vX)}{L(\mu_A \mid \vX)}
+$$
+
+
+Because the logarithm is increasing, it is convenient to work with
+
+\begin{multline*}
+\log \Lambda(\vX)
+=
+\log \bigl(L(\mu_0 \mid \vX)\bigr)-\log L(\mu_A \mid \vX) \\
+= -\frac{1}{2\sigma^2}
+\sum_{i=1}^n (X_i-\mu_0)^2 + \frac{1}{2\sigma^2}
+\sum_{i=1}^n (X_i-\mu_A)^2 = \cdots \\
+= \frac{n(\mu_0-\mu_A)}{\sigma^2} \left(\barX_n - \frac{\mu_0+\mu_A}{2}\right)
+\end{multline*}
+
+---
+
+\begin{equation*}
+\log \Lambda(\vX)
+= \frac{n(\mu_0-\mu_A)}{\sigma^2} \left(\barX_n - \frac{\mu_0+\mu_A}{2}\right)
+\end{equation*}
+
+[Reject]{.alert} when $\barX_n > c$ for some cut-off $c$, which is chosen so that
+
+$$
+\Prob(\barX_n>c \mid \mu=\mu_0)=\alpha, \qquad \text{i.e., }  c = \mu_0 + z_\alpha \frac{\sigma}{\sqrt n}
+$$
+
+Because the Type-I error is computed assuming $H_0$ is true,
+the cutoff does *not depend on* $\mu_A$
+
+::: {.key-point}
+The likelihood ratio test is most powerful among all tests with size $\alpha$ for testing $H_0: \mu = \mu_0$ vs $H_A: \mu = \mu_A$ with $\mu_A > \mu_0$ when $\sigma$ is known
+:::
+
+&nbsp;
+
+The likelihood ratio test therefore reproduces the classical $z$-test for the mean of a normal distribution with known variance
+
+
+## From Neyman–Pearson to likelihood ratio tests for composite hypotheses {#likelihoodratiotests_composite}
+
+More generally, for hypotheses
+
+$$
+H_0:\theta \in \ct_0
+\qquad\text{vs}\qquad
+H_A:\theta \in \ct_A
+$$
+
+the likelihood ratio statistic based on data $\vX = (X_1,\dots,X_n)$ is
+
+$$
+\Lambda(\vX)
+=
+\frac{\sup_{\theta\in \ct_0} L(\theta \mid \vX)} 
+     {\sup_{\theta\in \ct} L(\theta \mid \vX)}
+     =\frac{\text{best fit under }H_0}
+          {\text{best fit over the entire parameter space}}
+$$
+
+- The numerator is the largest likelihood *under $H_0$*  
+- The denominator is the largest likelihood [over the entire parameter space]{.alert}
+
+&nbsp;
+
+Reject for small $\Lambda$
+
+---
+
+### Example: mean of IID Normal data with known $\sigma$, testing simple vs composite (two-sided)
+
+$$
+H_0:\mu=\mu_0
+\qquad
+H_A:\mu\ne \mu_0
+$$
+
+Suppose $X_1,\dots,X_n \IIDsim \Norm(\mu,\sigma^2)$.  The [likelihood ratio]{.alert} test statistic is
+
+$$
+\Lambda(\vX)
+=
+\frac{\sup_{\mu=\mu_0} L(\mu \mid \vX)}
+     {\sup_{\mu\in\reals} L(\mu \mid \vX)}
+=
+\frac{L(\mu_0 \mid \vX)}{L(\barX_n \mid \vX)},
+\qquad \text{since the MLE of $\mu$ is $\barX_n$ for IID normal data}
+$$
+
+Because the logarithm is increasing, it is convenient to work with
+
+\begin{multline*}
+\log \Lambda(\vX)
+=
+\log L(\mu_0 \mid \vX)-\log L(\barX_n \mid \vX) \\
+=
+-\frac{1}{2\sigma^2}\sum_{i=1}^n (X_i-\mu_0)^2
++\frac{1}{2\sigma^2}\sum_{i=1}^n (X_i-\barX_n)^2
+= \cdots 
+=
+-\frac{n}{2\sigma^2}(\barX_n-\mu_0)^2
+\end{multline*}
+
+---
+
+\begin{equation*}
+\log \Lambda(\vX)
+=
+-\frac{n}{2\sigma^2}(\barX_n-\mu_0)^2 
+\end{equation*}
+
+[Reject]{.alert} when $\Lambda(\vX)$ is small $\iff |\barX_n-\mu_0|$ is large, equivalently, reject when
+
+$$
+\left|\frac{\barX_n-\mu_0}{\sigma/\sqrt n}\right| > z_{\alpha/2}
+$$
+
+The cutoff is chosen so that
+
+$$
+\Prob\!\left(\left|\frac{\barX_n-\mu_0}{\sigma/\sqrt n}\right|>z_{\alpha/2}\ \middle|\ \mu=\mu_0\right)=\alpha,
+$$
+
+which depends only on $\mu_0$, $\sigma$, $n$, and $\alpha$
+
+&nbsp;
+
+The likelihood ratio test therefore reproduces the classical two-sided $z$-test for the mean of a normal distribution with known variance
+
+
+
+## Example: LRT for a normal mean (unknown variance) — nuisance parameters
+
+$$
+H_0:\mu=\mu_0
+\qquad \text{vs} \qquad
+H_A:\mu\ne\mu_0
+$$
+
+Suppose $X_1,\dots,X_n \IIDsim \Norm(\mu,\sigma^2)$
+
+
+Parameter vector: $\theta=(\mu,\sigma^2),
+\qquad
+\sigma^2$  is a [nuisance parameter]{.alert}
+
+
+### Step 1: Unrestricted MLE
+
+Log-likelihood:
+$$
+\ell(\mu,\sigma^2)
+=
+-\frac{n}{2}\log (\sigma^2)
+-
+\frac{1}{2\sigma^2}
+\sum_{i=1}^n (X_i-\mu)^2 + \text{constants}
+$$
+
+Maximizing gives
+\begin{gather*}
+\mu_{\MLE} = \barX_n,
+\qquad
+\sigma_{\MLE}^2
+=
+\frac{1}{n}\sum_{i=1}^n (X_i-\barX_n)^2 = \frac{n-1}{n} S_n^2 \\
+\sup_{\mu,\sigma^2} \ell(\mu,\sigma^2) = -\frac{n}{2}\log (\sigma^2_{\MLE}) - \frac{n}{2} + \text{constants}
+\end{gather*}
+
+---
+
+### Step 2: MLE under $H_0$
+
+Under $\mu=\mu_0$,
+\begin{gather*}
+\sigma_{0,\MLE}^2
+=
+\frac{1}{n}\sum_{i=1}^n (X_i-\mu_0)^2 = (\barX_n - \mu_0)^2 + \frac 1n \sum_{i=1}^n (X_i-\barX_n)^2 
+= (\barX_n - \mu_0)^2 + \sigma_{\MLE}^2 \\
+\sup_{\sigma^2} \ell(\mu_0,\sigma^2) = -\frac{n}{2}\log (\sigma^2_{0,\MLE}) - \frac{n}{2} + \text{constants}
+\end{gather*}
+
+### Step 3: (Log) likelihood ratio
+
+\begin{gather*}
+\log \bigl(\Lambda(\vX) \bigr)
+=
+\sup_{\sigma^2} \ell(\mu_0,\sigma^2_{0,\MLE})
+-
+\sup_{\mu,\sigma^2} \ell(\mu,\sigma^2_{\MLE})
+=
+-\frac{n}{2}\log (\sigma^2_{0,\MLE}) + \frac{n}{2}\log (\sigma^2_{\MLE}) \\
+\Lambda(\vX)
+=
+\left(\frac{\sigma^2_{0,\MLE}}{\sigma^2_{\MLE}}\right)^{-n/2}
+\end{gather*}
+
+---
+
+### Step 4: Where nuisance disappears
+
+Therefore
+\begin{align*}
+\frac{\sigma_{0,\MLE}^2}{\sigma_{\MLE}^2}
+& =
+\frac{(\barX_n - \mu_0)^2 + \sigma_{\MLE}^2}{\sigma_{\MLE}^2}
+= 
+\frac{(\barX_n-\mu_0)^2}
+     {(n-1) S_n^2/n} + 1
+= \frac{T_n^2}{n-1} + 1\\
+\Lambda(\vX)
+& =
+\left(
+1 + \frac{T_n^2}{n-1}
+\right)^{-n/2}
+\end{align*}
+
+where $\displaystyle T_n = \frac{\barX_n-\mu_0}{S/\sqrt n}$ is the familiar $t$-statistic
+
+- The likelihood ratio depends only on the $t$-statistic for testing $H_0: \mu = \mu_0$ vs $H_A: \mu \ne \mu_0$
+
+- The nuisance parameter $\sigma^2$ has disappeared
+
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>
+Show that the LRT for testing $H_0: \mu = \mu_0$ vs $H_A: \mu  = \mu_1$ with $\mu_1 > \mu_0$ and $\sigma$ unknown is the familar one-sided $t$-test as 
+</span>
+:::
+
+
+
+
+## Wilks' Theorem {#largesamplelikelihoodratio}
+$$
+\Lambda(\vX)
+= 
+\frac{\displaystyle \sup_{\theta\in \ct_0} L(\theta \mid \vX)}
+     {\displaystyle \sup_{\theta\in \ct} L(\theta \mid \vX)}
+$$
+
+Under regularity conditions,
+
+$$
+-2 \log \Lambda
+\dto
+\chi^2_{\df}
+$$
+where the degrees of freedom is
+$$
+\df
+=
+\dim(\text{full model}) - \dim(\text{null model})
+$$
+
+### Example: Normal data with unknown $\sigma$
+
+- Full model for $\Norm(\mu,\sigma^2)$ has $\dim(\ct) = 2$
+- Null model for $H_0: \mu = \mu_0$ has $\dim(\ct_0) = 1$
+- $\df = 2 - 1 = 1$
+
+
+
+## Why bother with the likelihood ratio test (LRT)
+
+$$
+\Lambda(\vX)
+=
+\frac{\sup_{\theta \in \ct_0} L(\theta \mid \vX)}
+{\sup_{\theta \in \ct} L(\theta \mid \vX)} \qquad \text{Reject when $\Lambda(\vX)$ is small}
+$$
+
+
+Even though 
+
+- We already know the $z$, $t$, and other tests
+
+- We still need to choose the rejection region cut-off to get the desired size $\alpha$
+
+However, the LRT
+
+- Is a unifying concept
+
+- Handles composite hypotheses
+
+- Reproduces $z$, $t$, $\chi^2$, $F$ tests
+
+- Scales to multi-parameter models
+
+- Has large-sample theory (Wilks)
+
+&nbsp;
+
+---
+
+$\exstar$ {{< meta texts.wms.initials >}} 10.105, 10.106, 10.112
+
+$\exstar$ {{< meta texts.cb.initials >}} 8.29, 8.40, 8.41

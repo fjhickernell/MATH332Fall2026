@@ -1,0 +1,31 @@
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+  console.log("qmcpy-pypi-impact script loaded");
+
+  const el = document.getElementById("qmcpy-pypi-impact");
+  console.log("qmcpy-pypi-impact element:", el);
+
+  if (!el) {
+    console.log("qmcpy-pypi-impact element not found");
+    return;
+  }
+
+  el.textContent = "Testing PyPI impact fetch...";
+
+  const url =
+    "https://raw.githubusercontent.com/QMCSoftware/QMCSoftware/pypi-stats/stats/pypi_impact_one_liner.txt?v=" +
+    Date.now();
+
+  try {
+    const response = await fetch(url);
+    console.log("fetch response status:", response.status);
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const text = (await response.text()).trim();
+    console.log("fetched text:", text);
+    el.textContent = text;
+  } catch (err) {
+    console.error("PyPI impact fetch failed:", err);
+    el.textContent = "PyPI impact metric unavailable.";
+  }
+});
+</script>

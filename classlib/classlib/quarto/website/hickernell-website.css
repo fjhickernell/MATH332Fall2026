@@ -1,0 +1,199 @@
+/*
+ * hickernell-website.css
+ *
+ * Shared website styles for HickernellAcademicLib
+ * - Applied to Quarto website pages (not RevealJS slides)
+ * - Optimized for teaching readability on large screens & projectors
+ */
+
+/* --------------------------------------------------
+   Base typography (override Bootstrap / Quarto defaults)
+-------------------------------------------------- */
+
+html {
+  font-size: 21px !important;
+}
+
+main.content {
+  line-height: 1.6;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.45rem; }
+h4 { font-size: 1.2rem; }
+
+table {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+th,
+td {
+  padding: 0.4em 0.6em;
+  vertical-align: top;
+}
+
+a {
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.15em;
+}
+
+/* --------------------------------------------------
+   Navbar
+-------------------------------------------------- */
+
+/* Increase dropdown readability */
+.navbar .dropdown-menu .dropdown-item {
+  font-size: 1.1rem;
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
+}
+
+/* --------------------------------------------------
+   Horizontal rules
+-------------------------------------------------- */
+
+main.content hr {
+  opacity: 1;
+  background: none;
+  height: 0;
+  border: 0;
+  border-top: 2px solid #bbb;
+  margin: 1.5rem 0;
+}
+
+/* --------------------------------------------------
+   Section heading separators
+-------------------------------------------------- */
+
+main.content h2 {
+  border-bottom: 2px solid #bbb;
+  padding-bottom: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+/* --------------------------------------------------
+   Semantic emphasis
+-------------------------------------------------- */
+
+main.content .key-point {
+  border-left: 5px solid var(--bs-primary, #0d6efd);
+  padding-left: 1em;
+  margin: 1.25em 0;
+  font-weight: 500;
+}
+
+main.content .key-point > :first-child {
+  margin-top: 0;
+}
+
+main.content .key-point > :last-child {
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------
+   Footer
+-------------------------------------------------- */
+
+footer {
+  margin-top: 2rem;
+}
+
+:root {
+  --bs-body-font-size: 21px;
+}
+
+body {
+  font-size: var(--bs-body-font-size) !important;
+}
+
+main.content {
+  font-size: 21px;
+  color: #222;
+}
+
+main.content h1,
+main.content h2,
+main.content h3,
+main.content h4 {
+  color: #111;
+}
+
+/* --------------------------------------------------
+   Instructor photo
+-------------------------------------------------- */
+
+.instructor-photo {
+  float: right;
+  width: 300px;
+  max-width: 100%;
+  height: auto;
+  margin-left: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .instructor-photo {
+    float: none;
+    display: block;
+    width: 80%;
+    max-width: 300px;
+    margin: 0 auto 1rem auto;
+  }
+}
+
+/* QMC software table tweaks */
+.software-desc {
+  font-size: 0.9em;
+  color: #555;
+}
+
+table td:nth-child(4) {
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+table td:nth-child(1) {
+  vertical-align: top;
+}
+
+/* --- QMC software table styling --- */
+
+/* Header row */
+table thead th {
+  background-color: #2c3e50;   /* dark blue/gray */
+  color: white;
+  text-align: left;
+}
+
+/* Stronger alternating row contrast */
+table tbody tr:nth-child(odd) {
+  background-color: #e9eef4;   /* slightly darker gray-blue */
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+table tbody tr:hover {
+  background-color: #cfe0f5;
+  outline: 3px solid #b6cbe3;
+}
+
+/* Keep columns balanced */
+table td, table th {
+  vertical-align: top;
+  padding: 6px 10px;
+}
+
+/* Description under name */
+.software-desc {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Prevent contact column from getting too wide */
+table td:nth-child(4) {
+  white-space: nowrap;
+}

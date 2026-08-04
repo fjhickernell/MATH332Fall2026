@@ -1,0 +1,68 @@
+format:
+  revealjs:
+    navigation-mode: grid
+    controls: true
+    reveal-options:
+      disableLayout: true
+    html-math-method:
+      method: mathjax
+      url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js
+
+    metadata-files:
+      - ../classlib/classlib/quarto/metadata/hickernell-texts.yml
+      - ../classlib/classlib/quarto/metadata/hickernell-papers.yml
+
+    include-in-header:
+      - ../classlib/classlib/quarto/slides/hickernell-latex-macros.js
+      - ../classlib/classlib/quarto/slides/title-course-website.html
+      - ../classlib/classlib/quarto/slides/ipad-webapp-meta.html
+
+    include-after-body:
+      - ../classlib/classlib/quarto/slides/reveal-scale-var.html
+      - ../classlib/classlib/quarto/slides/reveal-nav-reset.html
+      - ../classlib/classlib/quarto/slides/deck-nav-arrows.html
+      - ../classlib/classlib/quarto/slides/qmcpy-pypi-impact.html
+      - text: |
+          <script src="../classlib/classlib/quarto/slides/deck-nav-arrows.js"></script>
+    theme:
+      - simple
+      - ../classlib/classlib/quarto/slides/hickernell-slides.scss
+
+    footer: |
+      <div class="fh-footer">
+        <span class="fh-footer-main">
+          © 2026 Fred J. Hickernell · Illinois Tech · assisted by ChatGPT
+          <span class="fh-footer-sep">·</span>
+          <span class="fh-footer-deck">
+            {{< meta deck_short_title >}}
+          </span>
+          <span class="fh-footer-sep">·</span>
+          <a
+            id="fh-course-website"
+            href="#"
+            target="_blank"
+            rel="noopener"
+            onmouseenter="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)"
+            onfocus="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)"
+          >{{< meta course_title >}} Website</a>
+          <span class="fh-footer-sep">·</span>
+          <span class="fh-footer-ex">
+            $\exstar$ = exercise
+          </span>
+        </span>
+      </div>
+
+    slide-number: c/t
+    show-slide-number: all
+    width: 1600
+    height: 1000
+    margin: 0.00
+    center: false
+    slide-level: 2
+
+    title-slide-attributes:
+      data-background-image: "{{< meta course_website >}}classlib/classlib/quarto/assets/images/normal-scatter.png"
+      data-background-size: 55%
+      data-background-position: "top left"
+      data-background-color: "#f5f7fb"
+

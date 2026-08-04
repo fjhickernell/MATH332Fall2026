@@ -1,0 +1,292 @@
+---
+title: "Matched Pairs Inference with Real Data: Sleep Study"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+execute:
+  echo: true
+  warning: false
+  message: false
+jupyter: python3
+---
+
+## Overview
+
+This notebook starts from **real data** (downloaded from a stable public source) and walks through a full matched-pairs analysis:
+
+- Reshape raw data into matched pairs
+- Compute paired differences
+- Build a **$t$-based confidence interval** for the mean difference
+- Perform a **paired $t$-test**
+- Check/record assumptions (normality of differences)
+- Add a **nonparametric alternative** (Wilcoxon signed-rank test)
+
+### Study design
+
+Each subject receives **both** Drug 1 and Drug 2, and the response is the *increase in sleep* (hours). Because the same subjects appear in both conditions, we use the paired-difference model.
+
+Let
+$$
+D_i = (\text{Drug2})_i - (\text{Drug1})_i, \quad i=1,\dots,n.
+$$
+
+We treat $\{D_i\}$ as i.i.d. draws from a population of differences with mean $\mu_d$ and variance $\sigma_d^2$.
+
+---
+
+## Setup
+
+```{python}
+import numpy as np
+import pandas as pd
+import scipy.stats as st
+import matplotlib.pyplot as plt
+
+plt.rcParams["mathtext.fontset"] = "cm"
+
+from classlib.plots import (
+    annotate_xaxis_marks,
+    shade_under_curve,
+    curve_color,
+    reject_color,
+)
+```
+
+---
+
+## Download the data
+
+We load the classic `sleep` dataset from Rdatasets (a public mirror of many R datasets).
+
+```{python}
+url = "https://vincentarelbundock.github.io/Rdatasets/csv/datasets/sleep.csv"
+sleep = pd.read_csv(url)
+sleep.head()
+```
+
+Variables:
+
+- `extra`: increase in sleep (hours)
+- `group`: drug group (`1` or `2`)
+- `ID`: subject ID
+
+```{python}
+sleep[["extra", "group", "ID"]].describe(include="all")
+```
+
+---
+
+## Reshape to matched pairs and compute differences
+
+```{python}
+sleep_wide = sleep.pivot(index="ID", columns="group", values="extra").copy()
+sleep_wide.columns = ["Drug1", "Drug2"]
+sleep_wide["Difference"] = sleep_wide["Drug2"] - sleep_wide["Drug1"]
+sleep_wide
+```
+
+```{python}
+d = sleep_wide["Difference"].to_numpy()
+n = d.size
+mean_d = float(np.mean(d))
+sd_d = float(np.std(d, ddof=1))
+se_d = sd_d / np.sqrt(n)
+
+mean_d, sd_d, se_d, n
+```
+
+---
+
+## Visualize the paired differences
+
+A quick histogram is a good first check for skewness/outliers.
+
+```{python}
+fig, ax = plt.subplots()
+ax.hist(d, bins=8)
+ax.set_xlabel("Difference (Drug2 - Drug1)")
+ax.set_ylabel("Frequency")
+ax.set_title("Paired Differences")
+
+# mark 0 and the sample mean
+annotate_xaxis_marks(
+    ax,
+    xs=[0, mean_d],
+    labels=["0", r"$\bar d$"],
+    y_frac=0.02,
+)
+
+plt.show()
+```
+
+---
+
+## $t$-based confidence interval for $\mu_d$
+
+Assuming the paired differences are approximately normal (or that the $t$ procedures are adequate),
+a $100(1-\alpha)\%$ CI for $\mu_d$ is
+
+$$
+\bar d \pm t_{1-\alpha/2,\;n-1}\;\frac{s_d}{\sqrt{n}}.
+$$
+
+```{python}
+alpha = 0.05
+df = n - 1
+t_star = st.t.ppf(1 - alpha/2, df)
+
+ci_lower = mean_d - t_star * se_d
+ci_upper = mean_d + t_star * se_d
+
+(ci_lower, ci_upper)
+```
+
+```{python}
+print(f"n = {n}")
+print(f"mean difference (Drug2 - Drug1) = {mean_d:.3f}")
+print(f"sd of differences = {sd_d:.3f}")
+print(f"95% CI for mu_d = ({ci_lower:.3f}, {ci_upper:.3f})")
+```
+
+::: {.callout-note}
+### Assumption note (important)
+
+The paired $t$ procedures assume the **distribution of paired differences** is (approximately) normal.
+
+- If $n$ is large, the CLT often makes the $t$ procedures work well even with some non-normality.
+- Here $n=10$ is small, so we should at least **look** at the differences and record the assumption.
+- Later in the course, we can compare to a **nonparametric** paired alternative (Wilcoxon signed-rank).
+:::
+
+---
+
+## Paired $t$-test
+
+We test
+$$
+H_0: \mu_d = 0
+\quad \text{vs.} \quad
+H_a: \mu_d \ne 0.
+$$
+
+The test statistic is
+$$
+t = \frac{\bar d - 0}{s_d/\sqrt{n}},
+$$
+which (under $H_0$ and normality of differences) follows a $t$ distribution with $n-1$ degrees of freedom.
+
+```{python}
+t_stat = mean_d / se_d
+p_value = 2 * (1 - st.t.cdf(abs(t_stat), df))
+t_stat, p_value
+```
+
+```{python}
+print(f"t statistic = {t_stat:.3f} with df = {df}")
+print(f"two-sided p-value = {p_value:.4f}")
+```
+
+Cross-check with SciPy:
+
+```{python}
+st.ttest_rel(sleep_wide["Drug2"], sleep_wide["Drug1"])
+```
+
+---
+
+## Visual: $t$ curve and two-sided p-value shading
+
+```{python}
+fig, ax = plt.subplots()
+
+xs = np.linspace(-5, 5, 800)
+ys = st.t.pdf(xs, df)
+ax.plot(xs, ys)
+
+ax.set_xlabel("t")
+ax.set_ylabel("density")
+ax.set_title("Paired t-test: two-sided p-value")
+
+shade_under_curve(ax, xs, ys, xs <= -abs(t_stat), alpha=0.35)
+shade_under_curve(ax, xs, ys, xs >=  abs(t_stat), alpha=0.35)
+
+annotate_xaxis_marks(
+    ax,
+    xs=[-abs(t_stat), abs(t_stat)],
+    labels=[r"$-|t_{\mathrm{obs}}|$", r"$|t_{\mathrm{obs}}|$"],
+    y_frac=0.02,
+)
+
+plt.show()
+```
+
+---
+
+## Quick normality checks for the differences
+
+These checks **do not prove normality**. They help us notice severe departures (strong skew/outliers).
+
+### Q–Q plot
+
+```{python}
+fig, ax = plt.subplots()
+st.probplot(d, dist="norm", plot=ax)
+ax.set_title("Normal Q–Q Plot of Paired Differences")
+plt.show()
+```
+
+### Shapiro–Wilk test (optional)
+
+Shapiro–Wilk tests $H_0$: “data are normally distributed.”
+
+```{python}
+st.shapiro(d)
+```
+
+::: {.callout-warning}
+### Interpretation warning
+
+Normality tests have limited power at small $n$ and can also be over-sensitive at large $n$.
+
+In practice, you should combine:
+
+- a plot-based check (hist/Q–Q),
+- knowledge of the data-generating process,
+- and (when appropriate) a robustness/nonparametric alternative.
+:::
+
+---
+
+## Nonparametric alternative: Wilcoxon signed-rank test
+
+The Wilcoxon signed-rank test is a common paired alternative that does not require normality.
+It targets a **center/median shift** in the distribution of differences.
+
+We test (two-sided) whether the differences are centered at 0.
+
+```{python}
+st.wilcoxon(d, alternative="two-sided")
+```
+
+::: {.callout-note}
+### How to compare
+
+If the paired $t$-test and Wilcoxon test agree, that usually increases confidence in the conclusion.
+
+If they disagree, look harder at:
+- outliers,
+- skewness,
+- and whether a mean-based vs median-based question is more appropriate.
+:::
+
+---
+
+## Summary (what to report)
+
+- Data: matched pairs on $n$ subjects, response is sleep increase difference (Drug2 − Drug1).
+- Parameter of interest: mean difference $\mu_d$ (and/or median difference for nonparametric analysis).
+- 95% CI for $\mu_d$: report the interval from the CI section.
+- Paired $t$-test: report $t$, df, and p-value.
+- Assumption note: procedures rely on approximate normality of the paired differences.
+- Wilcoxon signed-rank: report its p-value as a robustness/nonparametric comparison.

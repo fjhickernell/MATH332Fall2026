@@ -1,0 +1,89 @@
+<script>
+(function () {
+  function install() {
+    if (!window.Reveal || !Reveal.getIndices || !Reveal.slide) return false;
+    if (Reveal.__fh_h_to_top_installed) return true;
+    Reveal.__fh_h_to_top_installed = true;
+
+    let prevH = null;
+
+    // When h changes, keep forcing v=0 for a short window (ms).
+    let lockH = null;
+    let lockUntil = 0;
+
+    function nowMs() {
+      return (typeof performance !== "undefined" && performance.now) ? performance.now() : Date.now();
+    }
+
+    function startLock(h, ms) {
+      lockH = h;
+      lockUntil = nowMs() + ms;
+    }
+
+    function snapTopIfNeeded(tag) {
+      if (!window.Reveal || !Reveal.getIndices || !Reveal.slide) return;
+
+      if (Reveal.isOverview && Reveal.isOverview()) return;
+      if (Reveal.isPaused && Reveal.isPaused()) return;
+
+      const idx = Reveal.getIndices();
+      const t = nowMs();
+
+      // Detect any horizontal move (either direction) and start a lock.
+      if (prevH === null) {
+        prevH = idx.h;
+      } else if (idx.h !== prevH) {
+        prevH = idx.h;
+        startLock(idx.h, 350);
+      }
+
+      // While locked, force v=0 (and reset fragments) if needed.
+      if (lockH !== null && t <= lockUntil) {
+        if (idx.h === lockH && idx.v !== 0) {
+          Reveal.slide(lockH, 0, 0);
+        }
+      } else {
+        lockH = null;
+      }
+    }
+
+    // Poll is the most reliable because it catches:
+    // - keyboard, click, remote
+    // - Reveal’s async “state carry” that can push to v=1 after the jump
+    setInterval(function () { snapTopIfNeeded("poll"); }, 60);
+
+    // Also react quickly after Reveal events (reduces visible jerk).
+    if (Reveal.on) {
+      Reveal.on("slidechanged", function () { snapTopIfNeeded("slidechanged"); });
+      Reveal.on("slidetransitionend", function () { snapTopIfNeeded("transitionend"); });
+      Reveal.on("ready", function () { snapTopIfNeeded("ready"); });
+    }
+
+    window.addEventListener("hashchange", function () { snapTopIfNeeded("hashchange"); });
+
+    // Safari/WebKit occasionally fails to repaint Reveal slides after focus returns.
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    if (isSafari) {
+      window.addEventListener("focus", function () {
+        const slides = document.querySelector(".reveal .slides");
+        if (!slides) return;
+        slides.style.opacity = "0.999";
+        void slides.offsetHeight;
+        slides.style.opacity = "";
+        if (window.Reveal && Reveal.layout) Reveal.layout();
+      });
+    }
+
+    return true;
+  }
+
+  let tries = 0;
+  (function wait() {
+    tries += 1;
+    if (install()) return;
+    if (tries >= 200) return;
+    setTimeout(wait, 25);
+  })();
+})();
+</script>
+

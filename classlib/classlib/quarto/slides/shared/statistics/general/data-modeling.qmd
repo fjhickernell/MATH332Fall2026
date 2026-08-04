@@ -1,0 +1,190 @@
+# Using Data Wisely {data-state="goldborder"}
+
+- [Collect]{.alert} the data  
+- [Explore]{.alert} the data  
+- [Choose]{.alert} a model / procedure  
+- [Draw]{.alert} conclusions  
+
+<h3>The data have several roles</h3>
+
+- *Data collection* → what data even exist  
+- *Exploratory Data Analysis (EDA)* → learn from the data  
+- *Model selection* → choose a procedure  
+- *Data snooping* 🚫 → reuse data to chase results  
+
+👉 validity starts *before* analysis  
+
+---
+
+## Data collection
+
+- How are data obtained?
+
+- Design matters:
+
+  - random sampling  
+  - random assignment  
+  - observational vs experimental  
+
+- Issues:
+
+  - bias (systematic error)  
+  - confounding (hidden drivers)  
+  - missingness (not at random?)  
+
+- Examples:
+
+  - convenience sample → biased estimates  
+  - lurking variable → spurious relationship  
+
+👉 No analysis fixes bad data  
+
+---
+
+## Exploratory data analysis (EDA)
+
+:::{.columns}
+
+::: {.column width="55%"}
+
+- Look first, decide later  
+
+- Tools:
+
+  - plots (histogram, scatterplot, boxplot)  
+  - summaries (mean, median, spread)  
+  - transformations (log, scale)  
+
+- What to look for:
+
+  - structure → trends, clusters, nonlinearities  
+  - anomalies → outliers, data errors  
+  - relationships → associations between variables  
+
+- Examples:
+
+  - skewed data → log transform  
+  - funnel shape → non-constant variance  
+  - outlier → data error or important case?  
+
+:::
+
+::: {.column width="45%"}
+
+
+👉 hypothesis-generating, not testing  
+
+::: {.key-point}
+
+"The greatest value of a picture is when it forces us to notice what we never expected"
+
+ — attribued to [John Tukey](https://en.wikipedia.org/wiki/John_Tukey), see his book, 
+   *Exploratory Data Analysis* (1977)
+
+:::
+
+:::
+
+:::
+
+## Model selection (broad view)
+
+:::{.columns}
+
+:::{ .column width="50%"}
+
+- Choose among
+
+  - probability models  
+  - regression models  
+  - test statistics  
+  - transformations  
+  - distributions / assumptions  
+
+- Criteria:
+
+  - fit (does it match the data?)  
+  - simplicity (parsimony)  
+  - interpretability  
+
+- Examples:
+
+  - linear vs nonlinear regression  
+  - normal vs skewed error model  
+  - include/exclude predictors  
+
+:::
+
+:::{ .column width="50%"}
+👉 choose a *procedure* for inference  
+
+:::
+
+:::
+
+
+## Model selection: a subtle point
+
+- Selection uses the data  
+
+- Then we perform inference *as if the model were fixed*  
+
+- Consequence: [uncertainty is underestimated]{.alert}
+
+- Example:
+
+  - try many regressions → report the “best” one  
+  - standard errors ignore the search  
+
+👉 $p$-values too small, intervals too narrow  
+
+---
+
+## Data snooping 🚫
+
+- What it is
+
+  - Trying many things on the same data  
+  - Reporting what “works”  
+
+- Examples:
+
+  - many hypothesis tests → report significant ones  
+  - trying transformations until p < 0.05  
+
+- Consequence: [Type I error is inflated beyond $\alpha$]{.alert}
+
+👉 false discoveries become likely  
+
+---
+
+## Avoiding the data snooping trap
+
+- Separate roles:
+
+  - exploration / training  
+  - validation  
+  - test  
+
+- Or:
+
+  - pre-specify procedures  
+  - use cross-validation  
+
+- Mindset:
+
+  - exploration is flexible  
+  - inference must be disciplined  
+
+👉 exploration ≠ confirmation  
+
+---
+
+## Takeaway
+
+- collection → foundation  
+- EDA → understand  
+- selection → decide  
+- snooping → distort  
+
+👉 problems early propagate forward  

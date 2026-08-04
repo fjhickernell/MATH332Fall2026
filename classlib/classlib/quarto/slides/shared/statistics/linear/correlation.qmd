@@ -1,0 +1,230 @@
+# Correlation {#correlation}
+
+- We often want to measure the strength of a linear relationship between two random variables $X$ and $Y$ with out assuming that one explains the other
+
+- For random variables $X,Y$, define the population correlation
+
+$$
+\rho = \frac{\cov(X,Y)}{\sqrt{\var(X)\var(Y)}}
+$$
+
+- Given paired data $(X_1,Y_1),\ldots,(X_n,Y_n)$, the sample correlation coefficient is
+
+$$
+r
+=
+\frac{\sum_{i=1}^n (X_i-\barX)(Y_i-\barY)}{\sqrt{\sum_{i=1}^n (X_i-\barX)^2}
+\sqrt{\sum_{i=1}^n (Y_i-\barY)^2}}
+$$
+
+- Equivalently,
+
+
+## Interpretation of correlation
+
+- $-1 \le \varrho \le 1$
+
+- $\varrho \approx 1$: strong positive linear relationship  
+- $\varrho \approx -1$: strong negative linear relationship  
+- $\varrho \approx 0$: weak or no linear relationship
+
+- Correlation measures linear association only, not nonlinear relationships
+
+- Important:
+  - $\varrho = 0$ does not imply independence
+  - Sensitive to outliers
+
+## Testing for correlation
+
+- We test whether there is a linear relationship:
+
+$$
+H_0: \rho = 0
+\qquad
+H_a: \rho \ne 0
+$$
+
+- Under the model:
+
+$$
+Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i,
+\qquad
+\varepsilon_i \sim \Norm(0,\sigma^2)
+$$
+
+- Note:
+
+$$
+\rho = 0 \quad \Longleftrightarrow \quad \beta_1 = 0
+$$
+
+
+## Test statistic for correlation
+
+- The test statistic is
+
+$$
+t
+=
+\frac{r\sqrt{n-2}}{\sqrt{1-r^2}}
+$$
+
+- Under $H_0$:
+
+$$
+t \sim t_{n-2}
+$$
+
+- Equivalent to the regression $t$-test for $\beta_1$
+
+
+## Connection to ANOVA
+
+- Squaring the $t$-statistic gives
+
+$$
+F = t^2
+$$
+
+- So in simple linear regression:
+
+$$
+F = \frac{r^2}{1-r^2}(n-2)
+$$
+
+- Thus:
+
+  - correlation test
+  - slope test
+  - ANOVA $F$-test
+
+are all the same test in this setting
+
+
+## Interpretation
+
+- Large $|t|$ (or large $|r|$) ⇒ evidence of linear relationship
+
+- Small $|t|$ ⇒ insufficient evidence that $\rho \ne 0$
+
+- This is a test of linear association, not general dependence
+
+## Correlation and regression
+
+- In simple linear regression ($d=2$),
+
+$$
+\hat\beta_1
+=
+r \frac{s_y}{s_x}
+$$
+
+- So:
+
+  - The sign of $\hat\beta_1$ matches the sign of $r$
+  - Larger $|r|$ implies a steeper slope (relative to scales)
+
+- Coefficient of determination:
+
+$$
+R^2 = r^2
+$$
+
+- Interpreted as proportion of variability in $Y$ explained by $X$
+
+
+## Caution: correlation is not causation
+
+- A high correlation does not imply a causal relationship
+
+- Possible explanations:
+
+  - Confounding variables  
+  - Reverse causation  
+  - Coincidence  
+
+- Always interpret correlation in context
+
+
+## From regression to ANOVA
+
+- So far, we have studied:
+
+  - Estimation of $\vbeta$  
+  - Inference for regression coefficients  
+  - Model diagnostics  
+
+- Now we shift perspective:
+
+  - Instead of individual coefficients, we assess overall model variation
+
+- This leads to analysis of variance (ANOVA)
+
+
+## Decomposition of variability
+
+- Total variability in the response:
+
+$$
+\text{SST} = \sum_{i=1}^n (Y_i - \bar Y)^2
+$$
+
+- Decomposes as
+
+$$
+\text{SST} = \text{SSR} + \text{RSS}
+$$
+
+where
+
+- $\text{SSR}$: variation explained by the model  
+- $\text{RSS}$: residual (unexplained) variation  
+
+
+## ANOVA table for regression
+
+| Source      | Sum of Squares | df        | Mean Square |
+|-------------|----------------|-----------|-------------|
+| Regression  | SSR            | $d-1$     | MSR         |
+| Residual    | RSS            | $n-d$     | MSE         |
+| Total       | SST            | $n-1$     |             |
+
+
+## F-test for overall significance
+
+- Test whether the model explains any variability:
+
+$$
+H_0: \beta_1 = \cdots = \beta_{d-1} = 0
+$$
+
+$$
+H_a: \text{at least one } \beta_j \ne 0
+$$
+
+- Test statistic:
+
+$$
+F = \frac{\text{MSR}}{\text{MSE}}
+=
+\frac{\text{SSR}/(d-1)}{\text{RSS}/(n-d)}
+$$
+
+- Under $H_0$:
+
+$$
+F \sim F_{d-1,\,n-d}
+$$
+
+
+## Interpretation of ANOVA
+
+- Large $F$ implies the model explains significant variability
+
+- Small $F$ implies little improvement over the mean-only model
+
+- In simple regression:
+
+$$
+F = \frac{r^2}{1-r^2} (n-2)
+$$

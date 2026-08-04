@@ -1,0 +1,103 @@
+<script id="course-website-meta" type="application/json">
+{
+  "course_website": "{{< meta course_website >}}",
+  "deck_title": "{{< meta title >}}"
+}
+</script>
+
+<script>
+(function () {
+
+  function readMeta() {
+    const el = document.getElementById("course-website-meta");
+    if (!el) return {};
+    try {
+      return JSON.parse(el.textContent || "{}");
+    } catch (e) {
+      return {};
+    }
+  }
+
+  function clean(v) {
+    if (!v || typeof v !== "string") return "";
+    // Quarto leaves unresolved meta as strings containing "meta "
+    if (v.includes("meta ")) return "";
+    return v.trim();
+  }
+
+  function setFooterCourseWebsite() {
+    const meta = readMeta();
+
+    const url = clean(meta.course_website);
+    const deckTitle = clean(meta.deck_title);
+
+    const a = document.getElementById("fh-course-website");
+    if (!a) return;
+
+    if (url) a.setAttribute("href", url);
+
+    if (deckTitle) {
+      a.textContent = deckTitle + " · Course Website";
+    }
+  }
+
+  function insertCourseWebsiteOnTitleSlide() {
+    const meta = readMeta();
+    const url = clean(meta.course_website);
+    if (!url) return;
+
+    const titleSlide = document.querySelector(".reveal #title-slide");
+    if (!titleSlide) return;
+
+    if (titleSlide.querySelector(".course-website")) return;
+
+    const p = document.createElement("p");
+    p.className = "course-website";
+    p.innerHTML = `<a href="${url}">${url}</a>`;
+
+    const authorBlock =
+      titleSlide.querySelector(".quarto-title-authors") ||
+      titleSlide.querySelector(".quarto-title-author") ||
+      titleSlide.querySelector(".quarto-title-author-name");
+
+    const subtitle = titleSlide.querySelector("p.subtitle");
+
+    if (authorBlock && authorBlock.parentNode) {
+      authorBlock.parentNode.insertBefore(p, authorBlock);
+    } else if (subtitle && subtitle.parentNode) {
+      subtitle.parentNode.insertBefore(p, subtitle.nextSibling);
+    } else {
+      titleSlide.appendChild(p);
+    }
+  }
+
+  function applyAll() {
+    setFooterCourseWebsite();
+    insertCourseWebsiteOnTitleSlide();
+  }
+
+  function hookReveal() {
+    if (window.Reveal && typeof window.Reveal.on === "function") {
+      window.Reveal.on("ready", applyAll);
+      window.Reveal.on("slidechanged", applyAll);
+      applyAll();
+      return;
+    }
+
+    let tries = 0;
+    const t = setInterval(function () {
+      applyAll();
+      tries += 1;
+      if (tries >= 20) clearInterval(t);
+    }, 250);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", hookReveal);
+  } else {
+    hookReveal();
+  }
+
+})();
+</script>
+

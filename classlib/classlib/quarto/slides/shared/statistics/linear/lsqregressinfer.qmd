@@ -1,0 +1,957 @@
+# Inference for regression parameters and predictions assuming $\vveps \sim \Norm(\vzero,\sigma^2 \mI)$ {#ols_inference}
+
+[({{< meta texts.cb.initials >}} §11.3; {{< meta texts.wms.initials >}} §11.4–11.7, 11.12–11.13)]{.small}
+
+So far, we have only used the assumptions that 
+
+  - $\mX$ is fixed and of full column rank
+  - $\Ex(\vveps)=\vzero$ and $\cov(\vveps)=\sigma^2 \mI$
+
+Going forward, we assume that $\vveps \sim \Norm(\vzero,\sigma^2 \mI)$.  This allows us to
+
+- Make probabilistic statements about the estimators $\hvbeta$ and $\hmu(\vx)$
+- Construct confidence intervals and bands for $\vbeta$, $\mu(\vx)$, and $\sigma^2$
+- Construct prediction intervals and bands for $Y \mid \vx$
+- Perform hypothesis tests about $\vbeta$ and $\mu(\vx)$
+- Assess model fit and compare models
+
+## Confidence regions for $\vbeta$ and $\mu(\vx)$ assuming $\vveps \sim \Norm(\vzero,\sigma^2 \mI)$
+
+Since a [linear combination of normal random variables is normal]{.alert}, the following [data-based]{.alert} quantities are all normally distributed:
+
+- $\vY = \mX \vbeta + \vveps \sim \Norm(\mX\vbeta,\sigma^2 \mI)$
+
+- $\hvbeta = (\mX^\top \mX)^{-1} \mX^\top \vY = (\mX^\top\mX)^{-1}\mX^\top (\mX \vbeta + \vveps) = \vbeta + (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\vbeta,\sigma^2 (\mX^\top \mX)^{-1}\right)$
+
+- $\hmu(\vx) = \vx^\top \hvbeta  = \mu(\vx) + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\mu(\vx),\sigma^2 \vx^\top (\mX^\top \mX)^{-1} \vx\right)$
+
+- $\hvveps = (\mI-\mP)\vveps \sim \Norm(\vzero,\sigma^2 (\mI-\mP))$
+
+```{python}
+#| label: lr-imports-and-data
+#| echo: false
+
+# code to display the regression example
+import numpy as np
+import matplotlib.pyplot as plt
+import sys
+from pathlib import Path
+
+from matplotlib.patches import Ellipse, Rectangle
+from scipy.stats import t, f
+
+from classlib.plots.colors import (
+    TOL_BRIGHT,
+    curve_color,
+    accent_color,
+    neutral_color,
+    set_tol_bright_cycle,
+)
+
+sys.path.insert(0, str(Path("../classlib/classlib/model_fit").resolve()))
+from regression_helpers import generate_quadratic_regression_example
+
+plt.rcParams.update({
+
+    # --- FONT FAMILY (serif + LaTeX-style math) ---
+    "font.family": "serif",
+    "mathtext.fontset": "stix",
+    "font.serif": ["STIXGeneral"],
+
+    # --- FONT SIZES (tuned for slides) ---
+    "font.size": 18,
+    "axes.titlesize": 22,
+    "axes.labelsize": 20,
+    "xtick.labelsize": 16,
+    "ytick.labelsize": 16,
+    "legend.fontsize": 22,
+    "figure.titlesize": 22,
+
+    # --- LINE / MARKER STYLE ---
+    "lines.linewidth": 2.5,
+    "lines.markersize": 7,
+
+    # --- AXES STYLE ---
+    "axes.spines.top": False,
+    "axes.spines.right": False,
+    "axes.titlepad": 12,
+
+    # --- GRID ---
+    "axes.grid": True,
+    "grid.alpha": 0.3,
+
+    # --- LEGEND ---
+    "legend.frameon": False,
+})
+
+nlinspc = 400
+
+EX = generate_quadratic_regression_example(
+    seed_start=47,
+    seed_stop=47,
+    beta_true=np.array([0.10, 0.90])
+)
+```
+
+```{python}
+#| echo: false
+#| fig-align: center
+#| fig-width: 6.5
+#| fig-height: 3.2
+x = EX["x"]
+y = EX["y"]
+X = EX["X"]
+beta_true = EX["beta_true"]
+beta_hat = EX["beta_hat"]
+
+xg = np.linspace(0, 3, nlinspc)
+Xg = np.column_stack([np.ones_like(xg), xg**2])
+
+mu_true_g = Xg @ beta_true
+mu_hat_g = Xg @ beta_hat
+
+# True errors and residuals
+mu_vals = X @ beta_true
+muhat_vals = X @ beta_hat
+
+eps = EX["eps"]
+ehat = EX["resid"]
+
+# Pick a nice positive epsilon_i
+i = np.argmax(eps)
+
+# Pick a nice negative residual ehat_j
+j = np.argmin(ehat)
+
+xi, yi = x[i], y[i]
+xj, yj = x[j], y[j]
+
+mu_i = mu_vals[i]
+muhat_j = muhat_vals[j]
+
+fig, ax = plt.subplots()
+set_tol_bright_cycle(ax)
+
+data_color = TOL_BRIGHT["blue"]
+true_color = TOL_BRIGHT["green"]
+fit_color = TOL_BRIGHT["red"]
+guide_color = neutral_color
+annot_color = accent_color
+
+# Data and curves
+ax.scatter(x, y, s=28, color=data_color)
+ax.plot(
+    xg, mu_true_g,
+    linewidth=2.5,
+    color=true_color,
+    label=r"$\mu(x) = \beta_1 + \beta_2 x^2$"
+)
+ax.plot(
+    xg, mu_hat_g,
+    linewidth=2.5,
+    color=fit_color,
+    label=r"$\widehat{\mu}(x) = \widehat{\beta}_1 + \widehat{\beta}_2 x^2$"
+)
+
+# Highlight chosen data points in the same color as the data
+ax.scatter([xi], [yi], s=90, color=data_color, zorder=5)
+ax.scatter([xj], [yj], s=90, color=data_color, zorder=5)
+
+# Vertical guide lines
+ax.axvline(xi, linestyle=":", linewidth=1.5, color=guide_color)
+ax.axvline(xj, linestyle=":", linewidth=1.5, color=guide_color)
+
+# epsilon_i arrow
+ax.annotate(
+    "",
+    xy=(xi, yi),
+    xytext=(xi, mu_i),
+    arrowprops=dict(arrowstyle="-|>", lw=2, color=annot_color),
+)
+
+ax.text(
+    xi + 0.05,
+    0.5 * (yi + mu_i),
+    rf"$\epsilon_{{{i}}}$",
+    va="center",
+    color=annot_color,
+)
+
+# residual arrow
+ax.annotate(
+    "",
+    xy=(xj, yj),
+    xytext=(xj, muhat_j),
+    arrowprops=dict(arrowstyle="-|>", lw=2, color=annot_color),
+)
+
+ax.text(
+    xj + 0.05,
+    0.5 * (yj + muhat_j),
+    rf"$\widehat{{\epsilon}}_{{{j}}}$",
+    va="center",
+    color=annot_color,
+)
+
+from classlib.plots.plot_utils import annotate_xaxis_marks
+
+annotate_xaxis_marks(
+    ax,
+    [xi, xj],
+    [rf"$x_{{{i}}}$", rf"$x_{{{j}}}$"],
+    colors=[accent_color, accent_color],
+)
+
+ax.set_xlabel(r"$x$")
+ax.set_ylabel(r"$y$")
+ax.set_title(
+    rf"Data, $\mu(x)$, $\widehat{{\mu}}(x)$, $\epsilon_{{{i}}}$, and $\widehat{{\epsilon}}_{{{j}}}$"
+)
+ax.legend()
+
+plt.tight_layout()
+plt.show()
+```
+
+---
+
+### Confidence ellipsoid for $\vbeta$ assuming $\vveps \sim \Norm(\vzero,\sigma^2 \mI)$
+
+- From the normal distribution of $\hvbeta$, it follows that
+$$\frac{
+(\hvbeta-\vbeta)^\top
+(\mX^\top\mX)
+(\hvbeta-\vbeta)
+}{\sigma^2}
+\sim \chi^2_d
+$$
+
+- Also, $\hvbeta = \vbeta + (\mX^\top \mX)^{-1}\mX^\top \vveps = \vbeta + (\mX^\top \mX)^{-1}\mX^\top \mP \vveps$ since $\mP \mX =  \mX$, so $\hvbeta$ depends only on $\mP\vveps$
+
+- Moreover, $S^2 = \lVert(\mI - \mP)\vveps\rVert^2/(n-d)$, so $S^2$ depends only on $(\mI-\mP)\vveps$
+
+- Since $\hvbeta$ and $S^2$ depend on orthogonal projections of $\vveps$ onto $\cc(\mX)$ and $\cc(\mX)^\perp$, respectively, and $\vveps$ is Normal, $\hvbeta$ and $S^2$  are independent. 
+
+- Hence, replacing $\sigma^2$ with $S^2$ gives
+$$
+\frac{
+(\hvbeta-\vbeta)^\top(\mX^\top\mX)(\hvbeta-\vbeta)
+}{dS^2}
+\sim F_{d,n-d}
+$$
+
+---
+
+Therefore 
+
+$$
+(\hvbeta-\vbeta)^\top
+(\mX^\top\mX)
+(\hvbeta-\vbeta)
+\le
+d S^2
+F_{d,n-d,\alpha}, \quad \text{where } \Prob(F_{d,n-d} > F_{d,n-d,\alpha}) = \alpha
+$$
+
+defines a $\class{alert}{(1-\alpha)\text{ confidence ellipsoid for }\vbeta}$ centered at $\hvbeta$
+
+---
+
+### Individual confidence intervals for the $\beta_j$ assuming $\vveps \sim \Norm(\vzero,\sigma^2 \mI)$
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span><span>Show that the variance of $\hbeta_j$ is $\sigma^2\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}$, where $\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}$ denotes the $j$th diagonal entry of $(\mX^\top\mX)^{-1}$ </span>
+:::
+
+Since $\hvbeta \sim
+\Norm\!\left(
+\vbeta,\;
+\sigma^2(\mX^\top\mX)^{-1}
+\right)
+$, it follows that for each $j=1,\dots,d$,
+
+$$
+\hbeta_j \sim \Norm\!\left(
+\beta_j,\;
+\sigma^2\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}
+\right)
+$$
+
+where $\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}$ denotes the $j$th diagonal entry of $(\mX^\top\mX)^{-1}$. Replacing $\sigma^2$ by $S^2$ gives
+
+\begin{gather*}
+\frac{
+\hbeta_j-\beta_j
+}{
+S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}} 
+}
+\sim t_{n-d}
+\\
+\hbeta_j
+\pm
+t_{n-d,\alpha/2}
+\;
+S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}} \;
+\text{ is an }\class{alert}{(1-\alpha)\text{ confidence interval for }\beta_j} \text{ for each } j=1,\dots,d
+\end{gather*}
+
+---
+
+### Joint vs individual confidence statements
+
+\begin{gather*}
+(\hvbeta-\vbeta)^\top
+(\mX^\top\mX)
+(\hvbeta-\vbeta)
+\le
+dS^2F_{d,n-d,\alpha} \quad \text{is a joint confidence region \class{alert}{for the whole vector $\vbeta$}}
+\\
+\hbeta_j
+\pm
+t_{n-d,\alpha/2}
+\;
+S\sqrt{\bigl[(\mX^\top\mX)^{-1}\bigr]_{jj}},
+\; j=1,\dots,d, \quad \text{are \class{alert}{individual confidence intervals for each $\beta_j$}}
+\end{gather*}
+
+
+```{python}
+#| echo: false
+#| fig-align: center
+#| fig-width: 5.8
+#| fig-height: 4.6
+
+from classlib.plots.colors import TOL_BRIGHT, accent_color
+from regression_helpers import confidence_ellipse_shape
+
+beta_hat = EX["beta_hat"]
+beta_true = EX["beta_true"]
+beta_ci = EX["beta_ci"]
+XtX_inv = EX["XtX_inv"]
+s2 = EX["s2"]
+n = EX["n"]
+d = EX["d"]
+alpha = EX["alpha"]
+
+fig, ax = plt.subplots()
+
+ellipse_color = TOL_BRIGHT["blue"]
+ci_color = accent_color
+truth_color = TOL_BRIGHT["green"]
+
+# Joint confidence ellipse
+ell = confidence_ellipse_shape(XtX_inv, s2, alpha, n, d)
+width = ell["width"]
+height = ell["height"]
+angle = ell["angle"]
+
+ellipse = Ellipse(
+    xy=beta_hat,
+    width=width,
+    height=height,
+    angle=angle,
+    fill=False,
+    linewidth=2.5,
+    color=ellipse_color,
+)
+ax.add_patch(ellipse)
+
+# Marginal confidence-interval cross
+ax.hlines(
+    beta_hat[1],
+    beta_ci[0, 0],
+    beta_ci[0, 1],
+    linewidth=2.5,
+    color=ci_color,
+)
+
+ax.vlines(
+    beta_hat[0],
+    beta_ci[1, 0],
+    beta_ci[1, 1],
+    linewidth=2.5,
+    color=ci_color,
+)
+
+# Points
+ax.scatter(
+    [beta_hat[0]],
+    [beta_hat[1]],
+    s=90,
+    color=ellipse_color,
+    zorder=5,
+    label=r"$\widehat{\boldsymbol{\beta}}$",
+)
+
+ax.scatter(
+    [beta_true[0]],
+    [beta_true[1]],
+    s=110,
+    marker="x",
+    linewidths=2.5,
+    color=truth_color,
+    zorder=6,
+    label=r"$\boldsymbol{\beta}$",
+)
+
+# Labels for marginal intervals
+ax.text(
+    0.7 * beta_ci[0, 0] + 0.3 * beta_ci[0, 1],
+    beta_hat[1],
+    r" CI for $\beta_1$",
+    color=ci_color,
+    va="bottom",
+    ha="center",
+)
+
+ax.text(
+    beta_hat[0],
+    0.5 * (beta_ci[1, 0] + beta_ci[1, 1]),
+    r" CI for $\beta_2$ ",
+    color=ci_color,
+    rotation=90,
+    va="center",
+    ha="left",
+)
+
+ax.set_xlabel(r"$\beta_1$")
+ax.set_ylabel(r"$\beta_2$")
+ax.set_title(r"Joint confidence ellipse and individual confidence intervals")
+
+# Tighter limits
+pad_x = 0.08
+pad_y = 0.05
+
+x_min = min(beta_ci[0, 0], beta_hat[0] - width / 2)
+x_max = max(beta_ci[0, 1], beta_hat[0] + width / 2)
+
+y_min = min(beta_ci[1, 0], beta_hat[1] - height / 2)
+y_max = max(beta_ci[1, 1], beta_hat[1] + height / 2)
+
+ax.set_xlim(x_min - pad_x, x_max + pad_x)
+ax.set_ylim(y_min - pad_y, y_max + pad_y)
+
+ax.set_aspect("equal", adjustable="box")
+ax.legend()
+
+plt.tight_layout()
+plt.show()
+```
+
+:::{.key-point}
+
+* Joint confidence for $\vbeta$ is not the same as simultaneous confidence for all $\beta_j$
+
+* The confidence ellipsoid for $\vbeta$ and the individual confidence interval for $\beta_1$ both include $\beta_1 = 0$ so one might question whether there should be a constant term in the model
+
+:::
+
+---
+
+### Caution about many intervals
+
+If we form separate $(1-\alpha)$ confidence intervals for each $\beta_j$,
+the probability that [all]{.alert} of them are simultaneously correct is generally less than $(1-\alpha)$
+
+So:
+
+- individual confidence intervals control each $\beta_j$ separately
+- the confidence ellipsoid controls $\vbeta$ jointly
+
+
+## Confidence interval for $\mu(\vx)$ assuming $\vveps \sim \Norm(\vzero,\sigma^2 \mI)$
+
+Recall $\mu(\vx)=\vx^\top\vbeta$, $\hmu(\vx)= \mu(\vx) + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \sim \Norm\!\left(\mu(\vx),\sigma^2 \vx^\top (\mX^\top \mX)^{-1} \vx\right)$
+
+Replacing $\sigma^2$ by $S^2$ gives
+
+$$
+\frac{
+\hmu(\vx)-\mu(\vx)
+}{
+S
+\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+}
+\sim t_{n-d}
+$$
+
+
+
+Therefore
+
+$$
+\hmu(\vx)
+\pm
+t_{n-d,\alpha/2}
+\;
+S
+\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+$$
+
+is a [$(1-\alpha)$ confidence interval for $\mu(\vx)$]{.alert}
+
+
+## Prediction interval for $Y\mid \vx$
+
+A _new_ observation, $Y \mid \vx = Y_{\text{new}}=\vx^\top\vbeta+\varepsilon_{\text{new}}$, depends both on 
+
+- the value of $\vx$ and 
+- the new error $\varepsilon_{\text{new}}\sim\Norm(0,\sigma^2)$ that is independent of the data used to fit the model
+
+Predicting $Y_{\text{new}}$ by $\hmu(\vx)$ has uncertainty coming both from the uncertainty in the model parameters and the new error term:
+
+\begin{align*}
+Y_{\text{new}}-\hmu(\vx) & = \bigl(\vx^\top\vbeta+\varepsilon_{\text{new}}\bigr) - \bigl(\vx^\top\vbeta + \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps \bigr) \\
+& = \varepsilon_{\text{new}} - \vx^\top (\mX^\top\mX)^{-1}\mX^\top\vveps\\
+& \sim \Norm\!\left(0,\;
+\sigma^2\left(
+1+\vx^\top(\mX^\top\mX)^{-1}\vx
+\right)\right) \qquad \text{since $\varepsilon_{\text{new}}$ is independent of $\vveps$}
+\end{align*}
+
+Replacing $\sigma^2$ by $S^2$ gives a $t$-distribution for the standardized prediction error. A [$(1-\alpha)$ prediction interval]{.alert} for $Y_{\text{new}}$ is then given by
+
+$$
+Y_{\text{new}}
+\in
+\hmu(\vx)
+\pm
+t_{n-d,\alpha/2}
+S
+\sqrt{
+1+\vx^\top(\mX^\top\mX)^{-1}\vx
+}
+$$
+
+## Mean vs prediction intervals
+
+::: {.columns}
+
+::: {.column width="49%"}
+
+[Confidence]{.alert} interval for mean response, $\mu(\vx)$:
+
+$$
+\hmu(\vx)
+\pm
+t_{n-d,\alpha/2}
+S
+\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+$$
+
+:::
+
+::: {.column width="2%"}
+
+:::
+
+::: {.column width="49%"}
+
+[Prediction]{.alert} interval for a new observation, $Y \mid \vx$:
+
+$$
+\hmu(\vx)
+\pm
+t_{n-d,\alpha/2}
+S
+\sqrt{
+1+\vx^\top(\mX^\top\mX)^{-1}\vx
+}
+$$
+
+:::
+
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+#| fig-width: 11
+#| fig-height: 4.2
+
+from classlib.plots.colors import TOL_BRIGHT, accent_color, neutral_color
+from regression_helpers import mean_and_prediction_bands
+
+x = EX["x"]
+y = EX["y"]
+beta_true = EX["beta_true"]
+beta_hat = EX["beta_hat"]
+XtX_inv = EX["XtX_inv"]
+s2 = EX["s2"]
+n = EX["n"]
+d = EX["d"]
+alpha = EX["alpha"]
+
+fig, ax = plt.subplots(figsize=(11, 4.2))
+set_tol_bright_cycle(ax)
+
+data_color = TOL_BRIGHT["blue"]
+true_color = TOL_BRIGHT["green"]
+fit_color = TOL_BRIGHT["red"]
+ci_color = accent_color
+pi_color = TOL_BRIGHT["orange"] if "orange" in TOL_BRIGHT else TOL_BRIGHT["red"]
+
+# grid for plotting
+xg = np.linspace(0, 3, nlinspc)
+Xg = np.column_stack([np.ones_like(xg), xg**2])
+
+mu_true_g = Xg @ beta_true
+
+bands = mean_and_prediction_bands(
+    Xg, beta_hat, XtX_inv, s2, alpha, df=n - d
+)
+
+mu_hat_g = bands["mu_hat"]
+ci_lo = bands["ci"][:, 0]
+ci_hi = bands["ci"][:, 1]
+pi_lo = bands["pi"][:, 0]
+pi_hi = bands["pi"][:, 1]
+
+# Data and curves
+ax.scatter(x, y, s=28, color=data_color)
+
+ax.plot(
+    xg, mu_true_g,
+    linewidth=2.5,
+    color=true_color,
+    label=r"$\mu(x) = \beta_1 + \beta_2 x^2$"
+)
+
+ax.plot(
+    xg, mu_hat_g,
+    linewidth=2.5,
+    color=fit_color,
+    label=r"$\widehat{\mu}(x) = \widehat{\beta}_1 + \widehat{\beta}_2 x^2$"
+)
+
+# Confidence interval (dashed)
+ax.plot(
+    xg, ci_lo,
+    linestyle="--",
+    linewidth=2.2,
+    color=ci_color,
+    label=r"95% CI for $\mu(x)$"
+)
+ax.plot(
+    xg, ci_hi,
+    linestyle="--",
+    linewidth=2.2,
+    color=ci_color
+)
+
+# Prediction interval (dotted)
+ax.plot(
+    xg, pi_lo,
+    linestyle=":",
+    linewidth=2.4,
+    color=pi_color,
+    label=r"95% PI for $Y \mid x$"
+)
+ax.plot(
+    xg, pi_hi,
+    linestyle=":",
+    linewidth=2.4,
+    color=pi_color
+)
+
+ax.set_xlabel(r"$x$")
+ax.set_ylabel(r"$y$")
+ax.set_title(r"Fitted mean with 95% pointwise confidence and prediction intervals")
+
+box = ax.get_position()
+ax.set_position([box.x0, box.y0, box.width * 0.78, box.height])
+
+ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5))
+
+plt.tight_layout()
+plt.show()
+```
+
+::: {.key-point}
+
+* Prediction intervals are wider than confidence intervals
+
+* These pointwise intervals exhibit uncertainty at each fixed $\vx$, [not simultaneously]{.alert} for all $\vx$ at once
+
+:::
+
+## Simultaneous confidence and prediction bands
+
+- Pointwise intervals control uncertainty at one fixed $\vx$; "$\forall \vx$" is _outside_ the probability statement
+
+- A [band]{.alert} controls uncertainty [simultaneously]{.alert} for all $\vx$; "$\forall \vx$" is _inside_ the probability statement
+
+\begin{multline*}
+\bigl|\hmu(\vx)-\mu(\vx)\bigr|
+=
+\bigl|\vx^\top(\hvbeta-\vbeta)\bigr| = \bigl|[(\mX^\top\mX)^{-1/2}\vx]^\top  [(\mX^\top\mX)^{1/2} (\hvbeta-\vbeta)]\bigr| \\
+\le
+\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+\sqrt{(\hvbeta-\vbeta)^\top(\mX^\top\mX)(\hvbeta-\vbeta)} \quad \text{for all }\vx \qquad \text{by Cauchy--Schwarz}
+\end{multline*}
+
+So the confidence ellipse,$(\hvbeta-\vbeta)^\top(\mX^\top\mX)(\hvbeta-\vbeta)
+\le dS^2F_{d,n-d,\alpha}$ 
+with probability $1-\alpha$, implies the following [$(1-\alpha)$ confidence band]{.alert}:
+
+$$
+\mu(\vx)
+\in
+\hmu(\vx)
+\pm
+\sqrt{dF_{d,n-d,\alpha}}\;
+S\sqrt{\vx^\top(\mX^\top\mX)^{-1}\vx}
+\qquad \text{for all }\vx
+$$
+
+Similarly, a [$(1-\alpha)$ prediction band]{.alert} is
+
+$$
+Y_{\text{new}}
+\in
+\hmu(\vx)
+\pm
+\sqrt{dF_{d,n-d,\alpha}}\;
+S\sqrt{1+\vx^\top(\mX^\top\mX)^{-1}\vx}
+\qquad \text{for all }\vx
+$$
+
+---
+
+:::{.key-point}
+* Pointwise intervals use the $t$ multiplier because they control one fixed $\vx$
+
+* Simultaneous bands use the larger $\sqrt{dF_{d,n-d,\alpha}}$ multiplier because they must work for all $\vx$ at once
+:::
+
+```{python}
+#| echo: false
+#| fig-align: center
+#| fig-width: 11
+#| fig-height: 4.4
+
+from classlib.plots.colors import TOL_BRIGHT, accent_color
+from regression_helpers import mean_prediction_and_simultaneous_bands
+
+x = EX["x"]
+y = EX["y"]
+beta_true = EX["beta_true"]
+beta_hat = EX["beta_hat"]
+XtX_inv = EX["XtX_inv"]
+s2 = EX["s2"]
+n = EX["n"]
+d = EX["d"]
+alpha = EX["alpha"]
+
+fig, ax = plt.subplots(figsize=(11, 4.4))
+set_tol_bright_cycle(ax)
+
+data_color = TOL_BRIGHT["blue"]
+true_color = TOL_BRIGHT["green"]
+fit_color = TOL_BRIGHT["red"]
+ci_color = accent_color
+pi_color = TOL_BRIGHT["orange"] if "orange" in TOL_BRIGHT else TOL_BRIGHT["red"]
+
+# grid for plotting
+xg = np.linspace(0, 3, nlinspc)
+Xg = np.column_stack([np.ones_like(xg), xg**2])
+
+mu_true_g = Xg @ beta_true
+
+bands = mean_prediction_and_simultaneous_bands(
+    Xg, beta_hat, XtX_inv, s2, alpha, df=n - d
+)
+
+mu_hat_g = bands["mu_hat"]
+
+ci_lo = bands["pointwise_ci"][:, 0]
+ci_hi = bands["pointwise_ci"][:, 1]
+
+pi_lo = bands["pointwise_pi"][:, 0]
+pi_hi = bands["pointwise_pi"][:, 1]
+
+sci_lo = bands["simul_ci"][:, 0]
+sci_hi = bands["simul_ci"][:, 1]
+
+spi_lo = bands["simul_pi"][:, 0]
+spi_hi = bands["simul_pi"][:, 1]
+
+# data and curves
+ax.scatter(x, y, s=28, color=data_color)
+
+ax.plot(
+    xg, mu_true_g,
+    linewidth=2.5,
+    color=true_color,
+    label=r"$\mu(x) = \beta_1 + \beta_2 x^2$"
+)
+
+ax.plot(
+    xg, mu_hat_g,
+    linewidth=2.5,
+    color=fit_color,
+    label=r"$\widehat{\mu}(x) = \widehat{\beta}_1 + \widehat{\beta}_2 x^2$"
+)
+
+# pointwise confidence interval
+ax.plot(
+    xg, ci_lo,
+    linestyle="--",
+    linewidth=2.0,
+    color=ci_color,
+    label=r"95% pointwise CI for $\mu(x)$"
+)
+ax.plot(
+    xg, ci_hi,
+    linestyle="--",
+    linewidth=2.0,
+    color=ci_color
+)
+
+# simultaneous confidence band
+ax.plot(
+    xg, sci_lo,
+    linestyle="-.",
+    linewidth=2.2,
+    color=ci_color,
+    label=r"95% simultaneous confidence band"
+)
+ax.plot(
+    xg, sci_hi,
+    linestyle="-.",
+    linewidth=2.2,
+    color=ci_color
+)
+
+# pointwise prediction interval
+ax.plot(
+    xg, pi_lo,
+    linestyle=":",
+    linewidth=2.2,
+    color=pi_color,
+    label=r"95% pointwise PI for $Y \mid x$"
+)
+ax.plot(
+    xg, pi_hi,
+    linestyle=":",
+    linewidth=2.2,
+    color=pi_color
+)
+
+# simultaneous prediction band
+ax.plot(
+    xg, spi_lo,
+    linestyle=(0, (6, 2)),
+    linewidth=2.0,
+    color=pi_color,
+    label=r"95% simultaneous prediction band"
+)
+ax.plot(
+    xg, spi_hi,
+    linestyle=(0, (6, 2)),
+    linewidth=2.0,
+    color=pi_color
+)
+
+ax.set_xlabel(r"$x$")
+ax.set_ylabel(r"$y$")
+ax.set_title(r"Pointwise intervals and simultaneous bands")
+
+box = ax.get_position()
+ax.set_position([box.x0, box.y0, box.width * 0.75, box.height])
+
+ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5))
+
+plt.tight_layout()
+plt.show()
+```
+::: {.key-point}
+
+Simultaneous bands are wider than pointwise intervals because they must cover
+\class{alert}{all} $\vx$ values at once, not just one fixed $\vx$
+
+:::
+
+## Computing regression quantities via QR decomposition
+
+Let $\mX \in \mathbb{R}^{n \times d}$ have full column rank, and write its QR decomposition as
+
+```{=html}
+<div style="display:flex; justify-content:center; margin-top:1.5rem;">
+
+<svg width="900" height="400" viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- X -->
+  <rect x="60" y="40" width="140" height="320"
+        fill="#dceaf7" stroke="black" stroke-width="3"/>
+  <text x="130" y="80" text-anchor="middle" font-size="42" font-family="sans-serif">X</text>
+  <text x="130" y="350" text-anchor="middle" font-size="28" font-family="serif">
+    <tspan font-style="italic">n</tspan>
+    <tspan font-style="normal"> × </tspan>
+    <tspan font-style="italic">d</tspan>
+  </text>
+
+  <!-- equals -->
+  <text x="250" y="160" text-anchor="middle" font-size="48" font-family="serif">=</text>
+
+  <!-- Q -->
+  <rect x="300" y="40" width="140" height="320"
+        fill="#dceaf7" stroke="black" stroke-width="3"/>
+  <text x="370" y="80" text-anchor="middle" font-size="42" font-family="sans-serif">Q</text>
+  <text x="370" y="350" text-anchor="middle" font-size="28" font-family="serif">
+    <tspan font-style="italic">n</tspan>
+    <tspan font-style="normal"> × </tspan>
+    <tspan font-style="italic">d</tspan>
+  </text>
+
+<!-- R background -->
+<rect x="490" y="40" width="140" height="140"
+      fill="#f7f7f7"/>
+
+<!-- upper triangle -->
+<polygon points="490,40 630,40 630,180"
+         fill="#dceaf7"/>
+
+<!-- border (draw LAST) -->
+<rect x="490" y="40" width="140" height="140"
+      fill="none" stroke="black" stroke-width="3"/>
+
+  <!-- diagonal -->
+  <line x1="490" y1="40" x2="630" y2="180" stroke="black" stroke-width="3"/>
+
+  <!-- R label -->
+  <text x="560" y="80" text-anchor="middle" font-size="42" font-family="sans-serif">R</text>
+  <text x="525" y="145" text-anchor="middle" font-size="42" font-family="sans-serif">0</text>
+  <text x="560" y="170" text-anchor="middle" font-size="28" font-family="serif">
+    <tspan font-style="italic">d</tspan>
+    <tspan font-style="normal"> × </tspan>
+    <tspan font-style="italic">d</tspan>
+  </text>
+
+</svg>
+
+</div>
+```
+
+- $\mQ \in \mathbb{R}^{n \times d}$ has orthonormal columns ($\mQ^\top \mQ = \mI_d$)
+- $\mR \in \mathbb{R}^{d \times d}$ is upper triangular
+
+---
+
+
+Then it follows that
+
+- [Least squares estimate]{.alert}: $\hvbeta = \mR^{-1} (\mQ^\top \vY)$
+
+- [Projection matrix]{.alert}: $\mP = \mQ \mQ^\top$
+
+- [Fitted values]{.alert} $\hvY = \mQ (\mQ^\top \vY)$
+
+- [Residuals]{.alert}: $\hvveps = \vY  - \hvY$
+
+- [Covariance of $\hvbeta$]{.alert}: $\cov(\hvbeta) = \sigma^2 \mR^{-1} \mR^{-\top}$
+
+  - [Variance of $\hbeta_j$]{.alert}: $\sigma^2 \bigl[(\mR^{-1} \mR^{-\top})\bigr]_{jj}$, where $\bigl[(\mR^{-1} \mR^{-\top})\bigr]_{jj}$ denotes the $j$th diagonal entry of $\mR^{-1} \mR^{-\top}$
+
+- [Variance of $\hmu(\vx)$]{.alert}: $\var(\hmu(\vx)) = \sigma^2 \lVert (\mR^{-\top} \vx)\rVert^2$
+

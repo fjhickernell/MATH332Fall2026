@@ -1,0 +1,228 @@
+# Least Squares Linear Regression {#lsqregress}
+
+[({{< meta texts.cb.initials >}} §11.3; {{< meta texts.wms.initials >}} §11.3–11.4, 11.10–11.11)]{.small}
+
+- Model: $Y = \underbrace{\vx^\top \vbeta}_{\mu(\vx)} + \varepsilon \quad$ with $\Ex(\varepsilon)=0$,
+$\var(\varepsilon)=\sigma^2$
+
+  - $x_j$ may be a variable or a function of variables
+
+- Model with data: 
+$\displaystyle
+\overbrace{\begin{pmatrix}Y_1 \\ Y_2 \\ \vdots \\ \vdots \\ Y_n\end{pmatrix}}^{\vY} 
+= \overbrace{\begin{pmatrix} x_{11} & x_{12} & \cdots & x_{1d} \\ x_{21} & x_{22} & \cdots & x_{2d} \\ \vdots & \vdots & \ddots & \vdots \\ \vdots & \vdots & \ddots & \vdots  \\ x_{n1} & x_{n2} & \cdots & x_{nd} \end{pmatrix}}^{\mX}\, \overbrace{\begin{pmatrix} \beta_1 \\ \beta_2 \\ \vdots \\ \beta_d \end{pmatrix}}^{\vbeta} + \overbrace{\begin{pmatrix} \varepsilon_1 \\ \varepsilon_2 \\ \vdots \\ \vdots \\ \varepsilon_n \end{pmatrix}}^{\vveps}
+$
+
+  - $\mX$ is fixed and has full column rank (must have $n \ge d$)
+
+## Estimation of $\vbeta$ by least squares
+
+$$
+\argmin_{\vb \in \reals^d} \lVert \vY -   \mX \vb \rVert^2 = (\mX^\top \mX)^{-1} \mX^\top \vY =: \hvbeta
+$$
+
+### Proof
+Let $\hvbeta$ be defined as above, and let $\vb$ be any other vector in $\reals^d$:
+\begin{align*}
+ \lVert \vY -   \mX \vb \rVert^2 & =
+ \lVert (\vY - \mX \hvbeta) + \mX (\hvbeta - \vb) \rVert^2 \\
+ & = \lVert \vY - \mX \hvbeta \rVert^2 + 2 (\hvbeta - \vb)^\top \class{alert}{\mX^\top (\vY - \mX \hvbeta)} + \lVert \mX (\hvbeta - \vb) \rVert^2 \\
+ & = \lVert \vY - \mX \hvbeta \rVert^2 + 2 (\hvbeta - \vb)^\top \class{alert}{\mX^\top (\vY - \mX (\mX^\top \mX)^{-1} \mX^\top \vY)}  + \lVert \mX (\hvbeta - \vb) \rVert^2 \\
+ & = \lVert \vY - \mX \hvbeta \rVert^2 + 2 (\hvbeta - \vb)^\top \class{alert}{[\mX^\top \vY - \mX^\top \mX (\mX^\top \mX)^{-1} \mX^\top \vY]}  + \lVert \mX (\hvbeta - \vb) \rVert^2 \\
+  & = \lVert \vY - \mX \hvbeta \rVert^2 + \lVert \mX (\hvbeta - \vb) \rVert^2  \ge \lVert \vY - \mX \hvbeta \rVert^2
+\end{align*}
+
+
+---
+
+Furthermore,
+
+- $\hmu(\vx) := \vx^\top \hvbeta$ is an estimator of $\mu(\vx) := \Ex(Y \mid \vx) = \vx^\top \vbeta$
+
+- $\hvY : = \mX \hvbeta = \underbrace{\mX (\mX^\top \mX)^{-1} \mX^\top}_{\href{https://en.wikipedia.org/wiki/Projection_matrix}{\text{projection matrix }} \mP} \vY$ is an estimator of $\mu(\vX) = \Ex(\vY)$
+
+- $\mP$ is the projection matrix (also called the hat matrix) from $\reals^n$ onto 
+$$
+\cc(\mX):= \text{ the column space of } \mX = \text{ the set of all linear combinations of the columns of } \mX = \{ \mX \vb : \vb \in \reals^d \}
+$$
+This means that
+  - $\mP^2 = \mP$ (idempotent)
+    - $\mP$ has only the eigenvalues $0$ (multiplicity $n-d$) and $1$ (multiplicity $d$)
+  - $\mP^\top = \mP$ (symmetric) 
+  - $\mP \mX = \mX$ (projection onto $\cc(\mX)$, columns of $\mX$ are eigenvectors of $\mP$ with eigenvalue $1$)   
+  - $(\mI - \mP) \mX = \mzero$ (projection onto the orthogonal complement of $\cc(\mX)$ )
+
+- $\hvveps : = \vY - \hvY = (\mI - \mP) \vY$ is the vector of [residuals]{.alert}, 
+  - Orthogonal to all columns of $\mX$, i.e., orthogonal to $\cc(\mX)$
+
+---
+
+### Geometric interpretation of least squares regression
+```{python}
+#| echo: false
+#| fig-width: 14
+#| fig-height: 7
+#| out-width: 100%
+#| fig-align: center
+
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Polygon
+
+fig, ax = plt.subplots(figsize=(14,7))
+
+# --------------------------------
+# Key points
+# --------------------------------
+O = np.array([0.0,0.0])
+Yhat = np.array([6.2,1.9])
+E = np.array([0.0,2.8])
+Y = Yhat + E
+
+# --------------------------------
+# Plane (larger parallelogram)
+# --------------------------------
+plane = np.array([
+    [-1.5,-1.0],
+    [11.5,-1.0],
+    [13.5,3.8],
+    [0.5,3.8]
+])
+
+ax.add_patch(
+    Polygon(
+        plane,
+        closed=True,
+        fill=False,
+        linewidth=3.0,
+        edgecolor="gray"
+    )
+)
+
+# --------------------------------
+# Vectors
+# --------------------------------
+def draw_arrow(start,end,color,lw=3):
+    ax.annotate(
+        "",
+        xy=end,
+        xytext=start,
+        arrowprops=dict(
+            arrowstyle="->",
+            linewidth=lw,
+            color=color
+        )
+    )
+
+draw_arrow(O,Yhat,"blue")
+draw_arrow(Yhat,Y,"red")
+draw_arrow(O,Y,"black")
+
+# dashed side of triangle
+ax.plot(
+    [Yhat[0],Y[0]],
+    [Yhat[1],Y[1]],
+    "--",
+    linewidth=2,
+    color="black"
+)
+
+# --------------------------------
+# Labels
+# --------------------------------
+Y_mid = 0.52 * Y
+ax.text(
+    Y_mid[0]-0.9,
+    Y_mid[1]+0.35,
+    r"$\boldsymbol{Y}$",
+    fontsize=36,
+    color="black"
+)
+
+Yhat_mid = 0.55 * Yhat
+ax.text(
+    Yhat_mid[0]+0.2,
+    Yhat_mid[1]-1.0,
+    r"$\widehat{\boldsymbol{Y}}=\mathsf{X}\widehat{\boldsymbol{\beta}}$",
+    fontsize=30,
+    color="blue"
+)
+
+E_mid = Yhat + 0.48*E
+ax.text(
+    E_mid[0]+0.35,
+    E_mid[1],
+    r"$\widehat{\boldsymbol{\varepsilon}}$",
+    fontsize=36,
+    color="red"
+)
+
+ax.text(
+    10.3,2.7,
+    r"$\mathcal{C}(\mathsf{X})$",
+    fontsize=30,
+    color="gray"
+)
+
+
+# --------------------------------
+# Appearance
+# --------------------------------
+ax.set_xlim(-2.2,14.0)
+ax.set_ylim(-2.0,6.2)
+
+ax.set_aspect("equal")
+ax.axis("off")
+
+plt.show()
+```
+
+
+## Unbiasedness of estimators
+
+Recall that $Y = \mX \vbeta + \vveps$ with $\Ex(\vveps)=0$, $\cov(\vveps)=\sigma^2 \mI$, where $\mX$ is fixed and of full column rank
+
+### Unbiasedness of $\hvbeta$ and $\hmu(\vx)$
+
+\begin{align*}
+\hvbeta & := (\mX^\top \mX)^{-1} \mX^\top \vY = (\mX^\top \mX)^{-1} \mX^\top \left(\mX \vbeta + \vveps\right) = \vbeta + (\mX^\top \mX)^{-1} \mX^\top \vveps \\
+\implies
+\Ex(\hvbeta)
+& = \vbeta \qquad \text{so $\hvbeta$ is \class{alert}{unbiased}} \\[12pt]
+\hmu(\vx) & := \vx^\top \hvbeta =  \vx^\top \vbeta + \vx^\top (\mX^\top \mX)^{-1} \mX^\top \vveps \\
+\implies
+\Ex(\hmu(\vx))
+&= \vx^\top \vbeta = \mu(\vx) \qquad \text{so $\hmu(\vx)$ is \class{alert}{unbiased}} \\[12pt]
+\hvveps &: = \underbrace{\vY}_{\text{data}} - \underbrace{\hvY}_{\text{fit}} = (\mI-\mP)\vY,
+\qquad
+\mP := \mX(\mX^\top \mX)^{-1}\mX^\top \\
+& = (\mI-\mP)(\mX \vbeta + \vveps)  = (\mI-\mP)\vveps \qquad \text{since $(\mI-\mP)\mX = \mzero$} \\
+\implies \Ex(\hvveps) & = \vzero
+\end{align*}
+
+---
+
+### Residual sum of squares and unbiased estimation of $\sigma^2$
+
+Since $\hvveps = (\mI-\mP)\vveps$, it follows that
+\begin{equation*}
+\Ex\bigl(\lVert \hvveps \rVert^2\bigr)
+= \Ex\bigl(\vveps^\top (\mI-\mP)\vveps\bigr) \\
+= \sigma^2 \trace(\mI-\mP) = \sigma^2 (n - \trace(\mP))
+\end{equation*}
+
+Now $\mP$ is a projection matrix onto $\cc(\mX)$, it has eigenvalues of $0$ and $1$ only, so
+$$
+\trace(\mP)= \text{ sum of the eigenvalues of } \mP = \rank(\mP)=\rank(\mX)=d
+$$
+
+Therefore $\Ex\bigl(\lVert \hvveps \rVert^2\bigr)
+= \sigma^2 (n-d)
+$
+and so 
+\begin{multline*}
+S^2 := \frac 1{n-d} \sum_{i=1}^{n} \lvert Y_i - \vx_i^\top \hvbeta \rvert^2
+= \frac{\lVert \hvveps \rVert^2}{n-d}
+= \frac{\lVert (\mI-\mP)\vY \rVert^2 }{n-d} = \frac{\lVert (\mI-\mP)\vveps \rVert^2 }{n-d} \\
+\text{is an \class{alert}{unbiased} estimator of $\sigma^2$}
+\end{multline*}

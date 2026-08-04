@@ -1,0 +1,199 @@
+# Beyond Confidence Intervals
+
+So far, our intervals have targeted a [population parameter]{.alert} such as mean, $\mu$, or variance, $\sigma^2$
+
+
+But in practice, we may want to answer different questions:
+
+1. Where is the true mean? [confidence interval](#ci_review)
+2. Where will the next observation fall? [prediction interval](#prediction_interval)
+3. Does most of the population lie within specifications? [tolerance interval](#tolerance_interval)
+
+These require different kinds of intervals and different calculations
+
+## Large sample *confidence* interval (review) {#ci_review}
+
+Under the CLT, a $100(1-\alpha)\%$ confidence interval for $\mu$ is
+
+$$
+\Prob \left[ \bar X - z_{\alpha/2}\frac{S}{\sqrt{n}} \le \mu \le \bar X + z_{\alpha/2}\frac{S}{\sqrt{n}} \right] = 1-\alpha 
+$$
+
+- Targets the parameter $\mu$  
+- Shrinks to zero width as $n$ increases  
+- Says _nothing_ directly about future observations
+
+## Large sample *prediction* interval (Normal data) {#prediction_interval}
+
+Suppose $X_1,\dots,X_n,X_{n+1}$ are IID $N(\mu,\sigma^2)$, and we want to predict a *new* observation:
+
+$$X_{n+1} 
+=
+(X_{n+1} - \mu)
+-
+(\barX_n - \mu) + \barX_n$$
+
+in relation to $\barX_n$. Note that
+
+$$
+\var(X_{n+1} - \barX_n)
+= 
+\sigma^2 + \frac{\sigma^2}{n}
+=
+\sigma^2\left(1 + \frac{1}{n}\right)
+$$
+
+since $X_{n+1}$ and $\barX_n$ are independent. Thus, a $100(1-\alpha)\%$ prediction interval for $X_{n+1}$ is
+
+$$
+\Prob\left( \barX_n - z_{\alpha/2}\, S \sqrt{1 + \frac{1}{n}} \le X_{n+1} \le \barX_n + z_{\alpha/2}\, S \sqrt{1 + \frac{1}{n}} \right) = 1-\alpha
+$$
+
+- Targets a future observation $X_{n+1}$
+
+- Does _not_ shrink to zero width as $n$ increases  
+
+
+## Large sample *tolerance* interval for $\Norm(\mu,\sigma^2)$ data (different again) {#tolerance_interval}
+
+Assume $X \sim N(\mu,\sigma^2)$. Sometimes the question is:
+
+::: {.key-point}
+
+Can we say that at least 95% of the population lies within an interval?
+
+:::
+
+
+A $(1-\alpha,\gamma)$ **tolerance interval** consists of random endpoints
+$X_-$ and $X_+$ such that
+
+$$
+\Prob\!\left[
+\Prob(X_- \le X \le X_+) \ge 1-\alpha
+\right]
+=
+\gamma
+$$
+
+- The inner probability is taken over the population distribution of $X$
+- The outer probability is taken over repeated samples used to compute
+  $X_-$ and $X_+$
+
+--- 
+
+For $X \sim N(\mu,\sigma^2)$, the central $1-\alpha$ proportion of the population is
+$\mu \pm z_{\alpha/2}\sigma$
+
+So a $(1-\alpha,\gamma)$ tolerance interval is approximately
+
+$$
+\Prob \left [\Prob \left( \barX_n - z_{\alpha/2} S
+\sqrt{
+1+\frac{z_\gamma^2}{2n}} \le X \le \barX_n + z_{\alpha/2} S \sqrt{1 + \frac{z_\gamma^2}{2n}} \right) \ge 1-\alpha  \right ] = \gamma
+$$
+
+
+- Targets population coverage
+- Does not shrink to zero width
+- Is typically wider than a prediction interval
+
+## Comparison of interval half-widths
+
+| Interval type | Half-width |
+| ------ | --- |
+| Confidence interval for $\mu$ | $\displaystyle z_{\alpha/2} \frac{S}{\sqrt{n}}$ |
+| Prediction interval for $X_{n+1}$ | $\displaystyle z_{\alpha/2} S \sqrt{1 + \frac{1}{n}}$ |
+| Tolerance interval for $1-\alpha$ coverage | $\displaystyle z_{\alpha/2} S \sqrt{1 + \frac{z_\gamma^2}{2n}}$ |
+
+---
+
+## Manufacturing example (parameterized)
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+from IPython.display import Markdown, display
+plt.rcParams["mathtext.fontset"] = "cm"
+
+def z_upper(alpha: float) -> float:
+    return float(norm.isf(alpha))  # P(Z > z_alpha) = alpha
+
+n = 25
+xbar = 10.02
+s = 0.20 #CI within specs, but PI and TI not within specs
+#s = 0.040 #CI and PI within specs, but TI not within specs
+#s = 0.038 #CI, PI, and TI all within specs
+
+spec_low = 9.90
+spec_high = 10.10
+
+alpha = 0.05
+gamma = 0.99
+alpha_cov = 0.05
+
+z_a2 = z_upper(alpha/2)
+z_g = z_upper(1 - gamma)
+
+ci_hw = z_a2 * s / math.sqrt(n)
+pi_hw = z_a2 * s * math.sqrt(1 + 1/n)
+ti_hw = z_upper(alpha_cov/2) * s * math.sqrt(1 + (z_g**2)/(2*n))
+
+ci = (xbar - ci_hw, xbar + ci_hw)
+pi = (xbar - pi_hw, xbar + pi_hw)
+ti = (xbar - ti_hw, xbar + ti_hw)
+
+def inside_specs(interval):
+    lo, hi = interval
+    return (lo >= spec_low) and (hi <= spec_high)
+
+ci_ok = inside_specs(ci)
+pi_ok = inside_specs(pi)
+ti_ok = inside_specs(ti)
+
+md = f"""
+- $n={n}$, $\\barx={xbar:.4f}$, $s={s:.4f}$
+- Specs: $[{spec_low:.2f},\\ {spec_high:.2f}]$
+- CI/PI level : $1-\\alpha={100*(1-alpha):.0f}\%$ ($\\alpha={alpha:.2f}$)
+- TI: coverage $1-\\alpha_\\mathrm{{cov}}={100*(1-alpha_cov):.0f}\%$, confidence $\\gamma={100*gamma:.0f}\%$
+
+Computed (large-sample) intervals:
+
+- CI for $\\mu$: $({ci[0]:.4f},\\ {ci[1]:.4f})$  {"✅ inside specs" if ci_ok else "❌ not inside specs"}
+- PI for $X_{{n+1}}$: $({pi[0]:.4f},\\ {pi[1]:.4f})$  {"✅ inside specs" if pi_ok else "❌ not inside specs"}
+- TI (approx): $({ti[0]:.4f},\\ {ti[1]:.4f})$  {"✅ inside specs" if ti_ok else "❌ not inside specs"}
+
+"""
+display(Markdown(md))
+```
+
+---
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+labels = ["Specs", "CI for μ", "PI for $X_{n+1}$", "TI (coverage + confidence)"]
+intervals = [(spec_low, spec_high), ci, pi, ti]
+y = np.arange(len(intervals))[::-1]
+
+plt.figure(figsize=(12, 6))  # wider for slides
+
+for yi, (lo, hi), lab in zip(y, intervals, labels):
+    plt.hlines(yi, lo, hi, linewidth=8)
+    plt.plot([lo, hi], [yi, yi], marker="|", markersize=18, linestyle="None")
+
+plt.yticks(y, labels, fontsize=18)
+plt.xticks(fontsize=16)
+plt.xlabel("Measurement", fontsize=24)
+plt.title("Specs vs CI / PI / TI", fontsize=24)
+plt.tight_layout()
+plt.show()
+```

@@ -1,0 +1,1718 @@
+# Beyond predictors depending on $\vx^{\top} \vbeta$ {#gauss_process}
+
+So far,
+
+- Ordinary least squares   regression: $\Ex(Y \mid \vx) = \mu(\vx) = \vx^\top \vbeta$
+
+- [Transform the response]{.alert}: $\Ex \big( g(Y) \mid \vx \big) = \vx^\top \vbeta$ to stabilize variance or improve linearity
+  
+- [Generalized linear models (GLMs)](#logistic-glm) with a link function: $g\bigl(\mu(\vx)\bigr) = \vx^\top \vbeta$, where $\mu(\vx) = \Ex(Y \mid \vx)$, to model non-Gaussian responses through a link function and a distributional family
+
+- [Nonlinear regression]{.alert} with a nonlinear mean function: $\Ex(Y \mid \vx) = \mu(\vx) = f(\vx; \vbeta)$, where $f$ is a [known]{.alert} nonlinear function of $\vx$ and $\vbeta$ is a vector of unknown parameters
+
+::: {.fragment}
+[Gaussian process regression]{.alert}, also known as kriging, takes a different point of view ([lose the $\vbeta$]{.alert} and place a [probability model on $f$]{.alert} directly):
+
+$$
+Y(\vx) = f(\vx) + \varepsilon(\vx),
+\qquad f \sim \GP(m,K), \quad \varepsilon(\vx) \sim \Norm(0,\sigma^2)
+$$
+
+
+See [scikit-learn](https://scikit-learn.org/stable/) and [GPy](https://gpy.readthedocs.io/en/latest/) for Python implementations
+:::
+
+
+## From unknown parameters to unknown functions
+
+- In linear and generalized linear models, the unknown object is $\vbeta \in \reals^p$
+
+- In Gaussian process regression, the unknown object is a whole function $f : \cx \to \reals$
+
+Instead of estimating coefficients, we are learning a surface $y = f(\vx)$ 
+
+   &nbsp; &nbsp; &nbsp; &nbsp; from data, $Y_1, \dots, Y_n$ observed at inputs $\vx_1, \dots, \vx_n$:
+
+::: {.fragment}
+
+1.  $Y = f(\vx)$ with 
+
+    a. $f \sim \GP(0,K)$ means that the function values at any finite collection of points have a multivariate normal distribution with mean zero and covariance given by $K$.
+
+    b.  $f \sim \GP(m,K)$ means that the mean may be nonzero
+
+3. $Y = f(\vx) + \varepsilon$ means that the observed data is a noisy version of the underlying function values
+
+:::
+
+
+## $f \sim \GP(0,K)$
+
+For any inputs $\vx_1,\dots,\vx_n$,
+
+$$
+\begin{pmatrix}
+f(\vx_1)\\
+\vdots\\
+f(\vx_n)
+\end{pmatrix}
+\sim
+\Norm\!\bigl(
+\vzero,\;
+\mK
+\bigr),
+\qquad
+\mK = \bigl(K(\vx_i,\vx_j)\bigr)_{i,j=1}^n = \begin{pmatrix} K(\vx_1,\vx_1) & \cdots & K(\vx_1,\vx_n)\\ \vdots & \ddots & \vdots\\ K(\vx_n,\vx_1) & \cdots & K(\vx_n,\vx_n) \end{pmatrix}
+$$
+
+means 
+
+$$
+\Ex[f(\vx)] = 0, \qquad \cov \bigl ( f(\vt), f(\vx) \bigr ) = K(\vt,\vx), \qquad \text{for all } \vt, \vx
+$$
+
+- Multivariate normal theory applied to function values
+
+- All randomness comes from the function itself
+
+---
+
+### The kernel, $K$, must be symmetric, positive definite
+
+- Since $\mK$ is a covariance matrix, it must be symmetric and positive definite (positive eigenvalues)
+
+- The kernel function, $K$, must be defined such that $\mK = \bigl(K(\vx_i,\vx_j)\bigr)_{i,j=1}^n$ is a symmetric, positive definite matrix for all distinct choices of $\vx_1, \ldots, \vx_n$
+
+## The kernel $K$ controls the properties of $f$
+
+### Example: squared exponential kernel
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+$$
+K(\vt,\vx)
+=
+\tau^2 \exp\!\left(
+-\frac{\|\vt-\vx\|^2}{2\ell^2}
+\right)
+$$
+
+- $\tau^2$: vertical scale
+- $\ell$: length scale
+
+  - small $\ell$ → rapidly varying functions, 
+  - large $\ell$ → smoother functions
+
+::: 
+
+::: {.column width="50%"}
+
+```{python}
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+# ============================================================
+# 1. Kernel functions in 1D
+# ============================================================
+
+def matern_half(r, tau2=1.0, ell=0.2):
+    """
+    Matérn kernel with nu = 1/2:
+        K(r) = tau^2 exp(-r / ell)
+    """
+    r = np.asarray(r)
+    return tau2 * np.exp(-r / ell)
+
+
+def matern_three_halves(r, tau2=1.0, ell=0.2):
+    """
+    Matérn kernel with nu = 3/2:
+        K(r) = tau^2 (1 + sqrt(3) r / ell) exp(-sqrt(3) r / ell)
+    """
+    r = np.asarray(r)
+    return tau2 * (1 + np.sqrt(3) * r / ell) * np.exp(-np.sqrt(3) * r / ell)
+
+
+def squared_exponential(r, tau2=1.0, ell=0.2):
+    """
+    Squared exponential kernel, the Matérn limit as nu -> infinity:
+        K(r) = tau^2 exp(-r^2 / (2 ell^2))
+    """
+    r = np.asarray(r)
+    return tau2 * np.exp(-(r**2) / (2 * ell**2))
+
+
+def covariance_matrix(x, kernel, tau2=1.0, ell=0.2, nugget=0.0):
+    """
+    Build covariance matrix K_ij = kernel(|x_i - x_j|).
+    """
+    x = np.asarray(x)
+    r = np.abs(x[:, None] - x[None, :])
+    K = kernel(r, tau2=tau2, ell=ell)
+    if nugget > 0:
+        K = K + nugget * np.eye(len(x))
+    return K
+
+
+# ============================================================
+# 2. Plot kernel shape centered at 0
+# ============================================================
+
+tau2 = 1.0
+ell = 0.2
+ell_long = 0.5
+
+h = np.linspace(-1.0, 1.0, 800)
+
+k_matern_half = matern_half(np.abs(h), tau2=tau2, ell=ell)
+k_matern_three_halves = matern_three_halves(np.abs(h), tau2=tau2, ell=ell)
+k_se = squared_exponential(np.abs(h), tau2=tau2, ell=ell)
+k_se_long = squared_exponential(np.abs(h), tau2=tau2, ell=ell_long)
+
+plt.figure(figsize=(9, 4.7))
+plt.plot(h, k_se, label=rf"$\ell = {ell: .2f}$", linewidth=2)
+plt.plot(h, k_se_long, label=rf"$\ell = {ell_long: .2f}$", linewidth=2)
+plt.axvline(0, linewidth=1, alpha=0.5)
+plt.xlabel(r"$x$")
+plt.ylabel(r"$K_{\nu}(x,0)$")
+plt.title("Squared exponential kernel w/ different length scales")
+plt.legend(loc="upper right")
+plt.tight_layout()
+plt.show()
+
+```
+
+:::
+
+:::
+
+
+
+### Interpreting the kernel $K$
+
+::: {.columns}
+
+::: {.column width="75%"}
+
+$K(\vt,\vx)$ controls how function values relate at different inputs $\vt$ and $\vx$
+
+- $\vt$ and $\vx$ close $\implies$ $f(\vt)$ and $f(\vx)$  strongly correlated
+
+
+:::
+
+
+:::  {.column width="25%"}
+
+$K$ determines
+
+- smoothness
+- scale
+- periodicity
+
+
+:::
+
+
+:::
+
+
+## Prediction in the noiseless, zero mean case
+
+We want to predict $f(\vx_*)$ from observed data $\vY = (Y_1, \dots, Y_n)^\top = \bigl(f(\vx_1), \dots, f(\vx_n)\bigr)^\top$ 
+
+$$
+\begin{pmatrix}
+\vY\\
+f(\vx_*)
+\end{pmatrix}
+\sim
+\Norm\!\left(
+\vzero,
+\begin{pmatrix}
+\mK & \vk_* \\
+\vk_*^\top & K(\vx_*,\vx_*)
+\end{pmatrix}
+\right)
+$$
+
+where
+
+$$
+\vk_* =
+\begin{pmatrix}
+K(\vx_1,\vx_*)\\
+\vdots\\
+K(\vx_n,\vx_*)
+\end{pmatrix}
+\qquad 
+\mK  = \begin{pmatrix} K(\vx_1,\vx_1) & \cdots & K(\vx_1,\vx_n)\\ \vdots & \ddots & \vdots\\ K(\vx_n,\vx_1) & \cdots & K(\vx_n,\vx_n) \end{pmatrix}
+$$
+
+::: {.fragment}
+Conditioning gives
+
+$$
+\Ex[f(\vx_*) \mid \vY]
+=
+\vk_*^\top \mK^{-1} \vY, \qquad \var \bigl(f(\vx_*) \mid \vY\bigl) = K(\vx_*,\vx_*) - \vk_*^\top \mK^{-1} \vk_*
+$$
+👉 Prediction is a weighted combination of observed values.
+:::
+
+
+## Deriving the predictor from the conditional distribution
+We want to find $f(\vx_*) \mid \vY \sim \Norm(\mu_*, \sigma_*^2)$.  Note that the conditional density is
+\begin{align*}
+\varrho_{f(\vx_*) \mid \vY}(y_* \mid \vy) &=   \frac{\varrho_{\vY, f(\vx*)}(\vy, y_*)}{\varrho_{\vY}(\vy)} \\
+\log \bigl(\varrho_{f(\vx_*) \mid \vY}(y_* \mid \vy)\bigr) &= \log \bigl(\varrho_{\vY, f(\vx_*)}(\vy, y_*)\bigr) - C(\text{independent of } y_*) \\
+& = -\frac{1}{2} \begin{pmatrix} \vy &  y_* \end{pmatrix} \begin{pmatrix} \mK & \vk_* \\ \vk_*^\top & K(\vx_*,\vx_*) \end{pmatrix}^{-1} \begin{pmatrix} \vy \\ y_* \end{pmatrix} + C'(\text{indepndent of } y_*) 
+\end{align*}
+
+Let $s_*^2 = K(\vx_*,\vx_*) - \vk_*^\top \mK^{-1}\vk_*$, and note that 
+$$\begin{pmatrix} \mK & \vk_* \\ \vk_*^\top & K(\vx_*,\vx_*) \end{pmatrix}^{-1}
+= \begin{pmatrix} \mK^{-1} + \mK^{-1} \vk_* s_*^{-2} \vk_*^\top \mK^{-1} & -\mK^{-1} \vk_* s_*^{-2} \\ -s_*^{-2} \vk_*^\top \mK^{-1} & s_*^{-2}  \end{pmatrix}
+$$
+\begin{align*}
+\text{So} \qquad \log \bigl(\varrho_{f(\vx_*) \mid \vY}(y_* \mid \vy)\bigr) 
+& = -\frac{1}{2} \left[ y_*^2 s_*^{-2} - 2 y_* s_*^{-2}\vk_*^\top \mK^{-1} \vy \right] + C''(\text{independent of } y_*) \\
+& = -\frac{1}{2} \left[ \bigl(y_* - \vk_*^\top \mK^{-1} \vy\bigr)^2 s_*^{-2} \right] + C'''(\text{independent of } y_*)
+\end{align*}
+Read off the mean and variance from this expression
+
+
+## Interpretation of the predictor
+
+Predictor (no noise yet) in terms of data is a *data-adaptive interpolant*
+
+$$
+\Ex[f(x_*) \mid \vy] = \vk_*^\top \mK^{-1} \vy
+$$
+
+
+- weights depend on similarity via $K$
+- nearby points matter more
+- far points matter less
+
+Contrast:
+
+- linear model → global coefficients $\vbeta$
+- Gaussian process → local weighting determined by $K$
+
+$\exstar$ Show that $\Ex[f(x_i) \mid \vy] = f(\vx_i)$, i.e,. the predictor interpolates the data
+
+$\exstar$ What is $\sigma_*^2$ for $\vx_* = \vx_i$?  What does this say about the uncertainty at observed data points?
+
+$\exstar$ Show that the kernel $K$ and the kernel $47 K$ give the same predictor, but different variances
+
+## Precision matrix viewpoint
+
+Recall the joint distribution
+
+$$
+\vY \sim \Norm(\vzero, \mK),
+\qquad
+\class{alert}{\text{covariance matrix }} \mK = \bigl(K(\vx_i,\vx_j)\bigr)_{i,j=1}^n
+$$
+
+Instead of the covariance $\mK$, consider its inverse
+
+$$
+\mQ = \mK^{-1}
+\quad \class{alert}{\text{(precision matrix)}}
+$$
+
+### Why look at $\mQ$?
+
+- $\mQ$ encodes *conditional (direct) relationships*
+
+- $Q_{ij} = 0$ if and only if $Y_i$ and $Y_j$ are conditionally independent given the other variables
+
+- $\var(Y_i \mid \{Y_k : k \ne i\}) = \displaystyle \frac{1}{Q_{ii}}$
+
+- $\displaystyle \corr(Y_i, Y_j \mid \{Y_k : k \ne i,j\}) = \frac{- Q_{ij}}{\sqrt{Q_{ii}Q_{jj}}}$
+
+---
+
+### Interpretation for GP models
+
+- $\mK$ → similarity / smoothness via kernel  
+- $\mQ$ → local dependence structure  
+
+- Large $Q_{ij}$:
+  - strong *direct* interaction between $Y_i$ and $Y_j$
+
+- Sparse $\mQ$:
+  - “local” models  
+  - connects to Gaussian Markov random fields (GMRFs)
+
+### Computational perspective
+
+Prediction uses $\Ex\bigl(f(\vx_*) \mid \vY\bigr)
+= \vk_*^\top \mK^{-1} \vY
+= \vk_*^\top \mQ \vY$
+
+### Big picture
+
+- Covariance view: *global smoothness*  
+- Precision view: *local structure + computation*  
+
+
+## Credible intervals for $f(\vx_*)$
+
+From the conditional distribution,
+
+\begin{multline*}
+f(\vx_*) \mid \vY \sim \Norm\!\bigl(\mu_*(\vx_*),\, \sigma_*^2(\vx_*)\bigr), \\ \text{where }
+\mu_*(\vx_*) = \vk_*^\top \mK^{-1} \vY,
+\quad
+\sigma_*^2(\vx_*) = K(\vx_*,\vx_*) - \vk_*^\top \mK^{-1} \vk_*
+\end{multline*}
+
+### $(1-\alpha)$ credible interval
+
+$$
+f(\vx_*) \in
+\mu_*(\vx_*)
+\pm
+z_{\alpha/2}\,\sigma_*(\vx_*)
+\qquad \text{with probability } 1-\alpha
+$$
+
+### Interpretation
+
+- uncertainty depends on geometry of inputs
+- near observed data → small variance  
+- far from data → large variance  
+
+👉 Gaussian processes give uncertainty quantification automatically
+
+
+## Kernel parameters (hyperparameters)
+
+[But wait!]{.alert} We haven't said how to choose the kernel $K$ or its parameters:
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+- scale: $\tau^2$
+- length scale: $\ell$
+- (later) smoothness: $\nu$
+
+Example (squared exponential):
+
+$$
+K(\vt,\vx)
+=
+\tau^2 \exp\!\left(-\frac{\|\vt-\vx\|^2}{2\ell^2}\right)
+$$
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+#| echo: false
+
+plt.figure(figsize=(9, 4.7))
+plt.plot(h, k_se, label=rf"$\ell = {ell: .2f}$", linewidth=2)
+plt.plot(h, k_se_long, label=rf"$\ell = {ell_long: .2f}$", linewidth=2)
+plt.axvline(0, linewidth=1, alpha=0.5)
+plt.xlabel(r"$x$")
+plt.ylabel(r"$K_{\nu}(x,0)$")
+plt.title("Squared exponential kernel w/ different length scales")
+plt.legend(loc="upper right")
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+:::
+### How do we choose these parameters?
+
+Treat them as unknown and infer them from the data
+
+- $\vtheta = (\tau^2, \ell, \dots)$
+
+- $\vY \sim \Norm(\vzero, \mK_\vtheta)$
+
+## Empirical Bayes (maximum likelihood) approach
+
+### Log marginal likelihood
+
+$$
+\log \varrho(\vY \mid \vtheta)
+=
+-\frac{1}{2} \vY^\top \mK_{\vtheta}^{-1} \vY
+-\frac{1}{2} \log \bigl(\det(\mK_{\vtheta})\bigr)
+-\frac{n}{2} \log(2\pi)
+$$
+
+
+### Empirical Bayes (maximum likelihood)
+
+$$
+\hvtheta
+=
+\argmax_{\vtheta} \log \varrho(\vY \mid \vtheta) \qquad \text{solved by numerical optimization, e.g., gradient ascent}
+$$
+
+### Objective balances fit and complexity
+
+
+- data fit: $\vY^\top \mK_{\vtheta}^{-1} \vY$
+
+- complexity penalty: $\log \bigl(\det(\mK_{\vtheta})\bigr)$
+
+👉 automatic tradeoff between overfitting and smoothness
+
+---
+
+### Optimizing the vertical scale $\tau^2$
+
+Suppose that the kernel has the form $K_{\vtheta}=\tau^2 \widetilde{\mK}_{\tvtheta}$
+
+- $\mK_{\vtheta}^{-1} = \tau^{-2}\widetilde{\mK}_{\tvtheta}^{-1}$ 
+- $\det(\mK_{\vtheta,\tau^2})= (\tau^2)^n \det(\widetilde{\mK}_{\vtheta})$
+
+So the log marginal likelihood becomes
+$$
+\ell(\tau^2,\vtheta)
+=
+-\frac{1}{2\tau^2}
+\vY^\top \widetilde{\mK}_{\vtheta}^{-1}\vY
+-\frac{n}{2}\log(\tau^2)
+-\frac{1}{2}\log\bigl(\det(\widetilde{\mK}_{\vtheta})\bigr)
+-\frac{n}{2}\log(2\pi)
+$$
+
+Differentiate with respect to $\tau^2$, set equal to zero, and solve for $\tau^2$ to get the profiled log likelihood
+$$
+\frac{\partial \ell}{\partial \tau^2}
+=
+\frac{1}{2(\tau^2)^2}
+\vY^\top \widetilde{\mK}_{\vtheta}^{-1}\vY
+-
+\frac{n}{2\tau^2}, \qquad 
+\widehat{\tau}^2(\vtheta)
+=
+\frac{1}{n}
+\vY^\top \widetilde{\mK}_{\vtheta}^{-1}\vY
+$$
+
+Ignoring constants, optimize one less parameter
+$$
+\hvtheta = \argmin_{\vtheta}
+\left[n\log(
+\vY^\top \widetilde{\mK}_{\vtheta}^{-1}\vY)
++ \log \bigl(\det(\widetilde{\mK}_{\vtheta}) \bigr)
+\right]
+$$
+
+## Beyond squared exponential: Matérn kernels
+
+Many, many kernels to choose
+
+Matérn family, which includes the squared exponential as a special case, has an additional parameter $\nu$ controlling smoothness:
+
+$$
+K(\vt,\vx) = K_\nu(\lVert\vt-\vx\Vert), \qquad
+K_\nu(r)
+=
+\tau^2
+\frac{2^{1-\nu}}{\Gamma(\nu)}
+\left(\frac{\sqrt{2\nu}r}{\ell}\right)^\nu
+\ck_\nu\!\left(\frac{\sqrt{2\nu}r}{\ell}\right)
+$$
+
+where $\ck_\nu$ is a modified Bessel function of the second kind
+
+### Special cases and interpretation
+
+- $K_{1/2}(r) = \tau^2 \exp\!\left(-r/\ell\right) \quad$ (exponential, rough paths)
+
+- $K_{3/2}(r) = \tau^2 \left(1 + \sqrt{3} r/\ell \right)
+  \exp\!\left(-\sqrt{3} r/\ell\right)$
+  (once differentiable, smoother)
+
+- $\nu \to \infty$ → squared exponential (very smooth)
+
+- larger $\nu$ → smoother functions  
+
+👉 kernel choice encodes assumptions about the function
+
+---
+
+```{python}
+#| echo: false
+
+plt.figure(figsize=(15, 9))
+plt.plot(h, k_matern_half, label=r"Matérn, $\nu=1/2$", linewidth=2)
+plt.plot(h, k_matern_three_halves, label=r"Matérn, $\nu=3/2$", linewidth=2)
+plt.plot(h, k_se, label=r"Limit $\nu\to\infty$ (squared exponential)", linewidth=2)
+plt.axvline(0, linewidth=1, alpha=0.5)
+plt.xlabel(r"$x$")
+plt.ylabel(r"$K_{\nu}(x,0)$")
+plt.title("Matérn kernel for different smoothness parameters")
+plt.legend(loc="upper right")
+plt.tight_layout()
+plt.show()
+
+```
+
+---
+
+```{python}
+#| echo: false
+
+# ============================================================
+# 3. Sample locations
+# ============================================================
+
+# Evenly spaced points
+x_equal = np.linspace(0, 1, 12)
+
+# More points on the left, fewer on the right
+x_unequal = np.array([0.00, 0.05, 0.09, 0.13, 0.18, 0.24, 0.31, 0.40, 0.55, 0.72, 0.88, 1.00])
+
+
+# ============================================================
+# 4. Covariance matrices
+# ============================================================
+
+tau2 = 1.0
+ell = 0.15
+
+K_equal = covariance_matrix(x_equal, matern_three_halves, tau2=tau2, ell=ell, nugget=1e-10)
+K_unequal = covariance_matrix(x_unequal, matern_three_halves, tau2=tau2, ell=ell, nugget=1e-10)
+
+Q_equal = np.linalg.inv(K_equal)
+Q_unequal = np.linalg.inv(K_unequal)
+
+
+import matplotlib.pyplot as plt
+
+fig = plt.figure(figsize=(12, 10))
+gs = fig.add_gridspec(2, 3, width_ratios=[1, 1, 0.05])  # last column = colorbars
+
+# Axes
+ax_K_eq = fig.add_subplot(gs[0, 0])
+ax_K_uneq = fig.add_subplot(gs[0, 1])
+ax_Q_eq = fig.add_subplot(gs[1, 0])
+ax_Q_uneq = fig.add_subplot(gs[1, 1])
+
+# Colorbar axes
+cax_K = fig.add_subplot(gs[0, 2])
+cax_Q = fig.add_subplot(gs[1, 2])
+
+
+# ============================================================
+# Helper (square + clean)
+# ============================================================
+
+def heatmap(ax, M, x, title, cmap="viridis", vmin=None, vmax=None):
+    x = np.asarray(x)
+    n = len(x)
+
+    # Build cell edges from point locations
+    edges = np.empty(n + 1)
+    edges[1:-1] = 0.5 * (x[:-1] + x[1:])
+    edges[0] = x[0] - 0.5 * (x[1] - x[0])
+    edges[-1] = x[-1] + 0.5 * (x[-1] - x[-2])
+
+    im = ax.pcolormesh(
+        edges,
+        edges,
+        M,
+        cmap=cmap,
+        shading="flat",
+        vmin=vmin,
+        vmax=vmax
+    )
+
+    ax.set_title(title)
+    ax.set_xlabel(r"$x_j$")
+    ax.set_ylabel(r"$x_i$")
+
+    ax.set_xticks(x)
+    ax.set_yticks(x[::-1])
+
+    ax.set_xticklabels([f"{xi:.2f}" for xi in x], rotation=45, ha="right", fontsize=8)
+    ax.set_yticklabels([f"{xi:.2f}" for xi in x[::-1]], fontsize=8)
+
+    ax.invert_yaxis()  # <-- this is the clean way
+
+    return im
+
+# ============================================================
+# Match color scales across each row
+# ============================================================
+
+K_vmin = 0.0
+K_vmax = max(K_equal.max(), K_unequal.max())
+
+Q_vmax = max(
+    np.percentile(np.abs(Q_equal), 98),
+    np.percentile(np.abs(Q_unequal), 98)
+)
+
+
+# ============================================================
+# Plot
+# ============================================================
+
+im_K1 = heatmap(ax_K_eq, K_equal, x_equal, r"$K_{ij}=K(x_i,x_j)$ (evenly spaced)", vmin=K_vmin, vmax=K_vmax)
+im_K2 = heatmap(ax_K_uneq, K_unequal, x_unequal, r"$K_{ij}=K(x_i,x_j)$ (nonuniform)", vmin=K_vmin, vmax=K_vmax)
+
+im_Q1 = heatmap(ax_Q_eq, Q_equal, x_equal, r"$Q_{ij}$ with $\mathsf{Q}=\mathsf{K}^{-1}$ (evenly spaced)", cmap="RdBu_r", vmin=-Q_vmax, vmax=Q_vmax)
+im_Q2 = heatmap(ax_Q_uneq, Q_unequal, x_unequal, r"$Q_{ij}$ with $\mathsf{Q}=\mathsf{K}^{-1}$ (nonuniform)", cmap="RdBu_r", vmin=-Q_vmax, vmax=Q_vmax)
+
+
+# ============================================================
+# Colorbars (no overlap)
+# ============================================================
+
+fig.colorbar(im_K1, cax=cax_K)
+fig.colorbar(im_Q1, cax=cax_Q)
+
+
+# ============================================================
+# Final polish
+# ============================================================
+
+# Remove redundant y-labels on right column
+ax_K_uneq.set_ylabel("")
+ax_Q_uneq.set_ylabel("")
+
+plt.tight_layout()
+plt.show()
+```
+
+## Example
+
+```{python}
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+# ============================================================
+# Cross-covariance using your existing pattern
+# ============================================================
+
+def covariance_cross(x1, x2, kernel, tau2=1.0, ell=0.2):
+    x1 = np.asarray(x1)
+    x2 = np.asarray(x2)
+    r = np.abs(x1[:, None] - x2[None, :])
+    return kernel(r, tau2=tau2, ell=ell)
+
+
+# ============================================================
+# GP posterior (reuses covariance_matrix)
+# ============================================================
+
+def gp_posterior(x_train, y_train, x_test, kernel, tau2=1.0, ell=0.2, sigma2=1e-8):
+
+    n = len(y_train)
+
+    if tau2 is None: #optimize tau2 by maximizing the marginal likelihood
+        K_tilde = covariance_matrix(x_train, kernel, tau2=1.0, ell=ell, nugget=sigma2)
+        alpha_tilde = np.linalg.solve(K_tilde, y_train)
+
+        tau2 = (y_train.T @ alpha_tilde) / n
+
+    K = covariance_matrix(x_train, kernel, tau2=tau2, ell=ell, nugget=sigma2)
+    Ks = covariance_cross(x_train, x_test, kernel, tau2=tau2, ell=ell)
+    Kss = covariance_matrix(x_test, kernel, tau2=tau2, ell=ell)
+
+    alpha = np.linalg.solve(K, y_train)
+
+    mean = Ks.T @ alpha
+
+    V = np.linalg.solve(K, Ks)
+    cov = Kss - Ks.T @ V
+    var = np.maximum(np.diag(cov), 0.0)
+
+    return mean, var, tau2
+
+
+# ============================================================
+# Function and data
+# ============================================================
+
+def f_true(x):
+    return 0.7 * np.sin(2*np.pi*x) + 0.3 * np.cos(5*np.pi*x)
+
+x_train = np.array([0.00, 0.08, 0.15, 0.23, 0.32, 0.45, 0.58, 0.72, 0.84, 0.93, 1.00])
+y_train = f_true(x_train)
+
+x_grid = np.linspace(0, 1, 500)
+y_true = f_true(x_grid)
+
+
+# ============================================================
+# Same kernel, different length scales
+# ============================================================
+
+sigma2 = 1e-8
+
+ell_small = 0.08
+ell_large = 0.30
+# ============================================================
+# Compare fixed vs optimized tau^2
+# ============================================================
+
+tau2_fixed = 1.0
+
+# ---- fixed tau^2 ----
+mean_small_fixed, var_small_fixed, _ = gp_posterior(
+    x_train, y_train, x_grid,
+    matern_three_halves,
+    tau2=tau2_fixed,
+    ell=ell_small,
+    sigma2=sigma2
+)
+
+mean_large_fixed, var_large_fixed, _ = gp_posterior(
+    x_train, y_train, x_grid,
+    matern_three_halves,
+    tau2=tau2_fixed,
+    ell=ell_large,
+    sigma2=sigma2
+)
+
+sd_small_fixed = np.sqrt(var_small_fixed)
+sd_large_fixed = np.sqrt(var_large_fixed)
+
+# ---- optimized tau^2 (empirical Bayes) ----
+mean_small_opt, var_small_opt, tau2_opt_small_ell = gp_posterior(
+    x_train, y_train, x_grid,
+    matern_three_halves,
+    tau2=None,
+    ell=ell_small,
+    sigma2=sigma2
+)
+
+mean_large_opt, var_large_opt, tau2_opt_large_ell = gp_posterior(
+    x_train, y_train, x_grid,
+    matern_three_halves,
+    tau2=None,
+    ell=ell_large,
+    sigma2=sigma2
+)
+
+sd_small_opt = np.sqrt(var_small_opt)
+sd_large_opt = np.sqrt(var_large_opt)
+
+# ============================================================
+# Plot (2x2)
+# ============================================================
+
+fig, axes = plt.subplots(
+    2, 2,
+    figsize=(14, 8),
+    sharex=True,
+    sharey=True,
+    gridspec_kw={"wspace": 0.35, "hspace": 0.30}
+)
+
+# ---------- Top row: fixed tau ----------
+axes[0, 0].plot(x_grid, y_true, "-", linewidth=2, label="true")
+axes[0, 0].plot(x_grid, mean_small_fixed, '--', linewidth=2, label="posterior mean")
+axes[0, 0].fill_between(
+    x_grid,
+    mean_small_fixed - 1.96*sd_small_fixed,
+    mean_small_fixed + 1.96*sd_small_fixed,
+    alpha=0.25
+)
+axes[0, 0].plot(x_train, y_train, "o", markersize=6)
+axes[0, 0].set_title(rf"Fixed $\tau^2={tau2_fixed}$, small $\ell = {ell_small}$")
+
+axes[0, 1].plot(x_grid, y_true, "-", linewidth=2)
+axes[0, 1].plot(x_grid, mean_large_fixed, '--', linewidth=2)
+axes[0, 1].fill_between(
+    x_grid,
+    mean_large_fixed - 1.96*sd_large_fixed,
+    mean_large_fixed + 1.96*sd_large_fixed,
+    alpha=0.25
+)
+axes[0, 1].plot(x_train, y_train, "o", markersize=6)
+axes[0, 1].set_title(rf"Fixed $\tau^2={tau2_fixed}$, large $\ell = {ell_large}$")
+
+# ---------- Bottom row: optimized tau ----------
+axes[1, 0].plot(x_grid, y_true, "-", linewidth=2)
+axes[1, 0].plot(x_grid, mean_small_opt, '--', linewidth=2)
+axes[1, 0].fill_between(
+    x_grid,
+    mean_small_opt - 1.96*sd_small_opt,
+    mean_small_opt + 1.96*sd_small_opt,
+    alpha=0.25
+)
+axes[1, 0].plot(x_train, y_train, "o", markersize=6)
+axes[1, 0].set_title(rf"Optimized $\tau^2={tau2_opt_small_ell : .2f}$, small $\ell = {ell_small}$")
+
+axes[1, 1].plot(x_grid, y_true, "-", linewidth=2)
+axes[1, 1].plot(x_grid, mean_large_opt, '--', linewidth=2)
+axes[1, 1].fill_between(
+    x_grid,
+    mean_large_opt - 1.96*sd_large_opt,
+    mean_large_opt + 1.96*sd_large_opt,
+    alpha=0.25
+)
+axes[1, 1].plot(x_train, y_train, "o", markersize=6)
+axes[1, 1].set_title(rf"Optimized $\tau^2={tau2_opt_large_ell :.2f}$, large $\ell = {ell_large}$")
+
+# labels
+for ax in axes[:, 0]:
+    ax.set_ylabel(r"$f(x)$")
+
+for ax in axes[1, :]:
+    ax.set_xlabel(r"$x$")
+
+handles, labels = axes[0, 0].get_legend_handles_labels()
+
+fig.legend(
+    handles, labels,
+    loc="upper center",
+    bbox_to_anchor=(0.5, 1.03),  # push legend up
+    ncol=3,
+    frameon=False
+)
+
+plt.tight_layout(rect=[0, 0, 1, 0.92])  # reserve more top space
+plt.show()
+```
+
+## Key takeaway before adding noise
+
+- GP gives:
+  - predictions
+  - uncertainty
+  - parameter estimation
+
+- all from multivariate normal theory
+
+👉 Next: incorporate observation noise
+
+## Adding noise back in
+
+Now return to
+
+$$
+Y(\vx) = f(\vx) + \varepsilon(\vx),
+\qquad
+\varepsilon(\vx) \sim \Norm(0,\sigma^2),
+\qquad
+\varepsilon(\vx) \text{ independent of } f
+$$
+
+Then
+
+$$
+\vY =
+\begin{pmatrix}
+Y(\vx_1)\\
+\vdots\\
+Y(\vx_n)
+\end{pmatrix}
+\sim
+\Norm(\vzero,\mK + \sigma^2 \mI)
+$$
+
+and
+
+$$
+\cov\bigl(\vY, f(\vx_*)\bigr)
+=
+\vk_*,
+\qquad
+\var\bigl(f(\vx_*)\bigr)=K(\vx_*,\vx_*)
+$$
+
+So the joint distribution is
+
+$$
+\begin{pmatrix}
+\vY\\
+f(\vx_*)
+\end{pmatrix}
+\sim
+\Norm\!\left(
+\vzero,
+\begin{pmatrix}
+\mK+\sigma^2\mI & \vk_* \\
+\vk_*^\top & K(\vx_*,\vx_*)
+\end{pmatrix}
+\right)
+$$
+
+---
+
+Conditioning gives
+
+$$
+\Ex\bigl[f(\vx_*) \mid \vy\bigr]
+=
+\vk_*^\top (\mK+\sigma^2\mI)^{-1}\vy
+$$
+
+and
+
+$$
+\var\bigl(f(\vx_*) \mid \vy\bigr)
+=
+K(\vx_*,\vx_*) - \vk_*^\top (\mK+\sigma^2\mI)^{-1}\vk_*
+$$
+
+The noise inflates the covariance of the observed data from $\mK$ to $\mK+\sigma^2\mI$.
+
+## Credible interval versus prediction interval
+
+So far, we have the conditional distribution of the latent function value:
+
+$$
+f(\vx_*) \mid \vy
+\sim
+\Norm\!\bigl(\mu_*(\vx_*),\, s_f^2(\vx_*)\bigr)
+$$
+
+where
+
+$$
+\mu_*(\vx_*)
+=
+\vk_*^\top (\mK+\sigma^2\mI)^{-1}\vy,
+\qquad
+s_f^2(\vx_*)
+=
+K(\vx_*,\vx_*) - \vk_*^\top (\mK+\sigma^2\mI)^{-1}\vk_*
+$$
+
+### Credible interval for the latent function
+
+$$
+f(\vx_*)
+\in
+\mu_*(\vx_*)
+\pm
+z_{\alpha/2}\, s_f(\vx_*)
+\qquad \text{with probability } 1-\alpha
+$$
+
+This quantifies uncertainty about the underlying signal $f(\vx_*)$.
+
+---
+
+A future noisy response is
+
+$$
+Y(\vx_*) = f(\vx_*) + \varepsilon(\vx_*),
+\qquad
+\varepsilon(\vx_*) \sim \Norm(0,\sigma^2)
+$$
+
+so
+
+$$
+Y(\vx_*) \mid \vy
+\sim
+\Norm\!\bigl(\mu_*(\vx_*),\, s_f^2(\vx_*) + \sigma^2\bigr)
+$$
+
+### Prediction interval for a future observation
+
+$$
+Y(\vx_*)
+\in
+\mu_*(\vx_*)
+\pm
+z_{\alpha/2}\sqrt{s_f^2(\vx_*)+\sigma^2}
+\qquad \text{with probability } 1-\alpha
+$$
+
+- credible interval: uncertainty about $f(\vx_*)$
+- prediction interval: uncertainty about a new noisy observation
+
+👉 prediction intervals are wider because they include observation noise
+
+
+## Interpretation
+
+- $\Ex\bigl[f(\vx_*) \mid \vy\bigr]
+  =
+  \vk_*^\top (\mK+\sigma^2\mI)^{-1}\vy$
+  - still a weighted average of the observed responses
+  - no longer an interpolant: noisy data are not trusted exactly
+
+- $\var\bigl(f(\vx_*) \mid \vy\bigr)
+  =
+  K(\vx_*,\vx_*) - \vk_*^\top (\mK+\sigma^2\mI)^{-1}\vk_*$
+  - posterior uncertainty about the latent function
+  - smaller near informative data, larger far away
+
+- $\var\bigl(Y(\vx_*) \mid \vy\bigr)
+  =
+  \var\bigl(f(\vx_*) \mid \vy\bigr) + \sigma^2$
+  - uncertainty for a future observation
+  - larger than the credible interval variance by exactly $\sigma^2$
+
+👉 as $\sigma^2$ increases, the data are trusted less and prediction intervals widen
+
+## Empirical Bayes (maximum likelihood) with noise
+
+Now $\vY \sim \Norm(\vzero,\mK_\vtheta + \sigma^2 \mI)$, where the hyperparameters may include $\vtheta = (\tau^2,\ell,\nu,\sigma^2)$
+
+### Log marginal likelihood
+
+$$
+\log \varrho(\vY \mid \vtheta)
+=
+-\frac{1}{2}\vY^\top(\mK_\vtheta+\sigma^2\mI)^{-1}\vY
+-\frac{1}{2}\log \bigl(\det(\mK_\vtheta+\sigma^2\mI) \bigr)
+-\frac{n}{2}\log(2\pi)
+$$
+
+### Empirical Bayes estimate
+
+$$
+\widehat{\vtheta}
+=
+\argmax_{\vtheta}\log \varrho(\vY \mid \vtheta)
+$$
+
+computed numerically
+
+- data fit: $\vY^\top(\mK_\vtheta+\sigma^2\mI)^{-1}\vY$
+
+- complexity penalty: $\log\bigl(\det(\mK_\vtheta+\sigma^2\mI)\bigr)$
+
+👉 the marginal likelihood balances fit, smoothness, and noise level
+
+
+---
+
+### Optimizing out the vertical scale $\tau^2$
+Write the covariance as
+
+$$
+\mK_\vtheta + \sigma^2 \mI
+=
+\tau^2\widetilde{\mK}_{\vtheta,\lambda},
+\qquad
+\widetilde{\mK}_{\vtheta,\lambda}
+=
+\mR_\vtheta + \lambda \mI,
+\qquad
+\lambda = \frac{\sigma^2}{\tau^2}
+$$
+
+where $\mR_\vtheta$ is the kernel matrix with unit marginal variance.  For fixed $(\vtheta,\lambda)$,
+
+$$
+\widehat{\tau}^2(\vtheta,\lambda)
+=
+\frac{1}{n}
+\vY^\top
+\widetilde{\mK}_{\vtheta,\lambda}^{-1}
+\vY
+$$
+
+So the profiled likelihood estimate is obtained from
+
+$$
+(\widehat{\vtheta},\widehat{\lambda})
+=
+\argmin_{\vtheta,\lambda}
+\left[
+n\log\!\left(
+\vY^\top
+\widetilde{\mK}_{\vtheta,\lambda}^{-1}
+\vY
+\right)
++
+\log\!\left(
+\det(\widetilde{\mK}_{\vtheta,\lambda})
+\right)
+\right]
+$$
+
+Then
+
+$$
+\widehat{\sigma}^2
+=
+\widehat{\lambda}\,
+\widehat{\tau}^2
+$$
+
+
+## Example as before with noisy observations
+
+Now observe
+
+$$
+Y_i = f(x_i) + \varepsilon_i,
+\qquad
+\varepsilon_i \sim \Norm(0,\sigma^2)
+$$
+
+The posterior mean no longer interpolates the data.
+
+```{python}
+#| echo: false
+
+rng = np.random.default_rng(476563)
+
+sigma = 0.20
+sigma2_noisy = sigma**2
+
+y_noisy = f_true(x_train) + rng.normal(0, sigma, size=len(x_train))
+
+ell_noisy = 0.15
+tau2_noisy = 1.0
+
+mean_noisy, var_noisy, _ = gp_posterior(
+    x_train, y_noisy, x_grid,
+    matern_three_halves,
+    tau2=tau2_noisy,
+    ell=ell_noisy,
+    sigma2=sigma2_noisy
+)
+
+sd_noisy = np.sqrt(var_noisy)
+
+plt.figure(figsize=(12, 6))
+plt.plot(x_grid, y_true, "-", linewidth=2, label="true $f$")
+plt.plot(x_grid, mean_noisy, "--", linewidth=2, label="posterior mean")
+plt.fill_between(
+    x_grid,
+    mean_noisy - 1.96*sd_noisy,
+    mean_noisy + 1.96*sd_noisy,
+    alpha=0.25,
+    label="95% credible band for $f$"
+)
+plt.plot(x_train, y_noisy, "o", markersize=6, label="noisy observations")
+plt.xlabel(r"$x$")
+plt.ylabel(r"$y$")
+plt.title(rf"Noisy observations, $\sigma={sigma:.2f}$, $\ell={ell_noisy}$")
+plt.legend(loc="upper right")
+plt.tight_layout()
+plt.show()
+```
+
+
+## Adding a parametric mean
+
+So far we assumed a zero-mean Gaussian process.  More generally, write
+
+$$
+Y(\vx)
+=
+\vh(\vx)^\top\vbeta
++
+g(\vx)
++
+\varepsilon(\vx),
+$$
+
+where
+
+$$
+g \sim \GP(0,K),
+\qquad
+\varepsilon(\vx) \sim \Norm(0,\sigma^2),
+\qquad
+\varepsilon(\vx) \text{ independent of } g
+$$
+
+Here $\vh(\vx)$ is a vector of chosen regressors, for example
+
+$$
+\vh(\vx) =
+\begin{pmatrix}
+1\\
+x
+\end{pmatrix}
+\qquad
+\text{or}
+\qquad
+\vh(\vx) =
+\begin{pmatrix}
+1\\
+x\\
+x^2
+\end{pmatrix}
+$$
+
+---
+
+Let
+
+$$
+\mH =
+\begin{pmatrix}
+\vh(\vx_1)^\top\\
+\vdots\\
+\vh(\vx_n)^\top
+\end{pmatrix},
+\qquad
+\vK_\sigma = \mK+\sigma^2\mI
+$$
+
+Then
+
+$$
+\vY \sim \Norm(\mH\vbeta,\vK_\sigma)
+$$
+
+## Prediction with a parametric mean
+
+For a new point $\vx_*$, define
+
+$$
+\vh_* = \vh(\vx_*),
+\qquad
+\vk_* =
+\begin{pmatrix}
+K(\vx_1,\vx_*)\\
+\vdots\\
+K(\vx_n,\vx_*)
+\end{pmatrix}
+$$
+
+The joint distribution is
+
+$$
+\begin{pmatrix}
+\vY\\
+f(\vx_*)
+\end{pmatrix}
+\sim
+\Norm\!\left(
+\begin{pmatrix}
+\mH\vbeta\\
+\vh_*^\top\vbeta
+\end{pmatrix},
+\begin{pmatrix}
+\vK_\sigma & \vk_* \\
+\vk_*^\top & K(\vx_*,\vx_*)
+\end{pmatrix}
+\right)
+$$
+
+Conditioning gives
+
+$$
+\Ex\bigl[f(\vx_*) \mid \vY ,\vbeta\bigr]
+=
+\vh_*^\top\vbeta
++
+\vk_*^\top \vK_\sigma^{-1}
+(\vY-\mH\vbeta)
+$$
+
+and
+
+$$
+\var\bigl(f(\vx_*) \mid \vY,\vbeta\bigr)
+=
+K(\vx_*,\vx_*) - \vk_*^\top \vK_\sigma^{-1}\vk_*
+$$
+
+So the Gaussian process smooths the residuals after subtracting the parametric mean
+
+---
+
+## Estimating the mean parameters
+
+For fixed covariance parameters, the generalized least squares estimate is
+
+$$
+\widehat{\vbeta}
+=
+(\mH^\top \vK_\sigma^{-1}\mH)^{-1}
+\mH^\top \vK_\sigma^{-1}\vy.
+$$
+
+Then the posterior mean becomes
+
+$$
+\widehat{\mu}_*(\vx_*)
+=
+\vh_*^\top\widehat{\vbeta}
++
+\vk_*^\top \vK_\sigma^{-1}
+(\vy-\mH\widehat{\vbeta}).
+$$
+
+Interpretation:
+
+- $\vh_*^\top\widehat{\vbeta}$ gives the large-scale parametric trend
+
+- $\vk_*^\top \vK_\sigma^{-1}(\vy-\mH\widehat{\vbeta})$ gives the GP correction
+
+👉 the GP models what remains after the trend has been removed
+
+---
+
+## Empirical Bayes with noise and a parametric mean
+
+Now suppose
+
+$$
+\vY \sim \Norm(\mH\vbeta,\vK_\sigma),
+\qquad
+\vK_\sigma = \mK_{\vtheta}+\sigma^2\mI.
+$$
+
+The log marginal likelihood, conditional on $\vbeta$, is
+
+$$
+\ell(\vbeta,\vtheta,\sigma^2)
+=
+-\frac{1}{2}
+(\vY-\mH\vbeta)^\top
+\vK_\sigma^{-1}
+(\vY-\mH\vbeta)
+-\frac{1}{2}\log\bigl(\det(\vK_\sigma) \bigr)
+-\frac{n}{2}\log(2\pi)
+$$
+
+For fixed covariance parameters, the generalized least squares estimate is
+
+$$
+\widehat{\vbeta}
+=
+(\mH^\top \vK_\sigma^{-1}\mH)^{-1}
+\mH^\top \vK_\sigma^{-1}\vy
+$$
+
+Substituting this back gives the profiled log marginal likelihood
+
+$$
+\ell_{\mathrm{prof}}(\vtheta,\sigma^2)
+=
+-\frac{1}{2}
+(\vy-\mH\widehat{\vbeta})^\top
+\vK_\sigma^{-1}
+(\vy-\mH\widehat{\vbeta})
+-\frac{1}{2}\log\det(\vK_\sigma)
+-\frac{n}{2}\log(2\pi)
+$$
+
+Then empirical Bayes chooses $\displaystyle (\widehat{\vtheta},\widehat{\sigma}^2) = \argmax_{\vtheta,\sigma^2} \ell_{\mathrm{prof}}(\vtheta,\sigma^2)$
+
+---
+
+Interpretation:
+
+- $\widehat{\vbeta}$ estimates the parametric mean using generalized least squares
+
+- $\vK_\sigma = \mK_{\vtheta}+\sigma^2\mI$ describes residual covariance after removing the mean
+
+- the quadratic term measures residual data fit
+
+- the log determinant penalizes overly flexible covariance choices
+
+👉 empirical Bayes chooses the trend, smoothness, scale, and noise level by maximizing the marginal likelihood
+
+## Ordinary kriging (constant mean)
+
+A special case of the parametric mean is a constant:
+
+$$
+\vh(\vx) = 1,
+\qquad
+\mH = \vone,
+\qquad
+\vbeta = \beta_0
+$$
+
+Then
+
+$$
+\vY \sim \Norm(\beta_0 \vone,\vK_\sigma),
+\qquad
+\vK_\sigma = \mK_{\vtheta}+\sigma^2\mI
+$$
+
+
+### Estimating the constant mean
+
+$$
+\widehat{\beta}_0
+=
+\frac{\vone^\top \vK_\sigma^{-1} \vy}
+{\vone^\top \vK_\sigma^{-1} \vone}
+$$
+
+
+### Prediction
+
+For a new point $\vx_*$,
+
+$$
+\widehat{\mu}_*(\vx_*)
+=
+\widehat{\beta}_0
++
+\vk_*^\top \vK_\sigma^{-1}
+(\vy-\widehat{\beta}_0\vone)
+$$
+
+---
+
+### Interpretation
+
+- $\widehat{\beta}_0$ is the estimated global baseline level  
+
+- Gaussian process term models deviations from this baseline  
+
+👉 this is called *ordinary kriging*
+
+
+### Key property: constants are preserved
+
+$$
+\widehat{\mu}_*(\vx_*)
+=
+\sum_{i=1}^n w_i(\vx_*)\, Y_i, \qquad 
+\sum_{i=1}^n w_i(\vx_*) = 1
+$$
+
+Therefore, if $Y_1=\cdots=Y_n=c$, then
+
+$$
+\widehat{\mu}_*(\vx_*) = c
+$$
+
+👉 ordinary kriging preserves constant signals
+
+
+## Noiseless case with parametric mean
+
+The noiseless case is obtained by setting
+
+$$
+\sigma^2 = 0
+$$
+
+Then
+
+$$
+\vK_\sigma = \mK,
+$$
+
+and
+
+$$
+\Ex\bigl[f(\vx_*) \mid \vy,\vbeta\bigr]
+=
+\vh_*^\top\vbeta
++
+\vk_*^\top \mK^{-1}
+(\vy-\mH\vbeta).
+$$
+
+If $\vbeta$ is estimated by generalized least squares,
+
+$$
+\widehat{\vbeta}
+=
+(\mH^\top \mK^{-1}\mH)^{-1}
+\mH^\top \mK^{-1}\vy
+$$
+
+In the noiseless case, the posterior mean interpolates the data, provided $\mK$ is nonsingular
+
+
+
+## Big contrast with earlier models
+
+- Transformations: change $Y$
+- GLMs: transform the mean
+- Nonlinear regression: specify $f(\vx;\vbeta)$
+
+::: {.fragment}
+Gaussian processes:
+
+$$
+\text{do not specify } f \text{ explicitly}
+$$
+:::
+
+::: {.fragment}
+Instead:
+
+$$
+\text{specify how } f(\vx) \text{ and } f(\vx') \text{ relate via } K
+$$
+:::
+
+::: {.fragment}
+👉 Modeling moves from formulas to covariance structure.
+:::
+
+
+
+## Kernel ridge regression viewpoint
+
+Kernel ridge regression solves
+
+$$
+\min_{f \in \mathcal{H}_K}
+\;
+\sum_{i=1}^n \bigl(Y_i - f(\vx_i)\bigr)^2
++
+\lambda \|f\|_{\mathcal{H}_K}^2
+$$
+
+::: {.fragment}
+Key points:
+
+- $\mathcal{H}_K$ = function space induced by kernel $K$
+- penalty enforces smoothness
+:::
+
+::: {.fragment}
+Solution has the form
+
+$$
+\hat f(\vx)
+=
+\sum_{i=1}^n \alpha_i K(\vx_i,\vx)
+$$
+:::
+
+::: {.fragment}
+👉 This is the **representer theorem** in action.
+:::
+
+## The parallel universe of reproducing kernel Hilbert spaces (RKHS)
+
+Every symmetric, positive definite kernel $K$ defines a Hilbert space (complete vector space of functions with an inner product), $\ch_K$, called a *reproducing kernel Hilbert space*
+
+Key property:
+
+$$
+f(\vx)
+=
+\langle f, K(\cdot,\vx) \rangle_{\mathcal{H}_K}
+$$
+
+Evaluation at a point is a bounded, linear functional
+
+
+👉 The kernel encodes both
+
+- similarity between inputs  
+- geometry of the function space
+
+Let $\hf$ be the minimum-norm function that interpolates the data, $(\vx_1, Y_1), \ldots, (\vx_n, Y_n)$
+
+Then $\hf(\vx_*) = \vk_*^\top \mK^{-1} \vY$ (same formula as for Gaussian process regression)
+
+## GP vs RKHS viewpoint
+
+Two perspectives on the same object:
+
+| Gaussian process | RKHS / optimization |
+|---|---|
+| Random function $f \sim \GP(0,K)$ | Deterministic $f \in \mathcal{H}_K$ |
+| Covariance = $K$ | Inner product defined by $K$ |
+| Inference via conditioning | Estimation via optimization |
+| Uncertainty quantification | Point estimate |
+
+👉 Same kernel, two interpretations
+
+👉 GP adds **uncertainty quantification** to kernel methods
+
+
+## Beyond Gaussian processes
+
+The Gaussian assumption is strong:
+
+- fully determined by mean and covariance  
+- light tails  
+- very convenient: closed-form conditioning  
+
+::: {.fragment}
+What if we want heavier tails or robustness to outliers?
+:::
+
+---
+
+### Student-t processes
+
+Replace the multivariate normal with a multivariate $t$:
+
+$$
+\bigl(f(\vx_1),\dots,f(\vx_n)\bigr)
+\sim t_\nu(\vzero,\mK)
+$$
+
+- heavier tails → more robust to outliers  
+- conditioning still possible (but more complicated)  
+
+👉 closest analogue to Gaussian processes
+
+## Other non-Gaussian process ideas
+
+### Scale mixtures of Gaussian processes
+
+$$
+f \mid \lambda \sim \GP(0,\lambda K),
+\quad \lambda \text{ random}
+$$
+
+- induces heavy-tailed behavior  
+- retains much of GP structure  
+
+---
+
+### Stable process models
+
+- allow heavy tails and skewness  
+
+❗ but:
+
+- often no finite variance  
+- covariance/kernel no longer sufficient  
+- conditioning becomes difficult  
+
+👉 much of the GP machinery breaks
+
+---
+
+### Most common approach in practice
+
+Keep the GP prior, change the data model:
+
+$$
+f \sim \GP(0,K),
+\quad Y \mid f \sim \text{non-Gaussian}
+$$
+
+- Bernoulli (classification)  
+- Poisson (counts)  
+- heavy-tailed noise  
+
+👉 inference via approximation (Laplace, VI, MCMC)
+
+---
+
+### Takeaway
+
+- Gaussian processes dominate because:
+  - simple linear algebra  
+  - closed-form conditioning  
+
+👉 beyond Gaussian, we lose this simplicity

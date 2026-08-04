@@ -1,0 +1,91 @@
+## Example: Graduate admissions
+
+Suppose that we observe whether an applicant is admitted to a graduate program.
+Let
+
+$$
+Y =
+\begin{cases}
+1, & \text{if admitted}, \\
+0, & \text{if not admitted}.
+\end{cases}
+$$
+
+A natural question is whether the probability of admission depends on the applicant's GRE score.
+
+We model
+
+$$
+p(x) = \Pr(Y=1 \mid X=x),
+$$
+
+where $X$ is the GRE score.  
+A logistic regression model assumes that
+
+$$
+\log\left(\frac{p(x)}{1-p(x)}\right) = \beta_0 + \beta_1 x.
+$$
+
+Equivalently,
+
+$$
+p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}.
+$$
+
+Thus, the probability of admission is an S-shaped function of the GRE score.
+
+### A small sample of the data
+
+```{python}
+import pandas as pd
+
+df_show = pd.DataFrame({
+    "Applicant": [1, 2, 3, 4, 5, 6, 7, 8],
+    "GRE": [800, 660, 640, 520, 760, 560, 700, 540],
+    "GPA": [4.00, 3.67, 3.19, 2.93, 3.00, 2.98, 3.50, 3.25],
+    "Admitted": [1, 1, 0, 0, 1, 0, 1, 0]
+})
+
+df_show
+```
+
+### Simulated data
+
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+np.random.seed(476)
+
+n = 80
+gre = np.linspace(420, 800, n)
+
+beta0 = -8.5
+beta1 = 0.012
+
+p_admit = 1 / (1 + np.exp(-(beta0 + beta1 * gre)))
+admit = np.random.binomial(1, p_admit)
+
+df = pd.DataFrame({
+    "GRE": np.round(gre).astype(int),
+    "p_admit": p_admit,
+    "admit": admit
+})
+
+df.head(12)
+```
+
+### Plot
+
+```{python}
+fig, ax = plt.subplots(figsize=(8, 5))
+
+ax.scatter(df["GRE"], df["admit"], alpha=0.5)
+ax.plot(df["GRE"], df["p_admit"], linewidth=2)
+
+ax.set_xlabel("GRE score")
+ax.set_ylabel("Admission outcome / probability")
+ax.set_title("Graduate admissions: binary outcomes and logistic curve")
+plt.show()
+```

@@ -1,0 +1,117 @@
+# Probability Review
+
+- [Key concepts](#prob-concepts)
+- [Important distributions](#prob-distrib)
+- [Conditional probability](#conditional-prob)
+- [Types of convergence](#type-conv)
+- [Central Limit Theorem](#clt)
+
+## Key probability concepts{#prob-concepts}
+
+[({{< meta texts.cb.initials >}} Ch. 1–2; {{< meta texts.wms.initials >}} Ch. 1–2)]{.small}
+
+- [Outcome]{.alert} — a single possible result of a random process, e.g., `yes`, $0.5$, $(1,-2)$.
+
+- [Sample space]{.alert} — the set of all possible outcomes, e.g., $\{\text{yes},\text{no}\}$, $\reals$.
+
+- [Event]{.alert} — a *subset of the sample space* to which we may assign a probability, e.g., intervals like $[0,\infty)$ or regions such as $\{(x,y) : x^2 + y^2 \le 1\}$.
+
+- [Event space]{.alert} — a collection of events (subsets of the sample space) that we are allowed to assign probabilities to.
+
+- [Probability]{.alert} — a function  $\Prob:\text{event space}\to[0,1]$
+  satisfying:
+  - $0 \le \Prob(A) \le 1$ for every event $A$
+  - $\Prob(\text{sample space}) = 1$
+  - If $A \cap B = \varnothing$, then $\Prob(A \cup B) = \Prob(A) + \Prob(B)$
+  
+---
+
+- [Random variable/vector/function]{.alert} — rule that assigns a number (or vector) to each outcome, e.g., $Y = 1$ if approve, $0$ if not; $X = \text{time to wait for taxi}$; $\vX = (\text{height}, \text{weight})$
+
+- [Cumulative distribution function (CDF)]{.alert} $F$ of random variable $X$ [(right-continuous)]{.alert}
+  -  $F(x) : =  \Prob(X \le x)$
+  - [Survival function]{.alert} $S(x) := \Prob(X > x) = 1 - F(x)$
+
+- [Quantile function]{#quantile-function .alert} $Q$ of a random variable $X$ plays the role of the [inverse]{.alert} of the CDF (in a [left-continuous]{.alert} sense)
+  - $Q(p) : = \inf\{x \in \reals : F(x) \ge p\}, \quad 0 < p < 1$
+
+- [Probability density function (PDF)]{.alert} $\varrho$ of an absolutely continuous random variable $X$
+  - $\varrho(x) := F'(x)$
+
+---
+
+- [Expectation]{.alert} — average value of a random variable, weighted by its probability
+  - $\displaystyle \Ex[f(X)] : = \sum_{x} f(x) \varrho(x)$  for discrete random variables
+  - $\displaystyle \Ex[f(X)] : =  \int f(x) \varrho(x) \, \dif x$  for continuous random variables
+  - $\displaystyle \Ex[f(X)] : =  \int f(x)  \, \dif F(x)$  in general (see [Lebesgue–Stieltjes integral](https://en.wikipedia.org/wiki/Lebesgue-Stieltjes_integration))
+
+- [Mean]{.alert} of $X$ is $\mu : = \Ex(X) \exeq \Argmin{m\in\reals} \Ex[(X-m)^2]$
+  - $\Ex(a X + Y) \exeq a \Ex(X) + \Ex(Y)$
+
+- [Variance]{.alert} of $X$ is $\sigma^2 : = \var(X) := \Ex[(X - \mu)^2] \exeq \Ex(X^2) - \mu^2$
+  - [Standard deviation]{.alert} of $X$ is  $\std(X) := \sigma = \sqrt{\var(X)}$
+
+- [Median]{.alert} of $X$ is $\med(X) : = Q(1/2) \in 
+\Argmin{m\in\reals} \Ex (\lvert X-m \rvert)$
+
+---
+
+- $(X,Y)$ are [independent]{.alert} iff $F_{X,Y}(x,y) = F_X(x) F_Y(y)$ for all $x,y$ 
+  - or equivalently $\varrho_{X,Y}(x,y) = \varrho_X(x) \varrho_Y(y)$ for all $x,y$ 
+
+- [Covariance]{.alert} $\cov(X,Y) : = \Ex[(X- \mu_X)(Y - \mu_Y)]$
+  - $\var(aX + Y) \exeq a^2 \var(X) + \var(Y)$ if $\cov(X,Y) = 0$
+
+- [Correlation]{.alert} $\displaystyle \corr(X,Y) : = \frac{\cov(X,Y)}{\std(X) \std(Y)}$
+
+- Independence $\implies$ zero correlation, but zero correlation $\notimplies$ independence
+<div class="fragment" data-fragment-index="1" style="width:100%; margin:0;" markdown="1">
+  - E.g., $\Prob[(X,Y) = (x,y)] = 1/4$ for $(x,y) \in \{(\pm 1, 0), (0, \pm 1)\}$
+  \begin{gather*}
+  \text{PMF }\varrho_X(x) = \varrho_Y(x) = \begin{cases}
+  \frac 14 & x =  \pm 1 \\
+  \frac 12 & x = 0 
+  \end{cases} 
+  \qquad \Ex(X) = \Ex(Y) = 0 \\
+  \cov(X,Y) = \Ex(XY) = 0 \quad \text{so }\class{alert}{\text{uncorrelated}} \\
+  \text{BUT } \varrho_{XY}(x,y) \ne \varrho_X(x)\varrho_Y(y) \quad \text{so }\class{alert}{\text{dependent}}
+  \end{gather*}
+</div>
+
+## Important distributions{#prob-distrib}
+
+[({{< meta texts.cb.initials >}} §§3.1–3.3; {{< meta texts.wms.initials >}} §§3.1–3.4, §§4.1–4.6)]{.small}
+
+- [Binomial]{.alert} (free-throw shooting, discrete) $\Bin(n,p)$
+$$
+\varrho(x) : = \Prob(X=x) = \binom{n}{x} p^x (1-p)^{n-x}, \ x =0, \ldots, n; \quad \Ex(X) = np, \; \var(X) = np(1-p)
+$$
+
+- [Exponential]{.alert} (taxi waiting, continuous) $\Exp(\lambda)$
+$$
+F(x): = 1 - \exp(-\lambda x),\ \varrho(x) : = \lambda \exp(-\lambda x), \ x \ge 0; \quad \Ex(X) = 1/\lambda, \quad \var(X) = 1/\lambda^2
+$$
+
+- [Uniform]{.alert} (random number generation, continuous) $\Unif(a,b)$
+\begin{gather*}
+F(x) : = \begin{cases} 0, & -\infty < x < a, \\
+\displaystyle \frac{x - a}{b - a}, & a \le x < b, \\
+1, & b \le x < \infty,
+\end{cases} \qquad \qquad
+ \varrho(x): = \frac{1}{b-a}, \ x \in [a,b]; \\
+  \Ex(X) = \frac{a+b}{2}, \quad  \var(X) = \frac{(b-a)^2}{12}  
+\end{gather*}
+
+--- 
+
+- [Normal (Gaussian)]{.alert} (limiting distribution, continuous) $\Norm(\mu, \sigma^2)$
+$$
+\varrho(x): = \frac{\exp\bigl(-(x-\mu)^2/(2\sigma^2)\bigr)}{\sqrt{2 \pi} \sigma}, \ x \in \reals;\quad \Ex(X) = \mu, \quad \var(X) = \sigma^2
+$$
+
+- [Multivariate Normal (Gaussian)]{.alert} (limiting distribution, continuous) $\Norm(\vmu, \mSigma)$
+\begin{gather*}
+\varrho(\vx): = \frac{\exp\bigl(-(\vx-\vmu)^\top \mSigma^{-1} (\vx-\vmu) /2\bigr)}{\sqrt{(2 \pi)^{d} \det(\mSigma)}};\; \Ex(\vX) = \vmu, \\ 
+\cov(\vX) = \mSigma
+\class{alert}{\text{ symmetric, positive definite covariance matrix}}
+\end{gather*}

@@ -1,0 +1,1227 @@
+/*-- scss:rules --*/
+
+/*
+===============================================================================
+HICKERNELL SLIDES THEME — FUTURE MAINTAINER NOTES (RevealJS + Quarto)
+===============================================================================
+
+This file is a DROP-IN theme stylesheet for Quarto RevealJS slide decks.
+
+GOALS
+-----
+1) One consistent content rail (no “double inset” surprises)
+2) Full-bleed banner headings (h1/h2) that truly span screen edges
+3) A distinct title slide card layout
+4) Predictable behavior in fullscreen (Safari + Chromium + projectors)
+5) Stable exercise bullets (.exitem) that survive MathJax + Quarto wrappers
+
+If you are debugging layout issues, this header is your map.
+
+-------------------------------------------------------------------------------
+REVEAL + QUARTO DOM DIAGRAM (mental model)
+-------------------------------------------------------------------------------
+
+RevealJS (with vertical stacks):
+
+  <div class="reveal">
+    <div class="slides">
+
+      <!-- STACK PARENT (wrapper) -->
+      <section>
+
+        <!-- REAL SLIDE -->
+        <section class="slide level2">
+          <div class="quarto-slide-content"> ... </div>
+        </section>
+
+        <section class="slide level2"> ... </section>
+      </section>
+
+      <!-- A non-stacked slide (still a REAL SLIDE) -->
+      <section class="slide level1" id="title-slide"> ... </section>
+
+    </div>
+  </div>
+
+Key insight:
+  • `.slides > section` may be a wrapper (no .slide class).
+  • Actual slides have `.slide`.
+  • Quarto often inserts `.quarto-slide-content` and/or `.slide-content` wrappers.
+
+Therefore:
+  • Wrapper sections must be neutralized (no padding/margins).
+  • The rail must be imposed at the `.slide` level, not wrappers.
+  • Any nested wrapper padding must be zeroed to avoid “double rails”.
+
+-------------------------------------------------------------------------------
+REVEAL SCALE & WHY THE BANNER NEEDS MATH
+-------------------------------------------------------------------------------
+
+RevealJS scales the presentation using a CSS transform so it fits the viewport.
+That means:
+  • The slide content coordinates are NOT “real pixels”.
+  • `width: 100vw` inside a scaled element can behave unexpectedly.
+
+For banner backgrounds, we want “true viewport width”, even under scaling.
+We therefore use the trick:
+
+  width: calc(100vw / var(--reveal-scale, 1))
+
+where `--reveal-scale` is injected by a small JS helper at runtime.
+
+Why:
+  • If Reveal scales to 0.85, content shrinks.
+  • But we still want the banner background to reach the screen edges.
+  • Dividing by scale cancels the transform.
+
+If banner bleed is off by ~1–2px, adjust:
+  • --banner-bleed-y (covers seams)
+  • verify the JS helper is present (sets --reveal-scale)
+
+-------------------------------------------------------------------------------
+FULLSCREEN: WHY WE PAD THE STAGE, NOT THE SLIDES
+-------------------------------------------------------------------------------
+
+Fullscreen differs across browsers:
+  • Chromium often applies fullscreen to the document element.
+  • Safari sometimes reports fullscreen on `.reveal` or `.reveal-viewport`.
+  • Some environments have “safe area” insets (notches / overscan / projectors).
+
+We therefore:
+  1) Set padding on `.reveal` (the stage)
+  2) Force `.slides` padding to 0
+so there is exactly ONE place controlling the horizontal gutter.
+
+Primary knob:
+  • --fs-safe-x   (increase if edges clip in fullscreen)
+
+-------------------------------------------------------------------------------
+SINGLE CONTENT RAIL SYSTEM (the “one inset” rule)
+-------------------------------------------------------------------------------
+
+Non-title slides:
+  • `.slide` gets left/right padding = --content-inset
+  • `.quarto-slide-content` and `.slide-content` are reset to 0 padding/margins
+  • common elements have margin-left/right forced to 0
+
+This prevents:
+  • Quarto wrapper + slide padding = double inset
+  • columns introducing new insets
+
+If you want more/less whitespace, adjust:
+  • --content-inset
+  • --list-pad (bullet gutter)
+
+-------------------------------------------------------------------------------
+EXERCISES: WHY `.exitem` USES A GRID (and not markdown lists)
+-------------------------------------------------------------------------------
+
+Markdown lists can:
+  • vary indentation across Quarto versions
+  • interact badly with MathJax baseline alignment
+  • make custom bullet glyphs drift
+
+So `.exitem` uses a 2-column grid:
+  [bullet] [text]
+and `.exsub` provides indented sub-lines with an en-dash marker via ::before.
+
+-------------------------------------------------------------------------------
+SECTION INDEX (scroll/search targets)
+-------------------------------------------------------------------------------
+  • DESIGN TOKENS .................. :root
+  • FULLSCREEN SAFETY .............. reveal-viewport:fullscreen / reveal:fullscreen
+  • GLOBAL TYPOGRAPHY .............. .reveal { font-size: ... }
+  • VERTICAL STACK FIXES ........... .slides > section:not(.slide)
+  • CONTENT RAIL ................... section.slide:not(#title-slide)
+  • BANNER SYSTEM .................. h1/h2 and ::before background
+  • TITLE CARD ..................... #title-slide
+  • FOOTER ........................ .footer
+  • TABLES ........................ .reveal table
+  • BULLETS ....................... .reveal ul + section.dash-bullets/circle-bullets
+  • EXERCISES ..................... .exitem
+  • IMAGE SOURCES ................. a.image-source
+  • INLINE HELPERS ................ .flexline, .line-right
+
+===============================================================================
+THEME RULES START BELOW
+===============================================================================
+*/
+
+
+
+/* ==========================================================================
+   DESIGN TOKENS SECTION
+   --------------------------------------------------------------------------
+   Central control panel for:
+     • Brand colors
+     • Spacing rails
+     • Fullscreen safety gutters
+     • Banner bleed compensation
+   Adjust variables here first before editing structural rules below.
+   ========================================================================== */
+
+:root {
+  --header-blue: #004b80;
+  --accent-blue: #007acc;
+  --link-blue: #0f8b8d;
+  --link-hover:  #0aa3a6;
+  --math-link-color: #0f8b8d;
+  --r-link-color: var(--link-blue);
+  --r-link-color-hover: var(--link-hover);
+
+  /* Single source of truth for left/right inset */
+  --content-inset: 1.3em;
+
+  /* List marker gutter (controls how far bullets sit left of text) */
+  --list-pad: 1.25em;
+
+  /* Banner bleed to cover ~1–2px top seam in fullscreen */
+  --banner-bleed-y: 6px;
+
+  /* FULLSCREEN SAFE GUTTER */
+  --fs-safe-x: 28px; /* adjust: 16px / 24px / 32px if needed */
+
+  /* TITLE CARD padding (symmetric top/bottom) */
+  --title-card-pad-y: 2.0em;
+  --title-card-pad-x: 2.0em;
+}
+
+/* ============================================================
+   FULLSCREEN SAFE GUTTER
+   ============================================================ */
+
+
+/* ==========================================================================
+   FULLSCREEN SAFETY SYSTEM
+   --------------------------------------------------------------------------
+   RevealJS scales the presentation using transforms.
+   Browsers apply fullscreen differently (Safari vs Chromium).
+   These rules:
+     • Add horizontal safety padding
+     • Respect OS safe-area insets
+     • Prevent edge clipping on projectors
+   ========================================================================== */
+
+.reveal-viewport:fullscreen .reveal .slides,
+.reveal-viewport:-webkit-full-screen .reveal .slides,
+html:fullscreen .reveal-viewport .reveal .slides,
+html:-webkit-full-screen .reveal-viewport .reveal .slides {
+  box-sizing: border-box !important;
+  padding-left: max(var(--fs-safe-x), env(safe-area-inset-left)) !important;
+  padding-right: max(var(--fs-safe-x), env(safe-area-inset-right)) !important;
+}
+
+/* Safari-proof */
+.reveal:fullscreen .slides,
+.reveal:-webkit-full-screen .slides {
+  box-sizing: border-box !important;
+  padding-left: max(var(--fs-safe-x), env(safe-area-inset-left)) !important;
+  padding-right: max(var(--fs-safe-x), env(safe-area-inset-right)) !important;
+}
+
+/* FULLSCREEN: put the safe gutter on the STAGE, not the slides */
+.reveal-viewport:fullscreen .reveal,
+.reveal-viewport:-webkit-full-screen .reveal,
+html:fullscreen .reveal-viewport .reveal,
+html:-webkit-full-screen .reveal-viewport .reveal,
+.reveal:fullscreen,
+.reveal:-webkit-full-screen {
+  box-sizing: border-box !important;
+  padding-left: max(var(--fs-safe-x), env(safe-area-inset-left)) !important;
+  padding-right: max(var(--fs-safe-x), env(safe-area-inset-right)) !important;
+}
+
+/* FULLSCREEN: ensure slides don't add/steal gutter */
+.reveal-viewport:fullscreen .reveal .slides,
+.reveal-viewport:-webkit-full-screen .reveal .slides,
+html:fullscreen .reveal-viewport .reveal .slides,
+html:-webkit-full-screen .reveal-viewport .reveal .slides,
+.reveal:fullscreen .slides,
+.reveal:-webkit-full-screen .slides {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Remove browser + Reveal outer margins */
+html,
+body,
+.reveal-viewport {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.reveal .backgrounds {
+  background: white !important;
+}
+
+.reveal-viewport {
+  background: var(--header-blue) !important;
+}
+
+/* Base text color */
+.reveal,
+.reveal p,
+.reveal li {
+  color: #333333;
+}
+
+/* Overall font sizing + remove outer padding */
+
+/* ==========================================================================
+   GLOBAL TYPOGRAPHY + BASE SCALE
+   --------------------------------------------------------------------------
+   Sets master font size and navigation colors.
+   All sizing decisions cascade from here.
+   ========================================================================== */
+
+.reveal {
+  font-size: 34px;
+  padding: 0 !important;
+}
+
+/* Remove top padding on non-title slides */
+.reveal .slides section:not(.title-slide) {
+  padding-top: 0 !important;
+}
+
+/* --------------------------------------------
+   Headerless slides (---): add breathing room
+   -------------------------------------------- */
+
+/* Safari-safe: Quarto marks real slides with .slide */
+.reveal .slides 
+/* ==========================================================================
+   SINGLE CONTENT RAIL SYSTEM
+   --------------------------------------------------------------------------
+   Establishes one consistent left/right inset for all non-title slides.
+   Prevents double-rail issues from Quarto wrappers.
+   ========================================================================== */
+
+section.slide:not(
+/* ==========================================================================
+   TITLE SLIDE CARD LAYOUT
+   --------------------------------------------------------------------------
+   Distinct visual system from banner slides.
+   Designed as a floating card with controlled width + shadow.
+   ========================================================================== */
+
+#title-slide):not(:has(h1, h2)) {
+  padding-top: 1.2em !important;
+}
+
+/* Remove all padding on slides container (fullscreen rule above overrides) */
+.reveal .slides {
+  padding: 0 !important;
+}
+
+/* ============================================================
+   IMPORTANT: ONLY zero out wrapper sections (Reveal stacks),
+   NOT real slides and NOT the title slide.
+   ============================================================ */
+
+
+/* ==========================================================================
+   VERTICAL STACK WRAPPER NEUTRALIZATION
+   --------------------------------------------------------------------------
+   Reveal vertical stacks insert wrapper <section> elements.
+   These must NOT introduce padding or margins.
+   ========================================================================== */
+
+.reveal .slides > section:not(.slide):not(#title-slide) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* ============================================================
+   SINGLE CONTENT RAIL (ROBUST)
+   ============================================================ */
+
+.reveal .slides section.slide:not(#title-slide) {
+  box-sizing: border-box !important;
+  padding-left: var(--content-inset) !important;
+  padding-right: var(--content-inset) !important;
+}
+
+/* Quarto wrapper should not create a second rail */
+.reveal .slides section.slide:not(#title-slide) .quarto-slide-content,
+.reveal .slides section.slide:not(#title-slide) .slide-content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.reveal .slides section.slide:not(#title-slide) .quarto-slide-content > :first-child,
+.reveal .slides section.slide:not(#title-slide) .slide-content > :first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Zero horizontal margins for common elements (rail controls it) */
+.reveal .slides section.slide:not(#title-slide) p,
+.reveal .slides section.slide:not(#title-slide) ul,
+.reveal .slides section.slide:not(#title-slide) ol,
+.reveal .slides section.slide:not(#title-slide) pre,
+.reveal .slides section.slide:not(#title-slide) blockquote,
+.reveal .slides section.slide:not(#title-slide) table,
+.reveal .slides section.slide:not(#title-slide) h3,
+.reveal .slides section.slide:not(#title-slide) h4,
+.reveal .slides section.slide:not(#title-slide) figure,
+.reveal .slides section.slide:not(#title-slide) div {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Columns: keep rail, but avoid extra inset inside columns */
+.reveal .slides section.slide:not(#title-slide) .columns {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.reveal .slides section.slide:not(#title-slide) .columns p,
+.reveal .slides section.slide:not(#title-slide) .columns ul,
+.reveal .slides section.slide:not(#title-slide) .columns ol,
+.reveal .slides section.slide:not(#title-slide) .columns pre,
+.reveal .slides section.slide:not(#title-slide) .columns blockquote,
+.reveal .slides section.slide:not(#title-slide) .columns table,
+.reveal .slides section.slide:not(#title-slide) .columns h3,
+.reveal .slides section.slide:not(#title-slide) .columns h4,
+.reveal .slides section.slide:not(#title-slide) .columns figure,
+.reveal .slides section.slide:not(#title-slide) .columns div {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.reveal .slides section.slide:not(#title-slide) .columns > .column {
+  min-width: 0;
+}
+
+/* Lists: take control so list text aligns with paragraphs */
+.reveal .slides section.slide:not(#title-slide) ul,
+.reveal .slides section.slide:not(#title-slide) ol {
+  padding-left: var(--list-pad) !important;
+}
+
+/* ===============================
+   Gold border on selected slides
+   =============================== */
+
+html.goldborder::before,
+body.goldborder::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 50;
+  border: 15px solid rgb(235, 145, 0);
+}
+
+/* Reveal background layers should never intercept clicks */
+.reveal .backgrounds,
+.reveal .slide-backgrounds,
+.reveal .slide-background {
+  pointer-events: none !important;
+}
+
+/* ===============================
+   Banner headings
+   =============================== */
+
+.reveal .slides section.slide {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.reveal .slides section.slide:not(#title-slide) h1,
+.reveal .slides section.slide:not(#title-slide) h2 {
+  color: #ffffff;
+  margin: 0 0 0.7em 0 !important;
+
+  position: relative;
+  z-index: 1;
+
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  text-indent: 0;
+  border-radius: 0;
+  font-weight: 700;
+}
+
+/* Banner background: full-bleed in ALL modes (windowed + fullscreen)
+   Scale-compensated using --reveal-scale set by reveal-scale-var.html */
+.reveal .slides section.slide:not(#title-slide) 
+/* ==========================================================================
+   FULL-BLEED BANNER BACKGROUND MECHANISM
+   --------------------------------------------------------------------------
+   Uses 100vw divided by Reveal scale factor.
+   Ensures banner truly spans edge-to-edge even when scaled.
+   ========================================================================== */
+
+h1::before,
+.reveal .slides section.slide:not(#title-slide) h2::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+
+  top: calc(-1 * var(--banner-bleed-y));
+  bottom: calc(-1 * var(--banner-bleed-y));
+
+  left: 50%;
+  right: auto;
+  width: calc(100vw / var(--reveal-scale, 1));
+  transform: translateX(-50%);
+
+  background-color: var(--header-blue);
+}
+
+/* Size hierarchy */
+.reveal section:not(.title-slide) h1 { font-size: 1.60em; }
+.reveal section:not(.title-slide) h2 { font-size: 1.40em; }
+
+/* Headerless slides */
+.reveal section.headerless h1,
+.reveal section.headerless h2 {
+  display: none;
+}
+
+.reveal .hidden {
+  display: none;
+}
+
+/* Subheaders inside slides */
+/* Subheaders inside slides */
+.reveal h3 {
+  color: var(--header-blue);
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-top: 0.8em;
+}
+
+.reveal h4 {
+  color: var(--header-blue);
+  font-weight: 600;
+  font-size: 1.1em;
+  margin-top: 0.6em;
+}
+
+/* ===============================
+   Footer and slide number styling
+   =============================== */
+
+.reveal .footer,
+.reveal .slide-number {
+  pointer-events: none;
+}
+
+.reveal 
+/* ==========================================================================
+   FOOTER SYSTEM
+   --------------------------------------------------------------------------
+   Footer is made non-interactive globally (pointer-events:none),
+   then links are selectively re-enabled.
+   Prevents invisible footer layers blocking slide clicks.
+   ========================================================================== */
+
+.footer {
+  position: absolute !important;
+  left: 3em !important;
+  right: 7em !important;
+  bottom: 0.6em !important;
+  text-align: left !important;
+  color: #777777 !important;
+  font-size: 0.6em !important;
+  background: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  opacity: 0.7;
+}
+
+/* iPad / narrow viewport footer safety */
+.reveal .footer {
+  box-sizing: border-box !important;
+  left: 2.2em !important;
+  right: 5.2em !important;
+  width: auto !important;
+  padding-right: 0.8em !important;
+}
+
+/* Reveal wraps footer HTML in <p> (sometimes with extra wrappers); neutralize */
+.reveal .footer p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Our footer container (now single, inline footer) */
+.reveal .footer .fh-footer {
+  display: block !important;
+  width: 100%;
+}
+
+/* Main footer line: keep on one line */
+.reveal .footer .fh-footer-main {
+  white-space: nowrap;
+}
+
+/* Optional separator styling (· or |) */
+.reveal .footer .fh-footer-sep {
+  margin: 0 0.4em;
+  opacity: 0.6;
+}
+
+/* Footer is globally pointer-events:none; re-enable for the link */
+.reveal .footer a {
+  pointer-events: auto;
+}
+
+.reveal .slide-number {
+  font-size: 0.7em;
+  opacity: 0.9;
+  right: 1.5em;
+  bottom: 0.6em;
+}
+
+.reveal {
+  --r-navigation-color: var(--link-blue);
+  --r-navigation-color-hover: var(--link-hover);
+}
+
+.reveal .controls {
+  color: var(--link-blue);
+}
+
+.reveal .controls button:hover {
+  color: var(--link-hover);
+}
+
+/* Force navigation arrows to match theme on ALL slides (incl. title) */
+.reveal .controls,
+.reveal .controls button,
+.reveal .controls button * {
+  color: var(--link-blue) !important;
+  fill: var(--link-blue) !important;
+  stroke: var(--link-blue) !important;
+}
+
+.reveal .controls button:hover,
+.reveal .controls button:hover * {
+  color: var(--link-hover) !important;
+  fill: var(--link-hover) !important;
+  stroke: var(--link-hover) !important;
+}
+
+/* ===============================
+   Deck navigation
+   =============================== */
+
+.deck-nav-prevwrap,
+.deck-nav-nextwrap {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  bottom: 3.05em;
+}
+
+.deck-nav-prevwrap {
+  left: 0.9em;
+}
+
+.deck-nav-nextwrap {
+  right: 0.9em;
+}
+
+.deck-nav-prev,
+.deck-nav-next {
+  display: inline-block;
+  pointer-events: auto;
+  text-decoration: none;
+  font-size: 4em;
+  line-height: 1;
+  font-weight: 700;
+  opacity: 0.45;
+  color: var(--r-link-color);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.deck-nav-prev:hover,
+.deck-nav-next:hover {
+  opacity: 1;
+}
+
+
+
+/* ===============================
+   Title slide styling (modern card)
+   =============================== */
+
+.reveal #title-slide {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.95);
+
+  padding: var(--title-card-pad-y) var(--title-card-pad-x) !important;
+  box-sizing: border-box !important;
+
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+  max-width: 72%;
+  margin: 2.5em 0 0 38%;
+}
+
+/* Quarto often wraps title content in this block */
+.reveal #title-slide .quarto-title-block {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Kill any “mystery” first/last margins inside the card */
+.reveal #title-slide .quarto-title-block > :first-child,
+.reveal #title-slide > :first-child {
+  margin-top: 0 !important;
+}
+
+.reveal #title-slide .quarto-title-block > :last-child,
+.reveal #title-slide > :last-child {
+  margin-bottom: 0 !important;
+}
+
+.reveal #title-slide h1.title {
+  color: var(--header-blue) !important;
+  font-size: 1.7em;
+  font-weight: 700;
+  margin: 0 !important;
+}
+
+.reveal #title-slide p.subtitle {
+  color: var(--accent-blue) !important;
+  font-size: 1.30em !important;
+  line-height: 1.15 !important;
+  margin: 0 !important;
+}
+
+/* Multi-line subtitle: deck title + metadata */
+.reveal #title-slide .deck-title {
+  color: var(--accent-blue) !important;
+  font-weight: 500;
+  font-size: 1.40em !important;
+}
+
+.reveal #title-slide .deck-meta {
+  color: #666 !important;
+  font-weight: 400;
+  font-size: 1em !important;
+}
+
+.reveal #title-slide .quarto-title-authors,
+.reveal #title-slide .quarto-title-author,
+.reveal #title-slide .quarto-title-author-name,
+.reveal #title-slide p.date,
+.reveal #title-slide p.course-website {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.reveal #title-slide .quarto-title-author-name,
+.reveal #title-slide p.date {
+  color: #333333 !important;
+  font-size: 0.95em;
+  margin: 0.15em 0 !important;
+}
+
+.reveal #title-slide .quarto-title-authors {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.reveal #title-slide p.course-website {
+  margin-top: 0.4em !important;
+  font-size: 0.85em;
+}
+
+/* Fix H1 slides in vertical stacks (stack parent positioning) — EXCEPT the real title slide */
+.reveal:not(.overview) .slides section.title-slide.slide.level1:not(#title-slide) {
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100% !important;
+}
+
+/* Prevent level2 slide content from being horizontally centered */
+.reveal:not(.overview) .slides section.slide.level2 .quarto-slide-content,
+.reveal:not(.overview) .slides section.slide.level2 .slide-content {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: none !important;
+}
+
+/* Ensure the current slide is clickable */
+.reveal .slides section.present,
+.reveal .slides section.present * {
+  pointer-events: auto !important;
+}
+
+/* "Fake h3" that is safe after # (doesn't change slide structure) */
+.reveal .h3 {
+  color: var(--header-blue);
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+}
+
+/* ============================================================
+   FINAL FIX: Title card author indentation
+   ============================================================ */
+
+.reveal #title-slide .quarto-title-authors,
+.reveal #title-slide .quarto-title-author,
+.reveal #title-slide .quarto-title-author-name {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  text-indent: 0 !important;
+}
+
+/* Quarto sometimes renders authors as a list */
+.reveal #title-slide .quarto-title-authors ul,
+.reveal #title-slide .quarto-title-authors li {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  list-style: none !important;
+}
+
+/* ===============================
+   Alert text (Keynote blue)
+   =============================== */
+
+.reveal .alert {
+  color: var(--accent-blue) !important;
+}
+
+/* MathJax v3 (Quarto default) */
+.reveal mjx-container .alert,
+.reveal mjx-container [class~="alert"] {
+  color: var(--accent-blue) !important;
+}
+
+/* ===============================
+   Table styling (RevealJS)
+   =============================== */
+
+
+/* ==========================================================================
+   TABLE VISUAL POLICY
+   --------------------------------------------------------------------------
+   Adds bottom rule, header rule, and alternating row shading.
+   Ensures statistical tables read cleanly on projectors.
+   ========================================================================== */
+
+.reveal table {
+  border-collapse: collapse;
+  border-bottom: 2px solid #666666; /* bottom rule */
+}
+
+/* Header row */
+.reveal thead th {
+  background-color: #cccccc; /* darker than body stripes */
+  font-weight: 600;
+  border-top: 2px solid #666666;
+  border-bottom: 2px solid #666666;
+}
+
+/* Cell borders and padding */
+.reveal th,
+.reveal td {
+  border-left: 1px solid #999999;
+  border-right: 1px solid #999999;
+  padding: 0.35em 0.6em;
+}
+
+/* Alternating row shading */
+.reveal tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.vspace-sm { margin-top: 0.5em; }
+.vspace    { margin-top: 1em; }
+.vspace-lg { margin-top: 2em; }
+
+/* ------------------------------
+   Bullet style environments
+   ------------------------------ */
+
+/* Default bullets (policy) */
+
+/* ==========================================================================
+   BULLET POLICY
+   --------------------------------------------------------------------------
+   Default bullets are en-dashes.
+   Slide-level classes may override (circle-bullets, dash-bullets).
+   Nested lists preserve hierarchy markers.
+   ========================================================================== */
+
+.reveal ul {
+  list-style-type: "–  ";   /* change this later if desired */
+}
+
+/* Dash bullets (environment) */
+.reveal section.dash-bullets ul {
+  list-style-type: "–  ";
+}
+
+/* Filled circle bullets (environment) */
+.reveal section.circle-bullets ul {
+  list-style-type: disc;
+}
+
+/* Preserve hierarchy */
+.reveal section.dash-bullets ul ul {
+  list-style-type: "▪ ";
+}
+
+.reveal section.circle-bullets ul ul {
+  list-style-type: circle;
+}
+
+
+/* ============================================================
+   EXERCISE STAR BULLET (.exitem + \exstar)
+
+   Two-column grid: [bullet] [content]
+   Avoids Markdown list inconsistencies and MathJax vertical drift.
+
+   Usage in Quarto slides:
+
+   ::: {.exitem}
+   <span class="exbullet">$\exstar$</span>
+   <span>
+   This is a full paragraph exercise description. It may wrap
+   naturally across lines.
+
+   <p>
+   Additional paragraph if needed.
+   </p>
+
+   <span class="exsub">Indented sub-line.</span>
+   </span>
+   :::
+
+   Notes:
+   - Do NOT use Markdown lists inside .exitem
+   - Use <p> for multiple paragraphs
+   - Use .exsub for indented follow-up lines
+   - First span = bullet, second span = content container
+   ============================================================ */
+
+.reveal .exitem {
+  width: 100%;
+}
+
+/* Quarto usually wraps div blocks in a <p> */
+.reveal .exitem > p {
+  display: grid;
+  grid-template-columns: 1.05em 1fr;
+  column-gap: 0.0em;
+  align-items: start;
+  width: 100%;
+  margin: 0;
+}
+
+/* If Quarto does NOT insert <p>, this still works */
+.reveal .exitem:not(:has(> p)) {
+  display: grid;
+  grid-template-columns: 1.05em 1fr;
+  column-gap: 0.0em;
+  align-items: start;
+}
+
+.reveal .exitem .exbullet mjx-container {
+  margin: 0 !important;
+}
+
+.reveal .exitem > p > span:last-child,
+.reveal .exitem > span:last-child {
+  min-width: 0;
+}
+
+.reveal .exitem .exsub {
+  display: block;
+  margin-top: 0.15em;
+  margin-left: 0.8em;
+  position: relative;
+}
+
+.reveal .exitem .exsub::before {
+  content: "–";      /* en-dash */
+  position: absolute;
+  left: -0.8em;      /* same as margin-left */
+}
+
+.small {
+  font-size: 0.75em;
+}
+
+/* ==========================================================================
+   IMAGE SOURCE OVERLAY
+   --------------------------------------------------------------------------
+   Add .image-source to an image's external source link. The link itself is
+   the positioned wrapper, so the generated icon is clickable without adding
+   captions, source text, or extra HTML to a slide.
+   ========================================================================== */
+
+.reveal a.image-source {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  line-height: 0;
+  border: 0;
+  text-decoration: none;
+}
+
+.reveal a.image-source > img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.reveal a.image-source::after {
+  content: "\2197";
+  position: absolute;
+  top: 0.35em;
+  right: 0.35em;
+  display: grid;
+  place-items: center;
+  width: 1.35em;
+  height: 1.35em;
+  border-radius: 0.2em;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.7);
+  text-shadow: 0 0.05em 0.12em rgba(0, 0, 0, 0.95);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.48em;
+  font-weight: 900;
+  -webkit-text-stroke: 0.1em currentColor;
+  line-height: 1;
+  opacity: 0.82;
+  pointer-events: none;
+  transition: opacity 140ms ease, background-color 140ms ease;
+}
+
+.reveal a.image-source:hover::after,
+.reveal a.image-source:focus-visible::after {
+  background: rgba(0, 0, 0, 0.68);
+  opacity: 0.95;
+}
+
+/* Header links: visible without underline */
+.reveal .slides section.slide:not(#title-slide) h1 a,
+.reveal .slides section.slide:not(#title-slide) h2 a {
+  color: #ffffff !important;
+  font-weight: 700 !important;   /* match banner weight */
+  text-decoration: none !important;
+  border-bottom: 3px solid rgba(255, 215, 0, 0.6); /* subtle gold rule */
+  padding-bottom: 2px;
+}
+
+.reveal .slides section.slide:not(#title-slide) h1 a:hover,
+.reveal .slides section.slide:not(#title-slide) h2 a:hover {
+  color: var(--link-hover) !important; /* teal hover */
+  border-bottom-color: var(--link-hover);
+}
+
+.reveal 
+/* ==========================================================================
+   INLINE FLEX HELPERS
+   --------------------------------------------------------------------------
+   Allows right-aligned inline elements without tables.
+   Used for title + right-side metadata patterns.
+   ========================================================================== */
+
+.flexline > p {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8em;
+}
+
+.reveal .flexline > p > .pushright {
+  margin-left: auto;
+}
+
+.reveal .line-right {
+  position: relative;
+  padding-right: 14em; /* reserve space for the right label/link */
+}
+
+.reveal .line-right .right {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  white-space: nowrap;
+}
+
+.reveal .text-end { text-align: right; }
+
+
+.key-point {
+  border-left: 5px solid var(--accent-blue);
+  padding-left: 1em;
+  margin: 1em 0;
+  font-weight: 500;
+}
+
+.main-message {
+  background: rgba(0, 102, 204, 0.08);
+  border-left: 10px solid var(--accent-blue);
+  padding: 0.5em 1em;
+}
+
+.indent {
+  margin-left: 2em;
+}
+
+.hanging {
+  display: block;
+  padding-left: 2em;
+  text-indent: -2em;
+}
+
+.reveal mjx-container[jax="CHTML"] a {
+  color: var(--math-link-color) !important;
+}
+
+.reveal mjx-container[jax="SVG"] a g,
+.reveal mjx-container[jax="SVG"] a path,
+.reveal mjx-container[jax="SVG"] a use {
+  fill: var(--math-link-color) !important;
+  stroke: none !important;
+}
+
+.reveal mjx-container[jax="CHTML"] a:hover {
+  color: var(--link-hover) !important;
+}
+
+.reveal mjx-container[jax="SVG"] a:hover g,
+.reveal mjx-container[jax="SVG"] a:hover path,
+.reveal mjx-container[jax="SVG"] a:hover use {
+  fill: var(--link-hover) !important;
+  stroke: none !important;
+}
+
+
+.reveal .mjx-container {
+  overflow: visible !important;
+}
+
+.reveal .mjx-container svg {
+  overflow: visible !important;
+}
+
+.reveal mjx-container,
+.reveal mjx-container * {
+  font-variant-ligatures: none !important;
+  font-feature-settings: "liga" 0, "clig" 0, "calt" 0 !important;
+  font-kerning: none !important;
+}
+
+.reveal mjx-mi,
+.reveal mjx-mo,
+.reveal mjx-mn,
+.reveal mjx-mtext,
+.reveal mjx-texatom {
+  text-rendering: auto !important;
+}
+
+.reveal mjx-container[jax="CHTML"] {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.reveal mjx-container,
+.reveal mjx-container * {
+  font-variant-ligatures: none !important;
+  font-feature-settings: "liga" 0, "clig" 0, "calt" 0 !important;
+  font-kerning: none !important;
+}
+
+.reveal .math.display {
+  overflow: visible !important;
+}
+
+.reveal .columns,
+.reveal .column {
+  overflow: visible !important;
+}
+
+/* Fix inline code visibility in headers */
+.reveal h1 code,
+.reveal h2 code,
+.reveal h3 code {
+  color: white !important;
+  background-color: rgba(255,255,255,0.15);
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+}
+
+
+.refs {
+  margin-top: 1em;
+}
+
+
+.refs > p {
+  margin: 0 0 0.45em 0;
+  padding-left: 7em;
+  text-indent: -7em;
+}
+
+.refs .ref-label {
+  display: inline-block;
+  width: 6.2em;
+  margin-right: 0.8em;
+  text-align: right;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.software-related {
+  font-size: 0.85em;
+  color: #666;
+}
+
+.status-nowrap {
+    white-space: nowrap;
+}
+
+/* ============================================================
+   PDF export
+   Keep the title-slide background image,
+   but remove the blue Reveal stage background.
+   ============================================================ */
+
+html.print-pdf,
+html.print-pdf body,
+body.print-pdf,
+html.print-pdf .reveal-viewport,
+body.print-pdf .reveal-viewport,
+html.print-pdf .reveal,
+body.print-pdf .reveal,
+html.print-pdf .pdf-page,
+body.print-pdf .pdf-page {
+  background: white !important;
+  background-color: white !important;
+}
+
+/*-- end:scss --*/

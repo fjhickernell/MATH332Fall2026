@@ -1,0 +1,492 @@
+# From regression to one-way analysis of variance (ANOVA) and back {#oneway_anova}
+
+[({{< meta texts.cb.initials >}} §11.2; {{< meta texts.wms.initials >}} Ch. 13)]{.small}
+
+- So far, we modeled relationships with quantitative predictors
+
+- Now we consider a *categorical* predictor (apples and oranges, not numbers)
+
+
+::: {.key-point}
+Do different groups have different means?
+:::
+
+<h3>Set-up</h3>
+
+- $Y_{ij}$, $i=1,\ldots,k,\; j=1,\ldots,n_i$ comes from group $i$ and IID observation $j$ in that group
+
+- Total sample size is $n = \sum_{i=1}^k n_i$
+
+- Compare the group means, $\mu_i = \Ex(Y_{ij})$, $i=1,\ldots,k$
+
+---
+
+## Model for one-way ANOVA
+
+### Model
+
+$$
+Y_{ij} = \mu_i + \varepsilon_{ij}, \qquad \Ex(Y_{ij}) = \mu_i, \quad \varepsilon_{ij} \sim \Norm(0,\sigma^2), \quad \text{independent}
+$$
+
+
+### Hypotheses
+
+$$
+H_0: \mu_1 = \mu_2 = \cdots = \mu_k, \qquad 
+H_a: \text{not all } \mu_i \text{ are equal}
+$$
+
+### Sample means
+
+$$
+\text{Group: } \barY_i = \frac{1}{n_i} \sum_{j=1}^{n_i} Y_{ij}, \, i=1, \ldots, k, \qquad \text{Overall: } \barY = \frac{1}{n} \sum_{i=1}^k \sum_{j=1}^{n_i} Y_{ij}
+$$
+
+---
+
+### Variability
+
+\begin{align*}
+\SST &= \SSB + \SSW \qquad \text{$\exstar$ verify this}\\
+\text{Sum of Squares Total ($\SST$)}
+& =
+\sum_{i=1}^k \sum_{j=1}^{n_i}
+(Y_{ij} - \barY)^2 \\
+& \qquad \qquad \text{measures how spread out all observations are} \\
+\text{Sum of Squares Between ($\SSB$)} & =
+\sum_{i=1}^k n_i (\barY_i - \barY)^2 \\
+& \qquad \qquad \text{measures how spread out the group means are} \\
+\text{Sum of Squares Within ($\SSW$)} & =
+\sum_{i=1}^k \sum_{j=1}^{n_i}
+(Y_{ij} - \barY_i)^2 \\
+& \qquad \qquad \text{measures how spread out the observations are within each group}
+\end{align*}
+
+:::{.key-point}
+Compare signal (between) vs noise (within)
+:::
+
+## Mean square and $F$-statistic
+
+\begin{gather*}
+\MSB= \frac{\SSB}{\underbrace{k-1}_{\text{degrees of freedom between}}}
+\qquad \text{and}\qquad
+\MSW = \frac{\SSW}{\underbrace{n-k}_{\text{degrees of freedom within}}} \text{ (estimator of $\sigma^2$)}
+\\
+F = \frac{\text{MSB}}{\text{MSW}} \sim F_{k-1,\,n-k} \qquad \text{under }H_0: \mu_1 = \mu_2 = \cdots = \mu_k
+\end{gather*}
+
+### Interpretation of the F-test
+
+- $F > F_{k-1, n-k, \alpha}$ gives strong evidence to [reject $H_0$]{.alert} and conclude that the means differ
+
+- Small $F$ implies that there is insufficient evidence of differences between the means of groups
+
+::: {.key-point}
+
+ANOVA detects differences, not which groups differ
+
+:::
+
+
+## ANOVA table
+
+$$
+\begin{array}{lccc}
+\text{Source} & \text{Sum of Squares} & \text{df} & \text{Mean Square} \\[6 pt]
+\hline 
+\text{Between groups} & \SSB & k-1 & \MSB \\
+\text{Within groups}  & \SSW & n-k & \MSW \\[10 pt]
+\hline 
+\text{Total} & \SST & n-1 & 
+\end{array}
+$$
+
+&nbsp;
+
+### Big picture
+ 
+- One-way ANOVA compares multiple means
+
+- Uses variance decomposition to compare variability between groups to variability within groups
+
+- Leads to a single global test
+
+## Example: one-way ANOVA data
+
+Here are three groups of data:
+
+::: {.columns}
+
+::: {.column width="19%"}
+
+```{python}
+#| echo: false
+
+import numpy as np
+import pandas as pd
+from scipy.stats import f
+
+# Small example data
+y1 = np.array([8.2, 7.9, 8.4, 8.1])
+y2 = np.array([8.0, 8.3, 7.8, 8.1, 8.2])
+y3 = np.array([10.1, 9.8, 10.4, 10.0])
+
+groups = {
+    "1": y1,
+    "2": y2,
+    "3": y3
+}
+
+# Put data into a tidy DataFrame
+df = pd.DataFrame({
+    "value": np.concatenate(list(groups.values())),
+    "group": np.concatenate([
+        np.repeat(name, len(vals)) for name, vals in groups.items()
+    ])
+})
+
+df_wide = pd.DataFrame({
+    1: pd.Series(y1),
+    2: pd.Series(y2),
+    3: pd.Series(y3)
+}).style.hide(axis="index").format("{:.1f}")
+
+df_wide
+```
+
+:::
+
+::: {.column width="33%"}
+
+```{python}
+#| echo: false
+
+summary = df.groupby("group").agg(
+    n=("value", "count"),
+    mean=("value", "mean"),
+    variance=("value", "var")
+).round(4)
+
+summary
+```
+
+:::
+
+::: {.column width="48%"}
+
+
+```{python}
+#| echo: false
+
+# Basic quantities
+k = len(groups)
+n = len(df)
+grand_mean = df["value"].mean()
+
+# SSB
+SSB = sum(
+    len(vals) * (vals.mean() - grand_mean)**2
+    for vals in groups.values()
+)
+
+# SSW
+SSW = sum(
+    ((vals - vals.mean())**2).sum()
+    for vals in groups.values()
+)
+
+SST = ((df["value"] - grand_mean)**2).sum()
+
+MSB = SSB / (k - 1)
+MSW = SSW / (n - k)
+
+F_stat = MSB / MSW
+p_val = 1 - f.cdf(F_stat, k - 1, n - k)
+
+anova_table_display = pd.DataFrame({
+    "Source": ["Between groups (B)", "Within groups (W)", "Total"],
+    "Sum of Squares": [f"{SSB:.4f}", f"{SSW:.4f}", f"{SST:.4f}"],
+    "df": [f"{k-1:d}", f"{n-k:d}", f"{n-1:d}"],
+    "Mean Square (MS)": [f"{MSB:.4f}", f"{MSW:.4f}", ""]
+})
+
+anova_table_display
+
+```
+
+:::
+
+:::
+
+&nbsp;
+
+::: {.columns}
+
+::: {.column width="40%"}
+
+\begin{gather*}
+H_0:\mu_1=\mu_2=\mu_3
+\text{ vs} \\
+H_a:\text{not all } \mu_i \text{ are equal}
+\end{gather*}
+
+
+::: 
+
+
+::: {.column width="40%"}
+
+
+```{python}
+#| echo: false
+
+test_table = pd.DataFrame({
+    "Quantity": ["F =  MSB/MSW", "df Between", "df Within", "p-value"],
+    "Value": [F_stat, k - 1, n - k, p_val]
+}).round(4)
+
+test_table.style.hide(axis="index")
+```
+
+:::
+
+
+:::
+
+
+## ANOVA as a regression model
+
+We can rewrite the ANOVA model using indicator functions.
+
+$$
+Y_{ij} = \mu_i + \varepsilon_{ij}
+ = 
+\sum_{\ell=1}^k \mu_\ell \, \indic(i = \ell)
++ \varepsilon_{ij}
+$$
+
+- $\indic(i=\ell)=1$ if observation $(i,j)$ is in group $\ell$, and $0$ otherwise
+
+- For each observation, exactly one indicator is $1$, so
+$$
+\sum_{\ell=1}^k \indic(i=\ell) = 1
+$$
+
+::: {.key-point}
+ANOVA is a regression model with categorical predictors
+:::
+
+---
+
+### In vector/matrix form
+
+\begin{equation*}
+\vY = \mX \vmu + \vveps \qquad
+\text{where } \mX =
+\begin{pmatrix}
+0 & 1 & 0 & \cdots & 0 & 0 \\
+0 & 0 & 0 & \cdots & 1 & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+1 & 0 & 0 & \cdots & 0 & 0
+\end{pmatrix} 
+\end{equation*}
+
+- Each row of $\mX$ has exactly one $1$ and the rest $0$
+
+### No intercept needed
+$$
+\sum_{\ell=1}^k \indic(i=\ell) = 1,
+$$
+
+so including an intercept would make the columns of $\mX$ linearly dependent
+
+::: {.key-point}
+We include all group indicators and omit the intercept to keep the $\mX$ having full column rank
+:::
+
+---
+
+## Connection to least squares
+
+- The $\mu_\ell$ are the regression coefficients and correspond to the [group means]{.alert} $\Ex(Y_{ij} \mid i=\ell)$
+
+- $\mX^\top \mX = \begin{pmatrix} n_1 & 0 & \cdots & 0 \\ 0 & n_2 & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & n_k \end{pmatrix}$ so
+$\hvmu = (\mX^\top \mX)^{-1} \mX^\top \vY = \begin{pmatrix} \hmu_1 \\ \hmu_2 \\ \vdots \\ \hmu_k \end{pmatrix}$ with 
+$\hmu_\ell = \displaystyle \frac{1}{n_\ell} \sum_{j=1}^{n_\ell} Y_{\ell j} =: \barY_\ell$
+
+- $\displaystyle \underbrace{\sum_{i=1}^k \sum_{j=1}^{n_i} (Y_{ij} - \barY)^2}_{\SST} = \underbrace{\sum_{i=1}^k n_i (\barY_i - \barY)^2}_{\SSB} + \underbrace{\sum_{i=1}^k \sum_{j=1}^{n_i} (Y_{ij} - \barY_i)^2}_{\SSW}$
+
+- The one-way ANOVA test statistic, $\displaystyle F = \frac{\MSB}{\MSW} = \frac{\SSB/(k-1)}{\SSW/(n-k)}$, 
+
+  is exactly the regression F-test comparing 
+
+    - the full model (different group means) to the 
+    - reduced model (all means equal)  
+
+---
+
+::: {.key-point}
+ANOVA is just linear regression with indicator variables
+:::
+
+- Same least squares framework  
+- Same projection geometry  
+- Same F-test machinery  
+
+## What regression adds
+
+The global ANOVA test examines $H_0:\mu_1=\mu_2=\cdots=\mu_k$ vs $H_a:$ not all means are equal, but it does not tell us which means differ
+
+::: {.key-point}
+Regression can test whether some means are equal, not just whether all means are equal
+:::
+
+
+### Examples of hypotheses we can test
+
+- Are groups 1 and 2 the same? $H_0:\mu_1=\mu_2$
+
+- Can we pool groups 1 and 2, and also pool groups 3 and 4? $H_0:\mu_1=\mu_2,\ \mu_3=\mu_4$
+
+These can all be written in the form $H_0:\mA \vmu = \vb$
+
+---
+
+## Testing a linear hypothesis
+
+Consider the model with data $\vY = \mX \vmu + \vveps$,  $\vveps \sim \Norm(\vzero, \sigma^2 \mI)$
+
+and the hypothesis $H_0:\mA \vmu = \vb$ of $r$ constraints, where $\mA$ is an $r \times k$ matrix
+
+### F-statistic
+
+The test statistic under $H_0$ is
+
+$$
+F
+= 
+\frac{(\RSS_{\mA\vmu = \vb} - \RSS_{\text{full}})/r}{\RSS_{\text{full}}/(n-k)} = 
+\frac{
+(\mA \hvmu - \vb)^\top
+\bigl[\mA(\mX^\top \mX)^{-1}\mA^\top\bigr]^{-1}
+(\mA \hvmu - \vb)/r
+}{
+S^2
+}
+\sim F_{r,n-k}
+\quad \text{under } H_0.
+$$
+
+- $\mA \hvmu - \vb$ is an $r \times 1$ vector that measures how far we are from satisfying the constraints
+
+- $\mA(\mX^\top \mX)^{-1}\mA^\top$ is an $r \times r$ covariance matrix for $\mA \hvmu$ up to a factor of $\sigma^2$
+
+- $S^2 = \RSS/(n-k)$ estimates $\sigma^2$
+
+::: {.key-point}
+We compare signal (violation of constraints) to noise
+:::
+
+## Example: Testing Whether Two Means Are Equal
+
+We test whether groups 1 and 2 have the same mean
+
+$$
+H_0:\mu_1=\mu_2
+\qquad \Longleftrightarrow \qquad
+H_0:
+\begin{pmatrix}
+1 & -1 & 0
+\end{pmatrix}
+\vmu = 0
+$$
+
+
+- Full model: $Y_{ij} = \mu_i + \varepsilon_{ij}$
+
+- Reduced model under $H_0:\mu_1=\mu_2$: $\displaystyle Y_{ij} = \begin{cases}
+\mu_{12} + \varepsilon_{ij}, & i=1,2 \\
+\mu_3 + \varepsilon_{ij}, & i=3
+\end{cases}$
+
+- $\displaystyle F = 
+\frac{(\RSS_{\mu_1=\mu_2} - \RSS_{\text{full}})/r}{\RSS_{\text{full}}/(n-k)}$
+
+---
+
+::: {.columns}
+
+::: {.column width="35%"}
+```{python}
+#| echo: false
+
+import numpy as np
+import pandas as pd
+from scipy.stats import f
+
+# Full model
+mu_hat = np.array([g.mean() for g in groups.values()])
+RSS_full = sum(((g - g.mean())**2).sum() for g in groups.values())
+
+# Reduced model: pool groups 1 and 2
+y12 = np.concatenate([groups["1"], groups["2"]])
+mu12_hat = y12.mean()
+mu3_hat = groups["3"].mean()
+
+RSS_reduced = (
+    ((groups["1"] - mu12_hat)**2).sum()
+    + ((groups["2"] - mu12_hat)**2).sum()
+    + ((groups["3"] - mu3_hat)**2).sum()
+)
+
+r = 1
+df_within = n - k
+
+F_stat_partial = ((RSS_reduced - RSS_full) / r) / (RSS_full / df_within)
+p_val_partial = 1 - f.cdf(F_stat_partial, r, df_within)
+
+test_table_partial = pd.DataFrame({
+    "Quantity": ["F", "df (constraint)", "df (within)", "p-value"],
+    "Value": [F_stat_partial, r, df_within, p_val_partial]
+}).round(4)
+
+test_table_partial
+```
+
+:::
+
+::: {.column width="2%"}
+
+&nbsp;
+
+:::
+
+::: {.column width="63%"}
+
+
+- The reduced model forces groups 1 and 2 to have the same mean
+
+- If this constraint greatly increases the residual sum of squares, then $H_0$ is not plausible
+
+::: {.key-point}
+Reject $H_0$ if enforcing $\mu_1=\mu_2$ causes a large increase in error
+:::
+
+:::
+
+:::
+
+
+## Big Picture
+
+::: {.key-point}
+ANOVA is a special case of regression,  and regression allows targeted comparisons between groups
+:::
+
+- ANOVA tests whether all means are equal  
+- Regression lets us test specific relationships such as $\mu_1=\mu_2$  
+- The same F-test machinery applies
+- This flexibility becomes even more valuable in more complicated models
+

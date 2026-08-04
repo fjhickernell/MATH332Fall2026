@@ -1,0 +1,332 @@
+# Examples of hypothesis testing
+
+[({{< meta texts.cb.initials >}} §8.1–8.3; {{< meta texts.wms.initials >}} §10.3-10.9)]{.small}
+
+Building on the established framework
+
+- [Translating words into hypotheses](#translating-words-into-hypotheses)
+
+- [Two-sided large sample size CLT test for the mean](#twoclttest)
+
+- [One-sided $t$-test for the mean under Normal data](#onesided_t_test)
+
+- [Chi-squared test for variance under Normal data](#chisq_test)
+
+
+## Translating words into $H_0$ and $H_A$ {#translating-words-into-hypotheses}
+
+- $H_0$ contains the status quo — often written with equality
+- $H_A$ reflects the research claim
+
+### Examples
+
+| Words | $H_0$ | $H_A$ |
+|------------|----|----|
+| “Is the mean different from 10?” | $\theta = 10$ | $\theta \ne 10$ |
+| “Is the mean greater than 10?” | $\theta = 10$ | $\theta > 10$ |
+| “Is the defect rate below 5%?” | $\theta = 0.05$ | $\theta < 0.05$ |
+| “Has the process changed?” | $\theta = \theta_0$ | $\theta \ne \theta_0$ |
+| "Our average time between failures is greater than 200 hours" | $\mu = 200$ | $\mu > 200$ |
+| "Your average time between failures is less than 200 hours" | $\mu = 200$ | $\mu < 200$ |
+| “Our job placement rate is 90%, not 70%” (both simple) | $p = 0.7$ | $p = 0.9$ |
+
+## Definition of the $p$-value
+
+The *$p$-value* is the probability, computed under $H_0$, of observing a test statistic at least as extreme as the one observed, assuming $H_0$ is true
+
+If $T$ is the test statistic and $t_{\text{obs}}$ is the observed value, then
+
+- Right-tailed test:  $\quad p\text{-value} = \Prob_{H_0}(T \ge t_{\text{obs}})$
+
+- Left-tailed test: $\quad p\text{-value} = \Prob_{H_0}(T \le t_{\text{obs}})$
+
+- Two-sided test: $\quad p\text{-value} = \Prob_{H_0}(|T| \ge |t_{\text{obs}}|)$
+
+::: {.key-point}
+
+Compute $p$-values **after** setting the significance level $\alpha$, rather than choosing $\alpha$ after seeing the data
+
+Changing $\alpha$ after seeing the $p$-value is a form of [data snooping]{.alert}
+
+:::
+
+## Two-sided CLT-enabled test for a mean assuming large sample size {#twoclttest}
+
+Suppose $X_1,\dots,X_n$ IID with $\Ex(X_i) = \mu$, $\var(X_i) = \sigma^2$ with large $n$
+
+Test $H_0: \mu = \mu_0$ against $H_A: \mu \ne \mu_0$
+
+- [Test statistic]{.alert} $\displaystyle Z_n(\vX) = \frac{\barX_n - \mu_0}{S_n/\sqrt{n}} \appxsim \Norm(0,1) \text{ for large } n \text{ under } H_0$
+
+- [Rejection region]{.alert} $\RR = (-\infty, -z_{\alpha/2}) \cup (z_{\alpha/2}, \infty)$
+
+- [Power function]{.alert} — the probability of rejecting $H_0$ when the true mean is $\mu_1$ 
+  - (approximate power, treating $S_n\approx \sigma$ for large $n$)
+
+$$
+\power(\mu_1)= \Prob(|Z_n(\vX)|>z_{\alpha/2} \mid \mu = \mu_1) = 1 - \Phi\!\left(z_{\alpha/2} - \frac{\mu_1-\mu_0}{\sigma/\sqrt{n}}\right) + \Phi\!\left(-z_{\alpha/2} - \frac{\mu_1-\mu_0}{\sigma/\sqrt{n}}\right  )
+$$
+
+- [$p$-value]{.alert} for observed $z_{\text{obs}}$ is $p = 2\big(1 - \Phi(|z_{\text{obs}}|)\big)$
+
+---
+
+## Power curves for the two-sided CLT test
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+plt.rcParams["mathtext.fontset"] = "cm"
+from classlib.plots.colors import tol_bright_list
+from classlib.plots import annotate_xaxis_marks, annotate_yaxis_marks
+
+colors = tol_bright_list()   # first four Tol Bright colors
+
+alpha = 0.05
+mu0 = 47.0
+
+n_values = [25, 250]          # <-- choose two n's
+sigma_values = [1.0, 10.0]     # <-- choose two sigmas
+
+zcrit = norm.ppf(1 - alpha/2)
+
+def power_two_sided(mu1, *, n, sigma):
+    delta = (mu1 - mu0) / (sigma / np.sqrt(n))
+    return (1 - norm.cdf(zcrit - delta)) + norm.cdf(-zcrit - delta)
+
+# x-axis range: centered at mu0 with a span that shows all four curves well
+sigma_max = max(sigma_values)
+mu = np.linspace(mu0 - sigma_max, mu0 + sigma_max, 600)
+
+plt.figure(figsize=(12,6))
+k = 0
+for n in n_values:
+    for sigma in sigma_values:
+        plt.plot(mu, power_two_sided(mu, n=n, sigma=sigma),
+                 color=colors[k],
+                 label=rf"$n={n},\ \sigma={sigma}$",
+                 linewidth=3.5,
+        )
+        k += 1
+
+plt.axvline(mu0, color=colors[6], linestyle="--")  # vertical line at mu0
+plt.axhline(alpha, color=colors[6], linestyle=":")  # horizontal line at alpha
+plt.xlabel(r"True mean $\mu_1$", fontsize=22)
+plt.ylabel("Power", fontsize=24)
+plt.title(r"Two-sided CLT test ($H_0: \mu=\mu_0$, $H_A: \mu \ne \mu_0$): power vs true mean", fontsize=22)
+
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+
+ax = plt.gca()
+annotate_xaxis_marks(ax, [mu0], [r"$\mu_0$"], colors=["black"], text_offset_pts=-50, fontsize=24)
+annotate_yaxis_marks(ax, [alpha], [r"$\alpha$"], colors=["black"], text_offset_pts = -40, fontsize=24)
+
+plt.legend(fontsize=20, loc="lower right")
+plt.ylim(0, 1.02)
+plt.tight_layout()
+plt.show()
+```
+
+::: {.key-point}
+Power is $\Prob(\text{reject} \mid \theta)$
+
+It is **not** $\Prob(\theta \mid \text{data})$
+
+Power describes the test design, not the evidence in this sample
+:::
+
+## One-sided test for a mean under Normal data {#onesided_t_test}
+
+Suppose $X_1,\dots,X_n$ IID with  $X_i \sim \Norm(\mu,\sigma^2)$
+
+Test  $H_0: \mu \le \mu_0$ against  $H_A: \mu > \mu_0$
+
+- [Test statistic]{.alert} $\displaystyle T_n(\vX) = \frac{\barX_n - \mu_0}{S_n/\sqrt{n}} \sim t_{n-1} \text{ under } \mu=\mu_0$
+
+- [Rejection region]{.alert} $\RR = (t_{n-1,\alpha}, \infty)$
+
+- [Power function]{.alert} — the probability of rejecting $H_0$ when the true mean is $\mu_1$
+
+\begin{multline*}
+T_n(\vX) \sim t_{n-1}(\delta) \text{ for } \delta = \frac{\mu_1 - \mu_0}{\sigma/\sqrt{n}} \\
+\implies \power(\mu_1) = \Prob(T_n(\vX) > t_{n-1,\alpha} \mid \mu=\mu_1) = 1 - F_{t_{n-1}(\delta)}\!\left(t_{n-1,\alpha}\right)
+\end{multline*}
+
+where $F_{t_{n-1}(\delta)}$ is the CDF of the noncentral t distribution with $n-1$ degrees of freedom and noncentrality parameter $\delta$
+
+- [$p$-value]{.alert} for observed $t_{\text{obs}}$ is $p = \Prob(t_{n-1} \ge t_{\text{obs}})$
+
+## Power curves for the one-sided $t$-test
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import t, nct
+plt.rcParams["mathtext.fontset"] = "cm"
+
+from classlib.plots.colors import tol_bright_list
+from classlib.plots import annotate_xaxis_marks, annotate_yaxis_marks
+
+colors = tol_bright_list()
+
+alpha = 0.05
+mu0 = 47.0
+
+n_values = [25, 250]
+sigma_values = [1.0, 10.0]
+
+def power_one_sided_t(mu1, *, n, sigma):
+    df = n - 1
+    tcrit = t.ppf(1 - alpha, df)
+    delta = (mu1 - mu0) / (sigma / np.sqrt(n))
+    return 1 - nct.cdf(tcrit, df, delta)
+
+sigma_max = max(sigma_values)
+mu = np.linspace(mu0 - sigma_max, mu0 + sigma_max, 600)
+
+plt.figure(figsize=(12,6))
+k = 0
+for n in n_values:
+    for sigma in sigma_values:
+        plt.plot(
+            mu,
+            power_one_sided_t(mu, n=n, sigma=sigma),
+            color=colors[k],
+            label=rf"$n={n},\ \sigma={sigma}$",
+            linewidth=3.5,
+        )
+        k += 1
+
+plt.axvline(mu0, color=colors[6], linestyle="--")
+plt.axhline(alpha, color=colors[6], linestyle=":")
+
+plt.xlabel(r"True mean $\mu_1$", fontsize=22)
+plt.ylabel("Power", fontsize=24)
+plt.title(r"One-sided $t$-test ($H_0: \mu=\mu_0$, $H_A: \mu > \mu_0$): power vs true mean", fontsize=22)
+
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+
+ax = plt.gca()
+annotate_xaxis_marks(ax, [mu0], [r"$\mu_0$"], colors=["black"], text_offset_pts=-50, fontsize=24)
+annotate_yaxis_marks(ax, [alpha], [r"$\alpha$"], colors=["black"], text_offset_pts=-40, fontsize=24)
+
+plt.legend(fontsize=20, loc="lower right")
+plt.ylim(0, 1.02)
+plt.tight_layout()
+plt.show()
+```
+
+## One-sided $\chi^2$ test for the variance under Normal data {#chisq_test}
+
+Suppose $X_1,\dots,X_n$ IID with $X_i \sim \Norm(\mu,\sigma^2)$.
+
+Test   $H_0: \sigma^2 = \sigma_0^2$ against   $H_A: \sigma^2 > \sigma_0^2$
+
+- [Pivot / test statistic]{.alert}  $\displaystyle T_n(\vX) = \frac{(n-1)S_n^2}{\sigma_0^2} \sim \chi^2_{n-1} \text{ under } H_0$
+  - where $S_n^2$ is the unbiased sample variance
+
+- [Rejection region]{.alert}  $\RR = (\chi^2_{n-1,\alpha}, \infty)$
+
+- [Power function]{.alert}  
+$$
+\power(\sigma_1)
+=
+\Prob\!\left(
+T_n(\vX) > \chi^2_{n-1,\alpha}\mid \sigma = \sigma_1
+\right)
+=
+\Prob\!\left(
+\chi^2_{n-1} > \frac{\sigma_0^2}{\sigma_1^2}\chi^2_{n-1,\alpha}
+\right)
+$$
+
+- [$p$-value]{.alert} for observed $t_{\text{obs}}$ is  $p = \Prob(\chi^2_{n-1} \ge t_{\text{obs}})$
+
+
+---
+
+## Power curves for the one-sided $\chi^2$ test
+
+```{python}
+#| echo: false
+#| warning: false
+#| message: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import chi2
+plt.rcParams["mathtext.fontset"] = "cm"
+
+from classlib.plots.colors import tol_bright_list
+from classlib.plots import annotate_xaxis_marks, annotate_yaxis_marks
+
+colors = tol_bright_list()
+
+alpha = 0.05
+sigma0 = 5.0
+
+n_values = [10, 30, 100]
+
+def power_chi2_upper(sigma_true, *, n):
+    df = n - 1
+    crit = chi2.isf(alpha, df)  # upper alpha quantile
+    thresh = (sigma0**2 / sigma_true**2) * crit
+    return chi2.sf(thresh, df)  # P(Chi^2_df > thresh)
+
+sigma = np.linspace(0.5 * sigma0, 2.5 * sigma0, 600)
+
+plt.figure(figsize=(10,6))
+for k, n in enumerate(n_values):
+    plt.plot(
+        sigma,
+        power_chi2_upper(sigma, n=n),
+        color=colors[k],
+        linewidth=3.5,
+        label=rf"$n={n}$"
+    )
+
+plt.axvline(sigma0, color=colors[6], linestyle="--", linewidth=2)
+plt.axhline(alpha,  color=colors[6], linestyle=":",  linewidth=2)
+
+plt.xlabel(r"True standard deviation $\sigma_1$", fontsize=22)
+plt.ylabel("Power", fontsize=24)
+plt.title(r"One-sided $\chi^2$ variance test  ($H_0: \sigma^2=\sigma_0^2$, $H_A: \sigma^2 > \sigma_0^2$)", fontsize=22)
+
+plt.xticks(fontsize=20)
+plt.yticks(fontsize=20)
+
+ax = plt.gca()
+annotate_xaxis_marks(ax, [sigma0], [r"$\sigma_0$"], colors=["black"], text_offset_pts=-45, fontsize=24)
+annotate_yaxis_marks(ax, [alpha],  [r"$\alpha$"],   colors=["black"], text_offset_pts=-35, fontsize=24)
+
+plt.legend(fontsize=20, loc="lower right")
+plt.ylim(0, 1.02)
+plt.tight_layout()
+plt.show()
+```
+
+## Try on your own
+
+::: {.exitem} 
+
+<span class="exbullet">$\exstar$</span><span>Construct small sample size one-sided  and two-sided tests for the mean of an exponential distribution and sketch the power curves</span>
+
+:::
+
+&nbsp;
+
+<a class="button" style="margin-left:2em;" href="../classlib/classlib/notebooks/matched_pairs_sleep_study.ipynb" download>
+⬇ Matched Pairs Sleep Study 📓
+</a>
+

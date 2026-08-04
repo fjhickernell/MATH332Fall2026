@@ -1,0 +1,240 @@
+[
+  {
+    "objectID": "pages/tests.html",
+    "href": "pages/tests.html",
+    "title": "Tests",
+    "section": "",
+    "text": "NoteInstructions pending\n\n\n\nPermitted materials, calculator rules, room procedures, and other test instructions are TBD."
+  },
+  {
+    "objectID": "pages/tests.html#instructions-for-tests-and-exams",
+    "href": "pages/tests.html#instructions-for-tests-and-exams",
+    "title": "Tests",
+    "section": "",
+    "text": "NoteInstructions pending\n\n\n\nPermitted materials, calculator rules, room procedures, and other test instructions are TBD."
+  },
+  {
+    "objectID": "pages/tests.html#this-semesters-tests-and-final-examination",
+    "href": "pages/tests.html#this-semesters-tests-and-final-examination",
+    "title": "Tests",
+    "section": "This semester’s tests and final examination",
+    "text": "This semester’s tests and final examination\nDates, coverage, locations, formats, and review materials will be added as they are finalized.\n\n\n\n\n\n\n\n\n\nDate\nAssessment\nCoverage or details\nReview materials\n\n\n\n\nTBD\nTest 1\nTBD\nTBD\n\n\nTBD\nTest 2\nTBD\nTBD\n\n\nTBD\nFinal examination\nDate, time, location, format, and coverage TBD\nTBD"
+  },
+  {
+    "objectID": "pages/resources.html",
+    "href": "pages/resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition."
+  },
+  {
+    "objectID": "pages/resources.html#required-textbook",
+    "href": "pages/resources.html#required-textbook",
+    "title": "Resources",
+    "section": "",
+    "text": "Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition."
+  },
+  {
+    "objectID": "pages/resources.html#computing-resources",
+    "href": "pages/resources.html#computing-resources",
+    "title": "Resources",
+    "section": "Computing resources",
+    "text": "Computing resources\nThe course will use Python for numerical and symbolic matrix computation, visualization, and experimentation. Setup instructions and demonstrations will be added as they are validated.\n\n\nInitial Python environment\n\n\nNumPy for array and numerical matrix computation\nSciPy for scientific computing\nMatplotlib for visualization\nSymPy for exact symbolic computation\nJupyterLab for demonstrations and exercises"
+  },
+  {
+    "objectID": "pages/resources.html#course-systems",
+    "href": "pages/resources.html#course-systems",
+    "title": "Resources",
+    "section": "Course systems",
+    "text": "Course systems\n\n\n\nResource\nLocation\n\n\n\n\nCanvas\nTBD\n\n\nCourse repository\nMATH332Fall2026 on GitHub\n\n\nRepository setup\nAccessing the Course Repository\n\n\nNotebooks\nDemonstrations and exercises\n\n\nPython demonstrations\nLinks will be added after validation\n\n\nPython exercises\nLinks will be added after validation"
+  },
+  {
+    "objectID": "pages/resources.html#professional-community",
+    "href": "pages/resources.html#professional-community",
+    "title": "Resources",
+    "section": "Professional community",
+    "text": "Professional community\nStudents interested in applied mathematics can explore SIAM student membership."
+  },
+  {
+    "objectID": "pages/policies.html",
+    "href": "pages/policies.html",
+    "title": "Policies",
+    "section": "",
+    "text": "NotePolicies pending\n\n\n\nAttendance, collaboration, late-work, communication, technology, and AI-use policies are TBD. Confirmed policies will be posted before the semester begins."
+  },
+  {
+    "objectID": "pages/policies.html#course-specific-policies",
+    "href": "pages/policies.html#course-specific-policies",
+    "title": "Policies",
+    "section": "",
+    "text": "NotePolicies pending\n\n\n\nAttendance, collaboration, late-work, communication, technology, and AI-use policies are TBD. Confirmed policies will be posted before the semester begins."
+  },
+  {
+    "objectID": "pages/policies.html#accommodations-and-accessibility",
+    "href": "pages/policies.html#accommodations-and-accessibility",
+    "title": "Policies",
+    "section": "Accommodations and accessibility",
+    "text": "Accommodations and accessibility\nCurrent institutional language and contact information are TBD pending verification for Fall 2026."
+  },
+  {
+    "objectID": "pages/policies.html#academic-integrity",
+    "href": "pages/policies.html#academic-integrity",
+    "title": "Policies",
+    "section": "Academic integrity",
+    "text": "Academic integrity\nCourse-specific expectations and the applicable Illinois Tech policy links are TBD pending verification for Fall 2026."
+  },
+  {
+    "objectID": "pages/policies.html#harassment-and-discrimination-information",
+    "href": "pages/policies.html#harassment-and-discrimination-information",
+    "title": "Policies",
+    "section": "Harassment and discrimination information",
+    "text": "Harassment and discrimination information\nCurrent institutional language, reporting links, and contact information are TBD pending verification for Fall 2026."
+  },
+  {
+    "objectID": "pages/assignments.html",
+    "href": "pages/assignments.html",
+    "title": "Assignments",
+    "section": "",
+    "text": "NotePolicies pending\n\n\n\nCollaboration rules, submission requirements, late-work policies, and Canvas procedures are TBD."
+  },
+  {
+    "objectID": "pages/assignments.html#assignment-policies",
+    "href": "pages/assignments.html#assignment-policies",
+    "title": "Assignments",
+    "section": "",
+    "text": "NotePolicies pending\n\n\n\nCollaboration rules, submission requirements, late-work policies, and Canvas procedures are TBD."
+  },
+  {
+    "objectID": "pages/assignments.html#list-of-assignments",
+    "href": "pages/assignments.html#list-of-assignments",
+    "title": "Assignments",
+    "section": "List of assignments",
+    "text": "List of assignments\nAssignment details and due dates will be added as they are finalized.\n\n\n\nAssignment\nCoverage\nDue Date\n\n\n\n\nAssignment 1 — TBD\nTBD\nTBD"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to MATH 332",
+    "section": "",
+    "text": "This is the course website for MATH 332 — Fall 2026 at Illinois Institute of Technology. The first class is Tuesday, August 18, 2026."
+  },
+  {
+    "objectID": "index.html#linear-algebra-theory-and-applications",
+    "href": "index.html#linear-algebra-theory-and-applications",
+    "title": "Welcome to MATH 332",
+    "section": "",
+    "text": "This is the course website for MATH 332 — Fall 2026 at Illinois Institute of Technology. The first class is Tuesday, August 18, 2026."
+  },
+  {
+    "objectID": "index.html#course-description",
+    "href": "index.html#course-description",
+    "title": "Welcome to MATH 332",
+    "section": "Course Description",
+    "text": "Course Description\nThis course develops the theory and applications of linear algebra through systems of equations, matrices, determinants, vector spaces, eigenvalues and eigenvectors, and inner product spaces. Python will support visualization, numerical computation, symbolic computation, and experimentation.\n\n\nInstructor: Fred J. Hickernell\n\n\n\nOffice hours: TBD\nEmail: hickernell@illinoistech.edu\nIllinois Tech profile\n\n\n\nRequired textbook: Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition\n\n\n\nRecommended resources\n\n\nPython\nJupyter\nNumPy\nSciPy\nMatplotlib\nSymPy\nCourse repository\n\n\n\n\nPrerequisites and requirements\n\nPrerequisites and other course requirements are TBD.\n\n\n\nWhere to Find It\n\n\n\n\nThis course website\nCanvas website\n\n\n\n\nCourse information\nGrades\n\n\nSchedule\nAnnouncements\n\n\nSchedule and slides\nDiscussions\n\n\nNotebooks\nTBD\n\n\nAssignments\nAssignments and submissions\n\n\nQuizzes\nQuizzes\n\n\nTests\nTBD\n\n\nResources\nTBD\n\n\nPolicies\nTBD\n\n\nCourse repository"
+  },
+  {
+    "objectID": "index.html#course-outline",
+    "href": "index.html#course-outline",
+    "title": "Welcome to MATH 332",
+    "section": "Course Outline",
+    "text": "Course Outline\n\n\nSystems of Linear Equations and Matrices\n\nAnton, Chapter 1. Detailed pacing is TBD.\n\n\n\nDeterminants\n\nAnton, Chapter 2. Detailed pacing is TBD.\n\n\n\nEuclidean Vector Spaces\n\nAnton, Chapter 3. Detailed pacing is TBD.\n\n\n\nGeneral Vector Spaces\n\nAnton, Chapter 4. Detailed pacing is TBD.\n\n\n\nEigenvalues and Eigenvectors\n\nAnton, Chapter 5. Detailed pacing is TBD.\n\n\n\nInner Product Spaces\n\nAnton, Chapter 6. Detailed pacing is TBD."
+  },
+  {
+    "objectID": "index.html#assessment",
+    "href": "index.html#assessment",
+    "title": "Welcome to MATH 332",
+    "section": "Assessment",
+    "text": "Assessment\n\nAssignments: details and grading weight TBD\nQuizzes: format, dates, and grading weight TBD\nTests and final examination: details and grading weight TBD"
+  },
+  {
+    "objectID": "pages/accessing-repository.html",
+    "href": "pages/accessing-repository.html",
+    "title": "Accessing the Course Repository",
+    "section": "",
+    "text": "The course repository contains the website source, slides, notebooks, assets, and a shared-library submodule. Students should treat the instructor’s repository as read-only. Coursework will not be submitted through Git."
+  },
+  {
+    "objectID": "pages/accessing-repository.html#prerequisites",
+    "href": "pages/accessing-repository.html#prerequisites",
+    "title": "Accessing the Course Repository",
+    "section": "Prerequisites",
+    "text": "Prerequisites\nInstall Git and choose either HTTPS or SSH authentication for GitHub."
+  },
+  {
+    "objectID": "pages/accessing-repository.html#clone-the-repository",
+    "href": "pages/accessing-repository.html#clone-the-repository",
+    "title": "Accessing the Course Repository",
+    "section": "Clone the repository",
+    "text": "Clone the repository\nChoose one method.\n\nHTTPS\ngit clone --recurse-submodules https://github.com/fjhickernell/MATH332Fall2026.git\ncd MATH332Fall2026\n\n\nSSH\ngit clone --recurse-submodules git@github.com:fjhickernell/MATH332Fall2026.git\ncd MATH332Fall2026\n\n\n\n\n\n\nNote\n\n\n\nThe GitHub repository link will become usable after the repository is published. Until then, these commands document the intended setup."
+  },
+  {
+    "objectID": "pages/accessing-repository.html#verify-the-submodule",
+    "href": "pages/accessing-repository.html#verify-the-submodule",
+    "title": "Accessing the Course Repository",
+    "section": "Verify the submodule",
+    "text": "Verify the submodule\ngit submodule status\nIf classlib was not initialized, run:\ngit submodule update --init --recursive"
+  },
+  {
+    "objectID": "pages/accessing-repository.html#get-course-updates",
+    "href": "pages/accessing-repository.html#get-course-updates",
+    "title": "Accessing the Course Repository",
+    "section": "Get course updates",
+    "text": "Get course updates\nFrom the repository directory, run:\ngit pull --ff-only\ngit submodule update --init --recursive\nThe second command checks out the shared library version recorded by the course repository. Do not use git submodule update --remote unless the instructor explicitly requests it."
+  },
+  {
+    "objectID": "pages/accessing-repository.html#if-you-have-local-changes",
+    "href": "pages/accessing-repository.html#if-you-have-local-changes",
+    "title": "Accessing the Course Repository",
+    "section": "If you have local changes",
+    "text": "If you have local changes\nCheck your work before updating:\ngit status\nCopy important work outside the course repository or commit it to your own private repository before pulling updates. Ask for help rather than discarding changes you want to keep."
+  },
+  {
+    "objectID": "pages/notebooks.html",
+    "href": "pages/notebooks.html",
+    "title": "Jupyter Notebooks",
+    "section": "",
+    "text": "Course notebooks will provide executable demonstrations and exercises for numerical matrix computation, exact symbolic computation, visualization, and experimentation."
+  },
+  {
+    "objectID": "pages/notebooks.html#demonstrations",
+    "href": "pages/notebooks.html#demonstrations",
+    "title": "Jupyter Notebooks",
+    "section": "Demonstrations",
+    "text": "Demonstrations\nInstructor demonstrations will illustrate linear algebra concepts and connect algebraic calculations with geometric interpretation. Validated notebook links will appear here."
+  },
+  {
+    "objectID": "pages/notebooks.html#exercises",
+    "href": "pages/notebooks.html#exercises",
+    "title": "Jupyter Notebooks",
+    "section": "Exercises",
+    "text": "Exercises\nStudent exercises will provide opportunities to explore matrices, vector spaces, transformations, eigenvalues, and inner products computationally. Validated notebook links will appear here."
+  },
+  {
+    "objectID": "pages/quizzes.html",
+    "href": "pages/quizzes.html",
+    "title": "Quizzes",
+    "section": "",
+    "text": "NoteProvisional plan\n\n\n\nQuizzes will probably be administered through Canvas. The Canvas link, quiz format, attempt policy, and grading policy are TBD."
+  },
+  {
+    "objectID": "pages/quizzes.html#quiz-administration",
+    "href": "pages/quizzes.html#quiz-administration",
+    "title": "Quizzes",
+    "section": "",
+    "text": "NoteProvisional plan\n\n\n\nQuizzes will probably be administered through Canvas. The Canvas link, quiz format, attempt policy, and grading policy are TBD."
+  },
+  {
+    "objectID": "pages/quizzes.html#quiz-schedule",
+    "href": "pages/quizzes.html#quiz-schedule",
+    "title": "Quizzes",
+    "section": "Quiz schedule",
+    "text": "Quiz schedule\nQuiz coverage and dates will be added after they are finalized.\n\n\n\nQuiz\nCoverage\nDate\n\n\n\n\nQuiz 1 — TBD\nTBD\nTBD"
+  },
+  {
+    "objectID": "pages/schedule.html",
+    "href": "pages/schedule.html",
+    "title": "Schedule",
+    "section": "",
+    "text": "The meeting days, meeting time, and classroom are TBD. This schedule will be updated as meeting dates, textbook-section pacing, assignments, quizzes, holidays, and examinations are finalized.\n\nThe first class is Tuesday, August 18, 2026.\n\n\nAugust\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\n1\nTue Aug 18\nWhy linear algebra? and course introduction\nWhy Linear Algebra?\n\n\n—\nTBD\nRemaining August meetings and topics\nTBD\n\n\n\n\n\nSeptember\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\nTBD\nTBD\nSystems of Linear Equations and Matrices\nSystems and Matrices\n\n\nTBD\nTBD\nDeterminants\nDeterminants\n\n\n\n\n\nOctober\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\nTBD\nTBD\nEuclidean Vector Spaces\nEuclidean Vector Spaces\n\n\nTBD\nTBD\nGeneral Vector Spaces\nGeneral Vector Spaces\n\n\n\n\n\nNovember\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\nTBD\nTBD\nEigenvalues and Eigenvectors\nEigenvalues and Eigenvectors\n\n\nTBD\nTBD\nInner Product Spaces\nInner Product Spaces\n\n\n\n\n\nDecember\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\nTBD\nTBD\nReview and remaining course material\nTBD\n\n\n\n\n\nFinal examinations\nThe final-examination date, time, location, format, and coverage are TBD.\n\n\n\nWeek\nDate\nAssessment\nMaterials\n\n\n\n\nTBD\nTBD\nFinal examination\nTBD"
+  }
+]

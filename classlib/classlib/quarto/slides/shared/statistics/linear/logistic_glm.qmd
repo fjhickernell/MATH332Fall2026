@@ -1,0 +1,838 @@
+# From linear to nonlinear mean {#logistic-glm}
+
+- So far our models are [linear]{.alert}
+  - Ordinary least squares
+    - Model: $Y \sim \Norm(\mu(\vx), \sigma^2)$, $\mu(\vx) = \vx^\top \vbeta$
+    - Model with data: $\vY \sim \Norm(\mX\vbeta, \sigma^2 \mI)$
+  - One-way ANOVA: categorical predictors, still linear mean
+    - Model: $Y \sim \Norm(\mu_i, \sigma^2)$ for group $i = 1, \ldots, k$
+    - Model with data: $Y_{ij} \sim \Norm(\mu_i, \sigma^2)$ independent, where $i = 1, \ldots, k$ and $j = 1, \ldots, n_i$
+
+- What if
+  - $Y \in \{0,1\}$ (success/failure) [Bernoulli]{.alert} random variable with explanatory variables $\vx$?
+    - $\Ex(Y \mid \vx) = p(\vx)$ with $p(\vx) \in [0,1]$
+  - But $p(\vx) = \vx^\top \vbeta$ can fall outside $[0,1]$
+    - Need a [nonlinear]{.alert} function of $\vx$ to model $p(\vx)$
+
+## Binary response setup
+
+- Explanatory variables, $\vx \in \reals^d$ like OLS
+- Response data: $Y_i \in \{0,1\}$
+
+- Define $p_i = \Prob(Y_i = 1 \mid \vx_i)$, so $Y_i \sim \Bern(p_i)$
+
+- Need to model $p_i$ with a [nonlinear]{.alert} transformation that maps $\mathbb{R} \to (0,1)$
+
+
+### Logistic function
+
+  $$
+  p_i = \frac{1}{1 + e^{-\vx_i^\top \vbeta}} \qquad \text{or equivalently} \qquad \log (\text{odds}) = \logit(p_i) = \log\left(\frac{p_i}{1-p_i}\right) = \vx_i^\top \vbeta
+  $$
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+- $\beta_j = \text{change in log-odds per unit increase in } x_j$
+- $e^{\beta_j} = \text{multiplicative change in odds per unit increase in } x_j$
+- $\logit$ is the quantile function of the [logistic distribution](https://en.wikipedia.org/wiki/Logistic_distribution)
+  - which has CDF $\displaystyle F(t) = \frac{1}{1 + e^{-t}}$, $- \infty < t < \infty$
+
+
+:::
+
+::: {.column width="5%"}
+
+&nbsp;
+
+:::
+
+
+::: {.column width="35%"}
+
+```{python}
+#| echo: false
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.rcParams.update({
+
+    # --- FONT FAMILY (serif + LaTeX-style math) ---
+    "font.family": "serif",
+    "mathtext.fontset": "stix",
+    "font.serif": ["STIXGeneral"],
+
+    # --- FONT SIZES (tuned for slides) ---
+    "font.size": 18,
+    "axes.titlesize": 22,
+    "axes.labelsize": 20,
+    "xtick.labelsize": 16,
+    "ytick.labelsize": 16,
+    "legend.fontsize": 22,
+    "figure.titlesize": 22,
+
+    # --- LINE / MARKER STYLE ---
+    "lines.linewidth": 2.5,
+    "lines.markersize": 7,
+
+    # --- AXES STYLE ---
+    "axes.spines.top": False,
+    "axes.spines.right": False,
+    "axes.titlepad": 12,
+
+    # --- GRID ---
+    "axes.grid": True,
+    "grid.alpha": 0.3,
+
+    # --- LEGEND ---
+    "legend.frameon": False,
+})
+
+# x grid
+x = np.linspace(-6, 6, 400)
+
+# logistic CDF
+F = 1 / (1 + np.exp(-x))
+
+# plot
+plt.figure(figsize=(8, 3))
+plt.plot(x, F)
+plt.xlabel("$t$")
+plt.ylabel("$F(t)$")
+plt.title("Logistic CDF")
+
+plt.grid(True)
+plt.show()
+```
+
+:::
+
+
+:::
+
+## Likelihood
+
+- Bernoulli likelihood:
+  $$
+  L\bigl(\vbeta \mid \{(\vx_i, y_i)\}_{i=1}^n\bigr)
+  =
+  \prod_{i=1}^n
+  p_i^{y_i}(1-p_i)^{1-y_i} = \prod_{i=1}^n
+  \left(\frac{1}{1 + e^{-\vx_i^\top \vbeta}}\right)^{y_i}
+  \left(\frac{1}{1 + e^{\vx_i^\top \vbeta}}\right)^{1-y_i}
+  $$
+
+- Log-likelihood:
+  \begin{align*}
+  \ell\bigl(\vbeta \mid \{(\vx_i, y_i)\}_{i=1}^n\bigr)
+  & =
+  \sum_{i=1}^n
+  \left[
+  y_i \log(p_i) + (1-y_i)\log(1-p_i) \right] \\
+  & = \sum_{i=1}^n
+  \left[
+  y_i \log\left(\frac{1}{1 + e^{-\vx_i^\top \vbeta}}\right) + (1-y_i)\log\left(\frac{1}{1 + e^{\vx_i^\top \vbeta}}\right)
+  \right]
+  \end{align*}
+
+- Estimate $\vbeta$ by MLE $\hvbeta = \argmax_\vb \ell\bigl(\vb \mid \{(\vx_i, y_i)\}_{i=1}^n\bigr)$
+  - No closed form solution
+  - Use numerical optimization (e.g., Newton–Raphson / IRLS)
+
+## Estimation by iteratively reweighted least squares (IRLS)
+
+- MLE: $\hvbeta = \arg\max_{\vb} \ell(\vb)$
+
+- Solve: $\nabla \ell(\vb)=0$ (no closed form)
+
+- Iteratively reweighted least squares (IRLS):
+
+  - Initialize $\vbeta^{(0)} = \vzero$
+
+  - For $t = 0,1,2,\ldots$ until convergence:
+
+    - $\vp^{(t)} = \bigl(p_1^{(t)},\dots,p_n^{(t)}\bigr)^\top$,  $p_i^{(t)} = \dfrac{1}{1 + e^{-\vx_i^\top \vbeta^{(t)}}}$ predicted probabilities of success for data
+
+    - $\mW^{(t)} = \diag\!\Bigl(\bigl(p_i^{(t)}(1-p_i^{(t)})\bigr)_{i=1}^n\Bigr)$, a diagonal matrix of regression weights
+
+    - $\vz^{(t)} = \mX\vbeta^{(t)} + \bigl(\mW^{(t)}\bigr)^{-1}(\vy-\vp^{(t)})$, where $\vy-\vp^{(t)}$ is the vector of residuals
+
+    - Update: $\displaystyle\vbeta^{(t+1)}
+      =
+    \arg\min_{\vb}
+    \sum_{i=1}^n
+    w_i^{(t)}\bigl(z_i^{(t)} - \vx_i^\top \vb\bigr)^2
+      =
+      \vbeta^{(t)}
+      +
+      \left(\mX^\top \mW^{(t)} \mX\right)^{-1}
+      \mX^\top (\vy-\vp^{(t)})
+      $
+- $\displaystyle \hvbeta= \lim_{t\to\infty} \vbeta^{(t)}$ and $\hp_i = \dfrac{1}{1+e^{-\vx_i^\top \hvbeta}}$
+
+## Inference
+
+- MLE: $\hvbeta = \arg\max_{\vb} \ell(\vb)$
+
+- Approximate distribution: $\hvbeta \appxsim \Norm\!\bigl(\vbeta,\; (\mX^\top \mW \mX)^{-1}\bigr)$
+
+- Weights: $\mW = \diag\bigl(p_i(1-p_i)\bigr)$
+
+- Standard errors: $\SE(\hbeta_j) = \sqrt{\bigl[(\mX^\top \mW \mX)^{-1}\bigr]_{jj}}$
+
+- Wald statistic: $\displaystyle \frac{\hat\beta_j}{\text{SE}(\hat\beta_j)} \approx \Norm(0,1)$
+
+- Likelihood ratio statistic for nested models: $2\bigl(\ell(\text{full})-\ell(\text{reduced})\bigr) \approx \chi^2_\nu$
+
+- Same philosophy as OLS: test whether predictors matter
+
+## Decision boundary (prediction)
+
+- For a new $\vx$: $\hp(\vx) = \dfrac{1}{1 + e^{-\vx^\top \hvbeta}}$
+
+- Classification: $\hY(\vx) = 1$ if $\hp(\vx) > 0.5$, else $0$
+
+- Boundary: $\hp(\vx)=0.5 \iff \vx^\top \hvbeta = 0$
+
+- Uncertainty in $\hp(\vx)$ comes from $\hvbeta$:
+  $$
+  \text{SE}\bigl(\hp(\vx)\bigr)
+  \approx
+  \hp(\vx)\bigl(1-\hp(\vx)\bigr)
+  \sqrt{\vx^\top(\mX^\top \mW \mX)^{-1}\vx}
+  $$
+
+- Confidence interval for probability:
+  $\hp(\vx) \pm z_{\alpha/2}\,\text{SE}\bigl(\hp(\vx)\bigr)$
+
+- Classification confidence:
+  - uncertain if $\hp(\vx) \approx 0.5$
+  - more confident as $\hp(\vx)$ moves away from $0.5$
+
+
+## Probit link
+
+- Logit: $\logit(p) = \displaystyle \log\left(\frac{p}{1-p}\right)$ is the [quantile function]{.alert} of the logistic distribution
+
+- Probit: $\probit(p) = \Phi^{-1}(p)$ is the [quantile function]{.alert} of the standard normal distribution
+  - Model is $\probit(p(\vx)) = \vx^\top \vbeta$
+  - $p(\vx) = \Phi(\vx^\top \vbeta)$, where $\Phi$ is the CDF of $\Norm(0,1)$
+
+
+::: {.columns}
+
+::: {.column width="35%"}
+
+- Both:
+  - map $(0,1) \to \reals$
+  - give similar fits
+
+- probit interpretation:
+  - latent normal threshold model
+  - lighter tails than logit
+
+:::
+
+::: {.column width="5%"}
+&nbsp;
+:::
+
+::: {.column width="60%"}
+```{python}
+#| echo: false
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import norm
+
+# --- assume your rcParams already set above ---
+
+# grid
+x = np.linspace(-6, 6, 400)
+
+# CDFs
+F_logistic = 1 / (1 + np.exp(-x))
+F_normal = norm.cdf(x * np.sqrt(3) / np.pi)
+
+# figure
+fig, ax = plt.subplots(figsize=(10, 5))
+
+# plots
+ax.plot(x, F_logistic, label="Logistic (logit)")
+ax.plot(x, F_normal, linestyle="--", label="Normal (probit)")
+
+# labels
+ax.set_xlabel("$t$")
+ax.set_ylabel("$F(t)$")
+ax.set_title(r"Logistic vs Normal CDF (variance $\mathbf{matched}$)")
+
+# clean bounds
+ax.set_ylim(-0.05, 1.05)
+
+# legend
+ax.legend()
+
+plt.show()
+```
+
+:::
+
+:::
+
+## Example: Graduate admissions explained by GRE
+
+Suppose that we observe whether an applicant is admitted to a graduate program
+
+$$
+Y =
+\begin{cases}
+1, & \text{if admitted} \\
+0, & \text{if not admitted}
+\end{cases}
+\qquad \text{and} \qquad
+X = \text{GRE score}
+$$
+
+Does the probability of admission depend on the applicant's GRE score?
+
+$$
+p(x) = \Prob(Y=1 \mid X=x)
+$$
+
+A logistic regression model assumes that
+
+$$
+\log\left(\frac{p(x)}{1-p(x)}\right) = \beta_0 + \beta_1 x \qquad \text{or equivalently} \qquad
+p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}
+$$
+
+Thus, the probability of admission is an S-shaped function of the GRE score
+
+---
+
+### Simulated data with realistic GRE scores
+
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+
+np.random.seed(20260317)
+
+n = 120
+
+# --- GRE (observed) ---
+gre = np.random.normal(loc=305, scale=11, size=n)
+gre = np.clip(gre, 260, 340)
+gre = np.round(gre).astype(int)
+
+# --- GPA (hidden for now) ---
+gpa = np.random.normal(loc=3.35, scale=0.28, size=n)
+gpa = np.clip(gpa, 2.4, 4.0)
+gpa = np.round(gpa, 2)
+
+# --- True model uses BOTH GRE and GPA ---
+beta0 = -27.5
+beta1 = 0.065
+beta2 = 2.3
+
+eta = beta0 + beta1 * gre + beta2 * gpa
+p_admit = 1 / (1 + np.exp(-eta))
+admit = np.random.binomial(1, p_admit)
+
+# --- Full dataset (kept for later use) ---
+df = pd.DataFrame({
+    "GRE": gre,
+    "GPA": gpa,
+    "p_admit_true": p_admit,
+    "admit": admit
+})
+
+# --- What you SHOW students initially (hide GPA) ---
+df.loc[:, ["GRE", "admit"]].sample(12, random_state=20260317).sort_values("GRE")
+```
+
+---
+
+### Plot of the binary data and a GRE-only logistic curve
+
+```{python}
+gre_plot = np.linspace(260, 340, 300)
+mean_gpa = df["GPA"].mean()
+p_plot = 1 / (1 + np.exp(-(beta0 + beta1 * gre_plot + beta2 * mean_gpa)))
+
+fig, ax = plt.subplots(figsize=(12, 7))
+
+ax.scatter(df["GRE"], df["admit"], alpha=0.45)
+ax.plot(gre_plot, p_plot, linewidth=2)
+
+ax.set_xlabel("GRE score")
+ax.set_ylabel("Admission outcome / probability")
+ax.set_title("Graduate admissions")
+plt.show()
+```
+
+---
+
+### Fit a logistic regression model using GRE only
+
+::: {.columns}
+
+::: {.column width="35%"}
+
+```{python}
+X1 = sm.add_constant(df[["GRE"]])
+fit1 = sm.Logit(df["admit"], X1).fit(disp=False)
+params1 = fit1.params
+se1 = fit1.bse
+
+table1 = pd.DataFrame({
+    "Coefficient": params1,
+    "Std. Error": se1
+})
+table1.index = ["Intercept", "GRE"]
+table1.round(4)
+```
+
+:::
+
+::: {.column width="5%"}
+&nbsp;
+::: 
+
+::: {.column width="60%"}
+
+```{python}
+p_hat1_plot = fit1.predict(sm.add_constant(pd.DataFrame({"GRE": gre_plot}), has_constant="add"))
+
+fig, ax = plt.subplots(figsize=(12, 7))
+
+ax.scatter(df["GRE"], df["admit"], alpha=0.35, label="Observed data")
+ax.plot(gre_plot, p_plot, linewidth=2, linestyle="-", label="Probability curve")
+ax.plot(gre_plot, p_hat1_plot, linewidth=2, linestyle="--", label="Fitted probability")
+
+ax.set_xlabel("GRE score")
+ax.set_ylabel("Admission outcome / probability")
+ax.set_title("GRE-only model")
+ax.legend()
+plt.show()
+```
+
+:::
+
+:::
+
+
+---
+
+## Example: Graduate admissions explained by both GRE and GPA
+
+- Admissions are not based on GRE alone
+- More realistic model allows the admission probability to depend on both GRE and GPA <br> [(this is how the data were simulated to begin with)]{.alert}
+
+$$
+\log\left(\frac{p(x_1,x_2)}{1-p(x_1,x_2)}\right)
+=
+\beta_0 + \beta_1 x_1 + \beta_2 x_2
+$$
+
+where
+
+- $x_1$ is GRE
+
+- $x_2$ is GPA
+
+Now the probability of admission depends on two predictors, so
+
+- Cannot visualize this model with a single probability curve against one predictor
+
+- Can still explore model fit through fitted probabilities and grouped summaries
+
+---
+
+### Simulated data with GRE and GPA
+
+```{python}
+which_few_state=20260317
+df.loc[:, ["GRE", "GPA", "admit"]].sample(12, random_state=which_few_state).sort_values(["GRE", "GPA"])
+```
+
+---
+
+
+
+:::{.columns}
+::: {.column width="45%"}
+
+### Fit a logistic regression model using GRE and GPA
+```{python}
+X2 = sm.add_constant(df[["GRE", "GPA"]])
+fit2 = sm.Logit(df["admit"], X2).fit(disp=False)
+params2 = fit2.params
+se2 = fit2.bse
+table2 = pd.DataFrame({
+    "Coefficient": params2,
+    "Std. Error": se2
+}).rename(index={"const": "Intercept"})
+table2.round(4)
+```
+:::
+
+::: {.column width="5%"}
+&nbsp;
+:::
+
+::: {.column width="50%"}
+
+### Predicted probabilities for a few applicants
+
+```{python}
+df2_show = df.copy()
+df2_show["p_admit_hat"] = fit2.predict(X2)
+
+df2_show.loc[:, ["GRE", "GPA", "admit", "p_admit_hat"]].sample(12, random_state=which_few_state) \
+    .sort_values(["GRE", "GPA"]) \
+    .round({"p_admit_hat": 3})
+```
+
+:::
+
+:::
+
+---
+
+### Compare fitted and observed admission rates by decile of fitted probability
+
+```{python}
+df2_check = df.copy()
+df2_check["p_admit_hat"] = fit2.predict(X2)
+
+df2_check["prob_bin"] = pd.qcut(df2_check["p_admit_hat"], q=10, duplicates="drop")
+
+calibration_table = (
+    df2_check
+    .groupby("prob_bin", observed=False)
+    .agg(
+        n=("admit", "size"),
+        mean_fitted_probability=("p_admit_hat", "mean"),
+        observed_admission_rate=("admit", "mean")
+    )
+    .reset_index()
+)
+
+calibration_table.round({
+    "mean_fitted_probability": 3,
+    "observed_admission_rate": 3
+})
+```
+
+Bin the data; otherwise you just compare predicted probabilities with zeros and ones
+
+---
+
+::: {.columns}
+::: {.column width="40%"}
+
+### Calibration plot
+
+```{python}
+fig, ax = plt.subplots(figsize=(7, 5))
+
+ax.plot([0, 1], [0, 1], linestyle="--")
+ax.scatter(
+    calibration_table["mean_fitted_probability"],
+    calibration_table["observed_admission_rate"]
+)
+
+ax.set_xlabel("Mean fitted probability")
+ax.set_ylabel("Observed admission rate")
+ax.set_title("GRE + GPA model: calibration by probability groups")
+plt.show()
+```
+
+::: 
+
+::: {.column width="5%"}
+&nbsp;
+:::
+
+::: {.column width="55%"}
+
+### Interpretation
+
+- GRE-only model: probability of admission is a curve as a function of one predictor
+- GRE + GPA model: probability depends on two predictors, so  no single S-shaped curve to plot against one horizontal axis
+- Can still assess fit by examining fitted probabilities and comparing them with observed admission rates in groups
+
+This is why regression is often explored using:
+
+- fitted probabilities
+- grouped summaries
+- calibration plots
+- classification tables
+
+rather than only a single scatterplot with a fitted curve
+
+:::
+
+:::
+
+---
+
+### Model comparison
+
+```{python}
+from scipy.stats import chi2
+import pandas as pd
+
+# GRE only
+fit1 = sm.Logit(df["admit"], sm.add_constant(df[["GRE"]])).fit(disp=False)
+
+# GRE + GPA
+fit2 = sm.Logit(df["admit"], sm.add_constant(df[["GRE", "GPA"]])).fit(disp=False)
+
+ll1 = fit1.llf
+ll2 = fit2.llf
+
+LR = 2 * (ll2 - ll1)
+p_value = 1 - chi2.cdf(LR, df=1)
+
+comparison = pd.DataFrame({
+    "Model": ["GRE only", "GRE + GPA"],
+    "Log-Likelihood": [ll1, ll2],
+    "AIC": [fit1.aic, fit2.aic]
+}).round(3).style.hide(axis="index")
+
+comparison
+```
+
+### Likelihood ratio test
+
+```{python}
+lrt_table = pd.DataFrame({
+    "Statistic": [LR],
+    "p-value": [p_value]
+}).round({"Statistic": 3, "p-value": 4}).style.hide(axis="index")
+
+lrt_table
+```
+
+### Interpretation
+
+- The GRE + GPA model has higher log-likelihood and lower AIC  
+- The likelihood ratio test has a small p-value  
+
+👉 Adding GPA significantly improves the model fit.
+
+## Big picture
+
+- Linear model models mean directly
+
+- Logistic regression models transformed mean (log-odds)
+
+- Key idea: keep linear structure, change the scale
+
+
+## From logit to a general framework
+
+::: {.columns}
+
+::: {.column width="55%"}
+
+- Logistic regression:
+  - $Y \mid \vx \sim \Bern(p(\vx))$
+  - $\logit\bigl(p(\vx)\bigr) = \vx^\top \vbeta$
+
+- Key idea: linear model on a transformed mean
+
+::: {.fragment fragment-index="1"}
+### Generalized linear models (GLMs)
+
+- Form: $g(\mu(\vx)) = \vx^\top \vbeta$, where $\mu = \Ex(Y \mid \vx)$
+
+- Three components:
+  - distribution of $Y$
+  - linear predictor $\vx^\top \vbeta$
+  - link function $g$
+
+The linear predictor stays; the distribution and link change
+:::
+
+:::
+
+::: {.column width="2%"}
+&nbsp;
+:::
+
+::: {.column width="40%"}
+
+::: {.fragment fragment-index="2"}
+### Link Function
+
+- $\mathcal{M}$ = set of possible means $\mu = \Ex[Y]$
+
+- $g : \mathcal{M} \to \mathbb{R}$ is the link function
+
+- Linear predictor:
+  $$
+  g\bigl(\mu(\vx)\bigr) = \vx^\top \vbeta
+  $$
+
+- Inverse link:
+  $$
+  \mu(\vx) = g^{-1}(\vx^\top \vbeta)
+  $$
+
+- $g$ maps the [mean space $\mathcal{M}$ to $\mathbb{R}$]{.alert} so a linear model applies to $g(\mu)$ instead of $\mu$ directly
+
+[GLM is _not_]{.alert} $g(Y) = \vx^\top \vbeta + \varepsilon$, <br>which is transformation of the response
+
+:::
+
+:::
+
+:::
+
+## Examples
+
+| Model | Distribution of $Y \mid \vx$ | Link function $g$ |
+|--------------|-------------|-------------------|
+| OLS | $\Norm\bigl(\mu(\vx), \sigma^2\bigr)$ | Identity: $g(\mu) = \mu$ |
+| Logistic regression | $\Bern\bigl(p(\vx)\bigr)$ | Logit: $g(p) = \log\left(\dfrac{p}{1-p}\right)$ |
+| Poisson regression | $\Pois\bigl(\mu(\vx)\bigr)$ | Log: $g(\mu) = \log (\mu)$ |
+
+
+### Links
+
+- Match the range:
+  - probabilities in $(0,1)$
+  - counts $\ge 0$
+
+- Make model linear:
+  - $g(\mu) = \vx^\top \vbeta$
+
+
+## Variance, estimation, and inference
+
+### Variance structure
+- OLS: $\var(Y \mid \vx)=\sigma^2$
+
+- Logistic: $\var(Y\mid \vx)=\mu(\vx)(1-\mu(\vx))$
+
+- Poisson: $\var(Y \mid \vx)=\mu(\vx)$
+
+
+### Estimation and inference
+
+- Likelihood: $L(\vbeta) = \prod_{i=1}^n \varrho(y_i \mid \mu(\vx_i))$
+
+- Solve: $\nabla \ell(\vb)=0$ for $\hvbeta$ (no closed form)
+
+- Computation: IRLS (generalizes least squares)
+
+- Inference:
+  - Wald tests  
+  - likelihood ratio tests  
+
+## Transformations of $Y$ contrasted with GLMs and nonlinear regression
+
+| Transforming $Y$ | GLM with link function | Nonlinear regression |
+|------------------|------------------|------------------|
+| $g(Y) = \vx^\top \vbeta + \varepsilon$ <br> $Y = g^{-1}(\vx^\top \vbeta + \varepsilon)$ <br> $\varepsilon \sim \Norm(0,\sigma^2)$ | $g\bigl(\mu(\vx)\bigr) = \vx^\top \vbeta$, $\; \mu(\vx)=\Ex(Y \mid \vx)$ | $Y = f(\vx; \vbeta) + \varepsilon$ <br> $\varepsilon \sim \Norm(0,\sigma^2)$ |
+| Models $g(Y)$, not $Y$ | Models $g\bigl(\mu(\vx)\bigr)$ via a [nonlinear]{.alert} link | Models $\mu(\vx)$ via [nonlinear]{.alert} $f$ |
+| Additive error on _transformed_ scale | Variability specified via _distribution_ of $Y$ | Additive error on _original_ scale |
+| $\mu(\vx) = \Ex(Y \mid \vx) \ne g^{-1}(\vx^\top \vbeta)$ | $\mu(\vx) = g^{-1}(\vx^\top \vbeta)$ | $\mu(\vx) = f(\vx; \vbeta)$ |
+| Improves linearity and variance stability | Models mean–variance relationship | Flexible mean specification
+| Mean is distorted by transformation | Mean is modeled directly | Mean depends on chosen $f(\cdot;\vbeta)$ |
+
+$\exstar$ What does this mean for $g(Y) = \log(Y)$ and $f(\vx; \vbeta) = \exp(\vx^\top \vbeta)$?
+
+## Big picture
+
+- Linear model:
+  - models mean directly
+
+- GLM:
+  - models transformed mean
+
+- Choose:
+  - distribution  
+  - link  
+
+- Covers:
+  - continuous responses
+	- binary responses
+	- count responses
+
+
+## Design matrix {#design-matrix data-state="goldborder"}
+
+The $n \times d$ [design matrix]{.alert} $\mX$ appears in generalized linear models with data as
+
+$$
+g \bigl(\Ex(\vY \mid \vx) \bigr) = \begin{pmatrix} g \bigl( \mu(\vx_1)  \bigr) \\ g \bigl( \mu(\vx_2)  \bigr) \\ \vdots \\ g \bigl( \mu(\vx_n)  \bigr) \end{pmatrix} = \mX \vbeta
+$$
+
+
+- Each *row* of $\mX$ is denoted by $\vx_i^\top= (x_{i1}, x_{i2}, \dots, x_{id})$ corresponds to one observation
+
+- Each *column* of $\mX$ is denoted by $\vX_j$ and corresponds to one predictor:
+  - Intercept (all 1s)
+  - Quantitative variables
+  - Indicator (dummy) variables
+
+👉 $\mX$ encodes *all the structure of the explanatory variables of the model*
+
+---
+
+### Why the design matrix matters
+
+- Fitted values: $\hat{\vY} = \mX \hat{\vbeta} \in \mathcal{C}(\mX)$
+
+- Residuals are orthogonal: $\vY - \hat{\vY} \perp \mathcal{C}(\mX)$
+
+- OLS estimator: $\hat{\vbeta} = (\mX^\top \mX)^{-1} \mX^\top \vY$ requires $\mX^\top \mX$ invertible <br>(columns of $\mX$ are linearly independent)
+
+---
+
+### Design matrix comes from the experiment
+
+So far, we treated $\mX$ as *given* by the data, but in many settings, <br> we *choose $\mX$* through the design of the experiment
+
+- We control the inputs $\vx_i$ (rows of $\mX$)
+- We decide
+  - Which predictor values to use
+  - How often to repeat them
+
+#### Examples
+
+- Clinical trials (treatment vs control)
+- Engineering experiments (temperature, pressure)
+- A/B testing
+
+👉 Better design ⇒ better estimates
+
+## Orthogonal and Optimal Designs
+
+### Orthogonal design
+
+Columns of $\mX$ are orthogonal: $\mX^\top \mX \text{ is diagonal}$
+
+- Coefficient estimates are **uncorrelated**
+- Interpretation is clean
+- Computation is simple
+
+### Optimal design (idea)
+
+Choose $\mX$ to make estimates *as precise as possible*
+
+- D-optimal: minimize $\det\big((\mX^\top \mX)^{-1}\big)$
+- A-optimal: minimize $\trace\big((\mX^\top \mX)^{-1}\big)$
+
+👉 The *design matrix controls estimator variance*
+
+👉 Statistics is not just analysis — it is also [design]{.alert}

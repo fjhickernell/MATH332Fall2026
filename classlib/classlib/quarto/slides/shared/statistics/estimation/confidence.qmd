@@ -1,0 +1,1286 @@
+# Confidence Intervals
+
+[({{< meta texts.cb.initials >}} §9.1; {{< meta texts.wms.initials >}} §8.5)]{.small}
+
+If
+
+- $\theta$ is a parameter of interest of a distribution, and
+
+- $X_1, \ldots, X_n$ are data that we assume are collected from that distribution,
+
+then we try to construct random quantities $\Theta_L$ and/or $\Theta_U$,
+depending only on the data (and not on $\theta$), that give intervals which
+[capture]{.alert} $\theta$ with high probability $1-\alpha$.  Depending on the situation, this means constructing
+
+- a two-sided interval with  $\Prob(\Theta_L \le \theta \le \Theta_U) \ge 1-\alpha$, or
+
+- a one-sided lower interval with  $\Prob(\Theta_L \le \theta) \ge 1-\alpha$, or
+
+- a one-sided upper interval with  $\Prob(\theta \le \Theta_U) \ge 1-\alpha$
+
+The bounds $\Theta_L$ and $\Theta_U$ are random because they depend on random data. Here $\alpha$ is our willingness to be wrong, typically $\alpha = 5\%$.
+
+---
+
+More about confidence intervals:
+
+- In many continuous cases, the probability is exactly $1-\alpha$
+- For discrete distributions, the probability is often slightly larger than $1-\alpha$
+
+This process often proceeds by
+
+- Identifying an [estimator]{.alert} $\Theta$ for $\theta$ that depends only on the data
+- Finding the [sampling distribution]{.alert} of the estimator $\Theta$
+- Using the sampling distribution to find [quantiles]{.alert} that give the desired coverage probability
+
+---
+
+- [Critical value notation](#critical-value-notation-important)
+- [Large sample size confidence intervals for means](#large-sample-confidence-intervals-for-means)
+- [Small sample size confidence intervals for means when the distribution is known](#small-sample-confidence-intervals-for-means-when-the-distribution-is-known)
+- [Confidence intervals for means of differences](#confidence-intervals-for-means-of-differences)
+- [Confidence intervals for proportions](#confidence-intervals-for-proportions)
+- [Confidence intervals for variances](#confidence-intervals-for-variances)
+- [Bootstrap confidence intervals](#bootstrap-confidence-intervals)
+- [Summary of common confidence intervals and their assumptions](#ci-assumptions)
+
+
+## Upper critical values{#critical-value-notation-important}
+
+For a distribution with CDF $F$ and quantile function $Q$, define the upper critical value
+$$
+c_{\alpha} := Q(1-\alpha),  \quad \text{i.e., } F(c_{\alpha}) \ge 1-\alpha \text{ and } F(c_{\alpha} - \epsilon) < 1-\alpha \; \forall \epsilon > 0
+$$
+
+:::: {.columns}
+::: {.column width="60%"}
+
+Examples 
+
+- $z_{\alpha} = Q_{\Norm(0,1)}(1-\alpha)$  
+- $t_{\nu,\alpha} = Q_{t_\nu}(1-\alpha)$  
+- $\chi^2_{\nu,\alpha} = Q_{\chi^2_\nu}(1-\alpha)$  
+
+These [upper critical values]{.alert} are *not* $\alpha$-quantiles.
+
+:::
+
+::: {.column width="40%"}
+
+```{python}
+#| echo: false
+#| fig-width: 4.8
+#| fig-height: 3.6
+
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+import scipy.stats as st
+from classlib.plots import (
+    annotate_xaxis_marks,
+    shade_under_curve,
+    curve_color,
+    tail_color,
+)
+plt.rcParams["mathtext.fontset"] = "cm"
+
+
+alpha = 0.025
+z = st.norm.ppf(1 - alpha)
+
+x = np.linspace(-4, 4, 800)
+y = st.norm.pdf(x)
+y_z = st.norm.pdf(z)
+
+fig, ax = plt.subplots()
+
+
+ax.plot(x, y, linewidth=4, color=curve_color) # Density
+ax.vlines(z, 0, y_z, linestyle="-", linewidth=4, color=tail_color) # Critical value line: ONLY up to the pdf
+shade_under_curve(ax, x, y, where=(x >= z), alpha=0.3, color=tail_color) # Upper tail shading
+
+# Title
+ax.set_title(rf"Upper tail area $\alpha = {alpha} = {100*alpha}\%$", fontsize=24)
+
+# Clean y-axis
+ax.set_yticks([])
+
+# Emphasize x-axis ticks
+ax.tick_params(axis="x", labelsize=18)
+
+annotate_xaxis_marks(
+    ax,
+    [z],
+    [r"$z_{0.025}$"],
+    colors=[tail_color],
+    tick_height=0.10,
+    tick_linewidth=3.0,
+    fontsize=24,
+)
+
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+::::
+
+
+## Large sample size confidence intervals for means{#large-sample-confidence-intervals-for-means}   
+
+[({{< meta texts.cb.initials >}} §9.2; {{< meta texts.wms.initials >}} §§8.6–8.7)]{.small}
+
+If $X_1, \ldots, X_n$ are IID with mean $\mu$ and variance $\sigma^2 < \infty$, and 
+
+- $\barX_n$ is the sample mean, 
+
+- $S_n^2$ is some estimate of the unknown population variance $\sigma^2$ (e.g., unbiased or MLE)
+
+then by the [Central Limit Theorem](../slides/01-intro.html#clt)
+$$
+\frac{\barX_n - \mu}{\sigma/\sqrt{n}} \appxsim \Norm(0,1) \quad \text{for large } n
+$$
+
+---
+$$
+\frac{\barX_n - \mu}{\sigma/\sqrt{n}} \appxsim \Norm(0,1) \quad \text{for large } n
+$$
+
+Letting $z_{\alpha/2}$ be the upper $\alpha/2$ quantile of $\Norm(0,1)$, i.e., $z_{\alpha/2} = Q_{\Norm(0,1)}(1 - \alpha/2)$, then
+\begin{align*}
+1 - \alpha & \approx
+\Prob \biggl( -z_{\alpha/2} \le \frac{\barX_n - \mu}{\sigma/\sqrt{n}} \le z_{\alpha/2} \biggr) \\
+& \approx \Prob \biggl( \barX_n - z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \le \mu \le \barX_n + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \biggr) \\
+& \approx \Prob \biggl( \underbrace{\barX_n - z_{\alpha/2} \frac{S_n}{\sqrt{n}}}_{\Theta_L} \le \mu \le \underbrace{\barX_n + z_{\alpha/2} \frac{S_n}{\sqrt{n}}}_{\Theta_U} \biggr)
+\end{align*}
+
+Thus, a large sample size confidence interval for $\mu$ is
+$$\left[ \barX_n - z_{\alpha/2} \frac{S_n}{\sqrt{n}}, \; \barX_n + z_{\alpha/2} \frac{S_n}{\sqrt{n}} \right]$$   
+
+
+---
+
+See the [Approval Ratings](../slides/01-intro.html#approval-ratings) example for an illustration of this construction for a Bernoulli mean
+
+```{python}
+#| echo: false
+#| output: asis
+
+
+# =========================
+# Parameters (edit once HERE)
+# =========================
+n_small = 16
+n_large = 400
+xbar = 12.0
+alpha = 0.05
+a2 = alpha/2
+
+# common critical value
+z = st.norm.isf(a2)
+
+# =========================
+# CI helpers
+# =========================
+
+def ci_clt_exp_mu(n, xbar, zcrit=z):
+    se = xbar / math.sqrt(n)
+    return xbar - zcrit*se, xbar + zcrit*se
+
+def ci_exp_exact_mu(n, xbar, alpha=alpha):
+    df = 2*n
+    q_big   = st.chi2.isf(alpha/2, df)
+    q_small = st.chi2.isf(1 - alpha/2, df)
+    c = 2*n*xbar
+    return c/q_big, c/q_small
+
+def fmt_ci(lo, hi, digits=2):
+    return f"$[{lo:.{digits}f},\\,{hi:.{digits}f}]$"
+
+print(
+    f"_Example_: You observe $\\barX_n = {xbar}$ minutes for taxis to arrive. "
+    f"You construct a {100*(1-alpha):.0f}% confidence interval for the mean arrival time, $\\mu$, assuming that the arrival times are distributed  $\\Exp(1/\\mu)$.  Recall that $\\mu = \\sigma = 1/\\lambda$.\n"
+)
+
+```
+
+::: {.columns}
+
+::: {.column width="58%"}
+
+```{python}
+#| echo: false
+#| fig-width: 9.0
+#| fig-height: 4.6
+#| out-width: 100%
+#| fig-align: center
+#| dpi: 220
+
+
+n = n_small
+
+# ===== left figure only =====
+mu = 0.0
+sigma = 1.0
+se = sigma/np.sqrt(n)
+
+x = np.linspace(mu - 4*se, mu + 4*se, 1000)
+pdf = st.norm.pdf(x, loc=mu, scale=se)
+
+left = mu - z*se
+right = mu + z*se
+
+
+fig, ax1 = plt.subplots()
+
+ax1.plot(x, pdf, linewidth=4, color=curve_color)
+
+# shade central region
+shade_under_curve(ax1, x, pdf, where=((x >= left) & (x <= right)), color=curve_color)
+
+y_left = st.norm.pdf(left, loc=mu, scale=se)
+y_right = st.norm.pdf(right, loc=mu, scale=se)
+ax1.vlines(left, 0, y_left, linestyle="-", linewidth=4, color=curve_color) # Critical value line: ONLY up to the pdf
+ax1.vlines(right, 0, y_right, linestyle="-", linewidth=4, color=curve_color) # Critical value line: ONLY up to the pdf
+
+ax1.set_yticks([])
+ax1.set_xticks([])
+
+# ticks + labels under axis
+annotate_xaxis_marks(
+    ax1,
+    [left, mu, right],
+    [
+        r"$\mu - z_{\alpha/2}\,\frac{\sigma}{\sqrt{n}}$",
+        r"$\mu$",
+        r"$\mu + z_{\alpha/2}\,\frac{\sigma}{\sqrt{n}}$",
+    ],
+    colors=[curve_color, "black", curve_color],   # or [tail_color, "black", tail_color]
+    tick_height=0.03,
+    tick_linewidth=3.0,
+    text_offset_pts=-18.0,   # closer than your old -0.10 axes-fraction
+    fontsize=20,
+)
+
+ax1.text(0.98, 0.92, rf"$n={n}$",
+         transform=ax1.transAxes, ha="right", va="top", fontsize=18)
+
+ax1.set_title(r"Sampling distribution of $\overline{X} \overset{\cdot}{\sim} N(\mu, \sigma^2/n)$", fontsize=20)
+
+plt.subplots_adjust(bottom=0.28, top=0.86)
+plt.show()
+```
+
+:::
+
+::: {.column width="42%"}
+```{python}
+#| echo: false
+#| fig-width: 6.5
+#| fig-height: 4.6
+#| out-width: 100%
+#| fig-align: center
+#| dpi: 220
+
+
+ci_s_lo, ci_s_hi = ci_clt_exp_mu(n_small, xbar)
+ci_l_lo, ci_l_hi = ci_clt_exp_mu(n_large, xbar)
+
+y_small = 0.35
+y_large = -0.35
+
+fig, ax2 = plt.subplots()
+
+# Bars
+ax2.hlines(y_small, ci_s_lo, ci_s_hi, linewidth=6)
+ax2.hlines(y_large, ci_l_lo, ci_l_hi, linewidth=6)
+
+# Midpoint markers
+ax2.plot([xbar, xbar], [y_small, y_large], "o", markersize=9)
+
+# Endpoint ticks
+tick = 0.09
+ax2.vlines([ci_s_lo, ci_s_hi], y_small - tick, y_small + tick, linewidth=3)
+ax2.vlines([ci_l_lo, ci_l_hi], y_large - tick, y_large + tick, linewidth=3)
+
+# Limits
+pad = 0.25 * (ci_s_hi - ci_s_lo)
+xmin = min(ci_s_lo, ci_l_lo) - pad
+xmax = max(ci_s_hi, ci_l_hi) + pad
+ax2.set_xlim(xmin, xmax)
+
+# n-labels to the LEFT
+label_x = xmin + 0.02*(xmax - xmin)
+ax2.text(label_x, y_small, rf"$n={n_small}$", ha="left", va="center", fontsize=18)
+ax2.text(label_x, y_large, rf"$n={n_large}$", ha="left", va="center", fontsize=18)
+
+# ---- Symbols ABOVE (both bars) ----
+for (lo, hi, y) in [(ci_s_lo, ci_s_hi, y_small), (ci_l_lo, ci_l_hi, y_large)]:
+    ax2.text(lo,  y + 0.17, r"$\theta_L$", ha="center", va="bottom", fontsize=18)
+    ax2.text(xbar, y + 0.17, r"$\overline{x}$", ha="center", va="bottom", fontsize=18)
+    ax2.text(hi,  y + 0.17, r"$\theta_U$", ha="center", va="bottom", fontsize=18)
+
+# ---- Numbers BELOW (both bars) ----
+for (lo, hi, y) in [(ci_s_lo, ci_s_hi, y_small), (ci_l_lo, ci_l_hi, y_large)]:
+    ax2.text(lo,  y - 0.20, f"{lo:.1f}", ha="center", va="top", fontsize=14)
+    ax2.text(xbar, y - 0.20, f"{xbar:.1f}", ha="center", va="top", fontsize=14)
+    ax2.text(hi,  y - 0.20, f"{hi:.1f}", ha="center", va="top", fontsize=14)
+
+# Clean axes
+ax2.set_ylim(-0.75, 0.75)
+ax2.set_yticks([])
+ax2.set_xticks([])
+for spine in ax2.spines.values():
+    spine.set_visible(False)
+
+ax2.set_title(r"CLT Confidence Intervals for $\mu$ (data)", fontsize=20)
+
+plt.subplots_adjust(bottom=0.22, top=0.86)
+plt.show()
+```
+
+:::
+
+:::
+---
+
+
+## Small sample size confidence intervals for means when the distribution is known{#small-sample-confidence-intervals-for-means-when-the-distribution-is-known}
+
+[({{< meta texts.cb.initials >}} §9.2; {{< meta texts.wms.initials >}} §8.8–8.9)]{.small}
+
+- If the sample size, $n$, is [not large enough]{.alert} for the [Central Limit Theorem](../slides/01-intro.html#clt) to apply, 
+
+- But the sample mean has a [known distribution]{.alert}, then exact confidence intervals can sometimes be constructed
+
+---
+
+### Confidence interval for the mean of an exponential distribution
+
+```{python}
+#| echo: false
+#| output: asis
+
+print(
+    f"You observe $\\barX_n = {xbar}$ minutes for taxis to arrive."
+    f"based on $n$ observations. You construct a ${100*(1-alpha):.0f}\\%$ confidence interval for the mean arrival time, $\\mu$, assuming that the arrival times are distributed  $\\Exp(1/\\mu)$.  Recall that $\\mu = \\sigma = 1/\\lambda$. Since we have the true distribution of $\\barX_n$:"
+)
+```
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+\begin{align*}
+2\lambda n \barX_n &\sim \chi^2_{2n} \\
+\implies 1-\alpha
+&= \Prob \bigl( \chi^2_{2n,\,1-\alpha/2} \le 2\lambda n \barX_n \le \chi^2_{2n,\,\alpha/2} \bigr) \\[6pt]
+&= \Prob \biggl( \frac{\chi^2_{2n,\,1-\alpha/2}}{2 n \barX_n} \le \lambda \le \frac{\chi^2_{2n,\,\alpha/2}}{2 n \barX_n} \biggr) \\[10pt]
+&= \Prob \biggl( \frac{2 n \barX_n}{\chi^2_{2n,\,\alpha/2}} \le \mu \le \frac{2 n \barX_n}{\chi^2_{2n,\,1-\alpha/2}} \biggr),
+\end{align*}
+
+:::
+
+::: {.column width="40%"}
+
+```{python}
+#| echo: false
+#| fig-width: 6.8
+#| fig-height: 3.4
+
+
+n = n_small
+
+# For drawing only — we must plug something in
+mu = xbar
+scale_xbar = mu / n
+
+x_grid = np.linspace(0, 3*mu, 900)
+y_grid = st.gamma.pdf(x_grid, a=n, scale=scale_xbar)
+
+fig, ax = plt.subplots()
+
+ax.plot(x_grid, y_grid, color=curve_color, linewidth=4)
+
+# --- middle 95% bounds ---
+lower = st.gamma.ppf(a2, a=n, scale=scale_xbar)
+upper = st.gamma.ppf(1 - a2, a=n, scale=scale_xbar)
+
+# --- shade middle 95% ---
+shade_under_curve(
+    ax,
+    x_grid,
+    y_grid,
+    where=((x_grid >= lower) & (x_grid <= upper)),
+    alpha=0.30,
+    color=curve_color,
+)
+
+
+y_left = st.gamma.pdf(lower, a=n, scale=scale_xbar)
+y_right = st.gamma.pdf(upper, a=n, scale=scale_xbar)
+ax.vlines([lower, upper], 0, [y_left, y_right], linestyle="-", linewidth=4, color=curve_color) # Critical value line: ONLY up to the pdf
+# --- mark lower, μ, upper ---
+
+annotate_xaxis_marks(
+    ax,
+    [lower, mu, upper],
+    [
+        r"$\dfrac{\mu}{2n}\,\chi^2_{2n,1-\alpha/2}$",
+        r"$\mu$",
+        r"$\dfrac{\mu}{2n}\,\chi^2_{2n,\alpha/2}$",
+    ],
+    colors=[curve_color, "black", curve_color],
+    tick_height=0.05,
+    tick_linewidth=2.0,
+    fontsize=20,
+)
+
+ax.set_title(
+    rf"Sampling distribution of $\overline{{X}}$ for $X_i \sim \mathrm{{Exp}}(1/\mu)$, $n={n}$",
+    fontsize=24
+)
+
+ax.set_yticks([])
+ax.set_xticks([])
+ax.tick_params(length=0)
+
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+:::
+
+---
+
+### Exact vs CLT sampling distribution of $\overline{X}$, when $X_i \sim \Exp(1/\mu)$
+
+```{python}
+#| echo: false
+#| fig-width: 6.8
+#| fig-height: 3.4
+
+from classlib.plots import TOL_BRIGHT
+clt_color = TOL_BRIGHT["cyan"]
+
+n = n_small
+alpha = alpha
+
+mu = xbar
+sigma = xbar
+se = sigma/np.sqrt(n)
+
+x = np.linspace(0, 3*mu, 900)
+
+# Exact distribution of Xbar
+pdf_exact = st.gamma.pdf(x, a=n, scale=mu/n)
+q_ex_lo, q_ex_hi = st.gamma.ppf([alpha/2, 1-alpha/2], a=n, scale=mu/n)
+
+# CLT approximation
+pdf_clt = st.norm.pdf(x, loc=mu, scale=se)
+q_clt_lo, q_clt_hi = st.norm.ppf([alpha/2, 1-alpha/2], loc=mu, scale=se)
+
+fig, ax = plt.subplots()
+
+# --- Curves ---
+ax.plot(x, pdf_exact, linewidth=4, color=curve_color)
+ax.plot(x, pdf_clt,   linewidth=4, color=clt_color)
+
+# --- Shade central 95% ---
+shade_under_curve(
+    ax, x, pdf_exact,
+    where=((x >= q_ex_lo) & (x <= q_ex_hi)),
+    alpha=0.25,
+    color=curve_color,
+)
+
+shade_under_curve(
+    ax, x, pdf_clt,
+    where=((x >= q_clt_lo) & (x <= q_clt_hi)),
+    alpha=0.25,
+    color=clt_color,
+)
+
+# --- Exact (Gamma) ticks BELOW axis ---
+annotate_xaxis_marks(
+    ax,
+    [q_ex_lo, mu, q_ex_hi],
+    [
+        r"$\dfrac{\mu}{2n}\,\chi^2_{2n,1-\alpha/2}$",
+        r"$\mu$",
+        r"$\dfrac{\mu}{2n}\,\chi^2_{2n,\alpha/2}$",
+    ],
+    colors=[curve_color, "black", curve_color],
+    tick_height=0.05,
+    tick_linewidth=3.0,
+    text_offset_pts=-20,
+    fontsize=18,
+    ha="left"
+)
+
+# --- CLT ticks ABOVE axis ---
+annotate_xaxis_marks(
+    ax,
+    [q_clt_lo, q_clt_hi],
+    [
+        r"$\mu - z_{\alpha/2}\,\dfrac{\mu}{\sqrt{n}}$",
+        r"$\mu + z_{\alpha/2}\,\dfrac{\mu}{\sqrt{n}}$",
+    ],
+    colors=[clt_color, clt_color],
+    tick_height=0.10,       # longer tick so it visually “belongs” to lower row
+    tick_linewidth=3.0,
+    text_offset_pts=-44,    # push much further down
+    fontsize=18,
+    ha="right"
+)
+
+# Vertical lines at critical values (up to curve heights)
+# --- Exact (Gamma) vertical lines ---
+ax.vlines(
+    [q_ex_lo, q_ex_hi],
+    0,
+    st.gamma.pdf([q_ex_lo, q_ex_hi], a=n, scale=mu/n),
+    linewidth=3,
+    color=curve_color,
+)
+
+# --- CLT (Normal) vertical lines ---
+ax.vlines(
+    [q_clt_lo, q_clt_hi],
+    0,
+    st.norm.pdf([q_clt_lo, q_clt_hi], loc=mu, scale=se),
+    linewidth=3,
+    color=clt_color,
+)
+
+ax.set_xlim(0, 3*mu)
+ax.set_yticks([])
+ax.set_xticks([])
+ax.tick_params(length=0)
+
+ax.set_title(
+    rf"Exact vs CLT sampling distribution of $\overline{{X}}$ ($n={n}$)",
+    fontsize=24,
+)
+
+ax.plot([], [], linewidth=4, color=curve_color, label="Exact (Gamma)")
+ax.plot([], [], linewidth=4, color=clt_color,   label="CLT (Normal)")
+ax.legend(frameon=False, fontsize=16, loc="upper right")
+
+plt.tight_layout()
+plt.show()
+```
+
+
+---
+
+### Exact vs CLT confidence intervals for $\mu$, when $X_i \sim \Exp(1/\mu)$ (two sample sizes)
+
+::: {.columns}
+
+::: {.column width="65%"}
+```{python}
+#| echo: false
+#| fig-width: 6.8
+#| fig-height: 3.4
+
+from classlib.plots import TOL_BRIGHT
+clt_color = TOL_BRIGHT["cyan"]
+
+n_vals = [n_small, n_large]
+
+cis = []
+for n in n_vals:
+    ex_lo, ex_hi   = ci_exp_exact_mu(n, xbar, alpha)
+    clt_lo, clt_hi = ci_clt_exp_mu(n, xbar, z)
+    cis.append((n, ex_lo, ex_hi, clt_lo, clt_hi))
+
+xmin = min(min(ex_lo, clt_lo) for (_, ex_lo, ex_hi, clt_lo, clt_hi) in cis)
+xmax = max(max(ex_hi, clt_hi) for (_, ex_lo, ex_hi, clt_lo, clt_hi) in cis)
+pad = 0.08*(xmax - xmin)
+xmin = max(0.0, xmin - pad)
+xmax = xmax + pad
+
+fig, ax = plt.subplots()
+
+y_base = [2, 1]        # one row per n
+offset = 0.12          # vertical separation
+
+for y, (n, ex_lo, ex_hi, clt_lo, clt_hi) in zip(y_base, cis):
+
+    # Exact (blue) slightly above
+    ax.hlines(y + offset, ex_lo, ex_hi,
+              linewidth=8, color=curve_color)
+
+    # CLT (orange) slightly below
+    ax.hlines(y - offset, clt_lo, clt_hi,
+              linewidth=8, color=clt_color)
+
+    ax.text(xmin, y + 0.28,
+            rf"$n={n}$",
+            fontsize=18,
+            ha="left",
+            va="bottom")
+
+
+
+ax.set_xlim(xmin, xmax)
+ax.set_ylim(0.5, 2.5)
+ax.set_yticks([])
+
+ax.set_title(
+    rf"Central {100*(1-alpha):.0f}% CI for $\mu$: Exact vs CLT",
+    fontsize=24
+)
+
+ax.plot([], [], linewidth=8, color=curve_color,
+        label="Exact (via $\\chi^2$)")
+ax.plot([], [], linewidth=8, color=clt_color,
+        label="CLT (Normal)")
+ax.legend(frameon=False, fontsize=16, loc="lower right")
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+::: {.column width="35%"}
+
+&nbsp;
+
+&nbsp;
+
+<a class="button" style="margin-left:0em;" href="../classlib/classlib/notebooks/confidence_interval_exact_vs_clt_vs_bootstrap.ipynb" download>
+⬇ Exact vs CLT vs Bootstrap Confidence Interval Coverage 📓
+</a>
+
+:::
+
+:::
+
+- For small $n$
+  - Exact confidence interval can be substantially different from the CLT-based interval
+  - CLT interval is symmetric about $\bar X_n$, while the exact interval is not
+- As $n$ increases
+  - CLT-based interval approaches the exact interval
+
+---
+
+
+### CI for the mean of Normal data with unknown variance
+If $X_1, \ldots, X_n$ are IID $\Norm(\mu, \sigma^2)$, then $\displaystyle\frac{\barX_n - \mu}{S_n/\sqrt{n}} \sim t_{n-1}$ for all $n \ge 2$, 
+where $S_n^2$ is the unbiased sample variance estimator.  Letting $t_{n-1,\alpha/2}$ be the upper $\alpha/2$ quantile of $t_{n-1}$, then    
+$$
+\Prob \biggl( \barX_n - t_{n-1,\alpha/2} \frac{S_n}{\sqrt{n}} \le \mu \le \barX_n + t_{n-1,\alpha/2} \frac{S_n}{\sqrt{n}} \biggr) = 1 - \alpha
+$$
+
+::: {.columns}
+::: {.column width="30%"}
+Student's $t$ CIs are [wider]{.alert} than CLT Normal CIs for small $n$ because $t_{n-1,\alpha/2} > z_{\alpha/2}$
+
+But they are [exact]{.alert} and thus more accurate for all $n \ge 2$ when the data are Normal
+:::
+
+::: {.column width="70%"}
+```{python}
+#| echo: false
+#| fig-width: 6.8
+#| fig-height: 3.4
+
+from classlib.plots import TOL_BRIGHT
+z_color = TOL_BRIGHT["cyan"]
+
+n = n_small
+df = n - 1
+a2 = alpha/2
+
+tcrit = st.t.isf(a2, df)
+zcrit = st.norm.isf(a2)
+
+x = np.linspace(-4.5, 4.5, 900)
+
+pdf_t = st.t.pdf(x, df)
+pdf_z = st.norm.pdf(x)
+
+fig, ax = plt.subplots()
+
+# Curves
+ax.plot(x, pdf_t, linewidth=4, color=curve_color)
+ax.plot(x, pdf_z, linewidth=4, color=z_color)
+
+# Shade middle 1-alpha for each
+shade_under_curve(ax, x, pdf_t, where=((x >= -tcrit) & (x <= tcrit)), alpha=0.25, color=curve_color)
+shade_under_curve(ax, x, pdf_z, where=((x >= -zcrit) & (x <= zcrit)), alpha=0.25, color=z_color)
+
+# Vertical lines at critical values (up to curve heights)
+ax.vlines([-tcrit, tcrit], 0, st.t.pdf([-tcrit, tcrit], df), linewidth=3, color=curve_color)
+ax.vlines([-zcrit, zcrit], 0, st.norm.pdf([-zcrit, zcrit]), linewidth=3, color=z_color)
+
+# Optional center line at 0
+ax.vlines(0.0, 0, max(st.t.pdf(0.0, df), st.norm.pdf(0.0)), linewidth=2, color="black", alpha=0.7)
+
+# Staggered labels BELOW axis: t row closer, z row deeper
+annotate_xaxis_marks(
+    ax,
+    [-tcrit, 0.0, tcrit],
+    [r"$-t_{n-1,\alpha/2}$", r"$0$", r"$t_{n-1,\alpha/2}$"],
+    colors=[curve_color, "black", curve_color],
+    tick_height=0.05,
+    tick_linewidth=3.0,
+    text_offset_pts=-22,
+    fontsize=18,
+)
+
+annotate_xaxis_marks(
+    ax,
+    [-zcrit, 0.0, zcrit],
+    [r"$-z_{\alpha/2}$", r"$0$", r"$z_{\alpha/2}$"],
+    colors=[z_color, "black", z_color],
+    tick_height=0.10,
+    tick_linewidth=3.0,
+    text_offset_pts=-44,
+    fontsize=18,
+)
+
+ax.set_title(
+    rf"Sampling distribution for CI: standardized mean ($n={n}$, df={df})",
+    fontsize=24,
+)
+ax.set_yticks([])
+ax.set_xticks([])
+ax.tick_params(length=0)
+
+ax.plot([], [], linewidth=4, color=curve_color, label=rf"Exact: $T\sim t_{{{df}}}$")
+ax.plot([], [], linewidth=4, color=z_color,     label=r"Approx: $Z\sim N(0,1)$")
+ax.legend(frameon=False, fontsize=16, loc="upper right")
+
+plt.subplots_adjust(bottom=0.34)
+plt.show()
+```
+:::
+
+:::
+---
+
+### CI for a binomial proportion when no failures are observed{#ci-binomial-zero-failures}
+
+You draw $n$ IID samples of your product to test for _failure_, and none of the samples fail.
+What is your confidence interval for $p$, the probability that a product is satisfactory?
+
+Let $X_i = 1$ if the $i$th product is satisfactory and $0$ otherwise. Note that
+\begin{gather*}
+X_i =
+\begin{cases}
+1, & \text{satisfactory},\\
+0, & \text{failure},
+\end{cases}
+\qquad
+X_i \sim \Bern(p), \quad p=\Prob(\text{satisfactory}),
+\\
+T := \sum_{i=1}^n X_i \quad \text{(\# satisfactory)} \sim \Bin(n,p).
+\end{gather*}
+
+- Want a one-sided confidence interval for $p$ of the form $[P_L,1]$; confidence in our product quality
+
+- $P_L$ is *a random variable*, defined as a function of $T$
+  - If true success probability $< P_L$, then observing $\ge T$ successes is quite unlikely
+
+- We define a function $p_{L,\alpha} : \{0,1,\ldots,n\} \to [0,1]$ implicitly by requiring that 
+$$
+\Prob_{\Bin(n,p_{L,\alpha}(t))}\bigl(T \ge t\bigr) = \alpha \qquad \forall t \in \{0,1,\ldots,n\}
+$$
+The random lower confidence limit is then $P_L := p_{L,\alpha}(T)$
+
+---
+
+$[P_L,1]$ takes the form $P_L := p_{L,\alpha}(T)$, with
+$$
+\Prob_{\Bin(n,p_{L,\alpha}(t))}\bigl(T \ge t\bigr) = \alpha \qquad \forall t \in \{0,1,\ldots,n\}.
+$$
+In our case the realized confidence interval based on $n$ successes is $[p_{L,\alpha}(n),1]$, so 
+$$
+[p_{L,\alpha}(n)]^n = \Prob_{\Bin(n,p_{L,\alpha}(n))}\bigl(T \ge n\bigr) = \alpha \iff p_{L,\alpha}(n) = \alpha^{1/n}
+$$
+
+&nbsp;
+
+```{python}
+#| echo: false
+#| output: asis
+
+alpha = 0.05
+ns = [5, 10,20, 100]
+vals = [alpha**(1/n) for n in ns]
+
+print("| $n$ | " + " | ".join(str(n) for n in ns) + " |")
+print("|:-:|" + "|".join(["---"]*len(ns)) + "|")
+print("| $p_L = \\alpha^{1/n}$ | " + " | ".join(f"{v:.4f}" for v in vals) + " |")
+
+```
+
+## Why was the exact confidence interval for exponential and normal data "easy", but not Bernoulli data?
+
+A [pivot]{.alert} is a function of the data and the parameter whose distribution does **not** depend on unknown parameters:
+
+$$
+\begin{array}{rcrll}
+X_1,\ldots,X_n \sim \Exp(1/\mu)
+&:&
+\displaystyle \frac{2 n \barX_n}{\mu}
+&\sim \chi^2_{2n}
+&\quad \text{✓ no } \mu
+\\[1.2em]
+X_1,\ldots,X_n \sim \Norm(\mu,\sigma^2)
+&:&
+\displaystyle \frac{\barX_n - \mu}{S_n/\sqrt{n}}
+&\sim t_{n-1}
+&\quad \text{✓ no } \mu,\sigma^2
+\\[1.2em]
+X_1,\ldots,X_n \sim \Bern(p)
+&:&
+\displaystyle n\barX_n
+&\sim \Bin(n,p)
+&\quad \text{✗ depends on } p
+\end{array}
+$$
+
+If we can find a pivot,
+we can invert probability statements to get a confidence interval more easily
+
+
+
+## Confidence Intervals for _Means_ of Differences
+
+For paired or matched data (before/after, twins, same subject measured twice)
+$$
+D_i = X_i - Y_i, \quad i = 1,\dots,n
+$$
+
+Inference is about the **mean difference** $\mu_D$ (paired setting)
+
+_Not_ difference of means $\mu_X - \mu_Y$ (unpaired), even though $\barD_n= \barX_n - \barY_n$
+
+If $D_1,\dots,D_n \IIDsim \Norm(\mu_D, \sigma_D^2)$
+$$
+\Prob\left[ \barD_n - t_{n-1,\alpha/2}\frac{S_{D,n}}{\sqrt{n}} \le \mu_D \le \barD_n  + t_{n-1,\alpha/2}\frac{S_{D,n}}{\sqrt{n}} \right] = 1 - \alpha
+$$
+where $\displaystyle S_{D,n}^2 = \frac 1{n-1} \sum_{i=1}^n (D_i - \barD_n)^2$
+
+If $D_1,\dots,D_n$ are IID with finite variance, and $n$ is large
+$$
+\Prob\left[ \barD_n - z_{\alpha/2}\frac{S_{D,n}}{\sqrt{n}} \le \mu_D \le \barD_n + z_{\alpha/2}\frac{S_{D,n}}{\sqrt{n}} \right] \approx 1 - \alpha
+$$
+
+
+## Confidence Intervals for _Differences_ of Means
+
+For two _independent_ samples (control/treatment, two groups)
+
+$$
+X_1,\dots,X_{n_X} \sim \text{population 1}, \quad
+Y_1,\dots,Y_{n_Y} \sim \text{population 2}
+$$
+
+with sample means $\barX_{n_X}, \barY_{n_Y}$ and sample variances
+$S_{X,n_X}^2, S_{Y,n_Y}^2$
+
+---
+
+### Pooled-$t$ confidence interval (Wackerly)
+
+Assume that the two populations:
+
+- Are sampled [independently]{.alert}
+- Are [Normal]{.alert} 
+- Have a [common variance]{.alert} $\sigma^2$
+
+Define the _pooled variance_ estimator of $\sigma^2$ as
+$$
+S_p^2
+=
+\frac{(n_X-1)S_{X,n_X}^2 + (n_Y-1)S_{Y,n_Y}^2}{n_X + n_Y - 2}.
+$$
+
+Then a $t$-based confidence interval for $\mu_X - \mu_Y$ is
+
+\begin{multline*}
+\Prob\left[
+(\barX_{n_X}-\barY_{n_Y})
+-
+t_{n_X+n_Y-2,\alpha/2}
+\, S_p
+\sqrt{\frac{1}{n_X} + \frac{1}{n_Y}}
+\le \mu_X - \mu_Y \right .  \\ \left .
+\le
+(\barX_{n_X}-\barY_{n_Y})
++
+t_{n_X+n_Y-2,\alpha/2}
+\, S_p
+\sqrt{\frac{1}{n_X} + \frac{1}{n_Y}}
+\right]
+=
+1 - \alpha.
+\end{multline*}
+
+---
+
+Other variations exist (Welch two-sample $t$, unequal variances).
+
+
+### CLT-based interval (large samples)
+
+If $n_X$ and $n_Y$ are large and the samples are independent, then a
+_CLT-based confidence interval_ applies even if the two populations:
+
+- need _not_ be Normal
+- need _not_ have a common variance
+
+\begin{multline*}
+\Prob\left[
+(\barX_{n_X}-\barY_{n_Y})
+-
+z_{\alpha/2}
+\sqrt{\frac{S_{X,n_X}^2}{n_X}+\frac{S_{Y,n_Y}^2}{n_Y}}
+\le \mu_X - \mu_Y \right . \\ \left .
+\le
+(\barX_{n_X}-\barY_{n_Y})
++
+z_{\alpha/2}
+\sqrt{\frac{S_{X,n_X}^2}{n_X}+\frac{S_{Y,n_Y}^2}{n_Y}}
+\right]
+\approx
+1 - \alpha.
+\end{multline*}
+
+---
+
+### $\exstar$ Exercises regarding confidence intervals for different kinds of means
+- $X_1,\dots,X_{100}$ and  $Y_1,\dots,Y_{100}$ are two samples with sample means $\barX, \barY$ and sample standard deviations $S_X, S_Y$, respectively
+- $D_i = X_i - Y_i$ and $S_D$ be the sample standard deviation of the $D_i$
+- You observe $\barx = 85, \bary = 75, s_X = 10, s_Y = 12, s_D = 4$
+
+Construct the appropriate 95% confidence intervals for the following scenarios:
+
+1. $X_1,\dots,X_{100}$ are IID test scores from a population of medical students.   Construct a 95% confidence interval for the mean test score of the whole population and interpret the interval in context.
+
+2. $X_1,\dots,X_{100}$ and  $Y_1,\dots,Y_{100}$ are two independent IID samples of test scores from two different populations of medical students. The first group was given a practice test beforehand, and the second group was not. Construct a  95% confidence interval for the difference in mean test scores between the two populations and interpret the interval in context.
+
+3. $X_1,\dots,X_{100}$ and  $Y_1,\dots,Y_{100}$ are two IID samples of test scores from the same population of medical students. The $X_i$'s are the students' scores on the real test, and the $Y_i$'s are the students' scores on the practice test taken earlier. Construct a 95% confidence interval for the mean difference in test scores between the practice and real tests.
+
+## Confidence Interval for _Proportions_ (CLT) {#confidence-intervals-for-proportions}
+
+### One proportion
+- $X_1,\dots,X_n \IIDsim \Bern(p)$  ($p =$ probability of success shooting free throws, product quality control, etc.)
+- $P_n = \frac{1}{n}\sum_{i=1}^n X_i =$ sample proportion of successes
+- $\Ex[P_n] = p$ and $\var(P_n) = p(1-p)/n$
+
+If $n$ is large, an [approximate CLT-based]{.alert} interval for $p$ is
+
+\begin{equation*}
+\Prob\left[
+P_n
+-
+z_{\alpha/2}\sqrt{\frac{P_n(1-P_n)}{n}}
+\le p 
+\le
+P_n
++
+z_{\alpha/2}\sqrt{\frac{P_n(1-P_n)}{n}}
+\right]
+\approx
+1-\alpha
+\end{equation*}
+
+---
+
+### Difference of two proportions
+
+[Independent]{.alert} samples 
+\begin{gather*}
+X_1,\dots,X_{n_X} \IIDsim \Bern(p_X), \qquad
+Y_1,\dots,Y_{n_Y} \IIDsim \Bern(p_Y)
+\\
+P_X = \frac{1}{n_X}\sum X_i,
+\qquad
+P_Y = \frac{1}{n_Y}\sum Y_j
+\end{gather*}
+
+If $n_X$ and $n_Y$ are large, an [approximate CLT-based]{.alert} confidence interval for $p_X - p_Y$ is
+
+\begin{multline*}
+\Prob\left[
+(P_X-P_Y)
+-
+z_{\alpha/2}
+\sqrt{\frac{P_X(1-P_X)}{n_X}
++
+\frac{P_Y(1-P_Y)}{n_Y}}
+\right . \\ \left .
+\le p_X - p_Y \le
+(P_X-P_Y)
++
+z_{\alpha/2}
+\sqrt{\frac{P_X(1-P_X)}{n_X}
++
+\frac{P_Y(1-P_Y)}{n_Y}}
+\right]
+\approx
+1-\alpha
+\end{multline*}
+
+## Confidence Interval for a _Variance_
+
+Let $X_1,\dots,X_n \IIDsim \Norm(\mu,\sigma^2)$  with sample variance $S_n^2$
+
+Then
+$$
+\frac{(n-1)S_n^2}{\sigma^2} \sim \chi^2_{n-1}
+$$
+
+and a $(1-\alpha)$ confidence interval for $\sigma^2$ is
+
+\begin{equation*}
+\Prob\!\left[
+\frac{(n-1)S_n^2}{\chi^2_{n-1,\alpha/2}}
+\le
+\sigma^2
+\le
+\frac{(n-1)S_n^2}{\chi^2_{n-1,1-\alpha/2}}
+\right]
+=
+1-\alpha
+\end{equation*}
+
+## Confidence Interval for _Ratio_ of Variances
+
+Let
+$$
+X_1,\dots,X_{n_X} \IIDsim \Norm(\mu_X,\sigma_X^2), \quad
+Y_1,\dots,Y_{n_Y} \IIDsim \Norm(\mu_Y,\sigma_Y^2)
+$$
+
+be  independent samples with sample variances
+$S_{X,n_X}^2, S_{Y,n_Y}^2$, respectively
+
+Then
+$$
+\frac{S_{X,n_X}^2 / \sigma_X^2}{S_{Y,n_Y}^2 / \sigma_Y^2}
+\sim
+F_{\,n_X-1,n_Y-1}
+$$
+
+and a $(1-\alpha)$ confidence interval for
+$\displaystyle \frac{\sigma_X^2}{\sigma_Y^2}$ is
+
+\begin{equation*}
+\Prob\!\left[
+\frac{S_{X,n_X}^2}{S_{Y,n_Y}^2}
+\frac{1}{F_{n_X-1,n_Y-1,\alpha/2}}
+\le
+\frac{\sigma_X^2}{\sigma_Y^2}
+\le
+\frac{S_{X,n_X}^2}{S_{Y,n_Y}^2}
+\frac{1}{F_{n_X-1,n_Y-1,1-\alpha/2}}
+\right]
+=
+1-\alpha
+\end{equation*}
+
+## Bootstrap Confidence Intervals{#bootstrap-confidence-intervals}
+
+[({{< meta references.eh.initials >}} Ch. 11)]{.small}
+
+Classical confidence intervals rely on assumptions such as:
+
+- Known or estimable variance
+- Normality of the sampling distribution
+- Large sample sizes (via CLT)
+
+But in practice we often have:
+
+- Small samples
+- Skewed or heavy-tailed data
+- Complicated estimators (medians, quantiles, ratios)
+
+*Bootstrap confidence intervals* replace distributional assumptions with
+[resampling from the observed data]{.alert} to approximate the sampling distribution of an estimator
+
+
+## The Bootstrap Idea
+
+Given data $X_1,\dots,X_n$ and an estimator $\Theta$:
+
+1. Resample _with replacement_ from the data to form $B$ bootstrap samples  
+   Each bootstrap sample has size $n$ and consists of draws from the original data
+   $$
+   X_1^{(b)},\dots,X_n^{(b)} \IIDsim \text{Uniform}\{X_1,\dots,X_n\}, \quad b=1,\dots,B
+   $$
+2. Compute the bootstrap estimators $\Theta^{(b)}$
+    $$
+    \Theta^{(b)} = \Theta(X_1^{(b)},\dots,X_n^{(b)}), \quad b=1,\dots,B
+    $$
+
+3. Use the empirical distribution of $\Theta^{(1)},\dots,\Theta^{(B)}$ to construct confidence intervals
+
+A simple *bootstrap percentile CI* uses the _order statistics_ of the bootstrap estimators:
+$$
+\left[
+\Theta_{(\alpha/2)},
+\Theta_{(1-\alpha/2)}
+\right]
+$$
+
+::: {.key-point}
+
+No normality · No variance formula · Works when classical assumptions fail
+
+:::
+
+
+## Example of vanilla bootstrap
+
+```{python}
+#| echo: false
+#| output: asis
+
+import numpy as np
+import pandas as pd
+
+# population generator (same as notebook)
+def generate_population(N):
+    return np.random.exponential(scale=2.0, size=N)
+
+# draw original sample
+n = 8 # sample size
+
+print(f"""
+We draw a _single IID random sample of size_ $n={n}$ from a population:
+$$
+X_1,\\dots,X_{{{n}}}, \\qquad 
+\\barX = \\frac{{1}}{{{n}}}\\sum_{{i=1}}^{{{n}}} X_i
+$$
+A *vanilla bootstrap sample* is obtained by sampling **with replacement**
+from the observed data $\\{{X_1,\\dots,X_{{{n}}}\\}}$.  We repeat this independently to obtain _bootstrap_ samples.
+""")
+
+# population generator (same as notebook)
+def generate_population(N):
+    return np.random.exponential(scale=2.0, size=N)
+
+# draw original sample
+N = 10_000 #population size
+population = generate_population(N)
+sample = np.random.choice(population, size=n, replace=False)
+
+# bootstrap samples
+B = 4
+boot_samples = np.random.choice(sample, size=(B, n), replace=True)
+
+# ---------- helpers ----------
+
+def fmt_sample(x):
+    return ", ".join(f"{xi:.2f}" for xi in x)
+
+def print_md_table(header, rows):
+    print('<table style="width:100%; table-layout:fixed;">')
+    print("<thead><tr>")
+    print(f'<th style="width:20%;">{header[0]}</th>')
+    print(f'<th style="width:55%;">{header[1]}</th>')
+    print(f'<th style="width:25%;">{header[2]}</th>')
+    print("</tr></thead>")
+    print("<tbody>")
+    for c1, c2, c3 in rows:
+        print("<tr>")
+        print(f"<td>{c1}</td>")
+        print(f"<td>{c2}</td>")
+        print(f"<td>{c3}</td>")
+        print("</tr>")
+    print("</tbody></table>")
+
+# ---------- build rows ----------
+
+rows = []
+rows.append(("**Original**", fmt_sample(sample), sample.mean()))
+
+for b in range(B):
+    rows.append(
+        (f"Bootstrap {b+1}", fmt_sample(boot_samples[b]), boot_samples[b].mean())
+    )
+
+# add vdots row
+rows.append((
+    r"$\vdots$",
+    r"$\vdots$",
+    r"$\vdots$"
+))
+
+# ---------- print markdown table ----------
+
+header = ["Sample", "Observations", "Sample mean"]
+
+md_rows = []
+for name, obs, m in rows:
+    md_rows.append([
+        name,
+        obs,
+        f"{m:.2f}" if isinstance(m, (int, float)) else m
+    ])
+
+print_md_table(header, md_rows)
+
+```
+
+<a class="button" style="margin-left:0em;" href="../classlib/classlib/notebooks/confidence_interval_exact_vs_clt_vs_bootstrap.ipynb" download>
+⬇ Exact vs CLT vs Bootstrap Confidence Interval Coverage 📓
+</a>
+
+
+## Assumptions behind common confidence intervals{#ci-assumptions}
+
+Data are IID from a distribution with finite variance
+
+| Parameter | Distributional Assumptions | Sample Size | Method | Notes |
+|-------|--------------------------------|--------|-----------------------|----------------------------|
+| $\mu$ | **Any** distribution | **Large** $n$ | **CLT** | **Approximate**, accuracy improves as $n \to \infty$ |
+| $\mu$ |  **Normal** data, <br>$\sigma$ unknown | Any $n$ | Student’s *t* | **Exact**|
+| $\mu = p$ | **Bernoulli** trials | Any $n$ | Binomial<br>(Clopper–Pearson) | **Exact**<br>Conservative |
+| $\mu = p$ | **Bernoulli** trials | Large $np$,  $n(1-p)$ | **CLT** | **Approximate** |
+| $\mu$ | **Exponential** data | Any $n$ | Gamma/<br>Chi-squared  | **Exact** |
+
+---
+
+| Parameter | Distributional Assumptions | Sample Size | Method | Notes |
+|-------|--------------------------------|--------|-----------------------|----------------------------|
+| $\mu_D$ <br>(paired differences)| Differences are **Normal** | Any $n$ | Paired *t* |  **Exact**, sometimes confused with two-sample *t* |
+| $\mu_X-\mu_Y$ | Each sample **Normal**; independent samples; **common variance** | Any $n_X,n_Y$ | Two-sample *t* (pooled) | **Exact** |
+| $\mu_X-\mu_Y$  | Independent samples from **any** distributions with finite variances | **Large** $n_X,n_Y$ | **CLT** (two-sample) | **Approximate**|
+| $p_X-p_Y$ | Independent samples of **Bernoulli** trials | Large $n_Xp_X$, $n_X(1-p_X)$, $n_Yp_Y$, $n_Y(1-p_Y)$ | **CLT** (two-sample) | **Approximate** |
+
+
+---
+
+| Parameter | Distributional Assumptions | Sample Size | Method | Notes |
+|-------|--------------------------------|--------|-----------------------|----------------------------|
+| $\sigma^2$ | **Normal** data | Any $n$ | Chi-squared | **Exact**, sensitive to non-normality |
+| $\sigma_X^2/\sigma_Y^2$ | **Normal** data; independent samples | Any $n_X,n_Y$ | F-distribution | **Exact**, sensitive to non-normality |
+| $\med(F)$ | Continuous distribution | $n$ not too small | Order-statistics |**Approximate**, Distribution-free |  
+| $\theta(F)$ | **None** (empirical distribution) | Moderate $n$ | Bootstrap resampling | **Approximate**, works when classical theory breaks |
+
+---
+
+### Summary
+
+- Confidence intervals provide a [range of plausible values]{.alert} for parameters based on data
+  - They go beyond point estimation by quantifying uncertainty
+- Expressed in terms of random variables, confidence intervals are [probabilistic]{.alert} statements about the data-generating process
+- Realized by plugging in the observed data, confidence intervals are _not_ probabilistic statements
+- Validity of confidence intervals depends on assumptions about the [data distribution]{.alert} and [sample size(s)]{.alert}
+  - With fewer data we need stronger distributional assumptions
+  - With more data we can rely on asymptotic results like the CLT
+- Two-sided CLT confidence intervals take the form 
+$$\text{estimator} \pm z_{\alpha/2} \times \text{standard error}$$
+
+

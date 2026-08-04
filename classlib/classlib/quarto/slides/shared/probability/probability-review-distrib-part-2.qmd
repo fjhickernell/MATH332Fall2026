@@ -1,0 +1,45 @@
+## A mixed (partially discrete, partially continuous) random variable
+
+- Discrete random variables have a PMF
+- Continuous random variables have a PDF
+- Some random variables are [mixed]{.alert}
+
+[Zero-inflated exponential distribution]{.alert} — $X$ is the waiting time for a taxi
+
+- A taxi waiting for you with probability $p$
+- But if there is none, then the waiting time is exponential with mean $1/\lambda$
+\begin{align*}
+F(x) &= \begin{cases} 
+0, &-\infty < x < 0 \\
+1- (1-p)\exp(-\lambda x),  & 0 \le x < \infty
+\end{cases}
+\end{align*}
+Note: $F$ has a jump of size $p$ at $x=0$, corresponding to $\Prob(X=0)=p$
+
+---
+
+\begin{align*}
+\mu & = \Ex(X) = \int_{-\infty}^{\infty} x \, \dif F(x) \qquad   
+     \mathlink{https://en.wikipedia.org/wiki/Lebesgue-Stieltjes_integration}{(Lebesgue–Stieltjes integral)}\\
+& = \underbrace{0 \times p}_{\text{from the jump at } 0} + \int_0^{\infty} x \times (1-p) \lambda \exp(-\lambda x) \, \dif x = (1-p)/ \lambda
+\\
+\sigma^2 & = \var(X) = \Ex(X^2) - \mu^2 \exeq \frac{1-p^2}{\lambda^2}
+\end{align*} 
+
+## Lebesgue–Stieltjes integral = integral + jumps
+
+Let the CDF $F$
+
+- Be a nondecreasing, right-continuous function on $\mathbb{R}$
+- Have (possible) discontinuities at $-\infty <  x_1 < \ldots < x_N < \infty$
+- Be differentiable between its jump points, with $\varrho(x)=F'(x)$ there
+
+and let  $f$ be a suitable function
+
+The Lebesgue–Stieltjes integral of $f$ with respect to $F$ can be written as
+  \begin{align*}
+  \int f(x)\, dF(x) & = \int_{-\infty}^{x_{1}} f(x) \,\varrho(x) \, \dif x + \sum_{k=1}^{N-1} \int_{x_k}^{x_{k+1}} f(x) \, \varrho(x) \, \dif x + \int_{x_N}^{\infty} f(x) \, \varrho(x) \, \dif x \\
+  & \qquad \qquad + \sum_{k=1}^N f(x_k)[F(x_k) - F(x_k^{-})]
+  \end{align*}
+
+[Integrate $f$ where $F$ is smooth, and add a weighted sum of $f$ at the jump points of $F$]{.alert}

@@ -1,0 +1,242 @@
+## Example: Graduate admissions
+
+Suppose that we observe whether an applicant is admitted to a graduate program.
+Let
+
+$$
+Y =
+\begin{cases}
+1, & \text{if admitted}, \\
+0, & \text{if not admitted}.
+\end{cases}
+$$
+
+We first model the probability of admission using the applicant's GRE score alone, and then extend the model by including GPA as a second predictor.
+
+---
+
+## Logistic regression with GRE only
+
+Let $X$ denote the GRE score, and define
+
+$$
+p(x) = \Pr(Y=1 \mid X=x).
+$$
+
+A logistic regression model assumes that
+
+$$
+\log\left(\frac{p(x)}{1-p(x)}\right) = \beta_0 + \beta_1 x.
+$$
+
+Equivalently,
+
+$$
+p(x) = \frac{1}{1 + e^{-(\beta_0+\beta_1 x)}}.
+$$
+
+Thus, the probability of admission is an S-shaped function of the GRE score.
+
+### Simulated data with realistic GRE scores
+
+```{python}
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+
+np.random.seed(476)
+
+n = 120
+
+# Realistic GRE scores: not evenly spaced
+gre = np.random.normal(loc=305, scale=11, size=n)
+gre = np.clip(gre, 260, 340)
+gre = np.round(gre).astype(int)
+
+# True model used to simulate the data
+beta0 = -24.0
+beta1 = 0.08
+
+eta = beta0 + beta1 * gre
+p_admit = 1 / (1 + np.exp(-eta))
+admit = np.random.binomial(1, p_admit)
+
+df1 = pd.DataFrame({
+    "GRE": gre,
+    "p_admit_true": p_admit,
+    "admit": admit
+})
+
+df1.sample(12, random_state=476).sort_values("GRE")
+```
+
+### Plot of the binary data and the logistic curve
+
+```{python}
+gre_plot = np.linspace(260, 340, 300)
+p_plot = 1 / (1 + np.exp(-(beta0 + beta1 * gre_plot)))
+
+fig, ax = plt.subplots(figsize=(8, 5))
+
+ax.scatter(df1["GRE"], df1["admit"], alpha=0.45)
+ax.plot(gre_plot, p_plot, linewidth=2)
+
+ax.set_xlabel("GRE score")
+ax.set_ylabel("Admission outcome / probability")
+ax.set_title("Graduate admissions: GRE-only logistic model")
+plt.show()
+```
+
+### Fit a logistic regression model using GRE only
+
+```{python}
+X1 = sm.add_constant(df1[["GRE"]])
+fit1 = sm.Logit(df1["admit"], X1).fit(disp=False)
+fit1.params
+```
+
+### Fitted probabilities from the GRE-only model
+
+```{python}
+p_hat1_plot = fit1.predict(sm.add_constant(pd.DataFrame({"GRE": gre_plot}), has_constant="add"))
+
+fig, ax = plt.subplots(figsize=(8, 5))
+
+ax.scatter(df1["GRE"], df1["admit"], alpha=0.35, label="Observed data")
+ax.plot(gre_plot, p_plot, linewidth=2, linestyle="--", label="True probability")
+ax.plot(gre_plot, p_hat1_plot, linewidth=2, label="Fitted probability")
+
+ax.set_xlabel("GRE score")
+ax.set_ylabel("Admission outcome / probability")
+ax.set_title("GRE-only model: true and fitted logistic curves")
+ax.legend()
+plt.show()
+```
+
+---
+
+## Logistic regression with GRE and GPA
+
+Admissions are not based on GRE alone.  
+A more realistic model allows the admission probability to depend on both GRE and GPA:
+
+$$
+\log\left(\frac{p(x_1,x_2)}{1-p(x_1,x_2)}\right)
+=
+\beta_0 + \beta_1 x_1 + \beta_2 x_2,
+$$
+
+where
+- $x_1$ is GRE,
+- $x_2$ is GPA.
+
+We cannot visualize this model with a single probability curve against one predictor, but we can still explore model fit through fitted probabilities and grouped summaries.
+
+### Simulated data with GRE and GPA
+
+```{python}
+np.random.seed(563)
+
+n = 160
+
+gre = np.random.normal(loc=304, scale=11, size=n)
+gre = np.clip(gre, 260, 340)
+gre = np.round(gre).astype(int)
+
+gpa = np.random.normal(loc=3.35, scale=0.28, size=n)
+gpa = np.clip(gpa, 2.4, 4.0)
+gpa = np.round(gpa, 2)
+
+# True model used to simulate the data
+beta0 = -27.5
+beta1 = 0.065
+beta2 = 2.3
+
+eta = beta0 + beta1 * gre + beta2 * gpa
+p_admit = 1 / (1 + np.exp(-eta))
+admit = np.random.binomial(1, p_admit)
+
+df2 = pd.DataFrame({
+    "GRE": gre,
+    "GPA": gpa,
+    "p_admit_true": p_admit,
+    "admit": admit
+})
+
+df2.sample(12, random_state=563).sort_values(["GRE", "GPA"])
+```
+
+### Fit a logistic regression model using GRE and GPA
+
+```{python}
+X2 = sm.add_constant(df2[["GRE", "GPA"]])
+fit2 = sm.Logit(df2["admit"], X2).fit(disp=False)
+fit2.params
+```
+
+### Predicted probabilities for a few applicants
+
+```{python}
+df2_show = df2.copy()
+df2_show["p_admit_hat"] = fit2.predict(X2)
+
+df2_show.loc[:, ["GRE", "GPA", "admit", "p_admit_hat"]].sample(12, random_state=2026) \
+    .sort_values(["GRE", "GPA"]) \
+    .round({"p_admit_hat": 3})
+```
+
+### Compare observed and fitted admission rates by decile of fitted probability
+
+```{python}
+df2_check = df2.copy()
+df2_check["p_admit_hat"] = fit2.predict(X2)
+
+df2_check["prob_bin"] = pd.qcut(df2_check["p_admit_hat"], q=10, duplicates="drop")
+
+calibration_table = (
+    df2_check
+    .groupby("prob_bin", observed=False)
+    .agg(
+        n=("admit", "size"),
+        mean_fitted_probability=("p_admit_hat", "mean"),
+        observed_admission_rate=("admit", "mean")
+    )
+    .reset_index()
+)
+
+calibration_table.round({
+    "mean_fitted_probability": 3,
+    "observed_admission_rate": 3
+})
+```
+
+### Calibration plot
+
+```{python}
+fig, ax = plt.subplots(figsize=(7, 5))
+
+ax.plot([0, 1], [0, 1], linestyle="--")
+ax.scatter(
+    calibration_table["mean_fitted_probability"],
+    calibration_table["observed_admission_rate"]
+)
+
+ax.set_xlabel("Mean fitted probability")
+ax.set_ylabel("Observed admission rate")
+ax.set_title("GRE + GPA model: calibration by probability groups")
+plt.show()
+```
+
+### Interpretation
+
+- In the GRE-only model, the probability of admission is a curve as a function of one predictor.
+- In the GRE + GPA model, the probability depends on two predictors, so there is no single S-shaped curve to plot against one horizontal axis.
+- We can still assess fit by examining fitted probabilities and comparing them with observed admission rates in groups.
+
+This is one reason logistic regression is often explored using:
+- fitted probabilities,
+- grouped summaries,
+- calibration plots,
+- classification tables,
+rather than only a single scatterplot with a fitted curve.

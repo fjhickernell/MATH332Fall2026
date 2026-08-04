@@ -1,0 +1,1251 @@
+# Regression diagnostics {#ols_diagnostics}
+
+[({{< meta texts.cb.initials >}} §11.3; {{< meta texts.wms.initials >}} §11.14)]{.small}
+
+Up to this point, we have assumed that the chosen linear model is appropriate.
+
+&nbsp;
+
+In practice, we should also check whether
+
+- the model assumptions are reasonable
+- the chosen set of predictors is adequate
+- our assumptions about the errors are justified
+
+---
+
+The main questions are:
+
+- Is the mean response approximately linear in the chosen predictors, which themselves may be nonlinear transformations of underlying variables?
+- Does the variability of the errors stay roughly constant with respect to $\vx$ and $\mu(\vx):=\Ex(Y \mid \vx)$?
+- Are the errors approximately normally distributed?
+- Are there unusual or influential observations that strongly affect the fit?
+
+---
+
+## Residuals versus fitted values
+
+- [Fitted values]{.alert} $\hvY = \mX \hvbeta = \mP \vY$ are the predicted mean responses
+
+- [Residuals]{.alert} $\hvveps = \vY - \hvY = (\mI - \mP)\vY$ are the differences between observed and fitted values
+
+Under the normal linear model, the fitted values and residuals are independent; more generally, they are uncorrelated. A good first diagnostic is a plot of residuals versus fitted values.
+
+If the linear model is appropriate, then the residual plot should show
+
+- points scattered around $0$
+- no strong curve or pattern
+- roughly constant vertical spread across the range of fitted values
+
+:::{.key-point}
+A residual plot should look like random noise around zero, not like a pattern.
+:::
+
+---
+
+### Standardized residuals
+
+Because the variability of $\hveps_i$ depends on the leverage of observation $i$, it is useful to scale residuals.
+
+A standardized residual is
+
+$$
+r_i
+=
+\frac{\hveps_i}{S\sqrt{1-h_{ii}}},
+$$
+
+where $h_{ii}$ is the $i$th diagonal entry of the projection (hat) matrix $\mP$ (using $h_{ii}$ rather than $p_{ii}$ since $p_i$ is common for probabilities)
+
+Large values of $|r_i|$ indicate observations whose responses are unusual relative to the fitted model.
+
+As a rough rule of thumb:
+
+- $|r_i| > 2$: worth attention
+- $|r_i| > 3$: potentially serious
+
+---
+
+## Normal Q–Q plot
+
+Let $r_1,\dots,r_n$ be standardized residuals, and let  $r_{(1)} \le \cdots \le r_{(n)}$ denote the sorted values.
+
+&nbsp;
+
+Define plotting positions and corresponding normal quantiles:
+$$
+p_i = \frac{i - 1/2}{n}, \qquad i=1,\dots,n \qquad z_i = \Phi^{-1}(p_i), \qquad i=1,\dots,n
+$$
+
+Plot the points $(z_i, r_{(i)})$, $i=1,\dots,n$
+
+&nbsp;
+
+- If the residuals are Normal, the points lie approximately on $y = x$
+- Systematic deviations, such as curvature, indicate non-normality
+- This matters most for small samples
+- For large samples, moderate nonnormality is often less serious for estimation, though it may still affect inference
+
+---
+
+### Why not a P–P plot?
+
+P–P plot would plot
+$$
+\bigl(p_i, \Phi(r_{(i)})\bigr)
+$$
+
+- This checks whether the $\Phi(r_i)$ are approximately $\Unif[0,1]$  
+- However, it compresses the tails and is less sensitive to deviations there
+
+&nbsp;
+
+👉 Q–Q plots are preferred because they better reveal **tail departures from Normality**
+
+---
+
+## Projection (hat) matrix and leverage
+
+The fitted values satisfy
+
+$$
+\hvY = \mP \vY,
+\qquad
+\mP := \mX(\mX^\top \mX)^{-1}\mX^\top
+$$
+
+The matrix $\mP$ is sometimes called the [hat matrix]{.alert} because it puts a “hat” on $\vY$
+
+Its diagonal entries $h_{ii} = (\mP)_{ii} = \|\vQ_{i,\cdot}\|^2$, where $\mX = \mQ \mR$ is the QR decomposition of $\mX$, are called the [leverages]{.alert}
+
+- A large value of $h_{ii}$ means that observation $i$ has an unusual predictor vector $\vx_i$
+- Such observations can have a large effect on the fitted regression
+- High leverage by itself is not necessarily bad, but it does mean that the observation deserves attention
+
+## Our example
+
+```{python}
+#| echo: false
+#| fig-align: center
+#| fig-width: 18
+#| fig-height: 4.2
+
+from regression_helpers import normal_qq_data
+
+from classlib.plots.colors import TOL_BRIGHT
+
+x = EX["x"]
+y_hat = EX["y_hat"]
+resid = EX["resid"]
+h = EX["h"]
+r = EX["r_standardized"]
+
+data_color = TOL_BRIGHT["blue"]
+ref_color = TOL_BRIGHT["red"]
+guide_color = "#666666"
+
+z_theory, r_sorted = normal_qq_data(r)
+
+fig, axs = plt.subplots(1, 4, figsize=(18, 4.2))
+fig.subplots_adjust(wspace=0.40)
+
+# 1. Residuals vs fitted
+ax = axs[0]
+ax.scatter(y_hat, r, s=35, color=data_color)
+ax.axhline(0, color=guide_color, linestyle=":", linewidth=1.5)
+ax.set_xlabel(r"Fitted values $\widehat{\mu}(x_i)$")
+ax.set_ylabel(r"Standardized residuals")
+ax.set_title("Residuals vs fitted")
+
+# 2. Residuals vs x
+ax = axs[1]
+ax.scatter(x, r, s=35, color=data_color)
+ax.axhline(0, color=guide_color, linestyle=":", linewidth=1.5)
+ax.set_xlabel(r"$x_i$")
+ax.set_ylabel(r"Standardized residuals")
+ax.set_title(r"Residuals vs $x$")
+
+# 3. Normal Q-Q
+ax = axs[2]
+ax.scatter(z_theory, r_sorted, s=35, color=data_color)
+
+qmin = min(z_theory.min(), r_sorted.min())
+qmax = max(z_theory.max(), r_sorted.max())
+ax.plot([qmin, qmax], [qmin, qmax], color=ref_color, linewidth=2)
+
+ax.set_xlabel("Theoretical normal quantiles")
+ax.set_ylabel("Ordered standardized residuals")
+ax.set_title("Normal Q-Q")
+
+# 4. Leverage
+ax = axs[3]
+ax.scatter(x, h, s=35, color=data_color)
+ax.set_xlabel(r"$x_i$")
+ax.set_ylabel(r"Leverage $p_{ii}$")
+ax.set_title("Leverage")
+
+plt.show()
+```
+
+Here the diagnostics look pretty good:
+
+* The residuals show no strong pattern and roughly constant spread across fitted values and $x$
+
+* The normal Q-Q plot shows only mild departures from normality
+
+* The leverage plot shows that no observations have unusually high leverage
+
+---
+
+## When things go wrong
+
+### Heteroscedasticity
+
+::: {.columns}
+
+::: {.column width="50%"}
+
+Suppose the mean model is still correct,
+
+$$
+Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
+$$
+
+but the error variance is no longer constant:
+
+$$
+\varepsilon_i \sim \Norm(0,\sigma_i^2),
+\qquad
+\sigma_i = 0.25 + 0.35 x_i
+$$
+
+So:
+
+- $\Ex(Y_i \mid x_i) = \beta_1 + \beta_2 x_i^2$ is still correct
+- but $\var(Y_i \mid x_i)$ increases with $x_i$
+
+This violates the constant-variance assumption
+
+:::
+
+::: {.column width="50%"}
+
+```{python}
+#| echo: false
+#| fig-align: center
+#| fig-width: 8
+#| fig-height: 8
+
+from regression_helpers import fit_ols, standardized_residuals
+
+rng = np.random.default_rng(2026)
+
+beta_true_bad = np.array([0.10, 0.90])
+
+x_bad = np.linspace(0.0, 3.0, 30)
+sigma_bad = 0.25 + 0.35 * x_bad
+
+eps_bad = rng.normal(0.0, sigma_bad)
+y_bad = beta_true_bad[0] + beta_true_bad[1] * x_bad**2 + eps_bad
+
+X_bad = np.column_stack([np.ones_like(x_bad), x_bad**2])
+
+fit_bad = fit_ols(X_bad, y_bad)
+r_bad = standardized_residuals(fit_bad["resid"], fit_bad["s"], fit_bad["h"])
+
+# grid for true mean
+xg = np.linspace(0, 3, nlinspc)
+Xg = np.column_stack([np.ones_like(xg), xg**2])
+mu_true_g = Xg @ beta_true_bad
+
+fig, axs = plt.subplots(2, 1, figsize=(8, 8))
+fig.subplots_adjust(wspace=0.35)
+
+# --- Left: data + true mean ---
+ax = axs[0]
+ax.scatter(x_bad, y_bad, s=35, color=TOL_BRIGHT["blue"])
+
+ax.plot(
+    xg, mu_true_g,
+    linewidth=2.5,
+    color=TOL_BRIGHT["green"],
+    label=r"$\mu(x) = \beta_1 + \beta_2 x^2$"
+)
+
+ax.set_xlabel(r"$x$")
+ax.set_ylabel(r"$y$")
+ax.set_title("Mean is correct, variance changes")
+ax.legend()
+
+# --- Right: residuals vs fitted ---
+ax = axs[1]
+ax.scatter(fit_bad["y_hat"], r_bad, s=35, color=TOL_BRIGHT["blue"])
+ax.axhline(0, color="#666666", linestyle=":", linewidth=1.5)
+
+ax.set_xlabel(r"Fitted values $\widehat{\mu}(x_i)$")
+ax.set_ylabel(r"Standardized residuals")
+ax.set_title("Residuals fan out")
+
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+:::
+
+---
+
+:::{.key-point}
+- A funnel shape in the residual plot suggests that the variance is changing with the mean or with $x$
+
+- Possible responses include transforming the response, modeling the variance, or using weighted least squares
+:::
+
+### What might help?
+
+- transform the response (for example, $\log Y$ when appropriate)
+- use weighted least squares if the variance changes systematically
+- reconsider the mean model, since a bad mean model can also create patterns
+- for inference, use heteroscedasticity-robust standard errors
+
+---
+
+### A high-leverage point
+
+::: {.columns}
+
+::: {.column width="42%"}
+
+Suppose the mean model is still
+
+$$
+Y_i = \beta_1 + \beta_2 x_i^2 + \varepsilon_i,
+\qquad
+\varepsilon_i \sim \Norm(0,\sigma^2),
+$$
+
+but now one observation has a predictor value far from the rest
+
+For example, most of the data may have $0 \le x_i \le 3$, but one point might have $x_i = 4.5$
+
+Then:
+
+- the point may not have a large residual
+- but it can still have [high leverage]{.alert}
+- and it can strongly affect the fitted regression
+
+:::
+
+::: {.column width="58%"}
+
+```{python}
+#| echo: false
+#| fig-align: center
+#| fig-width: 7.2
+#| fig-height: 3.8
+
+#| echo: false
+#| fig-align: center
+#| fig-width: 8
+#| fig-height: 8
+
+from regression_helpers import fit_ols
+
+rng = np.random.default_rng(476)
+
+beta_true_bad = np.array([0.10, 0.90])
+sigma_bad = 1.0
+
+# regular data
+x_bad = np.linspace(0.0, 3.0, 29)
+eps_bad = rng.normal(0.0, sigma_bad, size=x_bad.shape[0])
+y_bad = beta_true_bad[0] + beta_true_bad[1] * x_bad**2 + eps_bad
+
+# add one high-leverage point
+x_extra = 4.5
+y_extra = beta_true_bad[0] + beta_true_bad[1] * x_extra**2 + rng.normal(0.0, sigma_bad)
+
+x_bad = np.append(x_bad, x_extra)
+y_bad = np.append(y_bad, y_extra)
+
+X_bad = np.column_stack([np.ones_like(x_bad), x_bad**2])
+
+fit_bad = fit_ols(X_bad, y_bad)
+h_bad = fit_bad["h"]
+
+# grid for true mean
+xg = np.linspace(0, 4.7, nlinspc)
+Xg = np.column_stack([np.ones_like(xg), xg**2])
+mu_true_g = Xg @ beta_true_bad
+
+fig, axs = plt.subplots(2, 1, figsize=(8, 8))
+fig.subplots_adjust(hspace=0.4)
+
+# --- Top: data + true mean ---
+ax = axs[0]
+ax.scatter(x_bad[:-1], y_bad[:-1], s=35, color=TOL_BRIGHT["blue"])
+ax.scatter([x_extra], [y_extra], s=70, color=TOL_BRIGHT["red"], zorder=5)
+
+ax.plot(
+    xg, mu_true_g,
+    linewidth=2.5,
+    color=TOL_BRIGHT["green"],
+    label=r"$\mu(x) = \beta_1 + \beta_2 x^2$"
+)
+
+ax.set_xlabel(r"$x$")
+ax.set_ylabel(r"$y$")
+ax.set_title("One point has an unusual predictor value")
+ax.legend()
+
+# --- Bottom: leverage vs x ---
+ax = axs[1]
+ax.scatter(x_bad[:-1], h_bad[:-1], s=35, color=TOL_BRIGHT["blue"])
+ax.scatter([x_extra], [h_bad[-1]], s=70, color=TOL_BRIGHT["red"], zorder=5)
+
+ax.set_xlabel(r"$x_i$")
+ax.set_ylabel(r"Leverage $p_{ii}$")
+ax.set_title("That point has high leverage")
+
+plt.tight_layout()
+plt.show()
+```
+
+:::
+
+:::
+
+---
+
+:::{.key-point}
+A point can have a large effect on the fitted model because its predictor value is unusual, even if its residual is not especially large.
+:::
+
+### What might help?
+
+- check whether the unusual predictor value is a data-entry error
+- determine whether the point belongs to the same population as the others
+- compare fits with and without the point
+- collect more data in that region of predictor space if possible
+
+---
+
+## Summary of common diagnostic plots
+
+Common diagnostic plots include:
+
+- [Standardized residuals versus fitted values]{.alert} checks linearity and constant variance
+
+- [Standardized residuals versus a predictor]{.alert}  can reveal patterns that are easier to see when there is one main predictor
+
+- [Normal Q-Q plot]{.alert}  checks approximate normality of residuals
+
+- [Leverage plot]{.alert}  checks which observations have unusual predictor values
+
+### What to do if diagnostics raise concerns?
+
+If diagnostics reveal problems, one might
+
+- transform the response or some predictors
+- add additional predictors or interaction terms
+- use weighted least squares if variance is not constant
+- check for data-entry errors or unusual observations
+- reconsider whether a different model is more appropriate
+
+---
+
+:::{.key-point}
+Diagnostics do not automatically tell us the right fix, but they do tell us where the model may be going wrong
+:::
+
+# Model selection {#ols_selection}
+
+[({{< meta texts.cb.initials >}} §11.4; {{< meta texts.wms.initials >}} §11.15)]{.small}
+
+- Adding more predictors almost always improves the fit to the observed data
+  - Reduces residual sum of squares (RSS)
+
+- However, a more complicated model is not better if the improvement is insignificant
+  - We must ask whether the improvement is *real signal or just noise*
+
+Model selection aims to balance:
+
+- goodness of fit  
+- model simplicity  
+- interpretability  
+- predictive performance  
+
+
+## Comparing nested models
+
+Suppose we compare two nested models (first $d_0$ variables of both are the same):
+
+- *Reduced model* with $d_0$ parameters and residual sum of squares $\RSS_0$  
+- *Full model* with $d_1 > d_0$ parameters and residual sum of squares $\RSS_1$  
+
+Since the full model has more predictors, we always have
+
+$$
+\RSS_1 \le \RSS_0
+$$
+
+Is the reduction in RSS  large enough to justify the extra parameters?
+
+## Geometry behind the test
+
+$$
+\underbrace{\vY}_{\text{data}}
+=
+\underbrace{\hvY_0}_{\text{fit of reduced model}}
++
+\underbrace{(\hvY_1 - \hvY_0)}_{\text{extra explained by new predictors}}
++
+\underbrace{(\vY - \hvY_1)}_{\text{residual of full model}}
+$$
+
+- $\hvY_1 = \mP_1\vY =$ fit of full model
+- $\vY - \hvY_0 =$ residual of reduced model
+- $\hvY_1 - \hvY_0 \in \cc(\mX_1)$ since  $\mathcal{C}(\mX_0) \subset \mathcal{C}(\mX_1)$
+- $\vY - \hvY_1 \in \cc(\mX_1)^\perp$
+
+Since $(\hvY_1 - \hvY_0) \perp (\vY - \hvY_1)$, we have
+
+$$
+\underbrace{\lVert \vY - \hvY_0 \rVert^2}_{\RSS_0}
+=
+\underbrace{\lVert \hvY_1 - \hvY_0\rVert ^2}_{\SS_{\text{extra}}}
++
+\underbrace{\lVert \vY - \hvY_1\rVert^2}_{\RSS_1}
+$$
+
+::: {.key-point}
+The improvement in fit is itself a sum of squares from an orthogonal component
+:::
+
+
+## Normal model $\implies$ independence
+
+If $\vY \sim \Norm(\mX_1 \vbeta, \sigma^2 \mI)$, then orthogonal components are independent
+
+Under $H_0: \text{reduced model is correct}$,
+
+$$
+\frac{\SS_{\text{extra}}}{\sigma^2} \sim \chi^2_{d_1-d_0},
+\quad
+\frac{\RSS_1}{\sigma^2} \sim \chi^2_{n-d_1} \qquad \text{independently}
+$$
+
+### The $F$ statistic
+
+$$
+F
+=
+\frac{(\SS_{\text{extra}})/(d_1-d_0)}{\RSS_1/(n-d_1)} = \frac{(\RSS_0-\RSS_1)/(d_1-d_0)}{\RSS_1/(n-d_1)}
+\sim
+F_{d_1-d_0,\;n-d_1}
+$$
+
+---
+
+## ANOVA table for regression $F$-test
+
+| Source | df | Sum of squares | Mean square | $F$ |
+|----------|---|---|-----|----|
+| Extra (Full vs Reduced) | $d_1 - d_0$ | $\SS_{\text{extra}} = \RSS_0 - \RSS_1$ | $\displaystyle \text{MS}_{\text{extra}}= \frac{\SS_{\text{extra}}}{d_1 - d_0}$ | $\dfrac{\text{MS}_{\text{extra}}}{\text{MSE}}$ |
+| Error (Full) | $n - d_1$ | $\RSS_1$ | $\displaystyle\text{MSE}= \frac{\RSS_1}{n - d_1}$ | |
+| Total (Reduced) | $n - d_0$ | $\RSS_0$ | | |
+
+
+::: {.key-point}
+$F$ statistic compares *extra signal* to *noise level*
+:::
+
+### Interpretation
+
+- Numerator: improvement from added predictors  
+- Denominator: variability not explained by the full model  
+
+👉 Large $F$ ⇒ added variables matter  
+👉 Small $F$ ⇒ reduced model is adequate  
+
+
+## Using $t$-tests in model selection
+
+A natural way to simplify a model is to examine individual coefficients:
+
+- If a confidence interval for $\beta_j$ includes 0, the predictor may be unnecessary  
+- If the interval is clearly away from 0, the predictor appears important  
+
+&nbsp;
+
+This provides a useful **first pass** for identifying weak predictors
+
+&nbsp;
+
+However, caution is needed:
+
+- Predictors may be correlated, so their effects can be shared  
+- A variable may be insignificant alone but important together with others  
+- Decisions based only on individual tests can be unstable  
+
+---
+
+### Suggested strategy
+
+- $t$-tests *identify candidates for removal*, but do not imply automatic removal
+- Compare models using an $F$-test (or another criterion)
+
+&nbsp;
+
+:::{.key-point}
+Model selection should be based on *the model as a whole*, not just individual coefficients
+:::
+
+---
+
+## Coefficient of determination $R^2$
+
+To measure goodness of fit, we decompose the variability in the response:
+
+\begin{gather*}
+\underbrace{\sum_{i=1}^n (Y_i - \barY)^2}_{\SST  = \text{total sum of squares}}
+=
+\underbrace{\sum_{i=1}^n (\hY_i - \barY)^2}_{\SSR = \text{regression sum of squares}}
++
+\underbrace{\sum_{i=1}^n (Y_i - \hY_i)^2}_{\RSS = \text{residual sum of squares}} \\
+R^2 = \frac{\SSR}{\SST} = 1 - \frac{\RSS}{\SST} \in [0,1]
+\end{gather*}
+
+- Interpreted as the *proportion of variability in $Y$ explained by the model*
+
+- Larger $R^2$ indicates better fit, but it has a major drawback:
+
+  - Never decreases when more predictors are added
+
+---
+
+### Adjusted $R^2$
+
+Adjusted $R^2$ corrects for this by penalizing model complexity:
+
+$$
+R^2_{\text{adj}}
+=
+1-\frac{\RSS/(n-d)}{\SST/(n-1)}
+$$
+
+- Larger values are better  
+
+
+---
+
+## Classical regression $F$ test
+
+The usual regression $F$ test is the special case where the reduced model is the mean-only model:
+
+$$
+Y_i = \beta_0 + \varepsilon_i
+$$
+
+Then
+
+$$
+\RSS_0 = \SST,
+\qquad
+\RSS_1 = \RSS,
+\qquad
+\SS_{\text{extra}} = \SST - \RSS = \SSR
+$$
+
+So the general nested-model statistic becomes
+
+$$
+F
+=
+\frac{\SSR/(d-1)}{\RSS/(n-d)}
+=
+\frac{\text{MSR}}{\text{MSE}}
+\sim
+F_{d-1,n-d}
+\qquad \text{under } H_0
+$$
+
+where $H_0$ says that the full model is no better than the mean-only model.
+
+::: {.key-point}
+Classical regression $F$ test asks whether the explanatory variables, taken together, explain significant variation beyond the sample mean
+:::
+
+## Classical regression ANOVA table
+
+| Source | df | Sum of squares | Mean square | $F$ |
+|-----|---|---|-----|----|
+| Regression | $d-1$ | $\SSR = \SST-\RSS$ | $\displaystyle \text{MSR}=\frac{\SSR}{d-1}$ | $\displaystyle \frac{\text{MSR}}{\text{MSE}}$ |
+| Error | $n-d$ | $\RSS$ | $\displaystyle \text{MSE}=\frac{\RSS}{n-d}$ | |
+| Total | $n-1$ | $\SST$ | | |
+
+::: {.key-point}
+In this special case, $\SS_{\text{extra}} = \SSR$ and $\RSS_1 = \RSS$,
+so the regression ANOVA table is just the nested-model $F$ test with the mean-only model as the reduced model
+:::
+
+
+## Other metrics and methods for model selection
+
+- [Akaike information criterion]{.alert} (AIC) rewards good fit but penalizes complexity
+- [Bayesian information criterion]{.alert} (BIC) penalizes complexity more strongly than AIC
+- [Cross-validation]{.alert} (CV) separates the data into a training set and a testing set to estimate predictive performance on new data
+- [Forward selection]{.alert}, [backward elimination]{.alert}, and [stepwise regression]{.alert} are automated procedures for adding or removing predictors based on criteria like AIC or BIC
+
+---
+
+## Practical principles for model selection
+
+When comparing regression models:
+
+- Prefer simpler models if they explain the data nearly as well  
+- Use subject-matter knowledge, not just automatic procedures  
+- Check diagnostics again after selecting a model  
+- Remember that the “best” model for explanation may differ from the “best” model for prediction  
+
+:::{.key-point}
+A good regression model should fit well, make scientific sense, and generalize to new data.
+:::
+
+
+## Our example revisited
+
+```{python}
+#| echo: false
+
+import numpy as np
+from scipy.stats import t, f
+
+from IPython.display import Markdown, display
+
+# Extract true parameters
+beta_true = EX["beta_true"]
+sigma2 = EX["sigma2"]
+
+# Format values
+b1 = f"{beta_true[0]:.2f}"
+b2 = f"{beta_true[1]:.2f}"
+s2 = f"{sigma2:.2f}"
+
+# Build LaTeX string
+latex_str = rf"""
+$$
+y = {b1} + {b2} x^2 + \varepsilon,
+\qquad
+\varepsilon \sim \Norm(\vzero, {s2}\,\mI)
+$$
+"""
+
+display(Markdown(latex_str))
+
+y = EX["y"]
+x = EX["x"]
+
+# Full model: intercept + x^2
+X_full = np.column_stack([np.ones_like(x), x**2])
+
+# Reduced model: x^2 only (no intercept)
+X_red = np.column_stack([x**2])
+
+n = len(y)
+d_full = X_full.shape[1]
+d_red = X_red.shape[1]
+
+# ---------- OLS fits ----------
+XtX_full = X_full.T @ X_full
+XtX_red = X_red.T @ X_red
+
+beta_hat_full = np.linalg.solve(XtX_full, X_full.T @ y)
+beta_hat_red = np.linalg.solve(XtX_red, X_red.T @ y)
+
+yhat_full = X_full @ beta_hat_full
+yhat_red = X_red @ beta_hat_red
+
+resid_full = y - yhat_full
+resid_red = y - yhat_red
+
+RSS_full = resid_full @ resid_full
+RSS_red = resid_red @ resid_red
+
+# ---------- Full-model variance estimate ----------
+df_full = n - d_full
+S2_full = RSS_full / df_full
+S_full = np.sqrt(S2_full)
+
+# ---------- t-tests for full-model coefficients ----------
+cov_beta_hat_full = S2_full * np.linalg.inv(XtX_full)
+se_beta_hat_full = np.sqrt(np.diag(cov_beta_hat_full))
+
+t_stats = beta_hat_full / se_beta_hat_full
+p_vals_t = 2 * (1 - t.cdf(np.abs(t_stats), df=df_full))
+
+# 95% confidence intervals
+alpha = 0.05
+tcrit = t.ppf(1 - alpha / 2, df=df_full)
+ci_lower = beta_hat_full - tcrit * se_beta_hat_full
+ci_upper = beta_hat_full + tcrit * se_beta_hat_full
+
+# ---------- F-test for reduced vs full ----------
+# H0: beta_1 = 0, so the intercept is unnecessary
+q = d_full - d_red
+F_stat = ((RSS_red - RSS_full) / q) / (RSS_full / (n - d_full))
+p_val_F = 1 - f.cdf(F_stat, q, n - d_full)
+
+# ---------- R^2 and adjusted R^2 for the full model ----------
+# Standard centered versions (appropriate when an intercept is in the model)
+ybar = np.mean(y)
+SST = np.sum((y - ybar)**2)
+SSR_full = SST - RSS_full
+
+R2_full = 1 - RSS_full / SST
+adj_R2_full = 1 - (RSS_full / (n - d_full)) / (SST / (n - 1))
+
+# ---------- Optional: uncentered R^2 for the reduced model ----------
+# This is NOT the usual R^2, since the model has no intercept
+SST_unc = np.sum(y**2)
+R2_red_unc = 1 - RSS_red / SST_unc
+
+# ---------- Print results ----------
+coef_names = [r"beta_1 (intercept)", r"beta_2 (x^2 term)"]
+
+import pandas as pd
+
+# ---------- Coefficient table ----------
+coef_names = ["Intercept", "x^2"]
+
+coef_table = pd.DataFrame({
+    "Estimate": beta_hat_full,
+    "Std. Error": se_beta_hat_full,
+    "t value": t_stats,
+    "p value": p_vals_t,
+    "CI Lower": ci_lower,
+    "CI Upper": ci_upper,
+}, index=coef_names)
+
+coef_table = coef_table.round(4)
+
+# ---------- Model comparison table ----------
+model_table = pd.DataFrame({
+    "Model": ["Reduced (no intercept)", "Full"],
+    "Parameters (d)": [d_red, d_full],
+    "RSS": [RSS_red, RSS_full],
+})
+
+model_table["RSS"] = model_table["RSS"].round(4)
+
+# ---------- Summary stats ----------
+summary_table = pd.DataFrame({
+    "Metric": ["R^2 (full model)", "Adjusted R^2 (full model)", "Uncentered R^2 (reduced model, no intercept)"],
+    "Value": [R2_full, adj_R2_full, R2_red_unc],
+}).round(4)
+
+# ---------- F-test table ----------
+f_table = pd.DataFrame({
+    "Quantity": [
+        "F statistic",
+        "Numerator df (d_full − d_reduced)",
+        "Denominator df (n − d_full)",
+        "p-value"
+    ],
+    "Value": [F_stat, q, n - d_full, p_val_F],
+}).round(4)
+```
+
+The $p$-value is not small, so there is no compelling evidence that the intercept is needed
+
+### Coefficient Estimates (Full Model)
+
+```{python}
+display(coef_table)
+```
+
+The confidence interval for the intercept includes 0, suggesting it may not be necessary, while the interval for the $x^2$ term is clearly away from 0, indicating it is important
+
+---
+
+### Model Comparison
+```{python}
+#| echo: false
+display(model_table.style.hide(axis="index"))
+```
+
+The RSS for the full model is not much smaller than the RSS for the reduced model, suggesting that the intercept may not be needed
+
+  
+### F-test for Removing Intercept
+
+```{python}
+display(f_table.style.hide(axis="index"))
+```
+
+
+---
+
+### Goodness of Fit
+
+```{python}
+display(summary_table.style.hide(axis="index"))
+```
+
+For models without an intercept, we use the uncentered $R^2$:
+
+$$
+R^2_{\text{unc}} = 1 - \frac{\sum_{i=1}^n (Y_i - \hat{Y}_i)^2}{\sum_{i=1}^n Y_i^2}
+$$
+
+- Measures fit relative to 0 (not $\barY$)
+- Not directly comparable to the usual $R^2$
+
+---
+
+### Diagnostic plots for the reduced model
+
+```{python}
+#| echo: false
+#| fig-align: center
+#| fig-width: 18
+#| fig-height: 4.2
+
+from regression_helpers import fit_ols, standardized_residuals, normal_qq_data
+
+x = EX["x"]
+y = EX["y"]
+
+# Reduced model: no intercept, only x^2
+X_red = np.column_stack([x**2])
+fit_red = fit_ols(X_red, y)
+
+y_hat_red = fit_red["y_hat"]
+resid_red = fit_red["resid"]
+h_red = fit_red["h"]
+r_red = standardized_residuals(resid_red, fit_red["s"], h_red)
+
+z_theory_red, r_sorted_red = normal_qq_data(r_red)
+
+data_color = TOL_BRIGHT["blue"]
+ref_color = TOL_BRIGHT["red"]
+guide_color = "#666666"
+
+# Adaptive vertical range for residual plots
+r_lim = max(3.0, 1.1 * np.max(np.abs(r_red)))
+
+fig, axs = plt.subplots(1, 4, figsize=(18, 4.2))
+fig.subplots_adjust(wspace=0.40)
+
+# 1. Residuals vs fitted
+ax = axs[0]
+ax.scatter(y_hat_red, r_red, s=35, color=data_color)
+ax.axhline(0, color=guide_color, linestyle=":", linewidth=1.5)
+ax.set_ylim(-r_lim, r_lim)
+ax.set_xlabel(r"Fitted values $\widehat{\mu}(x_i)$")
+ax.set_ylabel(r"Standardized residuals")
+ax.set_title("Reduced: residuals vs fitted")
+
+# 2. Residuals vs x
+ax = axs[1]
+ax.scatter(x, r_red, s=35, color=data_color)
+ax.axhline(0, color=guide_color, linestyle=":", linewidth=1.5)
+ax.set_ylim(-r_lim, r_lim)
+ax.set_xlabel(r"$x_i$")
+ax.set_ylabel(r"Standardized residuals")
+ax.set_title(r"Reduced: residuals vs $x$")
+
+# 3. Normal Q-Q
+ax = axs[2]
+ax.scatter(z_theory_red, r_sorted_red, s=35, color=data_color)
+
+qmin = min(z_theory_red.min(), r_sorted_red.min())
+qmax = max(z_theory_red.max(), r_sorted_red.max())
+ax.plot([qmin, qmax], [qmin, qmax], color=ref_color, linewidth=2)
+
+ax.set_xlabel("Theoretical normal quantiles")
+ax.set_ylabel("Ordered standardized residuals")
+ax.set_title("Reduced: normal Q-Q")
+
+# 4. Leverage
+ax = axs[3]
+ax.scatter(x, h_red, s=35, color=data_color)
+ax.set_xlabel(r"$x_i$")
+ax.set_ylabel(r"Leverage $p_{ii}$")
+ax.set_title("Reduced: leverage")
+
+plt.show()
+```
+
+---
+
+### Confidence/prediction intervals/bands for the reduced model
+
+```{python}
+#| echo: false
+#| fig-align: center
+#| fig-width: 11
+#| fig-height: 4.4
+
+from classlib.plots.colors import TOL_BRIGHT, accent_color
+from regression_helpers import fit_ols, mean_prediction_and_simultaneous_bands
+
+x = EX["x"]
+y = EX["y"]
+beta_true = EX["beta_true"]
+alpha = EX["alpha"]
+
+# Reduced model: no intercept
+X_red = np.column_stack([x**2])
+fit_red = fit_ols(X_red, y)
+
+beta_hat_red = fit_red["beta_hat"]
+XtX_inv_red = fit_red["XtX_inv"]
+s2_red = fit_red["s2"]
+n = fit_red["n"]
+d_red = fit_red["d"]
+
+fig, ax = plt.subplots(figsize=(11, 4.4))
+set_tol_bright_cycle(ax)
+
+data_color = TOL_BRIGHT["blue"]
+true_color = TOL_BRIGHT["green"]
+fit_color = TOL_BRIGHT["red"]
+ci_color = accent_color
+pi_color = TOL_BRIGHT["orange"] if "orange" in TOL_BRIGHT else TOL_BRIGHT["red"]
+
+# grid for plotting
+xg = np.linspace(np.min(x), np.max(x), nlinspc)
+Xg_red = np.column_stack([xg**2])
+
+# true mean from the data-generating model
+mu_true_g = beta_true[0] + beta_true[1] * xg**2
+
+bands_red = mean_prediction_and_simultaneous_bands(
+    Xg_red, beta_hat_red, XtX_inv_red, s2_red, alpha, df=n - d_red
+)
+
+mu_hat_g_red = bands_red["mu_hat"]
+
+ci_lo_red = bands_red["pointwise_ci"][:, 0]
+ci_hi_red = bands_red["pointwise_ci"][:, 1]
+
+pi_lo_red = bands_red["pointwise_pi"][:, 0]
+pi_hi_red = bands_red["pointwise_pi"][:, 1]
+
+sci_lo_red = bands_red["simul_ci"][:, 0]
+sci_hi_red = bands_red["simul_ci"][:, 1]
+
+spi_lo_red = bands_red["simul_pi"][:, 0]
+spi_hi_red = bands_red["simul_pi"][:, 1]
+
+# data and curves
+ax.scatter(x, y, s=28, color=data_color)
+
+ax.plot(
+    xg, mu_true_g,
+    linewidth=2.5,
+    color=true_color,
+    label=r"true mean $\mu(x)=\beta_1+\beta_2 x^2$"
+)
+
+ax.plot(
+    xg, mu_hat_g_red,
+    linewidth=2.5,
+    color=fit_color,
+    label=r"reduced fit $\widehat{\mu}_{\mathrm{red}}(x)=\widehat{\beta}_2 x^2$"
+)
+
+# pointwise confidence interval
+ax.plot(
+    xg, ci_lo_red,
+    linestyle="--",
+    linewidth=2.0,
+    color=ci_color,
+    label=r"95% pointwise CI for $\mu_{\mathrm{red}}(x)$"
+)
+ax.plot(
+    xg, ci_hi_red,
+    linestyle="--",
+    linewidth=2.0,
+    color=ci_color
+)
+
+# simultaneous confidence band
+ax.plot(
+    xg, sci_lo_red,
+    linestyle="-.",
+    linewidth=2.2,
+    color=ci_color,
+    label=r"95% simultaneous confidence band"
+)
+ax.plot(
+    xg, sci_hi_red,
+    linestyle="-.",
+    linewidth=2.2,
+    color=ci_color
+)
+
+# pointwise prediction interval
+ax.plot(
+    xg, pi_lo_red,
+    linestyle=":",
+    linewidth=2.2,
+    color=pi_color,
+    label=r"95% pointwise PI for $Y \mid x$"
+)
+ax.plot(
+    xg, pi_hi_red,
+    linestyle=":",
+    linewidth=2.2,
+    color=pi_color
+)
+
+# simultaneous prediction band
+ax.plot(
+    xg, spi_lo_red,
+    linestyle=(0, (6, 2)),
+    linewidth=2.0,
+    color=pi_color,
+    label=r"95% simultaneous prediction band"
+)
+ax.plot(
+    xg, spi_hi_red,
+    linestyle=(0, (6, 2)),
+    linewidth=2.0,
+    color=pi_color
+)
+
+ax.set_xlabel(r"$x$")
+ax.set_ylabel(r"$y$")
+ax.set_title(r"Reduced model: pointwise intervals and simultaneous bands")
+
+box = ax.get_position()
+ax.set_position([box.x0, box.y0, box.width * 0.75, box.height])
+
+ax.legend(loc="center left", bbox_to_anchor=(1.02, 0.5))
+
+plt.tight_layout()
+plt.show()
+```
+
+:::{.key-point}
+
+- Because the reduced model has only one regression parameter, the “simultaneous”
+and “pointwise” intervals are the same in this case
+
+- The reduced model fits the data well, even though it is not of the same form as the true model
+
+
+:::
+
+---
+
+### Reduced model caveat
+
+- Removing the intercept forces $\mu(0)=0$
+
+- Near $x=0$, the confidence band misses the true mean (it shrinks like $x^2$)
+
+  - Widening the band does not help
+
+- This is *model misspecification*, not a band issue
+
+- Confidence bands reflect uncertainty *given the model*, not model correctness
+
+- Observed data provide no clear evidence that an intercept is needed
+
+  - But should check domain knowledge and subject-matter considerations
+
+
+## F-tests: A unifying framework {data-state="goldborder"}
+
+### From Normal to $\chi^2$ to $F$
+
+- If $Z_1,\dots,Z_\nu \overset{\text{iid}}{\sim} \mathcal{N}(0,1)$, then
+  $$
+  \sum_{i=1}^{\nu} Z_i^2 \sim \chi^2_\nu, \text{ a chi-square distribution with $\nu$ degrees of freedom}
+  $$
+  Note that $\Ex(\chi^2_\nu) = \nu$ and $\var(\chi^2_\nu) = 2\nu$
+
+- If $U \sim \chi^2_\nu$ and $V \sim \chi^2_\lambda$ are independent, then
+  $$
+  \frac{U/\nu}{V/\lambda} \sim F_{\nu,\lambda}, \text{ an $F$-distribution with $\nu$ and $\lambda$ degrees of freedom}
+  $$
+  Note that $\Ex(F_{\nu,\lambda}) = \frac{\lambda}{\lambda - 2}$ for $\lambda > 2$ and $\var(F_{\nu,\lambda}) = \frac{2\lambda^2(\nu + \lambda - 2)}{\nu(\lambda - 2)^2(\lambda - 4)}$ for $\lambda > 4$
+
+---
+
+### Comparing variances
+
+- For two independent samples:
+  $$
+  \frac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}
+  \sim F_{n_1-1,\;n_2-1}
+  $$
+
+- To test $H_0:\ \sigma_1^2 = \sigma_2^2$, use
+  $$
+  F = \frac{S_1^2}{S_2^2}
+  $$
+
+- Put the *larger sample variance in the numerator*
+  - ensures $F \ge 1$
+  - simplifies one-sided rejection
+
+---
+
+### Regression and ANOVA
+
+- In nested linear models where $H_0$ assumes the [reduced model is correct]{.alert}:
+  \begin{align*}
+  F
+  & =
+  \frac{\text{extra explained variation (gain in fit) per added parameter}}
+       {\text{residual variation (noise) per degree of freedom}} \\
+  &=
+  \frac{(\text{RSS}_0 - \text{RSS}_1)/(d_1 - d_0)}
+       {\text{RSS}_1/(n - d_1)} \sim F_{d_1 - d_0,\, n - d_1}
+  \end{align*}
+
+- Large $F \implies$ [reduced model is inadequate]{.alert}, (compelling evidence to reject $H_0$)
+
+- Both numerator and denominator estimate $\sigma^2$
+- Under $H_0$, the extra parameters explain only noise, so the ratio is near 1
+
+- A large ratio indicates _signal beyond noise_
+
+---
+
+### Inverting degrees of freedom
+
+- If $F \sim F_{\nu,\lambda}$, then
+  $$
+  \frac{1}{F} \sim F_{\lambda,\nu}
+  $$
+
+- Therefore, critical values satisfy
+  $$
+  F_{\nu,\lambda,\alpha}
+  =
+  \frac{1}{F_{\lambda,\nu,\,1-\alpha}}
+  $$
+
+- Useful when tables only give one ordering
+
+---
+
+### Big picture
+
+- $F$-tests compare [two independent estimates of variance]{.alert}
+
+- Unify
+  - variance comparison  
+  - ANOVA  
+  - regression model selection  
+
+- Interpretation depends on context:
+  - variance comparison: _are two noise levels equal?_
+  - model selection: $\displaystyle\frac{\text{extra variation}}{\text{noise}}$
+

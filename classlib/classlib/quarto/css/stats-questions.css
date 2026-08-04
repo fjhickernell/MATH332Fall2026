@@ -1,0 +1,58 @@
+/* Filter rwo */
+.stats-filter {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+.stats-filter-left label { margin-right: 1rem; }
+.stats-filter-right { opacity: 0.85; white-space: nowrap; }
+
+/* Jump menu */
+.stats-jump {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+.stats-jump a { padding: 0.1rem 0.35rem; }
+
+.stats-qs hr {
+  opacity: 1 !important;
+  border: 0;
+  height: 3px;
+  background: rgba(0,0,0,0.5);
+  margin: 0.5rem 0 0.75rem 0;
+}
+
+/* Question rows: two-column grid */
+.stats-headrow,
+.stats-q {
+  display: grid;
+  grid-template-columns: 10ch 1fr;
+  column-gap: 1rem;
+}
+
+.stats-headrow {
+  padding: 0.25rem 0;
+  border-bottom: 2px solid rgba(0,0,0,0.5);
+  margin-bottom: 0.25rem;
+}
+.stats-q {
+  padding: 0.0rem 0;
+  border-bottom: 2px solid rgba(0,0,0,0.25);
+}
+.stats-q-title { font-weight: 600; margin-bottom: 0 rem; }
+.stats-col-q ul { margin-top: 0; margin-bottom: 0; padding-left: 1.1rem;}
+.stats-col-q li { margin-bottom: 0.1rem;}
+
+.stats-section-rule {
+  border: none;
+  margin: 0.5rem 0 0.75rem 0;
+}
+
+/* Slightly smaller section headings */
+h3 { margin-top: 1.25rem; }
