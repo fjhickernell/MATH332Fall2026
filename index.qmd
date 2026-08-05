@@ -8,8 +8,8 @@ title-block-banner: false
 
 ## Linear Algebra: Theory and Applications
 
-This is the course website for **MATH 332 — Fall 2026** at Illinois Institute
-of Technology. The first class is **Tuesday, August 18, 2026**.
+This is the course website for **MATH 332 — Fall 2026 Section 002** at Illinois
+Institute of Technology.
 
 ## Course Description
 
@@ -47,9 +47,13 @@ numerical computation, symbolic computation, and experimentation.
 </details>
 
 <details>
-<summary><strong>Prerequisites and requirements</strong></summary>
+<summary><strong>Prerequisites</strong></summary>
 
-Prerequisites and other course requirements are **TBD**.
+The prerequisite is MATH 251. It will help to be familiar with:
+
+- A bit of vectors and matrices (but not required)
+- Websites
+- Jupyter notebooks
 
 </details>
 
@@ -72,6 +76,13 @@ Prerequisites and other course requirements are **TBD**.
 </details>
 
 ## Course Outline
+
+<details>
+<summary><strong>Why Linear Algebra?</strong></summary>
+
+Course motivation and roadmap.
+
+</details>
 
 <details>
 <summary><strong>Systems of Linear Equations and Matrices</strong></summary>
