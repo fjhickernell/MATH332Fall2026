@@ -3,9 +3,11 @@
 ## Purpose and design principles
 
 Build a coherent, reproducible Quarto course for **MATH 332 — Linear Algebra:
-Theory and Applications**. MATH332Fall2026 is authoritative;
-MATH565Fall2026 is the read-only architectural reference; and `classlib` is a
-pinned shared dependency.
+Theory and Applications**. The most recent MATH 332 repository is
+authoritative. The most recent MATH 565 repository is a separate active course
+repository whose proven architecture may be consulted read-only during MATH
+332 work. Older course repositories are read-only historical references, and
+`classlib` is a pinned shared dependency.
 
 Anton provides the course spine.
 

@@ -5,10 +5,25 @@ from the repository. Read `README.md`, `PLAN.md`, `STATUS.md`,
 `AUTHOR_WORKFLOW.md`, and then `AGENTS.md`; inspect Git status, submodule
 status, and recent commits before substantial work.
 
+## Repository shorthand
+
+Within the current teaching workspace:
+
+- `332` refers to the most recent MATH 332 course repository.
+- `565` refers to the most recent MATH 565 course repository.
+
+If older course repositories are also open in the workspace, refer to them
+explicitly by year (e.g., `565-2025` or `MATH565Fall2025`) to avoid ambiguity.
+
 ## Repository boundaries
 
-- `MATH332Fall2026` is authoritative for this course.
-- `MATH565Fall2026` is a read-only architectural reference.
+- The most recent MATH 332 repository is the active, authoritative repository
+  for this course.
+- The most recent MATH 565 repository is a separate active course repository.
+  During MATH 332 work, use it as an architectural reference without modifying
+  it unless the task explicitly includes MATH 565.
+- Older course repositories are read-only historical references. In
+  particular, `MATH565Fall2025` is not the active MATH 565 repository.
 - MATH 332 course content stays in this repository.
 - Reusable tooling belongs in HickernellAcademicLib only after validation and
   an upstream commit.
