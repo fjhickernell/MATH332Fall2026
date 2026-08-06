@@ -31,6 +31,24 @@ explicitly by year (e.g., `565-2025` or `MATH565Fall2025`) to avoid ambiguity.
 - Initialize the recorded `classlib` commit recursively; do not update it to a
   moving branch tip during routine setup or validation.
 
+## Institutional memory
+
+The `notes/` directory is this repository's institutional memory. Agents
+should consult its files when planning work, proposing changes, drafting or
+revising course materials, or making architectural decisions.
+
+These files document design intent, rationale, deferred ideas, and
+implementation knowledge. Detailed institutional memory belongs there rather
+than in this concise `AGENTS.md` file.
+
+The files under `notes/` are not student-facing course content and must not be
+treated as source material for lectures, slides, notebooks, assignments,
+exams, or the course website.
+
+Content from `notes/` should appear in student-facing materials only after it
+has been intentionally incorporated into those materials or when the user
+explicitly requests it.
+
 ## Slides
 
 The RevealJS decks in `slides/` are the authoritative course presentation
