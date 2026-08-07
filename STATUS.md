@@ -9,7 +9,7 @@ Mathematical content should be maintained only in the slides.
    seven-deck render.
 2. [ ] Finalize course information, syllabus, and policies.
 3. [ ] Draft the semester schedule without inventing unresolved dates.
-4. [ ] Develop Deck 00: Why Linear Algebra? as the teaser and roadmap.
+4. [x] Develop Deck 00: Why Linear Algebra? as the teaser and roadmap.
 5. [ ] Develop the Chapter 1 slides in
    `slides/01-systems-and-matrices.qmd`.
 6. [ ] Develop and validate the first Python demonstration.

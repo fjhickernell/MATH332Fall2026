@@ -1,0 +1,157 @@
+/* Deck 00 diagram construction; prose and emphasis use classlib styles. */
+
+.reveal .diagram-label {
+  color: var(--header-blue);
+  font-size: 0.78em;
+  font-weight: 650;
+}
+
+.reveal .opening-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65em;
+  margin-bottom: 0.8em;
+}
+
+.reveal .opening-strip > div {
+  display: grid;
+  justify-items: center;
+  padding: 0.3em;
+  border: 2px solid #d7e5ee;
+  border-radius: 14px;
+  background: #f8fbfd;
+}
+
+.reveal .opening-strip svg {
+  width: 82%;
+  max-height: 125px;
+}
+
+.reveal .pixel-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 52px);
+  gap: 5px;
+  justify-content: center;
+}
+
+.reveal .pixel-grid span {
+  width: 52px;
+  height: 52px;
+  border-radius: 4px;
+}
+
+.reveal .pixel-grid [data-shade="17"] { background: #111; }
+.reveal .pixel-grid [data-shade="34"] { background: #222; }
+.reveal .pixel-grid [data-shade="51"] { background: #333; }
+.reveal .pixel-grid [data-shade="102"] { background: #666; }
+.reveal .pixel-grid [data-shade="119"] { background: #777; }
+.reveal .pixel-grid [data-shade="170"] { background: #aaa; }
+.reveal .pixel-grid [data-shade="187"] { background: #bbb; }
+.reveal .pixel-grid [data-shade="204"] { background: #ccc; }
+.reveal .pixel-grid [data-shade="221"] { background: #ddd; }
+.reveal .pixel-grid [data-shade="238"] { background: #eee; }
+
+.reveal .diagram-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+}
+
+.reveal .diagram-node {
+  padding: 0.5em 0.65em;
+  border: 3px solid var(--accent-blue);
+  border-radius: 14px;
+  background: #f5fbff;
+  text-align: center;
+}
+
+.reveal .diagram-arrow {
+  color: var(--accent-blue);
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.reveal .question-grid,
+.reveal .concept-grid {
+  display: grid;
+  gap: 0.55em;
+}
+
+.reveal .question-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.reveal .question-grid > div {
+  border-left: 6px solid var(--accent-blue);
+  background: #f4f8fb;
+  padding: 0.45em 0.7em;
+}
+
+.reveal .concept-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.reveal .concept-grid > div {
+  border: 2px solid #9fc4dc;
+  border-radius: 14px;
+  padding: 0.5em;
+  text-align: center;
+  background: #f7fbfd;
+}
+
+.reveal .course-loop {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.reveal .course-loop > div:not(.diagram-arrow) {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #9fc4dc;
+  border-radius: 50%;
+  padding: 0.25em;
+  background: #f7fbfd;
+  text-align: center;
+}
+
+.reveal .component-image {
+  height: 230px;
+  border: 2px solid #d7e5ee;
+  border-radius: 16px;
+}
+
+.reveal .component-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto;
+  align-items: center;
+  gap: 0.7em;
+  text-align: center;
+}
+
+.reveal .component-sky {
+  background: linear-gradient(#edf8fd, #78b8dc);
+}
+
+.reveal .component-land {
+  background: linear-gradient(155deg, transparent 44%, #567a4d 45% 65%, #183345 66%);
+}
+
+.reveal .diagram-center {
+  text-align: center;
+}
+
+.reveal .diagram-image {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.reveal svg text {
+  fill: #333;
+  font-family: Arial, sans-serif;
+}
