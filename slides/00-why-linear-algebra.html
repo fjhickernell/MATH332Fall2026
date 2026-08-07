@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-08-06">
+  <meta name="dcterms.date" content="2026-08-07">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -37,6 +37,7 @@
     }
   </style>
   <link rel="stylesheet" href="00-why-linear-algebra_files/libs/revealjs/dist/theme/quarto-e9cc052d6baf1789e8d5a43aab2e3256.css">
+  <link rel="stylesheet" href="00-why-linear-algebra.css">
   <link href="00-why-linear-algebra_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="00-why-linear-algebra_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="00-why-linear-algebra_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -193,6 +194,8 @@
           alert: ["{\\class{alert}{#1}}", 1],
           alerttext: ["{\\class{alert}{\\text{#1}}}", 1],
           alerttextsf: ["{\\class{alert}{\\textsf{#1}}}",1],
+          mat: ["{\\mathsf{#1}}", 1],
+          vct: ["{\\boldsymbol{#1}}", 1],
           notimplies: "\\ \\mathrel{\\not\\!\\!\\!\\Longrightarrow}",
           convas: ["\\xrightarrow{\\mathsf{a.s.}}", 0],
           convp:  ["\\xrightarrow{\\Prob}", 0],
@@ -592,33 +595,605 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">August 6, 2026</p>
+  <p class="date">August 7, 2026</p>
 </section>
-<section id="why-linear-algebra" class="title-slide slide level1 center">
-<h1>Why linear algebra?</h1>
-<p>Opening question placeholder.</p>
+<section id="course-map" class="title-slide slide level1 center">
+<h1>Course Map</h1>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3>
+Course decks
+</h3>
+<ul>
+<li><a href="00-why-linear-algebra.html" class="alert">Why Linear Algebra?</a></li>
+<li><a href="01-systems-and-matrices.html">Systems and Matrices</a></li>
+<li><a href="02-determinants.html">Determinants</a></li>
+<li><a href="03-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
+<li><a href="04-general-vector-spaces.html">Vector Spaces</a></li>
+<li><a href="05-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
+<li><a href="06-inner-product-spaces.html">Inner Products</a></li>
+</ul>
+</div><div class="column" style="width:55%;">
+<h3>
+In this deck
+</h3>
+<ul>
+<li><a href="#/a-common-language">A common language</a></li>
+<li><a href="#/represent-many-quantities">Represent many quantities</a></li>
+<li><a href="#/act-and-solve">Act and solve</a></li>
+<li><a href="#/approximate-and-find-patterns">Approximate and find patterns</a></li>
+<li><a href="#/compute-responsibly">Compute responsibly</a></li>
+<li><a href="#/the-course-ahead">The course ahead</a></li>
+</ul>
+</div></div>
 </section>
 
-<section id="applications" class="title-slide slide level1 center">
-<h1>Applications</h1>
-<p>Applications placeholder.</p>
+<section>
+<section id="a-common-language" class="title-slide slide level1 center">
+<h1>A common language</h1>
+<div class="opening-strip">
+<div>
+<svg viewbox="0 0 220 120" role="img" aria-label="Stylized pixel image">
+<defs><lineargradient id="opening-image-gradient" x2="1" y2="1"><stop stop-color="#f8cc5c"></stop><stop offset="1" stop-color="#007acc"></stop></lineargradient></defs><rect width="220" height="120" rx="8" fill="url(#opening-image-gradient)"></rect><circle cx="65" cy="38" r="19" fill="#fff" opacity=".8"></circle><path d="M0 116 L65 61 L112 91 L154 53 L220 106 V120 H0Z" fill="#004b80" opacity=".85"></path>
+</svg>
+<p><span class="diagram-label">image and data</span></p>
+</div>
+<div>
+<svg viewbox="0 0 220 120" role="img" aria-label="Square transformed to a parallelogram">
+<g stroke="#bbb"><path d="M8 30H212M8 60H212M8 90H212M45 5V115M85 5V115M135 5V115M175 5V115"></path></g><rect x="28" y="35" width="55" height="55" fill="#007acc" opacity=".4" stroke="#004b80" stroke-width="4"></rect><path d="M132 93L154 31H204L182 93Z" fill="#f39c34" opacity=".55" stroke="#a85b00" stroke-width="4"></path>
+</svg>
+<p><span class="diagram-label">transformations and constraints</span></p>
+</div>
+<div>
+<svg viewbox="0 0 220 120" role="img" aria-label="Small network">
+<g stroke="#87abc2" stroke-width="5"><path d="M35 84L88 25L133 80L190 31M35 84L133 80M88 25L190 31"></path></g><g fill="#007acc" stroke="#fff" stroke-width="4"><circle cx="35" cy="84" r="15"></circle><circle cx="88" cy="25" r="15"></circle><circle cx="133" cy="80" r="20"></circle><circle cx="190" cy="31" r="14"></circle></g>
+</svg>
+<p><span class="diagram-label">networks and repeated change</span></p>
+</div>
+</div>
+<ul>
+<li><a href="#/represent-objects-and-transformations-numerically">Represent objects and transformations numerically</a></li>
+<li><a href="#/act-on-these-objects-to-via-transformations">Act on these objects to via transformations</a></li>
+</ul>
+<div class="diagram-flow">
+<div class="diagram-node">
+objects or data
+</div>
+<div class="diagram-arrow">
+<a href="#/represent-objects-and-transformations-numerically" class="diagram-label">1. Represent</a><br>→
+</div>
+<div class="diagram-node">
+numerical representation<br><span class="math inline">\(\vct{x}\)</span>
+</div>
+<div class="diagram-arrow">
+<a href="#/act-on-these-objects-to-via-transformations" class="diagram-label">2. Act</a><br>→
+</div>
+<div class="diagram-node">
+action by<br><span class="math inline">\(\mat{A}\)</span>
+</div>
+<div class="diagram-arrow">
+→
+</div>
+<div class="diagram-node">
+<span class="math inline">\(\vct{y}=\mat{A}\vct{x}\)</span>
+</div>
+</div>
 </section>
-
-<section id="the-big-picture" class="title-slide slide level1 center">
-<h1>The big picture</h1>
-<p>Big-picture placeholder.</p>
+<section id="represent-objects-and-transformations-numerically" class="slide level2">
+<h2>Represent objects and transformations numerically</h2>
+<div class="concept-grid">
+<div>
+<span class="diagram-label">scalar <span class="math inline">\(a\)</span></span><br>one quantity<br><span class="small">temperature</span>
+</div>
+<div>
+<span class="diagram-label">vector <span class="math inline">\(\vct{x}\)</span></span><br>several related quantities<br><span class="small">coordinates or pixel values</span>
+</div>
+<div>
+<span class="diagram-label">matrix <span class="math inline">\(\mat{A}\)</span></span><br>a transformation or relationships<br><span class="small">geometric action or constraints</span>
+</div>
+</div>
+<div class="key-point">
+<p>Coordinates and arrays let us compute with these objects, but the representation is not the object itself.</p>
+</div>
 </section>
-
-<section id="how-the-course-is-organized" class="title-slide slide level1 center">
-<h1>How the course is organized</h1>
-<p>Organization placeholder.</p>
+<section id="act-on-these-objects-to-via-transformations" class="slide level2">
+<h2>Act on these objects to via transformations</h2>
+<div class="diagram-flow">
+<div class="diagram-node">
+input object or state<br><span class="math inline">\(\vct{x}\)</span>
+</div>
+<div class="diagram-arrow">
+<span class="math inline">\(\longmapsto\)</span>
+</div>
+<div class="diagram-node">
+action or relationships<br><span class="math inline">\(\mat{A}\)</span>
+</div>
+<div class="diagram-arrow">
+→
+</div>
+<div class="diagram-node">
+resulting object or state<br><span class="math inline">\(\vct{y}=\mat{A}\vct{x}\)</span>
+</div>
+</div>
+<div class="concept-grid">
+<div>
+transform an image or geometric object
+</div>
+<div>
+mix related quantities
+</div>
+<div>
+update a network state or express constraints
+</div>
+</div>
+</section></section>
+<section>
+<section id="represent-many-quantities" class="title-slide slide level1 center">
+<h1>Represent many quantities</h1>
+<ul>
+<li><a href="#/an-arrow-is-only-the-beginning">An arrow is only the beginning</a></li>
+<li><a href="#/a-tiny-image-becomes-numbers">A tiny image becomes numbers</a></li>
+<li><a href="#/an-image-is-also-a-matrix">An image is also a matrix</a></li>
+<li><a href="#/keep-the-important-patterns">Keep the important patterns</a></li>
+</ul>
 </section>
-
-<section id="where-we-are-going" class="title-slide slide level1 center">
-<h1>Where we are going</h1>
-<p>Roadmap placeholder.</p>
-
+<section id="an-arrow-is-only-the-beginning" class="slide level2">
+<h2>An arrow is only the beginning</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<svg viewbox="0 0 420 300" width="100%" role="img" aria-label="Vector arrow from the origin to the point 3 comma 2">
+<defs><marker id="vector-arrowhead" markerwidth="10" markerheight="7" refx="9" refy="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#007acc"></polygon></marker></defs><path d="M55 245H380M55 245V30" stroke="#555" stroke-width="3"></path><path d="M55 245L315 80" stroke="#007acc" stroke-width="8" marker-end="url(#vector-arrowhead)"></path><text x="322" y="74" font-size="28">(3, 2)</text>
+</svg>
+</div><div class="column" style="width:55%;">
+<p>A vector can record</p>
+<ul>
+<li>a direction and displacement</li>
+<li>several measurements at once</li>
+<li>the current state of a system</li>
+<li>the ingredients of an object</li>
+</ul>
+<p><span class="math display">\[
+\vct{x}=\begin{bmatrix}3\\2\end{bmatrix}
+\]</span></p>
+</div></div>
 </section>
+<section id="a-tiny-image-becomes-numbers" class="slide level2">
+<h2>A tiny image becomes numbers</h2>
+<div class="columns">
+<div class="column" style="width:42%;">
+<div class="pixel-grid" aria-label="Four by four grayscale pixel image">
+<p><span data-shade="17"></span><span data-shade="51"></span><span data-shade="221"></span><span data-shade="238"></span> <span data-shade="34"></span><span data-shade="119"></span><span data-shade="238"></span><span data-shade="187"></span> <span data-shade="204"></span><span data-shade="238"></span><span data-shade="102"></span><span data-shade="34"></span> <span data-shade="238"></span><span data-shade="170"></span><span data-shade="34"></span><span data-shade="17"></span></p>
+</div>
+</div><div class="column" style="width:58%;">
+<p>Choose an order; read off brightness</p>
+<p><span class="math display">\[
+\vct{x}=\begin{bmatrix}
+17&amp;51&amp;221&amp;238&amp;34&amp;119&amp;\cdots&amp;17
+\end{bmatrix}^{\mathsf T}
+\]</span></p>
+<p><span class="alert">A <span class="math inline">\(4\times4\)</span> image can be represented by a vector in <span class="math inline">\(\reals^{16}\)</span></span></p>
+</div></div>
+</section>
+<section id="an-image-is-also-a-matrix" class="slide level2">
+<h2>An image is also a matrix</h2>
+<svg class="diagram-image" viewbox="0 0 500 300" width="46%" role="img" aria-label="Synthetic landscape made from smooth bands">
+<defs><lineargradient id="image-sky" y2="1"><stop stop-color="#ecf7fc"></stop><stop offset="1" stop-color="#78b8dc"></stop></lineargradient><lineargradient id="image-land" x2="1"><stop stop-color="#203d2e"></stop><stop offset=".5" stop-color="#75a35e"></stop><stop offset="1" stop-color="#294a36"></stop></lineargradient></defs><rect x="20" y="15" width="460" height="270" rx="8" fill="url(#image-sky)"></rect><circle cx="365" cy="80" r="40" fill="#ffe39a"></circle><path d="M20 220Q120 140 230 215T480 165V285H20Z" fill="url(#image-land)"></path><path d="M20 255Q120 215 240 260T480 225V285H20Z" fill="#183345" opacity=".8"></path>
+</svg>
+<p>Every grayscale pixel is one entry of a matrix: <span class="math inline">\(\mat{M}=(m_{jk})_{j=1,k=1}^{m,n}\)</span></p>
+<p>Images contain repeated patterns</p>
+</section>
+<section id="keep-the-important-patterns" class="slide level2">
+<h2>Keep the important patterns</h2>
+<div class="component-row">
+<div>
+<div class="component-image component-sky" role="img" aria-label="Simple vertical brightness component">
+
+</div>
+<span class="diagram-label">simple pattern</span>
+</div>
+<span class="diagram-arrow">+</span>
+<div>
+<div class="component-image component-land" role="img" aria-label="Simple landscape component">
+
+</div>
+<span class="diagram-label">simple pattern</span>
+</div>
+<p><span class="diagram-arrow">+ ···</span></p>
+</div>
+<p>The singular value decomposition orders these patterns by importance: compression, denoising, and discovering structure</p>
+</section></section>
+<section>
+<section id="act-and-solve" class="title-slide slide level1 center">
+<h1>Act and solve</h1>
+<ul>
+<li><a href="#/a-matrix-is-an-action">A matrix is an action</a></li>
+<li><a href="#/predict-before-calculating">Predict before calculating</a></li>
+<li><a href="#/composition-is-multiplication">Composition is multiplication</a></li>
+<li><a href="#/locate-a-source">Locate a source</a></li>
+<li><a href="#/what-does-the-system-tell-us">What does the system tell us?</a></li>
+</ul>
+</section>
+<section id="a-matrix-is-an-action" class="slide level2">
+<h2>A matrix is an action</h2>
+<div class="columns">
+<div class="column" style="width:62%;">
+<svg viewbox="0 0 640 360" width="100%" role="img" aria-label="Square transformed by a shear">
+<g stroke="#d5d5d5"><path d="M30 60H610M30 120H610M30 180H610M30 240H610M30 300H610M90 20V340M150 20V340M210 20V340M270 20V340M370 20V340M430 20V340M490 20V340M550 20V340"></path></g><rect x="90" y="120" width="120" height="120" fill="#007acc" opacity=".35" stroke="#004b80" stroke-width="5"></rect><path d="M390 240L450 120H570L510 240Z" fill="#f39c34" opacity=".45" stroke="#a85b00" stroke-width="5"></path><path d="M250 180H345" stroke="#007acc" stroke-width="7"></path><polygon points="345,180 320,166 320,194" fill="#007acc"></polygon>
+</svg>
+</div><div class="column" style="width:38%;">
+<p><span class="math display">\[
+\mat{A}=\begin{bmatrix}
+1&amp;\tfrac12\\
+0&amp;1
+\end{bmatrix}
+\]</span></p>
+<p>This matrix <span class="alert">shears</span> every vector</p>
+<p><span class="math display">\[\vct{x}\longmapsto\mat{A}\vct{x}\]</span></p>
+</div></div>
+</section>
+<section id="predict-before-calculating" class="slide level2">
+<h2>Predict before calculating</h2>
+<p><span class="math display">\[
+\mat{R}=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix},
+\qquad
+\vct{x}=\begin{bmatrix}2\\1\end{bmatrix}
+\]</span></p>
+<p>What will <span class="math inline">\(\mat{R}\vct{x}\)</span> do?</p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p>A. reflect</p>
+</div><div class="column" style="width:33%;">
+<p>B. rotate <span class="math inline">\(90^\circ\)</span></p>
+</div><div class="column" style="width:33%;">
+<p>C. double in size</p>
+</div></div>
+<div class="fragment key-point">
+<span class="math inline">\(\mat{R}\vct{x}=(-1,2)^{\mathsf T}\)</span>: counterclockwise rotation by <span class="math inline">\(90^\circ\)</span>
+</div>
+</section>
+<section id="composition-is-multiplication" class="slide level2">
+<h2>Composition is multiplication</h2>
+<div class="diagram-flow">
+<div class="diagram-node">
+object
+</div>
+<div class="diagram-arrow">
+<span class="math inline">\(\xrightarrow{\mat{A}}\)</span>
+</div>
+<div class="diagram-node">
+world
+</div>
+<div class="diagram-arrow">
+<span class="math inline">\(\xrightarrow{\mat{B}}\)</span>
+</div>
+<div class="diagram-node">
+camera
+</div>
+<div class="diagram-arrow">
+<span class="math inline">\(\xrightarrow{\mat{C}}\)</span>
+</div>
+<div class="diagram-node">
+screen
+</div>
+</div>
+<p>Doing the transformations in sequence is one matrix action</p>
+<p><span class="math display">\[
+\vct{x}_{\text{screen}}
+=\mat{C}\mat{B}\mat{A}\vct{x}_{\text{object}}
+\]</span></p>
+<p>Order matters</p>
+</section>
+<section id="locate-a-source" class="slide level2">
+<h2>Locate a source</h2>
+<p>Three sensors estimate an unknown location <span class="math inline">\((x,y)\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+x+y&amp;=6 &amp;&amp;\text{sensor 1}\\
+2x-y&amp;=3 &amp;&amp;\text{sensor 2}\\
+3x&amp;=9 &amp;&amp;\text{sensor 3}
+\end{aligned}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:52%;">
+<svg viewbox="0 0 520 300" width="100%" role="img" aria-label="Three constraint lines meeting at the point 3 comma 3">
+<path d="M40 260H490M40 260V20" stroke="#555" stroke-width="3"></path><path d="M40 55L460 245" stroke="#007acc" stroke-width="5"></path><path d="M90 260L300 20" stroke="#f39c34" stroke-width="5"></path><path d="M250 20V260" stroke="#0f8b8d" stroke-width="5"></path><circle cx="250" cy="150" r="10" fill="#c62828"></circle><text x="267" y="143" font-size="24">(3,3)</text>
+</svg>
+</div><div class="column" style="width:48%;">
+<p>All three constraints agree</p>
+<p>But the third is the sum of the first two</p>
+<p>More equations do not always mean more information</p>
+</div></div>
+</section>
+<section id="what-does-the-system-tell-us" class="slide level2">
+<h2>What does the system tell us?</h2>
+<div class="question-grid">
+<div>
+<span class="diagram-label">existence</span><br>Does any solution satisfy every constraint?
+</div>
+<div>
+<span class="diagram-label">uniqueness</span><br>Is there exactly one solution?
+</div>
+<div>
+<span class="diagram-label">information</span><br>Which constraints add something new?
+</div>
+<div>
+<span class="diagram-label">reversibility</span><br>Can outputs determine the inputs?
+</div>
+</div>
+<div class="key-point">
+<p>Solving means understanding the information in a system—not only finding numbers.</p>
+</div>
+</section></section>
+<section>
+<section id="approximate-and-find-patterns" class="title-slide slide level1 center">
+<h1>Approximate and find patterns</h1>
+<ul>
+<li><a href="#/real-data-miss-the-line">Real data miss the line</a></li>
+<li><a href="#/projection-gives-the-closest-answer">Projection gives the closest answer</a></li>
+<li><a href="#/importance-can-be-recursive">Importance can be recursive</a></li>
+<li><a href="#/a-steady-pattern">A steady pattern</a></li>
+<li><a href="#/where-machine-learning-fits">Where machine learning fits</a></li>
+</ul>
+</section>
+<section id="real-data-miss-the-line" class="slide level2">
+<h2>Real data miss the line</h2>
+<div class="columns">
+<div class="column" style="width:62%;">
+<svg viewbox="0 0 620 380" width="100%" role="img" aria-label="Scatterplot with a fitted line and residuals">
+<path d="M55 325H585M55 325V25" stroke="#555" stroke-width="3"></path><path d="M80 295L550 70" stroke="#f39c34" stroke-width="6"></path><g fill="#007acc"><circle cx="110" cy="285" r="10"></circle><circle cx="180" cy="220" r="10"></circle><circle cx="255" cy="235" r="10"></circle><circle cx="330" cy="160" r="10"></circle><circle cx="405" cy="155" r="10"></circle><circle cx="500" cy="85" r="10"></circle></g><g stroke="#777" stroke-width="3" stroke-dasharray="7 6"><path d="M180 220V247M255 235V211M330 160V175M405 155V139"></path></g>
+</svg>
+</div><div class="column" style="width:38%;">
+<p>No line passes through every point</p>
+<p>So <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> has no exact solution</p>
+<p>What should “best” mean?</p>
+</div></div>
+</section>
+<section id="projection-gives-the-closest-answer" class="slide level2">
+<h2>Projection gives the closest answer</h2>
+<svg viewbox="0 0 1000 430" width="94%" role="img" aria-label="Data vector projected perpendicularly onto a line">
+<defs><marker id="projection-arrowhead" markerwidth="10" markerheight="7" refx="9" refy="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#007acc"></polygon></marker></defs><path d="M100 350L900 80" stroke="#8ba8ba" stroke-width="8"></path><path d="M100 350L640 105" stroke="#007acc" stroke-width="8" marker-end="url(#projection-arrowhead)"></path><path d="M100 350L525 265" stroke="#f39c34" stroke-width="8" marker-end="url(#projection-arrowhead)"></path><path d="M525 265L640 105" stroke="#c62828" stroke-width="6" stroke-dasharray="10 8"></path><path d="M500 270L512 300L542 288" fill="none" stroke="#333" stroke-width="4"></path><text x="645" y="92" font-size="30">data vector b</text><text x="350" y="332" font-size="30">closest possible A x̂</text><text x="595" y="205" font-size="28">residual</text>
+</svg>
+<p><span class="math display">\[
+\min_{\vct{x}}\;\lVert\vct{b}-\mat{A}\vct{x}\rVert^2
+\]</span></p>
+<p>The least-squares solution is a projection; geometry identifies the smallest error</p>
+</section>
+<section id="importance-can-be-recursive" class="slide level2">
+<h2>Importance can be recursive</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<svg viewbox="0 0 620 390" width="100%" role="img" aria-label="Five-node directed web network">
+<defs><marker id="network-arrowhead" markerwidth="9" markerheight="7" refx="8" refy="3.5" orient="auto"><polygon points="0 0,9 3.5,0 7" fill="#7895a8"></polygon></marker></defs><g stroke="#7895a8" stroke-width="5" fill="none" marker-end="url(#network-arrowhead)"><path d="M105 100L270 170M110 285L270 210M510 90L350 170M510 300L350 220M290 170L150 110M330 170L475 100M320 225L480 285M480 285L130 285"></path></g><g fill="#f8fbfd" stroke="#007acc" stroke-width="6"><circle cx="90" cy="90" r="40"></circle><circle cx="90" cy="300" r="40"></circle><circle cx="310" cy="195" r="60" fill="#d9effb"></circle><circle cx="530" cy="75" r="40"></circle><circle cx="530" cy="315" r="40"></circle></g><g font-size="32" text-anchor="middle"><text x="90" y="101">A</text><text x="90" y="311">B</text><text x="310" y="206">C</text><text x="530" y="86">D</text><text x="530" y="326">E</text></g>
+</svg>
+</div><div class="column" style="width:42%;">
+<p>A page is important if important pages link to it</p>
+<p>How can a circular definition produce a ranking?</p>
+<p>Let the network update the scores repeatedly</p>
+</div></div>
+</section>
+<section id="a-steady-pattern" class="slide level2">
+<h2>A steady pattern</h2>
+<p><span class="math display">\[
+\vct{p}_{k+1}=\mat{A}\vct{p}_k
+\]</span></p>
+<div class="diagram-flow">
+<div class="diagram-node">
+initial scores
+</div>
+<div class="diagram-arrow">
+→
+</div>
+<div class="diagram-node">
+redistribute
+</div>
+<div class="diagram-arrow">
+→
+</div>
+<div class="diagram-node">
+redistribute
+</div>
+<div class="diagram-arrow">
+→
+</div>
+<div class="diagram-node">
+steady scores?
+</div>
+</div>
+<p>A steady ranking satisfies</p>
+<p><span class="math display">\[\mat{A}\vct{p}=\vct{p}\]</span></p>
+<p>Eigenvectors identify directions that a matrix action preserves</p>
+</section>
+<section id="where-machine-learning-fits" class="slide level2">
+<h2>Where machine learning fits</h2>
+<div class="diagram-flow">
+<div class="diagram-node">
+examples<br><span class="small">vectors</span>
+</div>
+<div class="diagram-arrow">
+→
+</div>
+<div class="diagram-node">
+batch<br><span class="small">matrix</span>
+</div>
+<div class="diagram-arrow">
+→
+</div>
+<div class="diagram-node">
+<span class="math inline">\(\mat{W}\vct{x}+\vct{b}\)</span><br><span class="small">linear layer</span>
+</div>
+<div class="diagram-arrow">
+→
+</div>
+<div class="diagram-node">
+nonlinearity
+</div>
+<div class="diagram-arrow">
+→
+</div>
+<div class="diagram-node">
+prediction
+</div>
+</div>
+<p>Linear algebra supplies representations, transformations, geometry, and scalable operations</p>
+<p>Machine learning also needs probability, optimization, nonlinear models, data, and judgment</p>
+</section></section>
+<section>
+<section id="compute-responsibly" class="title-slide slide level1 center">
+<h1>Compute responsibly</h1>
+<ul>
+<li><a href="#/almost-parallel-almost-unknowable">Almost parallel, almost unknowable</a></li>
+<li><a href="#/exact-mathematics-finite-arithmetic">Exact mathematics, finite arithmetic</a></li>
+<li><a href="#/can-we-trust-the-answer">Can we trust the answer?</a></li>
+</ul>
+</section>
+<section id="almost-parallel-almost-unknowable" class="slide level2">
+<h2>Almost parallel, almost unknowable</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<svg viewbox="0 0 620 380" width="100%" role="img" aria-label="Almost parallel constraint lines whose intersection changes dramatically">
+<g stroke-width="5" fill="none"><path d="M35 325L585 70" stroke="#007acc"></path><path d="M35 308L585 62" stroke="#f39c34"></path><path d="M35 355L585 102" stroke="#0f8b8d" stroke-dasharray="10 8"></path></g><text x="340" y="48" font-size="25">tiny change in one constraint</text><path d="M380 55L460 93" stroke="#333" stroke-width="2"></path><circle cx="520" cy="100" r="9" fill="#c62828"></circle><circle cx="120" cy="285" r="9" fill="#7b1fa2"></circle><text x="460" y="135" font-size="24">intersection moves far</text>
+</svg>
+</div><div class="column" style="width:42%;">
+<p>Nearly dependent measurements contain little independent information</p>
+<p>A tiny change in the data can cause a large change in the solution</p>
+<p>This is <span class="alert">ill-conditioning</span></p>
+</div></div>
+</section>
+<section id="exact-mathematics-finite-arithmetic" class="slide level2">
+<h2>Exact mathematics, finite arithmetic</h2>
+<p>Computers store only a finite set of numbers</p>
+<p><span class="math display">\[
+0.1+0.2\ne0.3
+\qquad
+\text{in ordinary binary floating-point arithmetic}
+\]</span></p>
+<p>Usually the tiny error is harmless</p>
+<p>But a sensitive problem or unstable algorithm can amplify small errors</p>
+<div class="key-point">
+<p>A mathematically correct method can still produce an unreliable numerical answer.</p>
+</div>
+</section>
+<section id="can-we-trust-the-answer" class="slide level2">
+<h2>Can we trust the answer?</h2>
+<div class="question-grid">
+<div>
+<span class="diagram-label">model</span><br>Do the equations represent the situation?
+</div>
+<div>
+<span class="diagram-label">mathematics</span><br>Does a solution exist, and is it unique?
+</div>
+<div>
+<span class="diagram-label">problem</span><br>Is the answer sensitive to small changes?
+</div>
+<div>
+<span class="diagram-label">algorithm</span><br>Does the computation control error?
+</div>
+</div>
+</section></section>
+<section>
+<section id="the-course-ahead" class="title-slide slide level1 center">
+<h1>The course ahead</h1>
+<ul>
+<li><a href="#/questions-organize-the-theory">Questions organize the theory</a></li>
+<li><a href="#/applications-theory-and-algorithms">Applications, theory, and algorithms</a></li>
+<li><a href="#/how-you-will-work">How you will work</a></li>
+<li><a href="#/return-to-the-opening">Return to the opening</a></li>
+</ul>
+</section>
+<section id="questions-organize-the-theory" class="slide level2">
+<h2>Questions organize the theory</h2>
+<div class="concept-grid">
+<div>
+<span class="diagram-label">represent and construct</span><br>vectors · combinations<br>spaces · bases
+</div>
+<div>
+<span class="diagram-label">solve</span><br>existence · uniqueness<br>systems
+</div>
+<div>
+<span class="diagram-label">detect redundancy</span><br>independence<br>rank · dimension
+</div>
+<div>
+<span class="diagram-label">reverse</span><br>invertibility<br>determinants
+</div>
+<div>
+<span class="diagram-label">approximate</span><br>orthogonality<br>least squares
+</div>
+<div>
+<span class="diagram-label">find persistent patterns</span><br>eigenvectors<br>singular vectors
+</div>
+</div>
+</section>
+<section id="applications-theory-and-algorithms" class="slide level2" data-state="goldborder">
+<h2>Applications, theory, and algorithms</h2>
+<div class="course-loop">
+<div>
+applications<br>ask
+</div>
+<div class="diagram-arrow">
+→
+</div>
+<div>
+definitions<br>clarify
+</div>
+<div class="diagram-arrow">
+→
+</div>
+<div>
+theory<br>explains
+</div>
+<div class="diagram-arrow">
+→
+</div>
+<div>
+algorithms<br>compute
+</div>
+</div>
+<div class="key-point">
+<p>Computation tests ideas on realistic examples and raises new questions.</p>
+</div>
+</section>
+<section id="how-you-will-work" class="slide level2">
+<h2>How you will work</h2>
+<div class="concept-grid">
+<div>
+calculate<br><span class="small">build fluency</span>
+</div>
+<div>
+visualize<br><span class="small">see structure</span>
+</div>
+<div>
+experiment<br><span class="small">Python / Colab</span>
+</div>
+<div>
+explain<br><span class="small">make reasoning visible</span>
+</div>
+<div>
+prove<br><span class="small">know why</span>
+</div>
+<div>
+connect<br><span class="small">transfer ideas</span>
+</div>
+</div>
+<p>The course asks for calculation, experimentation, explanation, and proof</p>
+</section>
+<section id="return-to-the-opening" class="slide level2">
+<h2>Return to the opening</h2>
+<div class="concept-grid">
+<div>
+<span class="diagram-label">image and data</span><br>vectors · matrices<br>projection · SVD
+</div>
+<div>
+<span class="diagram-label">transformations and constraints</span><br>matrix action<br>systems · conditioning
+</div>
+<div>
+<span class="diagram-label">networks and repeated change</span><br>matrix powers<br>eigenvectors
+</div>
+</div>
+<div class="key-point">
+<p>By the end of this course, you should be able to recognize which linear-algebra questions to ask when a new problem appears.</p>
+</div>
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

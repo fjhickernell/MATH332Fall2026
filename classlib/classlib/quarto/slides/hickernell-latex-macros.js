@@ -63,6 +63,8 @@
         alert: ["{\\class{alert}{#1}}", 1],
         alerttext: ["{\\class{alert}{\\text{#1}}}", 1],
         alerttextsf: ["{\\class{alert}{\\textsf{#1}}}",1],
+        mat: ["{\\mathsf{#1}}", 1],
+        vct: ["{\\boldsymbol{#1}}", 1],
         notimplies: "\\ \\mathrel{\\not\\!\\!\\!\\Longrightarrow}",
         convas: ["\\xrightarrow{\\mathsf{a.s.}}", 0],
         convp:  ["\\xrightarrow{\\Prob}", 0],
