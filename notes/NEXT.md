@@ -2,43 +2,36 @@
 
 ## Current task
 
-Review the remaining conceptual closing of Lecture 00 in
-`slides/00-why-linear-algebra.qmd`.
+Create a MATH 332 notebook that introduces common matrix calculations.
 
 ## Current state
 
-- Lecture 00 is largely complete and has been rendered and validated.
-- The MATH 565-style MATH 332 logistics slides have been added and are
-  substantially complete.
-- The CSS audit is documented in the existing planning notes, and CSS
-  centralization has been deferred.
-- The remaining concern is the conceptual material surrounding the logistics
-  slides—not the logistics section as a whole.
-- In particular, the instructor does not yet understand or agree with some of
-  the wrap-up language, including `Return to the opening`.
+- Lecture 00 is substantially complete, rendered, and visually approved; only
+  future polish remains.
+- The repository currently has the introductory demonstration notebook
+  `notebooks/demonstrations/00-why-linear-algebra.ipynb` and no substantive
+  matrix-calculation notebook.
+- The course notebook page still describes the introductory notebook as a
+  placeholder and has no validated notebook links.
 
 ## Questions to resolve
 
-- Which roadmap or wrap-up comments are genuinely useful to beginning
-  students?
-- Does `Return to the opening` create a meaningful connection, or merely
-  repeat earlier examples?
-- Should the lecture end more concretely by transitioning to the first
-  substantive topic, likely solving linear systems?
-- Are any other conceptual closing slides abstract, repetitive, or unclear?
+- Which calculations belong in the first notebook, and in what pedagogical
+  order?
+- Should it be primarily a demonstration, an exercise, or a combination?
+- How should it connect to Lecture 01 on systems and matrices?
 
 ## Constraints
 
-- Review the proposed direction with the instructor before editing.
-- Preserve the substantially completed logistics slides unless a concrete
-  problem is identified.
-- Do not revise the earlier Represent, Act, or Compute responsibly sections.
-- Do not reorganize or centralize CSS yet.
+- Agree on the notebook's scope and student workflow before building it.
+- Use the course's established notation and NumPy conventions.
+- Keep Lecture 00 unchanged except for separately requested future polish.
+- Do not reorganize or centralize additional CSS.
 
 ## Done when
 
-- The instructor understands and approves the purpose and wording of the
-  conceptual closing.
-- Any approved changes have been rendered and visually checked.
-- Navigation and links work.
-- `notes/NEXT.md` has been updated to the next immediate task.
+- The instructor approves the notebook's scope and organization.
+- The notebook runs from a clean kernel without errors and its mathematical
+  results have been checked.
+- Any student-facing notebook index and links are updated and validated.
+- `notes/NEXT.md` identifies the next single immediate task.

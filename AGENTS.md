@@ -59,6 +59,14 @@ At every checkpoint, update `notes/NEXT.md` with the single most likely next
 task, its current state, unresolved decisions, constraints, and completion
 criteria. Keep longer-term and non-immediate work in `notes/TODO-LATER.md`.
 
+### Next-task shorthand
+
+Interpret `Next?` as a request to read and summarize `notes/NEXT.md` from both
+active repositories, `MATH332Fall2026` and `MATH565Fall2026`. Interpret
+`Next 332?` and `Next 565?` as requests for only the named course. Read the
+files each time rather than relying on conversation memory. Reporting a next
+task does not authorize beginning it.
+
 ## Slides
 
 The RevealJS decks in `slides/` are the authoritative course presentation
