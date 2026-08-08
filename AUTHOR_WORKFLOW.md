@@ -17,6 +17,29 @@ website and the independent slide project, stages the slide output under
 Put mathematical exposition in the corresponding RevealJS deck so that course
 content is maintained only once.
 
+## Slide-source conventions
+
+- Prefer readable Quarto Markdown for headings, text, columns, equations, and
+  ordinary emphasis. Use raw HTML when a diagram or specialized layout is
+  materially easier to construct that way.
+- RevealJS hierarchy exception: inside a `#` section slide, use an HTML `<h3>`
+  for a visible tertiary heading because Quarto `###` does not render there as
+  intended. Inside a `##` slide, ordinary Quarto `###` headings work normally.
+- Keep slide statements terse: labels and compact phrases are usually better
+  than complete sentences.
+- Mark questions and in-class exercises with `$\exstar$` (or the appropriate
+  shared exercise notation). Do not place worked answers later in the
+  student-visible deck when they would reveal an activity students should do
+  in class.
+- Prefer `\begin{align}` or `\begin{align*}` for multiline displayed equations
+  when it works directly. Use `aligned` only when the equations must be nested
+  inside another math environment or diagram element.
+- Reuse classlib semantic and spacing classes, including `vspace-sm`, `vspace`,
+  and `vspace-lg`. Avoid new one-off classes for prose or simple spacing.
+- Keep deck-specific CSS focused on genuine diagram construction. Before adding
+  a selector, check whether classlib or an existing deck class already provides
+  the needed behavior.
+
 ## Fresh clone and Python environment
 
 ```bash

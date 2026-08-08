@@ -9,22 +9,33 @@
 .reveal .opening-strip {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.65em;
+  column-gap: 0.65em;
+  row-gap: 1.15em;
   margin-bottom: 0.8em;
 }
 
 .reveal .opening-strip > div {
   display: grid;
+  align-content: start;
   justify-items: center;
-  padding: 0.3em;
-  border: 2px solid #d7e5ee;
-  border-radius: 14px;
-  background: #f8fbfd;
+  row-gap: 0.08em;
 }
 
 .reveal .opening-strip svg {
+  display: block;
   width: 82%;
   max-height: 125px;
+}
+
+.reveal .opening-strip .diagram-label {
+  line-height: 1.05;
+}
+
+.reveal .opening-symbol {
+  display: grid;
+  min-height: 120px;
+  place-items: center;
+  font-size: 1.1em;
 }
 
 .reveal .pixel-grid {
@@ -35,10 +46,21 @@
 }
 
 .reveal .pixel-grid span {
+  display: grid;
+  place-items: center;
   width: 52px;
   height: 52px;
   border-radius: 4px;
+  color: #111;
+  font-family: var(--r-code-font);
+  font-size: 0.55em;
 }
+
+.reveal .pixel-grid [data-shade="17"],
+.reveal .pixel-grid [data-shade="34"],
+.reveal .pixel-grid [data-shade="51"],
+.reveal .pixel-grid [data-shade="102"],
+.reveal .pixel-grid [data-shade="119"] { color: #fff; }
 
 .reveal .pixel-grid [data-shade="17"] { background: #111; }
 .reveal .pixel-grid [data-shade="34"] { background: #222; }
@@ -120,7 +142,7 @@
 }
 
 .reveal .component-image {
-  height: 230px;
+  height: 155px;
   border: 2px solid #d7e5ee;
   border-radius: 16px;
 }
@@ -139,10 +161,6 @@
 
 .reveal .component-land {
   background: linear-gradient(155deg, transparent 44%, #567a4d 45% 65%, #183345 66%);
-}
-
-.reveal .diagram-center {
-  text-align: center;
 }
 
 .reveal .diagram-image {
