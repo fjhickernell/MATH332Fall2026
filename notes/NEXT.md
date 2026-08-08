@@ -2,36 +2,39 @@
 
 ## Current task
 
-Create a MATH 332 notebook that introduces common matrix calculations.
+Agree on the scope and structure for the Chapter 1 slides in
+`slides/01-systems-and-matrices.qmd`.
 
 ## Current state
 
-- Lecture 00 is substantially complete, rendered, and visually approved; only
-  future polish remains.
-- The repository currently has the introductory demonstration notebook
-  `notebooks/demonstrations/00-why-linear-algebra.ipynb` and no substantive
-  matrix-calculation notebook.
-- The course notebook page still describes the introductory notebook as a
-  placeholder and has no validated notebook links.
+- Lecture 00 and its companion notebook are substantially complete, rendered,
+  and validated; only future polish remains.
+- `notebooks/demonstrations/00-why-linear-algebra.ipynb` introduces NumPy and
+  SymPy matrix computation, linear systems, least squares, and responsible
+  numerical practice.
+- `pages/notebooks.qmd` links to the validated notebook in the course
+  repository.
+- The Chapter 1 deck remains a structural draft; the instructor has additional
+  guidance to provide before its organization is developed.
 
 ## Questions to resolve
 
-- Which calculations belong in the first notebook, and in what pedagogical
-  order?
-- Should it be primarily a demonstration, an exercise, or a combination?
-- How should it connect to Lecture 01 on systems and matrices?
+- What structure should organize Lecture 01?
+- Which Chapter 1 sections and examples should be developed first?
 
 ## Constraints
 
-- Agree on the notebook's scope and student workflow before building it.
-- Use the course's established notation and NumPy conventions.
+- Use Anton Chapter 1 as the course spine and the established MATH 332
+  notation.
+- Keep mathematical exposition authoritative in the RevealJS deck.
+- Treat the Lecture 00 notebook as a computational companion, not a second
+  source of mathematical content.
 - Keep Lecture 00 unchanged except for separately requested future polish.
 - Do not reorganize or centralize additional CSS.
 
 ## Done when
 
-- The instructor approves the notebook's scope and organization.
-- The notebook runs from a clean kernel without errors and its mathematical
-  results have been checked.
-- Any student-facing notebook index and links are updated and validated.
-- `notes/NEXT.md` identifies the next single immediate task.
+- The instructor's additional guidance has been incorporated into an agreed
+  outline for Lecture 01.
+- The outline identifies the first sections and examples to develop without
+  duplicating mathematical exposition in the companion notebook.

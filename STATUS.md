@@ -12,7 +12,7 @@ Mathematical content should be maintained only in the slides.
 4. [x] Develop Deck 00: Why Linear Algebra? as the teaser and roadmap.
 5. [ ] Develop the Chapter 1 slides in
    `slides/01-systems-and-matrices.qmd`.
-6. [ ] Develop and validate the first Python demonstration.
+6. [x] Develop and validate the first Python demonstration.
 7. [ ] Decide and document the Canvas quiz strategy.
 
 ## Later course construction

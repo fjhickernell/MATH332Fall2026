@@ -2,25 +2,22 @@
 title: "Jupyter Notebooks"
 ---
 
-Course notebooks will provide executable demonstrations and exercises for
+Course notebooks provide executable demonstrations and exercises for
 numerical matrix computation, exact symbolic computation, visualization, and
 experimentation.
 
-::: {.callout-note}
-## Content in development
-
-Notebook links will be added only after each notebook has been developed and
-validated. The introductory notebook is still a structural placeholder.
-:::
-
 ## Demonstrations
 
-Instructor demonstrations will illustrate linear algebra concepts and connect
-algebraic calculations with geometric interpretation. Validated notebook links
-will appear here.
+Instructor demonstrations illustrate linear algebra concepts and connect
+algebraic calculations with geometric interpretation.
+
+- [Matrix Computation: NumPy and SymPy](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/00-why-linear-algebra.ipynb)
+  — a companion to Lecture 00 introducing numerical and exact matrix
+  calculations, linear systems, least squares, and responsible computation
 
 ## Exercises
 
 Student exercises will provide opportunities to explore matrices, vector
 spaces, transformations, eigenvalues, and inner products computationally.
-Validated notebook links will appear here.
+Exercise notebooks will be linked here after they have been developed and
+validated.
