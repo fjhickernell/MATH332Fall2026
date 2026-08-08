@@ -4,6 +4,7 @@ deck_id: d00
 deck_title: "{{< meta decks.d00.title >}}"
 deck_short_title: "{{< meta decks.d00.short_title >}}"
 subtitle: "<span class='deck-title'>{{< meta deck_title >}}</span>"
+jupyter: python3
 format:
   revealjs:
     css: 00-why-linear-algebra.css
@@ -510,71 +511,186 @@ Machine learning also needs probability, optimization, nonlinear models, data, a
 
 # Compute responsibly
 
+- [Too little information, many answers](#too-little-information-many-answers)
 - [Almost parallel, almost unknowable](#almost-parallel-almost-unknowable)
-- [Exact mathematics, finite arithmetic](#exact-mathematics-finite-arithmetic)
+- [Equivalent mathematics, unequal computations](#equivalent-mathematics-unequal-computations)
+- [A correct computation can still cost too much](#a-correct-computation-can-still-cost-too-much)
 - [Can we trust the answer?](#can-we-trust-the-answer)
+
+## Too little information, many answers
+
+::: {.columns}
+::: {.column width="55%"}
+<svg viewBox="0 0 560 390" width="100%" role="img" aria-label="Several vectors ending on the line x one plus x two equals four"><defs><marker id="illposed-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#007acc"/></marker></defs><path d="M55 330H520M55 330V25" stroke="#555" stroke-width="3"/><path d="M75 65L475 325" stroke="#7895a8" stroke-width="6"/><g stroke="#007acc" stroke-width="7" marker-end="url(#illposed-arrowhead)"><path d="M55 330L155 117"/><path d="M55 330L255 182"/><path d="M55 330L355 247"/><path d="M55 330L455 312"/></g><g fill="#f39c34"><circle cx="155" cy="117" r="8"/><circle cx="255" cy="182" r="8"/><circle cx="355" cy="247" r="8"/><circle cx="455" cy="312" r="8"/></g><text x="300" y="105" font-size="27">same measurement</text><text x="280" y="372" font-size="25" text-anchor="middle">many possible vectors</text></svg>
+:::
+
+::: {.column width="45%"}
+One measurement
+
+$$
+\begin{bmatrix}1&1\end{bmatrix}\vct{x}=4
+$$
+
+Many solutions
+
+$$
+\vct{x}=\begin{bmatrix}0\\4\end{bmatrix},
+\begin{bmatrix}1\\3\end{bmatrix},
+\begin{bmatrix}3\\1\end{bmatrix},\ldots
+$$
+
+- existence: yes
+- uniqueness: no
+- information: insufficient
+:::
+:::
+
+::: {.key-point}
+An [ill-posed problem]{.alert} does not determine a unique, stable answer. Here uniqueness fails.
+:::
+
+One remedy: add a selection rule—e.g., the [smallest-norm]{.alert}
+solution: $\displaystyle\vct{x}_\star
+=\argmin_{[\,1\;1\,]\vct{x}=4}\lVert\vct{x}\rVert_2
+=\begin{bmatrix}2\\2\end{bmatrix}$
 
 ## Almost parallel, almost unknowable
 
 ::: {.columns}
 ::: {.column width="58%"}
-<svg viewBox="0 0 620 380" width="100%" role="img" aria-label="Almost parallel constraint lines whose intersection changes dramatically"><g stroke-width="5" fill="none"><path d="M35 325L585 70" stroke="#007acc"/><path d="M35 308L585 62" stroke="#f39c34"/><path d="M35 355L585 102" stroke="#0f8b8d" stroke-dasharray="10 8"/></g><text x="340" y="48" font-size="25">tiny change in one constraint</text><path d="M380 55L460 93" stroke="#333" stroke-width="2"/><circle cx="520" cy="100" r="9" fill="#c62828"/><circle cx="120" cy="285" r="9" fill="#7b1fa2"/><text x="460" y="135" font-size="24">intersection moves far</text></svg>
+<svg viewBox="0 0 620 380" width="100%" role="img" aria-label="Two nearly parallel constraints whose intersection moves far after a small perturbation"><text x="310" y="28" font-size="24" text-anchor="middle">small perturbation</text><path d="M170 58H225" stroke="#f39c34" stroke-width="5"/><text x="238" y="66" font-size="23">original</text><path d="M360 58H415" stroke="#0f8b8d" stroke-width="5" stroke-dasharray="10 8"/><text x="428" y="66" font-size="23">perturbed</text><g stroke-width="5" fill="none"><path d="M40 320L580 104" stroke="#007acc"/><path d="M40 301L580 107" stroke="#f39c34"/><path d="M40 317L580 123" stroke="#0f8b8d" stroke-dasharray="10 8"/></g><path d="M350 190V206" stroke="#333" stroke-width="3"/><path d="M342 190H358M342 206H358" stroke="#333" stroke-width="3"/><path d="M120 290L507 133" stroke="#777" stroke-width="3" stroke-dasharray="8 6"/><circle cx="507" cy="133" r="10" fill="#c62828"/><circle cx="114" cy="290" r="10" fill="#7b1fa2"/><text x="250" y="275" font-size="24">intersection moves far</text></svg>
 :::
 ::: {.column width="42%"}
-Nearly dependent measurements contain little independent information
+Each system has a unique solution
 
-A tiny change in the data can cause a large change in the solution
+Nearly parallel constraints make that solution highly sensitive to the data
 
 This is [ill-conditioning]{.alert}
 :::
 :::
 
-## Exact mathematics, finite arithmetic
+::: {.key-point}
+A tiny change in the data can cause a large change in the solution.
+:::
 
-Computers store only a finite set of numbers
+## Equivalent mathematics, unequal computations
+
+::: {.columns}
+::: {.column width="52%"}
+Mathematically equivalent
 
 $$
-0.1+0.2\ne0.3
-\qquad
-\text{in ordinary binary floating-point arithmetic}
+\sqrt{1+x^2}-1
+=
+\frac{x^2}{\sqrt{1+x^2}+1}
 $$
 
-Usually the tiny error is harmless
+For very small $x>0$, direct subtraction combines nearly equal numbers
 
-But a sensitive problem or unstable algorithm can amplify small errors
+[Catastrophic cancellation]{.alert} can discard significant digits
+:::
+
+::: {.column width="48%"}
+Python double precision:
+
+```{python}
+#| echo: false
+#| output: asis
+import numpy as np
+
+x = 1.23456789 * np.array([1e-6, 1e-7, 1e-8])  # Edit, then render
+
+direct = np.sqrt(1 + x**2) - 1
+rationalized = x**2 / (np.sqrt(1 + x**2) + 1)
+
+print("| $x$ | direct | rationalized |")
+print("|---:|---:|---:|")
+for x_i, direct_i, rationalized_i in zip(x, direct, rationalized):
+    print(f"| ${x_i:.4E}$ | ${direct_i:.4E}$ | ${rationalized_i:.4E}$ |")
+```
+
+The rationalized form avoids the subtraction
+:::
+:::
 
 ::: {.key-point}
-A mathematically correct method can still produce an unreliable numerical answer.
+Numerical [instability]{.alert} is avoidable error introduced or amplified by the computational method.
 :::
+
+## A correct computation can still cost too much
+
+::: {.columns}
+::: {.column width="45%"}
+### Solving  $\mA \vx = \vb$ for $\vx$
+
+For a dense $n\times n$ matrix, $\mA$
+
+- storage: about $n^2$ numbers
+- direct solve: about $n^3$ operations
+
+Double $n$ implies
+
+- $4\times$ the storage
+- $8\times$ the arithmetic
+
+
+:::
+
+::: {.column width="55%"}
+1. Use reliable numerical linear algebra packages
+
+    - tested, numerically stable algorithms
+    - optimized libraries and available hardware
+    - specialized sparse and structured methods
+
+2. Choose the efficient algorithm,
+  e.g. `x=np.linalg.solve(A,b)`, not `x=np.linalg.inv(A)@b`
+
+:::
+:::
+
+May reduce storage and operations by exploiting [structure]{.alert}: sparsity, symmetry, low rank, …
+
+::: {.key-point}
+Although implementing an algorithm can aid learning, for production work, a tested numerical library is the responsible choice
+:::
+
+Reliable software cannot fix ill-posedness or remove sensitivity inherent in an ill-conditioned problem.
 
 ## Can we trust the answer?
 
 ::: {.question-grid}
-<div><span class="diagram-label">model</span><br>Do the equations represent the situation?</div>
-<div><span class="diagram-label">mathematics</span><br>Does a solution exist, and is it unique?</div>
-<div><span class="diagram-label">problem</span><br>Is the answer sensitive to small changes?</div>
-<div><span class="diagram-label">algorithm</span><br>Does the computation control error?</div>
+<div><span class="diagram-label">model / formulation</span><br>Does the mathematical problem determine an appropriate answer?</div>
+<div><span class="diagram-label">conditioning</span><br>How much can the answer change when the data change slightly?</div>
+<div><span class="diagram-label">algorithm</span><br>Does the computation introduce substantially more error?</div>
+<div><span class="diagram-label">cost</span><br>Does the method use the size and structure of the problem efficiently?</div>
+<div><span class="diagram-label">verification</span><br>Can residuals, another method, or known structure check the result?</div>
+:::
+
+::: {.key-point}
+Distinguish an [ill-posed formulation]{.alert}, an [ill-conditioned problem]{.alert}, an [unstable algorithm]{.alert}, and [excessive computational cost]{.alert}.
 :::
 
 # The course ahead
 
-- [Questions organize the theory](#questions-organize-the-theory)
-- [Applications, theory, and algorithms](#applications-theory-and-algorithms)
-- [How you will work](#how-you-will-work)
+- [Questions that will guide us](#questions-that-will-guide-us)
+- [How we will learn linear algebra](#how-we-will-learn-linear-algebra)
+- [Where to find course materials](#where-to-find-course-materials)
+- [Course website or Canvas?](#course-website-or-canvas)
 - [Return to the opening](#return-to-the-opening)
 
-## Questions organize the theory
+## Questions that will guide us
 
 ::: {.concept-grid}
-<div><span class="diagram-label">represent and construct</span><br>vectors · combinations<br>spaces · bases</div>
-<div><span class="diagram-label">solve</span><br>existence · uniqueness<br>systems</div>
-<div><span class="diagram-label">detect redundancy</span><br>independence<br>rank · dimension</div>
-<div><span class="diagram-label">reverse</span><br>invertibility<br>determinants</div>
-<div><span class="diagram-label">approximate</span><br>orthogonality<br>least squares</div>
-<div><span class="diagram-label">find persistent patterns</span><br>eigenvectors<br>singular vectors</div>
+<div>How can we represent the problem?<br><span class="small">vectors · matrices · spaces</span></div>
+<div>Does a solution exist, and is it unique?<br><span class="small">systems</span></div>
+<div>Which information is genuinely new?<br><span class="small">rank · dimension</span></div>
+<div>Can we reverse the transformation?<br><span class="small">invertibility · determinants</span></div>
+<div>What is the best approximate answer?<br><span class="small">least squares</span></div>
+<div>Which patterns persist or matter most?<br><span class="small">eigenvectors · singular vectors</span></div>
 :::
 
-## Applications, theory, and algorithms {data-state="goldborder"}
+## How we will learn linear algebra
 
 ::: {.course-loop}
 <div>applications<br>ask</div><div class="diagram-arrow">→</div>
@@ -583,29 +699,62 @@ A mathematically correct method can still produce an unreliable numerical answer
 <div>algorithms<br>compute</div>
 :::
 
+- calculate and visualize
+- explain and prove
+- experiment with Python in Jupyter/Colab notebooks
+
 ::: {.key-point}
-Computation tests ideas on realistic examples and raises new questions.
+Calculation, visualization, explanation, proof, and computation reinforce one another.
 :::
 
-## How you will work
+Notebooks support demonstrations and experiments; they do not replace mathematical reasoning.
 
-::: {.concept-grid}
-<div>calculate<br><span class="small">build fluency</span></div>
-<div>visualize<br><span class="small">see structure</span></div>
-<div>experiment<br><span class="small">Python / Colab</span></div>
-<div>explain<br><span class="small">make reasoning visible</span></div>
-<div>prove<br><span class="small">know why</span></div>
-<div>connect<br><span class="small">transfer ideas</span></div>
+## Where to find course materials
+
+::: {.columns}
+::: {.column width="50%"}
+- [Welcome](../index.html)
+  - outline, textbook, course overview
+- [Schedule](../pages/schedule.html)
+  - dates and topics
+  - normal route to lecture slides
+- Public assessment information
+  - [Assignments](../pages/assignments.html)
+  - [Quizzes](../pages/quizzes.html)
+  - [Tests](../pages/tests.html)
 :::
 
-The course asks for calculation, experimentation, explanation, and proof
+::: {.column width="50%"}
+- [Policies](../pages/policies.html)
+  - course expectations as confirmed
+- [Jupyter Notebooks](../pages/notebooks.html)
+  - demonstrations and exercises as validated
+- [Course Resources](../pages/resources.html)
+  - software, textbook, and repository links
+:::
+:::
+
+## Course website or Canvas?
+
+| Course website | Canvas |
+|:---|:---|
+| Schedule and lecture slides | Grades |
+| Course information and policies | Announcements |
+| Public assignment, quiz, and test information | Discussions |
+| Notebook and resource links | — |
+
+::: {.key-point}
+Use the course website to find what to study; use Canvas for grades, announcements, and discussions.
+:::
+
+Assignment-submission and quiz-administration procedures are still to be confirmed.
 
 ## Return to the opening
 
 ::: {.concept-grid}
-<div><span class="diagram-label">image and data</span><br>vectors · matrices<br>projection · SVD</div>
-<div><span class="diagram-label">transformations and constraints</span><br>matrix action<br>systems · conditioning</div>
-<div><span class="diagram-label">networks and repeated change</span><br>matrix powers<br>eigenvectors</div>
+<div><span class="diagram-label">images and data</span><br>represent objects<br>reveal patterns</div>
+<div><span class="diagram-label">transformations and constraints</span><br>predict actions<br>solve what is possible</div>
+<div><span class="diagram-label">networks and repeated action</span><br>track change<br>find persistent behavior</div>
 :::
 
 ::: {.key-point}
