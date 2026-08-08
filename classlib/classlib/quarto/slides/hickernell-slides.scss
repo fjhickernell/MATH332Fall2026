@@ -1207,6 +1207,56 @@ h1::before,
     white-space: nowrap;
 }
 
+/* Inline samples of RevealJS and course navigation controls. */
+.reveal .controls.nav-control-sample {
+  display: inline-block;
+  position: relative;
+  inset: auto;
+  z-index: auto;
+  width: 3.6em;
+  height: 3.6em;
+  margin: -0.8em 0.32em;
+  vertical-align: middle;
+  pointer-events: none;
+}
+
+.reveal .nav-control-sample .controls-arrow {
+  display: block;
+}
+
+.reveal .nav-control-sample-right .controls-arrow {
+  transform: rotate(180deg) !important;
+}
+
+.reveal .nav-control-sample-up .controls-arrow {
+  transform: rotate(90deg) !important;
+}
+
+.reveal .nav-control-sample-down .controls-arrow {
+  transform: rotate(-90deg) !important;
+}
+
+.reveal .deck-nav-sample {
+  display: inline-block;
+  margin: -0.25em 0.24em;
+  color: var(--r-link-color);
+  font-family: initial;
+  font-size: 1.9em;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.45;
+  vertical-align: -0.08em;
+}
+
+.reveal .slide-menu-button.nav-menu-sample {
+  display: inline-block;
+  position: static;
+  margin: -0.25em 0.24em;
+  font-size: inherit;
+  line-height: 1;
+  vertical-align: middle;
+}
+
 /* ============================================================
    PDF export
    Keep the title-slide background image,

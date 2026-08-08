@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="00-why-linear-algebra_files/libs/revealjs/dist/theme/quarto-9d3dcbf92b96dc19f969958144391a08.css">
+  <link rel="stylesheet" href="00-why-linear-algebra_files/libs/revealjs/dist/theme/quarto-4b4972c6bc2b9c5a93c15631251c2601.css">
   <link rel="stylesheet" href="00-why-linear-algebra.css">
   <link href="00-why-linear-algebra_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="00-why-linear-algebra_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -1310,59 +1310,47 @@ prediction
 <section id="the-course-ahead" class="title-slide slide level1 center">
 <h1>The course ahead</h1>
 <ul>
-<li><a href="#/questions-that-will-guide-us">Questions that will guide us</a></li>
+<li><a href="#/questions-we-will-learn-to-answer">Questions we will learn to answer</a></li>
 <li><a href="#/how-we-will-learn-linear-algebra">How we will learn linear algebra</a></li>
-<li><a href="#/where-to-find-course-materials">Where to find course materials</a></li>
-<li><a href="#/course-website-or-canvas">Course website or Canvas?</a></li>
-<li><a href="#/return-to-the-opening">Return to the opening</a></li>
+<li><a href="#/what-is-where">What is where?</a></li>
+<li><a href="#/why-participate-synchronously">Why participate synchronously?</a></li>
+<li><a href="#/next-time-solving-systems-of-equations">Next time: solving systems of equations</a></li>
 </ul>
 </section>
-<section id="questions-that-will-guide-us" class="slide level2">
-<h2>Questions that will guide us</h2>
-<div class="concept-grid">
-<div>
-How can we represent the problem?<br><span class="small">vectors · matrices · spaces</span>
-</div>
-<div>
-Does a solution exist, and is it unique?<br><span class="small">systems</span>
-</div>
-<div>
-Which information is genuinely new?<br><span class="small">rank · dimension</span>
-</div>
-<div>
-Can we reverse the transformation?<br><span class="small">invertibility · determinants</span>
-</div>
-<div>
-What is the best approximate answer?<br><span class="small">least squares</span>
-</div>
-<div>
-Which patterns persist or matter most?<br><span class="small">eigenvectors · singular vectors</span>
-</div>
-</div>
+<section id="questions-we-will-learn-to-answer" class="slide level2">
+<h2>Questions we will learn to answer</h2>
+<ul>
+<li>How can we represent complicated objects and data?</li>
+<li>When does a system have one solution, many solutions, or none?</li>
+<li>Which information is genuinely new, and which is redundant?</li>
+<li>When can a transformation be reversed?</li>
+<li>How do we find the best approximate answer?</li>
+<li>Which patterns matter most?</li>
+</ul>
 </section>
 <section id="how-we-will-learn-linear-algebra" class="slide level2">
 <h2>How we will learn linear algebra</h2>
 <div class="course-loop">
 <div>
-applications<br>ask
+problem<br>ask
 </div>
 <div class="diagram-arrow">
 →
 </div>
 <div>
-definitions<br>clarify
+model<br>represent
 </div>
 <div class="diagram-arrow">
 →
 </div>
 <div>
-theory<br>explains
+compute<br>find an answer
 </div>
 <div class="diagram-arrow">
 →
 </div>
 <div>
-algorithms<br>compute
+interpret<br>understand
 </div>
 </div>
 <ul>
@@ -1371,96 +1359,61 @@ algorithms<br>compute
 <li>experiment with Python in Jupyter/Colab notebooks</li>
 </ul>
 <div class="key-point">
-<p>Calculation, visualization, explanation, proof, and computation reinforce one another.</p>
+<p>Computation supports understanding; it does not replace mathematical reasoning.</p>
 </div>
-<p>Notebooks support demonstrations and experiments; they do not replace mathematical reasoning.</p>
+<p>Jupyter/Colab notebooks support demonstrations and experiments.</p>
 </section>
-<section id="where-to-find-course-materials" class="slide level2">
-<h2>Where to find course materials</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<section id="what-is-where" class="slide level2">
+<h2>What is where?</h2>
 <ul>
-<li><a href="../index.html">Welcome</a>
+<li><p>Navigating these slides</p>
 <ul>
-<li>outline, textbook, course overview</li>
+<li><p>Each slide deck has a list of decks and major sections after the title page</p></li>
+<li><p>Each major section is headed by a slide that points to its minor sections</p></li>
+<li><p><span class="controls nav-control-sample" aria-label="Previous major section"><span class="controls-arrow" aria-hidden="true"></span></span> and <span class="controls nav-control-sample nav-control-sample-right" aria-label="Next major section"><span class="controls-arrow" aria-hidden="true"></span></span> jump to the previous and next major sections</p></li>
+<li><p><span class="controls nav-control-sample nav-control-sample-up" aria-label="Previous slide"><span class="controls-arrow" aria-hidden="true"></span></span> and <span class="controls nav-control-sample nav-control-sample-down" aria-label="Next slide"><span class="controls-arrow" aria-hidden="true"></span></span> jump to the previous and next slides</p></li>
+<li><p><span class="deck-nav-sample" aria-label="Previous slide deck">«</span> and <span class="deck-nav-sample" aria-label="Next slide deck">»</span> at the bottom jump to the previous and next decks</p></li>
+<li><p><span class="slide-menu-button nav-menu-sample" aria-label="Slide menu"><span class="fas fa-bars" aria-hidden="true"></span></span> at the bottom left shows all slides, as does <kbd>Esc</kbd></p></li>
 </ul></li>
-<li><a href="../pages/schedule.html">Schedule</a>
+<li><p><a href="https://fjhickernell.github.io/MATH332Fall2026/">Course Website</a></p>
 <ul>
-<li>dates and topics</li>
-<li>normal route to lecture slides</li>
+<li><p>Lecture slides are under the <a href="https://fjhickernell.github.io/MATH332Fall2026/pages/schedule.html">Schedule</a></p></li>
+<li><p>Course work appears under <a href="https://fjhickernell.github.io/MATH332Fall2026/pages/assignments.html">Assignments</a>, <a href="https://fjhickernell.github.io/MATH332Fall2026/pages/quizzes.html">Quizzes</a>, and <a href="https://fjhickernell.github.io/MATH332Fall2026/pages/tests.html">Tests</a></p></li>
+<li><p>Basic course information is on the <a href="https://fjhickernell.github.io/MATH332Fall2026/">Welcome page</a></p></li>
 </ul></li>
-<li>Public assessment information
-<ul>
-<li><a href="../pages/assignments.html">Assignments</a></li>
-<li><a href="../pages/quizzes.html">Quizzes</a></li>
-<li><a href="../pages/tests.html">Tests</a></li>
-</ul></li>
+<li><p>All materials are in the <a href="https://github.com/fjhickernell/MATH332Fall2026">Course Repository</a>, which builds the course website</p></li>
+<li><p>Grades are in <a href="https://iit.instructure.com">Canvas</a></p></li>
 </ul>
-</div><div class="column" style="width:50%;">
+</section>
+<section id="why-participate-synchronously" class="slide level2">
+<h2>Why participate synchronously?</h2>
 <ul>
-<li><a href="../pages/policies.html">Policies</a>
+<li>Keep pace with the course</li>
+<li>Ask questions and receive answers in real time</li>
+<li>Influence the pace and direction of discussion</li>
+<li>Help classmates learn and benefit from their questions</li>
+<li>Build a learning community and get to know one another</li>
+</ul>
+</section>
+<section id="next-time-solving-systems-of-equations" class="slide level2">
+<h2>Next time: solving systems of equations</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<p><span class="math display">\[\begin{align*}
+x+y-z&amp;=2\\
+2x-y+3z&amp;=5\\
+x+2y+z&amp;=4
+\end{align*}\]</span></p>
+</div><div class="column" style="width:52%;">
 <ul>
-<li>course expectations as confirmed</li>
-</ul></li>
-<li><a href="../pages/notebooks.html">Jupyter Notebooks</a>
-<ul>
-<li>demonstrations and exercises as validated</li>
-</ul></li>
-<li><a href="../pages/resources.html">Course Resources</a>
-<ul>
-<li>software, textbook, and repository links</li>
-</ul></li>
+<li>Does a solution exist?</li>
+<li>Is it unique?</li>
+<li>How can we solve it efficiently?</li>
+<li>What does the geometry tell us?</li>
 </ul>
 </div></div>
-</section>
-<section id="course-website-or-canvas" class="slide level2">
-<h2>Course website or Canvas?</h2>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Course website</th>
-<th style="text-align: left;">Canvas</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Schedule and lecture slides</td>
-<td style="text-align: left;">Grades</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Course information and policies</td>
-<td style="text-align: left;">Announcements</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Public assignment, quiz, and test information</td>
-<td style="text-align: left;">Discussions</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Notebook and resource links</td>
-<td style="text-align: left;">—</td>
-</tr>
-</tbody>
-</table>
 <div class="key-point">
-<p>Use the course website to find what to study; use Canvas for grades, announcements, and discussions.</p>
-</div>
-<p>Assignment-submission and quiz-administration procedures are still to be confirmed.</p>
-</section>
-<section id="return-to-the-opening" class="slide level2">
-<h2>Return to the opening</h2>
-<div class="concept-grid">
-<div>
-<span class="diagram-label">images and data</span><br>represent objects<br>reveal patterns
-</div>
-<div>
-<span class="diagram-label">transformations and constraints</span><br>predict actions<br>solve what is possible
-</div>
-<div>
-<span class="diagram-label">networks and repeated action</span><br>track change<br>find persistent behavior
-</div>
-</div>
-<div class="key-point">
-<p>By the end of this course, you should be able to recognize which linear-algebra questions to ask when a new problem appears.</p>
+<p>Everything in this course begins with questions like these.</p>
 </div>
 
 </section></section>
