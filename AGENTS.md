@@ -49,6 +49,16 @@ Content from `notes/` should appear in student-facing materials only after it
 has been intentionally incorporated into those materials or when the user
 explicitly requests it.
 
+## Resuming work
+
+At the beginning of a work session, read `notes/NEXT.md` before proposing or
+making changes. Treat it as the current handoff and starting point, not as
+authorization to perform the task without the user's request.
+
+At every checkpoint, update `notes/NEXT.md` with the single most likely next
+task, its current state, unresolved decisions, constraints, and completion
+criteria. Keep longer-term and non-immediate work in `notes/TODO-LATER.md`.
+
 ## Slides
 
 The RevealJS decks in `slides/` are the authoritative course presentation
