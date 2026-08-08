@@ -193,21 +193,21 @@
     "href": "pages/notebooks.html",
     "title": "Jupyter Notebooks",
     "section": "",
-    "text": "Course notebooks will provide executable demonstrations and exercises for numerical matrix computation, exact symbolic computation, visualization, and experimentation."
+    "text": "Course notebooks provide executable demonstrations and exercises for numerical matrix computation, exact symbolic computation, visualization, and experimentation."
   },
   {
     "objectID": "pages/notebooks.html#demonstrations",
     "href": "pages/notebooks.html#demonstrations",
     "title": "Jupyter Notebooks",
     "section": "Demonstrations",
-    "text": "Demonstrations\nInstructor demonstrations will illustrate linear algebra concepts and connect algebraic calculations with geometric interpretation. Validated notebook links will appear here."
+    "text": "Demonstrations\nInstructor demonstrations illustrate linear algebra concepts and connect algebraic calculations with geometric interpretation.\n\nMatrix Computation: NumPy and SymPy — a companion to Lecture 00 introducing numerical and exact matrix calculations, linear systems, least squares, and responsible computation"
   },
   {
     "objectID": "pages/notebooks.html#exercises",
     "href": "pages/notebooks.html#exercises",
     "title": "Jupyter Notebooks",
     "section": "Exercises",
-    "text": "Exercises\nStudent exercises will provide opportunities to explore matrices, vector spaces, transformations, eigenvalues, and inner products computationally. Validated notebook links will appear here."
+    "text": "Exercises\nStudent exercises will provide opportunities to explore matrices, vector spaces, transformations, eigenvalues, and inner products computationally. Exercise notebooks will be linked here after they have been developed and validated."
   },
   {
     "objectID": "pages/quizzes.html",
