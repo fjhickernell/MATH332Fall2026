@@ -1151,90 +1151,197 @@ prediction
 <section id="compute-responsibly" class="title-slide slide level1 center">
 <h1>Compute responsibly</h1>
 <ul>
+<li><a href="#/too-little-information-many-answers">Too little information, many answers</a></li>
 <li><a href="#/almost-parallel-almost-unknowable">Almost parallel, almost unknowable</a></li>
-<li><a href="#/exact-mathematics-finite-arithmetic">Exact mathematics, finite arithmetic</a></li>
+<li><a href="#/equivalent-mathematics-unequal-computations">Equivalent mathematics, unequal computations</a></li>
+<li><a href="#/a-correct-computation-can-still-cost-too-much">A correct computation can still cost too much</a></li>
 <li><a href="#/can-we-trust-the-answer">Can we trust the answer?</a></li>
 </ul>
+</section>
+<section id="too-little-information-many-answers" class="slide level2">
+<h2>Too little information, many answers</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<svg viewbox="0 0 560 390" width="100%" role="img" aria-label="Several vectors ending on the line x one plus x two equals four">
+<defs><marker id="illposed-arrowhead" markerwidth="10" markerheight="7" refx="9" refy="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#007acc"></polygon></marker></defs><path d="M55 330H520M55 330V25" stroke="#555" stroke-width="3"></path><path d="M75 65L475 325" stroke="#7895a8" stroke-width="6"></path><g stroke="#007acc" stroke-width="7" marker-end="url(#illposed-arrowhead)"><path d="M55 330L155 117"></path><path d="M55 330L255 182"></path><path d="M55 330L355 247"></path><path d="M55 330L455 312"></path></g><g fill="#f39c34"><circle cx="155" cy="117" r="8"></circle><circle cx="255" cy="182" r="8"></circle><circle cx="355" cy="247" r="8"></circle><circle cx="455" cy="312" r="8"></circle></g><text x="300" y="105" font-size="27">same measurement</text><text x="280" y="372" font-size="25" text-anchor="middle">many possible vectors</text>
+</svg>
+</div><div class="column" style="width:45%;">
+<p>One measurement</p>
+<p><span class="math display">\[
+\begin{bmatrix}1&amp;1\end{bmatrix}\vct{x}=4
+\]</span></p>
+<p>Many solutions</p>
+<p><span class="math display">\[
+\vct{x}=\begin{bmatrix}0\\4\end{bmatrix},
+\begin{bmatrix}1\\3\end{bmatrix},
+\begin{bmatrix}3\\1\end{bmatrix},\ldots
+\]</span></p>
+<ul>
+<li>existence: yes</li>
+<li>uniqueness: no</li>
+<li>information: insufficient</li>
+</ul>
+</div></div>
+<div class="key-point">
+<p>An <span class="alert">ill-posed problem</span> does not determine a unique, stable answer. Here uniqueness fails.</p>
+</div>
+<p>One remedy: add a selection rule—e.g., the <span class="alert">smallest-norm</span> solution: <span class="math inline">\(\displaystyle\vct{x}_\star
+=\argmin_{[\,1\;1\,]\vct{x}=4}\lVert\vct{x}\rVert_2
+=\begin{bmatrix}2\\2\end{bmatrix}\)</span></p>
 </section>
 <section id="almost-parallel-almost-unknowable" class="slide level2">
 <h2>Almost parallel, almost unknowable</h2>
 <div class="columns">
 <div class="column" style="width:58%;">
-<svg viewbox="0 0 620 380" width="100%" role="img" aria-label="Almost parallel constraint lines whose intersection changes dramatically">
-<g stroke-width="5" fill="none"><path d="M35 325L585 70" stroke="#007acc"></path><path d="M35 308L585 62" stroke="#f39c34"></path><path d="M35 355L585 102" stroke="#0f8b8d" stroke-dasharray="10 8"></path></g><text x="340" y="48" font-size="25">tiny change in one constraint</text><path d="M380 55L460 93" stroke="#333" stroke-width="2"></path><circle cx="520" cy="100" r="9" fill="#c62828"></circle><circle cx="120" cy="285" r="9" fill="#7b1fa2"></circle><text x="460" y="135" font-size="24">intersection moves far</text>
+<svg viewbox="0 0 620 380" width="100%" role="img" aria-label="Two nearly parallel constraints whose intersection moves far after a small perturbation">
+<text x="310" y="28" font-size="24" text-anchor="middle">small perturbation</text><path d="M170 58H225" stroke="#f39c34" stroke-width="5"></path><text x="238" y="66" font-size="23">original</text><path d="M360 58H415" stroke="#0f8b8d" stroke-width="5" stroke-dasharray="10 8"></path><text x="428" y="66" font-size="23">perturbed</text><g stroke-width="5" fill="none"><path d="M40 320L580 104" stroke="#007acc"></path><path d="M40 301L580 107" stroke="#f39c34"></path><path d="M40 317L580 123" stroke="#0f8b8d" stroke-dasharray="10 8"></path></g><path d="M350 190V206" stroke="#333" stroke-width="3"></path><path d="M342 190H358M342 206H358" stroke="#333" stroke-width="3"></path><path d="M120 290L507 133" stroke="#777" stroke-width="3" stroke-dasharray="8 6"></path><circle cx="507" cy="133" r="10" fill="#c62828"></circle><circle cx="114" cy="290" r="10" fill="#7b1fa2"></circle><text x="250" y="275" font-size="24">intersection moves far</text>
 </svg>
 </div><div class="column" style="width:42%;">
-<p>Nearly dependent measurements contain little independent information</p>
-<p>A tiny change in the data can cause a large change in the solution</p>
+<p>Each system has a unique solution</p>
+<p>Nearly parallel constraints make that solution highly sensitive to the data</p>
 <p>This is <span class="alert">ill-conditioning</span></p>
 </div></div>
-</section>
-<section id="exact-mathematics-finite-arithmetic" class="slide level2">
-<h2>Exact mathematics, finite arithmetic</h2>
-<p>Computers store only a finite set of numbers</p>
-<p><span class="math display">\[
-0.1+0.2\ne0.3
-\qquad
-\text{in ordinary binary floating-point arithmetic}
-\]</span></p>
-<p>Usually the tiny error is harmless</p>
-<p>But a sensitive problem or unstable algorithm can amplify small errors</p>
 <div class="key-point">
-<p>A mathematically correct method can still produce an unreliable numerical answer.</p>
+<p>A tiny change in the data can cause a large change in the solution.</p>
 </div>
+</section>
+<section id="equivalent-mathematics-unequal-computations" class="slide level2">
+<h2>Equivalent mathematics, unequal computations</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Mathematically equivalent</p>
+<p><span class="math display">\[
+\sqrt{1+x^2}-1
+=
+\frac{x^2}{\sqrt{1+x^2}+1}
+\]</span></p>
+<p>For very small <span class="math inline">\(x&gt;0\)</span>, direct subtraction combines nearly equal numbers</p>
+<p><span class="alert">Catastrophic cancellation</span> can discard significant digits</p>
+</div><div class="column" style="width:48%;">
+<p>Python double precision:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: right;">direct</th>
+<th style="text-align: right;">rationalized</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(1.2346E-06\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(7.6206E-13\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(7.6208E-13\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;"><span class="math inline">\(1.2346E-07\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(7.5495E-15\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(7.6208E-15\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;"><span class="math inline">\(1.2346E-08\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(0.0000E+00\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(7.6208E-17\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The rationalized form avoids the subtraction</p>
+</div></div>
+<div class="key-point">
+<p>Numerical <span class="alert">instability</span> is avoidable error introduced or amplified by the computational method.</p>
+</div>
+</section>
+<section id="a-correct-computation-can-still-cost-too-much" class="slide level2">
+<h2>A correct computation can still cost too much</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3 id="solving-ma-vx-vb-for-vx">Solving <span class="math inline">\(\mA \vx = \vb\)</span> for <span class="math inline">\(\vx\)</span></h3>
+<p>For a dense <span class="math inline">\(n\times n\)</span> matrix, <span class="math inline">\(\mA\)</span></p>
+<ul>
+<li>storage: about <span class="math inline">\(n^2\)</span> numbers</li>
+<li>direct solve: about <span class="math inline">\(n^3\)</span> operations</li>
+</ul>
+<p>Double <span class="math inline">\(n\)</span> implies</p>
+<ul>
+<li><span class="math inline">\(4\times\)</span> the storage</li>
+<li><span class="math inline">\(8\times\)</span> the arithmetic</li>
+</ul>
+</div><div class="column" style="width:55%;">
+<ol type="1">
+<li><p>Use reliable numerical linear algebra packages</p>
+<ul>
+<li>tested, numerically stable algorithms</li>
+<li>optimized libraries and available hardware</li>
+<li>specialized sparse and structured methods</li>
+</ul></li>
+<li><p>Choose the efficient algorithm, e.g.&nbsp;<code>x=np.linalg.solve(A,b)</code>, not <code>x=np.linalg.inv(A)@b</code></p></li>
+</ol>
+</div></div>
+<p>May reduce storage and operations by exploiting <span class="alert">structure</span>: sparsity, symmetry, low rank, …</p>
+<div class="key-point">
+<p>Although implementing an algorithm can aid learning, for production work, a tested numerical library is the responsible choice</p>
+</div>
+<p>Reliable software cannot fix ill-posedness or remove sensitivity inherent in an ill-conditioned problem.</p>
 </section>
 <section id="can-we-trust-the-answer" class="slide level2">
 <h2>Can we trust the answer?</h2>
 <div class="question-grid">
 <div>
-<span class="diagram-label">model</span><br>Do the equations represent the situation?
+<span class="diagram-label">model / formulation</span><br>Does the mathematical problem determine an appropriate answer?
 </div>
 <div>
-<span class="diagram-label">mathematics</span><br>Does a solution exist, and is it unique?
+<span class="diagram-label">conditioning</span><br>How much can the answer change when the data change slightly?
 </div>
 <div>
-<span class="diagram-label">problem</span><br>Is the answer sensitive to small changes?
+<span class="diagram-label">algorithm</span><br>Does the computation introduce substantially more error?
 </div>
 <div>
-<span class="diagram-label">algorithm</span><br>Does the computation control error?
+<span class="diagram-label">cost</span><br>Does the method use the size and structure of the problem efficiently?
 </div>
+<div>
+<span class="diagram-label">verification</span><br>Can residuals, another method, or known structure check the result?
+</div>
+</div>
+<div class="key-point">
+<p>Distinguish an <span class="alert">ill-posed formulation</span>, an <span class="alert">ill-conditioned problem</span>, an <span class="alert">unstable algorithm</span>, and <span class="alert">excessive computational cost</span>.</p>
 </div>
 </section></section>
 <section>
 <section id="the-course-ahead" class="title-slide slide level1 center">
 <h1>The course ahead</h1>
 <ul>
-<li><a href="#/questions-organize-the-theory">Questions organize the theory</a></li>
-<li><a href="#/applications-theory-and-algorithms">Applications, theory, and algorithms</a></li>
-<li><a href="#/how-you-will-work">How you will work</a></li>
+<li><a href="#/questions-that-will-guide-us">Questions that will guide us</a></li>
+<li><a href="#/how-we-will-learn-linear-algebra">How we will learn linear algebra</a></li>
+<li><a href="#/where-to-find-course-materials">Where to find course materials</a></li>
+<li><a href="#/course-website-or-canvas">Course website or Canvas?</a></li>
 <li><a href="#/return-to-the-opening">Return to the opening</a></li>
 </ul>
 </section>
-<section id="questions-organize-the-theory" class="slide level2">
-<h2>Questions organize the theory</h2>
+<section id="questions-that-will-guide-us" class="slide level2">
+<h2>Questions that will guide us</h2>
 <div class="concept-grid">
 <div>
-<span class="diagram-label">represent and construct</span><br>vectors · combinations<br>spaces · bases
+How can we represent the problem?<br><span class="small">vectors · matrices · spaces</span>
 </div>
 <div>
-<span class="diagram-label">solve</span><br>existence · uniqueness<br>systems
+Does a solution exist, and is it unique?<br><span class="small">systems</span>
 </div>
 <div>
-<span class="diagram-label">detect redundancy</span><br>independence<br>rank · dimension
+Which information is genuinely new?<br><span class="small">rank · dimension</span>
 </div>
 <div>
-<span class="diagram-label">reverse</span><br>invertibility<br>determinants
+Can we reverse the transformation?<br><span class="small">invertibility · determinants</span>
 </div>
 <div>
-<span class="diagram-label">approximate</span><br>orthogonality<br>least squares
+What is the best approximate answer?<br><span class="small">least squares</span>
 </div>
 <div>
-<span class="diagram-label">find persistent patterns</span><br>eigenvectors<br>singular vectors
+Which patterns persist or matter most?<br><span class="small">eigenvectors · singular vectors</span>
 </div>
 </div>
 </section>
-<section id="applications-theory-and-algorithms" class="slide level2" data-state="goldborder">
-<h2>Applications, theory, and algorithms</h2>
+<section id="how-we-will-learn-linear-algebra" class="slide level2">
+<h2>How we will learn linear algebra</h2>
 <div class="course-loop">
 <div>
 applications<br>ask
@@ -1258,45 +1365,98 @@ theory<br>explains
 algorithms<br>compute
 </div>
 </div>
+<ul>
+<li>calculate and visualize</li>
+<li>explain and prove</li>
+<li>experiment with Python in Jupyter/Colab notebooks</li>
+</ul>
 <div class="key-point">
-<p>Computation tests ideas on realistic examples and raises new questions.</p>
+<p>Calculation, visualization, explanation, proof, and computation reinforce one another.</p>
 </div>
+<p>Notebooks support demonstrations and experiments; they do not replace mathematical reasoning.</p>
 </section>
-<section id="how-you-will-work" class="slide level2">
-<h2>How you will work</h2>
-<div class="concept-grid">
-<div>
-calculate<br><span class="small">build fluency</span>
+<section id="where-to-find-course-materials" class="slide level2">
+<h2>Where to find course materials</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><a href="../index.html">Welcome</a>
+<ul>
+<li>outline, textbook, course overview</li>
+</ul></li>
+<li><a href="../pages/schedule.html">Schedule</a>
+<ul>
+<li>dates and topics</li>
+<li>normal route to lecture slides</li>
+</ul></li>
+<li>Public assessment information
+<ul>
+<li><a href="../pages/assignments.html">Assignments</a></li>
+<li><a href="../pages/quizzes.html">Quizzes</a></li>
+<li><a href="../pages/tests.html">Tests</a></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><a href="../pages/policies.html">Policies</a>
+<ul>
+<li>course expectations as confirmed</li>
+</ul></li>
+<li><a href="../pages/notebooks.html">Jupyter Notebooks</a>
+<ul>
+<li>demonstrations and exercises as validated</li>
+</ul></li>
+<li><a href="../pages/resources.html">Course Resources</a>
+<ul>
+<li>software, textbook, and repository links</li>
+</ul></li>
+</ul>
+</div></div>
+</section>
+<section id="course-website-or-canvas" class="slide level2">
+<h2>Course website or Canvas?</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Course website</th>
+<th style="text-align: left;">Canvas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Schedule and lecture slides</td>
+<td style="text-align: left;">Grades</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Course information and policies</td>
+<td style="text-align: left;">Announcements</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Public assignment, quiz, and test information</td>
+<td style="text-align: left;">Discussions</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Notebook and resource links</td>
+<td style="text-align: left;">—</td>
+</tr>
+</tbody>
+</table>
+<div class="key-point">
+<p>Use the course website to find what to study; use Canvas for grades, announcements, and discussions.</p>
 </div>
-<div>
-visualize<br><span class="small">see structure</span>
-</div>
-<div>
-experiment<br><span class="small">Python / Colab</span>
-</div>
-<div>
-explain<br><span class="small">make reasoning visible</span>
-</div>
-<div>
-prove<br><span class="small">know why</span>
-</div>
-<div>
-connect<br><span class="small">transfer ideas</span>
-</div>
-</div>
-<p>The course asks for calculation, experimentation, explanation, and proof</p>
+<p>Assignment-submission and quiz-administration procedures are still to be confirmed.</p>
 </section>
 <section id="return-to-the-opening" class="slide level2">
 <h2>Return to the opening</h2>
 <div class="concept-grid">
 <div>
-<span class="diagram-label">image and data</span><br>vectors · matrices<br>projection · SVD
+<span class="diagram-label">images and data</span><br>represent objects<br>reveal patterns
 </div>
 <div>
-<span class="diagram-label">transformations and constraints</span><br>matrix action<br>systems · conditioning
+<span class="diagram-label">transformations and constraints</span><br>predict actions<br>solve what is possible
 </div>
 <div>
-<span class="diagram-label">networks and repeated change</span><br>matrix powers<br>eigenvectors
+<span class="diagram-label">networks and repeated action</span><br>track change<br>find persistent behavior
 </div>
 </div>
 <div class="key-point">
