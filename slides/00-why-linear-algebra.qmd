@@ -677,6 +677,10 @@ Distinguish an [ill-posed formulation]{.alert}, an [ill-conditioned problem]{.al
 - [How we will learn linear algebra](#how-we-will-learn-linear-algebra)
 - [What is where?](#what-is-where)
 - [Why participate synchronously?](#why-participate-synchronously)
+- [What role is AI playing?](#what-role-is-ai-playing)
+- [From collaborator to contractor](#from-collaborator-to-contractor)
+- [Verify what AI produces](#verify-what-ai-produces)
+- [Responsibility stays with you](#responsibility-stays-with-you)
 - [Next time: solving systems of equations](#next-time-solving-systems-of-equations)
 
 ## Questions we will learn to answer
@@ -742,6 +746,8 @@ Jupyter/Colab notebooks support demonstrations and experiments.
 - Influence the pace and direction of discussion
 - Help classmates learn and benefit from their questions
 - Build a learning community and get to know one another
+
+{{< include ../classlib/classlib/quarto/slides/shared/general/using-ai-well.qmd >}}
 
 ## Next time: solving systems of equations
 

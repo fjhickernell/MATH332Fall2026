@@ -9,6 +9,8 @@ Review and finalize the Lecture 00 demonstration notebook
 
 - Lecture 00 is substantially complete, rendered, and validated; only future
   polish remains.
+- The course-ahead section now includes four reusable `classlib` slides on
+  productive AI roles, verification, and retained human responsibility.
 - `notebooks/demonstrations/00-why-linear-algebra.ipynb` introduces NumPy and
   SymPy matrix computation, linear systems, least squares, and responsible
   numerical practice, but the instructor still needs to review and finalize
