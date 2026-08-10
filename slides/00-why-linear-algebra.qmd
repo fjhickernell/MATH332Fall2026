@@ -4,7 +4,7 @@ deck_id: d00
 deck_title: "{{< meta decks.d00.title >}}"
 deck_short_title: "{{< meta decks.d00.short_title >}}"
 subtitle: "<span class='deck-title'>{{< meta deck_title >}}</span>"
-jupyter: python3
+jupyter: qmcpy
 format:
   revealjs:
     css: 00-why-linear-algebra.css

@@ -13,8 +13,8 @@ Review and finalize the Lecture 00 demonstration notebook
   productive AI roles, verification, and retained human responsibility.
 - `notebooks/demonstrations/00-why-linear-algebra.ipynb` introduces NumPy and
   SymPy matrix computation, linear systems, least squares, and responsible
-  numerical practice, but the instructor still needs to review and finalize
-  it.
+  numerical practice. It uses the standard `qmcpy` kernel and executes cleanly,
+  but the instructor still needs to review and finalize it.
 - `pages/notebooks.qmd` links to the validated notebook in the course
   repository.
 - The Chapter 1 deck remains a structural draft; the instructor has additional
