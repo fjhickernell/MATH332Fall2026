@@ -25,8 +25,7 @@ content is maintained only once.
 - RevealJS hierarchy exception: inside a `#` section slide, use an HTML `<h3>`
   for a visible tertiary heading because Quarto `###` does not render there as
   intended. Inside a `##` slide, ordinary Quarto `###` headings work normally.
-- Keep slide statements terse: labels and compact phrases are usually better
-  than complete sentences.
+- Follow the shared slide-writing guidance in `classlib/AGENTS.md`.
 - Mark questions and in-class exercises with `$\exstar$` (or the appropriate
   shared exercise notation). Do not place worked answers later in the
   student-visible deck when they would reveal an activity students should do

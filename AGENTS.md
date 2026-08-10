@@ -31,6 +31,24 @@ explicitly by year (e.g., `565-2025` or `MATH565Fall2025`) to avoid ambiguity.
 - Initialize the recorded `classlib` commit recursively; do not update it to a
   moving branch tip during routine setup or validation.
 
+## Shared guidance
+
+This repository uses `classlib` as a shared submodule. The authority chain is:
+
+1. Global operational workflow in `SharedConfigs/codex/AGENTS.md`
+2. Shared teaching, presentation, and infrastructure guidance in
+   `classlib/AGENTS.md`
+3. MATH 332 additions and exceptions in this repository
+
+Before creating or substantially revising slides, webpages, reusable
+components, shared styling, or notebook presentation, read
+`classlib/AGENTS.md`. Local documentation should record only course-specific
+policies, terminology, notation, navigation, validation requirements, and
+intentional exceptions. Do not duplicate universal style guidance locally.
+
+If local guidance conflicts with shared guidance, follow an explicitly
+documented local exception and flag any apparent accidental inconsistency.
+
 ## Institutional memory
 
 The `notes/` directory is this repository's institutional memory. Agents
@@ -73,9 +91,10 @@ The RevealJS decks in `slides/` are the authoritative course presentation
 materials. Mathematical content must be maintained only in its corresponding
 deck.
 
-Follow the classlib-based RevealJS architecture proven in MATH565Fall2026:
-shared options and styling, metadata-driven deck titles, title-slide
-conventions, major-section organization, and previous/next deck navigation.
+Follow `classlib/AGENTS.md` and the classlib-based RevealJS architecture proven
+in MATH565Fall2026: shared options and styling, metadata-driven deck titles,
+title-slide conventions, major-section organization, and previous/next deck
+navigation.
 
 Jupyter notebook LaTeX macros cannot be assumed to propagate from Quarto or
 RevealJS, so notebooks should use self-contained notation when necessary.
