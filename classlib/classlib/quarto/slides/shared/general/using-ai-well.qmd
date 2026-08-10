@@ -1,16 +1,16 @@
 ## What role is AI playing?
 
-These roles overlap. Choose the role deliberately—and do enough thinking to
-know what problem you are asking AI to help solve.
+Roles overlap; choose deliberately. Think enough to know the problem AI should
+help solve.
 
 ::: {.columns}
 ::: {.column width="48%"}
 ### [Tutor]{.alert} → build understanding
 
-- Probe what you think the concept means
+- Probe your understanding of the concept
 - Reveal misconceptions with Socratic questions
 - Contrast examples, nonexamples, and nearby concepts
-- Connect intuition, definitions, formulas, and representations
+- Connect intuition, definitions, formulas, representations
 
 *“Use Socratic questions, examples, and nonexamples to probe my understanding
 and connect intuition to the formal definition.”*
@@ -22,7 +22,7 @@ and connect intuition to the formal definition.”*
 ::: {.column width="48%"}
 ### [Critic / reviewer]{.alert} → test your work
 
-- Identify gaps, hidden assumptions, or unclear reasoning
+- Find gaps, hidden assumptions, unclear reasoning
 - Challenge a proof, derivation, program, or explanation
 - Suggest tests or counterexamples without rewriting everything
 
@@ -31,8 +31,7 @@ and connect intuition to the formal definition.”*
 :::
 
 ::: {.key-point}
-Prefer dialogue: ask AI to strengthen your thinking before producing finished
-work.
+Prefer dialogue: strengthen your thinking before producing finished work
 :::
 
 ## From collaborator to contractor
@@ -42,8 +41,8 @@ work.
 ### [Architect / collaborator]{.alert} → plan the work
 
 - Decompose the problem into decisions and tasks
-- Compare approaches, tradeoffs, and failure modes
-- Design an analysis, algorithm, program, or workflow
+- Compare approaches, tradeoffs, failure modes
+- Design an analysis, algorithm, program, workflow
 
 *“Propose two approaches, their assumptions, and how I could choose.”*
 :::
@@ -54,34 +53,32 @@ work.
 ::: {.column width="48%"}
 ### [Contractor]{.alert} → execute a specification
 
-- Implement code, a plot, a calculation, or a draft
-- Best when inputs, requirements, checks, and desired output are clear
-- Riskiest when you cannot evaluate what was produced
+- Implement code, plot, calculation, draft
+- Best with clear inputs, requirements, checks, desired output
+- Riskiest when you cannot evaluate the result
 
 *“Implement this specification and provide tests for each requirement.”*
 :::
 :::
 
-Choose the tool to fit the role: [the best AI for one role may not be the best
-AI for another]{.alert}. Under your direction, one AI can help you reason and
-write a specification or prompt for another to execute; you then inspect and
-revise the result.
+Match tool to role: [the best AI for one role may not be the best for
+another]{.alert}. One AI can help you reason and specify; another execute. You
+inspect and revise.
 
 ::: {.key-point}
-Delegation can increase with a better-specified task; responsibility never
-transfers to the AI.
+Better-specified task, more delegation; responsibility never transfers to AI
 :::
 
 ## Verify what AI produces
 
-Treat AI output as a [proposal to inspect]{.alert}, not an authority. Ask it to
-expose assumptions, alternatives, and reasons—then verify by the kind of work.
+AI output: [proposal to inspect]{.alert}, not authority. Expose assumptions,
+alternatives, reasons; verify appropriately.
 
 ::: {.columns}
 ::: {.column width="48%"}
 ### Mathematics
 
-- Check definitions, hypotheses, and theorem conditions
+- Check definitions, hypotheses, theorem conditions
 - Rework important steps; test examples and counterexamples
 - Ask whether the conclusion follows from the stated assumptions
 :::
@@ -93,14 +90,13 @@ expose assumptions, alternatives, and reasons—then verify by the kind of work.
 ### Computation
 
 - Run the code and inspect the output
-- Test edge cases, dimensions, units, signs, and known special cases
+- Test edge cases, dimensions, units, signs, known special cases
 - Confirm that the computation answers the intended mathematical question
 :::
 :::
 
 ::: {.key-point}
-Verification should test both the result and whether the right problem was
-solved.
+Verify the result and whether the right problem was solved
 :::
 
 ## Responsibility stays with you
@@ -109,7 +105,7 @@ solved.
 ::: {.column width="48%"}
 ### Evidence and sources
 
-- Inspect original sources for claims and citations
+- Inspect original sources for claims, citations
 - Confirm that a source exists and supports the attributed claim
 - Separate sourced facts from plausible inference
 :::
@@ -126,10 +122,9 @@ solved.
 :::
 :::
 
-Afterward: Can you explain the result, modify it, and solve a related problem
-without reproducing the AI output?
+Afterward: Can you explain the result, modify it, solve a related problem
+without reproducing AI output?
 
 ::: {.key-point}
-You may delegate execution; you cannot delegate understanding, judgment, or
-responsibility.
+Delegate execution; retain understanding, judgment, responsibility
 :::
