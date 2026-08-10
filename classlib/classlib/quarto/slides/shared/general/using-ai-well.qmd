@@ -1,0 +1,135 @@
+## What role is AI playing?
+
+These roles overlap. Choose the role deliberately—and do enough thinking to
+know what problem you are asking AI to help solve.
+
+::: {.columns}
+::: {.column width="48%"}
+### [Tutor]{.alert} → build understanding
+
+- Probe what you think the concept means
+- Reveal misconceptions with Socratic questions
+- Contrast examples, nonexamples, and nearby concepts
+- Connect intuition, definitions, formulas, and representations
+
+*“Use Socratic questions, examples, and nonexamples to probe my understanding
+and connect intuition to the formal definition.”*
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+### [Critic / reviewer]{.alert} → test your work
+
+- Identify gaps, hidden assumptions, or unclear reasoning
+- Challenge a proof, derivation, program, or explanation
+- Suggest tests or counterexamples without rewriting everything
+
+*“Find the weakest step in my argument and explain why.”*
+:::
+:::
+
+::: {.key-point}
+Prefer dialogue: ask AI to strengthen your thinking before producing finished
+work.
+:::
+
+## From collaborator to contractor
+
+::: {.columns}
+::: {.column width="48%"}
+### [Architect / collaborator]{.alert} → plan the work
+
+- Decompose the problem into decisions and tasks
+- Compare approaches, tradeoffs, and failure modes
+- Design an analysis, algorithm, program, or workflow
+
+*“Propose two approaches, their assumptions, and how I could choose.”*
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+### [Contractor]{.alert} → execute a specification
+
+- Implement code, a plot, a calculation, or a draft
+- Best when inputs, requirements, checks, and desired output are clear
+- Riskiest when you cannot evaluate what was produced
+
+*“Implement this specification and provide tests for each requirement.”*
+:::
+:::
+
+Choose the tool to fit the role: [the best AI for one role may not be the best
+AI for another]{.alert}. Under your direction, one AI can help you reason and
+write a specification or prompt for another to execute; you then inspect and
+revise the result.
+
+::: {.key-point}
+Delegation can increase with a better-specified task; responsibility never
+transfers to the AI.
+:::
+
+## Verify what AI produces
+
+Treat AI output as a [proposal to inspect]{.alert}, not an authority. Ask it to
+expose assumptions, alternatives, and reasons—then verify by the kind of work.
+
+::: {.columns}
+::: {.column width="48%"}
+### Mathematics
+
+- Check definitions, hypotheses, and theorem conditions
+- Rework important steps; test examples and counterexamples
+- Ask whether the conclusion follows from the stated assumptions
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+### Computation
+
+- Run the code and inspect the output
+- Test edge cases, dimensions, units, signs, and known special cases
+- Confirm that the computation answers the intended mathematical question
+:::
+:::
+
+::: {.key-point}
+Verification should test both the result and whether the right problem was
+solved.
+:::
+
+## Responsibility stays with you
+
+::: {.columns}
+::: {.column width="48%"}
+### Evidence and sources
+
+- Inspect original sources for claims and citations
+- Confirm that a source exists and supports the attributed claim
+- Separate sourced facts from plausible inference
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="48%"}
+### Communication
+
+- Revise reasoning and wording yourself
+- Explain each choice and answer questions about it
+- Acknowledge meaningful assistance as required
+:::
+:::
+
+Afterward: Can you explain the result, modify it, and solve a related problem
+without reproducing the AI output?
+
+::: {.key-point}
+You may delegate execution; you cannot delegate understanding, judgment, or
+responsibility.
+:::
