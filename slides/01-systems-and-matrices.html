@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-08-10">
+  <meta name="dcterms.date" content="2026-08-11">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -597,13 +597,630 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">August 10, 2026</p>
+  <p class="date">August 11, 2026</p>
 </section>
-<section id="systems-and-matrices" class="title-slide slide level1 center">
-<h1>Systems and matrices</h1>
-<p>Chapter 1 content will be developed in this deck.</p>
+<section id="three-tiny-equations" class="slide level2">
+<h2>Three tiny equations</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><span class="math display">\[
+2x=-1
+\]</span></p>
+<p>One solution</p>
+<p><span class="math display">\[x=-\tfrac12\]</span></p>
+</div><div class="column" style="width:33%;">
+<p><span class="math display">\[
+0x=-1
+\]</span></p>
+<p>No solutions</p>
+<p><span class="math display">\[0=-1\]</span></p>
+</div><div class="column" style="width:34%;">
+<p><span class="math display">\[
+0x=0
+\]</span></p>
+<p>Infinitely many solutions</p>
+<p><span class="math display">\[x\text{ arbitrary}\]</span></p>
+</div></div>
+<div class="key-point">
+<p>We may transform equations in ways that are <strong>reversible</strong>, because reversible transformations preserve the solution set.</p>
+</div>
+<p>For the second and third equations, no reversible transformation can isolate <span class="math inline">\(x\)</span>: a zero coefficient remains zero</p>
+</section>
+<section id="course-map" class="title-slide slide level1 center">
+<h1>Course Map</h1>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3>
+Course decks
+</h3>
+<ul>
+<li><a href="00-why-linear-algebra.html">Why Linear Algebra?</a></li>
+<li><a href="01-systems-and-matrices.html" class="alert">Systems and Matrices</a></li>
+<li><a href="02-determinants.html">Determinants</a></li>
+<li><a href="03-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
+<li><a href="04-general-vector-spaces.html">Vector Spaces</a></li>
+<li><a href="05-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
+<li><a href="06-inner-product-spaces.html">Inner Products</a></li>
+</ul>
+</div><div class="column" style="width:55%;">
+<h3>
+In this deck
+</h3>
+<ul>
+<li><a href="#/from-equations-to-systems">From equations to systems</a></li>
+<li><a href="#/eliminate-on-equations">Eliminate on equations</a></li>
+<li><a href="#/compress-the-repeated-structure">Compress the repeated structure</a></li>
+<li><a href="#/eliminate-on-matrices">Eliminate on matrices</a></li>
+<li><a href="#/compute-and-look-ahead">Compute and look ahead</a></li>
+</ul>
+</div></div>
+</section>
 
+<section>
+<section id="from-equations-to-systems" class="title-slide slide level1 center">
+<h1>From equations to systems</h1>
+<ul>
+<li>A <strong>solution</strong> makes every equation true at once</li>
+<li>A <strong>solution set</strong> contains all such choices of the unknowns</li>
+<li>Our first tool: reversible transformations of equations</li>
+</ul>
+<div class="key-point">
+<p>Solve a system by replacing it with an easier system having exactly the same solutions.</p>
+</div>
 </section>
+<section id="three-systems-three-solution-sets" class="slide level2">
+<h2>Three systems, three solution sets</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><span class="math display">\[
+\begin{aligned}
+x+y&amp;=3\\
+x-y&amp;=1
+\end{aligned}
+\]</span></p>
+<p>Exactly one</p>
+<p><span class="math display">\[\{(2,1)\}\]</span></p>
+</div><div class="column" style="width:33%;">
+<p><span class="math display">\[
+\begin{aligned}
+x+y&amp;=3\\
+x+y&amp;=4
+\end{aligned}
+\]</span></p>
+<p>None</p>
+<p><span class="math display">\[\varnothing\]</span></p>
+</div><div class="column" style="width:34%;">
+<p><span class="math display">\[
+\begin{aligned}
+x+y&amp;=3\\
+2x+2y&amp;=6
+\end{aligned}
+\]</span></p>
+<p>Infinitely many</p>
+<p><span class="math display">\[\{(3-t,t):t\in\reals\}\]</span></p>
+</div></div>
+<p><span class="math inline">\(\exstar\)</span> What relationship between the two equations produces each outcome?</p>
+</section>
+<section id="preserve-the-solution-set" class="slide level2">
+<h2>Preserve the solution set</h2>
+<p>Suppose <span class="math inline">\((x,y)\)</span> satisfies</p>
+<p><span class="math display">\[
+\begin{aligned}
+x+y&amp;=3 \qquad &amp;(E_1)\\
+x-y&amp;=1 &amp;(E_2)
+\end{aligned}
+\]</span></p>
+<p>Then it also satisfies</p>
+<p><span class="math display">\[
+(E_2)-(E_1):\qquad -2y=-2
+\]</span></p>
+<p>And the original equation can be recovered:</p>
+<p><span class="math display">\[
+(E_2-E_1)+E_1=E_2
+\]</span></p>
+<div class="key-point">
+<p>The new system contains the same information because the step can be undone.</p>
+</div>
+</section>
+<section id="three-reversible-moves" class="slide level2">
+<h2>Three reversible moves</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Transformation of the equations</th>
+<th>Inverse transformation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Interchange <span class="math inline">\(E_i\)</span> and <span class="math inline">\(E_j\)</span></td>
+<td>interchange them again</td>
+</tr>
+<tr class="even">
+<td>Replace <span class="math inline">\(E_i\)</span> by <span class="math inline">\(cE_i\)</span>, <span class="math inline">\(c\ne0\)</span></td>
+<td>multiply by <span class="math inline">\(1/c\)</span></td>
+</tr>
+<tr class="odd">
+<td>Replace <span class="math inline">\(E_i\)</span> by <span class="math inline">\(E_i+cE_j\)</span></td>
+<td>replace it by <span class="math inline">\(E_i-cE_j\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="key-point">
+<p>These <strong>elementary row operations</strong> preserve the entire solution set.</p>
+</div>
+<p>The restriction <span class="math inline">\(c\ne0\)</span> matters: multiplying an equation by <span class="math inline">\(0\)</span> discards information</p>
+</section>
+<section id="reversibleor-not" class="slide level2" data-state="goldborder">
+<h2>Reversible—or not?</h2>
+<p><span class="math inline">\(\exstar\)</span> Decide whether each transformation preserves the solution set for every system</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li><p><span class="math inline">\(E_2\leftarrow E_2-2E_1\)</span></p></li>
+<li><p><span class="math inline">\(E_1\leftrightarrow E_3\)</span></p></li>
+<li><p><span class="math inline">\(E_1\leftarrow -3E_1\)</span></p></li>
+</ol>
+</div><div class="column" style="width:50%;">
+<ol start="4" type="1">
+<li><p><span class="math inline">\(E_2\leftarrow E_1+E_2\)</span>, then discard <span class="math inline">\(E_1\)</span></p></li>
+<li><p><span class="math inline">\(E_3\leftarrow 0E_3\)</span></p></li>
+<li><p>Square both sides of <span class="math inline">\(E_1\)</span></p></li>
+</ol>
+</div></div>
+<p>For each reversible step, name its inverse</p>
+</section></section>
+<section>
+<section id="eliminate-on-equations" class="title-slide slide level1 center">
+<h1>Eliminate on equations</h1>
+<p>We will return to one system throughout the lecture:</p>
+<p><span class="math display">\[
+\begin{aligned}
+x+2y-z&amp;=2 \qquad &amp;(E_1)\\
+2x-y+z&amp;=2 &amp;(E_2)\\
+3x+y+2z&amp;=6 &amp;(E_3)
+\end{aligned}
+\]</span></p>
+<p>Goal: create equations with fewer unknowns while preserving every solution</p>
+</section>
+<section id="eliminate-x" class="slide level2">
+<h2>Eliminate <span class="math inline">\(x\)</span></h2>
+<p>Keep <span class="math inline">\(E_1\)</span> and use it to remove <span class="math inline">\(x\)</span> from the equations below:</p>
+<p><span class="math display">\[
+\begin{aligned}
+x+2y-z&amp;=2\\
+2x-y+z&amp;=2\\
+3x+y+2z&amp;=6
+\end{aligned}
+\quad
+\xrightarrow[\ E_3\leftarrow E_3-3E_1\ ]{\ E_2\leftarrow E_2-2E_1\ }
+\quad
+\begin{aligned}
+x+2y-z&amp;=2\\
+-5y+3z&amp;=-2\\
+-5y+5z&amp;=0
+\end{aligned}
+\]</span></p>
+<p>Each arrow abbreviates a reversible transformation</p>
+<p><span class="math display">\[
+E_2^{\mathrm{old}}=E_2^{\mathrm{new}}+2E_1,
+\qquad
+E_3^{\mathrm{old}}=E_3^{\mathrm{new}}+3E_1
+\]</span></p>
+</section>
+<section id="eliminate-y-then-solve-upward" class="slide level2">
+<h2>Eliminate <span class="math inline">\(y\)</span>, then solve upward</h2>
+<p><span class="math display">\[
+\begin{aligned}
+x+2y-z&amp;=2\\
+-5y+3z&amp;=-2\\
+-5y+5z&amp;=0
+\end{aligned}
+\quad
+\xrightarrow{\ E_3\leftarrow E_3-E_2\ }
+\quad
+\begin{aligned}
+x+2y-z&amp;=2\\
+-5y+3z&amp;=-2\\
+2z&amp;=2
+\end{aligned}
+\]</span></p>
+<p>Now back substitute:</p>
+<p><span class="math display">\[
+z=1,
+\qquad -5y+3=-2\Rightarrow y=1,
+\qquad x+2-1=2\Rightarrow x=1
+\]</span></p>
+<div class="key-point">
+<p>The original system has the one solution <span class="math inline">\((x,y,z)=(1,1,1)\)</span>.</p>
+</div>
+</section>
+<section id="why-elimination-works" class="slide level2">
+<h2>Why elimination works</h2>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>The systems form a chain</p>
+<p><span class="math display">\[
+\text{original}
+\ \longleftrightarrow\
+\text{$x$ eliminated}
+\ \longleftrightarrow\
+\text{triangular}
+\]</span></p>
+<p>Every arrow works in both directions</p>
+</div><div class="column" style="width:48%;">
+<p>Elimination does <strong>not</strong></p>
+<ul>
+<li>guess a solution</li>
+<li>approximate the equations</li>
+<li>change the constraints</li>
+</ul>
+<p>Elimination <strong>does</strong> expose information already present</p>
+</div></div>
+<div class="key-point">
+<p>Equivalent systems have identical solution sets.</p>
+</div>
+</section></section>
+<section>
+<section id="compress-the-repeated-structure" class="title-slide slide level1 center">
+<h1>Compress the repeated structure</h1>
+<p>In every equation we repeatedly write</p>
+<ul>
+<li>the unknowns <span class="math inline">\(x_1,\ldots,x_n\)</span></li>
+<li>plus signs and equality signs</li>
+<li>coefficients and right-hand sides</li>
+</ul>
+<p>Matrices let us keep the numerical structure and omit the repeated symbols</p>
+</section>
+<section id="the-dot-product-combines-coefficients-and-unknowns" class="slide level2">
+<h2>The dot product combines coefficients and unknowns</h2>
+<p>For <span class="math inline">\(\vct{a},\vct{x}\in\reals^n\)</span>,</p>
+<p><span class="math display">\[
+\vct{a}\mathbin{\cdot}\vct{x}
+=a_1x_1+\cdots+a_nx_n
+\]</span></p>
+<p>Example:</p>
+<p><span class="math display">\[
+\begin{bmatrix}2\\-1\\3\end{bmatrix}
+\mathbin{\cdot}
+\begin{bmatrix}x\\y\\z\end{bmatrix}
+=2x-y+3z
+\]</span></p>
+<div class="key-point">
+<p>A dot product turns two vectors into one scalar by pairing corresponding entries.</p>
+</div>
+</section>
+<section id="each-equation-is-one-row-dot-product" class="slide level2">
+<h2>Each equation is one row dot product</h2>
+<p>Write the coefficient rows as vectors:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\begin{bmatrix}1&amp;2&amp;-1\end{bmatrix}\mathbin{\cdot}\vct{x}&amp;=2\\
+\begin{bmatrix}2&amp;-1&amp;1\end{bmatrix}\mathbin{\cdot}\vct{x}&amp;=2\\
+\begin{bmatrix}3&amp;1&amp;2\end{bmatrix}\mathbin{\cdot}\vct{x}&amp;=6,
+\qquad
+\vct{x}=\begin{bmatrix}x\\y\\z\end{bmatrix}
+\end{aligned}
+\]</span></p>
+<p>Stack the coefficient rows:</p>
+<p><span class="math display">\[
+\mat{A}=
+\begin{bmatrix}
+1&amp;2&amp;-1\\
+2&amp;-1&amp;1\\
+3&amp;1&amp;2
+\end{bmatrix},
+\qquad
+\vct{b}=\begin{bmatrix}2\\2\\6\end{bmatrix}
+\]</span></p>
+</section>
+<section id="what-matavctx-means" class="slide level2">
+<h2>What <span class="math inline">\(\mat{A}\vct{x}\)</span> means</h2>
+<p><span class="math display">\[
+\mat{A}\vct{x}
+=
+\begin{bmatrix}
+\text{row }1\text{ of }\mat{A}\mathbin{\cdot}\vct{x}\\
+\text{row }2\text{ of }\mat{A}\mathbin{\cdot}\vct{x}\\
+\vdots\\
+\text{row }m\text{ of }\mat{A}\mathbin{\cdot}\vct{x}
+\end{bmatrix}
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\mat{A}\vct{x}=\vct{b}
+\qquad\Longleftrightarrow\qquad
+\text{row }i\text{ of }\mat{A}\mathbin{\cdot}\vct{x}=b_i
+\quad(i=1,\ldots,m)
+\]</span></p>
+<div class="key-point">
+<p>Matrix–vector multiplication: the rows of the matrix take dot products with the vector.</p>
+</div>
+</section>
+<section id="a-general-linear-system" class="slide level2">
+<h2>A general linear system</h2>
+<p><span class="math display">\[
+\begin{aligned}
+a_{11}x_1+\cdots+a_{1n}x_n&amp;=b_1\\
+&amp;\ \vdots\\
+a_{m1}x_1+\cdots+a_{mn}x_n&amp;=b_m
+\end{aligned}
+\]</span></p>
+<p>becomes</p>
+<p><span class="math display">\[
+\mat{A}\vct{x}=\vct{b},
+\qquad
+\mat{A}\in\reals^{m\times n},
+\quad
+\vct{x}\in\reals^n,
+\quad
+\vct{b}\in\reals^m
+\]</span></p>
+<p>The compact notation records all <span class="math inline">\(m\)</span> equations at once</p>
+</section>
+<section id="the-augmented-matrix-stores-the-system" class="slide level2">
+<h2>The augmented matrix stores the system</h2>
+<p><span class="math display">\[
+\left.
+\begin{aligned}
+x+2y-z&amp;=2\\
+2x-y+z&amp;=2\\
+3x+y+2z&amp;=6
+\end{aligned}
+\quad\right\}
+\qquad\longleftrightarrow\qquad
+\left[\mat{A}\mid\vct{b}\right]
+=
+\left[
+\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\
+2&amp;-1&amp;1&amp;2\\
+3&amp;1&amp;2&amp;6
+\end{array}
+\right]
+\]</span></p>
+<ul>
+<li>variable order fixed: <span class="math inline">\(x,y,z\)</span></li>
+<li>vertical bar separates coefficients from right-hand sides</li>
+<li>each matrix row represents one equation</li>
+</ul>
+<div class="key-point">
+<p>Row operations on <span class="math inline">\([\mat{A}\mid\vct{b}]\)</span> are compact versions of reversible operations on the equations.</p>
+</div>
+</section></section>
+<section>
+<section id="eliminate-on-matrices" class="title-slide slide level1 center">
+<h1>Eliminate on matrices</h1>
+<p>Same mathematical work, less repeated notation</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\left[
+\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\2&amp;-1&amp;1&amp;2\\3&amp;1&amp;2&amp;6
+\end{array}
+\right]
+\xrightarrow[\ R_3\leftarrow R_3-3R_1\ ]{\ R_2\leftarrow R_2-2R_1\ }
+\left[
+\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-2\\0&amp;-5&amp;5&amp;0
+\end{array}
+\right]\\[0.8em]
+&amp;\hspace{7em}\xrightarrow{\ R_3\leftarrow R_3-R_2\ }
+\left[
+\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-2\\0&amp;0&amp;2&amp;2
+\end{array}
+\right]
+\end{aligned}
+\]</span></p>
+</section>
+<section id="pivots-organize-elimination" class="slide level2">
+<h2>Pivots organize elimination</h2>
+<p><span class="math display">\[
+\left[
+\begin{array}{rrr|r}
+\alert{1}&amp;2&amp;-1&amp;2\\
+0&amp;\alert{-5}&amp;3&amp;-2\\
+0&amp;0&amp;\alert{2}&amp;2
+\end{array}
+\right]
+\]</span></p>
+<ul>
+<li><strong>pivot</strong> — leading nonzero entry in a nonzero row</li>
+<li>entries below each pivot are zero</li>
+<li>each pivot lies to the right of the pivot above it</li>
+<li>zero rows, if any, lie at the bottom</li>
+</ul>
+<p>This is <strong>row echelon form</strong></p>
+<div class="small">
+<p>Pivot entries need not equal <span class="math inline">\(1\)</span> in row echelon form</p>
+</div>
+</section>
+<section id="reduced-row-echelon-form-goes-further" class="slide level2">
+<h2>Reduced row echelon form goes further</h2>
+<p>Continue with reversible row operations until every pivot</p>
+<ul>
+<li>equals <span class="math inline">\(1\)</span></li>
+<li>is the only nonzero entry in its column</li>
+</ul>
+<p>For the recurring system:</p>
+<p><span class="math display">\[
+\left[
+\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-2\\0&amp;0&amp;2&amp;2
+\end{array}
+\right]
+\quad\longrightarrow\quad
+\left[
+\begin{array}{rrr|r}
+1&amp;0&amp;0&amp;1\\0&amp;1&amp;0&amp;1\\0&amp;0&amp;1&amp;1
+\end{array}
+\right]
+\]</span></p>
+<p>The matrix on the right is in <strong>reduced row echelon form</strong> (RREF)</p>
+</section>
+<section id="read-the-unique-solution" class="slide level2">
+<h2>Read the unique solution</h2>
+<p><span class="math display">\[
+\left[
+\begin{array}{rrr|r}
+1&amp;0&amp;0&amp;1\\0&amp;1&amp;0&amp;1\\0&amp;0&amp;1&amp;1
+\end{array}
+\right]
+\qquad\longleftrightarrow\qquad
+\begin{aligned}
+x&amp;=1\\y&amp;=1\\z&amp;=1
+\end{aligned}
+\]</span></p>
+<p>Every variable column contains a pivot</p>
+<div class="key-point">
+<p>No variable can be chosen freely, so the consistent system has exactly one solution.</p>
+</div>
+</section>
+<section id="the-last-row-reveals-the-other-possibilities" class="slide level2">
+<h2>The last row reveals the other possibilities</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="contradiction">Contradiction</h3>
+<p><span class="math display">\[
+\left[
+\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\
+0&amp;-5&amp;3&amp;-2\\
+0&amp;0&amp;0&amp;2
+\end{array}
+\right]
+\]</span></p>
+<p>Last equation: <span class="math inline">\(0=2\)</span></p>
+<p><strong>Inconsistent</strong> — no solutions</p>
+</div><div class="column" style="width:50%;">
+<h3 id="missing-constraint">Missing constraint</h3>
+<p><span class="math display">\[
+\left[
+\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\
+0&amp;-5&amp;3&amp;-2\\
+0&amp;0&amp;0&amp;0
+\end{array}
+\right]
+\]</span></p>
+<p>Last equation: <span class="math inline">\(0=0\)</span></p>
+<p>Consistent, but one variable has no pivot</p>
+</div></div>
+</section>
+<section id="a-free-variable-produces-infinitely-many-solutions" class="slide level2">
+<h2>A free variable produces infinitely many solutions</h2>
+<p>For the consistent echelon system</p>
+<p><span class="math display">\[
+\begin{aligned}
+x+2y-z&amp;=2\\
+-5y+3z&amp;=-2\\
+0&amp;=0,
+\end{aligned}
+\]</span></p>
+<p>the <span class="math inline">\(z\)</span> column has no pivot. Choose the <strong>free variable</strong> <span class="math inline">\(z=t\)</span>:</p>
+<p><span class="math display">\[
+y=\frac{2+3t}{5},
+\qquad
+x=\frac{6-t}{5}
+\]</span></p>
+<p><span class="math display">\[
+\left\{
+\left(\frac{6-t}{5},\frac{2+3t}{5},t\right):t\in\reals
+\right\}
+\]</span></p>
+<p>Different values of <span class="math inline">\(t\)</span> give infinitely many solutions</p>
+</section>
+<section id="now-the-three-outcomes-are-visible" class="slide level2">
+<h2>Now the three outcomes are visible</h2>
+<p>After elimination:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Row structure</th>
+<th>What it means</th>
+<th>Number of solutions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\([\,0\ \cdots\ 0\mid c\,]\)</span>, <span class="math inline">\(c\ne0\)</span></td>
+<td>contradiction</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>consistent; pivot in every variable column</td>
+<td>every variable determined</td>
+<td>exactly one</td>
+</tr>
+<tr class="odd">
+<td>consistent; at least one free variable</td>
+<td>one or more parameters</td>
+<td>infinitely many</td>
+</tr>
+</tbody>
+</table>
+<div class="key-point">
+<p>A linear system has zero, one, or infinitely many solutions—never exactly two.</p>
+</div>
+<p><span class="math inline">\(\exstar\)</span> Why would two distinct solutions force infinitely many?</p>
+</section></section>
+<section>
+<section id="compute-and-look-ahead" class="title-slide slide level1 center">
+<h1>Compute and look ahead</h1>
+<p>Use computation to carry out row operations—not to replace interpretation</p>
+<div class="columns">
+<div class="column" style="width:52%;">
+<p>Companion notebook plan</p>
+<ul>
+<li>build <span class="math inline">\(\mat{A}\)</span> and <span class="math inline">\(\vct{b}\)</span> with SymPy <code>Matrix</code></li>
+<li>display <span class="math inline">\([\mat{A}\mid\vct{b}]\)</span></li>
+<li>compute echelon form and RREF</li>
+<li>compare unique, inconsistent, and free-variable systems</li>
+<li>verify candidate solutions</li>
+</ul>
+</div><div class="column" style="width:48%;">
+<p>Standard kernel: <code>qmcpy</code></p>
+</div></div>
+</section>
+<section id="reversibility-will-become-a-matrix-property" class="slide level2">
+<h2>Reversibility will become a matrix property</h2>
+<p>Each row operation can itself be represented by a matrix <span class="math inline">\(\mat{E}\)</span> acting on the <strong>left</strong>:</p>
+<p><span class="math display">\[
+\mat{A}\longmapsto\mat{E}\mat{A},
+\qquad
+\vct{b}\longmapsto\mat{E}\vct{b}
+\]</span></p>
+<p>Undoing the row operation means applying an inverse transformation <span class="math inline">\(\mat{E}^{-1}\)</span></p>
+<div class="key-point">
+<p><strong>Nonsingular</strong> means reversible: a nonsingular matrix has an inverse.</p>
+</div>
+<p>For now: row operations are reversible transformations of equations</p>
+<p>Later: elementary matrices explain those transformations algebraically</p>
+</section>
+<section id="where-this-leads" class="slide level2">
+<h2>Where this leads</h2>
+<p>Elimination answers a concrete question:</p>
+<p><span class="math display">\[
+\text{Which }\vct{x}\text{ satisfy }\mat{A}\vct{x}=\vct{b}\text{?}
+\]</span></p>
+<p>It also opens structural questions:</p>
+<ul>
+<li>Which right-hand sides <span class="math inline">\(\vct{b}\)</span> are attainable?</li>
+<li>When does <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> have a unique solution for every <span class="math inline">\(\vct{b}\)</span>?</li>
+<li>What do pivots tell us about the rows and columns of <span class="math inline">\(\mat{A}\)</span>?</li>
+<li>How does algebra reveal the geometry of the solution set?</li>
+</ul>
+<div class="key-point">
+<p>Next: use matrix structure to understand when transformations are reversible.</p>
+</div>
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

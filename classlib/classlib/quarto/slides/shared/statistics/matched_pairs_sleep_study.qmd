@@ -8,7 +8,7 @@ execute:
   echo: true
   warning: false
   message: false
-jupyter: python3
+jupyter: qmcpy
 ---
 
 ## Overview

@@ -12,8 +12,8 @@ help solve.
 - Contrast examples, nonexamples, and nearby concepts
 - Connect intuition, definitions, formulas, representations
 
-*“Use Socratic questions, examples, and nonexamples to probe my understanding
-and connect intuition to the formal definition.”*
+*"Use Socratic questions, examples, and nonexamples to probe my understanding
+and connect intuition to the formal definition"*
 :::
 
 ::: {.column width="4%"}
@@ -26,7 +26,7 @@ and connect intuition to the formal definition.”*
 - Challenge a proof, derivation, program, or explanation
 - Suggest tests or counterexamples without rewriting everything
 
-*“Find the weakest step in my argument and explain why.”*
+*“Find the weakest step in my argument and explain why”*
 :::
 :::
 
@@ -44,7 +44,7 @@ Prefer dialogue: strengthen your thinking before producing finished work
 - Compare approaches, tradeoffs, failure modes
 - Design an analysis, algorithm, program, workflow
 
-*“Propose two approaches, their assumptions, and how I could choose.”*
+*“Propose two approaches, their assumptions, and how I could choose”*
 :::
 
 ::: {.column width="4%"}
@@ -57,7 +57,7 @@ Prefer dialogue: strengthen your thinking before producing finished work
 - Best with clear inputs, requirements, checks, desired output
 - Riskiest when you cannot evaluate the result
 
-*“Implement this specification and provide tests for each requirement.”*
+*“Implement this specification and provide tests for each requirement”*
 :::
 :::
 
