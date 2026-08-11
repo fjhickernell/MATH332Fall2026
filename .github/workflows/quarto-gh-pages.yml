@@ -25,11 +25,12 @@ jobs:
           python-version: "3.11"
           cache: pip
 
-      - name: Install Python packages
+      - name: Install Python packages and register qmcpy kernel
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
           python -m pip install -e classlib
+          python -m ipykernel install --user --name qmcpy --display-name "qmcpy"
 
       - name: Render website
         run: quarto render

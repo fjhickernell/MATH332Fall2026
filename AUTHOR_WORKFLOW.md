@@ -41,15 +41,25 @@ content is maintained only once.
 
 ## Fresh clone and Python environment
 
+Use the standard `qmcpy` Python environment and Jupyter kernel. If the
+environment does not already exist, create it once with Python 3.11 or later:
+
+```bash
+conda create --name qmcpy "python>=3.11"
+```
+
+Then install the course dependencies and register that environment as the
+`qmcpy` kernel:
+
 ```bash
 git clone --recurse-submodules https://github.com/fjhickernell/MATH332Fall2026.git
 cd MATH332Fall2026
 git submodule update --init --recursive
-python -m venv .venv
-source .venv/bin/activate
+conda activate qmcpy
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 python -m pip install -e classlib
+python -m ipykernel install --user --name qmcpy --display-name "qmcpy"
 ```
 
 ## Preview and render
