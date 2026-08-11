@@ -11,7 +11,8 @@ Mathematical content should be maintained only in the slides.
 3. [ ] Draft the semester schedule without inventing unresolved dates.
 4. [x] Develop Deck 00: Why Linear Algebra? as the teaser and roadmap.
 5. [ ] Develop the Chapter 1 slides in
-   `slides/01-systems-and-matrices.qmd`.
+   `slides/01-systems-and-matrices.qmd` (first substantive Lecture 01 draft
+   complete; visual and instructor review remain).
 6. [x] Develop and validate the first Python demonstration.
 7. [ ] Decide and document the Canvas quiz strategy.
 

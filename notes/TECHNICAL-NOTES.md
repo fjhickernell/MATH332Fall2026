@@ -28,3 +28,23 @@ details here when they are durable but too specific for `AGENTS.md`.
 - The remaining Lecture 00 issue is only the conceptual wrap-up surrounding
   the logistics slides. The final abstract roadmap and closing have not yet
   been approved; do not describe the whole final section as unfinished.
+
+### Lecture 01 first substantive draft — 2026-08-11
+
+- `slides/01-systems-and-matrices.qmd` contains 27 slides. It begins with
+  equations and concrete solution sets, motivates elementary row operations by
+  reversibility, and performs elimination on equations before introducing
+  matrices.
+- A single three-variable system recurs through equation elimination, row-dot-
+  product interpretation, augmented-matrix notation, echelon form, and RREF.
+  Variants of its last row motivate inconsistency and free variables before the
+  general zero/one/infinitely-many classification is stated.
+- The closing computation slide plans a small SymPy companion notebook using
+  `Matrix` and the `qmcpy` kernel. Elementary matrices and nonsingularity are
+  only previewed near the end.
+- The deck, root website, and all seven decks rendered successfully on
+  2026-08-11. The recurring example and free-variable parametrization were
+  checked with SymPy, and assembled-site navigation was verified.
+- Live browser inspection was unavailable during drafting. Before treating the
+  deck as classroom-ready, inspect every slide at the standard RevealJS
+  viewport and fix overflow, spacing, pacing, or density issues.

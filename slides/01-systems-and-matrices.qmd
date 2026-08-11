@@ -4,6 +4,7 @@ deck_id: d01
 deck_title: "{{< meta decks.d01.title >}}"
 deck_short_title: "{{< meta decks.d01.short_title >}}"
 subtitle: "<span class='deck-title'>{{< meta deck_title >}}</span>"
+jupyter: qmcpy
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">
@@ -16,6 +17,679 @@ include-after-body:
       </script>
 ---
 
-# Systems and matrices
+## Three tiny equations
 
-Chapter 1 content will be developed in this deck.
+::: {.columns}
+::: {.column width="33%"}
+$$
+2x=-1
+$$
+
+One solution
+
+$$x=-\tfrac12$$
+:::
+
+::: {.column width="33%"}
+$$
+0x=-1
+$$
+
+No solutions
+
+$$0=-1$$
+:::
+
+::: {.column width="34%"}
+$$
+0x=0
+$$
+
+Infinitely many solutions
+
+$$x\text{ arbitrary}$$
+:::
+:::
+
+::: {.key-point}
+We may transform equations in ways that are **reversible**, because reversible transformations preserve the solution set.
+:::
+
+For the second and third equations, no reversible transformation can isolate $x$: a zero coefficient remains zero
+
+# Course Map
+
+::: {.columns}
+::: {.column width="45%"}
+<h3>Course decks</h3>
+
+- [Why Linear Algebra?]({{< meta decks.d00.file >}})
+- [Systems and Matrices]({{< meta decks.d01.file >}}){.alert}
+- [Determinants]({{< meta decks.d02.file >}})
+- [Euclidean Spaces]({{< meta decks.d03.file >}})
+- [Vector Spaces]({{< meta decks.d04.file >}})
+- [Eigenvalues]({{< meta decks.d05.file >}})
+- [Inner Products]({{< meta decks.d06.file >}})
+:::
+
+::: {.column width="55%"}
+<h3>In this deck</h3>
+
+- [From equations to systems](#from-equations-to-systems)
+- [Eliminate on equations](#eliminate-on-equations)
+- [Compress the repeated structure](#compress-the-repeated-structure)
+- [Eliminate on matrices](#eliminate-on-matrices)
+- [Compute and look ahead](#compute-and-look-ahead)
+:::
+:::
+
+# From equations to systems
+
+- A **solution** makes every equation true at once
+- A **solution set** contains all such choices of the unknowns
+- Our first tool: reversible transformations of equations
+
+::: {.key-point}
+Solve a system by replacing it with an easier system having exactly the same solutions.
+:::
+
+## Three systems, three solution sets
+
+::: {.columns}
+::: {.column width="33%"}
+$$
+\begin{aligned}
+x+y&=3\\
+x-y&=1
+\end{aligned}
+$$
+
+Exactly one
+
+$$\{(2,1)\}$$
+:::
+
+::: {.column width="33%"}
+$$
+\begin{aligned}
+x+y&=3\\
+x+y&=4
+\end{aligned}
+$$
+
+None
+
+$$\varnothing$$
+:::
+
+::: {.column width="34%"}
+$$
+\begin{aligned}
+x+y&=3\\
+2x+2y&=6
+\end{aligned}
+$$
+
+Infinitely many
+
+$$\{(3-t,t):t\in\reals\}$$
+:::
+:::
+
+$\exstar$ What relationship between the two equations produces each outcome?
+
+## Preserve the solution set
+
+Suppose $(x,y)$ satisfies
+
+$$
+\begin{aligned}
+x+y&=3 \qquad &(E_1)\\
+x-y&=1 &(E_2)
+\end{aligned}
+$$
+
+Then it also satisfies
+
+$$
+(E_2)-(E_1):\qquad -2y=-2
+$$
+
+And the original equation can be recovered:
+
+$$
+(E_2-E_1)+E_1=E_2
+$$
+
+::: {.key-point}
+The new system contains the same information because the step can be undone.
+:::
+
+## Three reversible moves
+
+| Transformation of the equations | Inverse transformation |
+|---|---|
+| Interchange $E_i$ and $E_j$ | interchange them again |
+| Replace $E_i$ by $cE_i$, $c\ne0$ | multiply by $1/c$ |
+| Replace $E_i$ by $E_i+cE_j$ | replace it by $E_i-cE_j$ |
+
+::: {.key-point}
+These **elementary row operations** preserve the entire solution set.
+:::
+
+The restriction $c\ne0$ matters: multiplying an equation by $0$ discards information
+
+## Reversible—or not? {data-state="goldborder"}
+
+$\exstar$ Decide whether each transformation preserves the solution set for every system
+
+::: {.columns}
+::: {.column width="50%"}
+1. $E_2\leftarrow E_2-2E_1$
+
+2. $E_1\leftrightarrow E_3$
+
+3. $E_1\leftarrow -3E_1$
+:::
+
+::: {.column width="50%"}
+4. $E_2\leftarrow E_1+E_2$, then discard $E_1$
+
+5. $E_3\leftarrow 0E_3$
+
+6. Square both sides of $E_1$
+:::
+:::
+
+For each reversible step, name its inverse
+
+# Eliminate on equations
+
+We will return to one system throughout the lecture:
+
+$$
+\begin{aligned}
+x+2y-z&=2 \qquad &(E_1)\\
+2x-y+z&=2 &(E_2)\\
+3x+y+2z&=6 &(E_3)
+\end{aligned}
+$$
+
+Goal: create equations with fewer unknowns while preserving every solution
+
+## Eliminate $x$
+
+Keep $E_1$ and use it to remove $x$ from the equations below:
+
+$$
+\begin{aligned}
+x+2y-z&=2\\
+2x-y+z&=2\\
+3x+y+2z&=6
+\end{aligned}
+\quad
+\xrightarrow[\ E_3\leftarrow E_3-3E_1\ ]{\ E_2\leftarrow E_2-2E_1\ }
+\quad
+\begin{aligned}
+x+2y-z&=2\\
+-5y+3z&=-2\\
+-5y+5z&=0
+\end{aligned}
+$$
+
+Each arrow abbreviates a reversible transformation
+
+$$
+E_2^{\mathrm{old}}=E_2^{\mathrm{new}}+2E_1,
+\qquad
+E_3^{\mathrm{old}}=E_3^{\mathrm{new}}+3E_1
+$$
+
+## Eliminate $y$, then solve upward
+
+$$
+\begin{aligned}
+x+2y-z&=2\\
+-5y+3z&=-2\\
+-5y+5z&=0
+\end{aligned}
+\quad
+\xrightarrow{\ E_3\leftarrow E_3-E_2\ }
+\quad
+\begin{aligned}
+x+2y-z&=2\\
+-5y+3z&=-2\\
+2z&=2
+\end{aligned}
+$$
+
+Now back substitute:
+
+$$
+z=1,
+\qquad -5y+3=-2\Rightarrow y=1,
+\qquad x+2-1=2\Rightarrow x=1
+$$
+
+::: {.key-point}
+The original system has the one solution $(x,y,z)=(1,1,1)$.
+:::
+
+## Why elimination works
+
+::: {.columns}
+::: {.column width="52%"}
+The systems form a chain
+
+$$
+\text{original}
+\ \longleftrightarrow\
+\text{$x$ eliminated}
+\ \longleftrightarrow\
+\text{triangular}
+$$
+
+Every arrow works in both directions
+:::
+
+::: {.column width="48%"}
+Elimination does **not**
+
+- guess a solution
+- approximate the equations
+- change the constraints
+
+Elimination **does** expose information already present
+:::
+:::
+
+::: {.key-point}
+Equivalent systems have identical solution sets.
+:::
+
+# Compress the repeated structure
+
+In every equation we repeatedly write
+
+- the unknowns $x_1,\ldots,x_n$
+- plus signs and equality signs
+- coefficients and right-hand sides
+
+Matrices let us keep the numerical structure and omit the repeated symbols
+
+## The dot product combines coefficients and unknowns
+
+For $\vct{a},\vct{x}\in\reals^n$,
+
+$$
+\vct{a}\mathbin{\cdot}\vct{x}
+=a_1x_1+\cdots+a_nx_n
+$$
+
+Example:
+
+$$
+\begin{bmatrix}2\\-1\\3\end{bmatrix}
+\mathbin{\cdot}
+\begin{bmatrix}x\\y\\z\end{bmatrix}
+=2x-y+3z
+$$
+
+::: {.key-point}
+A dot product turns two vectors into one scalar by pairing corresponding entries.
+:::
+
+## Each equation is one row dot product
+
+Write the coefficient rows as vectors:
+
+$$
+\begin{aligned}
+\begin{bmatrix}1&2&-1\end{bmatrix}\mathbin{\cdot}\vct{x}&=2\\
+\begin{bmatrix}2&-1&1\end{bmatrix}\mathbin{\cdot}\vct{x}&=2\\
+\begin{bmatrix}3&1&2\end{bmatrix}\mathbin{\cdot}\vct{x}&=6,
+\qquad
+\vct{x}=\begin{bmatrix}x\\y\\z\end{bmatrix}
+\end{aligned}
+$$
+
+Stack the coefficient rows:
+
+$$
+\mat{A}=
+\begin{bmatrix}
+1&2&-1\\
+2&-1&1\\
+3&1&2
+\end{bmatrix},
+\qquad
+\vct{b}=\begin{bmatrix}2\\2\\6\end{bmatrix}
+$$
+
+## What $\mat{A}\vct{x}$ means
+
+$$
+\mat{A}\vct{x}
+=
+\begin{bmatrix}
+\text{row }1\text{ of }\mat{A}\mathbin{\cdot}\vct{x}\\
+\text{row }2\text{ of }\mat{A}\mathbin{\cdot}\vct{x}\\
+\vdots\\
+\text{row }m\text{ of }\mat{A}\mathbin{\cdot}\vct{x}
+\end{bmatrix}
+$$
+
+Thus
+
+$$
+\mat{A}\vct{x}=\vct{b}
+\qquad\Longleftrightarrow\qquad
+\text{row }i\text{ of }\mat{A}\mathbin{\cdot}\vct{x}=b_i
+\quad(i=1,\ldots,m)
+$$
+
+::: {.key-point}
+Matrix–vector multiplication: the rows of the matrix take dot products with the vector.
+:::
+
+## A general linear system
+
+$$
+\begin{aligned}
+a_{11}x_1+\cdots+a_{1n}x_n&=b_1\\
+&\ \vdots\\
+a_{m1}x_1+\cdots+a_{mn}x_n&=b_m
+\end{aligned}
+$$
+
+becomes
+
+$$
+\mat{A}\vct{x}=\vct{b},
+\qquad
+\mat{A}\in\reals^{m\times n},
+\quad
+\vct{x}\in\reals^n,
+\quad
+\vct{b}\in\reals^m
+$$
+
+The compact notation records all $m$ equations at once
+
+## The augmented matrix stores the system
+
+$$
+\left.
+\begin{aligned}
+x+2y-z&=2\\
+2x-y+z&=2\\
+3x+y+2z&=6
+\end{aligned}
+\quad\right\}
+\qquad\longleftrightarrow\qquad
+\left[\mat{A}\mid\vct{b}\right]
+=
+\left[
+\begin{array}{rrr|r}
+1&2&-1&2\\
+2&-1&1&2\\
+3&1&2&6
+\end{array}
+\right]
+$$
+
+- variable order fixed: $x,y,z$
+- vertical bar separates coefficients from right-hand sides
+- each matrix row represents one equation
+
+::: {.key-point}
+Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible operations on the equations.
+:::
+
+# Eliminate on matrices
+
+Same mathematical work, less repeated notation
+
+$$
+\begin{aligned}
+&\left[
+\begin{array}{rrr|r}
+1&2&-1&2\\2&-1&1&2\\3&1&2&6
+\end{array}
+\right]
+\xrightarrow[\ R_3\leftarrow R_3-3R_1\ ]{\ R_2\leftarrow R_2-2R_1\ }
+\left[
+\begin{array}{rrr|r}
+1&2&-1&2\\0&-5&3&-2\\0&-5&5&0
+\end{array}
+\right]\\[0.8em]
+&\hspace{7em}\xrightarrow{\ R_3\leftarrow R_3-R_2\ }
+\left[
+\begin{array}{rrr|r}
+1&2&-1&2\\0&-5&3&-2\\0&0&2&2
+\end{array}
+\right]
+\end{aligned}
+$$
+
+## Pivots organize elimination
+
+$$
+\left[
+\begin{array}{rrr|r}
+\alert{1}&2&-1&2\\
+0&\alert{-5}&3&-2\\
+0&0&\alert{2}&2
+\end{array}
+\right]
+$$
+
+- **pivot** — leading nonzero entry in a nonzero row
+- entries below each pivot are zero
+- each pivot lies to the right of the pivot above it
+- zero rows, if any, lie at the bottom
+
+This is **row echelon form**
+
+::: {.small}
+Pivot entries need not equal $1$ in row echelon form
+:::
+
+## Reduced row echelon form goes further
+
+Continue with reversible row operations until every pivot
+
+- equals $1$
+- is the only nonzero entry in its column
+
+For the recurring system:
+
+$$
+\left[
+\begin{array}{rrr|r}
+1&2&-1&2\\0&-5&3&-2\\0&0&2&2
+\end{array}
+\right]
+\quad\longrightarrow\quad
+\left[
+\begin{array}{rrr|r}
+1&0&0&1\\0&1&0&1\\0&0&1&1
+\end{array}
+\right]
+$$
+
+The matrix on the right is in **reduced row echelon form** (RREF)
+
+## Read the unique solution
+
+$$
+\left[
+\begin{array}{rrr|r}
+1&0&0&1\\0&1&0&1\\0&0&1&1
+\end{array}
+\right]
+\qquad\longleftrightarrow\qquad
+\begin{aligned}
+x&=1\\y&=1\\z&=1
+\end{aligned}
+$$
+
+Every variable column contains a pivot
+
+::: {.key-point}
+No variable can be chosen freely, so the consistent system has exactly one solution.
+:::
+
+## The last row reveals the other possibilities
+
+::: {.columns}
+::: {.column width="50%"}
+### Contradiction
+
+$$
+\left[
+\begin{array}{rrr|r}
+1&2&-1&2\\
+0&-5&3&-2\\
+0&0&0&2
+\end{array}
+\right]
+$$
+
+Last equation: $0=2$
+
+**Inconsistent** — no solutions
+:::
+
+::: {.column width="50%"}
+### Missing constraint
+
+$$
+\left[
+\begin{array}{rrr|r}
+1&2&-1&2\\
+0&-5&3&-2\\
+0&0&0&0
+\end{array}
+\right]
+$$
+
+Last equation: $0=0$
+
+Consistent, but one variable has no pivot
+:::
+:::
+
+## A free variable produces infinitely many solutions
+
+For the consistent echelon system
+
+$$
+\begin{aligned}
+x+2y-z&=2\\
+-5y+3z&=-2\\
+0&=0,
+\end{aligned}
+$$
+
+the $z$ column has no pivot. Choose the **free variable** $z=t$:
+
+$$
+y=\frac{2+3t}{5},
+\qquad
+x=\frac{6-t}{5}
+$$
+
+$$
+\left\{
+\left(\frac{6-t}{5},\frac{2+3t}{5},t\right):t\in\reals
+\right\}
+$$
+
+Different values of $t$ give infinitely many solutions
+
+## Now the three outcomes are visible
+
+After elimination:
+
+| Row structure | What it means | Number of solutions |
+|---|---|---|
+| $[\,0\ \cdots\ 0\mid c\,]$, $c\ne0$ | contradiction | none |
+| consistent; pivot in every variable column | every variable determined | exactly one |
+| consistent; at least one free variable | one or more parameters | infinitely many |
+
+::: {.key-point}
+A linear system has zero, one, or infinitely many solutions—never exactly two.
+:::
+
+$\exstar$ Why would two distinct solutions force infinitely many?
+
+# Compute and look ahead
+
+Use computation to carry out row operations—not to replace interpretation
+
+::: {.columns}
+::: {.column width="52%"}
+Companion notebook plan
+
+- build $\mat{A}$ and $\vct{b}$ with SymPy `Matrix`
+- display $[\mat{A}\mid\vct{b}]$
+- compute echelon form and RREF
+- compare unique, inconsistent, and free-variable systems
+- verify candidate solutions
+:::
+
+::: {.column width="48%"}
+```{python}
+#| eval: false
+from sympy import Matrix
+
+A = Matrix([[1, 2, -1],
+            [2, -1, 1],
+            [3, 1, 2]])
+b = Matrix([2, 2, 6])
+A.row_join(b).rref()
+```
+
+Standard kernel: `qmcpy`
+:::
+:::
+
+## Reversibility will become a matrix property
+
+Each row operation can itself be represented by a matrix $\mat{E}$ acting on the **left**:
+
+$$
+\mat{A}\longmapsto\mat{E}\mat{A},
+\qquad
+\vct{b}\longmapsto\mat{E}\vct{b}
+$$
+
+Undoing the row operation means applying an inverse transformation $\mat{E}^{-1}$
+
+::: {.key-point}
+**Nonsingular** means reversible: a nonsingular matrix has an inverse.
+:::
+
+For now: row operations are reversible transformations of equations
+
+Later: elementary matrices explain those transformations algebraically
+
+## Where this leads
+
+Elimination answers a concrete question:
+
+$$
+\text{Which }\vct{x}\text{ satisfy }\mat{A}\vct{x}=\vct{b}\text{?}
+$$
+
+It also opens structural questions:
+
+- Which right-hand sides $\vct{b}$ are attainable?
+- When does $\mat{A}\vct{x}=\vct{b}$ have a unique solution for every $\vct{b}$?
+- What do pivots tell us about the rows and columns of $\mat{A}$?
+- How does algebra reveal the geometry of the solution set?
+
+::: {.key-point}
+Next: use matrix structure to understand when transformations are reversible.
+:::
