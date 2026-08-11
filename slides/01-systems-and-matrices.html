@@ -599,33 +599,7 @@ Fred J. Hickernell
 
   <p class="date">August 11, 2026</p>
 </section>
-<section id="three-tiny-equations" class="slide level2">
-<h2>Three tiny equations</h2>
-<div class="columns">
-<div class="column" style="width:33%;">
-<p><span class="math display">\[
-2x=-1
-\]</span></p>
-<p>One solution</p>
-<p><span class="math display">\[x=-\tfrac12\]</span></p>
-</div><div class="column" style="width:33%;">
-<p><span class="math display">\[
-0x=-1
-\]</span></p>
-<p>No solutions</p>
-<p><span class="math display">\[0=-1\]</span></p>
-</div><div class="column" style="width:34%;">
-<p><span class="math display">\[
-0x=0
-\]</span></p>
-<p>Infinitely many solutions</p>
-<p><span class="math display">\[x\text{ arbitrary}\]</span></p>
-</div></div>
-<div class="key-point">
-<p>We may transform equations in ways that are <strong>reversible</strong>, because reversible transformations preserve the solution set.</p>
-</div>
-<p>For the second and third equations, no reversible transformation can isolate <span class="math inline">\(x\)</span>: a zero coefficient remains zero</p>
-</section>
+<section>
 <section id="course-map" class="title-slide slide level1 center">
 <h1>Course Map</h1>
 <div class="columns">
@@ -655,17 +629,51 @@ In this deck
 </ul>
 </div></div>
 </section>
-
+<section id="three-tiny-equations" class="slide level2">
+<h2>Three tiny equations</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><span class="math display">\[
+2x=-1
+\]</span></p>
+<p>One solution</p>
+<p><span class="math display">\[x=-\tfrac12\]</span></p>
+</div><div class="column" style="width:33%;">
+<p><span class="math display">\[
+0x=-1
+\]</span></p>
+<p>No solutions</p>
+<p><span class="math display">\[0=-1\]</span></p>
+</div><div class="column" style="width:34%;">
+<p><span class="math display">\[
+0x=0
+\]</span></p>
+<p>Infinitely many solutions</p>
+<p><span class="math display">\[x\text{ arbitrary}\]</span></p>
+</div></div>
+<div class="key-point">
+<p>We may transform equations in ways that are <span class="alert">reversible</span>, because reversible transformations preserve the solution set</p>
+</div>
+<p>For the second and third equations, no reversible transformation can isolate <span class="math inline">\(x\)</span>: a zero coefficient remains zero</p>
+<div class="key-point">
+<p>A system of <span class="math inline">\(m\)</span> linear equations in <span class="math inline">\(n\)</span> unknowns has exactly one of three outcomes:</p>
+<ul>
+<li>one solution</li>
+<li>no solutions</li>
+<li>infinitely many solutions</li>
+</ul>
+</div>
+</section></section>
 <section>
 <section id="from-equations-to-systems" class="title-slide slide level1 center">
 <h1>From equations to systems</h1>
 <ul>
-<li>A <strong>solution</strong> makes every equation true at once</li>
-<li>A <strong>solution set</strong> contains all such choices of the unknowns</li>
+<li>A <span class="alert">solution</span> makes every equation true at once</li>
+<li>A <span class="alert">solution set</span> contains all such choices of the unknowns</li>
 <li>Our first tool: reversible transformations of equations</li>
 </ul>
 <div class="key-point">
-<p>Solve a system by replacing it with an easier system having exactly the same solutions.</p>
+<p>Solve a system by replacing it with an easier system having exactly the same solutions</p>
 </div>
 </section>
 <section id="three-systems-three-solution-sets" class="slide level2">
@@ -719,7 +727,7 @@ x-y&amp;=1 &amp;(E_2)
 (E_2-E_1)+E_1=E_2
 \]</span></p>
 <div class="key-point">
-<p>The new system contains the same information because the step can be undone.</p>
+<p>The new system contains the same information because the step can be undone</p>
 </div>
 </section>
 <section id="three-reversible-moves" class="slide level2">
@@ -747,7 +755,7 @@ x-y&amp;=1 &amp;(E_2)
 </tbody>
 </table>
 <div class="key-point">
-<p>These <strong>elementary row operations</strong> preserve the entire solution set.</p>
+<p>These <span class="alert">elementary row operations</span> preserve the entire solution set</p>
 </div>
 <p>The restriction <span class="math inline">\(c\ne0\)</span> matters: multiplying an equation by <span class="math inline">\(0\)</span> discards information</p>
 </section>
@@ -832,7 +840,7 @@ z=1,
 \qquad x+2-1=2\Rightarrow x=1
 \]</span></p>
 <div class="key-point">
-<p>The original system has the one solution <span class="math inline">\((x,y,z)=(1,1,1)\)</span>.</p>
+<p>The original system has the one solution <span class="math inline">\((x,y,z)=(1,1,1)\)</span></p>
 </div>
 </section>
 <section id="why-elimination-works" class="slide level2">
@@ -849,16 +857,16 @@ z=1,
 \]</span></p>
 <p>Every arrow works in both directions</p>
 </div><div class="column" style="width:48%;">
-<p>Elimination does <strong>not</strong></p>
+<p>Elimination <span class="alert">does not</span></p>
 <ul>
 <li>guess a solution</li>
 <li>approximate the equations</li>
 <li>change the constraints</li>
 </ul>
-<p>Elimination <strong>does</strong> expose information already present</p>
+<p>Elimination <span class="alert">does</span> expose information already present</p>
 </div></div>
 <div class="key-point">
-<p>Equivalent systems have identical solution sets.</p>
+<p><span class="alert">Equivalent systems</span> have identical solution sets</p>
 </div>
 </section></section>
 <section>
@@ -876,28 +884,93 @@ z=1,
 <h2>The dot product combines coefficients and unknowns</h2>
 <p>For <span class="math inline">\(\vct{a},\vct{x}\in\reals^n\)</span>,</p>
 <p><span class="math display">\[
-\vct{a}\mathbin{\cdot}\vct{x}
+\vct{a}^{\top}\vct{x}
 =a_1x_1+\cdots+a_nx_n
 \]</span></p>
 <p>Example:</p>
 <p><span class="math display">\[
 \begin{bmatrix}2\\-1\\3\end{bmatrix}
-\mathbin{\cdot}
+^{\top}
 \begin{bmatrix}x\\y\\z\end{bmatrix}
 =2x-y+3z
 \]</span></p>
 <div class="key-point">
-<p>A dot product turns two vectors into one scalar by pairing corresponding entries.</p>
+<p>A <span class="alert">dot product</span> turns two vectors into one scalar by pairing corresponding entries</p>
 </div>
+</section>
+<section id="the-dot-product-measures-alignment" class="slide level2">
+<h2>The dot product measures alignment</h2>
+<p>For nonzero <span class="math inline">\(\vct{a},\vct{x}\in\reals^n\)</span>, let <span class="math inline">\(\theta\in[0,\pi]\)</span> be the angle between them</p>
+<p><span class="math display">\[
+\vct{a}^{\top}\vct{x}
+=\lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta)
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\vct{a}^{\top}\vct{x}&gt;0\)</span> — acute angle</li>
+<li><span class="math inline">\(\vct{a}^{\top}\vct{x}=0\)</span> — right angle</li>
+<li><span class="math inline">\(\vct{a}^{\top}\vct{x}&lt;0\)</span> — obtuse angle</li>
+</ul>
+<div class="key-point">
+<p>Two vectors are <span class="alert">orthogonal</span> when <span class="math inline">\(\vct{a}^{\top}\vct{x}=0\)</span>; nonzero orthogonal vectors are perpendicular</p>
+</div>
+</section>
+<section id="parallel-vectors-point-along-one-line" class="slide level2">
+<h2>Parallel vectors point along one line</h2>
+<p>Nonzero vectors <span class="math inline">\(\vct{a}\)</span> and <span class="math inline">\(\vct{c}\)</span> are <span class="alert">parallel</span> when</p>
+<p><span class="math display">\[
+\vct{c}=\lambda\vct{a}
+\qquad\text{for some }\lambda\ne0
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\lambda&gt;0\)</span> — same direction</li>
+<li><span class="math inline">\(\lambda&lt;0\)</span> — opposite directions</li>
+<li>angle <span class="math inline">\(0\)</span> or <span class="math inline">\(\pi\)</span></li>
+<li><span class="math inline">\(\left|\vct{a}^{\top}\vct{c}\right|
+=\lVert\vct{a}\rVert\,\lVert\vct{c}\rVert\)</span></li>
+</ul>
+<div class="key-point">
+<p>Parallel vectors are nonzero scalar multiples of one another</p>
+</div>
+</section>
+<section id="a-linear-equation-describes-a-line" class="slide level2">
+<h2>A linear equation describes a line</h2>
+<p>For nonzero <span class="math inline">\(\vct{a}\in\reals^2\)</span>, <span class="math inline">\(\vct{a}^{\top}\vct{x}=b\)</span> describes a line with <span class="alert">normal vector</span> <span class="math inline">\(\vct{a}\)</span></p>
+<p>If <span class="math inline">\(\vct{x}\)</span> and <span class="math inline">\(\vct{y}\)</span> lie on that line, then</p>
+<p><span class="math display">\[
+\vct{a}^{\top}(\vct{x}-\vct{y})
+=\vct{a}^{\top}\vct{x}-\vct{a}^{\top}\vct{y}
+=b-b=0
+\]</span></p>
+<div class="key-point">
+<p>The normal vector <span class="math inline">\(\vct{a}\)</span> is orthogonal to every direction <span class="math inline">\(\vct{x}-\vct{y}\)</span> along the line</p>
+</div>
+</section>
+<section id="parallel-equations-explain-two-outcomes" class="slide level2">
+<h2>Parallel equations explain two outcomes</h2>
+<p>Suppose <span class="math inline">\(\vct{a}_2=\lambda\vct{a}_1\)</span>, so the normal vectors—and therefore the lines—are parallel</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="math display">\[b_2=\lambda b_1\]</span></p>
+<p>Same line</p>
+<p>Infinitely many common points</p>
+</div><div class="column" style="width:50%;">
+<p><span class="math display">\[b_2\ne\lambda b_1\]</span></p>
+<p>Distinct parallel lines</p>
+<p>No common points</p>
+</div></div>
+<p>If the normal vectors are not parallel, the two lines meet at one point</p>
 </section>
 <section id="each-equation-is-one-row-dot-product" class="slide level2">
 <h2>Each equation is one row dot product</h2>
-<p>Write the coefficient rows as vectors:</p>
+<p>Write each matrix row as the transpose of a coefficient vector:</p>
 <p><span class="math display">\[
 \begin{aligned}
-\begin{bmatrix}1&amp;2&amp;-1\end{bmatrix}\mathbin{\cdot}\vct{x}&amp;=2\\
-\begin{bmatrix}2&amp;-1&amp;1\end{bmatrix}\mathbin{\cdot}\vct{x}&amp;=2\\
-\begin{bmatrix}3&amp;1&amp;2\end{bmatrix}\mathbin{\cdot}\vct{x}&amp;=6,
+\vct{a}_1^{\top}\vct{x}&amp;=2,
+&amp;\vct{a}_1^{\top}&amp;=\begin{bmatrix}1&amp;2&amp;-1\end{bmatrix}\\
+\vct{a}_2^{\top}\vct{x}&amp;=2,
+&amp;\vct{a}_2^{\top}&amp;=\begin{bmatrix}2&amp;-1&amp;1\end{bmatrix}\\
+\vct{a}_3^{\top}\vct{x}&amp;=6,
+&amp;\vct{a}_3^{\top}&amp;=\begin{bmatrix}3&amp;1&amp;2\end{bmatrix},
 \qquad
 \vct{x}=\begin{bmatrix}x\\y\\z\end{bmatrix}
 \end{aligned}
@@ -920,21 +993,23 @@ z=1,
 \mat{A}\vct{x}
 =
 \begin{bmatrix}
-\text{row }1\text{ of }\mat{A}\mathbin{\cdot}\vct{x}\\
-\text{row }2\text{ of }\mat{A}\mathbin{\cdot}\vct{x}\\
+\vct{a}_1^{\top}\vct{x}\\
+\vct{a}_2^{\top}\vct{x}\\
 \vdots\\
-\text{row }m\text{ of }\mat{A}\mathbin{\cdot}\vct{x}
+\vct{a}_m^{\top}\vct{x}
 \end{bmatrix}
+\qquad
+\vct{a}_i^{\top}=\text{row }i\text{ of }\mat{A}
 \]</span></p>
 <p>Thus</p>
 <p><span class="math display">\[
 \mat{A}\vct{x}=\vct{b}
 \qquad\Longleftrightarrow\qquad
-\text{row }i\text{ of }\mat{A}\mathbin{\cdot}\vct{x}=b_i
+\vct{a}_i^{\top}\vct{x}=b_i
 \quad(i=1,\ldots,m)
 \]</span></p>
 <div class="key-point">
-<p>Matrix–vector multiplication: the rows of the matrix take dot products with the vector.</p>
+<p><span class="alert">Matrix–vector multiplication</span>: every matrix row takes a dot product with the vector</p>
 </div>
 </section>
 <section id="a-general-linear-system" class="slide level2">
@@ -985,7 +1060,7 @@ x+2y-z&amp;=2\\
 <li>each matrix row represents one equation</li>
 </ul>
 <div class="key-point">
-<p>Row operations on <span class="math inline">\([\mat{A}\mid\vct{b}]\)</span> are compact versions of reversible operations on the equations.</p>
+<p>Row operations on <span class="math inline">\([\mat{A}\mid\vct{b}]\)</span> are compact versions of reversible operations on the equations</p>
 </div>
 </section></section>
 <section>
@@ -1026,12 +1101,12 @@ x+2y-z&amp;=2\\
 \right]
 \]</span></p>
 <ul>
-<li><strong>pivot</strong> — leading nonzero entry in a nonzero row</li>
+<li><span class="alert">pivot</span> — leading nonzero entry in a nonzero row</li>
 <li>entries below each pivot are zero</li>
 <li>each pivot lies to the right of the pivot above it</li>
 <li>zero rows, if any, lie at the bottom</li>
 </ul>
-<p>This is <strong>row echelon form</strong></p>
+<p>This is <span class="alert">row echelon form</span></p>
 <div class="small">
 <p>Pivot entries need not equal <span class="math inline">\(1\)</span> in row echelon form</p>
 </div>
@@ -1057,7 +1132,7 @@ x+2y-z&amp;=2\\
 \end{array}
 \right]
 \]</span></p>
-<p>The matrix on the right is in <strong>reduced row echelon form</strong> (RREF)</p>
+<p>The matrix on the right is in <span class="alert">reduced row echelon form</span> (RREF)</p>
 </section>
 <section id="read-the-unique-solution" class="slide level2">
 <h2>Read the unique solution</h2>
@@ -1074,7 +1149,7 @@ x&amp;=1\\y&amp;=1\\z&amp;=1
 \]</span></p>
 <p>Every variable column contains a pivot</p>
 <div class="key-point">
-<p>No variable can be chosen freely, so the consistent system has exactly one solution.</p>
+<p>No variable can be chosen freely, so the consistent system has exactly one solution</p>
 </div>
 </section>
 <section id="the-last-row-reveals-the-other-possibilities" class="slide level2">
@@ -1092,7 +1167,7 @@ x&amp;=1\\y&amp;=1\\z&amp;=1
 \right]
 \]</span></p>
 <p>Last equation: <span class="math inline">\(0=2\)</span></p>
-<p><strong>Inconsistent</strong> — no solutions</p>
+<p><span class="alert">Inconsistent</span> — no solutions</p>
 </div><div class="column" style="width:50%;">
 <h3 id="missing-constraint">Missing constraint</h3>
 <p><span class="math display">\[
@@ -1105,7 +1180,7 @@ x&amp;=1\\y&amp;=1\\z&amp;=1
 \right]
 \]</span></p>
 <p>Last equation: <span class="math inline">\(0=0\)</span></p>
-<p>Consistent, but one variable has no pivot</p>
+<p><span class="alert">Consistent</span>, but one variable has no pivot</p>
 </div></div>
 </section>
 <section id="a-free-variable-produces-infinitely-many-solutions" class="slide level2">
@@ -1118,7 +1193,7 @@ x+2y-z&amp;=2\\
 0&amp;=0,
 \end{aligned}
 \]</span></p>
-<p>the <span class="math inline">\(z\)</span> column has no pivot. Choose the <strong>free variable</strong> <span class="math inline">\(z=t\)</span>:</p>
+<p>The <span class="math inline">\(z\)</span> column has no pivot; choose the <span class="alert">free variable</span> <span class="math inline">\(z=t\)</span>:</p>
 <p><span class="math display">\[
 y=\frac{2+3t}{5},
 \qquad
@@ -1166,7 +1241,7 @@ x=\frac{6-t}{5}
 </tbody>
 </table>
 <div class="key-point">
-<p>A linear system has zero, one, or infinitely many solutions—never exactly two.</p>
+<p>A linear system has zero, one, or infinitely many solutions—never exactly two</p>
 </div>
 <p><span class="math inline">\(\exstar\)</span> Why would two distinct solutions force infinitely many?</p>
 </section></section>
@@ -1190,7 +1265,7 @@ x=\frac{6-t}{5}
 </section>
 <section id="reversibility-will-become-a-matrix-property" class="slide level2">
 <h2>Reversibility will become a matrix property</h2>
-<p>Each row operation can itself be represented by a matrix <span class="math inline">\(\mat{E}\)</span> acting on the <strong>left</strong>:</p>
+<p>Each row operation can itself be represented by a matrix <span class="math inline">\(\mat{E}\)</span> acting on the <span class="alert">left</span>:</p>
 <p><span class="math display">\[
 \mat{A}\longmapsto\mat{E}\mat{A},
 \qquad
@@ -1198,7 +1273,7 @@ x=\frac{6-t}{5}
 \]</span></p>
 <p>Undoing the row operation means applying an inverse transformation <span class="math inline">\(\mat{E}^{-1}\)</span></p>
 <div class="key-point">
-<p><strong>Nonsingular</strong> means reversible: a nonsingular matrix has an inverse.</p>
+<p><span class="alert">Nonsingular</span> means reversible: a nonsingular matrix has an inverse</p>
 </div>
 <p>For now: row operations are reversible transformations of equations</p>
 <p>Later: elementary matrices explain those transformations algebraically</p>
@@ -1217,7 +1292,7 @@ x=\frac{6-t}{5}
 <li>How does algebra reveal the geometry of the solution set?</li>
 </ul>
 <div class="key-point">
-<p>Next: use matrix structure to understand when transformations are reversible.</p>
+<p>Next: use matrix structure to understand when transformations are reversible</p>
 </div>
 
 </section></section>
