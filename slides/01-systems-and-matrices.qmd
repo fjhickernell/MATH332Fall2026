@@ -17,6 +17,32 @@ include-after-body:
       </script>
 ---
 
+# Course Map
+
+::: {.columns}
+::: {.column width="45%"}
+<h3>Course decks</h3>
+
+- [Why Linear Algebra?]({{< meta decks.d00.file >}})
+- [Systems and Matrices]({{< meta decks.d01.file >}}){.alert}
+- [Determinants]({{< meta decks.d02.file >}})
+- [Euclidean Spaces]({{< meta decks.d03.file >}})
+- [Vector Spaces]({{< meta decks.d04.file >}})
+- [Eigenvalues]({{< meta decks.d05.file >}})
+- [Inner Products]({{< meta decks.d06.file >}})
+:::
+
+::: {.column width="55%"}
+<h3>In this deck</h3>
+
+- [From equations to systems](#from-equations-to-systems)
+- [Eliminate on equations](#eliminate-on-equations)
+- [Compress the repeated structure](#compress-the-repeated-structure)
+- [Eliminate on matrices](#eliminate-on-matrices)
+- [Compute and look ahead](#compute-and-look-ahead)
+:::
+:::
+
 ## Three tiny equations
 
 ::: {.columns}
@@ -52,45 +78,27 @@ $$x\text{ arbitrary}$$
 :::
 
 ::: {.key-point}
-We may transform equations in ways that are **reversible**, because reversible transformations preserve the solution set.
+We may transform equations in ways that are [reversible]{.alert}, because reversible transformations preserve the solution set
 :::
 
 For the second and third equations, no reversible transformation can isolate $x$: a zero coefficient remains zero
 
-# Course Map
+::: {.key-point}
+A system of $m$ linear equations in $n$ unknowns has exactly one of three outcomes:
 
-::: {.columns}
-::: {.column width="45%"}
-<h3>Course decks</h3>
-
-- [Why Linear Algebra?]({{< meta decks.d00.file >}})
-- [Systems and Matrices]({{< meta decks.d01.file >}}){.alert}
-- [Determinants]({{< meta decks.d02.file >}})
-- [Euclidean Spaces]({{< meta decks.d03.file >}})
-- [Vector Spaces]({{< meta decks.d04.file >}})
-- [Eigenvalues]({{< meta decks.d05.file >}})
-- [Inner Products]({{< meta decks.d06.file >}})
-:::
-
-::: {.column width="55%"}
-<h3>In this deck</h3>
-
-- [From equations to systems](#from-equations-to-systems)
-- [Eliminate on equations](#eliminate-on-equations)
-- [Compress the repeated structure](#compress-the-repeated-structure)
-- [Eliminate on matrices](#eliminate-on-matrices)
-- [Compute and look ahead](#compute-and-look-ahead)
-:::
+- one solution
+- no solutions
+- infinitely many solutions
 :::
 
 # From equations to systems
 
-- A **solution** makes every equation true at once
-- A **solution set** contains all such choices of the unknowns
+- A [solution]{.alert} makes every equation true at once
+- A [solution set]{.alert} contains all such choices of the unknowns
 - Our first tool: reversible transformations of equations
 
 ::: {.key-point}
-Solve a system by replacing it with an easier system having exactly the same solutions.
+Solve a system by replacing it with an easier system having exactly the same solutions
 :::
 
 ## Three systems, three solution sets
@@ -162,7 +170,7 @@ $$
 $$
 
 ::: {.key-point}
-The new system contains the same information because the step can be undone.
+The new system contains the same information because the step can be undone
 :::
 
 ## Three reversible moves
@@ -174,7 +182,7 @@ The new system contains the same information because the step can be undone.
 | Replace $E_i$ by $E_i+cE_j$ | replace it by $E_i-cE_j$ |
 
 ::: {.key-point}
-These **elementary row operations** preserve the entire solution set.
+These [elementary row operations]{.alert} preserve the entire solution set
 :::
 
 The restriction $c\ne0$ matters: multiplying an equation by $0$ discards information
@@ -272,7 +280,7 @@ z=1,
 $$
 
 ::: {.key-point}
-The original system has the one solution $(x,y,z)=(1,1,1)$.
+The original system has the one solution $(x,y,z)=(1,1,1)$
 :::
 
 ## Why elimination works
@@ -293,18 +301,18 @@ Every arrow works in both directions
 :::
 
 ::: {.column width="48%"}
-Elimination does **not**
+Elimination [does not]{.alert}
 
 - guess a solution
 - approximate the equations
 - change the constraints
 
-Elimination **does** expose information already present
+Elimination [does]{.alert} expose information already present
 :::
 :::
 
 ::: {.key-point}
-Equivalent systems have identical solution sets.
+[Equivalent systems]{.alert} have identical solution sets
 :::
 
 # Compress the repeated structure
@@ -322,7 +330,7 @@ Matrices let us keep the numerical structure and omit the repeated symbols
 For $\vct{a},\vct{x}\in\reals^n$,
 
 $$
-\vct{a}\mathbin{\cdot}\vct{x}
+\vct{a}^{\top}\vct{x}
 =a_1x_1+\cdots+a_nx_n
 $$
 
@@ -330,24 +338,103 @@ Example:
 
 $$
 \begin{bmatrix}2\\-1\\3\end{bmatrix}
-\mathbin{\cdot}
+^{\top}
 \begin{bmatrix}x\\y\\z\end{bmatrix}
 =2x-y+3z
 $$
 
 ::: {.key-point}
-A dot product turns two vectors into one scalar by pairing corresponding entries.
+A [dot product]{.alert} turns two vectors into one scalar by pairing corresponding entries
 :::
+
+## The dot product measures alignment
+
+For nonzero $\vct{a},\vct{x}\in\reals^n$, let $\theta\in[0,\pi]$ be the angle between them
+
+$$
+\vct{a}^{\top}\vct{x}
+=\lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta)
+$$
+
+- $\vct{a}^{\top}\vct{x}>0$ — acute angle
+- $\vct{a}^{\top}\vct{x}=0$ — right angle
+- $\vct{a}^{\top}\vct{x}<0$ — obtuse angle
+
+::: {.key-point}
+Two vectors are [orthogonal]{.alert} when $\vct{a}^{\top}\vct{x}=0$; nonzero orthogonal vectors are perpendicular
+:::
+
+## Parallel vectors point along one line
+
+Nonzero vectors $\vct{a}$ and $\vct{c}$ are [parallel]{.alert} when
+
+$$
+\vct{c}=\lambda\vct{a}
+\qquad\text{for some }\lambda\ne0
+$$
+
+- $\lambda>0$ — same direction
+- $\lambda<0$ — opposite directions
+- angle $0$ or $\pi$
+- $\left|\vct{a}^{\top}\vct{c}\right|
+  =\lVert\vct{a}\rVert\,\lVert\vct{c}\rVert$
+
+::: {.key-point}
+Parallel vectors are nonzero scalar multiples of one another
+:::
+
+## A linear equation describes a line
+
+For nonzero $\vct{a}\in\reals^2$, $\vct{a}^{\top}\vct{x}=b$ describes a line with [normal vector]{.alert} $\vct{a}$
+
+If $\vct{x}$ and $\vct{y}$ lie on that line, then
+
+$$
+\vct{a}^{\top}(\vct{x}-\vct{y})
+=\vct{a}^{\top}\vct{x}-\vct{a}^{\top}\vct{y}
+=b-b=0
+$$
+
+::: {.key-point}
+The normal vector $\vct{a}$ is orthogonal to every direction $\vct{x}-\vct{y}$ along the line
+:::
+
+## Parallel equations explain two outcomes
+
+Suppose $\vct{a}_2=\lambda\vct{a}_1$, so the normal vectors—and therefore the lines—are parallel
+
+::: {.columns}
+::: {.column width="50%"}
+$$b_2=\lambda b_1$$
+
+Same line
+
+Infinitely many common points
+:::
+
+::: {.column width="50%"}
+$$b_2\ne\lambda b_1$$
+
+Distinct parallel lines
+
+No common points
+:::
+:::
+
+If the normal vectors are not parallel, the two lines meet at one point
 
 ## Each equation is one row dot product
 
-Write the coefficient rows as vectors:
+Write each matrix row as the transpose of a coefficient vector:
 
 $$
 \begin{aligned}
-\begin{bmatrix}1&2&-1\end{bmatrix}\mathbin{\cdot}\vct{x}&=2\\
-\begin{bmatrix}2&-1&1\end{bmatrix}\mathbin{\cdot}\vct{x}&=2\\
-\begin{bmatrix}3&1&2\end{bmatrix}\mathbin{\cdot}\vct{x}&=6,
+\vct{a}_1^{\top}\vct{x}&=2,
+&\vct{a}_1^{\top}&=\begin{bmatrix}1&2&-1\end{bmatrix}\\
+\vct{a}_2^{\top}\vct{x}&=2,
+&\vct{a}_2^{\top}&=\begin{bmatrix}2&-1&1\end{bmatrix}\\
+\vct{a}_3^{\top}\vct{x}&=6,
+&\vct{a}_3^{\top}&=\begin{bmatrix}3&1&2\end{bmatrix},
 \qquad
 \vct{x}=\begin{bmatrix}x\\y\\z\end{bmatrix}
 \end{aligned}
@@ -372,11 +459,13 @@ $$
 \mat{A}\vct{x}
 =
 \begin{bmatrix}
-\text{row }1\text{ of }\mat{A}\mathbin{\cdot}\vct{x}\\
-\text{row }2\text{ of }\mat{A}\mathbin{\cdot}\vct{x}\\
+\vct{a}_1^{\top}\vct{x}\\
+\vct{a}_2^{\top}\vct{x}\\
 \vdots\\
-\text{row }m\text{ of }\mat{A}\mathbin{\cdot}\vct{x}
+\vct{a}_m^{\top}\vct{x}
 \end{bmatrix}
+\qquad
+\vct{a}_i^{\top}=\text{row }i\text{ of }\mat{A}
 $$
 
 Thus
@@ -384,12 +473,12 @@ Thus
 $$
 \mat{A}\vct{x}=\vct{b}
 \qquad\Longleftrightarrow\qquad
-\text{row }i\text{ of }\mat{A}\mathbin{\cdot}\vct{x}=b_i
+\vct{a}_i^{\top}\vct{x}=b_i
 \quad(i=1,\ldots,m)
 $$
 
 ::: {.key-point}
-Matrix–vector multiplication: the rows of the matrix take dot products with the vector.
+[Matrix–vector multiplication]{.alert}: every matrix row takes a dot product with the vector
 :::
 
 ## A general linear system
@@ -443,7 +532,7 @@ $$
 - each matrix row represents one equation
 
 ::: {.key-point}
-Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible operations on the equations.
+Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible operations on the equations
 :::
 
 # Eliminate on matrices
@@ -484,12 +573,12 @@ $$
 \right]
 $$
 
-- **pivot** — leading nonzero entry in a nonzero row
+- [pivot]{.alert} — leading nonzero entry in a nonzero row
 - entries below each pivot are zero
 - each pivot lies to the right of the pivot above it
 - zero rows, if any, lie at the bottom
 
-This is **row echelon form**
+This is [row echelon form]{.alert}
 
 ::: {.small}
 Pivot entries need not equal $1$ in row echelon form
@@ -518,7 +607,7 @@ $$
 \right]
 $$
 
-The matrix on the right is in **reduced row echelon form** (RREF)
+The matrix on the right is in [reduced row echelon form]{.alert} (RREF)
 
 ## Read the unique solution
 
@@ -537,7 +626,7 @@ $$
 Every variable column contains a pivot
 
 ::: {.key-point}
-No variable can be chosen freely, so the consistent system has exactly one solution.
+No variable can be chosen freely, so the consistent system has exactly one solution
 :::
 
 ## The last row reveals the other possibilities
@@ -558,7 +647,7 @@ $$
 
 Last equation: $0=2$
 
-**Inconsistent** — no solutions
+[Inconsistent]{.alert} — no solutions
 :::
 
 ::: {.column width="50%"}
@@ -576,7 +665,7 @@ $$
 
 Last equation: $0=0$
 
-Consistent, but one variable has no pivot
+[Consistent]{.alert}, but one variable has no pivot
 :::
 :::
 
@@ -592,7 +681,7 @@ x+2y-z&=2\\
 \end{aligned}
 $$
 
-the $z$ column has no pivot. Choose the **free variable** $z=t$:
+The $z$ column has no pivot; choose the [free variable]{.alert} $z=t$:
 
 $$
 y=\frac{2+3t}{5},
@@ -619,7 +708,7 @@ After elimination:
 | consistent; at least one free variable | one or more parameters | infinitely many |
 
 ::: {.key-point}
-A linear system has zero, one, or infinitely many solutions—never exactly two.
+A linear system has zero, one, or infinitely many solutions—never exactly two
 :::
 
 $\exstar$ Why would two distinct solutions force infinitely many?
@@ -657,7 +746,7 @@ Standard kernel: `qmcpy`
 
 ## Reversibility will become a matrix property
 
-Each row operation can itself be represented by a matrix $\mat{E}$ acting on the **left**:
+Each row operation can itself be represented by a matrix $\mat{E}$ acting on the [left]{.alert}:
 
 $$
 \mat{A}\longmapsto\mat{E}\mat{A},
@@ -668,7 +757,7 @@ $$
 Undoing the row operation means applying an inverse transformation $\mat{E}^{-1}$
 
 ::: {.key-point}
-**Nonsingular** means reversible: a nonsingular matrix has an inverse.
+[Nonsingular]{.alert} means reversible: a nonsingular matrix has an inverse
 :::
 
 For now: row operations are reversible transformations of equations
@@ -691,5 +780,5 @@ It also opens structural questions:
 - How does algebra reveal the geometry of the solution set?
 
 ::: {.key-point}
-Next: use matrix structure to understand when transformations are reversible.
+Next: use matrix structure to understand when transformations are reversible
 :::
