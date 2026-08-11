@@ -43,6 +43,10 @@ include-after-body:
 :::
 :::
 
+# Solving Systems of Equations
+
+
+
 ## Three tiny equations
 
 ::: {.columns}
@@ -51,7 +55,7 @@ $$
 2x=-1
 $$
 
-One solution
+[One]{.alert} solution
 
 $$x=-\tfrac12$$
 :::
@@ -61,7 +65,7 @@ $$
 0x=-1
 $$
 
-No solutions
+[No]{.alert} solutions
 
 $$0=-1$$
 :::
@@ -71,17 +75,17 @@ $$
 0x=0
 $$
 
-Infinitely many solutions
+[$\infty$ many]{.alert} solutions
 
 $$x\text{ arbitrary}$$
 :::
 :::
 
 ::: {.key-point}
-We may transform equations in ways that are [reversible]{.alert}, because reversible transformations preserve the solution set
+We transform equations in ways that are [reversible]{.alert} and so preserve the solution set
 :::
 
-For the second and third equations, no reversible transformation can isolate $x$: a zero coefficient remains zero
+For the second and third examples, no reversible transformation can isolate $x$: a zero coefficient remains zero
 
 ::: {.key-point}
 A system of $m$ linear equations in $n$ unknowns has exactly one of three outcomes:
@@ -91,11 +95,11 @@ A system of $m$ linear equations in $n$ unknowns has exactly one of three outcom
 - infinitely many solutions
 :::
 
-# From equations to systems
+## From one equation to systems of equations
 
 - A [solution]{.alert} makes every equation true at once
 - A [solution set]{.alert} contains all such choices of the unknowns
-- Our first tool: reversible transformations of equations
+- First tool: [reversible]{.alert} transformations of equations
 
 ::: {.key-point}
 Solve a system by replacing it with an easier system having exactly the same solutions
@@ -105,12 +109,10 @@ Solve a system by replacing it with an easier system having exactly the same sol
 
 ::: {.columns}
 ::: {.column width="33%"}
-$$
-\begin{aligned}
+\begin{align*}
 x+y&=3\\
-x-y&=1
-\end{aligned}
-$$
+3x-y&=5
+\end{align*}
 
 Exactly one
 
@@ -118,12 +120,10 @@ $$\{(2,1)\}$$
 :::
 
 ::: {.column width="33%"}
-$$
-\begin{aligned}
+\begin{align*}
 x+y&=3\\
 x+y&=4
-\end{aligned}
-$$
+\end{align*}
 
 None
 
@@ -131,12 +131,10 @@ $$\varnothing$$
 :::
 
 ::: {.column width="34%"}
-$$
-\begin{aligned}
+\begin{align*}
 x+y&=3\\
 2x+2y&=6
-\end{aligned}
-$$
+\end{align*}
 
 Infinitely many
 
@@ -150,24 +148,21 @@ $\exstar$ What relationship between the two equations produces each outcome?
 
 Suppose $(x,y)$ satisfies
 
-$$
-\begin{aligned}
-x+y&=3 \qquad &(E_1)\\
-x-y&=1 &(E_2)
-\end{aligned}
-$$
+\begin{align*}
+x+y&=3  &(E_1)\\
+3x-y&=5 & (E_2)
+\end{align*}
 
 Then it also satisfies
 
-$$
-(E_2)-(E_1):\qquad -2y=-2
-$$
+\begin{align*}
+x+y&=3  &(E_1)\\
+-4y&=-4 & (E_2)-3 (E_1)
+\end{align*}
 
-And the original equation can be recovered:
+And the original system of equations can be recovered because
 
-$$
-(E_2-E_1)+E_1=E_2
-$$
+$$E_2 = \bigl(E_2-3(E_1) \bigr) +3E_1=E_2$$
 
 ::: {.key-point}
 The new system contains the same information because the step can be undone
@@ -178,16 +173,18 @@ The new system contains the same information because the step can be undone
 | Transformation of the equations | Inverse transformation |
 |---|---|
 | Interchange $E_i$ and $E_j$ | interchange them again |
-| Replace $E_i$ by $cE_i$, $c\ne0$ | multiply by $1/c$ |
 | Replace $E_i$ by $E_i+cE_j$ | replace it by $E_i-cE_j$ |
+| Replace $E_i$ by $cE_i$, $c\ne0$ | multiply by $1/c$ |
 
 ::: {.key-point}
 These [elementary row operations]{.alert} preserve the entire solution set
 :::
 
-The restriction $c\ne0$ matters: multiplying an equation by $0$ discards information
+- The restriction $c\ne0$ for the last move matters: multiplying an equation by $0$ discards information
 
-## Reversible—or not? {data-state="goldborder"}
+- The last move is not really needed
+
+## Reversible—or not?
 
 $\exstar$ Decide whether each transformation preserves the solution set for every system
 
@@ -211,21 +208,21 @@ $\exstar$ Decide whether each transformation preserves the solution set for ever
 
 For each reversible step, name its inverse
 
-# Eliminate on equations
+# A Recipe to eliminate on equations and then solve
 
 We will return to one system throughout the lecture:
 
-$$
-\begin{aligned}
+\begin{align*}
 x+2y-z&=2 \qquad &(E_1)\\
 2x-y+z&=2 &(E_2)\\
 3x+y+2z&=6 &(E_3)
-\end{aligned}
-$$
+\end{align*}
 
 Goal: create equations with fewer unknowns while preserving every solution
 
-## Eliminate $x$
+## Elimination
+
+### Eliminate $x$ in the equations below the first
 
 Keep $E_1$ and use it to remove $x$ from the equations below:
 
@@ -253,8 +250,7 @@ E_2^{\mathrm{old}}=E_2^{\mathrm{new}}+2E_1,
 E_3^{\mathrm{old}}=E_3^{\mathrm{new}}+3E_1
 $$
 
-## Eliminate $y$, then solve upward
-
+### Eliminate $y$ in the equations below the second
 $$
 \begin{aligned}
 x+2y-z&=2\\
@@ -271,13 +267,15 @@ x+2y-z&=2\\
 \end{aligned}
 $$
 
-Now back substitute:
+## Back substitution
 
-$$
-z=1,
-\qquad -5y+3=-2\Rightarrow y=1,
-\qquad x+2-1=2\Rightarrow x=1
-$$
+### Now back substitute:
+
+\begin{align*}
+2z&=2 & \implies z& = \frac{2}{2} = 1 \\
+-5y+3z& =-2 &\implies y &= \frac{-2 - 3\times 1}{-5} = 1 \\
+x+2y-z & =2 & \implies x & = 2 - (2\times 1 - 1)=1
+\end{align*}
 
 ::: {.key-point}
 The original system has the one solution $(x,y,z)=(1,1,1)$
@@ -427,8 +425,7 @@ If the normal vectors are not parallel, the two lines meet at one point
 
 Write each matrix row as the transpose of a coefficient vector:
 
-$$
-\begin{aligned}
+\begin{align*}
 \vct{a}_1^{\top}\vct{x}&=2,
 &\vct{a}_1^{\top}&=\begin{bmatrix}1&2&-1\end{bmatrix}\\
 \vct{a}_2^{\top}\vct{x}&=2,
@@ -437,8 +434,7 @@ $$
 &\vct{a}_3^{\top}&=\begin{bmatrix}3&1&2\end{bmatrix},
 \qquad
 \vct{x}=\begin{bmatrix}x\\y\\z\end{bmatrix}
-\end{aligned}
-$$
+\end{align*}
 
 Stack the coefficient rows:
 
@@ -483,13 +479,11 @@ $$
 
 ## A general linear system
 
-$$
-\begin{aligned}
+\begin{align*}
 a_{11}x_1+\cdots+a_{1n}x_n&=b_1\\
 &\ \vdots\\
 a_{m1}x_1+\cdots+a_{mn}x_n&=b_m
-\end{aligned}
-$$
+\end{align*}
 
 becomes
 
@@ -539,8 +533,7 @@ Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible oper
 
 Same mathematical work, less repeated notation
 
-$$
-\begin{aligned}
+\begin{align*}
 &\left[
 \begin{array}{rrr|r}
 1&2&-1&2\\2&-1&1&2\\3&1&2&6
@@ -558,8 +551,7 @@ $$
 1&2&-1&2\\0&-5&3&-2\\0&0&2&2
 \end{array}
 \right]
-\end{aligned}
-$$
+\end{align*}
 
 ## Pivots organize elimination
 
@@ -673,13 +665,11 @@ Last equation: $0=0$
 
 For the consistent echelon system
 
-$$
-\begin{aligned}
+\begin{align*}
 x+2y-z&=2\\
 -5y+3z&=-2\\
 0&=0,
-\end{aligned}
-$$
+\end{align*}
 
 The $z$ column has no pivot; choose the [free variable]{.alert} $z=t$:
 

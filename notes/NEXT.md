@@ -6,7 +6,7 @@ Create and validate the companion demonstration notebook for Lecture 01.
 
 ## Current state
 
-- Lecture 01 now has a 32-slide revised deck organized around reversible
+- Lecture 01 now has a 33-slide revised deck organized around reversible
   transformations of equations.
 - The deck begins with scalar equations and concrete zero/one/infinitely-many
   solution sets, develops elimination on equations, and only then introduces
