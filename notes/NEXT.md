@@ -2,12 +2,16 @@
 
 ## Current task
 
-Create and validate the companion demonstration notebook for Lecture 01.
+Resume the instructor review of Lecture 01 and review the Lecture 00 companion
+notebook.
 
 ## Current state
 
 - Lecture 01 now has a 36-slide revised deck organized around reversible
-  transformations of equations.
+  transformations of equations. Instructor review is complete through the
+  entire `# Compress the Repeated Structure` block. Resume review at the
+  beginning of `# Eliminate on Matrices`; that block and the later slides still
+  need review.
 - The deck begins with scalar equations and concrete zero/one/infinitely-many
   solution sets, develops elimination on equations, and only then introduces
   dot products, `\mat{A}\vct{x}=\vct{b}`, augmented matrices, pivots, echelon
@@ -20,15 +24,15 @@ Create and validate the companion demonstration notebook for Lecture 01.
 - One recurring three-variable system connects equation-level elimination to
   augmented-matrix elimination. Elementary matrices and nonsingularity appear
   only as a closing preview.
-- The instructor and visual revision pass is complete. The key revised slides
-  have been inspected at the standard RevealJS viewport, and all seven decks
-  render successfully with the `qmcpy` kernel. Course-wide diagram primitives
-  now live in `slides/math332-slides.scss`; Deck 00 retains only its one-off
-  diagram construction.
+- The reviewed portion has received an instructor and visual revision pass.
+  Key revised slides have been inspected at the standard RevealJS viewport,
+  and all seven decks render successfully with the `qmcpy` kernel. Course-wide
+  diagram primitives now live in `slides/math332-slides.scss`; Deck 00 retains
+  only its one-off diagram construction.
 - No Lecture 01 notebook exists yet. The deck sketches a small SymPy companion
   using `Matrix` and the standard `qmcpy` kernel.
-- The Lecture 00 demonstration notebook still awaits instructor review; that
-  work remains valid but is no longer the immediate slide-development task.
+- The Lecture 00 demonstration notebook still awaits instructor review and is
+  a coequal next priority with finishing the Lecture 01 deck review.
 
 ## Questions to resolve
 
@@ -51,6 +55,7 @@ Create and validate the companion demonstration notebook for Lecture 01.
 
 ## Done when
 
-- The companion notebook executes from a clean `qmcpy` kernel, demonstrates
-  the three solution outcomes without duplicating the lecture, and is linked
-  from the notebooks page when ready.
+- The Lecture 01 deck has been reviewed from `# Eliminate on Matrices` through
+  the end.
+- The Lecture 00 companion notebook has received an instructor review, and any
+  requested revisions have been validated from a clean `qmcpy` kernel.

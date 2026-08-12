@@ -385,7 +385,6 @@ Matrices keep the numerical structure while omitting repeated unknowns, plus sig
 - [A linear equation describes a hyperplane](#a-linear-equation-describes-a-hyperplane)
 - [Each equation is one dot product](#each-equation-is-one-dot-product)
 - [A general linear system](#a-general-linear-system)
-- [The augmented matrix stores the system](#the-augmented-matrix-stores-the-system)
 
 ## The dot product
 
@@ -647,7 +646,9 @@ $$
 
 The compact notation records all $m$ equations at once
 
-## The augmented matrix stores the system
+---
+
+### The augmented matrix stores the system
 
 $$
 \left.
