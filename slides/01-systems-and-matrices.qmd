@@ -35,16 +35,23 @@ include-after-body:
 ::: {.column width="55%"}
 <h3>In this deck</h3>
 
-- [From equations to systems](#from-equations-to-systems)
-- [Eliminate on equations](#eliminate-on-equations)
-- [Compress the repeated structure](#compress-the-repeated-structure)
-- [Eliminate on matrices](#eliminate-on-matrices)
-- [Compute and look ahead](#compute-and-look-ahead)
+- [From Equations to Systems](#from-equations-to-systems)
+- [Eliminate on Equations](#eliminate-on-equations)
+- [Compress the Repeated Structure](#compress-the-repeated-structure)
+- [Eliminate on Matrices](#eliminate-on-matrices)
+- [Compute and Look Ahead](#compute-and-look-ahead)
 :::
 :::
 
-# Solving Systems of Equations
+# From Equations to Systems
 
+- [Three tiny equations](#three-tiny-equations)
+- [From one equation to systems of equations](#from-one-equation-to-systems-of-equations)
+- [Three systems, three solution sets](#three-systems-three-solution-sets)
+- [The solution is where the lines meet](#the-solution-is-where-the-lines-meet)
+- [Solve by manipulating the equations while preserving the solution set](#solve-by-manipulating-the-equations-while-preserving-the-solution-set)
+- [Three reversible moves](#three-reversible-moves)
+- [Reversible—or not?](#reversibleor-not)
 
 
 ## Three tiny equations
@@ -144,7 +151,62 @@ $$\{(3-t,t):t\in\reals\}$$
 
 $\exstar$ What relationship between the two equations produces each outcome?
 
-## Preserve the solution set
+## The solution is where the lines meet
+
+::: {.solution-geometry-grid}
+::: {.solution-geometry-card}
+<div class="system-equations">
+$\begin{aligned}x+y&=3\\3x-y&=5\end{aligned}$
+</div>
+
+<svg viewBox="0 0 320 300" role="img" aria-label="The lines x plus y equals 3 and 3x minus y equals 5 intersect at the unique solution 2 comma 1">
+  <g class="geometry-gridline"><path d="M40 45H300M40 95H300M40 145H300M40 195H300M40 245H300M90 20V270M140 20V270M190 20V270M240 20V270M290 20V270"/></g>
+  <path class="geometry-axis" d="M40 245H305M90 270V15"/>
+  <path class="geometry-equation-one" d="M40 45L265 270"/>
+  <path class="geometry-equation-two" d="M165 270L248 20"/>
+  <circle class="geometry-solution" cx="190" cy="195" r="9"/>
+  <text x="202" y="187" font-size="21">(2, 1)</text>
+  <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
+</svg>
+
+<div class="solution-caption">Exactly one: the lines cross at $(2,1)$</div>
+:::
+
+::: {.solution-geometry-card}
+<div class="system-equations">
+$\begin{aligned}x+y&=3\\x+y&=4\end{aligned}$
+</div>
+
+<svg viewBox="0 0 320 300" role="img" aria-label="The distinct parallel lines x plus y equals 3 and x plus y equals 4 have no common point">
+  <g class="geometry-gridline"><path d="M40 45H300M40 95H300M40 145H300M40 195H300M40 245H300M90 20V270M140 20V270M190 20V270M240 20V270M290 20V270"/></g>
+  <path class="geometry-axis" d="M40 245H305M90 270V15"/>
+  <path class="geometry-equation-one" d="M40 45L265 270"/>
+  <path class="geometry-equation-two" d="M65 20L315 270"/>
+  <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
+</svg>
+
+<div class="solution-caption">None: distinct parallel lines never meet</div>
+:::
+
+::: {.solution-geometry-card}
+<div class="system-equations">
+$\begin{aligned}x+y&=3\\2x+2y&=6\end{aligned}$
+</div>
+
+<svg viewBox="0 0 320 300" role="img" aria-label="The equations x plus y equals 3 and 2x plus 2y equals 6 describe the same line, so every point on the line is a solution">
+  <g class="geometry-gridline"><path d="M40 45H300M40 95H300M40 145H300M40 195H300M40 245H300M90 20V270M140 20V270M190 20V270M240 20V270M290 20V270"/></g>
+  <path class="geometry-axis" d="M40 245H305M90 270V15"/>
+  <path class="geometry-equation-one" d="M40 45L265 270"/>
+  <path class="geometry-equation-two" d="M40 45L265 270"/>
+  <circle class="geometry-solution" cx="90" cy="95" r="7"/><circle class="geometry-solution" cx="140" cy="145" r="7"/><circle class="geometry-solution" cx="190" cy="195" r="7"/><circle class="geometry-solution" cx="240" cy="245" r="7"/>
+  <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
+</svg>
+
+<div class="solution-caption">Infinitely many: both equations give the same line</div>
+:::
+:::
+
+## Solve by manipulating the equations while preserving the solution set
 
 Suppose $(x,y)$ satisfies
 
@@ -165,7 +227,7 @@ And the original system of equations can be recovered because
 $$E_2 = \bigl(E_2-3(E_1) \bigr) +3E_1=E_2$$
 
 ::: {.key-point}
-The new system contains the same information because the step can be undone
+The new system contains the same information because the step can be undone, i.e., it is reversible
 :::
 
 ## Three reversible moves
@@ -208,7 +270,11 @@ $\exstar$ Decide whether each transformation preserves the solution set for ever
 
 For each reversible step, name its inverse
 
-# A Recipe to eliminate on equations and then solve
+# Eliminate on Equations
+
+- [Elimination](#elimination)
+- [Back substitution](#back-substitution)
+- [Why elimination works](#why-elimination-works)
 
 We will return to one system throughout the lecture:
 
@@ -285,17 +351,15 @@ The original system has the one solution $(x,y,z)=(1,1,1)$
 
 ::: {.columns}
 ::: {.column width="52%"}
-The systems form a chain
+1. Eliminate $x$ below the first equation
 
-$$
-\text{original}
-\ \longleftrightarrow\
-\text{$x$ eliminated}
-\ \longleftrightarrow\
-\text{triangular}
-$$
+   $\implies$ an equivalent system
 
-Every arrow works in both directions
+2. Eliminate $y$ below the second equation
+
+   $\implies$ an equivalent triangular system
+
+3. Back substitution reveals the solution
 :::
 
 ::: {.column width="48%"}
@@ -310,22 +374,24 @@ Elimination [does]{.alert} expose information already present
 :::
 
 ::: {.key-point}
-[Equivalent systems]{.alert} have identical solution sets
+Each system at each step has [exactly the same solution set]{.alert} because every elimination step is [reversible]{.alert}
 :::
 
-# Compress the repeated structure
+# Compress the Repeated Structure
 
-In every equation we repeatedly write
+Matrices keep the numerical structure while omitting repeated unknowns, plus signs, and equality signs
 
-- the unknowns $x_1,\ldots,x_n$
-- plus signs and equality signs
-- coefficients and right-hand sides
+- [The dot product](#the-dot-product)
+- [A linear equation describes a hyperplane](#a-linear-equation-describes-a-hyperplane)
+- [Each equation is one dot product](#each-equation-is-one-dot-product)
+- [A general linear system](#a-general-linear-system)
+- [The augmented matrix stores the system](#the-augmented-matrix-stores-the-system)
 
-Matrices let us keep the numerical structure and omit the repeated symbols
+## The dot product
 
-## The dot product combines coefficients and unknowns
+### Combines coefficients and unknowns
 
-For $\vct{a},\vct{x}\in\reals^n$,
+For $\vct{a},\vct{x}\in\reals^n$, the [dot product]{.alert}
 
 $$
 \vct{a}^{\top}\vct{x}
@@ -335,8 +401,7 @@ $$
 Example:
 
 $$
-\begin{bmatrix}2\\-1\\3\end{bmatrix}
-^{\top}
+\begin{bmatrix}2 & -1 & 3\end{bmatrix}
 \begin{bmatrix}x\\y\\z\end{bmatrix}
 =2x-y+3z
 $$
@@ -345,13 +410,15 @@ $$
 A [dot product]{.alert} turns two vectors into one scalar by pairing corresponding entries
 :::
 
-## The dot product measures alignment
+---
+
+### Measures alignment
 
 For nonzero $\vct{a},\vct{x}\in\reals^n$, let $\theta\in[0,\pi]$ be the angle between them
 
 $$
 \vct{a}^{\top}\vct{x}
-=\lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta)
+=\lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta), \qquad \lVert \vct{a} \rVert = \sqrt{a_1^2 + \cdots + a_n^2}
 $$
 
 - $\vct{a}^{\top}\vct{x}>0$ — acute angle
@@ -359,84 +426,163 @@ $$
 - $\vct{a}^{\top}\vct{x}<0$ — obtuse angle
 
 ::: {.key-point}
-Two vectors are [orthogonal]{.alert} when $\vct{a}^{\top}\vct{x}=0$; nonzero orthogonal vectors are perpendicular
+Two vectors are [orthogonal]{.alert} when $\vct{a}^{\top}\vct{x}=0$ <br>Nonzero orthogonal vectors are perpendicular
 :::
 
-## Parallel vectors point along one line
+---
 
-Nonzero vectors $\vct{a}$ and $\vct{c}$ are [parallel]{.alert} when
+### Parallel vectors point along one line
+
+Nonzero vectors $\vct{a}$ and $\vct{x}$ are [parallel]{.alert} when
 
 $$
-\vct{c}=\lambda\vct{a}
+\vct{x}=\lambda\vct{a}
 \qquad\text{for some }\lambda\ne0
 $$
 
 - $\lambda>0$ — same direction
 - $\lambda<0$ — opposite directions
 - angle $0$ or $\pi$
-- $\left|\vct{a}^{\top}\vct{c}\right|
-  =\lVert\vct{a}\rVert\,\lVert\vct{c}\rVert$
+- $\vct{a}^{\top}\vct{x}
+  = \pm \lVert\vct{a}\rVert\,\lVert\vct{x}\rVert$
 
 ::: {.key-point}
 Parallel vectors are nonzero scalar multiples of one another
 :::
 
-## A linear equation describes a line
-
-For nonzero $\vct{a}\in\reals^2$, $\vct{a}^{\top}\vct{x}=b$ describes a line with [normal vector]{.alert} $\vct{a}$
-
-If $\vct{x}$ and $\vct{y}$ lie on that line, then
-
-$$
-\vct{a}^{\top}(\vct{x}-\vct{y})
-=\vct{a}^{\top}\vct{x}-\vct{a}^{\top}\vct{y}
-=b-b=0
-$$
-
-::: {.key-point}
-The normal vector $\vct{a}$ is orthogonal to every direction $\vct{x}-\vct{y}$ along the line
-:::
-
-## Parallel equations explain two outcomes
-
-Suppose $\vct{a}_2=\lambda\vct{a}_1$, so the normal vectors—and therefore the lines—are parallel
+## A linear equation describes a hyperplane
 
 ::: {.columns}
-::: {.column width="50%"}
-$$b_2=\lambda b_1$$
+::: {.column width="53%"}
+For nonzero $\vct{a}\in\reals^n$, let $\vct{x}$ range over $\reals^n$. The solution set
 
-Same line
+$$
+H=\{\vct{x}\in\reals^n:\vct{a}^{\top}\vct{x}=b\}
+$$
 
-Infinitely many common points
+is an $(n-1)$-dimensional [hyperplane]{.alert} with normal vector $\vct{a}$
+
+Choose two particular points $\vct{u},\vct{t}\in H$. Then
+
+$$
+\vct{a}^{\top}(\vct{u}-\vct{t})
+=\vct{a}^{\top}\vct{u}-\vct{a}^{\top}\vct{t}
+=b-b=0
+$$
 :::
 
-::: {.column width="50%"}
-$$b_2\ne\lambda b_1$$
+::: {.column width="47%"}
+<svg class="diagram-image hyperplane-geometry" viewBox="0 0 520 420" width="100%" role="img" aria-label="In two dimensions, the points u and t lie on the line a transpose x equals b.  The vector u minus t lies along the line and the normal vector a is perpendicular to it.">
+  <defs>
+    <marker id="hyperplane-arrow-blue" markerWidth="24" markerHeight="18" refX="23" refY="9" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,24 9,0 18" fill="#007acc"/></marker>
+    <marker id="hyperplane-arrow-orange" markerWidth="24" markerHeight="18" refX="23" refY="9" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,24 9,0 18" fill="#f39c34"/></marker>
+  </defs>
+  <path d="M65 345L455 57" stroke="#555" stroke-width="7"/>
+  <path d="M180 261L350 135" stroke="#007acc" stroke-width="7" marker-end="url(#hyperplane-arrow-blue)"/>
+  <path d="M263 200L355 325" stroke="#f39c34" stroke-width="7" marker-end="url(#hyperplane-arrow-orange)"/>
+  <path d="M278 220L298 205L283 185" fill="none" stroke="#333" stroke-width="4"/>
+  <rect x="84" y="42" width="205" height="54" rx="9" fill="#fff" stroke="#9aa7af" stroke-width="2.5"/>
+  <path d="M250 96L306 168" fill="none" stroke="#777" stroke-width="2.5" stroke-dasharray="6 5"/>
+  <path d="M151 244L171 257M388 156L359 139" fill="none" stroke="#c62828" stroke-width="2.5"/>
+  <circle cx="180" cy="261" r="9" fill="#c62828"/>
+  <circle cx="350" cy="135" r="9" fill="#c62828"/>
+  <g font-size="31" font-style="italic">
+    <text x="104" y="79" font-weight="400"><tspan style="font-weight:700">a</tspan><tspan style="font-weight:400">ᵀ</tspan><tspan style="font-weight:700">x</tspan><tspan style="font-weight:400"> = b</tspan></text>
+    <text x="126" y="242" font-weight="700" style="fill:#8e1b1b">t</text>
+    <text x="391" y="166" font-weight="700" style="fill:#8e1b1b">u</text>
+    <text x="198" y="147" font-weight="700" style="fill:#007acc">u − t</text>
+    <text x="370" y="300" font-weight="700" style="fill:#a85b00">a</text>
+  </g>
+</svg>
 
-Distinct parallel lines
+::: {.diagram-label .text-end}
+In $\reals^2$, a hyperplane is a line
+:::
+:::
+:::
 
-No common points
+::: {.key-point}
+The normal vector $\vct{a}$ is orthogonal to every direction $\vct{u}-\vct{t}$ within the hyperplane
+:::
+
+---
+
+### Parallel equations with two possible outcomes
+
+$$
+\va_1^\top \vx = b_1 \qquad \va_2^\top \vx = b_2
+$$
+
+Suppose $\vct{a}_2=\lambda\vct{a}_1$ with $\lambda\ne0$
+
+- Left sides point in the same normal direction
+- Right sides decide whether the planes coincide
+
+::: {.parallel-outcome-grid}
+::: {.parallel-outcome-card}
+<svg class="diagram-image parallel-plane-geometry" viewBox="0 0 520 285" width="88%" role="img" aria-label="Two equations with proportional left and right sides describe the same plane in three dimensions.">
+  <defs><marker id="same-plane-normal" markerWidth="22" markerHeight="16" refX="21" refY="8" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,22 8,0 16" fill="#f39c34"/></marker></defs>
+  <polygon points="75,205 310,235 445,105 210,75" fill="#dceef7" stroke="#007acc" stroke-width="5"/>
+  <polygon points="75,205 310,235 445,105 210,75" fill="#f39c34" fill-opacity="0.18" stroke="#f39c34" stroke-width="4" stroke-dasharray="10 7"/>
+  <path d="M260 156L245 35" stroke="#f39c34" stroke-width="6" marker-end="url(#same-plane-normal)"/>
+  <text x="270" y="43" style="fill:#a85b00"><tspan font-size="40" font-style="italic" font-weight="700">a₁</tspan><tspan font-size="27" font-style="normal" font-weight="400"> parallel to </tspan><tspan font-size="40" font-style="italic" font-weight="700">a₂</tspan></text>
+</svg>
+
+<div class="parallel-outcome-equation">b₂ = λb₁</div>
+
+::: {.parallel-outcome-caption}
+[Same plane]{.alert} is common to both equations
 :::
 :::
 
-If the normal vectors are not parallel, the two lines meet at one point
+::: {.parallel-outcome-card}
+<svg class="diagram-image parallel-plane-geometry" viewBox="0 0 520 285" width="88%" role="img" aria-label="Two equations with proportional left sides but incompatible right sides describe two visibly separated parallel planes in three dimensions.">
+  <defs><marker id="parallel-plane-normal" markerWidth="22" markerHeight="16" refX="21" refY="8" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,22 8,0 16" fill="#f39c34"/></marker></defs>
+  <polygon points="55,220 285,248 430,178 200,150" fill="#dceef7" stroke="#007acc" stroke-width="5"/>
+  <polygon points="55,105 285,133 430,63 200,35" fill="#fff0dc" stroke="#f39c34" stroke-width="5"/>
+  <path d="M255 91L245 10" stroke="#f39c34" stroke-width="6" marker-end="url(#parallel-plane-normal)"/>
+  <text x="270" y="32" style="fill:#a85b00"><tspan font-size="40" font-style="italic" font-weight="700">a₁</tspan><tspan font-size="27" font-style="normal" font-weight="400"> parallel to </tspan><tspan font-size="40" font-style="italic" font-weight="700">a₂</tspan></text>
+</svg>
 
-## Each equation is one row dot product
+<div class="parallel-outcome-equation">b₂ ≠ λb₁</div>
+
+::: {.parallel-outcome-caption}
+[Distinct parallel planes]{.alert}: no point satisfies both equations
+:::
+:::
+:::
+
+
+## Each equation is one dot product
 
 Write each matrix row as the transpose of a coefficient vector:
 
 \begin{align*}
-\vct{a}_1^{\top}\vct{x}&=2,
-&\vct{a}_1^{\top}&=\begin{bmatrix}1&2&-1\end{bmatrix}\\
-\vct{a}_2^{\top}\vct{x}&=2,
-&\vct{a}_2^{\top}&=\begin{bmatrix}2&-1&1\end{bmatrix}\\
-\vct{a}_3^{\top}\vct{x}&=6,
-&\vct{a}_3^{\top}&=\begin{bmatrix}3&1&2\end{bmatrix},
-\qquad
+\begin{matrix}
+x + 2y -z = 2 \\
+2x - y + z = 2 \\
+3x + y + 2z = 6
+\end{matrix}
+\iff
+\begin{matrix}
+\vct{a}_1^{\top}\vct{x}=2
+&\vct{a}_1^{\top}=\begin{bmatrix}1&2&-1\end{bmatrix}\\
+\vct{a}_2^{\top}\vct{x}=2
+&\vct{a}_2^{\top}=\begin{bmatrix}2&-1&1\end{bmatrix}\\
+\vct{a}_3^{\top}\vct{x}=6
+&\vct{a}_3^{\top}=\begin{bmatrix}3&1&2\end{bmatrix}
+\end{matrix}
+\quad
 \vct{x}=\begin{bmatrix}x\\y\\z\end{bmatrix}
 \end{align*}
 
-Stack the coefficient rows:
+Stack the coefficient rows to get
+
+$$
+\mA \vx = \vb
+$$
+
+where
 
 $$
 \mat{A}=
@@ -449,7 +595,9 @@ $$
 \vct{b}=\begin{bmatrix}2\\2\\6\end{bmatrix}
 $$
 
-## What $\mat{A}\vct{x}$ means
+---
+
+### What $\mat{A}\vct{x}$ means
 
 $$
 \mat{A}\vct{x}
@@ -529,7 +677,17 @@ $$
 Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible operations on the equations
 :::
 
-# Eliminate on matrices
+# Eliminate on Matrices
+
+- [Matrix elimination repeats the same work](#matrix-elimination-repeats-the-same-work)
+- [Pivots organize elimination](#pivots-organize-elimination)
+- [Reduced row echelon form goes further](#reduced-row-echelon-form-goes-further)
+- [Read the unique solution](#read-the-unique-solution)
+- [The last row reveals the other possibilities](#the-last-row-reveals-the-other-possibilities)
+- [A free variable produces infinitely many solutions](#a-free-variable-produces-infinitely-many-solutions)
+- [Now the three outcomes are visible](#now-the-three-outcomes-are-visible)
+
+## Matrix elimination repeats the same work
 
 Same mathematical work, less repeated notation
 
@@ -703,9 +861,15 @@ A linear system has zero, one, or infinitely many solutions—never exactly two
 
 $\exstar$ Why would two distinct solutions force infinitely many?
 
-# Compute and look ahead
+# Compute and Look Ahead
 
 Use computation to carry out row operations—not to replace interpretation
+
+- [Companion computation](#companion-computation)
+- [Reversibility will become a matrix property](#reversibility-will-become-a-matrix-property)
+- [Where this leads](#where-this-leads)
+
+## Companion computation
 
 ::: {.columns}
 ::: {.column width="52%"}

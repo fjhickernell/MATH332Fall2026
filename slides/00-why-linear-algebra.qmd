@@ -38,15 +38,15 @@ include-after-body:
 ::: {.column width="55%"}
 <h3>In this deck</h3>
 
-- [A common language for representation and action](#a-common-language-for-representation-and-action)
+- [A Common Language for Representation and Action](#a-common-language-for-representation-and-action)
 - [Represent](#represent)
 - [Act](#act)
-- [Compute responsibly](#compute-responsibly)
-- [The course ahead](#the-course-ahead)
+- [Compute Responsibly](#compute-responsibly)
+- [The Course Ahead](#the-course-ahead)
 :::
 :::
 
-# A common language for representation and action
+# A Common Language for Representation and Action
 
 ::: {.opening-strip}
 <div>
@@ -509,7 +509,7 @@ Linear algebra supplies representations, transformations, geometry, and scalable
 
 Machine learning also needs probability, optimization, nonlinear models, data, and judgment
 
-# Compute responsibly
+# Compute Responsibly
 
 - [Too little information, many answers](#too-little-information-many-answers)
 - [Almost parallel, almost unknowable](#almost-parallel-almost-unknowable)
@@ -671,7 +671,7 @@ Reliable software cannot fix ill-posedness or remove sensitivity inherent in an 
 Distinguish an [ill-posed formulation]{.alert}, an [ill-conditioned problem]{.alert}, an [unstable algorithm]{.alert}, and [excessive computational cost]{.alert}.
 :::
 
-# The course ahead
+# The Course Ahead
 
 - [Questions we will learn to answer](#questions-we-will-learn-to-answer)
 - [How we will learn linear algebra](#how-we-will-learn-linear-algebra)

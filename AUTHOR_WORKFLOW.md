@@ -19,6 +19,16 @@ content is maintained only once.
 
 ## Slide-source conventions
 
+- Write `#` section headings in title case: capitalize principal words while
+  leaving articles, coordinating conjunctions, and short prepositions
+  lowercase unless they begin or end the heading. Write `##` slide headings
+  and `###` subheadings in sentence case: capitalize only the first word and
+  proper nouns, acronyms, and mathematical notation.
+- Every instructional `#` section slide must link to all of its child `##`
+  slides in presentation order; `###` subheadings do not belong in this list.
+  When the section slide also contains content, place brief framing or
+  motivation above the links by default and supporting examples or secondary
+  material below them. Decide case by case, keeping the links easy to scan.
 - Prefer readable Quarto Markdown for headings, text, columns, equations, and
   ordinary emphasis. Use raw HTML when a diagram or specialized layout is
   materially easier to construct that way.
