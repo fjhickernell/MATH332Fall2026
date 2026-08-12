@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-08-11">
+  <meta name="dcterms.date" content="2026-08-12">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="01-systems-and-matrices_files/libs/revealjs/dist/theme/quarto-4b4972c6bc2b9c5a93c15631251c2601.css">
+  <link rel="stylesheet" href="01-systems-and-matrices_files/libs/revealjs/dist/theme/quarto-aa9501165e211a18d09432a60bdd8753.css">
   <link href="01-systems-and-matrices_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="01-systems-and-matrices_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="01-systems-and-matrices_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -597,7 +597,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">August 11, 2026</p>
+  <p class="date">August 12, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 center">
 <h1>Course Map</h1>
@@ -620,19 +620,27 @@ Course decks
 In this deck
 </h3>
 <ul>
-<li><a href="#/from-equations-to-systems">From equations to systems</a></li>
-<li><a href="#/eliminate-on-equations">Eliminate on equations</a></li>
-<li><a href="#/compress-the-repeated-structure">Compress the repeated structure</a></li>
-<li><a href="#/eliminate-on-matrices">Eliminate on matrices</a></li>
-<li><a href="#/compute-and-look-ahead">Compute and look ahead</a></li>
+<li><a href="#/from-equations-to-systems">From Equations to Systems</a></li>
+<li><a href="#/eliminate-on-equations">Eliminate on Equations</a></li>
+<li><a href="#/compress-the-repeated-structure">Compress the Repeated Structure</a></li>
+<li><a href="#/eliminate-on-matrices">Eliminate on Matrices</a></li>
+<li><a href="#/compute-and-look-ahead">Compute and Look Ahead</a></li>
 </ul>
 </div></div>
 </section>
 
 <section>
-<section id="solving-systems-of-equations" class="title-slide slide level1 center">
-<h1>Solving Systems of Equations</h1>
-
+<section id="from-equations-to-systems" class="title-slide slide level1 center">
+<h1>From Equations to Systems</h1>
+<ul>
+<li><a href="#/three-tiny-equations">Three tiny equations</a></li>
+<li><a href="#/from-one-equation-to-systems-of-equations">From one equation to systems of equations</a></li>
+<li><a href="#/three-systems-three-solution-sets">Three systems, three solution sets</a></li>
+<li><a href="#/the-solution-is-where-the-lines-meet">The solution is where the lines meet</a></li>
+<li><a href="#/solve-by-manipulating-the-equations-while-preserving-the-solution-set">Solve by manipulating the equations while preserving the solution set</a></li>
+<li><a href="#/three-reversible-moves">Three reversible moves</a></li>
+<li><a href="#/reversibleor-not">Reversible—or not?</a></li>
+</ul>
 </section>
 <section id="three-tiny-equations" class="slide level2">
 <h2>Three tiny equations</h2>
@@ -707,8 +715,46 @@ x+y&amp;=3\\
 </div></div>
 <p><span class="math inline">\(\exstar\)</span> What relationship between the two equations produces each outcome?</p>
 </section>
-<section id="preserve-the-solution-set" class="slide level2">
-<h2>Preserve the solution set</h2>
+<section id="the-solution-is-where-the-lines-meet" class="slide level2">
+<h2>The solution is where the lines meet</h2>
+<div class="solution-geometry-grid">
+<div class="solution-geometry-card">
+<div class="system-equations">
+<p><span class="math inline">\(\begin{aligned}x+y&amp;=3\\3x-y&amp;=5\end{aligned}\)</span></p>
+</div>
+<svg viewbox="0 0 320 300" role="img" aria-label="The lines x plus y equals 3 and 3x minus y equals 5 intersect at the unique solution 2 comma 1">
+<g class="geometry-gridline"><path d="M40 45H300M40 95H300M40 145H300M40 195H300M40 245H300M90 20V270M140 20V270M190 20V270M240 20V270M290 20V270"></path></g> <path class="geometry-axis" d="M40 245H305M90 270V15"></path> <path class="geometry-equation-one" d="M40 45L265 270"></path> <path class="geometry-equation-two" d="M165 270L248 20"></path> <circle class="geometry-solution" cx="190" cy="195" r="9"></circle> <text x="202" y="187" font-size="21">(2, 1)</text> <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
+</svg>
+<div class="solution-caption">
+Exactly one: the lines cross at <span class="math inline">\((2,1)\)</span>
+</div>
+</div>
+<div class="solution-geometry-card">
+<div class="system-equations">
+<p><span class="math inline">\(\begin{aligned}x+y&amp;=3\\x+y&amp;=4\end{aligned}\)</span></p>
+</div>
+<svg viewbox="0 0 320 300" role="img" aria-label="The distinct parallel lines x plus y equals 3 and x plus y equals 4 have no common point">
+<g class="geometry-gridline"><path d="M40 45H300M40 95H300M40 145H300M40 195H300M40 245H300M90 20V270M140 20V270M190 20V270M240 20V270M290 20V270"></path></g> <path class="geometry-axis" d="M40 245H305M90 270V15"></path> <path class="geometry-equation-one" d="M40 45L265 270"></path> <path class="geometry-equation-two" d="M65 20L315 270"></path> <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
+</svg>
+<div class="solution-caption">
+None: distinct parallel lines never meet
+</div>
+</div>
+<div class="solution-geometry-card">
+<div class="system-equations">
+<p><span class="math inline">\(\begin{aligned}x+y&amp;=3\\2x+2y&amp;=6\end{aligned}\)</span></p>
+</div>
+<svg viewbox="0 0 320 300" role="img" aria-label="The equations x plus y equals 3 and 2x plus 2y equals 6 describe the same line, so every point on the line is a solution">
+<g class="geometry-gridline"><path d="M40 45H300M40 95H300M40 145H300M40 195H300M40 245H300M90 20V270M140 20V270M190 20V270M240 20V270M290 20V270"></path></g> <path class="geometry-axis" d="M40 245H305M90 270V15"></path> <path class="geometry-equation-one" d="M40 45L265 270"></path> <path class="geometry-equation-two" d="M40 45L265 270"></path> <circle class="geometry-solution" cx="90" cy="95" r="7"></circle><circle class="geometry-solution" cx="140" cy="145" r="7"></circle><circle class="geometry-solution" cx="190" cy="195" r="7"></circle><circle class="geometry-solution" cx="240" cy="245" r="7"></circle> <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
+</svg>
+<div class="solution-caption">
+Infinitely many: both equations give the same line
+</div>
+</div>
+</div>
+</section>
+<section id="solve-by-manipulating-the-equations-while-preserving-the-solution-set" class="slide level2">
+<h2>Solve by manipulating the equations while preserving the solution set</h2>
 <p>Suppose <span class="math inline">\((x,y)\)</span> satisfies</p>
 <p><span class="math display">\[\begin{align*}
 x+y&amp;=3  &amp;(E_1)\\
@@ -722,7 +768,7 @@ x+y&amp;=3  &amp;(E_1)\\
 <p>And the original system of equations can be recovered because</p>
 <p><span class="math display">\[E_2 = \bigl(E_2-3(E_1) \bigr) +3E_1=E_2\]</span></p>
 <div class="key-point">
-<p>The new system contains the same information because the step can be undone</p>
+<p>The new system contains the same information because the step can be undone, i.e., it is reversible</p>
 </div>
 </section>
 <section id="three-reversible-moves" class="slide level2">
@@ -777,8 +823,13 @@ x+y&amp;=3  &amp;(E_1)\\
 <p>For each reversible step, name its inverse</p>
 </section></section>
 <section>
-<section id="a-recipe-to-eliminate-on-equations-and-then-solve" class="title-slide slide level1 center">
-<h1>A Recipe to eliminate on equations and then solve</h1>
+<section id="eliminate-on-equations" class="title-slide slide level1 center">
+<h1>Eliminate on Equations</h1>
+<ul>
+<li><a href="#/elimination">Elimination</a></li>
+<li><a href="#/back-substitution">Back substitution</a></li>
+<li><a href="#/why-elimination-works">Why elimination works</a></li>
+</ul>
 <p>We will return to one system throughout the lecture:</p>
 <p><span class="math display">\[\begin{align*}
 x+2y-z&amp;=2 \qquad &amp;(E_1)\\
@@ -845,15 +896,13 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 1 - 1)=1
 <h2>Why elimination works</h2>
 <div class="columns">
 <div class="column" style="width:52%;">
-<p>The systems form a chain</p>
-<p><span class="math display">\[
-\text{original}
-\ \longleftrightarrow\
-\text{$x$ eliminated}
-\ \longleftrightarrow\
-\text{triangular}
-\]</span></p>
-<p>Every arrow works in both directions</p>
+<ol type="1">
+<li><p>Eliminate <span class="math inline">\(x\)</span> below the first equation</p>
+<p><span class="math inline">\(\implies\)</span> an equivalent system</p></li>
+<li><p>Eliminate <span class="math inline">\(y\)</span> below the second equation</p>
+<p><span class="math inline">\(\implies\)</span> an equivalent triangular system</p></li>
+<li><p>Back substitution reveals the solution</p></li>
+</ol>
 </div><div class="column" style="width:48%;">
 <p>Elimination <span class="alert">does not</span></p>
 <ul>
@@ -864,31 +913,32 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 1 - 1)=1
 <p>Elimination <span class="alert">does</span> expose information already present</p>
 </div></div>
 <div class="key-point">
-<p><span class="alert">Equivalent systems</span> have identical solution sets</p>
+<p>Each system at each step has <span class="alert">exactly the same solution set</span> because every elimination step is <span class="alert">reversible</span></p>
 </div>
 </section></section>
 <section>
 <section id="compress-the-repeated-structure" class="title-slide slide level1 center">
-<h1>Compress the repeated structure</h1>
-<p>In every equation we repeatedly write</p>
+<h1>Compress the Repeated Structure</h1>
+<p>Matrices keep the numerical structure while omitting repeated unknowns, plus signs, and equality signs</p>
 <ul>
-<li>the unknowns <span class="math inline">\(x_1,\ldots,x_n\)</span></li>
-<li>plus signs and equality signs</li>
-<li>coefficients and right-hand sides</li>
+<li><a href="#/the-dot-product">The dot product</a></li>
+<li><a href="#/a-linear-equation-describes-a-hyperplane">A linear equation describes a hyperplane</a></li>
+<li><a href="#/each-equation-is-one-dot-product">Each equation is one dot product</a></li>
+<li><a href="#/a-general-linear-system">A general linear system</a></li>
+<li><a href="#/the-augmented-matrix-stores-the-system">The augmented matrix stores the system</a></li>
 </ul>
-<p>Matrices let us keep the numerical structure and omit the repeated symbols</p>
 </section>
-<section id="the-dot-product-combines-coefficients-and-unknowns" class="slide level2">
-<h2>The dot product combines coefficients and unknowns</h2>
-<p>For <span class="math inline">\(\vct{a},\vct{x}\in\reals^n\)</span>,</p>
+<section id="the-dot-product" class="slide level2">
+<h2>The dot product</h2>
+<h3 id="combines-coefficients-and-unknowns">Combines coefficients and unknowns</h3>
+<p>For <span class="math inline">\(\vct{a},\vct{x}\in\reals^n\)</span>, the <span class="alert">dot product</span></p>
 <p><span class="math display">\[
 \vct{a}^{\top}\vct{x}
 =a_1x_1+\cdots+a_nx_n
 \]</span></p>
 <p>Example:</p>
 <p><span class="math display">\[
-\begin{bmatrix}2\\-1\\3\end{bmatrix}
-^{\top}
+\begin{bmatrix}2 &amp; -1 &amp; 3\end{bmatrix}
 \begin{bmatrix}x\\y\\z\end{bmatrix}
 =2x-y+3z
 \]</span></p>
@@ -896,12 +946,13 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 1 - 1)=1
 <p>A <span class="alert">dot product</span> turns two vectors into one scalar by pairing corresponding entries</p>
 </div>
 </section>
-<section id="the-dot-product-measures-alignment" class="slide level2">
-<h2>The dot product measures alignment</h2>
+<section class="slide level2">
+
+<h3 id="measures-alignment">Measures alignment</h3>
 <p>For nonzero <span class="math inline">\(\vct{a},\vct{x}\in\reals^n\)</span>, let <span class="math inline">\(\theta\in[0,\pi]\)</span> be the angle between them</p>
 <p><span class="math display">\[
 \vct{a}^{\top}\vct{x}
-=\lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta)
+=\lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta), \qquad \lVert \vct{a} \rVert = \sqrt{a_1^2 + \cdots + a_n^2}
 \]</span></p>
 <ul>
 <li><span class="math inline">\(\vct{a}^{\top}\vct{x}&gt;0\)</span> — acute angle</li>
@@ -909,69 +960,117 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 1 - 1)=1
 <li><span class="math inline">\(\vct{a}^{\top}\vct{x}&lt;0\)</span> — obtuse angle</li>
 </ul>
 <div class="key-point">
-<p>Two vectors are <span class="alert">orthogonal</span> when <span class="math inline">\(\vct{a}^{\top}\vct{x}=0\)</span>; nonzero orthogonal vectors are perpendicular</p>
+<p>Two vectors are <span class="alert">orthogonal</span> when <span class="math inline">\(\vct{a}^{\top}\vct{x}=0\)</span> <br>Nonzero orthogonal vectors are perpendicular</p>
 </div>
 </section>
-<section id="parallel-vectors-point-along-one-line" class="slide level2">
-<h2>Parallel vectors point along one line</h2>
-<p>Nonzero vectors <span class="math inline">\(\vct{a}\)</span> and <span class="math inline">\(\vct{c}\)</span> are <span class="alert">parallel</span> when</p>
+<section class="slide level2">
+
+<h3 id="parallel-vectors-point-along-one-line">Parallel vectors point along one line</h3>
+<p>Nonzero vectors <span class="math inline">\(\vct{a}\)</span> and <span class="math inline">\(\vct{x}\)</span> are <span class="alert">parallel</span> when</p>
 <p><span class="math display">\[
-\vct{c}=\lambda\vct{a}
+\vct{x}=\lambda\vct{a}
 \qquad\text{for some }\lambda\ne0
 \]</span></p>
 <ul>
 <li><span class="math inline">\(\lambda&gt;0\)</span> — same direction</li>
 <li><span class="math inline">\(\lambda&lt;0\)</span> — opposite directions</li>
 <li>angle <span class="math inline">\(0\)</span> or <span class="math inline">\(\pi\)</span></li>
-<li><span class="math inline">\(\left|\vct{a}^{\top}\vct{c}\right|
-=\lVert\vct{a}\rVert\,\lVert\vct{c}\rVert\)</span></li>
+<li><span class="math inline">\(\vct{a}^{\top}\vct{x}
+= \pm \lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\)</span></li>
 </ul>
 <div class="key-point">
 <p>Parallel vectors are nonzero scalar multiples of one another</p>
 </div>
 </section>
-<section id="a-linear-equation-describes-a-line" class="slide level2">
-<h2>A linear equation describes a line</h2>
-<p>For nonzero <span class="math inline">\(\vct{a}\in\reals^2\)</span>, <span class="math inline">\(\vct{a}^{\top}\vct{x}=b\)</span> describes a line with <span class="alert">normal vector</span> <span class="math inline">\(\vct{a}\)</span></p>
-<p>If <span class="math inline">\(\vct{x}\)</span> and <span class="math inline">\(\vct{y}\)</span> lie on that line, then</p>
+<section id="a-linear-equation-describes-a-hyperplane" class="slide level2">
+<h2>A linear equation describes a hyperplane</h2>
+<div class="columns">
+<div class="column" style="width:53%;">
+<p>For nonzero <span class="math inline">\(\vct{a}\in\reals^n\)</span>, let <span class="math inline">\(\vct{x}\)</span> range over <span class="math inline">\(\reals^n\)</span>. The solution set</p>
 <p><span class="math display">\[
-\vct{a}^{\top}(\vct{x}-\vct{y})
-=\vct{a}^{\top}\vct{x}-\vct{a}^{\top}\vct{y}
+H=\{\vct{x}\in\reals^n:\vct{a}^{\top}\vct{x}=b\}
+\]</span></p>
+<p>is an <span class="math inline">\((n-1)\)</span>-dimensional <span class="alert">hyperplane</span> with normal vector <span class="math inline">\(\vct{a}\)</span></p>
+<p>Choose two particular points <span class="math inline">\(\vct{u},\vct{t}\in H\)</span>. Then</p>
+<p><span class="math display">\[
+\vct{a}^{\top}(\vct{u}-\vct{t})
+=\vct{a}^{\top}\vct{u}-\vct{a}^{\top}\vct{t}
 =b-b=0
 \]</span></p>
+</div><div class="column" style="width:47%;">
+<svg class="diagram-image hyperplane-geometry" viewbox="0 0 520 420" width="100%" role="img" aria-label="In two dimensions, the points u and t lie on the line a transpose x equals b.  The vector u minus t lies along the line and the normal vector a is perpendicular to it.">
+<defs> <marker id="hyperplane-arrow-blue" markerwidth="24" markerheight="18" refx="23" refy="9" orient="auto" markerunits="userSpaceOnUse"><polygon points="0 0,24 9,0 18" fill="#007acc"></polygon></marker> <marker id="hyperplane-arrow-orange" markerwidth="24" markerheight="18" refx="23" refy="9" orient="auto" markerunits="userSpaceOnUse"><polygon points="0 0,24 9,0 18" fill="#f39c34"></polygon></marker> </defs> <path d="M65 345L455 57" stroke="#555" stroke-width="7"></path> <path d="M180 261L350 135" stroke="#007acc" stroke-width="7" marker-end="url(#hyperplane-arrow-blue)"></path> <path d="M263 200L355 325" stroke="#f39c34" stroke-width="7" marker-end="url(#hyperplane-arrow-orange)"></path> <path d="M278 220L298 205L283 185" fill="none" stroke="#333" stroke-width="4"></path> <rect x="84" y="42" width="205" height="54" rx="9" fill="#fff" stroke="#9aa7af" stroke-width="2.5"></rect> <path d="M250 96L306 168" fill="none" stroke="#777" stroke-width="2.5" stroke-dasharray="6 5"></path> <path d="M151 244L171 257M388 156L359 139" fill="none" stroke="#c62828" stroke-width="2.5"></path> <circle cx="180" cy="261" r="9" fill="#c62828"></circle> <circle cx="350" cy="135" r="9" fill="#c62828"></circle> <g font-size="31" font-style="italic"> <text x="104" y="79" font-weight="400"><tspan style="font-weight:700">a</tspan><tspan style="font-weight:400">ᵀ</tspan><tspan style="font-weight:700">x</tspan><tspan style="font-weight:400"> = b</tspan></text> <text x="126" y="242" font-weight="700" style="fill:#8e1b1b">t</text> <text x="391" y="166" font-weight="700" style="fill:#8e1b1b">u</text> <text x="198" y="147" font-weight="700" style="fill:#007acc">u − t</text> <text x="370" y="300" font-weight="700" style="fill:#a85b00">a</text> </g>
+</svg>
+<div class="diagram-label text-end">
+<p>In <span class="math inline">\(\reals^2\)</span>, a hyperplane is a line</p>
+</div>
+</div></div>
 <div class="key-point">
-<p>The normal vector <span class="math inline">\(\vct{a}\)</span> is orthogonal to every direction <span class="math inline">\(\vct{x}-\vct{y}\)</span> along the line</p>
+<p>The normal vector <span class="math inline">\(\vct{a}\)</span> is orthogonal to every direction <span class="math inline">\(\vct{u}-\vct{t}\)</span> within the hyperplane</p>
 </div>
 </section>
-<section id="parallel-equations-explain-two-outcomes" class="slide level2">
-<h2>Parallel equations explain two outcomes</h2>
-<p>Suppose <span class="math inline">\(\vct{a}_2=\lambda\vct{a}_1\)</span>, so the normal vectors—and therefore the lines—are parallel</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><span class="math display">\[b_2=\lambda b_1\]</span></p>
-<p>Same line</p>
-<p>Infinitely many common points</p>
-</div><div class="column" style="width:50%;">
-<p><span class="math display">\[b_2\ne\lambda b_1\]</span></p>
-<p>Distinct parallel lines</p>
-<p>No common points</p>
-</div></div>
-<p>If the normal vectors are not parallel, the two lines meet at one point</p>
+<section class="slide level2">
+
+<h3 id="parallel-equations-with-two-possible-outcomes">Parallel equations with two possible outcomes</h3>
+<p><span class="math display">\[
+\va_1^\top \vx = b_1 \qquad \va_2^\top \vx = b_2
+\]</span></p>
+<p>Suppose <span class="math inline">\(\vct{a}_2=\lambda\vct{a}_1\)</span> with <span class="math inline">\(\lambda\ne0\)</span></p>
+<ul>
+<li>Left sides point in the same normal direction</li>
+<li>Right sides decide whether the planes coincide</li>
+</ul>
+<div class="parallel-outcome-grid">
+<div class="parallel-outcome-card">
+<svg class="diagram-image parallel-plane-geometry" viewbox="0 0 520 285" width="88%" role="img" aria-label="Two equations with proportional left and right sides describe the same plane in three dimensions.">
+<defs><marker id="same-plane-normal" markerwidth="22" markerheight="16" refx="21" refy="8" orient="auto" markerunits="userSpaceOnUse"><polygon points="0 0,22 8,0 16" fill="#f39c34"></polygon></marker></defs> <polygon points="75,205 310,235 445,105 210,75" fill="#dceef7" stroke="#007acc" stroke-width="5"></polygon> <polygon points="75,205 310,235 445,105 210,75" fill="#f39c34" fill-opacity="0.18" stroke="#f39c34" stroke-width="4" stroke-dasharray="10 7"></polygon> <path d="M260 156L245 35" stroke="#f39c34" stroke-width="6" marker-end="url(#same-plane-normal)"></path> <text x="270" y="43" style="fill:#a85b00"><tspan font-size="40" font-style="italic" font-weight="700">a₁</tspan><tspan font-size="27" font-style="normal" font-weight="400"> parallel to </tspan><tspan font-size="40" font-style="italic" font-weight="700">a₂</tspan></text>
+</svg>
+<div class="parallel-outcome-equation">
+b₂ = λb₁
+</div>
+<div class="parallel-outcome-caption">
+<p><span class="alert">Same plane</span> is common to both equations</p>
+</div>
+</div>
+<div class="parallel-outcome-card">
+<svg class="diagram-image parallel-plane-geometry" viewbox="0 0 520 285" width="88%" role="img" aria-label="Two equations with proportional left sides but incompatible right sides describe two visibly separated parallel planes in three dimensions.">
+<defs><marker id="parallel-plane-normal" markerwidth="22" markerheight="16" refx="21" refy="8" orient="auto" markerunits="userSpaceOnUse"><polygon points="0 0,22 8,0 16" fill="#f39c34"></polygon></marker></defs> <polygon points="55,220 285,248 430,178 200,150" fill="#dceef7" stroke="#007acc" stroke-width="5"></polygon> <polygon points="55,105 285,133 430,63 200,35" fill="#fff0dc" stroke="#f39c34" stroke-width="5"></polygon> <path d="M255 91L245 10" stroke="#f39c34" stroke-width="6" marker-end="url(#parallel-plane-normal)"></path> <text x="270" y="32" style="fill:#a85b00"><tspan font-size="40" font-style="italic" font-weight="700">a₁</tspan><tspan font-size="27" font-style="normal" font-weight="400"> parallel to </tspan><tspan font-size="40" font-style="italic" font-weight="700">a₂</tspan></text>
+</svg>
+<div class="parallel-outcome-equation">
+b₂ ≠ λb₁
+</div>
+<div class="parallel-outcome-caption">
+<p><span class="alert">Distinct parallel planes</span>: no point satisfies both equations</p>
+</div>
+</div>
+</div>
 </section>
-<section id="each-equation-is-one-row-dot-product" class="slide level2">
-<h2>Each equation is one row dot product</h2>
+<section id="each-equation-is-one-dot-product" class="slide level2">
+<h2>Each equation is one dot product</h2>
 <p>Write each matrix row as the transpose of a coefficient vector:</p>
 <p><span class="math display">\[\begin{align*}
-\vct{a}_1^{\top}\vct{x}&amp;=2,
-&amp;\vct{a}_1^{\top}&amp;=\begin{bmatrix}1&amp;2&amp;-1\end{bmatrix}\\
-\vct{a}_2^{\top}\vct{x}&amp;=2,
-&amp;\vct{a}_2^{\top}&amp;=\begin{bmatrix}2&amp;-1&amp;1\end{bmatrix}\\
-\vct{a}_3^{\top}\vct{x}&amp;=6,
-&amp;\vct{a}_3^{\top}&amp;=\begin{bmatrix}3&amp;1&amp;2\end{bmatrix},
-\qquad
+\begin{matrix}
+x + 2y -z = 2 \\
+2x - y + z = 2 \\
+3x + y + 2z = 6
+\end{matrix}
+\iff
+\begin{matrix}
+\vct{a}_1^{\top}\vct{x}=2
+&amp;\vct{a}_1^{\top}=\begin{bmatrix}1&amp;2&amp;-1\end{bmatrix}\\
+\vct{a}_2^{\top}\vct{x}=2
+&amp;\vct{a}_2^{\top}=\begin{bmatrix}2&amp;-1&amp;1\end{bmatrix}\\
+\vct{a}_3^{\top}\vct{x}=6
+&amp;\vct{a}_3^{\top}=\begin{bmatrix}3&amp;1&amp;2\end{bmatrix}
+\end{matrix}
+\quad
 \vct{x}=\begin{bmatrix}x\\y\\z\end{bmatrix}
 \end{align*}\]</span></p>
-<p>Stack the coefficient rows:</p>
+<p>Stack the coefficient rows to get</p>
+<p><span class="math display">\[
+\mA \vx = \vb
+\]</span></p>
+<p>where</p>
 <p><span class="math display">\[
 \mat{A}=
 \begin{bmatrix}
@@ -983,8 +1082,9 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 1 - 1)=1
 \vct{b}=\begin{bmatrix}2\\2\\6\end{bmatrix}
 \]</span></p>
 </section>
-<section id="what-matavctx-means" class="slide level2">
-<h2>What <span class="math inline">\(\mat{A}\vct{x}\)</span> means</h2>
+<section class="slide level2">
+
+<h3 id="what-matavctx-means">What <span class="math inline">\(\mat{A}\vct{x}\)</span> means</h3>
 <p><span class="math display">\[
 \mat{A}\vct{x}
 =
@@ -1059,7 +1159,19 @@ x+2y-z&amp;=2\\
 </section></section>
 <section>
 <section id="eliminate-on-matrices" class="title-slide slide level1 center">
-<h1>Eliminate on matrices</h1>
+<h1>Eliminate on Matrices</h1>
+<ul>
+<li><a href="#/matrix-elimination-repeats-the-same-work">Matrix elimination repeats the same work</a></li>
+<li><a href="#/pivots-organize-elimination">Pivots organize elimination</a></li>
+<li><a href="#/reduced-row-echelon-form-goes-further">Reduced row echelon form goes further</a></li>
+<li><a href="#/read-the-unique-solution">Read the unique solution</a></li>
+<li><a href="#/the-last-row-reveals-the-other-possibilities">The last row reveals the other possibilities</a></li>
+<li><a href="#/a-free-variable-produces-infinitely-many-solutions">A free variable produces infinitely many solutions</a></li>
+<li><a href="#/now-the-three-outcomes-are-visible">Now the three outcomes are visible</a></li>
+</ul>
+</section>
+<section id="matrix-elimination-repeats-the-same-work" class="slide level2">
+<h2>Matrix elimination repeats the same work</h2>
 <p>Same mathematical work, less repeated notation</p>
 <p><span class="math display">\[\begin{align*}
 &amp;\left[
@@ -1237,8 +1349,16 @@ x=\frac{6-t}{5}
 </section></section>
 <section>
 <section id="compute-and-look-ahead" class="title-slide slide level1 center">
-<h1>Compute and look ahead</h1>
+<h1>Compute and Look Ahead</h1>
 <p>Use computation to carry out row operations—not to replace interpretation</p>
+<ul>
+<li><a href="#/companion-computation">Companion computation</a></li>
+<li><a href="#/reversibility-will-become-a-matrix-property">Reversibility will become a matrix property</a></li>
+<li><a href="#/where-this-leads">Where this leads</a></li>
+</ul>
+</section>
+<section id="companion-computation" class="slide level2">
+<h2>Companion computation</h2>
 <div class="columns">
 <div class="column" style="width:52%;">
 <p>Companion notebook plan</p>

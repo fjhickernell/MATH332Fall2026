@@ -1,10 +1,4 @@
-/* Deck 00 diagram construction; prose and emphasis use classlib styles. */
-
-.reveal .diagram-label {
-  color: var(--header-blue);
-  font-size: 0.78em;
-  font-weight: 650;
-}
+/* Deck 00 diagram construction; shared diagram primitives live in math332-slides.scss. */
 
 .reveal .opening-strip {
   display: grid;
@@ -73,27 +67,6 @@
 .reveal .pixel-grid [data-shade="221"] { background: #ddd; }
 .reveal .pixel-grid [data-shade="238"] { background: #eee; }
 
-.reveal .diagram-flow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45em;
-}
-
-.reveal .diagram-node {
-  padding: 0.5em 0.65em;
-  border: 3px solid var(--accent-blue);
-  border-radius: 14px;
-  background: #f5fbff;
-  text-align: center;
-}
-
-.reveal .diagram-arrow {
-  color: var(--accent-blue);
-  font-size: 1.5em;
-  font-weight: 700;
-}
-
 .reveal .question-grid,
 .reveal .concept-grid {
   display: grid;
@@ -161,15 +134,4 @@
 
 .reveal .component-land {
   background: linear-gradient(155deg, transparent 44%, #567a4d 45% 65%, #183345 66%);
-}
-
-.reveal .diagram-image {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.reveal svg text {
-  fill: #333;
-  font-family: Arial, sans-serif;
 }
