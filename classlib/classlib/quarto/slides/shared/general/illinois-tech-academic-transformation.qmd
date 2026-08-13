@@ -1,0 +1,97 @@
+## We begin this semester amid significant change
+
+### Illinois Tech's transformation
+
+- Painful departures of colleagues, mentors, and friends who have shaped this community; we [grieve]{.alert}
+
+- New academic structures, [no departments]{.alert}
+
+- Questions and uncertainty; let's meet them with patience and care
+
+- We remain committed to your [success]{.alert}
+
+::: {.key-point style="margin-top: -0.4em;"}
+The loss is real, as is our responsibility to care for one another and
+keep learning well
+:::
+
+::: {.notes}
+[Sources]
+
+- Elizabeth Hudson and Jeff Wereszczynski, “How to Talk with Students About
+  the Academic Transformation FAQ Resources,” email to faculty and staff,
+  August 7, 2026
+- Illinois Tech, “Frequently Asked Questions (FAQ),” Academic Transformation
+  SharePoint hub, accessed August 13, 2026
+:::
+
+## The new structure connects depth, disciplines, and practice
+
+::: {.columns}
+::: {.column width="58%"}
+
+- [Depth]{.alert} in a chosen field remains essential
+- Consequential problems [cross]{.alert} traditional academic boundaries
+- Interdisciplinary pathways should be [easier]{.alert} to find and pursue
+- Research, applied learning, and career preparation should [connect]{.alert}
+  more directly
+
+:::
+
+::: {.column width="42%"}
+<div style="text-align: center; line-height: 1.45;">
+<span class="h3">Illinois Tech</span><br>
+↓<br>
+<span class="h3">College of Tech Futures</span><br>
+↓<br>
+<span class="h3">School of Computing</span><br>
+↓<br>
+<span class="h3">(Applied Mathematics)</span>
+</div>
+:::
+:::
+
+::: {.key-point}
+Technical depth + collaboration across fields +
+experience in practice
+:::
+
+::: {.notes}
+[Sources]
+
+- Illinois Tech, “School of Computing,”
+  https://www.iit.edu/school-computing, accessed August 13, 2026
+- Illinois Tech, “Colleges,” https://www.iit.edu/colleges, accessed August 13,
+  2026
+- Illinois Tech, “Welcome to Illinois Tech,” https://www.iit.edu, accessed
+  August 13, 2026
+- Illinois Tech, “Frequently Asked Questions (FAQ),” Academic Transformation
+  SharePoint hub, accessed August 13, 2026
+:::
+
+## Further significant changes
+
+### The advance of AI
+
+AI can be a capable assistant that helps [solve]{.alert} research problems
+
+- [Ken Ono: How AI Will Unleash a New Kind of Intelligence](https://www.youtube.com/watch?v=jGZOi-7haCw&t=23s)
+- [Terence Tao: Mathematics in the Age of AI](https://teorth.github.io/tao-web/slides/age-of-ai-icm-2026.pdf)
+
+::: {.key-point style="margin-top: -0.4em;"}
+We need to understand what AI produces—and learn how to guide it
+:::
+
+### Politics
+
+The political environment is also [disruptive]{.alert}
+
+::: {.notes}
+[Sources]
+
+- Ken Ono, “How AI Will Unleash a New Kind of Intelligence,” EO, May 7, 2026,
+  https://www.youtube.com/watch?v=jGZOi-7haCw
+- Terence Tao, “Mathematics in the Age of AI,” public lecture slides,
+  International Congress of Mathematicians, July 24, 2026,
+  https://teorth.github.io/tao-web/slides/age-of-ai-icm-2026.pdf
+:::

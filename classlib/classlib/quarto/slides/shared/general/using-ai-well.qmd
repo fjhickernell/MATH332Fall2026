@@ -1,7 +1,7 @@
 ## What role is AI playing?
 
 Roles overlap; choose deliberately. Think enough to know the problem AI should
-help solve.
+help solve
 
 ::: {.columns}
 ::: {.column width="48%"}
@@ -63,16 +63,18 @@ Prefer dialogue: strengthen your thinking before producing finished work
 
 Match tool to role: [the best AI for one role may not be the best for
 another]{.alert}. One AI can help you reason and specify; another execute. You
-inspect and revise.
+inspect and revise
 
 ::: {.key-point}
-Better-specified task, more delegation; responsibility never transfers to AI
+Better-specified tasks permit more delegation
+
+Responsibility never transfers to AI
 :::
 
 ## Verify what AI produces
 
 AI output: [proposal to inspect]{.alert}, not authority. Expose assumptions,
-alternatives, reasons; verify appropriately.
+alternatives, reasons; verify appropriately
 
 ::: {.columns}
 ::: {.column width="48%"}
@@ -105,7 +107,7 @@ Verify the result and whether the right problem was solved
 ::: {.column width="48%"}
 ### Evidence and sources
 
-- Inspect original sources for claims, citations
+- Inspect original sources for claims and citations
 - Confirm that a source exists and supports the attributed claim
 - Separate sourced facts from plausible inference
 :::
