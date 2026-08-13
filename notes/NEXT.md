@@ -2,8 +2,7 @@
 
 ## Current task
 
-Resume the instructor review of Lecture 01 and review the Lecture 00 companion
-notebook.
+Resume the instructor review of Lecture 01.
 
 ## Current state
 
@@ -33,8 +32,10 @@ notebook.
   only its one-off diagram construction.
 - No Lecture 01 notebook exists yet. The deck sketches a small SymPy companion
   using `Matrix` and the standard `qmcpy` kernel.
-- The Lecture 00 demonstration notebook still awaits instructor review and is
-  a coequal next priority with finishing the Lecture 01 deck review.
+- The Lecture 00 demonstration notebook has completed instructor review. Its
+  prose, matrix notation, and display output were revised; all matrix displays
+  now use the shared `classlib.nbviz` helpers. The notebook executes without
+  errors from a clean `qmcpy` kernel against the pinned classlib commit.
 
 ## Questions to resolve
 
@@ -59,5 +60,3 @@ notebook.
 
 - The Lecture 01 deck has been reviewed from `# Eliminate on Matrices` through
   the end.
-- The Lecture 00 companion notebook has received an instructor review, and any
-  requested revisions have been validated from a clean `qmcpy` kernel.

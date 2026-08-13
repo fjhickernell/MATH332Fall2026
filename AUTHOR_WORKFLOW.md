@@ -36,6 +36,9 @@ content is maintained only once.
   for a visible tertiary heading because Quarto `###` does not render there as
   intended. Inside a `##` slide, ordinary Quarto `###` headings work normally.
 - Follow the shared slide-writing guidance in `classlib/AGENTS.md`.
+- Typeset matrix symbols in sans serif. In RevealJS slides, use `\mat{A}` from
+  the JavaScript-provided MathJax macros. JupyterLab does not load those
+  macros, so use explicit `\mathsf{A}` in notebook Markdown.
 - Mark questions and in-class exercises with `$\exstar$` (or the appropriate
   shared exercise notation). Do not place worked answers later in the
   student-visible deck when they would reveal an activity students should do
