@@ -2,42 +2,31 @@
 
 ## Current task
 
-Resume the instructor review of Lecture 01.
+Develop the Lecture 01 companion notebook.
 
 ## Current state
 
-- Lecture 00 now opens with three shared slides about significant institutional
-  and broader change, following the title slide and preceding the Course Map.
-- Lecture 01 has a 36-slide revised deck organized around reversible
-  transformations of equations. Instructor review is complete through the
-  entire `# Compress the Repeated Structure` block. Resume review at the
-  beginning of `# Eliminate on Matrices`; that block and the later slides still
-  need review.
+- Lecture 01 instructor review is complete through the end of the deck. The
+  heading hierarchy and section-overview links have been audited, and all
+  seven decks render successfully.
 - The deck begins with scalar equations and concrete zero/one/infinitely-many
   solution sets, develops elimination on equations, and only then introduces
-  dot products, `\mat{A}\vct{x}=\vct{b}`, augmented matrices, pivots, echelon
-  form, RREF, consistency, and free variables.
-- Dot-product notation now uses `\vct{a}^{\top}\vct{x}`. The deck defines its
-  geometric interpretation, orthogonal and parallel vectors, normal vectors,
-  hyperplanes in $\mathbb{R}^n$, and the role of parallel equations in the
-  zero/infinitely-many outcomes. New 2-D line and 3-D plane diagrams make the
-  geometry explicit.
+  dot products, matrix multiplication, `\mat{A}\vct{x}=\vct{b}`, augmented
+  matrices, pivots, echelon form, consistency, and free variables. Reduced row
+  echelon form is intentionally omitted because the course computation uses
+  Gaussian elimination and back substitution.
 - One recurring three-variable system connects equation-level elimination to
-  augmented-matrix elimination. Elementary matrices and nonsingularity appear
-  only as a closing preview.
-- The reviewed portion has received an instructor and visual revision pass.
-  Key revised slides have been inspected at the standard RevealJS viewport,
-  and all seven decks render successfully with the `qmcpy` kernel. Course-wide
-  diagram primitives now live in `slides/math332-slides.scss`; Deck 00 retains
-  only its one-off diagram construction.
-- No Lecture 01 notebook exists yet. The deck sketches a small SymPy companion
-  using `Matrix` and the standard `qmcpy` kernel.
-- The Lecture 00 demonstration notebook has completed instructor review. Its
-  prose, matrix notation, and display output were revised; all matrix displays
-  now use the shared `classlib.nbviz` helpers. Students may open it directly in
-  Colab; its conditional setup installs classlib and full TeX support there.
-  The notebook executes without errors from a clean `qmcpy` kernel against the
-  pinned classlib commit.
+  augmented-matrix elimination and now has solution $(-1,2,1)$. The deck also
+  includes a required row exchange, reverse-engineered inconsistent and
+  dependent three-plane systems, readable geometric diagrams, and a
+  three-node resistance-network exercise with a 9 V source and kilohm
+  resistors.
+- `notebooks/demonstrations/01-systems-and-matrices.ipynb` is a valid placeholder
+  linked from the deck and the Notebooks page. Its planned scope is SymPy
+  Gaussian elimination, comparison of zero/one/infinitely-many solution sets,
+  and the resistance-network exercise.
+- Shared presentation guidance now names the 47%–6%–47% two-column layout the
+  **Pomona gutter**.
 
 ## Questions to resolve
 
@@ -53,12 +42,11 @@ Resume the instructor review of Lecture 01.
 - Treat the notebook as a computational companion rather than a second source
   of mathematical content.
 - Use SymPy `Matrix` for readable matrix displays and the `qmcpy` kernel.
-- Keep Lecture 00 content unchanged except for separately requested future
-  polish.
 - Reuse the established course-wide diagram primitives before adding
   deck-specific styling.
 
 ## Done when
 
-- The Lecture 01 deck has been reviewed from `# Eliminate on Matrices` through
-  the end.
+- The placeholder is replaced by a polished computational companion that uses
+  SymPy `Matrix`, executes cleanly with the `qmcpy` kernel, supports rather
+  than duplicates the deck, and preserves working deck and website links.

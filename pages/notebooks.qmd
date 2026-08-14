@@ -14,6 +14,9 @@ algebraic calculations with geometric interpretation.
 - [Matrix Computation: NumPy and SymPy](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/00-why-linear-algebra.ipynb)
   — a companion to Lecture 00 introducing numerical and exact matrix
   calculations, linear systems, least squares, and responsible computation
+- [Systems and Matrices](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/01-systems-and-matrices.ipynb)
+  — a placeholder companion to Lecture 01 that will develop Gaussian
+  elimination, solution-set comparisons, and the resistance-network exercise
 
 ## Exercises
 

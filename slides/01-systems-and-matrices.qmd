@@ -39,7 +39,7 @@ include-after-body:
 
 - [From Equations to Systems](#from-equations-to-systems)
 - [Eliminate on Equations](#eliminate-on-equations)
-- [Compress the Repeated Structure](#compress-the-repeated-structure)
+- [The Dot Product](#the-dot-product)
 - [Eliminate on Matrices](#eliminate-on-matrices)
 - [Compute and Look Ahead](#compute-and-look-ahead)
 :::
@@ -282,8 +282,8 @@ We will return to one system throughout the lecture:
 
 \begin{align*}
 x+2y-z&=2 \qquad &(E_1)\\
-2x-y+z&=2 &(E_2)\\
-3x+y+2z&=6 &(E_3)
+2x-y+z&=-3 &(E_2)\\
+3x+y+2z&=1 &(E_3)
 \end{align*}
 
 Goal: create equations with fewer unknowns while preserving every solution
@@ -297,16 +297,16 @@ Keep $E_1$ and use it to remove $x$ from the equations below:
 $$
 \begin{aligned}
 x+2y-z&=2\\
-2x-y+z&=2\\
-3x+y+2z&=6
+2x-y+z&=-3\\
+3x+y+2z&=1
 \end{aligned}
 \quad
 \xrightarrow[\ E_3\leftarrow E_3-3E_1\ ]{\ E_2\leftarrow E_2-2E_1\ }
 \quad
 \begin{aligned}
 x+2y-z&=2\\
--5y+3z&=-2\\
--5y+5z&=0
+-5y+3z&=-7\\
+-5y+5z&=-5
 \end{aligned}
 $$
 
@@ -318,35 +318,35 @@ E_2^{\mathrm{old}}=E_2^{\mathrm{new}}+2E_1,
 E_3^{\mathrm{old}}=E_3^{\mathrm{new}}+3E_1
 $$
 
+---
+
 ### Eliminate $y$ in the equations below the second
 $$
 \begin{aligned}
 x+2y-z&=2\\
--5y+3z&=-2\\
--5y+5z&=0
+-5y+3z&=-7\\
+-5y+5z&=-5
 \end{aligned}
 \quad
 \xrightarrow{\ E_3\leftarrow E_3-E_2\ }
 \quad
 \begin{aligned}
 x+2y-z&=2\\
--5y+3z&=-2\\
+-5y+3z&=-7\\
 2z&=2
 \end{aligned}
 $$
 
 ## Back substitution
 
-### Now back substitute:
-
 \begin{align*}
 2z&=2 & \implies z& = \frac{2}{2} = 1 \\
--5y+3z& =-2 &\implies y &= \frac{-2 - 3\times 1}{-5} = 1 \\
-x+2y-z & =2 & \implies x & = 2 - (2\times 1 - 1)=1
+-5y+3z& =-7 &\implies y &= \frac{-7 - 3\times 1}{-5} = 2 \\
+x+2y-z & =2 & \implies x & = 2 - (2\times 2 - 1)=-1
 \end{align*}
 
 ::: {.key-point}
-The original system has the one solution $(x,y,z)=(1,1,1)$
+The original system has the unique solution $(x,y,z)=(-1,2,1)$
 :::
 
 ## Why elimination works
@@ -379,18 +379,17 @@ Elimination [does]{.alert} expose information already present
 Each system at each step has [exactly the same solution set]{.alert} because every elimination step is [reversible]{.alert}
 :::
 
-# Compress the Repeated Structure
+# The Dot Product
 
-Matrices keep the numerical structure while omitting repeated unknowns, plus signs, and equality signs
+The dot product connects algebraic computation with geometric length, angle, and orthogonality
 
-- [The dot product](#the-dot-product)
+- [Combines coefficients and unknowns](#combines-coefficients-and-unknowns)
 - [A linear equation describes a hyperplane](#a-linear-equation-describes-a-hyperplane)
 - [Each equation is one dot product](#each-equation-is-one-dot-product)
+- [Matrix–matrix multiplication collects dot products](#matrix-matrix-multiplication-collects-dot-products)
 - [A general linear system](#a-general-linear-system)
 
-## The dot product
-
-### Combines coefficients and unknowns
+## Combines coefficients and unknowns
 
 For $\vct{a},\vct{x}\in\reals^n$, the [dot product]{.alert}
 
@@ -417,10 +416,15 @@ A [dot product]{.alert} turns two vectors into one scalar by pairing correspondi
 
 For nonzero $\vct{a},\vct{x}\in\reals^n$, let $\theta\in[0,\pi]$ be the angle between them
 
-$$
+The dot product defines the [Euclidean norm]{.alert} and measures alignment:
+
+\begin{align*}
+\lVert\vct{a}\rVert
+  &= \sqrt{\vct{a}^{\top}\vct{a}}
+   = \sqrt{a_1^2+\cdots+a_n^2},\\
 \vct{a}^{\top}\vct{x}
-=\lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta), \qquad \lVert \vct{a} \rVert = \sqrt{a_1^2 + \cdots + a_n^2}
-$$
+  &= \lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta).
+\end{align*}
 
 - $\vct{a}^{\top}\vct{x}>0$ — acute angle
 - $\vct{a}^{\top}\vct{x}=0$ — right angle
@@ -561,16 +565,16 @@ Write each matrix row as the transpose of a coefficient vector:
 \begin{align*}
 \begin{matrix}
 x + 2y -z = 2 \\
-2x - y + z = 2 \\
-3x + y + 2z = 6
+2x - y + z = -3 \\
+3x + y + 2z = 1
 \end{matrix}
 \iff
 \begin{matrix}
 \vct{a}_1^{\top}\vct{x}=2
 &\vct{a}_1^{\top}=\begin{bmatrix}1&2&-1\end{bmatrix}\\
-\vct{a}_2^{\top}\vct{x}=2
+\vct{a}_2^{\top}\vct{x}=-3
 &\vct{a}_2^{\top}=\begin{bmatrix}2&-1&1\end{bmatrix}\\
-\vct{a}_3^{\top}\vct{x}=6
+\vct{a}_3^{\top}\vct{x}=1
 &\vct{a}_3^{\top}=\begin{bmatrix}3&1&2\end{bmatrix}
 \end{matrix}
 \quad
@@ -593,7 +597,7 @@ $$
 3&1&2
 \end{bmatrix},
 \qquad
-\vct{b}=\begin{bmatrix}2\\2\\6\end{bmatrix}
+\vct{b}=\begin{bmatrix}2\\-3\\1\end{bmatrix}
 $$
 
 ---
@@ -626,6 +630,57 @@ $$
 [Matrix–vector multiplication]{.alert}: every matrix row takes a dot product with the vector
 :::
 
+## Matrix–matrix multiplication collects dot products {#matrix-matrix-multiplication-collects-dot-products}
+
+For $\mat{A}\in\reals^{m\times n}$, use uppercase vector symbols for columns and lowercase vector symbols for rows
+
+\begin{gather*}
+\mat{A}=[\vct{A}_1,\ldots,\vct{A}_n]
+\qquad
+\mat{A}=\begin{bmatrix}\vct{a}_1^{\top}\\ \vdots\\ \vct{a}_m^{\top}\end{bmatrix}
+\end{gather*}
+
+and likewise for $\mat{B}\in\reals^{n\times p}$ and $\mat{C}=\mat{A}\mat{B}\in\reals^{m\times p}$
+
+### By columns
+
+\begin{align*}
+ [\vct{C}_1,\ldots,\vct{C}_p]
+  = \mat{C}
+  = \mat{A}\mat{B}
+  &= \mat{A}[\vct{B}_1,\ldots,\vct{B}_p]
+   = [\mat{A}\vct{B}_1,\ldots,\mat{A}\vct{B}_p]
+\end{align*}
+
+---
+
+### By rows
+
+\begin{align*}
+\begin{bmatrix}\vct{c}_1^{\top}\\ \vdots\\ \vct{c}_m^{\top}\end{bmatrix}
+  = \mat{C}
+  = \mat{A}\mat{B}
+  &= \begin{bmatrix}\vct{a}_1^{\top}\\ \vdots\\ \vct{a}_m^{\top}\end{bmatrix}\mat{B}
+   = \begin{bmatrix}\vct{a}_1^{\top}\mat{B}\\ \vdots\\ \vct{a}_m^{\top}\mat{B}\end{bmatrix}
+\end{align*}
+
+### Entrywise
+
+\begin{align*}
+\begin{bmatrix}c_{11}&\cdots&c_{1p}\\ \vdots&&\vdots\\ c_{m1}&\cdots&c_{mp}\end{bmatrix}
+  = \mat{C}
+  = \mat{A}\mat{B}
+  &= \begin{bmatrix}
+       \vct{a}_1^{\top}\vct{B}_1 & \cdots & \vct{a}_1^{\top}\vct{B}_p\\
+       \vdots & & \vdots\\
+       \vct{a}_m^{\top}\vct{B}_1 & \cdots & \vct{a}_m^{\top}\vct{B}_p
+     \end{bmatrix}
+\end{align*}
+
+::: {.key-point}
+[Matrix–matrix multiplication]{.alert} collects all dot products of rows of the first matrix with columns of the second
+:::
+
 ## A general linear system
 
 \begin{align*}
@@ -656,8 +711,8 @@ $$
 \left.
 \begin{aligned}
 x+2y-z&=2\\
-2x-y+z&=2\\
-3x+y+2z&=6
+2x-y+z&=-3\\
+3x+y+2z&=1
 \end{aligned}
 \quad\right\}
 \qquad\longleftrightarrow\qquad
@@ -666,8 +721,8 @@ x+2y-z&=2\\
 \left[
 \begin{array}{rrr|r}
 1&2&-1&2\\
-2&-1&1&2\\
-3&1&2&6
+2&-1&1&-3\\
+3&1&2&1
 \end{array}
 \right]
 $$
@@ -684,11 +739,11 @@ Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible oper
 
 - [Matrix elimination repeats the same work](#matrix-elimination-repeats-the-same-work)
 - [Pivots organize elimination](#pivots-organize-elimination)
-- [Reduced row echelon form goes further](#reduced-row-echelon-form-goes-further)
-- [Read the unique solution](#read-the-unique-solution)
-- [The last row reveals the other possibilities](#the-last-row-reveals-the-other-possibilities)
+- [Read the unique solution by back substitution](#read-the-unique-solution-by-back-substitution)
+- [The bottom row(s) reveal the other possibilities](#the-bottom-rows-reveal-the-other-possibilities)
 - [A free variable produces infinitely many solutions](#a-free-variable-produces-infinitely-many-solutions)
 - [Now the three outcomes are visible](#now-the-three-outcomes-are-visible)
+- [A resistance network](#a-resistance-network)
 
 ## Matrix elimination repeats the same work
 
@@ -697,19 +752,19 @@ Same mathematical work, less repeated notation
 \begin{align*}
 &\left[
 \begin{array}{rrr|r}
-1&2&-1&2\\2&-1&1&2\\3&1&2&6
+1&2&-1&2\\2&-1&1&-3\\3&1&2&1
 \end{array}
 \right]
 \xrightarrow[\ R_3\leftarrow R_3-3R_1\ ]{\ R_2\leftarrow R_2-2R_1\ }
 \left[
 \begin{array}{rrr|r}
-1&2&-1&2\\0&-5&3&-2\\0&-5&5&0
+1&2&-1&2\\0&-5&3&-7\\0&-5&5&-5
 \end{array}
 \right]\\[0.8em]
 &\hspace{7em}\xrightarrow{\ R_3\leftarrow R_3-R_2\ }
 \left[
 \begin{array}{rrr|r}
-1&2&-1&2\\0&-5&3&-2\\0&0&2&2
+1&2&-1&2\\0&-5&3&-7\\0&0&2&2
 \end{array}
 \right]
 \end{align*}
@@ -720,7 +775,7 @@ $$
 \left[
 \begin{array}{rrr|r}
 \alert{1}&2&-1&2\\
-0&\alert{-5}&3&-2\\
+0&\alert{-5}&3&-7\\
 0&0&\alert{2}&2
 \end{array}
 \right]
@@ -737,44 +792,53 @@ This is [row echelon form]{.alert}
 Pivot entries need not equal $1$ in row echelon form
 :::
 
-## Reduced row echelon form goes further
+---
 
-Continue with reversible row operations until every pivot
+### A zero pivot candidate requires a row exchange
 
-- equals $1$
-- is the only nonzero entry in its column
+The first entry cannot serve as a pivot
 
-For the recurring system:
-
-$$
+\begin{align*}
 \left[
 \begin{array}{rrr|r}
-1&2&-1&2\\0&-5&3&-2\\0&0&2&2
+0&1&1&3\\
+1&1&-1&0\\
+2&-1&1&3
 \end{array}
 \right]
-\quad\longrightarrow\quad
+&\xrightarrow{\ R_1\leftrightarrow R_2\ }
 \left[
 \begin{array}{rrr|r}
-1&0&0&1\\0&1&0&1\\0&0&1&1
+1&1&-1&0\\
+0&1&1&3\\
+2&-1&1&3
 \end{array}
 \right]
-$$
+\end{align*}
 
-The matrix on the right is in [reduced row echelon form]{.alert} (RREF)
+Now the entry in position $(1,1)$ can organize elimination below it
 
-## Read the unique solution
+::: {.key-point}
+When a pivot candidate is zero, exchange rows to bring a nonzero entry into the pivot position
+:::
 
-$$
+## Read the unique solution by back substitution
+
+\begin{align*}
 \left[
 \begin{array}{rrr|r}
-1&0&0&1\\0&1&0&1\\0&0&1&1
+1&2&-1&2\\0&-5&3&-7\\0&0&2&2
 \end{array}
 \right]
-\qquad\longleftrightarrow\qquad
+&\qquad\longleftrightarrow\qquad
 \begin{aligned}
-x&=1\\y&=1\\z&=1
-\end{aligned}
-$$
+x+2y-z&=2\\
+-5y+3z&=-7\\
+2z&=2
+\end{aligned}\\
+&\qquad\implies\qquad
+z=1,\quad y=2,\quad x=-1
+\end{align*}
 
 Every variable column contains a pivot
 
@@ -782,7 +846,9 @@ Every variable column contains a pivot
 No variable can be chosen freely, so the consistent system has exactly one solution
 :::
 
-## The last row reveals the other possibilities
+## The bottom row(s) reveal the other possibilities {#the-bottom-rows-reveal-the-other-possibilities}
+
+Suppose elimination instead produced one of these echelon forms
 
 ::: {.columns}
 ::: {.column width="50%"}
@@ -792,13 +858,13 @@ $$
 \left[
 \begin{array}{rrr|r}
 1&2&-1&2\\
-0&-5&3&-2\\
+0&-5&3&-7\\
 0&0&0&2
 \end{array}
 \right]
 $$
 
-Last equation: $0=2$
+A bottom row represents the equation $0=2$
 
 [Inconsistent]{.alert} — no solutions
 :::
@@ -810,15 +876,104 @@ $$
 \left[
 \begin{array}{rrr|r}
 1&2&-1&2\\
-0&-5&3&-2\\
+0&-5&3&-7\\
 0&0&0&0
 \end{array}
 \right]
 $$
 
-Last equation: $0=0$
+A bottom row represents the equation $0=0$
 
 [Consistent]{.alert}, but one variable has no pivot
+:::
+:::
+
+---
+
+### Reverse the row operations to recover three planes
+
+Undoing the same elimination steps gives two possible original systems
+
+::: {.columns}
+::: {.column width="47%"}
+### Contradiction
+
+\begin{align*}
+x+2y-z&=2\\
+2x-y+z&=-3\\
+3x+y&=1
+\end{align*}
+
+The first two equations imply $3x+y=-1$, which conflicts with the third
+:::
+
+::: {.column width="6%"}
+
+:::
+
+::: {.column width="47%"}
+### Missing constraint
+
+\begin{align*}
+x+2y-z&=2\\
+2x-y+z&=-3\\
+3x+y&=-1
+\end{align*}
+
+The third equation is the sum of the first two
+:::
+:::
+
+::: {.key-point}
+Reversible row operations let us move between the original planes and the bottom-row evidence
+:::
+
+---
+
+### Geometry reveals the solution set
+
+::: {.columns}
+::: {.column width="47%"}
+### No common intersection
+
+<svg class="diagram-image" viewBox="0 0 620 420" width="100%" role="img" aria-label="Three planes with no common intersection. The first two planes meet along a line, while the third plane does not contain that line.">
+  <polygon points="70,320 395,370 545,160 220,110" fill="#dceef7" fill-opacity="0.72" stroke="#007acc" stroke-width="6"/>
+  <polygon points="150,370 445,295 415,75 120,150" fill="#fff0dc" fill-opacity="0.68" stroke="#f39c34" stroke-width="6"/>
+  <line x1="170" y1="342" x2="422" y2="280" stroke="#252525" stroke-width="10"/>
+  <polygon points="65,155 365,215 550,145 250,85" fill="#e3f3e7" fill-opacity="0.92" stroke="#2e8b57" stroke-width="6"/>
+  <g stroke="#fff" stroke-width="7" paint-order="stroke" stroke-linejoin="round">
+    <text x="99" y="307" font-size="30" font-weight="700">P₁</text>
+    <text x="179" y="347" font-size="30" font-weight="700">P₂</text>
+    <text x="469" y="137" font-size="30" font-weight="700">P₃</text>
+    <text x="277" y="355" font-size="28" font-weight="700">L = P₁ ∩ P₂</text>
+  </g>
+</svg>
+
+$P_1$ and $P_2$ meet along $L$, but $P_3$ does not contain $L$
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### A whole line of solutions
+
+<svg class="diagram-image" viewBox="0 0 620 420" width="100%" role="img" aria-label="Three distinct planes sharing one common line, so every point on the line solves all three equations.">
+  <polygon points="75,315 400,365 550,155 225,105" fill="#dceef7" fill-opacity="0.72" stroke="#007acc" stroke-width="5"/>
+  <polygon points="155,365 450,290 420,70 125,145" fill="#fff0dc" fill-opacity="0.68" stroke="#f39c34" stroke-width="5"/>
+  <polygon points="95,350 465,315 520,105 150,140" fill="#e3f3e7" fill-opacity="0.58" stroke="#2e8b57" stroke-width="5"/>
+  <line x1="175" y1="337" x2="427" y2="275" stroke="#252525" stroke-width="9"/>
+  <circle cx="175" cy="337" r="8" fill="#252525"/>
+  <circle cx="427" cy="275" r="8" fill="#252525"/>
+  <g stroke="#fff" stroke-width="7" paint-order="stroke" stroke-linejoin="round">
+    <text x="96" y="302" font-size="30" font-weight="700">P₁</text>
+    <text x="168" y="347" font-size="30" font-weight="700">P₂</text>
+    <text x="469" y="149" font-size="30" font-weight="700">P₃</text>
+    <text x="302" y="259" font-size="28" font-weight="700">solution line L</text>
+  </g>
+</svg>
+
+All three planes contain the same solution line $L$
 :::
 :::
 
@@ -828,21 +983,21 @@ For the consistent echelon system
 
 \begin{align*}
 x+2y-z&=2\\
--5y+3z&=-2\\
+-5y+3z&=-7\\
 0&=0,
 \end{align*}
 
 The $z$ column has no pivot; choose the [free variable]{.alert} $z=t$:
 
 $$
-y=\frac{2+3t}{5},
+y=\frac{7+3t}{5},
 \qquad
-x=\frac{6-t}{5}
+x=\frac{-4-t}{5}
 $$
 
 $$
 \left\{
-\left(\frac{6-t}{5},\frac{2+3t}{5},t\right):t\in\reals
+\left(\frac{-4-t}{5},\frac{7+3t}{5},t\right):t\in\reals
 \right\}
 $$
 
@@ -856,13 +1011,85 @@ After elimination:
 |---|---|---|
 | $[\,0\ \cdots\ 0\mid c\,]$, $c\ne0$ | contradiction | none |
 | consistent; pivot in every variable column | every variable determined | exactly one |
-| consistent; at least one free variable | one or more parameters | infinitely many |
+| consistent; fewer pivots than variables | one or more parameters | infinitely many |
 
 ::: {.key-point}
 A linear system has zero, one, or infinitely many solutions—never exactly two
 :::
 
 $\exstar$ Why would two distinct solutions force infinitely many?
+
+## A resistance network
+
+Kirchhoff's current law turns conservation of electric current into a linear system
+
+::: {.columns}
+::: {.column width="47%"}
+<svg class="diagram-image" viewBox="0 0 820 500" width="100%" role="img" aria-label="A resistor ladder with a 9 volt source and three unknown node voltages. Series resistors connect the source to v one, v one to v two, and v two to v three. Each node also has a resistor to ground.">
+  <line x1="92" y1="140" x2="130" y2="140" stroke="#333" stroke-width="6"/>
+  <polyline points="130,140 145,115 165,165 185,115 205,165 225,115 240,140" fill="none" stroke="#c62828" stroke-width="6"/>
+  <line x1="240" y1="140" x2="270" y2="140" stroke="#333" stroke-width="6"/>
+  <circle cx="270" cy="140" r="10" fill="#007acc"/>
+  <line x1="270" y1="140" x2="300" y2="140" stroke="#333" stroke-width="6"/>
+  <polyline points="300,140 315,115 335,165 355,115 375,165 395,115 410,140" fill="none" stroke="#c62828" stroke-width="6"/>
+  <line x1="410" y1="140" x2="440" y2="140" stroke="#333" stroke-width="6"/>
+  <circle cx="440" cy="140" r="10" fill="#007acc"/>
+  <line x1="440" y1="140" x2="470" y2="140" stroke="#333" stroke-width="6"/>
+  <polyline points="470,140 485,115 505,165 525,115 545,165 565,115 580,140" fill="none" stroke="#c62828" stroke-width="6"/>
+  <line x1="580" y1="140" x2="610" y2="140" stroke="#333" stroke-width="6"/>
+  <circle cx="610" cy="140" r="10" fill="#007acc"/>
+  <line x1="270" y1="140" x2="270" y2="245" stroke="#333" stroke-width="6"/>
+  <polyline points="270,245 245,265 295,285 245,305 295,325 270,345" fill="none" stroke="#c62828" stroke-width="6"/>
+  <line x1="270" y1="345" x2="270" y2="405" stroke="#333" stroke-width="6"/>
+  <line x1="440" y1="140" x2="440" y2="245" stroke="#333" stroke-width="6"/>
+  <polyline points="440,245 415,265 465,285 415,305 465,325 440,345" fill="none" stroke="#c62828" stroke-width="6"/>
+  <line x1="440" y1="345" x2="440" y2="405" stroke="#333" stroke-width="6"/>
+  <line x1="610" y1="140" x2="610" y2="245" stroke="#333" stroke-width="6"/>
+  <polyline points="610,245 585,265 635,285 585,305 635,325 610,345" fill="none" stroke="#c62828" stroke-width="6"/>
+  <line x1="610" y1="345" x2="610" y2="405" stroke="#333" stroke-width="6"/>
+  <line x1="32" y1="140" x2="92" y2="140" stroke="#333" stroke-width="7"/>
+  <line x1="45" y1="200" x2="79" y2="200" stroke="#333" stroke-width="4"/>
+  <line x1="62" y1="200" x2="62" y2="405" stroke="#333" stroke-width="6"/>
+  <text x="20" y="105" font-size="34" font-weight="700">9 V</text>
+  <g stroke="#333" fill="none">
+    <path d="M230 405h80M242 419h56M254 433h32" stroke-width="5"/>
+    <path d="M400 405h80M412 419h56M424 433h32" stroke-width="5"/>
+    <path d="M570 405h80M582 419h56M594 433h32" stroke-width="5"/>
+    <path d="M22 405h80M34 419h56M46 433h32" stroke-width="5"/>
+  </g>
+  <text x="155" y="95" font-size="27" font-weight="700">1 kΩ</text>
+  <text x="325" y="95" font-size="27" font-weight="700">2 kΩ</text>
+  <text x="495" y="95" font-size="27" font-weight="700">1 kΩ</text>
+  <text x="205" y="300" font-size="27" font-weight="700">3 kΩ</text>
+  <text x="375" y="300" font-size="27" font-weight="700">2 kΩ</text>
+  <text x="650" y="300" font-size="27" font-weight="700">1 kΩ</text>
+  <text x="240" y="205" font-size="32" font-style="italic" font-weight="700">v₁</text>
+  <text x="410" y="205" font-size="32" font-style="italic" font-weight="700">v₂</text>
+  <text x="580" y="205" font-size="32" font-style="italic" font-weight="700">v₃</text>
+</svg>
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+Apply current balance at $v_1,v_2,v_3$, measuring voltage in $\mathrm{V}$ and resistance in $\mathrm{k}\Omega$
+
+\begin{align*}
+11v_1-3v_2&=54\\
+-v_1+4v_2-2v_3&=0\\
+-v_2+2v_3&=0
+\end{align*}
+
+$\exstar$ Use Gaussian elimination to obtain the known solution
+
+$$
+(v_1,v_2,v_3)=(5.4,1.8,0.9)\,\mathrm{V}
+$$
+
+Because $\mathrm{V}/\mathrm{k}\Omega=\mathrm{mA}$, every computed branch current is in $\mathrm{mA}$
+:::
+:::
 
 # Compute and Look Ahead
 
@@ -874,13 +1101,15 @@ Use computation to carry out row operations—not to replace interpretation
 
 ## Companion computation
 
+[Lecture 01 companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/01-systems-and-matrices.ipynb){.alert} — placeholder to be developed
+
 ::: {.columns}
 ::: {.column width="52%"}
 Companion notebook plan
 
 - build $\mat{A}$ and $\vct{b}$ with SymPy `Matrix`
 - display $[\mat{A}\mid\vct{b}]$
-- compute echelon form and RREF
+- compute echelon form
 - compare unique, inconsistent, and free-variable systems
 - verify candidate solutions
 :::
@@ -893,8 +1122,8 @@ from sympy import Matrix
 A = Matrix([[1, 2, -1],
             [2, -1, 1],
             [3, 1, 2]])
-b = Matrix([2, 2, 6])
-A.row_join(b).rref()
+b = Matrix([2, -3, 1])
+A.row_join(b).echelon_form()
 ```
 
 Standard kernel: `qmcpy`
