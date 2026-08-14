@@ -19,6 +19,11 @@ content is maintained only once.
 
 ## Slide-source conventions
 
+- Whenever a homework, assignment, quiz, or similar assessed item
+  is finalized or updated on its course website page, also add or update its
+  due-date notice on the title slide of the deck current when the item is
+  assigned. Determine the relevant deck from the course schedule and the
+  assignment date; remove or replace stale notices as the course advances.
 - Write `#` section headings in title case: capitalize principal words while
   leaving articles, coordinating conjunctions, and short prepositions
   lowercase unless they begin or end the heading. Write `##` slide headings
