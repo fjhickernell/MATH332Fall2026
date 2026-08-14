@@ -95,21 +95,21 @@
     "href": "pages/assignments.html",
     "title": "Assignments",
     "section": "",
-    "text": "NotePolicies pending\n\n\n\nCollaboration rules, submission requirements, late-work policies, and Canvas procedures are TBD."
+    "text": "Unless otherwise stated, you may work on assignments individually or in pairs, and your choice may change from one assignment to the next.\nFor each assignment, I will create a group set in Canvas; you will sign up to form your group.\nOnly one person per group submits the assignment in Canvas. The submission is automatically shared with all group members.\nGrades and feedback are shared with the whole group. By default, all members receive the same grade.\nAssignments are due by 11:59 PM Chicago Time on the due date. Canvas displays due dates in your time zone.\nEach submission must include all relevant files:\n\nA self-contained, working copy of any code used.\nA PDF version of item 1, including the output, plus any analytical work. Legible handwriting and typed work are both acceptable. You may embed analytical work as Markdown in the code."
   },
   {
-    "objectID": "pages/assignments.html#assignment-policies",
-    "href": "pages/assignments.html#assignment-policies",
+    "objectID": "pages/assignments.html#ground-rules-for-assignments",
+    "href": "pages/assignments.html#ground-rules-for-assignments",
     "title": "Assignments",
     "section": "",
-    "text": "NotePolicies pending\n\n\n\nCollaboration rules, submission requirements, late-work policies, and Canvas procedures are TBD."
+    "text": "Unless otherwise stated, you may work on assignments individually or in pairs, and your choice may change from one assignment to the next.\nFor each assignment, I will create a group set in Canvas; you will sign up to form your group.\nOnly one person per group submits the assignment in Canvas. The submission is automatically shared with all group members.\nGrades and feedback are shared with the whole group. By default, all members receive the same grade.\nAssignments are due by 11:59 PM Chicago Time on the due date. Canvas displays due dates in your time zone.\nEach submission must include all relevant files:\n\nA self-contained, working copy of any code used.\nA PDF version of item 1, including the output, plus any analytical work. Legible handwriting and typed work are both acceptable. You may embed analytical work as Markdown in the code."
   },
   {
     "objectID": "pages/assignments.html#list-of-assignments",
     "href": "pages/assignments.html#list-of-assignments",
     "title": "Assignments",
     "section": "List of assignments",
-    "text": "List of assignments\nAssignment details and due dates will be added as they are finalized.\n\n\n\nAssignment\nCoverage\nDue Date\n\n\n\n\nAssignment 1 — TBD\nTBD\nTBD"
+    "text": "List of assignments\nAssignment details and due dates will be added as they are finalized.\n\n\n\nAssignment\nCoverage\nDue Date\n\n\n\n\nAssignment 0 — Diagnostic SurveyComplete and submit this assignment individually, not as a group.\nMATH 332 profile survey\nAugust 21, 2026\n\n\nAssignment 1 — TBD\nTBD\nTBD"
   },
   {
     "objectID": "index.html",
@@ -144,7 +144,7 @@
     "href": "index.html#assessment",
     "title": "Welcome to MATH 332",
     "section": "Assessment",
-    "text": "Assessment\n\nAssignments: details and grading weight TBD\nQuizzes: format, dates, and grading weight TBD\nTests and final examination: details and grading weight TBD"
+    "text": "Assessment\n\nAssignments: 20%\nQuizzes: format, dates TBD 15%\nTests: dates TBD 25%\nFinal Exam: on the date assigned by the registrar 40%"
   },
   {
     "objectID": "pages/accessing-repository.html",
