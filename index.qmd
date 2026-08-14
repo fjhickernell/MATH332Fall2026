@@ -128,7 +128,7 @@ Anton, Chapter 6. Detailed pacing is **TBD**.
 
 ## Assessment
 
-- [**Assignments:**](pages/assignments.qmd) details and grading weight **TBD**
-- [**Quizzes:**](pages/quizzes.qmd) format, dates, and grading weight **TBD**
-- [**Tests and final examination:**](pages/tests.qmd) details and grading
-  weight **TBD**
+- [**Assignments:**](pages/assignments.qmd) 20%
+- [**Quizzes:**](pages/quizzes.qmd) format, dates **TBD** 15%
+- [**Tests:**](pages/tests.qmd) dates **TBD** 25%
+- [**Final Exam:**](pages/tests.qmd) _on the date assigned by the registrar_ 40%

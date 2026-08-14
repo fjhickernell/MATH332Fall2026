@@ -2,14 +2,24 @@
 title: "Assignments"
 ---
 
-## Assignment policies
+## Ground rules for assignments
 
-::: {.callout-note}
-## Policies pending
+- Unless otherwise stated, you may work on assignments **individually** or in
+  **pairs**, and your choice may change from one assignment to the next.
+- For each assignment, I will create a **group set in Canvas**; you will sign
+  up to form your group.
+- **Only one person per group submits** the assignment in Canvas. The
+  submission is automatically shared with all group members.
+- Grades and feedback are shared with the whole group. By default, all
+  members receive the **same grade**.
+- Assignments are due by **11:59 PM Chicago Time** on the due date. Canvas
+  displays due dates in your time zone.
+- Each submission must include **all relevant files**:
 
-Collaboration rules, submission requirements, late-work policies, and Canvas
-procedures are **TBD**.
-:::
+  1. A self-contained, working copy of any code used.
+  2. A PDF version of item 1, including the output, plus any analytical work.
+     Legible handwriting and typed work are both acceptable. You may embed
+     analytical work as Markdown in the code.
 
 ## List of assignments
 
@@ -17,4 +27,5 @@ Assignment details and due dates will be added as they are finalized.
 
 | Assignment | Coverage | Due Date |
 |:---|:---|:---|
+| [Assignment 0 — Diagnostic Survey](https://iit.instructure.com/courses/23913/assignments/98516)<br>**Complete and submit this assignment individually, not as a group.** | MATH 332 profile survey | August 21, 2026 |
 | Assignment 1 — TBD | TBD | TBD |
