@@ -34,8 +34,10 @@ Resume the instructor review of Lecture 01.
   using `Matrix` and the standard `qmcpy` kernel.
 - The Lecture 00 demonstration notebook has completed instructor review. Its
   prose, matrix notation, and display output were revised; all matrix displays
-  now use the shared `classlib.nbviz` helpers. The notebook executes without
-  errors from a clean `qmcpy` kernel against the pinned classlib commit.
+  now use the shared `classlib.nbviz` helpers. Students may open it directly in
+  Colab; its conditional setup installs classlib and full TeX support there.
+  The notebook executes without errors from a clean `qmcpy` kernel against the
+  pinned classlib commit.
 
 ## Questions to resolve
 
