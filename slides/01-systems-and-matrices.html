@@ -622,7 +622,7 @@ In this deck
 <ul>
 <li><a href="#/from-equations-to-systems">From Equations to Systems</a></li>
 <li><a href="#/eliminate-on-equations">Eliminate on Equations</a></li>
-<li><a href="#/compress-the-repeated-structure">Compress the Repeated Structure</a></li>
+<li><a href="#/the-dot-product">The Dot Product</a></li>
 <li><a href="#/eliminate-on-matrices">Eliminate on Matrices</a></li>
 <li><a href="#/compute-and-look-ahead">Compute and Look Ahead</a></li>
 </ul>
@@ -833,8 +833,8 @@ x+y&amp;=3  &amp;(E_1)\\
 <p>We will return to one system throughout the lecture:</p>
 <p><span class="math display">\[\begin{align*}
 x+2y-z&amp;=2 \qquad &amp;(E_1)\\
-2x-y+z&amp;=2 &amp;(E_2)\\
-3x+y+2z&amp;=6 &amp;(E_3)
+2x-y+z&amp;=-3 &amp;(E_2)\\
+3x+y+2z&amp;=1 &amp;(E_3)
 \end{align*}\]</span></p>
 <p>Goal: create equations with fewer unknowns while preserving every solution</p>
 </section>
@@ -845,16 +845,16 @@ x+2y-z&amp;=2 \qquad &amp;(E_1)\\
 <p><span class="math display">\[
 \begin{aligned}
 x+2y-z&amp;=2\\
-2x-y+z&amp;=2\\
-3x+y+2z&amp;=6
+2x-y+z&amp;=-3\\
+3x+y+2z&amp;=1
 \end{aligned}
 \quad
 \xrightarrow[\ E_3\leftarrow E_3-3E_1\ ]{\ E_2\leftarrow E_2-2E_1\ }
 \quad
 \begin{aligned}
 x+2y-z&amp;=2\\
--5y+3z&amp;=-2\\
--5y+5z&amp;=0
+-5y+3z&amp;=-7\\
+-5y+5z&amp;=-5
 \end{aligned}
 \]</span></p>
 <p>Each arrow abbreviates a reversible transformation</p>
@@ -863,33 +863,35 @@ E_2^{\mathrm{old}}=E_2^{\mathrm{new}}+2E_1,
 \qquad
 E_3^{\mathrm{old}}=E_3^{\mathrm{new}}+3E_1
 \]</span></p>
+</section>
+<section class="slide level2">
+
 <h3 id="eliminate-y-in-the-equations-below-the-second">Eliminate <span class="math inline">\(y\)</span> in the equations below the second</h3>
 <p><span class="math display">\[
 \begin{aligned}
 x+2y-z&amp;=2\\
--5y+3z&amp;=-2\\
--5y+5z&amp;=0
+-5y+3z&amp;=-7\\
+-5y+5z&amp;=-5
 \end{aligned}
 \quad
 \xrightarrow{\ E_3\leftarrow E_3-E_2\ }
 \quad
 \begin{aligned}
 x+2y-z&amp;=2\\
--5y+3z&amp;=-2\\
+-5y+3z&amp;=-7\\
 2z&amp;=2
 \end{aligned}
 \]</span></p>
 </section>
 <section id="back-substitution" class="slide level2">
 <h2>Back substitution</h2>
-<h3 id="now-back-substitute">Now back substitute:</h3>
 <p><span class="math display">\[\begin{align*}
 2z&amp;=2 &amp; \implies z&amp; = \frac{2}{2} = 1 \\
--5y+3z&amp; =-2 &amp;\implies y &amp;= \frac{-2 - 3\times 1}{-5} = 1 \\
-x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 1 - 1)=1
+-5y+3z&amp; =-7 &amp;\implies y &amp;= \frac{-7 - 3\times 1}{-5} = 2 \\
+x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 2 - 1)=-1
 \end{align*}\]</span></p>
 <div class="key-point">
-<p>The original system has the one solution <span class="math inline">\((x,y,z)=(1,1,1)\)</span></p>
+<p>The original system has the unique solution <span class="math inline">\((x,y,z)=(-1,2,1)\)</span></p>
 </div>
 </section>
 <section id="why-elimination-works" class="slide level2">
@@ -917,19 +919,19 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 1 - 1)=1
 </div>
 </section></section>
 <section>
-<section id="compress-the-repeated-structure" class="title-slide slide level1 center">
-<h1>Compress the Repeated Structure</h1>
-<p>Matrices keep the numerical structure while omitting repeated unknowns, plus signs, and equality signs</p>
+<section id="the-dot-product" class="title-slide slide level1 center">
+<h1>The Dot Product</h1>
+<p>The dot product connects algebraic computation with geometric length, angle, and orthogonality</p>
 <ul>
-<li><a href="#/the-dot-product">The dot product</a></li>
+<li><a href="#/combines-coefficients-and-unknowns">Combines coefficients and unknowns</a></li>
 <li><a href="#/a-linear-equation-describes-a-hyperplane">A linear equation describes a hyperplane</a></li>
 <li><a href="#/each-equation-is-one-dot-product">Each equation is one dot product</a></li>
+<li><a href="#/matrix-matrix-multiplication-collects-dot-products">Matrix–matrix multiplication collects dot products</a></li>
 <li><a href="#/a-general-linear-system">A general linear system</a></li>
 </ul>
 </section>
-<section id="the-dot-product" class="slide level2">
-<h2>The dot product</h2>
-<h3 id="combines-coefficients-and-unknowns">Combines coefficients and unknowns</h3>
+<section id="combines-coefficients-and-unknowns" class="slide level2">
+<h2>Combines coefficients and unknowns</h2>
 <p>For <span class="math inline">\(\vct{a},\vct{x}\in\reals^n\)</span>, the <span class="alert">dot product</span></p>
 <p><span class="math display">\[
 \vct{a}^{\top}\vct{x}
@@ -949,10 +951,14 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 1 - 1)=1
 
 <h3 id="measures-alignment">Measures alignment</h3>
 <p>For nonzero <span class="math inline">\(\vct{a},\vct{x}\in\reals^n\)</span>, let <span class="math inline">\(\theta\in[0,\pi]\)</span> be the angle between them</p>
-<p><span class="math display">\[
+<p>The dot product defines the <span class="alert">Euclidean norm</span> and measures alignment:</p>
+<p><span class="math display">\[\begin{align*}
+\lVert\vct{a}\rVert
+  &amp;= \sqrt{\vct{a}^{\top}\vct{a}}
+   = \sqrt{a_1^2+\cdots+a_n^2},\\
 \vct{a}^{\top}\vct{x}
-=\lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta), \qquad \lVert \vct{a} \rVert = \sqrt{a_1^2 + \cdots + a_n^2}
-\]</span></p>
+  &amp;= \lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta).
+\end{align*}\]</span></p>
 <ul>
 <li><span class="math inline">\(\vct{a}^{\top}\vct{x}&gt;0\)</span> — acute angle</li>
 <li><span class="math inline">\(\vct{a}^{\top}\vct{x}=0\)</span> — right angle</li>
@@ -1050,16 +1056,16 @@ b₂ ≠ λb₁
 <p><span class="math display">\[\begin{align*}
 \begin{matrix}
 x + 2y -z = 2 \\
-2x - y + z = 2 \\
-3x + y + 2z = 6
+2x - y + z = -3 \\
+3x + y + 2z = 1
 \end{matrix}
 \iff
 \begin{matrix}
 \vct{a}_1^{\top}\vct{x}=2
 &amp;\vct{a}_1^{\top}=\begin{bmatrix}1&amp;2&amp;-1\end{bmatrix}\\
-\vct{a}_2^{\top}\vct{x}=2
+\vct{a}_2^{\top}\vct{x}=-3
 &amp;\vct{a}_2^{\top}=\begin{bmatrix}2&amp;-1&amp;1\end{bmatrix}\\
-\vct{a}_3^{\top}\vct{x}=6
+\vct{a}_3^{\top}\vct{x}=1
 &amp;\vct{a}_3^{\top}=\begin{bmatrix}3&amp;1&amp;2\end{bmatrix}
 \end{matrix}
 \quad
@@ -1078,7 +1084,7 @@ x + 2y -z = 2 \\
 3&amp;1&amp;2
 \end{bmatrix},
 \qquad
-\vct{b}=\begin{bmatrix}2\\2\\6\end{bmatrix}
+\vct{b}=\begin{bmatrix}2\\-3\\1\end{bmatrix}
 \]</span></p>
 </section>
 <section class="slide level2">
@@ -1107,6 +1113,49 @@ x + 2y -z = 2 \\
 <p><span class="alert">Matrix–vector multiplication</span>: every matrix row takes a dot product with the vector</p>
 </div>
 </section>
+<section id="matrix-matrix-multiplication-collects-dot-products" class="slide level2">
+<h2>Matrix–matrix multiplication collects dot products</h2>
+<p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, use uppercase vector symbols for columns and lowercase vector symbols for rows</p>
+<p><span class="math display">\[\begin{gather*}
+\mat{A}=[\vct{A}_1,\ldots,\vct{A}_n]
+\qquad
+\mat{A}=\begin{bmatrix}\vct{a}_1^{\top}\\ \vdots\\ \vct{a}_m^{\top}\end{bmatrix}
+\end{gather*}\]</span></p>
+<p>and likewise for <span class="math inline">\(\mat{B}\in\reals^{n\times p}\)</span> and <span class="math inline">\(\mat{C}=\mat{A}\mat{B}\in\reals^{m\times p}\)</span></p>
+<h3 id="by-columns">By columns</h3>
+<p><span class="math display">\[\begin{align*}
+[\vct{C}_1,\ldots,\vct{C}_p]
+  = \mat{C}
+  = \mat{A}\mat{B}
+  &amp;= \mat{A}[\vct{B}_1,\ldots,\vct{B}_p]
+   = [\mat{A}\vct{B}_1,\ldots,\mat{A}\vct{B}_p]
+\end{align*}\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="by-rows">By rows</h3>
+<p><span class="math display">\[\begin{align*}
+\begin{bmatrix}\vct{c}_1^{\top}\\ \vdots\\ \vct{c}_m^{\top}\end{bmatrix}
+  = \mat{C}
+  = \mat{A}\mat{B}
+  &amp;= \begin{bmatrix}\vct{a}_1^{\top}\\ \vdots\\ \vct{a}_m^{\top}\end{bmatrix}\mat{B}
+   = \begin{bmatrix}\vct{a}_1^{\top}\mat{B}\\ \vdots\\ \vct{a}_m^{\top}\mat{B}\end{bmatrix}
+\end{align*}\]</span></p>
+<h3 id="entrywise">Entrywise</h3>
+<p><span class="math display">\[\begin{align*}
+\begin{bmatrix}c_{11}&amp;\cdots&amp;c_{1p}\\ \vdots&amp;&amp;\vdots\\ c_{m1}&amp;\cdots&amp;c_{mp}\end{bmatrix}
+  = \mat{C}
+  = \mat{A}\mat{B}
+  &amp;= \begin{bmatrix}
+       \vct{a}_1^{\top}\vct{B}_1 &amp; \cdots &amp; \vct{a}_1^{\top}\vct{B}_p\\
+       \vdots &amp; &amp; \vdots\\
+       \vct{a}_m^{\top}\vct{B}_1 &amp; \cdots &amp; \vct{a}_m^{\top}\vct{B}_p
+     \end{bmatrix}
+\end{align*}\]</span></p>
+<div class="key-point">
+<p><span class="alert">Matrix–matrix multiplication</span> collects all dot products of rows of the first matrix with columns of the second</p>
+</div>
+</section>
 <section id="a-general-linear-system" class="slide level2">
 <h2>A general linear system</h2>
 <p><span class="math display">\[\begin{align*}
@@ -1133,8 +1182,8 @@ a_{m1}x_1+\cdots+a_{mn}x_n&amp;=b_m
 \left.
 \begin{aligned}
 x+2y-z&amp;=2\\
-2x-y+z&amp;=2\\
-3x+y+2z&amp;=6
+2x-y+z&amp;=-3\\
+3x+y+2z&amp;=1
 \end{aligned}
 \quad\right\}
 \qquad\longleftrightarrow\qquad
@@ -1143,8 +1192,8 @@ x+2y-z&amp;=2\\
 \left[
 \begin{array}{rrr|r}
 1&amp;2&amp;-1&amp;2\\
-2&amp;-1&amp;1&amp;2\\
-3&amp;1&amp;2&amp;6
+2&amp;-1&amp;1&amp;-3\\
+3&amp;1&amp;2&amp;1
 \end{array}
 \right]
 \]</span></p>
@@ -1163,11 +1212,11 @@ x+2y-z&amp;=2\\
 <ul>
 <li><a href="#/matrix-elimination-repeats-the-same-work">Matrix elimination repeats the same work</a></li>
 <li><a href="#/pivots-organize-elimination">Pivots organize elimination</a></li>
-<li><a href="#/reduced-row-echelon-form-goes-further">Reduced row echelon form goes further</a></li>
-<li><a href="#/read-the-unique-solution">Read the unique solution</a></li>
-<li><a href="#/the-last-row-reveals-the-other-possibilities">The last row reveals the other possibilities</a></li>
+<li><a href="#/read-the-unique-solution-by-back-substitution">Read the unique solution by back substitution</a></li>
+<li><a href="#/the-bottom-rows-reveal-the-other-possibilities">The bottom row(s) reveal the other possibilities</a></li>
 <li><a href="#/a-free-variable-produces-infinitely-many-solutions">A free variable produces infinitely many solutions</a></li>
 <li><a href="#/now-the-three-outcomes-are-visible">Now the three outcomes are visible</a></li>
+<li><a href="#/a-resistance-network">A resistance network</a></li>
 </ul>
 </section>
 <section id="matrix-elimination-repeats-the-same-work" class="slide level2">
@@ -1176,19 +1225,19 @@ x+2y-z&amp;=2\\
 <p><span class="math display">\[\begin{align*}
 &amp;\left[
 \begin{array}{rrr|r}
-1&amp;2&amp;-1&amp;2\\2&amp;-1&amp;1&amp;2\\3&amp;1&amp;2&amp;6
+1&amp;2&amp;-1&amp;2\\2&amp;-1&amp;1&amp;-3\\3&amp;1&amp;2&amp;1
 \end{array}
 \right]
 \xrightarrow[\ R_3\leftarrow R_3-3R_1\ ]{\ R_2\leftarrow R_2-2R_1\ }
 \left[
 \begin{array}{rrr|r}
-1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-2\\0&amp;-5&amp;5&amp;0
+1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-7\\0&amp;-5&amp;5&amp;-5
 \end{array}
 \right]\\[0.8em]
 &amp;\hspace{7em}\xrightarrow{\ R_3\leftarrow R_3-R_2\ }
 \left[
 \begin{array}{rrr|r}
-1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-2\\0&amp;0&amp;2&amp;2
+1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-7\\0&amp;0&amp;2&amp;2
 \end{array}
 \right]
 \end{align*}\]</span></p>
@@ -1199,7 +1248,7 @@ x+2y-z&amp;=2\\
 \left[
 \begin{array}{rrr|r}
 \alert{1}&amp;2&amp;-1&amp;2\\
-0&amp;\alert{-5}&amp;3&amp;-2\\
+0&amp;\alert{-5}&amp;3&amp;-7\\
 0&amp;0&amp;\alert{2}&amp;2
 \end{array}
 \right]
@@ -1215,49 +1264,57 @@ x+2y-z&amp;=2\\
 <p>Pivot entries need not equal <span class="math inline">\(1\)</span> in row echelon form</p>
 </div>
 </section>
-<section id="reduced-row-echelon-form-goes-further" class="slide level2">
-<h2>Reduced row echelon form goes further</h2>
-<p>Continue with reversible row operations until every pivot</p>
-<ul>
-<li>equals <span class="math inline">\(1\)</span></li>
-<li>is the only nonzero entry in its column</li>
-</ul>
-<p>For the recurring system:</p>
-<p><span class="math display">\[
+<section class="slide level2">
+
+<h3 id="a-zero-pivot-candidate-requires-a-row-exchange">A zero pivot candidate requires a row exchange</h3>
+<p>The first entry cannot serve as a pivot</p>
+<p><span class="math display">\[\begin{align*}
 \left[
 \begin{array}{rrr|r}
-1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-2\\0&amp;0&amp;2&amp;2
+0&amp;1&amp;1&amp;3\\
+1&amp;1&amp;-1&amp;0\\
+2&amp;-1&amp;1&amp;3
 \end{array}
 \right]
-\quad\longrightarrow\quad
+&amp;\xrightarrow{\ R_1\leftrightarrow R_2\ }
 \left[
 \begin{array}{rrr|r}
-1&amp;0&amp;0&amp;1\\0&amp;1&amp;0&amp;1\\0&amp;0&amp;1&amp;1
+1&amp;1&amp;-1&amp;0\\
+0&amp;1&amp;1&amp;3\\
+2&amp;-1&amp;1&amp;3
 \end{array}
 \right]
-\]</span></p>
-<p>The matrix on the right is in <span class="alert">reduced row echelon form</span> (RREF)</p>
+\end{align*}\]</span></p>
+<p>Now the entry in position <span class="math inline">\((1,1)\)</span> can organize elimination below it</p>
+<div class="key-point">
+<p>When a pivot candidate is zero, exchange rows to bring a nonzero entry into the pivot position</p>
+</div>
 </section>
-<section id="read-the-unique-solution" class="slide level2">
-<h2>Read the unique solution</h2>
-<p><span class="math display">\[
+<section id="read-the-unique-solution-by-back-substitution" class="slide level2">
+<h2>Read the unique solution by back substitution</h2>
+<p><span class="math display">\[\begin{align*}
 \left[
 \begin{array}{rrr|r}
-1&amp;0&amp;0&amp;1\\0&amp;1&amp;0&amp;1\\0&amp;0&amp;1&amp;1
+1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-7\\0&amp;0&amp;2&amp;2
 \end{array}
 \right]
-\qquad\longleftrightarrow\qquad
+&amp;\qquad\longleftrightarrow\qquad
 \begin{aligned}
-x&amp;=1\\y&amp;=1\\z&amp;=1
-\end{aligned}
-\]</span></p>
+x+2y-z&amp;=2\\
+-5y+3z&amp;=-7\\
+2z&amp;=2
+\end{aligned}\\
+&amp;\qquad\implies\qquad
+z=1,\quad y=2,\quad x=-1
+\end{align*}\]</span></p>
 <p>Every variable column contains a pivot</p>
 <div class="key-point">
 <p>No variable can be chosen freely, so the consistent system has exactly one solution</p>
 </div>
 </section>
-<section id="the-last-row-reveals-the-other-possibilities" class="slide level2">
-<h2>The last row reveals the other possibilities</h2>
+<section id="the-bottom-rows-reveal-the-other-possibilities" class="slide level2">
+<h2>The bottom row(s) reveal the other possibilities</h2>
+<p>Suppose elimination instead produced one of these echelon forms</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <h3 id="contradiction">Contradiction</h3>
@@ -1265,12 +1322,12 @@ x&amp;=1\\y&amp;=1\\z&amp;=1
 \left[
 \begin{array}{rrr|r}
 1&amp;2&amp;-1&amp;2\\
-0&amp;-5&amp;3&amp;-2\\
+0&amp;-5&amp;3&amp;-7\\
 0&amp;0&amp;0&amp;2
 \end{array}
 \right]
 \]</span></p>
-<p>Last equation: <span class="math inline">\(0=2\)</span></p>
+<p>A bottom row represents the equation <span class="math inline">\(0=2\)</span></p>
 <p><span class="alert">Inconsistent</span> — no solutions</p>
 </div><div class="column" style="width:50%;">
 <h3 id="missing-constraint">Missing constraint</h3>
@@ -1278,13 +1335,61 @@ x&amp;=1\\y&amp;=1\\z&amp;=1
 \left[
 \begin{array}{rrr|r}
 1&amp;2&amp;-1&amp;2\\
-0&amp;-5&amp;3&amp;-2\\
+0&amp;-5&amp;3&amp;-7\\
 0&amp;0&amp;0&amp;0
 \end{array}
 \right]
 \]</span></p>
-<p>Last equation: <span class="math inline">\(0=0\)</span></p>
+<p>A bottom row represents the equation <span class="math inline">\(0=0\)</span></p>
 <p><span class="alert">Consistent</span>, but one variable has no pivot</p>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="reverse-the-row-operations-to-recover-three-planes">Reverse the row operations to recover three planes</h3>
+<p>Undoing the same elimination steps gives two possible original systems</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="contradiction-1">Contradiction</h3>
+<p><span class="math display">\[\begin{align*}
+x+2y-z&amp;=2\\
+2x-y+z&amp;=-3\\
+3x+y&amp;=1
+\end{align*}\]</span></p>
+<p>The first two equations imply <span class="math inline">\(3x+y=-1\)</span>, which conflicts with the third</p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="missing-constraint-1">Missing constraint</h3>
+<p><span class="math display">\[\begin{align*}
+x+2y-z&amp;=2\\
+2x-y+z&amp;=-3\\
+3x+y&amp;=-1
+\end{align*}\]</span></p>
+<p>The third equation is the sum of the first two</p>
+</div></div>
+<div class="key-point">
+<p>Reversible row operations let us move between the original planes and the bottom-row evidence</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="geometry-reveals-the-solution-set">Geometry reveals the solution set</h3>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="no-common-intersection">No common intersection</h3>
+<svg class="diagram-image" viewbox="0 0 620 420" width="100%" role="img" aria-label="Three planes with no common intersection. The first two planes meet along a line, while the third plane does not contain that line.">
+<polygon points="70,320 395,370 545,160 220,110" fill="#dceef7" fill-opacity="0.72" stroke="#007acc" stroke-width="6"></polygon> <polygon points="150,370 445,295 415,75 120,150" fill="#fff0dc" fill-opacity="0.68" stroke="#f39c34" stroke-width="6"></polygon> <line x1="170" y1="342" x2="422" y2="280" stroke="#252525" stroke-width="10"></line> <polygon points="65,155 365,215 550,145 250,85" fill="#e3f3e7" fill-opacity="0.92" stroke="#2e8b57" stroke-width="6"></polygon> <g stroke="#fff" stroke-width="7" paint-order="stroke" stroke-linejoin="round"> <text x="99" y="307" font-size="30" font-weight="700">P₁</text> <text x="179" y="347" font-size="30" font-weight="700">P₂</text> <text x="469" y="137" font-size="30" font-weight="700">P₃</text> <text x="277" y="355" font-size="28" font-weight="700">L = P₁ ∩ P₂</text> </g>
+</svg>
+<p><span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span> meet along <span class="math inline">\(L\)</span>, but <span class="math inline">\(P_3\)</span> does not contain <span class="math inline">\(L\)</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="a-whole-line-of-solutions">A whole line of solutions</h3>
+<svg class="diagram-image" viewbox="0 0 620 420" width="100%" role="img" aria-label="Three distinct planes sharing one common line, so every point on the line solves all three equations.">
+<polygon points="75,315 400,365 550,155 225,105" fill="#dceef7" fill-opacity="0.72" stroke="#007acc" stroke-width="5"></polygon> <polygon points="155,365 450,290 420,70 125,145" fill="#fff0dc" fill-opacity="0.68" stroke="#f39c34" stroke-width="5"></polygon> <polygon points="95,350 465,315 520,105 150,140" fill="#e3f3e7" fill-opacity="0.58" stroke="#2e8b57" stroke-width="5"></polygon> <line x1="175" y1="337" x2="427" y2="275" stroke="#252525" stroke-width="9"></line> <circle cx="175" cy="337" r="8" fill="#252525"></circle> <circle cx="427" cy="275" r="8" fill="#252525"></circle> <g stroke="#fff" stroke-width="7" paint-order="stroke" stroke-linejoin="round"> <text x="96" y="302" font-size="30" font-weight="700">P₁</text> <text x="168" y="347" font-size="30" font-weight="700">P₂</text> <text x="469" y="149" font-size="30" font-weight="700">P₃</text> <text x="302" y="259" font-size="28" font-weight="700">solution line L</text> </g>
+</svg>
+<p>All three planes contain the same solution line <span class="math inline">\(L\)</span></p>
 </div></div>
 </section>
 <section id="a-free-variable-produces-infinitely-many-solutions" class="slide level2">
@@ -1292,18 +1397,18 @@ x&amp;=1\\y&amp;=1\\z&amp;=1
 <p>For the consistent echelon system</p>
 <p><span class="math display">\[\begin{align*}
 x+2y-z&amp;=2\\
--5y+3z&amp;=-2\\
+-5y+3z&amp;=-7\\
 0&amp;=0,
 \end{align*}\]</span></p>
 <p>The <span class="math inline">\(z\)</span> column has no pivot; choose the <span class="alert">free variable</span> <span class="math inline">\(z=t\)</span>:</p>
 <p><span class="math display">\[
-y=\frac{2+3t}{5},
+y=\frac{7+3t}{5},
 \qquad
-x=\frac{6-t}{5}
+x=\frac{-4-t}{5}
 \]</span></p>
 <p><span class="math display">\[
 \left\{
-\left(\frac{6-t}{5},\frac{2+3t}{5},t\right):t\in\reals
+\left(\frac{-4-t}{5},\frac{7+3t}{5},t\right):t\in\reals
 \right\}
 \]</span></p>
 <p>Different values of <span class="math inline">\(t\)</span> give infinitely many solutions</p>
@@ -1336,7 +1441,7 @@ x=\frac{6-t}{5}
 <td>exactly one</td>
 </tr>
 <tr class="odd">
-<td>consistent; at least one free variable</td>
+<td>consistent; fewer pivots than variables</td>
 <td>one or more parameters</td>
 <td>infinitely many</td>
 </tr>
@@ -1346,6 +1451,30 @@ x=\frac{6-t}{5}
 <p>A linear system has zero, one, or infinitely many solutions—never exactly two</p>
 </div>
 <p><span class="math inline">\(\exstar\)</span> Why would two distinct solutions force infinitely many?</p>
+</section>
+<section id="a-resistance-network" class="slide level2">
+<h2>A resistance network</h2>
+<p>Kirchhoff’s current law turns conservation of electric current into a linear system</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<svg class="diagram-image" viewbox="0 0 820 500" width="100%" role="img" aria-label="A resistor ladder with a 9 volt source and three unknown node voltages. Series resistors connect the source to v one, v one to v two, and v two to v three. Each node also has a resistor to ground.">
+<line x1="92" y1="140" x2="130" y2="140" stroke="#333" stroke-width="6"></line> <polyline points="130,140 145,115 165,165 185,115 205,165 225,115 240,140" fill="none" stroke="#c62828" stroke-width="6"></polyline> <line x1="240" y1="140" x2="270" y2="140" stroke="#333" stroke-width="6"></line> <circle cx="270" cy="140" r="10" fill="#007acc"></circle> <line x1="270" y1="140" x2="300" y2="140" stroke="#333" stroke-width="6"></line> <polyline points="300,140 315,115 335,165 355,115 375,165 395,115 410,140" fill="none" stroke="#c62828" stroke-width="6"></polyline> <line x1="410" y1="140" x2="440" y2="140" stroke="#333" stroke-width="6"></line> <circle cx="440" cy="140" r="10" fill="#007acc"></circle> <line x1="440" y1="140" x2="470" y2="140" stroke="#333" stroke-width="6"></line> <polyline points="470,140 485,115 505,165 525,115 545,165 565,115 580,140" fill="none" stroke="#c62828" stroke-width="6"></polyline> <line x1="580" y1="140" x2="610" y2="140" stroke="#333" stroke-width="6"></line> <circle cx="610" cy="140" r="10" fill="#007acc"></circle> <line x1="270" y1="140" x2="270" y2="245" stroke="#333" stroke-width="6"></line> <polyline points="270,245 245,265 295,285 245,305 295,325 270,345" fill="none" stroke="#c62828" stroke-width="6"></polyline> <line x1="270" y1="345" x2="270" y2="405" stroke="#333" stroke-width="6"></line> <line x1="440" y1="140" x2="440" y2="245" stroke="#333" stroke-width="6"></line> <polyline points="440,245 415,265 465,285 415,305 465,325 440,345" fill="none" stroke="#c62828" stroke-width="6"></polyline> <line x1="440" y1="345" x2="440" y2="405" stroke="#333" stroke-width="6"></line> <line x1="610" y1="140" x2="610" y2="245" stroke="#333" stroke-width="6"></line> <polyline points="610,245 585,265 635,285 585,305 635,325 610,345" fill="none" stroke="#c62828" stroke-width="6"></polyline> <line x1="610" y1="345" x2="610" y2="405" stroke="#333" stroke-width="6"></line> <line x1="32" y1="140" x2="92" y2="140" stroke="#333" stroke-width="7"></line> <line x1="45" y1="200" x2="79" y2="200" stroke="#333" stroke-width="4"></line> <line x1="62" y1="200" x2="62" y2="405" stroke="#333" stroke-width="6"></line> <text x="20" y="105" font-size="34" font-weight="700">9 V</text> <g stroke="#333" fill="none"> <path d="M230 405h80M242 419h56M254 433h32" stroke-width="5"></path> <path d="M400 405h80M412 419h56M424 433h32" stroke-width="5"></path> <path d="M570 405h80M582 419h56M594 433h32" stroke-width="5"></path> <path d="M22 405h80M34 419h56M46 433h32" stroke-width="5"></path> </g> <text x="155" y="95" font-size="27" font-weight="700">1 kΩ</text> <text x="325" y="95" font-size="27" font-weight="700">2 kΩ</text> <text x="495" y="95" font-size="27" font-weight="700">1 kΩ</text> <text x="205" y="300" font-size="27" font-weight="700">3 kΩ</text> <text x="375" y="300" font-size="27" font-weight="700">2 kΩ</text> <text x="650" y="300" font-size="27" font-weight="700">1 kΩ</text> <text x="240" y="205" font-size="32" font-style="italic" font-weight="700">v₁</text> <text x="410" y="205" font-size="32" font-style="italic" font-weight="700">v₂</text> <text x="580" y="205" font-size="32" font-style="italic" font-weight="700">v₃</text>
+</svg>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>Apply current balance at <span class="math inline">\(v_1,v_2,v_3\)</span>, measuring voltage in <span class="math inline">\(\mathrm{V}\)</span> and resistance in <span class="math inline">\(\mathrm{k}\Omega\)</span></p>
+<p><span class="math display">\[\begin{align*}
+11v_1-3v_2&amp;=54\\
+-v_1+4v_2-2v_3&amp;=0\\
+-v_2+2v_3&amp;=0
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\exstar\)</span> Use Gaussian elimination to obtain the known solution</p>
+<p><span class="math display">\[
+(v_1,v_2,v_3)=(5.4,1.8,0.9)\,\mathrm{V}
+\]</span></p>
+<p>Because <span class="math inline">\(\mathrm{V}/\mathrm{k}\Omega=\mathrm{mA}\)</span>, every computed branch current is in <span class="math inline">\(\mathrm{mA}\)</span></p>
+</div></div>
 </section></section>
 <section>
 <section id="compute-and-look-ahead" class="title-slide slide level1 center">
@@ -1359,13 +1488,14 @@ x=\frac{6-t}{5}
 </section>
 <section id="companion-computation" class="slide level2">
 <h2>Companion computation</h2>
+<p><a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/01-systems-and-matrices.ipynb" class="alert">Lecture 01 companion notebook</a> — placeholder to be developed</p>
 <div class="columns">
 <div class="column" style="width:52%;">
 <p>Companion notebook plan</p>
 <ul>
 <li>build <span class="math inline">\(\mat{A}\)</span> and <span class="math inline">\(\vct{b}\)</span> with SymPy <code>Matrix</code></li>
 <li>display <span class="math inline">\([\mat{A}\mid\vct{b}]\)</span></li>
-<li>compute echelon form and RREF</li>
+<li>compute echelon form</li>
 <li>compare unique, inconsistent, and free-variable systems</li>
 <li>verify candidate solutions</li>
 </ul>
