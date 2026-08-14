@@ -17,8 +17,6 @@ include-after-body:
       </script>
 ---
 
-{{< include ../classlib/classlib/quarto/slides/shared/general/illinois-tech-academic-transformation.qmd >}}
-
 # Course Map
 
 ::: {.columns}

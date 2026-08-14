@@ -6,13 +6,13 @@ Resume the instructor review of Lecture 01.
 
 ## Current state
 
-- Lecture 01 now has a 39-slide revised deck. Three shared slides about
-  significant institutional and broader change follow the title slide and
-  precede the Course Map; the instructional deck remains organized around
-  reversible transformations of equations. Instructor review is complete
-  through the entire `# Compress the Repeated Structure` block. Resume review
-  at the beginning of `# Eliminate on Matrices`; that block and the later
-  slides still need review.
+- Lecture 00 now opens with three shared slides about significant institutional
+  and broader change, following the title slide and preceding the Course Map.
+- Lecture 01 has a 36-slide revised deck organized around reversible
+  transformations of equations. Instructor review is complete through the
+  entire `# Compress the Repeated Structure` block. Resume review at the
+  beginning of `# Eliminate on Matrices`; that block and the later slides still
+  need review.
 - The deck begins with scalar equations and concrete zero/one/infinitely-many
   solution sets, develops elimination on equations, and only then introduces
   dot products, `\mat{A}\vct{x}=\vct{b}`, augmented matrices, pivots, echelon
