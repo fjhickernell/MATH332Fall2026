@@ -1,4 +1,4 @@
-## What role is AI playing?
+## Using AI well
 
 Roles overlap; choose deliberately. Think enough to know the problem AI should
 help solve
@@ -34,7 +34,9 @@ and connect intuition to the formal definition"*
 Prefer dialogue: strengthen your thinking before producing finished work
 :::
 
-## From collaborator to contractor
+---
+
+### From collaborator to contractor
 
 ::: {.columns}
 ::: {.column width="48%"}
@@ -71,7 +73,9 @@ Better-specified tasks permit more delegation
 Responsibility never transfers to AI
 :::
 
-## Verify what AI produces
+---
+
+### Verify what AI produces
 
 AI output: [proposal to inspect]{.alert}, not authority. Expose assumptions,
 alternatives, reasons; verify appropriately
@@ -101,7 +105,9 @@ alternatives, reasons; verify appropriately
 Verify the result and whether the right problem was solved
 :::
 
-## Responsibility stays with you
+---
+
+### Responsibility stays with you
 
 ::: {.columns}
 ::: {.column width="48%"}
