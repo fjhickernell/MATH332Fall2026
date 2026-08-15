@@ -85,6 +85,20 @@ active repositories, `MATH332Fall2026` and `MATH565Fall2026`. Interpret
 files each time rather than relying on conversation memory. Reporting a next
 task does not authorize beginning it.
 
+### Dashboard reconciliation at Checkpoint
+
+As part of every Checkpoint, read `notes/NEXT.md` from both active teaching
+repositories and minimally reconcile their entries in the authoritative
+`GitTracked/Check-In-Dashboard.md`. Follow `GitTracked/AGENTS.md` and all
+Dashboard editing, status, completion, synchronization, and timestamp rules.
+
+- Ensure the current next task for MATH 332 and MATH 565 appears under the
+  matching Teaching project and the dot status required by the Dashboard.
+- Remove completed course-task bullets from those two Teaching projects when
+  completion is established by the work being checkpointed.
+- Preserve the `T2. MATH 332` and `T1. MATH 565` project headings and IDs.
+- Do not change, move, reorder, rewrite, or remove any other Dashboard item.
+
 ## Slides
 
 The RevealJS decks in `slides/` are the authoritative course presentation

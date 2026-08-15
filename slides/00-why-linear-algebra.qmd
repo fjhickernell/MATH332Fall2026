@@ -679,6 +679,7 @@ Distinguish an [ill-posed formulation]{.alert}, an [ill-conditioned problem]{.al
 
 - [Questions we will learn to answer](#questions-we-will-learn-to-answer)
 - [Terms to know](#terms-to-know)
+- [Complete the Diagnostic Survey](#complete-the-diagnostic-survey)
 - [How we will learn linear algebra](#how-we-will-learn-linear-algebra)
 - [Navigating this course](#navigating-this-course)
 - [Using AI well](#using-ai-well)
@@ -740,6 +741,14 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 - [Vector](#represent-objects-numerically)
 :::
 :::
+
+## Complete the Diagnostic Survey
+
+::: {.key-point}
+Complete [Assignment 0 — Diagnostic Survey](https://iit.instructure.com/courses/23913/assignments/98516){.alert} by August 21.
+:::
+
+Complete and submit this assignment individually, not as a group.
 
 ## How we will learn linear algebra
 
