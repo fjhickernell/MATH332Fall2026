@@ -383,13 +383,15 @@ Each system at each step has [exactly the same solution set]{.alert} because eve
 
 The dot product connects algebraic computation with geometric length, angle, and orthogonality
 
-- [Combines coefficients and unknowns](#combines-coefficients-and-unknowns)
+- [What the dot product reveals](#what-the-dot-product-reveals)
 - [A linear equation describes a hyperplane](#a-linear-equation-describes-a-hyperplane)
 - [Each equation is one dot product](#each-equation-is-one-dot-product)
 - [Matrix–matrix multiplication collects dot products](#matrix-matrix-multiplication-collects-dot-products)
 - [A general linear system](#a-general-linear-system)
 
-## Combines coefficients and unknowns
+## What the dot product reveals
+
+### Combines coefficients and unknowns
 
 For $\vct{a},\vct{x}\in\reals^n$, the [dot product]{.alert}
 

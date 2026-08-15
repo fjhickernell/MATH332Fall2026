@@ -34,6 +34,23 @@ content is maintained only once.
   When the section slide also contains content, place brief framing or
   motivation above the links by default and supporting examples or secondary
   material below them. Decide case by case, keeping the links easy to scan.
+- Treat each `##` heading as the conceptual umbrella for every following `###`
+  until the next `##`. Keep a `###` and its content on the governing `##` slide
+  by default. Add `---` only when the combined slide would be crowded or a
+  separate slide materially improves presentation pacing; the slide break does
+  not change the heading hierarchy. Do not multiply slide breaks merely to
+  separate headings. Do not merely demote a heading to reduce the section
+  outline: ensure that each `###` heading and its content substantively flow
+  from the governing `##`. Rename or add an umbrella heading, or regroup the
+  slides, when that relationship is unclear. The `##` slide may contain
+  framing or other overall content before the first `###`.
+- Maintain the cumulative **Terms to know** index in Deck 00. After completing
+  or substantially revising a lecture deck, audit it for important terminology
+  and add appropriate terms alphabetically. Link each term to the slide where
+  it first receives substantial treatment, not merely its first mention. Do
+  not invent links for topics that have not yet been developed. Split the
+  index into alphabetical continuation slides as needed while retaining
+  `#terms-to-know` as its stable entry point.
 - Prefer readable Quarto Markdown for headings, text, columns, equations, and
   ordinary emphasis. Use raw HTML when a diagram or specialized layout is
   materially easier to construct that way.

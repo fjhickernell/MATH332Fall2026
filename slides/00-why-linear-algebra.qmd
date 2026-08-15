@@ -678,13 +678,10 @@ Distinguish an [ill-posed formulation]{.alert}, an [ill-conditioned problem]{.al
 # The Course Ahead
 
 - [Questions we will learn to answer](#questions-we-will-learn-to-answer)
+- [Terms to know](#terms-to-know)
 - [How we will learn linear algebra](#how-we-will-learn-linear-algebra)
-- [What is where?](#what-is-where)
-- [Why participate synchronously?](#why-participate-synchronously)
-- [What role is AI playing?](#what-role-is-ai-playing)
-- [From collaborator to contractor](#from-collaborator-to-contractor)
-- [Verify what AI produces](#verify-what-ai-produces)
-- [Responsibility stays with you](#responsibility-stays-with-you)
+- [Navigating this course](#navigating-this-course)
+- [Using AI well](#using-ai-well)
 - [Next time: solving systems of equations](#next-time-solving-systems-of-equations)
 
 ## Questions we will learn to answer
@@ -695,6 +692,54 @@ Distinguish an [ill-posed formulation]{.alert}, an [ill-conditioned problem]{.al
 - When can a transformation be reversed?
 - How do we find the best approximate answer?
 - Which patterns matter most?
+
+## Terms to know {#terms-to-know}
+
+Use this cumulative index to revisit the first substantial treatment of each term.
+
+### A–M
+
+::: {.columns}
+::: {.column width="50%"}
+- [Augmented matrix]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system)
+- [Back substitution]({{< meta decks.d01.file >}}#back-substitution)
+- [Consistent / inconsistent system]({{< meta decks.d01.file >}}#the-bottom-rows-reveal-the-other-possibilities)
+- [Dot product]({{< meta decks.d01.file >}}#combines-coefficients-and-unknowns)
+- [Elementary row operations]({{< meta decks.d01.file >}}#three-reversible-moves)
+- [Elimination]({{< meta decks.d01.file >}}#elimination)
+- [Euclidean norm]({{< meta decks.d01.file >}}#measures-alignment)
+:::
+
+::: {.column width="50%"}
+- [Free variable]({{< meta decks.d01.file >}}#a-free-variable-produces-infinitely-many-solutions)
+- [Hyperplane]({{< meta decks.d01.file >}}#a-linear-equation-describes-a-hyperplane)
+- [Linear system]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
+- [Matrix](#represent-objects-numerically)
+- [Matrix–matrix multiplication]({{< meta decks.d01.file >}}#matrix-matrix-multiplication-collects-dot-products)
+- [Matrix–vector multiplication]({{< meta decks.d01.file >}}#each-equation-is-one-dot-product)
+:::
+:::
+
+---
+
+### N–Z
+
+::: {.columns}
+::: {.column width="50%"}
+- [Orthogonal vectors]({{< meta decks.d01.file >}}#measures-alignment)
+- [Parallel vectors]({{< meta decks.d01.file >}}#parallel-vectors-point-along-one-line)
+- [Pivot]({{< meta decks.d01.file >}}#pivots-organize-elimination)
+- [Reversible transformation]({{< meta decks.d01.file >}}#three-reversible-moves)
+- [Row echelon form]({{< meta decks.d01.file >}}#pivots-organize-elimination)
+:::
+
+::: {.column width="50%"}
+- [Scalar](#represent-objects-numerically)
+- [Solution / solution set]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
+- [Transformation](#act-on-these-objects-via-transformations-to-obtain-new-objects)
+- [Vector](#represent-objects-numerically)
+:::
+:::
 
 ## How we will learn linear algebra
 
@@ -715,23 +760,30 @@ Computation supports understanding; it does not replace mathematical reasoning.
 
 Jupyter/Colab notebooks support demonstrations and experiments.
 
-## What is where?
+## Navigating this course
 
-- Navigating these slides
+Use the slides for course content, the course website and repository for
+course materials, and Canvas for grades.
 
-    - Each slide deck has a list of decks and major sections after the title page
+### These slides
 
-    - Each major section is headed by a slide that points to its minor sections
+- Each slide deck has a list of decks and major sections after the title page
 
-    - <span class="controls nav-control-sample" aria-label="Previous major section"><span class="controls-arrow" aria-hidden="true"></span></span> and <span class="controls nav-control-sample nav-control-sample-right" aria-label="Next major section"><span class="controls-arrow" aria-hidden="true"></span></span> jump to the previous and next major sections
+- Each major section is headed by a slide that points to its minor sections
 
-    - <span class="controls nav-control-sample nav-control-sample-up" aria-label="Previous slide"><span class="controls-arrow" aria-hidden="true"></span></span> and <span class="controls nav-control-sample nav-control-sample-down" aria-label="Next slide"><span class="controls-arrow" aria-hidden="true"></span></span> jump to the previous and next slides
+- <span class="controls nav-control-sample" aria-label="Previous major section"><span class="controls-arrow" aria-hidden="true"></span></span> and <span class="controls nav-control-sample nav-control-sample-right" aria-label="Next major section"><span class="controls-arrow" aria-hidden="true"></span></span> jump to the previous and next major sections
 
-    - <span class="deck-nav-sample" aria-label="Previous slide deck">«</span> and <span class="deck-nav-sample" aria-label="Next slide deck">»</span> at the bottom jump to the previous and next decks
+- <span class="controls nav-control-sample nav-control-sample-up" aria-label="Previous slide"><span class="controls-arrow" aria-hidden="true"></span></span> and <span class="controls nav-control-sample nav-control-sample-down" aria-label="Next slide"><span class="controls-arrow" aria-hidden="true"></span></span> jump to the previous and next slides
 
-    - <span class="slide-menu-button nav-menu-sample" aria-label="Slide menu"><span class="fas fa-bars" aria-hidden="true"></span></span> at the bottom left shows all slides, as does <kbd>Esc</kbd>
+- <span class="deck-nav-sample" aria-label="Previous slide deck">«</span> and <span class="deck-nav-sample" aria-label="Next slide deck">»</span> at the bottom jump to the previous and next decks
 
-- [Course Website](https://fjhickernell.github.io/MATH332Fall2026/)
+- <span class="slide-menu-button nav-menu-sample" aria-label="Slide menu"><span class="fas fa-bars" aria-hidden="true"></span></span> at the bottom left shows all slides, as does <kbd>Esc</kbd>
+
+---
+
+### Course website, repository, and Canvas
+
+- [Course website](https://fjhickernell.github.io/MATH332Fall2026/)
 
     - Lecture slides are under the [Schedule](https://fjhickernell.github.io/MATH332Fall2026/pages/schedule.html)
 
@@ -739,11 +791,13 @@ Jupyter/Colab notebooks support demonstrations and experiments.
 
     - Basic course information is on the [Welcome page](https://fjhickernell.github.io/MATH332Fall2026/)
 
-- All materials are in the [Course Repository](https://github.com/fjhickernell/MATH332Fall2026), which builds the course website
+- All materials are in the [course repository](https://github.com/fjhickernell/MATH332Fall2026), which builds the course website
 
 - Grades are in [Canvas](https://iit.instructure.com)
 
-## Why participate synchronously?
+---
+
+### Why participate synchronously?
 
 - Keep pace with the course
 - Ask questions and receive answers in real time
