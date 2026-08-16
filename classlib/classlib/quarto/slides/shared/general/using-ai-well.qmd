@@ -36,8 +36,6 @@ Prefer dialogue: strengthen your thinking before producing finished work
 
 ---
 
-### From collaborator to contractor
-
 ::: {.columns}
 ::: {.column width="48%"}
 ### [Architect / collaborator]{.alert} → plan the work
@@ -82,7 +80,7 @@ alternatives, reasons; verify appropriately
 
 ::: {.columns}
 ::: {.column width="48%"}
-### Mathematics
+#### Mathematics
 
 - Check definitions, hypotheses, theorem conditions
 - Rework important steps; test examples and counterexamples
@@ -93,7 +91,7 @@ alternatives, reasons; verify appropriately
 :::
 
 ::: {.column width="48%"}
-### Computation
+#### Computation
 
 - Run the code and inspect the output
 - Test edge cases, dimensions, units, signs, known special cases
@@ -111,7 +109,7 @@ Verify the result and whether the right problem was solved
 
 ::: {.columns}
 ::: {.column width="48%"}
-### Evidence and sources
+#### Evidence and sources
 
 - Inspect original sources for claims and citations
 - Confirm that a source exists and supports the attributed claim
@@ -122,7 +120,7 @@ Verify the result and whether the right problem was solved
 :::
 
 ::: {.column width="48%"}
-### Communication
+#### Communication
 
 - Revise reasoning and wording yourself
 - Explain each choice and answer questions about it
