@@ -1,0 +1,198 @@
+# =============================================================================
+# HICKERNELL PAPERS REGISTRY
+# =============================================================================
+#
+# Schema (all fields optional unless noted):
+#
+# papers:
+#   <key>:
+#     cite:        short code for tight slides (e.g., "D etal13")        [REQUIRED]
+#     short:       readable citation (e.g., "Dick et al. (2013)")        [REQUIRED]
+#     full:        full bibliographic entry                              [REQUIRED]
+#
+#     type:        article | book | inproceedings | preprint | software | thesis
+#     tags:        list of keywords (e.g., [qmc, sobol, discrepancy])
+#
+#     doi:         "10.1214/aos/..."
+#     doi_url:     "https://doi.org/..."
+#
+#     arxiv:       "arXiv:1234.56789"
+#     arxiv_url:   "https://arxiv.org/abs/..."
+#
+#     publisher_url: journal landing page (optional)
+#     project_url:   for software (optional)
+#
+# Notes:
+# - Keys should be descriptive and stable (author_year_topic)
+# - Prefer doi_url as canonical link
+# - arxiv_url is optional for accessibility
+# - Do NOT alphabetize; rely on search/autocomplete
+#
+# =============================================================================
+
+
+papers:
+
+  wsj_monte_carlo_2016:
+    cite: "WSJ_MC_16"
+    short: "Craven McGinty (2016)"
+    full: "J. Craven McGinty, As Forecasts Go, You Can Bet on Monte Carlo, _Wall Street Journal_, August 12, 2016"
+    tags: [mc]
+    publisher_url: "https://www.wsj.com/articles/as-forecasts-go-you-can-bet-on-monte-carlo-1470994203"
+
+  hickirsor_2026_qmc_tutorial:
+    cite: "HKS26"
+    short: "Hickernell, Kirk, Sorokin (2026)"
+    full: "F. J. Hickernell, N. Kirk, & A. G. Sorokin, Quasi-Monte Carlo Methods: What, Why, and How?, in Monte Carlo and Quasi-Monte Carlo Methods: MCQMC, Waterloo, Canada, August 2024, (eds. C. Lemieux and B. Feng), pp. 3–40, 2026."
+    type: inproceedings
+    tags: [qmc, tutorial]
+    doi: "10.48550/arXiv.2502.03644"
+    doi_url: "https://doi.org/10.48550/arXiv.2502.03644"
+    arxiv_url: "https://arxiv.org/abs/2502.03644"
+    publisher_url: "https://link.springer.com/chapter/10.1007/978-3-032-10590-5_1"
+
+  razavi_2026_sobol_sensitivity:
+    cite: "R26"
+    short: "Razavi (2026)"
+    full: "S. Razavi, Ilya M. Sobol’ (1926–2025): The Question That Shaped Global Sensitivity Analysis, _Environmental Modelling & Software_, 107117 (2026)."
+    type: article
+    tags: [sensitivity-analysis, sobol]
+    doi: "10.1016/j.envsoft.2026.107117"
+    doi_url: "https://doi.org/10.1016/j.envsoft.2026.107117"
+    publisher_url: "https://www.sciencedirect.com/science/article/pii/S1364815226002641"
+
+
+  halton_1960_sequences:
+    cite: H60
+    short: Halton (1960)
+    full: J. Halton, On the Efficiency of Certain Quasi-Random Sequences of Points in Evaluating Multi-Dimensional Integrals, _Numer. Math._, **2**, 84-90, (1960).
+    type: article
+    tags: [qmc, sequences]
+    doi: 10.1007/BF01386213
+    doi_url: "https://doi.org/10.1007/BF01386213"
+    publisher_url: "https://link.springer.com/article/10.1007/BF01386213"
+    arxiv_url: null
+    project_url: null
+
+
+  dicgodlarpilsuz_2025_quasi-uniformity:
+    cite: "DGLPS25"
+    short: "Dick, Goda, Larcher, Pillichshammer, Suzuki (2025)"
+    full: "J. Dick, T. Goda, G Larcher, F. Pillichshammer, & K. Suzuki, On the quasi-uniformity properties of quasi-Monte Carlo point sets and sequences -- Part I: Lattices and Kronecker sequences, preprint (2025)."
+    type: preprint
+    tags: [qmc, covering distance, discrepancy]
+    arxiv: "10.48550/arXiv.2502.06202"
+    arxiv_url: "https://doi.org/10.48550/arXiv.2502.06202"
+
+  richtmyer_1951_sequences:
+    cite: "R51"
+    short: "Richtmyer (1951)"
+    full: "R. D. Richtmyer, The Evaluation of Definite Integrals, and a Quasi-Monte-Carlo Method Based on the Properties of Algebraic Numbers, Los Alamos Scientific Laboratory, LA-1342 (1951)."
+    type: techreport
+    tags: [qmc, sequences]
+    project_url: "https://scispace.com/pdf/the-evaluation-of-definite-integrals-and-a-quasi-monte-carlo-50ru8ixs80.pdf"
+
+  owen_1997_scrambled_net_variance:
+    cite: "O97"
+    short: "Owen (1997)"
+    full: "Owen, A. B. (1997). Scrambled net variance for integrals of smooth functions."
+    type: article
+    tags: [qmc, scrambled-nets, variance]
+    doi: "10.1214/aos/1069362380"
+    doi_url: "https://doi.org/10.1214/aos/1069362380"
+
+  hickrikuonuy_2012_weighted_integration:
+    cite: "HKKN12"
+    short: "Hickernell, Kritzer, Kuo, Nuyens (2012)"
+    full: "F. J. Hickernell, P. Kritzer, P. Kuo, & D. Nuyens, Weighted compound integration rules with higher order convergence for all $N$. _Numer. Algor._ **59**, 161–183 (2012)."
+    type: article
+    tags: [qmc, weighted-integration]
+    doi: "10.1007/s11075-011-9482-5"
+    doi_url: "https://doi.org/10.1007/s11075-011-9482-5"
+    arxiv_url: null
+    publisher_url: "https://link.springer.com/article/10.1007/s11075-011-9482-5"
+    project_url: null
+
+  dickripil_2022_lattice_rules_book:
+    cite: "DKP22"
+    short: "Dick, Kritzer, Pillichshammer (2022)"
+    full: "J. Dick, P. Kritzer, & F. Pillichshammer, Lattice Rules: Numerical Integration, Approximation, and Discrepancy. Springer Series in Computational Mathematics. Springer Cham (2022)."
+    type: book
+    tags: [qmc, lattice-rules]
+    doi: "10.1007/978-3-031-09951-9"
+    doi_url: "https://doi.org/10.1007/978-3-031-09951-9"
+    arxiv_url: null
+    publisher_url: "https://link.springer.com/book/10.1007/978-3-031-09951-9"
+    project_url: null
+
+  cookuonuy_2006_constructing_embedded:
+    cite: "CKN06"
+    short: "Cools, Kuo, & Nuyens (2006)"
+    full: "R. Cools, F. Y. Kuo, & D. Nuyens, Constructing embedded lattice rules for multivariate integration, SIAM J. Sci. Comput. 28, 2162–2188 (2006)."
+    type: article
+    tags: [qmc, lattice-rules, embedded-lattice-rules, cbc]
+    doi: "10.1137/06065074X"
+    doi_url: "https://doi.org/10.1137/06065074X"
+    publisher_url: "https://epubs.siam.org/doi/10.1137/06065074X"
+
+  dicpil_2010_digital_nets_sequences:
+    cite: "DP10"
+    short: "Dick, Pillichshammer (2010)"
+    full: "J. Dick & F. Pillichshammer, Digital Nets and Sequences: Discrepancy Theory and Quasi-Monte Carlo Integration, Cambridge University Press (2010)."
+    type: book
+    tags: [qmc, digital-nets, discrepancy]
+    publisher_url: "https://www.cambridge.org/core/books/digital-nets-and-sequences/9780521154566"
+
+  fangmawin_2002_centered_l2:
+    cite: "FMW02"
+    short: "Fang, Ma, Winker (2002)"
+    full: "K.-T. Fang, C.-X. Ma, & P. Winker, Centered L2-discrepancy of random sampling and Latin hypercube design, and construction of uniform designs, Math. Comp. 71, 275–296 (2002)."
+    type: article
+    tags: [qmc, discrepancy, optimization, uniform-design]
+    publisher_url: "https://pubs.ams.org/MCOM/2002-71-237/S0025-5718-00-01281-3/"
+
+  ruskirbrolemrus_2024_mpmc:
+    cite: "RKBLR24"
+    short: "Rusch, Kirk, Bronstein, Lemieux, Rus (2024)"
+    full: "T. K. Rusch, N. Kirk, M. M. Bronstein, C. Lemieux, & D. Rus, Message-Passing Monte Carlo: Generating low-discrepancy point sets via graph neural networks, Proc. Natl. Acad. Sci. USA 121(40), e2409913121 (2024)."
+    type: article
+    tags: [qmc, discrepancy, neural-networks, graph-neural-networks]
+    doi: "10.1073/pnas.2409913121"
+    doi_url: "https://doi.org/10.1073/pnas.2409913121"
+    arxiv_url: "https://arxiv.org/abs/2405.15059"
+
+  nuyenscools_2006_fastcbc:
+    cite: "NC06"
+    short: "Nuyens & Cools (2006)"
+    full: "D. Nuyens & R. Cools, Fast component-by-component construction of rank-1 lattice rules with a non-prime number of points, J. Complexity 22(1), 4–28 (2006)."
+    type: article
+    tags: [qmc, lattice-rules, cbc, fast-cbc, weighted-spaces]
+    doi: "10.1016/j.jco.2005.09.002"
+    doi_url: "https://doi.org/10.1016/j.jco.2005.09.002"
+
+  matiukhadinghickernell_2026_quality_lattices:
+    cite: "MDH26+"
+    short: "Matiukha, Ding, Hickernell (2026)"
+    full: "L. Matiukha, Y. Ding, & F. J. Hickernell, The Quality of Lattice Sequences for Arbitrary Sample Size, preprint (2026)."
+    type: preprint
+    tags: [qmc, lattice-rules, sequences]
+    arxiv: Null
+    arxiv_url: Null
+
+  owen_2026_errorQMC:
+    cite: "O26"
+    short: "Owen (2026)"
+    full: "A. B. Owen, Error Estimation for Quasi-Monte Carlo, _Monte Carlo and Quasi-Monte Carlo 2024_, pp. 95–125, (2026)."
+    tags: [qmc, error]
+    doi: 10.1007/978-3-032-10590-5_4
+    doi_url: https://doi.org/10.1007/978-3-032-10590-5_4
+    publisher_url: "https://link.springer.com/chapter/10.1007/978-3-032-10590-5_4"
+
+  panowen_2023_super-polynomial_accuracy:
+    cite: "PO23"
+    short: "Pan & Owen (2023)"
+    full: "Y. Pan & A. B. Owen, Super-polynomial accuracy for lattice rules with random number of points, _Math. Comp._ 92, 805-37 (2023)."
+    type: article
+    tags: [qmc, lattice-rules, error]
+    doi: "10.1090/mcom/3791"
+    doi_url: "https://doi.org/10.1090/mcom/3791"

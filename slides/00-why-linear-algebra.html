@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-08-17">
+  <meta name="dcterms.date" content="2026-08-18">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -598,7 +598,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">August 17, 2026</p>
+  <p class="date">August 18, 2026</p>
 </section>
 <section id="we-begin-this-semester-amid-significant-change" class="slide level2">
 <h2>We begin this semester amid significant change</h2>
@@ -1432,45 +1432,67 @@ prediction
 <section id="terms-to-know" class="slide level2">
 <h2>Terms to know</h2>
 <p>Use this cumulative index to revisit the first substantial treatment of each term.</p>
-<h3 id="am">A–M</h3>
+<h3 id="ai">A–I</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
 <li><a href="01-systems-and-matrices.html#the-augmented-matrix-stores-the-system">Augmented matrix</a></li>
 <li><a href="01-systems-and-matrices.html#back-substitution">Back substitution</a></li>
+<li><a href="#/equivalent-mathematics-unequal-computations">Catastrophic cancellation</a></li>
+<li><a href="#/a-correct-computation-can-still-cost-too-much">Computational cost</a></li>
 <li><a href="01-systems-and-matrices.html#the-bottom-rows-reveal-the-other-possibilities">Consistent / inconsistent system</a></li>
 <li><a href="01-systems-and-matrices.html#combines-coefficients-and-unknowns">Dot product</a></li>
 <li><a href="01-systems-and-matrices.html#three-reversible-moves">Elementary row operations</a></li>
-<li><a href="01-systems-and-matrices.html#elimination">Elimination</a></li>
-<li><a href="01-systems-and-matrices.html#measures-alignment">Euclidean norm</a></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
+<li><a href="01-systems-and-matrices.html#elimination">Elimination</a></li>
+<li><a href="01-systems-and-matrices.html#measures-alignment">Euclidean norm</a></li>
 <li><a href="01-systems-and-matrices.html#a-free-variable-produces-infinitely-many-solutions">Free variable</a></li>
 <li><a href="01-systems-and-matrices.html#a-linear-equation-describes-a-hyperplane">Hyperplane</a></li>
-<li><a href="01-systems-and-matrices.html#from-one-equation-to-systems-of-equations">Linear system</a></li>
-<li><a href="#/represent-objects-numerically">Matrix</a></li>
-<li><a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">Matrix–matrix multiplication</a></li>
-<li><a href="01-systems-and-matrices.html#each-equation-is-one-dot-product">Matrix–vector multiplication</a></li>
+<li><a href="#/almost-parallel-almost-unknowable">Ill-conditioned problem</a></li>
+<li><a href="#/too-little-information-many-answers">Ill-posed problem</a></li>
+<li><a href="#/represent-a-network-by-an-incidence-matrix">Incidence matrix</a></li>
 </ul>
 </div></div>
 </section>
 <section class="slide level2">
 
-<h3 id="nz">N–Z</h3>
+<h3 id="lr">L–R</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
+<ul>
+<li><a href="#/when-the-constraints-cannot-all-be-satisfied">Least squares</a></li>
+<li><a href="01-systems-and-matrices.html#from-one-equation-to-systems-of-equations">Linear system</a></li>
+<li><a href="#/represent-objects-numerically">Matrix</a></li>
+<li><a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">Matrix–matrix multiplication</a></li>
+<li><a href="01-systems-and-matrices.html#each-equation-is-one-dot-product">Matrix–vector multiplication</a></li>
+<li><a href="#/equivalent-mathematics-unequal-computations">Numerical instability</a></li>
+</ul>
+</div><div class="column" style="width:50%;">
 <ul>
 <li><a href="01-systems-and-matrices.html#measures-alignment">Orthogonal vectors</a></li>
 <li><a href="01-systems-and-matrices.html#parallel-vectors-point-along-one-line">Parallel vectors</a></li>
 <li><a href="01-systems-and-matrices.html#pivots-organize-elimination">Pivot</a></li>
+<li><a href="#/what-does-the-system-tell-us">Redundant constraint</a></li>
 <li><a href="01-systems-and-matrices.html#three-reversible-moves">Reversible transformation</a></li>
 <li><a href="01-systems-and-matrices.html#pivots-organize-elimination">Row echelon form</a></li>
 </ul>
-</div><div class="column" style="width:50%;">
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="sz">S–Z</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
 <ul>
 <li><a href="#/represent-objects-numerically">Scalar</a></li>
+<li><a href="#/images-contain-important-patterns">Singular value decomposition (SVD)</a></li>
 <li><a href="01-systems-and-matrices.html#from-one-equation-to-systems-of-equations">Solution / solution set</a></li>
+<li><a href="#/represent-objects-numerically">Tensor</a></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
 <li><a href="#/act-on-these-objects-via-transformations-to-obtain-new-objects">Transformation</a></li>
 <li><a href="#/represent-objects-numerically">Vector</a></li>
 </ul>
@@ -1542,7 +1564,7 @@ interpret<br>understand
 <li><p>Basic course information is on the <a href="https://fjhickernell.github.io/MATH332Fall2026/">Welcome page</a></p></li>
 </ul></li>
 <li><p>All materials are in the <a href="https://github.com/fjhickernell/MATH332Fall2026">course repository</a>, which builds the course website</p></li>
-<li><p>Grades are in <a href="https://iit.instructure.com">Canvas</a></p></li>
+<li><p>Grades are in <a href="https://iit.instructure.com/courses/23913">Canvas</a></p></li>
 </ul>
 </section>
 <section class="slide level2">

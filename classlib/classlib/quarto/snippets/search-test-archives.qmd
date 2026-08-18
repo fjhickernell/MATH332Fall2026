@@ -1,0 +1,66 @@
+::: {.callout-tip collapse="true"}
+## 🔎 How to search the archives (PDFs) for keywords
+
+Goal: find which past exams mention a term (e.g., Brownian, Sobol, CLT) *inside* PDF test and exam files.
+
+The folder `assets/tests/archive` in the course repository contains subfolders for archived tests from past semesters for MATH 476, MATH 563, and MATH 565. The subfolders are the course numbers, e.g., `archive/563` for MATH 563 tests.
+
+### Mac (Homebrew) / Linux
+
+__One-time setup (install pdfgrep):__
+
+```bash
+brew install pdfgrep
+```
+
+__Each time you want to search the archive:__
+
+- Navigate to the root of your local course repository root, then run:
+
+```bash
+cd assets/tests
+```
+
+- Use one of the following commands to search the archives:
+
+Search *all archives in this repo*:
+
+```bash
+pdfgrep -rniH -C2 'your term here' archive
+```
+
+Search *one specific archive folder*:
+
+```bash
+pdfgrep -rniH -C2 'your term here' archive/563
+```
+
+Search *multiple archives at once*:
+
+```bash
+pdfgrep -rniH -C2 'your term here' archive/476 archive/563
+```
+
+Examples:
+
+```bash
+pdfgrep -rniH -C2 'brownian' archive
+pdfgrep -rniH -C2 'sobol' archive
+pdfgrep -rniH -C2 'central limit|CLT' archive
+```
+
+### Windows (recommended: WSL)
+
+On Windows, the recommended approach is to use **Windows Subsystem for Linux (WSL)**, which lets you run the same commands as Mac/Linux users.
+
+After installing WSL (e.g., Ubuntu):
+
+```bash
+cd /mnt/c/Users/YourName/path/to/course-repo/assets/tests
+sudo apt update
+sudo apt install pdfgrep
+pdfgrep -rniH -C2 'your term here' archive
+```
+
+If you prefer not to use WSL, note that Windows does not include a native equivalent of `pdfgrep`; setup and commands vary by third-party tools.
+:::

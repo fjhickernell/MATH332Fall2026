@@ -1,0 +1,120 @@
+---
+title: "Big Statistics Questions We Ask"
+format:
+  html:
+    from: markdown+raw_html
+    include-in-header:
+      - statqs/_stats-questions-head.html
+---
+
+### Filter by course {#filter}
+
+```{=html}
+<div class="stats-filter">
+  <div class="stats-filter-left">
+    <label><input type="checkbox" checked data-filter="476"> MATH 476 Statistics</label>
+    <label><input type="checkbox" checked data-filter="563"> MATH 563 Mathematical Statistics</label>
+    <label><input type="checkbox" checked data-filter="565"> MATH 565 Monte Carlo Methods</label>
+  </div>
+  <div id="filter-note" class="stats-filter-right"></div>
+</div>
+```
+
+### Modeling {#modeling}
+
+```{=html}
+<div class="stats-headrow">
+  <div class="stats-col-course"><strong>Course(s)</strong></div>
+  <div class="stats-col-q"><strong>Big question</strong></div>
+</div>
+
+<div class="stats-q" data-course="476 563 565">
+  <div class="stats-col-course">476, 563, 565</div>
+  <div class="stats-col-q">
+    <div class="stats-q-title">What is the population?</div>
+    All US adults? All future units from a production line? All students with bachelor's degree? All continuous functions on a given domain?
+  </div>
+</div>
+
+<div class="stats-q" data-course="476 563 565">
+  <div class="stats-col-course">476, 563, 565</div>
+  <div class="stats-col-q">
+    <div class="stats-q-title">What features are we interested in?</div>
+    Mean? Variance? Quantiles? Regression function? Entire distribution?
+  </div>
+</div>
+
+<div class="stats-q" data-course="476 563">
+  <div class="stats-col-course">476, 563</div>
+  <div class="stats-col-q">
+    <div class="stats-q-title">What does the model fail to capture?</div>
+    Explanatory variables? Interactions? Nonlinearities?
+  </div>
+</div>
+
+<div class="stats-q" data-course="476 563">
+  <div class="stats-col-course">476, 563</div>
+  <div class="stats-col-q">
+    <div class="stats-q-title">Are the distributional assumptions correct?</div>
+    Normality? Skewness? Heavy tails? Independence?
+  </div>
+</div>
+```
+
+### Sampling {#sampling}
+
+```{=html}
+<div class="stats-headrow">
+  <div class="stats-col-course"><strong>Course(s)</strong></div>
+  <div class="stats-col-q"><strong>Big question</strong></div>
+</div>
+
+<div class="stats-q" data-course="476 563 565">
+  <div class="stats-col-course">476, 563, 565</div>
+  <div class="stats-col-q">
+    <div class="stats-q-title">How do we sample from the population?</div>
+    Independent and identically distributed (IID)? Low discrepancy (LD)? Stratified sampling? Designed experiment?
+  </div>
+</div>
+
+<div class="stats-q" data-course="476 563">
+  <div class="stats-col-course">476, 563</div>
+  <div class="stats-col-q">
+    <div class="stats-q-title">What can go wrong between intended and actual sampling?</div>
+    Nonresponse and missingness? Measurement error? Coverage error?
+  </div>
+</div>
+```
+
+### Point Estimation {#point-estimation}
+
+```{=html}
+<div class="stats-headrow">
+  <div class="stats-col-course"><strong>Course(s)</strong></div>
+  <div class="stats-col-q"><strong>Big question</strong></div>
+</div>
+
+<div class="stats-q" data-course="476 563">
+  <div class="stats-col-course">476, 563</div>
+  <div class="stats-col-q">
+    <div class="stats-q-title">What is the estimand?</div>
+    <ul>
+      <li>Parameter vs functional of a distribution</li>
+      <li>What does it mean in context?</li>
+      <li>What is random, what is fixed?</li>
+    </ul>
+  </div>
+</div>
+
+<div class="stats-q" data-course="563">
+  <div class="stats-col-course">563</div>
+  <div class="stats-col-q">
+    <div class="stats-q-title">What makes an estimator “optimal”?</div>
+    <ul>
+      <li>Loss functions and risk</li>
+      <li>Invariance/equivariance (as appropriate)</li>
+      <li>Benchmarks and lower bounds (when assumptions hold)</li>
+    </ul>
+  </div>
+</div>
+```

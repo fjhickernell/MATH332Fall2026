@@ -1,0 +1,182 @@
+---
+title: "Git setup: clone the course repository and keep it updated"
+format:
+  html:
+    toc: true
+---
+
+This course uses a Git repository that includes **submodules** (shared libraries pulled in as separate Git repositories).
+To get everything working, you must clone the course repository **and** initialize the submodules.
+
+## Important: do **not** push to the course repository
+
+Students should assume the course repository is **read-only**:
+
+- Do **not** try to push changes to the course repository.
+- If you see errors like “permission denied” when pushing, that is expected.
+
+You will **not** submit homework via Git. Git is used only to:
+
+- Obtain and update course materials
+- Experiment with class notebooks
+  - When experimenting, consider working in copies of notebooks or in a separate directory so updates pull cleanly
+
+If you want an online backup of your personal work, you may optionally use your own private repository or a fork (see below).
+
+## Step 0: Prerequisites
+
+You need:
+
+- Git installed
+- A way to authenticate with GitHub (either **SSH** or **HTTPS**)
+
+Your instructor will provide the course repository URL. It looks like one of these:
+
+- SSH: `git@github.com:ORG/MATHXXXSpring20YY.git`
+- HTTPS: `https://github.com/ORG/MATHXXXSpring20YY.git`
+
+## Step 1: Clone the course repository *with* submodules
+
+Choose **one** of the following.
+
+### Option A (recommended): clone with submodules in one step
+
+Replace `REPO_URL` with the URL you were given.
+
+```bash
+git clone --recurse-submodules REPO_URL
+```
+
+### Option B: clone first, then fetch submodules
+
+```bash
+git clone REPO_URL
+cd MATHXXXSpring20YY
+git submodule update --init --recursive
+```
+
+## Step 2: Verify you have the submodule content
+
+From inside the course repository:
+
+```bash
+git submodule status
+```
+
+You should see one or more lines showing submodules and commit hashes. If you see errors or blank output, run:
+
+```bash
+git submodule update --init --recursive
+```
+
+## Keeping your local copy updated during the semester
+
+Do this whenever your instructor says “pull the latest changes.”
+
+From inside the course repository:
+
+```bash
+git pull --ff-only
+git submodule update --init --recursive
+```
+
+That second command is important: it updates submodules to the versions pinned by the course repository.
+
+## If you already made local changes
+
+If `git pull --ff-only` fails, it usually means you have local commits or uncommitted changes.
+
+Check what changed:
+
+```bash
+git status
+```
+
+### If you only changed files you don’t care about (quick reset)
+
+```bash
+git reset --hard
+git pull --ff-only
+git submodule update --init --recursive
+```
+
+### If you want to keep your work
+
+Commit your changes first so they are safely recorded locally.
+
+```bash
+git add -A
+git commit -m "My work"
+git pull --ff-only
+git submodule update --init --recursive
+```
+
+If the pull still fails, you may need to resolve a merge conflict (ask for help).
+
+## Optional: fork workflow (push only to your own fork)
+
+Use this only if you want to push your work to GitHub for backup/versioning.
+
+### One-time setup (fork + clone)
+
+1. Fork the course repository on GitHub into **your own** GitHub account.
+2. Clone **your fork** (not the instructor's course repository) with submodules.
+
+Replace `FORK_URL` with your fork’s URL:
+
+```bash
+git clone --recurse-submodules FORK_URL
+cd MATHXXXSpring20YY
+```
+
+3. Add the instructor's course repository as `upstream` so you can pull course updates.
+
+Replace `UPSTREAM_URL` with the instructor's course repository URL:
+
+```bash
+git remote add upstream UPSTREAM_URL
+git remote -v
+```
+
+### Getting updates from the instructor (sync upstream → your fork)
+
+From inside your cloned fork:
+
+```bash
+git fetch upstream
+git checkout main
+git merge --ff-only upstream/main
+git submodule update --init --recursive
+git push
+```
+
+If the course repository uses a branch other than `main` (e.g., `master`), replace `main` above accordingly.
+
+## Common issues and fixes
+
+### “fatal: not a git repository”
+You’re not inside the course repository folder. Change into it:
+
+```bash
+cd MATHXXXSpring20YY
+```
+
+### “Permission denied (publickey)” (SSH)
+You’re using an SSH URL but your SSH key isn’t set up for GitHub. Use the HTTPS URL instead, or configure SSH.
+
+### Submodule errors after pulling
+Re-run the submodule update:
+
+```bash
+git submodule update --init --recursive
+```
+
+### You accidentally cloned without submodules
+From inside the course repository:
+
+```bash
+git submodule update --init --recursive
+```
+
+### Avoid updating submodules beyond what the instructor pinned
+Students should **not** run `git submodule update --remote` unless explicitly instructed.

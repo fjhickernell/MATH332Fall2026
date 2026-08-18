@@ -1,0 +1,130 @@
+schema_version: 1
+id: qmc
+status: ready
+
+image:
+  file: "../artwork/tree.png"
+  alt: "Quasi-Monte Carlo foundations, theory, and practice"
+  aspect_ratio: "4 / 3"
+
+defaults:
+  width: "100%"
+  font_scale: 1
+  label_align: left
+  group_align: left
+
+groups:
+  foundation:
+    text: "Foundation"
+    labels: [algebra, analysis, cs, domain, statistics]
+    position: {left: "44%", top: "79%"}
+  theory:
+    text: "Theory"
+    labels:
+      [sequence, error, discrepancy, change-measure, ibc, multi, dimension, random, prob]
+    position: {left: "38%", top: "52%"}
+  practice:
+    text: "Practice"
+    labels: [uq, qf, software, community, cg, data-driven, hpc, ai, missing, infer]
+    position: {left: "30%", top: "19%"}
+
+labels:
+  algebra:
+    text: "Algebra"
+    position: {left: "8%", top: "79%"}
+  analysis:
+    text: "Analysis"
+    position: {left: "22%", top: "87%"}
+  cs:
+    html: "Computer<br>Science"
+    position: {left: "42%", top: "90%"}
+    align: center
+  domain:
+    html: "Domain<br>Knowledge"
+    position: {left: "65%", top: "89%"}
+    align: center
+  statistics:
+    text: "Statistics"
+    position: {left: "78%", top: "79%"}
+
+  sequence:
+    html: "Sequence<br>Construction"
+    position: {left: "25%", top: "70%"}
+    align: center
+  error:
+    html: "Error<br>Bounds"
+    position: {left: "43%", top: "60%"}
+    align: center
+  discrepancy:
+    text: "Discrepancy"
+    position: {left: "25%", top: "62%"}
+  change-measure:
+    html: "Variation<br>Reduction"
+    position: {left: "23%", top: "38%"}
+    align: center
+  ibc:
+    html: "Information-Based<br>Complexity"
+    position: {left: "45%", top: "70%"}
+    align: center
+  multi:
+    text: "Multilevel"
+    position: {left: "45%", top: "36%"}
+  dimension:
+    html: "Effective<br>Dimension"
+    position: {left: "39%", top: "42%"}
+    align: center
+  random:
+    text: "Randomization"
+    position: {left: "56%", top: "45%"}
+    align: center
+  prob:
+    html: "Probabilistic<br>Numerics"
+    position: {left: "55%", top: "60%"}
+    align: center
+
+  uq:
+    html: "Uncertainty<br>Quantification"
+    position: {left: "8%", top: "20%"}
+    align: center
+  qf:
+    html: "Quantitative<br>Finance"
+    position: {left: "5%", top: "33%"}
+    align: center
+  software:
+    text: "Software"
+    position: {left: "55%", top: "25%"}
+    align: center
+  community:
+    html: "Collaboration<br>&amp; Community"
+    position: {left: "31%", top: "9%"}
+    align: center
+  cg:
+    html: "Computer<br>Graphics"
+    position: {left: "12%", top: "6%"}
+    align: center
+  data-driven:
+    html: "Data-Driven<br>Error Bounds"
+    position: {left: "75%", top: "20%"}
+    align: center
+  hpc:
+    html: "High-Performance<br>Computing"
+    position: {left: "70%", top: "35%"}
+    align: center
+  ai:
+    text: "AI Assistance"
+    position: {left: "69%", top: "7%"}
+    align: center
+  missing:
+    html: "Missing<br>Data"
+    position: {left: "53%", top: "7%"}
+    align: center
+  infer:
+    html: "Statistical<br>Inference"
+    position: {left: "3%", top: "45%"}
+    align: center
+
+masks:
+  root:
+    description: "Hide the canopy and show only the roots"
+  canopy:
+    description: "Hide the roots and show only the canopy"

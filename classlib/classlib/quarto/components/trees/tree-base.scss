@@ -1,0 +1,39 @@
+/* Generic structure for image-backed tree diagrams.
+   Tree-specific typography, masks, and artwork effects belong to each tree. */
+
+/*-- scss:rules --*/
+
+.tree-component {
+  position: relative;
+  width: var(--tree-width, 100%);
+  aspect-ratio: var(--tree-aspect-ratio);
+  container-type: inline-size;
+}
+
+.tree-component__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.tree-component__group-heading,
+.tree-component__label {
+  position: absolute;
+  left: var(--tree-left);
+  top: var(--tree-top);
+  text-align: var(--tree-align, left);
+  line-height: 1;
+}
+
+.tree-component__group-heading {
+  font-size: calc(var(--tree-font-scale, 1) * 5.4cqw);
+}
+
+.tree-component__label {
+  font-size: calc(var(--tree-font-scale, 1) * 3cqw);
+}
+
+.tree-component__mask {
+  position: absolute;
+  pointer-events: none;
+}

@@ -1,0 +1,50 @@
+/*-- scss:rules --*/
+
+.tree-component--qmc {
+  .tree-component__group-heading {
+    color: #0c2b14;
+    font-weight: 700;
+    line-height: 1;
+    text-shadow:
+      0 0 8px white,
+      0 0 16px white,
+      0 0 28px white;
+  }
+
+  .tree-component__label {
+    color: var(--header-blue);
+    font-weight: 700;
+    line-height: 1;
+    text-shadow:
+      0 0 6px rgba(255, 255, 255, 1),
+      0 0 12px rgba(255, 255, 255, 0.95),
+      0 0 18px rgba(255, 255, 255, 0.85);
+  }
+
+  .tree-component__mask--root {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 70%;
+    background: var(--r-background-color, white);
+  }
+
+  .tree-component__mask--canopy {
+    inset: 0 0 auto 0;
+    height: 70%;
+    background: var(--slide-background, white);
+    z-index: 20;
+    -webkit-mask:
+      radial-gradient(
+        ellipse 44% 50% at 47% 77%,
+        transparent 0 70%,
+        black 71%
+      );
+    mask:
+      radial-gradient(
+        ellipse 44% 50% at 47% 77%,
+        transparent 0 70%,
+        black 71%
+      );
+  }
+}

@@ -1,0 +1,131 @@
+texts:
+  anton:
+    initials: "ARK"
+    short: "Anton, Rorres, &amp; Kaul"
+    full: "H. Anton, C. Rorres, &amp; A. Kaul, *Elementary Linear Algebra: Applications Version*, 12th ed., Wiley (2019)"
+    isbn: "978-1-119-40672-3"
+    tags:
+      - assigned-textbook
+      - conceptual-linear-algebra
+    url: "https://resources.learning.wiley.com/isbn/9781119406723"
+
+  cb:
+    initials: "CB"
+    short: "Casella &amp; Berger"
+    full: "G. Casella &amp; R. L. Berger, *Statistical Inference*, 2nd ed. (2002)"
+    url: "https://www.routledge.com/Statistical-Inference/Casella-Berger/p/book/9781032593036"
+
+  wms:
+    initials: "WMS"
+    short: "Wackerly et al."
+    full: "D. S. Wackerly, W. Mendenhall III, &amp; R. L. Scheaffer, *Mathematical Statistics with Applications*, 7th ed (2008)"
+    url: "https://www.cengage.com/c/mathematical-statistics-with-applications-7e-wackerly-mendenhall-scheaffer/9780495110811/"
+
+  owen:
+    initials: "O"
+    short: "Owen"
+    full: "A. B. Owen, *Monte Carlo Theory, Methods, and Examples* (2026+)"
+    url: "https://artowen.su.domains/mc/"
+
+references:
+  strangila:
+    initials: "S23"
+    short: "Strang"
+    full: "G. Strang, *Introduction to Linear Algebra*, 6th ed., Wellesley-Cambridge Press (2023)"
+    isbn: "978-1-7331466-7-8"
+    tags:
+      - conceptual-linear-algebra
+    url: "https://math.mit.edu/~gs/linearalgebra/ila6/indexila6.html"
+
+  strangdata:
+    initials: "S19"
+    short: "Strang"
+    full: "G. Strang, *Linear Algebra and Learning from Data*, Wellesley-Cambridge Press (2019)"
+    isbn: "978-0-6921963-8-0"
+    tags:
+      - conceptual-linear-algebra
+      - machine-learning-and-computer-science
+    url: "https://math.mit.edu/~gs/learningfromdata/"
+
+  strangocw:
+    initials: "S11"
+    short: "Strang"
+    full: "G. Strang, *18.06SC Linear Algebra*, MIT OpenCourseWare (Fall 2011)"
+    tags:
+      - conceptual-linear-algebra
+      - free-online-resource
+    url: "https://ocw.mit.edu/courses/18-06sc-linear-algebra-fall-2011/"
+
+  lay:
+    initials: "LLM"
+    short: "Lay, Lay, &amp; McDonald"
+    full: "D. C. Lay, S. R. Lay, &amp; J. J. McDonald, *Linear Algebra and Its Applications*, 6th ed., Pearson (2021)"
+    isbn: "978-0-13-585125-8"
+    tags:
+      - conceptual-linear-algebra
+    url: "https://www.pearson.com/en-us/subject-catalog/p/linear-algebra-and-its-applications/P200000006235/9780135851258"
+
+  boydvandenberghe:
+    initials: "BV"
+    short: "Boyd &amp; Vandenberghe"
+    full: "S. Boyd &amp; L. Vandenberghe, *Introduction to Applied Linear Algebra: Vectors, Matrices, and Least Squares*, Cambridge University Press (2018)"
+    isbn: "978-1-316-51896-0"
+    tags:
+      - computational-and-numerical-linear-algebra
+      - machine-learning-and-computer-science
+      - free-online-resource
+    url: "https://web.stanford.edu/~boyd/vmls/"
+
+  trefethenbau:
+    initials: "TB"
+    short: "Trefethen &amp; Bau"
+    full: "L. N. Trefethen &amp; D. Bau III, *Numerical Linear Algebra*, SIAM (1997)"
+    isbn: "978-0-89871-361-9"
+    tags:
+      - computational-and-numerical-linear-algebra
+    url: "https://doi.org/10.1137/1.9780898719574"
+
+  golubvanloan:
+    initials: "GVL"
+    short: "Golub &amp; Van Loan"
+    full: "G. H. Golub &amp; C. F. Van Loan, *Matrix Computations*, 4th ed., Johns Hopkins University Press (2013)"
+    isbn: "978-1-4214-0794-4"
+    tags:
+      - computational-and-numerical-linear-algebra
+    url: "https://www.press.jhu.edu/books/title/10678/matrix-computations"
+
+  axler:
+    initials: "A"
+    short: "Axler"
+    full: "S. Axler, *Linear Algebra Done Right*, 4th ed., Springer (2024)"
+    isbn: "978-3-031-41026-0"
+    tags:
+      - conceptual-linear-algebra
+      - free-online-resource
+    url: "https://doi.org/10.1007/978-3-031-41026-0"
+
+  esl:
+    initials: "HTF"
+    short: "Hastie, Tibshirani, &amp; Friedman"
+    full: "T. Hastie, R. Tibshirani, &amp; J. Friedman, *The Elements of Statistical Learning: Data Mining, Inference, and Prediction*, 2nd ed., Springer (2009)"
+    isbn: "978-0-387-84858-7"
+    tags:
+      - machine-learning-and-computer-science
+      - free-online-resource
+    url: "https://hastie.su.domains/ElemStatLearn/"
+
+  deeplearning:
+    initials: "GBC"
+    short: "Goodfellow, Bengio, &amp; Courville"
+    full: "I. Goodfellow, Y. Bengio, &amp; A. Courville, *Deep Learning*, MIT Press (2016)"
+    isbn: "978-0-262-03561-3"
+    tags:
+      - machine-learning-and-computer-science
+      - free-online-resource
+    url: "https://www.deeplearningbook.org/"
+
+  eh:
+    initials: "EH"
+    short: "Efron &amp; Hastie"
+    full: "B. Efron &amp; T. Hastie, *Computer Age Statistical Inference* (2016)"
+    url: "https://hastie.su.domains/CASI/"

@@ -1,0 +1,209 @@
+schema_version: 1
+id: mc
+status: ready
+
+image:
+  file: "../artwork/tree.png"
+  alt: "Monte Carlo foundations, methods, and applications"
+  aspect_ratio: "4 / 3"
+
+defaults:
+  width: "100%"
+  font_scale: 1
+  label_align: left
+  group_align: left
+
+groups:
+  foundation:
+    text: "Foundation"
+    labels:
+      [
+        probability,
+        statistics,
+        analysis,
+        linear-algebra,
+        cs,
+        domain
+      ]
+    position: {left: "42%", top: "79%"}
+
+  methods:
+    text: "Methods"
+    labels:
+      [
+        random-generation,
+        low-discrepancy,
+        estimation,
+        pseudorandom-numbers,
+        error-assessment,
+        discrepancy,
+        variance-reduction,
+        importance-sampling,
+        mcmc,
+        multilevel,
+        stochastic-optimization
+      ]
+    position: {left: "35%", top: "52%"}
+
+  practice:
+    text: "Practice"
+    labels:
+      [
+        uq,
+        qf,
+        density-estimation,
+        statistical-inference,
+        bayesian-computation,
+        data-driven,
+        software,
+        monte-carlo-tree-search,
+        hpc,
+        ai,
+        community
+      ]
+    position: {left: "35%", top: "20%"}
+
+labels:
+  probability:
+    text: "Probability"
+    position: {left: "5%", top: "79%"}
+
+  statistics:
+    text: "Statistics"
+    position: {left: "18%", top: "88%"}
+
+  analysis:
+    text: "Analysis"
+    position: {left: "26%", top: "81%"}
+
+  linear-algebra:
+    html: "Linear<br>Algebra"
+    position: {left: "39%", top: "89%"}
+    align: center
+
+  cs:
+    html: "Computer<br>Science"
+    position: {left: "61%", top: "88%"}
+    align: center
+
+  domain:
+    html: "Domain<br>Knowledge"
+    position: {left: "78%", top: "79%"}
+    align: center
+
+  random-generation:
+    html: "(Quasi-)Random<br>Number Generation"
+    position: {left: "3%", top: "57%"}
+    align: center
+
+  low-discrepancy:
+    html: "Low<br>Discrepancy"
+    position: {left: "20%", top: "70%"}
+    align: center
+
+  estimation:
+    text: "Estimation"
+    position: {left: "43%", top: "61%"}
+    align: center
+
+  pseudorandom-numbers:
+    html: "Pseudorandom<br>Numbers"
+    position: {left: "61%", top: "70%"}
+    align: center
+
+  error-assessment:
+    html: "Error<br>Assessment"
+    position: {left: "43%", top: "67%"}
+    align: center
+
+  discrepancy:
+    html: "Discrepancy<br>Measures"
+    position: {left: "73%", top: "60%"}
+    align: center
+
+  variance-reduction:
+    html: "Variance<br>Reduction"
+    position: {left: "18%", top: "42%"}
+    align: center
+
+  importance-sampling:
+    html: "Importance<br>Sampling"
+    position: {left: "31%", top: "35%"}
+    align: center
+
+  mcmc:
+    html: "Markov Chain<br>Monte Carlo"
+    position: {left: "47%", top: "42%"}
+    align: center
+
+  multilevel:
+    html: "Multilevel<br>Monte Carlo"
+    position: {left: "61%", top: "52%"}
+    align: center
+
+  stochastic-optimization:
+    html: "Stochastic<br>Optimization"
+    position: {left: "77%", top: "46%"}
+    align: center
+
+  uq:
+    html: "Uncertainty<br>Quantification"
+    position: {left: "12%", top: "19%"}
+    align: center
+
+  qf:
+    html: "Quantitative<br>Finance"
+    position: {left: "5%", top: "33%"}
+    align: center
+
+  density-estimation:
+    html: "Density<br>Estimation"
+    position: {left: "7%", top: "7%"}
+    align: center
+
+  statistical-inference:
+    html: "Statistical<br>Inference"
+    position: {left: "3%", top: "45%"}
+    align: center
+
+  bayesian-computation:
+    html: "Bayesian<br>Computation"
+    position: {left: "51%", top: "6%"}
+    align: center
+
+  data-driven:
+    html: "Data-Driven<br>Error Bounds"
+    position: {left: "76%", top: "20%"}
+    align: center
+
+  software:
+    text: "Software"
+    position: {left: "52%", top: "29%"}
+    align: center
+
+  monte-carlo-tree-search:
+    html: "Monte Carlo<br>Tree Search"
+    position: {left: "56%", top: "17%"}
+    align: center
+
+  hpc:
+    html: "High-Performance<br>Computing"
+    position: {left: "69%", top: "33%"}
+    align: center
+
+  ai:
+    text: "AI Assistance"
+    position: {left: "72%", top: "11%"}
+    align: center
+
+  community:
+    html: "Collaboration<br>&amp; Community"
+    position: {left: "26%", top: "3%"}
+    align: center
+
+masks:
+  root:
+    description: "Hide the canopy and show only the roots"
+
+  canopy:
+    description: "Hide the roots and show only the canopy"

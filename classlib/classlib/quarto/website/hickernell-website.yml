@@ -1,0 +1,49 @@
+# HickernellAcademicLib/classlib/quarto/website/hickernell-website.yml
+#
+# PURPOSE
+# -------
+# This file defines SHARED WEBSITE LAYOUT SETTINGS only.
+# It is imported via `metadata-files` into course repositories.
+#
+# WHAT BELONGS HERE
+# -----------------
+# - format.html layout options
+# - grid widths
+# - theme
+# - toc settings
+# - typography / structural knobs
+#
+# WHAT MUST NOT BE HERE
+# ----------------------
+# - website: (navbar, page-footer, title)
+# - site-specific metadata
+# - asset paths (css, images, logos)
+# - absolute or relative file paths
+#
+# WHY
+# ---
+# Asset paths defined here are resolved relative to the current page,
+# which can break when pages live at different directory depths or when
+# deployed to GitHub Pages project sites.
+#
+# All CSS, logo paths, and other file references must be defined in the
+# project-level `_quarto.yml` of each course repository.
+#
+# If styling breaks:
+#   1. Check the course repo `_quarto.yml`
+#   2. Do NOT add paths here
+#
+# This file should remain path-free and project-agnostic.
+
+format:
+  html:
+    page-layout: article
+    grid:
+      sidebar-width: 340px
+      body-width: 1800px
+      margin-width: 0px
+      gutter-width: 1.25rem
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-location: left

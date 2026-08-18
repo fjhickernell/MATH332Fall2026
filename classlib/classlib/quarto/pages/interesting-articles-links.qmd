@@ -1,0 +1,32 @@
+---
+title: "Interesting Articles & Links"
+subtitle: "Optional reading and exploratory resources"
+page-layout: article
+---
+
+This page collects **optional articles, essays, videos, and interactive resources**
+that connect probability, statistics, and data science to real applications,
+historical context, or broader ideas.
+
+### Statistical Inference and Data Science
+
+- [The Lady Tasting Tea](https://en.wikipedia.org/wiki/The_Lady_Tasting_Tea)
+  - A famous experiment conducted by Ronald Fisher to test whether a woman could distinguish between tea poured before or after milk
+  - This experiment is often cited as an example of a randomized controlled trial and the basis for Fisher's exact test
+
+- [Statistical Modeling: The Two Cultures](https://projecteuclid.org/journals/statistical-science/volume-16/issue-3/Statistical-Modeling--The-Two-Cultures-with-comments-and-a/10.1214/ss/1009213726.full)
+  - An influential paper by Leo Breiman that discusses the differences between traditional statistical modeling and algorithmic modeling in data science
+  - Breiman argues that the algorithmic modeling culture, which focuses on predictive accuracy, is often more effective than the traditional statistical modeling culture, which focuses on inference and understanding
+
+- [As Forecasts Go, You Can Bet on Monte Carlo](https://www.wsj.com/articles/as-forecasts-go-you-can-bet-on-monte-carlo-1470994203)
+  - An article from the Wall Street Journal that discusses the use of Monte Carlo simulations in financial forecasting and risk management
+  - The article highlights how Monte Carlo methods can help quantify uncertainty and improve decision-making in finance
+
+### Software and Libraries
+
+- [qmcpy.org: A Python Library for Quasi-Monte Carlo Methods](https://qmcpy.org/)
+  - A Python library for quasi-Monte Carlo methods, which are used to improve the efficiency of numerical integration and simulation
+
+- [Rankings of Computer Languages](https://www.tiobe.com/tiobe-index/)
+  - A ranking of programming languages based on their popularity and usage in the industry
+  - Statistical questions include: What are the errors in the percentages? What is the significance of a change in rank?
