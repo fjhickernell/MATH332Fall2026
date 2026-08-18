@@ -109,7 +109,7 @@
     "href": "index.html#assessment",
     "title": "Welcome to MATH 332",
     "section": "Assessment",
-    "text": "Assessment\n\nAssignments: 20%\nQuizzes: format, dates TBD 15%\nTests: dates TBD 25%\nFinal Exam: on the date assigned by the registrar 40%"
+    "text": "Assessment\n\nAssignments: 20%\nQuizzes: format, dates TBD 15%\nTests: dates TBD 25%\nFinal Exam: on the date assigned by the registrar 40%\nExtra Credit: From August 24 through December 6, you may earn extra credit by being the first student to report a previously unreported error in\n\nmy lecture slides, Jupyter notebooks, or assignments at least 24 hours after the material was presented or posted; or\nthe textbook.\n\nReport each error by creating an issue in the course repository. Each confirmed error earns 0.5 or 1 percentage point, depending on the severity of the error, up to 10 percentage points total.\nExtra credit is added to your final weighted course total. Canvas may not display the weighted total correctly until grades have been recorded in every assessment category."
   },
   {
     "objectID": "classlib/website/software.html",
