@@ -127,3 +127,18 @@ Anton, Chapter 6. Detailed pacing is **TBD**.
 - [**Quizzes:**](pages/quizzes.qmd) format, dates **TBD** 15%
 - [**Tests:**](pages/tests.qmd) dates **TBD** 25%
 - [**Final Exam:**](pages/tests.qmd) _on the date assigned by the registrar_ 40%
+- **Extra Credit:** From August 24 through December 6, you may earn extra
+  credit by being the first student to report a previously unreported error in
+
+  - my lecture slides, Jupyter notebooks, or assignments at least 24 hours
+    after the material was presented or posted; or
+  - the textbook.
+
+  Report each error by creating an [issue](https://github.com/fjhickernell/MATH332Fall2026/issues)
+  in the course repository. Each confirmed error earns 0.5 or 1 percentage
+  point, depending on the severity of the error, up to 10 percentage points
+  total.
+
+  Extra credit is added to your final weighted course total. *Canvas may not
+  display the weighted total correctly until grades have been recorded in
+  every assessment category.*
