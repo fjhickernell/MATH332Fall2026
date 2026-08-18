@@ -10,8 +10,8 @@ edition.
 ## Computing resources
 
 The course will use Python for numerical and symbolic matrix computation,
-visualization, and experimentation. Setup instructions and demonstrations
-will be added as they are validated.
+visualization, and experimentation. Use the repository-access instructions for
+initial setup and the Notebooks page for validated demonstrations.
 
 <details>
 <summary><strong>Initial Python environment</strong></summary>
@@ -28,11 +28,11 @@ will be added as they are validated.
 
 | Resource | Location |
 |:---|:---|
-| Canvas | **TBD** |
+| Canvas | [MATH 332 course]({{< meta canvas.course >}}) |
 | Course repository | [MATH332Fall2026 on GitHub](https://github.com/fjhickernell/MATH332Fall2026) |
-| Repository setup | [Accessing the Course Repository](accessing-repository.qmd) |
+| Repository setup | [Accessing the Course Repository](../classlib/classlib/quarto/pages/git-clone-update-with-submodules.qmd) |
 | Notebooks | [Demonstrations and exercises](notebooks.qmd) |
-| Python demonstrations | Links will be added after validation |
+| Python demonstrations | [Validated demonstrations](notebooks.qmd#demonstrations) |
 | Python exercises | Links will be added after validation |
 
 ## Professional community

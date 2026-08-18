@@ -27,5 +27,5 @@ Assignment details and due dates will be added as they are finalized.
 
 | Assignment | Coverage | Due Date |
 |:---|:---|:---|
-| [Assignment 0 — Diagnostic Survey](https://iit.instructure.com/courses/23913/assignments/98516)<br>**Complete and submit this assignment individually, not as a group.** | MATH 332 profile survey | August 21, 2026 |
+| [Assignment 0 — Diagnostic Survey]({{< meta canvas.assignment_0 >}})<br>**Complete and submit this assignment individually, not as a group.** | MATH 332 profile survey | August 21, 2026 |
 | Assignment 1 — TBD | TBD | TBD |

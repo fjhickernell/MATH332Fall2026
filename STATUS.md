@@ -8,7 +8,7 @@ Mathematical content should be maintained only in the slides.
 1. [x] Create the repository skeleton and achieve a successful website and
    seven-deck render.
 2. [ ] Finalize course information, syllabus, and policies.
-3. [ ] Draft the semester schedule without inventing unresolved dates.
+3. [x] Draft the semester schedule without inventing unresolved dates.
 4. [x] Develop Deck 00: Why Linear Algebra? as the teaser and roadmap.
 5. [x] Develop and revise the Chapter 1 slides in
    `slides/01-systems-and-matrices.qmd`.

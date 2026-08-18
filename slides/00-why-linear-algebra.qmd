@@ -698,45 +698,67 @@ Distinguish an [ill-posed formulation]{.alert}, an [ill-conditioned problem]{.al
 
 Use this cumulative index to revisit the first substantial treatment of each term.
 
-### A–M
+### A–I
 
 ::: {.columns}
 ::: {.column width="50%"}
 - [Augmented matrix]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system)
 - [Back substitution]({{< meta decks.d01.file >}}#back-substitution)
+- [Catastrophic cancellation](#equivalent-mathematics-unequal-computations)
+- [Computational cost](#a-correct-computation-can-still-cost-too-much)
 - [Consistent / inconsistent system]({{< meta decks.d01.file >}}#the-bottom-rows-reveal-the-other-possibilities)
 - [Dot product]({{< meta decks.d01.file >}}#combines-coefficients-and-unknowns)
 - [Elementary row operations]({{< meta decks.d01.file >}}#three-reversible-moves)
-- [Elimination]({{< meta decks.d01.file >}}#elimination)
-- [Euclidean norm]({{< meta decks.d01.file >}}#measures-alignment)
 :::
 
 ::: {.column width="50%"}
+- [Elimination]({{< meta decks.d01.file >}}#elimination)
+- [Euclidean norm]({{< meta decks.d01.file >}}#measures-alignment)
 - [Free variable]({{< meta decks.d01.file >}}#a-free-variable-produces-infinitely-many-solutions)
 - [Hyperplane]({{< meta decks.d01.file >}}#a-linear-equation-describes-a-hyperplane)
-- [Linear system]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
-- [Matrix](#represent-objects-numerically)
-- [Matrix–matrix multiplication]({{< meta decks.d01.file >}}#matrix-matrix-multiplication-collects-dot-products)
-- [Matrix–vector multiplication]({{< meta decks.d01.file >}}#each-equation-is-one-dot-product)
+- [Ill-conditioned problem](#almost-parallel-almost-unknowable)
+- [Ill-posed problem](#too-little-information-many-answers)
+- [Incidence matrix](#represent-a-network-by-an-incidence-matrix)
 :::
 :::
 
 ---
 
-### N–Z
+### L–R
 
 ::: {.columns}
+::: {.column width="50%"}
+- [Least squares](#when-the-constraints-cannot-all-be-satisfied)
+- [Linear system]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
+- [Matrix](#represent-objects-numerically)
+- [Matrix–matrix multiplication]({{< meta decks.d01.file >}}#matrix-matrix-multiplication-collects-dot-products)
+- [Matrix–vector multiplication]({{< meta decks.d01.file >}}#each-equation-is-one-dot-product)
+- [Numerical instability](#equivalent-mathematics-unequal-computations)
+:::
+
 ::: {.column width="50%"}
 - [Orthogonal vectors]({{< meta decks.d01.file >}}#measures-alignment)
 - [Parallel vectors]({{< meta decks.d01.file >}}#parallel-vectors-point-along-one-line)
 - [Pivot]({{< meta decks.d01.file >}}#pivots-organize-elimination)
+- [Redundant constraint](#what-does-the-system-tell-us)
 - [Reversible transformation]({{< meta decks.d01.file >}}#three-reversible-moves)
 - [Row echelon form]({{< meta decks.d01.file >}}#pivots-organize-elimination)
 :::
+:::
 
+---
+
+### S–Z
+
+::: {.columns}
 ::: {.column width="50%"}
 - [Scalar](#represent-objects-numerically)
+- [Singular value decomposition (SVD)](#images-contain-important-patterns)
 - [Solution / solution set]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
+- [Tensor](#represent-objects-numerically)
+:::
+
+::: {.column width="50%"}
 - [Transformation](#act-on-these-objects-via-transformations-to-obtain-new-objects)
 - [Vector](#represent-objects-numerically)
 :::
@@ -745,7 +767,7 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 ## Complete the Diagnostic Survey
 
 ::: {.key-point}
-Complete [Assignment 0 — Diagnostic Survey](https://iit.instructure.com/courses/23913/assignments/98516){.alert} by August 21.
+Complete [Assignment 0 — Diagnostic Survey]({{< meta canvas.assignment_0 >}}){.alert} by August 21.
 :::
 
 Complete and submit this assignment individually, not as a group.
@@ -802,7 +824,7 @@ course materials, and Canvas for grades.
 
 - All materials are in the [course repository](https://github.com/fjhickernell/MATH332Fall2026), which builds the course website
 
-- Grades are in [Canvas](https://iit.instructure.com)
+- Grades are in [Canvas]({{< meta canvas.course >}})
 
 ---
 

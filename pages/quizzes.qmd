@@ -7,8 +7,8 @@ title: "Quizzes"
 ::: {.callout-note}
 ## Provisional plan
 
-Quizzes will probably be administered through Canvas. The Canvas link, quiz
-format, attempt policy, and grading policy are **TBD**.
+Quizzes will probably be administered through [Canvas]({{< meta canvas.course >}}).
+The quiz format, attempt policy, and grading policy are **TBD**.
 :::
 
 ## Quiz schedule

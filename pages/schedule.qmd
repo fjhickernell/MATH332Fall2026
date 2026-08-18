@@ -2,52 +2,76 @@
 title: "Schedule"
 ---
 
-The meeting days, meeting time, and classroom are **TBD**. This schedule will
-be updated as meeting dates, textbook-section pacing, assignments, quizzes,
-holidays, and examinations are finalized.
+Classes normally meet Tuesdays and Thursdays at 11:25 AM in **PH 109**.
 
-::: {.key-point}
-The first class is **Tuesday, August 18, 2026**.
-:::
+This schedule is provisional and will be updated as topics, assignments,
+quizzes, holidays, and examination details are finalized.
 
 ### August
 
 | Week | Date | Topic | Slides / Materials |
-|---:|:---|:---|:---|
+|---:|---|---|---|
 | 1 | Tue Aug 18 | Why linear algebra? and course introduction | [Why Linear Algebra?](../slides/00-why-linear-algebra.html) |
-| — | TBD | Remaining August meetings and topics | TBD |
+| | Thu Aug 20 | | |
+| 2 | Tue Aug 25 | | |
+| | Thu Aug 27 | | |
 
 ### September
 
 | Week | Date | Topic | Slides / Materials |
-|---:|:---|:---|:---|
-| TBD | TBD | Systems of Linear Equations and Matrices | [Systems and Matrices](../slides/01-systems-and-matrices.html) |
-| TBD | TBD | Determinants | [Determinants](../slides/02-determinants.html) |
+|---:|---|---|---|
+| 3 | Tue Sep 1 | | |
+| | Thu Sep 3 | | |
+| 4 | Tue Sep 8 | | |
+| | Thu Sep 10 | | |
+| 5 | Tue Sep 15 | | |
+| | Thu Sep 17 | | |
+| 6 | Tue Sep 22 | | |
+| | Thu Sep 24 | | |
+| 7 | Tue Sep 29 | | |
 
 ### October
 
 | Week | Date | Topic | Slides / Materials |
-|---:|:---|:---|:---|
-| TBD | TBD | Euclidean Vector Spaces | [Euclidean Vector Spaces](../slides/03-euclidean-vector-spaces.html) |
-| TBD | TBD | General Vector Spaces | [General Vector Spaces](../slides/04-general-vector-spaces.html) |
+|---:|---|---|---|
+| 7 | Thu Oct 1 | | |
+| 8 | Tue Oct 6 | | |
+| | Thu Oct 8 | | |
+| 9 | Tue Oct 13 | **No Class — Fall Break** | |
+| | Thu Oct 15 | | |
+| 10 | Tue Oct 20 | | |
+| | Thu Oct 22 | | |
+| 11 | Tue Oct 27 | | |
+| | Thu Oct 29 | | |
 
 ### November
 
 | Week | Date | Topic | Slides / Materials |
-|---:|:---|:---|:---|
-| TBD | TBD | Eigenvalues and Eigenvectors | [Eigenvalues and Eigenvectors](../slides/05-eigenvalues-and-eigenvectors.html) |
-| TBD | TBD | Inner Product Spaces | [Inner Product Spaces](../slides/06-inner-product-spaces.html) |
+|---:|---|---|---|
+| 12 | Tue Nov 3 | | |
+| | Thu Nov 5 | | |
+| 13 | Tue Nov 10 | | |
+| | Thu Nov 12 | | |
+| 14 | Tue Nov 17 | | |
+| | Thu Nov 19 | | |
+| 15 | Tue Nov 24 | | |
+| | Thu Nov 26 | **No Class — Thanksgiving holiday** | |
 
 ### December
 
 | Week | Date | Topic | Slides / Materials |
-|---:|:---|:---|:---|
-| TBD | TBD | Review and remaining course material | TBD |
+|---:|---|---|---|
+| 16 | Tue Dec 1 | | |
+| | Thu Dec 3 | | |
+
+The official last day of classes is Saturday, December 5. Because the course
+meets on Tuesdays and Thursdays, Thursday, December 3 is the final regular
+class meeting.
 
 ### Final examinations
 
-The final-examination date, time, location, format, and coverage are **TBD**.
+Final examinations occur during the following week.
 
-| Week | Date | Assessment | Materials |
-|---:|:---|:---|:---|
-| TBD | TBD | Final examination | TBD |
+| Week | Date | Topic | Slides / Materials |
+|---:|---|---|---|
+| 17 | TBA | **Final Exam — time and location TBA** | |

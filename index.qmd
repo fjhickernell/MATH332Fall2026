@@ -43,25 +43,29 @@ numerical computation, symbolic computation, and experimentation.
 The prerequisite is MATH 251. It will help to be familiar with:
 
 - A bit of vectors and matrices (but not required)
-- Websites
 - Jupyter notebooks
 
 </details>
 
 <details>
-<summary><strong>Where to Find It</strong></summary>
+<summary><strong>Where to find it</strong></summary>
 
-| **This course website** | **Canvas website** |
+Class meetings combine whiteboard explanation with linked lecture slides,
+live polls, and computational activities. Use the course website as the
+starting point for each meeting, and come prepared to open the slides, Canvas,
+and Jupyter notebooks during class.
+
+| **This course website** | [**Canvas website**]({{< meta canvas.course >}}) |
 |---|---|
 | [Course information](index.qmd) | Grades |
 | [Schedule](pages/schedule.qmd) | Announcements |
 | [Schedule and slides](pages/schedule.qmd) | Discussions |
-| [Notebooks](pages/notebooks.qmd) | TBD |
+| [Notebooks](pages/notebooks.qmd) | |
 | [Assignments](pages/assignments.qmd) | Assignments and submissions |
 | [Quizzes](pages/quizzes.qmd) | Quizzes |
-| [Tests](pages/tests.qmd) | TBD |
-| [Resources](pages/resources.qmd) | TBD |
-| [Policies](pages/policies.qmd) | TBD |
+| [Tests](pages/tests.qmd) | |
+| [Resources](pages/resources.qmd) | |
+| [Policies](classlib/classlib/quarto/pages/policies.qmd) | |
 | [Course repository](https://github.com/fjhickernell/MATH332Fall2026) | |
 
 </details>
