@@ -266,7 +266,7 @@ $\exstar$ Decide whether each transformation preserves the solution set for ever
 
 5. $E_3\leftarrow 0E_3$
 
-6. Square both sides of $E_1$
+6. $E_1$ \leftarrow$ $E_1^2$
 :::
 :::
 
