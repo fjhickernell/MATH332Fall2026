@@ -6,6 +6,14 @@ Review and refine the Lecture 01 companion notebook draft.
 
 ## Current state
 
+- Deck numbering and the remaining Chapter 1 architecture have been decided
+  but not yet implemented. Decks will be numbered sequentially by teaching
+  order rather than Anton chapter: Deck 01 remains Systems and Matrices, Deck
+  02 will cover Inverses and Invertibility, Deck 03 will cover Matrix
+  Structure and Transformations, and the current Chapter 2–6 placeholders
+  will become Decks 04–08. Anton coverage will appear separately in deck
+  metadata and title-slide subtitles, and applications will be woven into the
+  theory and methodology they motivate.
 - Lecture 01 instructor review is complete through the end of the deck. The
   heading hierarchy and section-overview links have been audited, and all
   seven decks render successfully.
@@ -13,8 +21,10 @@ Review and refine the Lecture 01 companion notebook draft.
   solution sets, develops elimination on equations, and only then introduces
   dot products, matrix multiplication, `\mat{A}\vct{x}=\vct{b}`, augmented
   matrices, pivots, echelon form, consistency, and free variables. Reduced row
-  echelon form is intentionally omitted because the course computation uses
-  Gaussian elimination and back substitution.
+  echelon form is intentionally omitted from Deck 01 because its computation
+  uses Gaussian elimination and back substitution; Gauss–Jordan reduction is
+  deferred to Deck 02, where reducing `[A | I]` to `[I | A^{-1}]` gives it a
+  structural purpose.
 - One recurring three-variable system connects equation-level elimination to
   augmented-matrix elimination and now has solution $(-1,2,1)$. The deck also
   includes a required row exchange, reverse-engineered inconsistent and
@@ -51,6 +61,8 @@ Review and refine the Lecture 01 companion notebook draft.
 
 - Use Anton Chapter 1 as the course spine and the established MATH 332
   notation.
+- Number decks by teaching sequence, show Anton coverage separately, and
+  integrate applications with the theory or methodology they motivate.
 - Preserve the equations-first, reversibility-first narrative.
 - Keep mathematical exposition authoritative in the RevealJS deck.
 - Treat the notebook as a computational companion rather than a second source

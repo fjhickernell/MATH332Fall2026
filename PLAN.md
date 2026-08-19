@@ -42,11 +42,38 @@ assignments, quizzes, reviews, and tests only after dates are confirmed.
 
 ## 4. Authoritative RevealJS decks
 
-Develop Deck 00 as the course teaser and roadmap, then develop one deck for
-each Anton chapter from 1 through 6. Each deck must work as an in-class
-presentation and as a resource students revisit afterward. Use
-metadata-driven titles, clear major sections, previous/next deck navigation,
-and shared classlib styling.
+Develop Deck 00 as the course teaser and roadmap, then number the remaining
+decks sequentially by teaching order rather than by Anton chapter. Display the
+corresponding Anton chapter and section coverage separately in each deck's
+metadata and title-slide subtitle. This keeps the deck number aligned with the
+student's course sequence while retaining Anton as the course spine.
+
+The planned sequence is:
+
+| Deck | Teaching arc | Principal Anton coverage |
+|---|---|---|
+| 00 | Why Linear Algebra? | Course overview |
+| 01 | Systems and Matrices | Sections 1.1–1.3 and selected Section 1.10 applications |
+| 02 | Inverses and Invertibility | Sections 1.4–1.6 and selected Sections 1.10–1.11 applications |
+| 03 | Matrix Structure and Transformations | Sections 1.7–1.9 |
+| 04 | Determinants | Chapter 2 |
+| 05 | Euclidean Vector Spaces | Chapter 3 |
+| 06 | General Vector Spaces | Chapter 4 |
+| 07 | Eigenvalues and Eigenvectors | Chapter 5 |
+| 08 | Inner Product Spaces | Chapter 6 |
+
+Applications should be woven into the theory and methodology they motivate or
+illuminate rather than collected as a terminal addendum. In particular, use
+the existing circuit model within systems and elimination; consider Leontief
+input-output models as a motivating or culminating inverse application;
+connect chemical balancing to homogeneous systems and free variables; connect
+polynomial interpolation to unique solvability; and develop reflections,
+rotations, projections, and compositions as the concrete substance of matrix
+transformations.
+
+Each deck must work as an in-class presentation and as a resource students
+revisit afterward. Use metadata-driven titles, clear major sections,
+previous/next deck navigation, and shared classlib styling.
 
 ## 5. Lecture slide development
 

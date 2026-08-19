@@ -6,6 +6,30 @@ would benefit from understanding why a choice was made.
 
 ## Decision log
 
+### 2026-08-19 — Number decks by teaching sequence and split Anton Chapter 1
+
+- **Decision:** Number the authoritative course decks sequentially by teaching
+  order rather than matching deck numbers to Anton chapter numbers. Retain
+  Deck 00 as the course overview; use Decks 01–03 for the three Chapter 1
+  teaching arcs; and renumber the current Chapter 2–6 placeholders as Decks
+  04–08. Display Anton chapter and section coverage separately in deck
+  metadata and title-slide subtitles.
+- **Rationale:** A deck is a coherent teaching unit, whereas an Anton chapter
+  may contain several substantial conceptual arcs. Chapter 1 already divides
+  naturally into systems and matrices, inverses and invertibility, and matrix
+  structure and transformations. Sequential deck numbers communicate the
+  student's presentation order without implying a false one-deck-per-chapter
+  correspondence.
+- **Consequences:** The planned sequence is Deck 01: Systems and Matrices;
+  Deck 02: Inverses and Invertibility; Deck 03: Matrix Structure and
+  Transformations; and Decks 04–08 for Anton Chapters 2–6. Applications are
+  to be woven into the theory or methods they motivate rather than placed in a
+  separate end-of-chapter addendum. Implementing the decision requires adding
+  Decks 02 and 03, renumbering the existing placeholder decks, and updating
+  deck metadata, navigation, schedule entries, course maps, and internal
+  links. No deck renumbering or creation was part of this documentation
+  decision itself.
+
 ### 2026-08-07 — Keep Lecture 00 diagram styles local
 
 - **Decision:** Keep `slides/00-why-linear-algebra.css` local to Lecture 00.
