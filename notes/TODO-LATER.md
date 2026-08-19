@@ -6,6 +6,13 @@ state why the work was deferred when that context will matter later.
 
 ## Deferred work
 
+- Before the next offering, rethink the role and sequencing of Deck 00. In the
+  first Fall 2026 lecture, its abstract overview was too much to absorb before
+  students had encountered concrete linear systems. Only part of the deck was
+  presented before moving to Deck 01, with the intention of returning to Deck
+  00 later. Consider beginning with concrete material from Deck 01 and
+  revisiting the motivating ideas in Deck 00 after students have examples to
+  anchor them.
 - Review the abstract roadmap and closing of `# The course ahead`.
 - Decide whether slides such as `Return to the opening` communicate anything
   useful or merely repeat earlier material.
