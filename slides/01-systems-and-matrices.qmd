@@ -746,7 +746,6 @@ Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible oper
 - [A free variable produces infinitely many solutions](#a-free-variable-produces-infinitely-many-solutions)
 - [Now the three outcomes are visible](#now-the-three-outcomes-are-visible)
 - [A resistance network](#a-resistance-network)
-- [A short circuit creates no solution](#a-short-circuit-creates-no-solution)
 
 ## Matrix elimination repeats the same work
 
@@ -990,21 +989,21 @@ x+2y-z&=2\\
 0&=0,
 \end{align*}
 
-The $z$ column has no pivot; choose the [free variable]{.alert} $z=t$:
+The $z$ column has no pivot, so $z$ is the [free variable]{.alert}:
 
 $$
-y=\frac{7+3t}{5},
+y=\frac{7+3z}{5},
 \qquad
-x=\frac{-4-t}{5}
+x=\frac{-4-z}{5}
 $$
 
 $$
 \left\{
-\left(\frac{-4-t}{5},\frac{7+3t}{5},t\right):t\in\reals
+\left(\frac{-4-z}{5},\frac{7+3z}{5},z\right):z\in\reals
 \right\}
 $$
 
-Different values of $t$ give infinitely many solutions
+Different values of $z$ give infinitely many solutions
 
 ## Now the three outcomes are visible
 
@@ -1024,10 +1023,11 @@ $\exstar$ Why would two distinct solutions force infinitely many?
 
 ## A resistance network
 
-A $9\,\mathrm{V}$ source drives three coupled current loops
+### A reasonable circuit
 
 ::: {.columns}
 ::: {.column width="47%"}
+A $9\,\mathrm{V}$ source drives three coupled current loops
 <svg class="diagram-image" viewBox="0 0 740 500" width="100%" role="img" aria-label="A 9 volt source drives a resistor ladder with three clockwise mesh currents I one, I two, and I three.">
   <path d="M90 110h100m360 0h70M90 410h530M90 110v95m0 110v95" fill="none" stroke="#333" stroke-width="7"/>
   <path d="M45 235h90M62 285h56M90 205v30m0 50v30" fill="none" stroke="#333" stroke-width="7"/>
@@ -1038,7 +1038,7 @@ A $9\,\mathrm{V}$ source drives three coupled current loops
   <circle cx="490" cy="110" r="10" fill="#007acc"/><circle cx="620" cy="110" r="10" fill="#007acc"/>
   <text x="22" y="265" font-size="32" font-weight="700">9 V</text>
   <text x="222" y="72" font-size="26" font-weight="700">1 kΩ</text><text x="392" y="72" font-size="26" font-weight="700">2 kΩ</text><text x="522" y="72" font-size="26" font-weight="700">1 kΩ</text>
-  <text x="245" y="255" font-size="26" font-weight="700">3 kΩ</text><text x="420" y="255" font-size="26" font-weight="700">2 kΩ</text><text x="650" y="255" font-size="26" font-weight="700">1 kΩ</text>
+  <text x="215" y="255" font-size="26" font-weight="700">3 kΩ</text><text x="390" y="255" font-size="26" font-weight="700">2 kΩ</text><text x="665" y="255" font-size="26" font-weight="700">1 kΩ</text>
   <path d="M155 335h95M350 335h75M525 335h55" stroke="#007acc" stroke-width="7"/>
   <path d="M143 335l20-12v24zM338 335l20-12v24zM513 335l20-12v24z" fill="#007acc"/>
   <text x="175" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₁</text>
@@ -1051,9 +1051,11 @@ A $9\,\mathrm{V}$ source drives three coupled current loops
 :::
 
 ::: {.column width="47%"}
-Add the voltage drops around each clockwise loop, with current in $\mathrm{mA}$
+- Current is conserved at junctions
 
-For the first loop: $1I_1+3(I_1-I_2)=9$
+- Add the voltage drops around each clockwise loop, with current in $\mathrm{mA}$
+
+- For the first loop: $1I_1+3(I_1-I_2)=9$
 
 $$
 \begin{matrix}
@@ -1075,7 +1077,9 @@ Three loop equations determine three mesh currents
 :::
 :::
 
-## A short circuit creates no solution
+---
+
+### A short circuit creates no solution
 
 Set the first top resistance and the left vertical resistance to zero
 
@@ -1091,7 +1095,7 @@ Set the first top resistance and the left vertical resistance to zero
   <circle cx="490" cy="110" r="10" fill="#007acc"/><circle cx="620" cy="110" r="10" fill="#007acc"/>
   <text x="22" y="265" font-size="32" font-weight="700">9 V</text>
   <text x="222" y="72" font-size="26" font-weight="700">1 kΩ</text><text x="392" y="72" font-size="26" font-weight="700">2 kΩ</text><text x="522" y="72" font-size="26" font-weight="700">1 kΩ</text>
-  <text x="245" y="255" font-size="26" font-weight="700">3 kΩ</text><text x="420" y="255" font-size="26" font-weight="700">2 kΩ</text><text x="650" y="255" font-size="26" font-weight="700">1 kΩ</text>
+  <text x="215" y="255" font-size="26" font-weight="700">3 kΩ</text><text x="390" y="255" font-size="26" font-weight="700">2 kΩ</text><text x="665" y="255" font-size="26" font-weight="700">1 kΩ</text>
   <path d="M155 335h95M350 335h75M525 335h55" stroke="#007acc" stroke-width="7"/>
   <path d="M143 335l20-12v24zM338 335l20-12v24zM513 335l20-12v24z" fill="#007acc"/>
   <text x="175" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₁</text>
@@ -1099,9 +1103,9 @@ Set the first top resistance and the left vertical resistance to zero
   <text x="530" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₃</text>
   <path d="M190 110h124M314 110v300" fill="none" stroke="#007acc" stroke-width="11"/>
   <rect x="214" y="45" width="78" height="38" rx="8" fill="#f5f7fb"/>
-  <rect x="224" y="224" width="78" height="38" rx="8" fill="#f5f7fb"/>
+  <rect x="205" y="224" width="78" height="38" rx="8" fill="#f5f7fb"/>
   <text x="220" y="74" font-size="28" font-weight="700" fill="#007acc">0 Ω</text>
-  <text x="230" y="253" font-size="28" font-weight="700" fill="#007acc">0 Ω</text>
+  <text x="211" y="253" font-size="28" font-weight="700" fill="#007acc">0 Ω</text>
 </svg>
 :::
 
@@ -1143,22 +1147,23 @@ Use computation to carry out row operations—not to replace interpretation
 
 ## Companion computation
 
-[Lecture 01 companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/01-systems-and-matrices.ipynb){.alert} — placeholder to be developed
+[Lecture 01 companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/01-systems-and-matrices.ipynb){.alert} — executable working draft
 
 ::: {.columns}
 ::: {.column width="52%"}
-Companion notebook plan
+Companion notebook workflow
 
-- build $\mat{A}$ and $\vct{b}$ with SymPy `Matrix`
-- display $[\mat{A}\mid\vct{b}]$
-- compute echelon form
-- compare unique, inconsistent, and free-variable systems
-- verify candidate solutions
+- predict before computing
+- trace exact elimination and back substitution with SymPy
+- classify all three solution outcomes
+- solve unique systems numerically with NumPy
+- interpret exact and numerical residuals
 :::
 
 ::: {.column width="48%"}
 ```{python}
 #| eval: false
+import numpy as np
 from sympy import Matrix
 
 A = Matrix([[1, 2, -1],
@@ -1166,6 +1171,8 @@ A = Matrix([[1, 2, -1],
             [3, 1, 2]])
 b = Matrix([2, -3, 1])
 A.row_join(b).echelon_form()
+np.linalg.solve(np.array(A, dtype=float),
+                np.array(b, dtype=float).ravel())
 ```
 
 Standard kernel: `qmcpy`

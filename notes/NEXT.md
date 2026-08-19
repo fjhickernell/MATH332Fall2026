@@ -2,7 +2,7 @@
 
 ## Current task
 
-Develop the Lecture 01 companion notebook.
+Review and refine the Lecture 01 companion notebook draft.
 
 ## Current state
 
@@ -23,17 +23,29 @@ Develop the Lecture 01 companion notebook.
   coupled $3\times3$ system; replacing the first top and left vertical
   resistances by ideal wires creates a short circuit and the contradiction
   row $[\,0\ 0\ 0\mid9\,]$.
-- `notebooks/demonstrations/01-systems-and-matrices.ipynb` is a valid placeholder
-  linked from the deck and the Notebooks page. Its planned scope is SymPy
-  Gaussian elimination, comparison of zero/one/infinitely-many solution sets,
-  and the resistance-network exercise.
+- `notebooks/demonstrations/01-systems-and-matrices.ipynb` is now an executable
+  32-cell working draft linked from the deck and the Notebooks page. It uses
+  SymPy for exact row operations, echelon forms, augmented-rank classification,
+  parameterized solutions, and exact residuals; it uses NumPy for unique
+  floating-point solves, numerical residuals, and rank checks. Prediction
+  prompts precede the zero/one/infinitely-many comparison and the
+  resistance-network computations.
+- The recurring system is isolated in one clearly marked editable `A`, `b`
+  cell. Exact reusable routines display every forward-elimination operation
+  and each bottom-to-top back-substitution calculation. Student directions
+  explain how to change the equations and restart and run all cells; singular
+  edits report that unique back substitution or a NumPy square solve does not
+  apply instead of stopping execution.
+- All 15 code cells execute without errors using the `qmcpy` kernel. The draft
+  explicitly warns that numerical rank deficiency does not distinguish no
+  solutions from infinitely many and keeps the exact SymPy analysis
+  authoritative for that distinction.
 - Shared presentation guidance now names the 47%–6%–47% two-column layout the
   **Pomona gutter**.
 
 ## Questions to resolve
 
-- How much of the zero/one/infinitely-many comparison should the companion
-  notebook automate versus leave for student prediction?
+- Whether the draft has the right depth and pacing for its first classroom use.
 
 ## Constraints
 
@@ -44,11 +56,14 @@ Develop the Lecture 01 companion notebook.
 - Treat the notebook as a computational companion rather than a second source
   of mathematical content.
 - Use SymPy `Matrix` for readable matrix displays and the `qmcpy` kernel.
+- Use NumPy for floating-point solves and residual checks without letting
+  numerical rank heuristics replace exact structural interpretation.
 - Reuse the established course-wide diagram primitives before adding
   deck-specific styling.
 
 ## Done when
 
-- The placeholder is replaced by a polished computational companion that uses
-  SymPy `Matrix`, executes cleanly with the `qmcpy` kernel, supports rather
-  than duplicates the deck, and preserves working deck and website links.
+- The working draft has been instructor-reviewed and refined into a polished
+  computational companion that executes cleanly with the `qmcpy` kernel,
+  supports rather than duplicates the deck, and preserves working deck and
+  website links.

@@ -15,8 +15,9 @@ algebraic calculations with geometric interpretation.
   — a companion to Lecture 00 introducing numerical and exact matrix
   calculations, linear systems, least squares, and responsible computation
 - [Systems and Matrices](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/01-systems-and-matrices.ipynb)
-  — a placeholder companion to Lecture 01 that will develop Gaussian
-  elimination, solution-set comparisons, and the resistance-network exercise
+  — an executable working draft for Lecture 01 combining exact SymPy
+  elimination, back substitution, and classification with NumPy solves,
+  residual checks, and the resistance-network exercise
 
 ## Exercises
 

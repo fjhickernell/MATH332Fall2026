@@ -13,7 +13,9 @@ Mathematical content should be maintained only in the slides.
 5. [x] Develop and revise the Chapter 1 slides in
    `slides/01-systems-and-matrices.qmd`.
 6. [x] Develop and validate the first Python demonstration.
-7. [ ] Decide and document the Canvas quiz strategy.
+7. [x] Construct and execute the Lecture 01 companion notebook draft.
+8. [ ] Review and finalize the Lecture 01 companion notebook.
+9. [ ] Decide and document the Canvas quiz strategy.
 
 ## Later course construction
 
