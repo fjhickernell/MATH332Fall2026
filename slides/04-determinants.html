@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="06-inner-product-spaces_files/libs/clipboard/clipboard.min.js"></script>
-<script src="06-inner-product-spaces_files/libs/quarto-html/tabby.min.js"></script>
-<script src="06-inner-product-spaces_files/libs/quarto-html/popper.min.js"></script>
-<script src="06-inner-product-spaces_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="06-inner-product-spaces_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="06-inner-product-spaces_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="06-inner-product-spaces_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="04-determinants_files/libs/clipboard/clipboard.min.js"></script>
+<script src="04-determinants_files/libs/quarto-html/tabby.min.js"></script>
+<script src="04-determinants_files/libs/quarto-html/popper.min.js"></script>
+<script src="04-determinants_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="04-determinants_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="04-determinants_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="04-determinants_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
@@ -15,8 +15,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="06-inner-product-spaces_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="06-inner-product-spaces_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="04-determinants_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="04-determinants_files/libs/revealjs/dist/reveal.css">
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,11 +36,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="06-inner-product-spaces_files/libs/revealjs/dist/theme/quarto-aa9501165e211a18d09432a60bdd8753.css">
-  <link href="06-inner-product-spaces_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="06-inner-product-spaces_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="06-inner-product-spaces_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="06-inner-product-spaces_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="04-determinants_files/libs/revealjs/dist/theme/quarto-aa9501165e211a18d09432a60bdd8753.css">
+  <link href="04-determinants_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="04-determinants_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="04-determinants_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="04-determinants_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -587,7 +587,7 @@
 
 <section id="title-slide" data-background-color="#f5f7fb" data-background-image="https://fjhickernell.github.io/MATH332Fall2026/classlib/classlib/quarto/assets/images/normal-scatter.png" data-background-position="top left" data-background-size="55%" class="quarto-title-block center">
   <h1 class="title">MATH 332 — Fall 2026</h1>
-  <p class="subtitle"><span class="deck-title">Inner Product Spaces</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul Ch. 6</span></p>
+  <p class="subtitle"><span class="deck-title">Determinants</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul Ch. 2</span></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -599,34 +599,34 @@ Fred J. Hickernell
 
   <p class="date">August 19, 2026</p>
 </section>
-<section id="inner-product-spaces" class="title-slide slide level1 center">
-<h1>Inner product spaces</h1>
-<p>Chapter 6 content will be developed in this deck.</p>
+<section id="determinants" class="title-slide slide level1 center">
+<h1>Determinants</h1>
+<p>Chapter 2 content will be developed in this deck.</p>
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 <div class="fh-footer">
-<p><span class="fh-footer-main"> © 2026 Fred J. Hickernell · Illinois Tech · assisted by ChatGPT and Codex <span class="fh-footer-sep">·</span> <span class="fh-footer-deck"> Inner Products </span> <span class="fh-footer-sep">·</span> <a id="fh-course-website" href="#" target="_blank" rel="noopener" onmouseenter="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)" onfocus="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)">MATH 332 — Fall 2026 Website</a> <span class="fh-footer-sep">·</span> <span class="fh-footer-ex"> <span class="math inline">\(\exstar\)</span> = exercise </span> </span></p>
+<p><span class="fh-footer-main"> © 2026 Fred J. Hickernell · Illinois Tech · assisted by ChatGPT and Codex <span class="fh-footer-sep">·</span> <span class="fh-footer-deck"> Determinants </span> <span class="fh-footer-sep">·</span> <a id="fh-course-website" href="#" target="_blank" rel="noopener" onmouseenter="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)" onfocus="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)">MATH 332 — Fall 2026 Website</a> <span class="fh-footer-sep">·</span> <span class="fh-footer-ex"> <span class="math inline">\(\exstar\)</span> = exercise </span> </span></p>
 </div>
 </div>
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="06-inner-product-spaces_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="04-determinants_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="06-inner-product-spaces_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="06-inner-product-spaces_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="06-inner-product-spaces_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="06-inner-product-spaces_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="06-inner-product-spaces_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="04-determinants_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="04-determinants_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="04-determinants_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="04-determinants_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="04-determinants_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="06-inner-product-spaces_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="06-inner-product-spaces_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="06-inner-product-spaces_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="06-inner-product-spaces_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="04-determinants_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="04-determinants_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="04-determinants_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="04-determinants_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1162,12 +1162,7 @@ Fred J. Hickernell
       </script>
     <script src="../classlib/classlib/quarto/slides/deck-nav-arrows.js"></script>
     <script id="deck-nav-meta" type="application/json">
-    {
-      "deck_prev_file": "05-eigenvalues-and-eigenvectors.html",
-      "deck_prev_title": "Eigenvalues and Eigenvectors",
-      "deck_next_file": "",
-      "deck_next_title": ""
-    }
+    {"deck_prev_file":"03-matrix-structure-and-transformations.html","deck_prev_title":"Matrix Structure and Transformations","deck_next_file":"05-euclidean-vector-spaces.html","deck_next_title":"Euclidean Vector Spaces"}
     </script>
     
 

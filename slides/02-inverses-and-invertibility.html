@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="05-eigenvalues-and-eigenvectors_files/libs/clipboard/clipboard.min.js"></script>
-<script src="05-eigenvalues-and-eigenvectors_files/libs/quarto-html/tabby.min.js"></script>
-<script src="05-eigenvalues-and-eigenvectors_files/libs/quarto-html/popper.min.js"></script>
-<script src="05-eigenvalues-and-eigenvectors_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="05-eigenvalues-and-eigenvectors_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="05-eigenvalues-and-eigenvectors_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="05-eigenvalues-and-eigenvectors_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="02-inverses-and-invertibility_files/libs/clipboard/clipboard.min.js"></script>
+<script src="02-inverses-and-invertibility_files/libs/quarto-html/tabby.min.js"></script>
+<script src="02-inverses-and-invertibility_files/libs/quarto-html/popper.min.js"></script>
+<script src="02-inverses-and-invertibility_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="02-inverses-and-invertibility_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="02-inverses-and-invertibility_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="02-inverses-and-invertibility_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
@@ -15,8 +15,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="05-eigenvalues-and-eigenvectors_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="05-eigenvalues-and-eigenvectors_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="02-inverses-and-invertibility_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="02-inverses-and-invertibility_files/libs/revealjs/dist/reveal.css">
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,11 +36,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="05-eigenvalues-and-eigenvectors_files/libs/revealjs/dist/theme/quarto-aa9501165e211a18d09432a60bdd8753.css">
-  <link href="05-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="05-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="05-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="05-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="02-inverses-and-invertibility_files/libs/revealjs/dist/theme/quarto-aa9501165e211a18d09432a60bdd8753.css">
+  <link href="02-inverses-and-invertibility_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="02-inverses-and-invertibility_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="02-inverses-and-invertibility_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="02-inverses-and-invertibility_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -587,7 +587,7 @@
 
 <section id="title-slide" data-background-color="#f5f7fb" data-background-image="https://fjhickernell.github.io/MATH332Fall2026/classlib/classlib/quarto/assets/images/normal-scatter.png" data-background-position="top left" data-background-size="55%" class="quarto-title-block center">
   <h1 class="title">MATH 332 — Fall 2026</h1>
-  <p class="subtitle"><span class="deck-title">Eigenvalues and Eigenvectors</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul Ch. 5</span></p>
+  <p class="subtitle"><span class="deck-title">Inverses and Invertibility</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul §§1.4–1.6, 1.11</span></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -599,34 +599,579 @@ Fred J. Hickernell
 
   <p class="date">August 19, 2026</p>
 </section>
-<section id="eigenvalues-and-eigenvectors" class="title-slide slide level1 center">
-<h1>Eigenvalues and eigenvectors</h1>
-<p>Chapter 5 content will be developed in this deck.</p>
+<section id="course-map" class="title-slide slide level1 center">
+<h1>Course Map</h1>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3>
+Course decks
+</h3>
+<ul>
+<li><a href="00-why-linear-algebra.html">Why Linear Algebra?</a></li>
+<li><a href="01-systems-and-matrices.html">Systems and Matrices</a></li>
+<li><a href="02-inverses-and-invertibility.html" class="alert">Inverses</a></li>
+<li><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a></li>
+<li><a href="04-determinants.html">Determinants</a></li>
+<li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
+<li><a href="06-general-vector-spaces.html">Vector Spaces</a></li>
+<li><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
+<li><a href="08-inner-product-spaces.html">Inner Products</a></li>
+</ul>
+</div><div class="column" style="width:55%;">
+<h3>
+In this deck
+</h3>
+<ul>
+<li><a href="#/from-row-operations-to-inverses">From Row Operations to Inverses</a></li>
+<li><a href="#/inverse-algebra">Inverse Algebra</a></li>
+<li><a href="#/compute-an-inverse">Compute an Inverse</a></li>
+<li><a href="#/invertibility-and-linear-systems">Invertibility and Linear Systems</a></li>
+<li><a href="#/leontief-inputoutput-models">Leontief Input–Output Models</a></li>
+<li><a href="#/gaussian-covariance-and-precision">Gaussian Covariance and Precision</a></li>
+<li><a href="#/big-ideas">Big Ideas</a></li>
+<li><a href="#/what-comes-next">What Comes Next</a></li>
+</ul>
+</div></div>
+</section>
+
+<section>
+<section id="from-row-operations-to-inverses" class="title-slide slide level1 center">
+<h1>From Row Operations to Inverses</h1>
+<p>Undoing a row operation leads directly to the idea of an inverse matrix</p>
+<ul>
+<li><a href="#/why-square-matrices">Why square matrices?</a></li>
+<li><a href="#/an-inverse-undoes-a-matrix-action">An inverse undoes a matrix action</a></li>
+<li><a href="#/elementary-matrices-are-invertible">Elementary matrices are invertible</a></li>
+<li><a href="#/invertible-or-singular">Invertible or singular</a></li>
+</ul>
+</section>
+<section id="why-square-matrices" class="slide level2">
+<h2>Why square matrices?</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="systems-and-matrices-rectangular-allowed"><a href="01-systems-and-matrices.html">Systems and Matrices</a>: rectangular allowed</h3>
+<p><span class="math display">\[
+\mat{A}\in\reals^{m\times n}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(m\)</span> equations</li>
+<li><span class="math inline">\(n\)</span> unknowns</li>
+<li><span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span> need not agree</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="inverses-square-throughout"><a href="02-inverses-and-invertibility.html">Inverses</a>: square throughout</h3>
+<p><span class="math display">\[
+\mat{A}\in\reals^{n\times n}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(n\)</span> equations</li>
+<li><span class="math inline">\(n\)</span> unknowns</li>
+<li>a two-sided inverse may exist</li>
+</ul>
+</div></div>
+<p>A <span class="alert">two-sided inverse</span> must undo <span class="math inline">\(\mat{A}\)</span> in both orders:</p>
+<p><span class="math display">\[
+\mat{A}^{-1}\mat{A}=\mat{I}_n,
+\qquad
+\mat{A}\mat{A}^{-1}=\mat{I}_n
+\]</span></p>
+<div class="key-point">
+<p>This deck focuses on <span class="alert">square matrices</span>; rectangular matrices remain important but cannot have a two-sided inverse</p>
+</div>
+</section>
+<section id="an-inverse-undoes-a-matrix-action" class="slide level2">
+<h2>An inverse undoes a matrix action</h2>
+<p>The identity matrix leaves every vector unchanged:</p>
+<p><span class="math display">\[
+\mat{I}\vct{x}=\vct{x}
+\]</span></p>
+<p>An <span class="alert">inverse</span> of a square matrix <span class="math inline">\(\mat{A}\)</span> undoes its action on both sides:</p>
+<p><span class="math display">\[
+\mat{A}^{-1}\mat{A}=\mat{I},
+\qquad
+\mat{A}\mat{A}^{-1}=\mat{I}
+\]</span></p>
+<p>Matrix multiplication is generally <span class="alert">not commutative</span>, but a matrix and its inverse <span class="alert">do commute</span>: both products equal <span class="math inline">\(\mat{I}\)</span></p>
+<div class="key-point">
+<p><span class="math inline">\(\mat{A}\)</span> is <span class="alert">invertible</span>, or <span class="alert">nonsingular</span>, when <span class="math inline">\(\mat{A}^{-1}\)</span> exists</p>
+</div>
+</section>
+<section id="elementary-matrices-are-invertible" class="slide level2">
+<h2>Elementary matrices are invertible</h2>
+<p>Recall from <a href="01-systems-and-matrices.html#/undoing-restores-the-original-system">Systems and Matrices</a>: <span class="math inline">\(\mat{M}_1\)</span> performs <span class="math inline">\(R_2\leftarrow R_2-2R_1\)</span>, while <span class="math inline">\(\mat{N}_1\)</span> performs the reverse operation <span class="math inline">\(R_2\leftarrow R_2+2R_1\)</span>:</p>
+<p><span class="math display">\[
+\mat{M}_1=
+\begin{bmatrix}
+1&amp;0&amp;0\\-2&amp;1&amp;0\\0&amp;0&amp;1
+\end{bmatrix},
+\qquad
+\mat{N}_1=
+\begin{bmatrix}
+1&amp;0&amp;0\\2&amp;1&amp;0\\0&amp;0&amp;1
+\end{bmatrix}
+\]</span></p>
+<p>A direct check gives</p>
+<p><span class="math display">\[
+\mat{N}_1\mat{M}_1=\mat{I}
+=\mat{M}_1\mat{N}_1
+\]</span></p>
+<p>Now we can write <span class="math inline">\(\mat{N}_1=\mat{M}_1^{-1}\)</span></p>
+<div class="key-point">
+<p>Every elementary matrix is invertible; its inverse performs the reverse row operation</p>
+</div>
+</section>
+<section id="invertible-or-singular" class="slide level2">
+<h2>Invertible or singular</h2>
+<p>For a square matrix <span class="math inline">\(\mat{A}\)</span>:</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="invertible-nonsingular">Invertible = nonsingular</h3>
+<p><span class="math inline">\(\mat{A}^{-1}\)</span> exists</p>
+<ul>
+<li>every output <span class="math inline">\(\vct{b}=\mat{A}\vct{x}\)</span> has <span class="alert">exactly one input</span> <span class="math inline">\(\vct{x}\)</span></li>
+<li>distinct inputs produce distinct outputs—no information is lost</li>
+<li>in echelon form, <span class="alert">every row and column has a pivot</span></li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="singular">Singular</h3>
+<p><span class="math inline">\(\mat{A}^{-1}\)</span> does not exist</p>
+<ul>
+<li>some <span class="math inline">\(\vct{b}\)</span> <span class="alert">cannot be reached</span> as <span class="math inline">\(\mat{A}\vct{x}\)</span></li>
+<li>distinct inputs can produce the same output—information is lost</li>
+<li>in echelon form, <span class="alert">at least one row and one column have no pivot</span></li>
+</ul>
+</div></div>
+<div class="key-point">
+<p>Use pivots to test invertibility: row-reduce <span class="math inline">\(\mat{A}\)</span> and inspect its echelon form</p>
+<p>Some treatments invoke determinants here; <span class="alert">we will defer them</span>. Elimination reveals the pivots directly, while a computed determinant can be unreliable when <span class="math inline">\(\mat{A}\)</span> is nearly singular.</p>
+</div>
+</section></section>
+<section>
+<section id="inverse-algebra" class="title-slide slide level1 center">
+<h1>Inverse Algebra</h1>
+<p>An inverse is unique, and order remains essential</p>
+<ul>
+<li><a href="#/the-inverse-is-unique">The inverse is unique</a></li>
+<li><a href="#/undo-products-in-reverse-order">Undo products in reverse order</a></li>
+</ul>
+</section>
+<section id="the-inverse-is-unique" class="slide level2">
+<h2>The inverse is unique</h2>
+<p>Suppose <span class="math inline">\(\mat{B}\)</span> and <span class="math inline">\(\mat{C}\)</span> both invert <span class="math inline">\(\mat{A}\)</span>. Then</p>
+<p><span class="math display">\[
+\mat{B}
+=\mat{B}\mat{I}
+=\mat{B}(\mat{A}\mat{C})
+=(\mat{B}\mat{A})\mat{C}
+=\mat{I}\mat{C}
+=\mat{C}
+\]</span></p>
+<p>Therefore an invertible matrix has exactly one inverse, denoted <span class="math inline">\(\mat{A}^{-1}\)</span></p>
+<div class="key-point">
+<p>Verify a proposed inverse in both orders: <span class="math inline">\(\mat{B}\mat{A}=\mat{I}=\mat{A}\mat{B}\)</span></p>
+</div>
+</section>
+<section id="undo-products-in-reverse-order" class="slide level2">
+<h2>Undo products in reverse order</h2>
+<p>If <span class="math inline">\(\mat{A}\)</span> and <span class="math inline">\(\mat{B}\)</span> are invertible, then</p>
+<p><span class="math display">\[
+(\mat{A}\mat{B})^{-1}=\mat{B}^{-1}\mat{A}^{-1}
+\]</span></p>
+<p><span class="alert">Associativity</span> lets us regroup without changing the order:</p>
+<p><span class="math display">\[
+(\mat{A}\mat{B})(\mat{B}^{-1}\mat{A}^{-1})
+=\mat{A}\mat{I}\mat{A}^{-1}=\mat{I}
+\]</span></p>
+<p>There is no standard matrix quotient <span class="math inline">\(\mat{B}/\mat{A}\)</span>: the products <span class="math inline">\(\mat{A}^{-1}\mat{B}\)</span> and <span class="math inline">\(\mat{B}\mat{A}^{-1}\)</span> generally differ</p>
+<div class="key-point">
+<p>The rightmost factor acts first; taking an inverse reverses the order</p>
+</div>
+</section></section>
+<section>
+<section id="compute-an-inverse" class="title-slide slide level1 center">
+<h1>Compute an Inverse</h1>
+<p>Gauss–Jordan reduction records the row operations that turn <span class="math inline">\(\mat{A}\)</span> into <span class="math inline">\(\mat{I}\)</span></p>
+<ul>
+<li><a href="#/reduce-beside-the-identity">Reduce beside the identity</a></li>
+<li><a href="#/find-an-inverse">Find an inverse</a></li>
+<li><a href="#/a-missing-pivot-proves-singularity">A missing pivot proves singularity</a></li>
+</ul>
+</section>
+<section id="reduce-beside-the-identity" class="slide level2">
+<h2>Reduce beside the identity</h2>
+<p>Let <span class="math inline">\(\mat{M}_1,\ldots,\mat{M}_k\)</span> represent the successive row operations. The same ordered product acts on both blocks:</p>
+<p><span class="math display">\[\begin{align*}
+\mat{M}_k\cdots\mat{M}_1
+[\,\mat{A}\mid\mat{I}\,]
+&amp;=
+[\,\mat{M}_k\cdots\mat{M}_1\mat{A}
+\mid
+\mat{M}_k\cdots\mat{M}_1\,]\\
+&amp;=
+[\,\mat{I}\mid\mat{M}\,],
+\qquad
+\mat{M}=\mat{M}_k\cdots\mat{M}_1
+\end{align*}\]</span></p>
+<p>The left block gives <span class="math inline">\(\mat{M}\mat{A}=\mat{I}\)</span>. Because <span class="math inline">\(\mat{M}\)</span> is a product of invertible elementary matrices, <span class="math inline">\(\mat{M}=\mat{A}^{-1}\)</span>.</p>
+<div class="key-point">
+<p>Gaussian elimination solves systems; Gauss–Jordan reduction is useful here because the inverse itself is the goal</p>
+</div>
+</section>
+<section id="find-an-inverse" class="slide level2">
+<h2>Find an inverse</h2>
+<p>For <span class="math inline">\(\mat{A}=\begin{bmatrix}1&amp;1\\2&amp;3\end{bmatrix}\)</span>,</p>
+<p><span class="math display">\[
+\left[\begin{array}{cc|cc}
+1&amp;1&amp;1&amp;0\\2&amp;3&amp;0&amp;1
+\end{array}\right]
+\xrightarrow{R_2\leftarrow R_2-2R_1}
+\left[\begin{array}{cc|cc}
+1&amp;1&amp;1&amp;0\\0&amp;1&amp;-2&amp;1
+\end{array}\right]
+\]</span></p>
+<p><span class="math display">\[
+\xrightarrow{R_1\leftarrow R_1-R_2}
+\left[\begin{array}{cc|cc}
+1&amp;0&amp;3&amp;-1\\0&amp;1&amp;-2&amp;1
+\end{array}\right]
+\]</span></p>
+<p>Thus <span class="math inline">\(\mat{A}^{-1}=\begin{bmatrix}3&amp;-1\\-2&amp;1\end{bmatrix}\)</span></p>
+</section>
+<section id="a-missing-pivot-proves-singularity" class="slide level2">
+<h2>A missing pivot proves singularity</h2>
+<p>For <span class="math inline">\(\mat{A}=\begin{bmatrix}1&amp;2\\2&amp;4\end{bmatrix}\)</span>,</p>
+<p><span class="math display">\[
+\left[\begin{array}{cc|cc}
+1&amp;2&amp;1&amp;0\\2&amp;4&amp;0&amp;1
+\end{array}\right]
+\xrightarrow{R_2\leftarrow R_2-2R_1}
+\left[\begin{array}{cc|cc}
+1&amp;2&amp;1&amp;0\\0&amp;0&amp;-2&amp;1
+\end{array}\right]
+\]</span></p>
+<p>The left block cannot become <span class="math inline">\(\mat{I}\)</span>: its second pivot is missing</p>
+<div class="key-point">
+<p>Failure is information: the matrix is singular, so no inverse exists</p>
+</div>
+</section></section>
+<section>
+<section id="invertibility-and-linear-systems" class="title-slide slide level1 center">
+<h1>Invertibility and Linear Systems</h1>
+<p>One structural property controls every system <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span></p>
+<ul>
+<li><a href="#/one-theorem-many-viewpoints">One theorem, many viewpoints</a></li>
+<li><a href="#/reversible-versus-information-losing">Reversible versus information-losing</a></li>
+<li><a href="#/the-right-hand-side-decides">The right-hand side decides</a></li>
+<li><a href="#/choose-the-least-computation">Choose the least computation</a></li>
+</ul>
+</section>
+<section id="one-theorem-many-viewpoints" class="slide level2">
+<h2>One theorem, many viewpoints</h2>
+<p>For a square <span class="math inline">\(n\times n\)</span> matrix <span class="math inline">\(\mat{A}\)</span>, these statements are equivalent:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><span class="math inline">\(\mat{A}\)</span> is invertible</li>
+<li><span class="math inline">\(\mat{A}\)</span> row-reduces to <span class="math inline">\(\mat{I}\)</span></li>
+<li>an echelon form of <span class="math inline">\(\mat{A}\)</span> has <span class="math inline">\(n\)</span> pivots</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><span class="math inline">\(\mat{A}\vct{x}=\vct{0}\)</span> has only <span class="math inline">\(\vct{x}=\vct{0}\)</span></li>
+<li><span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> has exactly one solution for every <span class="math inline">\(\vct{b}\)</span></li>
+<li><span class="math inline">\(\mat{A}\)</span> is a product of elementary matrices</li>
+</ul>
+</div></div>
+<div class="key-point">
+<p>These are algebraic, computational, and geometric views of <span class="alert">reversibility</span></p>
+</div>
+</section>
+<section id="reversible-versus-information-losing" class="slide level2">
+<h2>Reversible versus information-losing</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="mata-invertible"><span class="math inline">\(\mat{A}\)</span> invertible</h3>
+<p>No pivot is missing, so</p>
+<p><span class="math display">\[
+\mat{A}\vct{x}=\vct{0}
+\quad\Longrightarrow\quad
+\vct{x}=\vct{0}
+\]</span></p>
+<p>For every <span class="math inline">\(\vct{b}\)</span>,</p>
+<p><span class="math display">\[
+\vct{x}=\mat{A}^{-1}\vct{b}
+\]</span></p>
+<p>exists and is unique</p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="mata-singular"><span class="math inline">\(\mat{A}\)</span> singular</h3>
+<p>Row reduction has a missing pivot. The homogeneous system is always consistent, so a nonpivot column gives a free variable.</p>
+<p>Choose the free variable(s) to obtain <span class="math inline">\(\vct{z}\ne\vct{0}\)</span> with</p>
+<p><span class="math display">\[
+\mat{A}\vct{z}=\vct{0}
+\]</span></p>
+</div></div>
+<div class="key-point">
+<p>A singular action loses information: <span class="math inline">\(\mat{A}(\vct{x}+t\vct{z})=\mat{A}\vct{x}\)</span> for every <span class="math inline">\(t\)</span></p>
+</div>
+</section>
+<section id="the-right-hand-side-decides" class="slide level2">
+<h2>The right-hand side decides</h2>
+<p>For singular square <span class="math inline">\(\mat{A}\)</span>, the outcome of <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> depends on <span class="math inline">\(\vct{b}\)</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="inconsistent">Inconsistent</h3>
+<p>If elimination produces a contradiction,</p>
+<p><span class="math display">\[
+[\,0\ \cdots\ 0\mid c\,],
+\qquad c\ne0,
+\]</span></p>
+<p>then there is <span class="alert">no solution</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="consistent">Consistent</h3>
+<p>If <span class="math inline">\(\vct{x}_0\)</span> is one solution and <span class="math inline">\(\mat{A}\vct{z}=\vct{0}\)</span> with <span class="math inline">\(\vct{z}\ne\vct{0}\)</span>, then</p>
+<p><span class="math display">\[\begin{align*}
+\mat{A}(\vct{x}_0+t\vct{z})
+&amp;=\mat{A}\vct{x}_0+t\mat{A}\vct{z}\\
+&amp;=\vct{b}+t\vct{0}=\vct{b}
+\end{align*}\]</span></p>
+<p>for every <span class="math inline">\(t\)</span>: there are <span class="alert">infinitely many solutions</span></p>
+</div></div>
+<div class="key-point">
+<p>For singular square <span class="math inline">\(\mat{A}\)</span>, no right-hand side gives exactly one solution: <span class="math inline">\(\vct{b}\)</span> determines none or infinitely many</p>
+</div>
+</section>
+<section id="choose-the-least-computation" class="slide level2">
+<h2>Choose the least computation</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="one-or-a-few-right-hand-sides">One or a few right-hand sides</h3>
+<p>Use Gaussian elimination and back substitution on</p>
+<p><span class="math display">\[
+[\,\mat{A}\mid\vct{b}_1\ \cdots\ \vct{b}_k\,]
+\]</span></p>
+<p>Do not compute the entire inverse</p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="many-systems-same-mata">Many systems, same <span class="math inline">\(\mat{A}\)</span></h3>
+<p>Reuse the elimination structure or a factorization</p>
+<p>Compute <span class="math inline">\(\mat{A}^{-1}\)</span> when the inverse itself is the object of interest</p>
+</div></div>
+<div class="key-point">
+<p>Unnecessary computation costs time and creates more opportunities for round-off error</p>
+</div>
+</section></section>
+<section>
+<section id="leontief-inputoutput-models" class="title-slide slide level1 center">
+<h1>Leontief Input–Output Models</h1>
+<p>An economy must meet external demand while supporting its own production</p>
+<ul>
+<li><a href="#/production-creates-internal-demand">Production creates internal demand</a></li>
+<li><a href="#/one-forecast-or-a-response-map">One forecast or a response map?</a></li>
+<li><a href="#/check-the-model-not-only-the-arithmetic">Check the model, not only the arithmetic</a></li>
+</ul>
+</section>
+<section id="production-creates-internal-demand" class="slide level2">
+<h2>Production creates internal demand</h2>
+<p>Let</p>
+<p><span class="math display">\[\begin{align*}
+x_i &amp; = \alerttext{gross production}\text{ of sector }i, \\
+d_i &amp; = \alerttext{external demand}\text{ for sector }i, \\
+c_{ij} &amp; = \text{output from sector }i\text{ needed per unit produced by sector }j.
+\end{align*}\]</span></p>
+<p>For all sectors at once,</p>
+<p><span class="math display">\[
+\underbrace{\vct{x}}_{\text{total}}
+=\underbrace{\mat{C}\vct{x}}_{\text{internal}}
++\underbrace{\vct{d}}_{\text{external}}
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+(\mat{I}-\mat{C})\vct{x}=\vct{d}
+\]</span></p>
+<div class="key-point">
+<p>The solution <span class="math inline">\(\vct{x}\)</span> is the gross production plan required to meet <span class="math inline">\(\vct{d}\)</span>. This is a <span class="alert">static balance model</span>, not an optimization problem or a dynamic steady-state model.</p>
+</div>
+</section>
+<section id="one-forecast-or-a-response-map" class="slide level2">
+<h2>One forecast or a response map?</h2>
+<p>Let</p>
+<p><span class="math display">\[
+\mat{C}=\begin{bmatrix}.20&amp;.10\\.30&amp;.25\end{bmatrix},
+\qquad
+\vct{d}=\begin{bmatrix}72\\30\end{bmatrix}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="one-demand-forecast">One demand forecast</h3>
+<p>Solve <span class="math inline">\((\mat{I}-\mat{C})\vct{x}=\vct{d}\)</span> directly:</p>
+<p><span class="math display">\[
+\vct{x}=\begin{bmatrix}100\\80\end{bmatrix}
+\]</span></p>
+<p>This is the gross production required for the specified <span class="math inline">\(\vct{d}\)</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="many-possible-demands">Many possible demands</h3>
+<p>The response map is</p>
+<p><span class="math display">\[
+(\mat{I}-\mat{C})^{-1}
+\approx
+\begin{bmatrix}1.316&amp;.175\\.526&amp;1.404\end{bmatrix}
+\]</span></p>
+</div></div>
+</section>
+<section id="check-the-model-not-only-the-arithmetic" class="slide level2">
+<h2>Check the model, not only the arithmetic</h2>
+<p>For <span class="math inline">\(\vct{x}=(100,80)^{\mathsf T}\)</span>,</p>
+<p><span class="math display">\[
+\mat{C}\vct{x}+\vct{d}
+=\begin{bmatrix}28\\50\end{bmatrix}
++\begin{bmatrix}72\\30\end{bmatrix}
+=\begin{bmatrix}100\\80\end{bmatrix}
+=\vct{x}
+\]</span></p>
+<ul>
+<li>the inverse columns describe production responses to added demand</li>
+<li>nonnegative gross production is required for a meaningful plan</li>
+<li>if <span class="math inline">\(\mat{I}-\mat{C}\)</span> is singular, there is no unique response map</li>
+</ul>
+<div class="key-point">
+<p>Interpret the model before trusting the answer</p>
+</div>
+</section></section>
+<section>
+<section id="gaussian-covariance-and-precision" class="title-slide slide level1 center">
+<h1>Gaussian Covariance and Precision</h1>
+<p>A preview for later courses in statistics, AI, and data science—no statistics background is required</p>
+<ul>
+<li><a href="#/covariance-describes-joint-variation">Covariance describes joint variation</a></li>
+<li><a href="#/precision-describes-conditional-structure">Precision describes conditional structure</a></li>
+</ul>
+</section>
+<section id="covariance-describes-joint-variation" class="slide level2">
+<h2>Covariance describes joint variation</h2>
+<p>At selected inputs <span class="math inline">\(t_1,\ldots,t_n\)</span>, a Gaussian-process model collects its values into a Gaussian vector:</p>
+<p><span class="math display">\[
+\vf=
+\begin{bmatrix}
+f(t_1)&amp;\cdots&amp;f(t_n)
+\end{bmatrix}^{\mathsf T}
+\sim\Norm(\vmu,\mSigma),
+\qquad
+\mSigma_{ij}=K(t_i,t_j)
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="diagonal-entries">Diagonal entries</h3>
+<p><span class="math display">\[
+\mSigma_{ii}=\var(f(t_i))
+\]</span></p>
+<p>describe uncertainty at individual inputs</p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="off-diagonal-entries">Off-diagonal entries</h3>
+<p><span class="math display">\[
+\mSigma_{ij}=\cov(f(t_i),f(t_j))
+\]</span></p>
+<p>describe how values at two inputs vary together</p>
+</div></div>
+<div class="key-point">
+<p>For now, remember the role: the square matrix <span class="math inline">\(\mSigma\)</span> records uncertainty and what varies together</p>
+</div>
+</section>
+<section id="precision-describes-conditional-structure" class="slide level2">
+<h2>Precision describes conditional structure</h2>
+<p>When <span class="math inline">\(\mSigma\)</span> is invertible, its <span class="alert">precision matrix</span> is</p>
+<p><span class="math display">\[
+\mQ=\mSigma^{-1}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="statistical-meaning">Statistical meaning</h3>
+<ul>
+<li><span class="math inline">\(\vr^{\mathsf T}\mQ\vr\)</span> weights a departure <span class="math inline">\(\vr=\vf-\vmu\)</span> relative to the expected joint variation</li>
+<li>for a Gaussian vector, <span class="math inline">\(\mQ_{ij}=0\)</span> means components <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are conditionally independent given the others</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="computational-meaning">Computational meaning</h3>
+<p>If a calculation needs</p>
+<p><span class="math display">\[
+\valpha=\mQ\vr,
+\]</span></p>
+<p>solve</p>
+<p><span class="math display">\[
+\mSigma\valpha=\vr
+\]</span></p>
+<p>rather than forming <span class="math inline">\(\mQ\)</span></p>
+</div></div>
+<div class="key-point">
+<p>This is a preview, not a derivation to memorize. Covariance describes what varies together; precision describes conditional relationships and covariance-aware weighting.</p>
+</div>
+</section></section>
+<section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
+<h1>Big Ideas</h1>
+<ul>
+<li>An inverse <span class="alert">undoes a square matrix action</span> on both sides: <span class="math inline">\(\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}\)</span></li>
+<li>A square matrix is invertible exactly when row reduction produces an echelon form with <span class="alert">a pivot in every row and column</span>; then <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> has exactly one solution for every <span class="math inline">\(\vct{b}\)</span></li>
+<li><span class="alert">Gauss–Jordan reduction</span> of <span class="math inline">\([\,\mat{A}\mid\mat{I}\,]\)</span> computes <span class="math inline">\(\mat{A}^{-1}\)</span> when the inverse itself is needed</li>
+<li>Products undo in <span class="alert">reverse order</span>; associativity permits regrouping, not reordering</li>
+<li>Use the <span class="alert">least computation</span> the problem requires: solve directly for one or a few right-hand sides; form a reusable response map only when it is needed</li>
+<li>Applications give inverses meaning: a Leontief response map connects demand to production; Gaussian precision describes <span class="alert">conditional structure and covariance-aware weighting</span></li>
+</ul>
+</section>
+
+<section id="what-comes-next" class="title-slide slide level1 center">
+<h1>What Comes Next</h1>
+<p><a href="02-inverses-and-invertibility.html">Inverses</a> asked whether a matrix action can be undone:</p>
+<p><span class="math display">\[
+\vct{x}\xrightarrow{\mat{A}}\mat{A}\vct{x}
+\xrightarrow{\mat{A}^{-1}}\vct{x}
+\]</span></p>
+<p><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a> asks what matrix structure reveals about the action:</p>
+<ul>
+<li>diagonal, triangular, and symmetric matrices</li>
+<li>reflections, rotations, projections, and composition</li>
+</ul>
+<div class="key-point">
+<p>Next: <a href="03-matrix-structure-and-transformations.html" class="alert">connect matrix structure with transformations and geometry</a></p>
+</div>
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 <div class="fh-footer">
-<p><span class="fh-footer-main"> © 2026 Fred J. Hickernell · Illinois Tech · assisted by ChatGPT and Codex <span class="fh-footer-sep">·</span> <span class="fh-footer-deck"> Eigenvalues </span> <span class="fh-footer-sep">·</span> <a id="fh-course-website" href="#" target="_blank" rel="noopener" onmouseenter="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)" onfocus="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)">MATH 332 — Fall 2026 Website</a> <span class="fh-footer-sep">·</span> <span class="fh-footer-ex"> <span class="math inline">\(\exstar\)</span> = exercise </span> </span></p>
+<p><span class="fh-footer-main"> © 2026 Fred J. Hickernell · Illinois Tech · assisted by ChatGPT and Codex <span class="fh-footer-sep">·</span> <span class="fh-footer-deck"> Inverses </span> <span class="fh-footer-sep">·</span> <a id="fh-course-website" href="#" target="_blank" rel="noopener" onmouseenter="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)" onfocus="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)">MATH 332 — Fall 2026 Website</a> <span class="fh-footer-sep">·</span> <span class="fh-footer-ex"> <span class="math inline">\(\exstar\)</span> = exercise </span> </span></p>
 </div>
 </div>
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="05-eigenvalues-and-eigenvectors_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="02-inverses-and-invertibility_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="05-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="05-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="05-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="05-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="05-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="02-inverses-and-invertibility_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="02-inverses-and-invertibility_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="02-inverses-and-invertibility_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="02-inverses-and-invertibility_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="02-inverses-and-invertibility_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="05-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="05-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="05-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="05-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="02-inverses-and-invertibility_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="02-inverses-and-invertibility_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="02-inverses-and-invertibility_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="02-inverses-and-invertibility_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1163,10 +1708,10 @@ Fred J. Hickernell
     <script src="../classlib/classlib/quarto/slides/deck-nav-arrows.js"></script>
     <script id="deck-nav-meta" type="application/json">
     {
-      "deck_prev_file": "04-general-vector-spaces.html",
-      "deck_prev_title": "General Vector Spaces",
-      "deck_next_file": "06-inner-product-spaces.html",
-      "deck_next_title": "Inner Product Spaces"
+      "deck_prev_file": "01-systems-and-matrices.html",
+      "deck_prev_title": "Systems of Linear Equations and Matrices",
+      "deck_next_file": "03-matrix-structure-and-transformations.html",
+      "deck_next_title": "Matrix Structure and Transformations"
     }
     </script>
     

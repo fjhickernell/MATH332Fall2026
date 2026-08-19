@@ -587,7 +587,7 @@
 
 <section id="title-slide" data-background-color="#f5f7fb" data-background-image="https://fjhickernell.github.io/MATH332Fall2026/classlib/classlib/quarto/assets/images/normal-scatter.png" data-background-position="top left" data-background-size="55%" class="quarto-title-block center">
   <h1 class="title">MATH 332 — Fall 2026</h1>
-  <p class="subtitle"><span class="deck-title">Systems of Linear Equations and Matrices</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul Ch. 1</span></p>
+  <p class="subtitle"><span class="deck-title">Systems of Linear Equations and Matrices</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul §§1.1–1.3, 1.10</span></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -609,11 +609,13 @@ Course decks
 <ul>
 <li><a href="00-why-linear-algebra.html">Why Linear Algebra?</a></li>
 <li><a href="01-systems-and-matrices.html" class="alert">Systems and Matrices</a></li>
-<li><a href="02-determinants.html">Determinants</a></li>
-<li><a href="03-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
-<li><a href="04-general-vector-spaces.html">Vector Spaces</a></li>
-<li><a href="05-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
-<li><a href="06-inner-product-spaces.html">Inner Products</a></li>
+<li><a href="02-inverses-and-invertibility.html">Inverses</a></li>
+<li><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a></li>
+<li><a href="04-determinants.html">Determinants</a></li>
+<li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
+<li><a href="06-general-vector-spaces.html">Vector Spaces</a></li>
+<li><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
+<li><a href="08-inner-product-spaces.html">Inner Products</a></li>
 </ul>
 </div><div class="column" style="width:55%;">
 <h3>
@@ -624,6 +626,7 @@ In this deck
 <li><a href="#/eliminate-on-equations">Eliminate on Equations</a></li>
 <li><a href="#/the-dot-product">The Dot Product</a></li>
 <li><a href="#/eliminate-on-matrices">Eliminate on Matrices</a></li>
+<li><a href="#/big-ideas">Big Ideas</a></li>
 <li><a href="#/compute-and-look-ahead">Compute and Look Ahead</a></li>
 </ul>
 </div></div>
@@ -897,7 +900,7 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 2 - 1)=-1
 <section id="why-elimination-works" class="slide level2">
 <h2>Why elimination works</h2>
 <div class="columns">
-<div class="column" style="width:52%;">
+<div class="column" style="width:47%;">
 <ol type="1">
 <li><p>Eliminate <span class="math inline">\(x\)</span> below the first equation</p>
 <p><span class="math inline">\(\implies\)</span> an equivalent system</p></li>
@@ -905,7 +908,9 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 2 - 1)=-1
 <p><span class="math inline">\(\implies\)</span> an equivalent triangular system</p></li>
 <li><p>Back substitution reveals the solution</p></li>
 </ol>
-</div><div class="column" style="width:48%;">
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
 <p>Elimination <span class="alert">does not</span></p>
 <ul>
 <li>guess a solution</li>
@@ -1154,7 +1159,8 @@ x + 2y -z = 2 \\
      \end{bmatrix}
 \end{align*}\]</span></p>
 <div class="key-point">
-<p><span class="alert">Matrix–matrix multiplication</span> collects all dot products of rows of the first matrix with columns of the second</p>
+<p><span class="alert">Matrix–matrix multiplication</span> collects all dot products of rows of the first matrix with columns of the second.</p>
+<p>It is <span class="alert">associative but generally not commutative</span>: compatible factors may be regrouped, not reordered.</p>
 </div>
 </section>
 <section id="a-general-linear-system" class="slide level2">
@@ -1210,19 +1216,61 @@ x+2y-z&amp;=2\\
 <section>
 <section id="eliminate-on-matrices" class="title-slide slide level1 center">
 <h1>Eliminate on Matrices</h1>
+<p><span class="alert">Compute with rows first</span>; reinterpret the same steps as reversible matrix actions later</p>
 <ul>
-<li><a href="#/matrix-elimination-repeats-the-same-work">Matrix elimination repeats the same work</a></li>
-<li><a href="#/pivots-organize-elimination">Pivots organize elimination</a></li>
-<li><a href="#/read-the-unique-solution-by-back-substitution">Read the unique solution by back substitution</a></li>
-<li><a href="#/the-bottom-rows-reveal-the-other-possibilities">The bottom row(s) reveal the other possibilities</a></li>
-<li><a href="#/a-free-variable-produces-infinitely-many-solutions">A free variable produces infinitely many solutions</a></li>
-<li><a href="#/now-the-three-outcomes-are-visible">Now the three outcomes are visible</a></li>
-<li><a href="#/a-resistance-network">A resistance network</a></li>
+<li><a href="#/translate-equations-into-matrix-rows">Translate equations into matrix rows</a></li>
+<li><a href="#/eliminate-and-organize-with-pivots">Eliminate and organize with pivots</a></li>
+<li><a href="#/read-the-solution-set">Read the solution set (back substitution)</a></li>
+<li><a href="#/resistance-circuit">Resistance circuit</a></li>
+<li><a href="#/row-operations-are-reversible-matrix-actions">Row operations are reversible matrix actions</a></li>
 </ul>
 </section>
-<section id="matrix-elimination-repeats-the-same-work" class="slide level2">
-<h2>Matrix elimination repeats the same work</h2>
-<p>Same mathematical work, less repeated notation</p>
+<section id="translate-equations-into-matrix-rows" class="slide level2">
+<h2>Translate equations into matrix rows</h2>
+<h3 id="one-step-two-notations">One step, two notations</h3>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h4 id="operate-on-equations">Operate on equations</h4>
+<p>Start with</p>
+<p><span class="math display">\[
+\begin{aligned}
+x+2y-z&amp;=2 &amp;&amp;(E_1)\\
+2x-y+z&amp;=-3 &amp;&amp;(E_2)\\
+3x+y+2z&amp;=1 &amp;&amp;(E_3)
+\end{aligned}
+\]</span></p>
+<p>Apply <span class="math inline">\(E_2\leftarrow E_2-2E_1\)</span>:</p>
+<p><span class="math display">\[
+-5y+3z=-7
+\]</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h4 id="operate-on-rows">Operate on rows</h4>
+<p>The same coefficients and right-hand sides give</p>
+<p><span class="math display">\[
+\begin{gathered}
+\left[\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\2&amp;-1&amp;1&amp;-3\\3&amp;1&amp;2&amp;1
+\end{array}\right]
+\\[-0.2em]
+\overset{R_2\leftarrow R_2-2R_1}{\Downarrow}
+\\[-0.2em]
+\left[\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-7\\3&amp;1&amp;2&amp;1
+\end{array}\right]
+\end{gathered}
+\]</span></p>
+</div></div>
+<div class="key-point">
+<p><span class="math inline">\(E_i\)</span> names an equation; <span class="math inline">\(R_i\)</span> names the corresponding matrix row</p>
+</div>
+</section>
+<section id="eliminate-and-organize-with-pivots" class="slide level2">
+<h2>Eliminate and organize with pivots</h2>
+<p>For a solve, operate directly on <span class="math inline">\([\,\mat{A}\mid\vct{b}\,]\)</span>; this is closest to the computation carried out by software</p>
+<h3 id="matrix-elimination-repeats-the-same-work">Matrix elimination repeats the same work</h3>
+<p>Continue the same elimination with compact matrix notation:</p>
 <p><span class="math display">\[\begin{align*}
 &amp;\left[
 \begin{array}{rrr|r}
@@ -1243,8 +1291,9 @@ x+2y-z&amp;=2\\
 \right]
 \end{align*}\]</span></p>
 </section>
-<section id="pivots-organize-elimination" class="slide level2">
-<h2>Pivots organize elimination</h2>
+<section class="slide level2">
+
+<h3 id="pivots-organize-elimination">Pivots organize elimination</h3>
 <p><span class="math display">\[
 \left[
 \begin{array}{rrr|r}
@@ -1290,9 +1339,11 @@ x+2y-z&amp;=2\\
 <div class="key-point">
 <p>When a pivot candidate is zero, exchange rows to bring a nonzero entry into the pivot position</p>
 </div>
+<p><span class="math inline">\(\exstar\)</span> After the exchange, which row operation eliminates the <span class="math inline">\(2\)</span> below the new first pivot?</p>
 </section>
-<section id="read-the-unique-solution-by-back-substitution" class="slide level2">
-<h2>Read the unique solution by back substitution</h2>
+<section id="read-the-solution-set" class="slide level2">
+<h2>Read the solution set (back substitution)</h2>
+<h3 id="read-the-unique-solution-by-back-substitution">Read the unique solution by back substitution</h3>
 <p><span class="math display">\[\begin{align*}
 \left[
 \begin{array}{rrr|r}
@@ -1313,12 +1364,13 @@ z=1,\quad y=2,\quad x=-1
 <p>No variable can be chosen freely, so the consistent system has exactly one solution</p>
 </div>
 </section>
-<section id="the-bottom-rows-reveal-the-other-possibilities" class="slide level2">
-<h2>The bottom row(s) reveal the other possibilities</h2>
+<section class="slide level2">
+
+<h3 id="the-bottom-rows-reveal-the-other-possibilities">The bottom row(s) reveal the other possibilities</h3>
 <p>Suppose elimination instead produced one of these echelon forms</p>
 <div class="columns">
 <div class="column" style="width:50%;">
-<h3 id="contradiction">Contradiction</h3>
+<h4 id="contradiction">Contradiction</h4>
 <p><span class="math display">\[
 \left[
 \begin{array}{rrr|r}
@@ -1331,7 +1383,7 @@ z=1,\quad y=2,\quad x=-1
 <p>A bottom row represents the equation <span class="math inline">\(0=2\)</span></p>
 <p><span class="alert">Inconsistent</span> — no solutions</p>
 </div><div class="column" style="width:50%;">
-<h3 id="missing-constraint">Missing constraint</h3>
+<h4 id="missing-constraint">Missing constraint</h4>
 <p><span class="math display">\[
 \left[
 \begin{array}{rrr|r}
@@ -1351,7 +1403,7 @@ z=1,\quad y=2,\quad x=-1
 <p>Undoing the same elimination steps gives two possible original systems</p>
 <div class="columns">
 <div class="column" style="width:47%;">
-<h3 id="contradiction-1">Contradiction</h3>
+<h4 id="contradiction-1">Contradiction</h4>
 <p><span class="math display">\[\begin{align*}
 x+2y-z&amp;=2\\
 2x-y+z&amp;=-3\\
@@ -1361,7 +1413,7 @@ x+2y-z&amp;=2\\
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<h3 id="missing-constraint-1">Missing constraint</h3>
+<h4 id="missing-constraint-1">Missing constraint</h4>
 <p><span class="math display">\[\begin{align*}
 x+2y-z&amp;=2\\
 2x-y+z&amp;=-3\\
@@ -1378,7 +1430,7 @@ x+2y-z&amp;=2\\
 <h3 id="geometry-reveals-the-solution-set">Geometry reveals the solution set</h3>
 <div class="columns">
 <div class="column" style="width:47%;">
-<h3 id="no-common-intersection">No common intersection</h3>
+<h4 id="no-common-intersection">No common intersection</h4>
 <svg class="diagram-image" viewbox="0 0 620 420" width="100%" role="img" aria-label="Three planes with no common intersection. The first two planes meet along a line, while the third plane does not contain that line.">
 <polygon points="70,320 395,370 545,160 220,110" fill="#dceef7" fill-opacity="0.72" stroke="#007acc" stroke-width="6"></polygon> <polygon points="150,370 445,295 415,75 120,150" fill="#fff0dc" fill-opacity="0.68" stroke="#f39c34" stroke-width="6"></polygon> <line x1="170" y1="342" x2="422" y2="280" stroke="#252525" stroke-width="10"></line> <polygon points="65,155 365,215 550,145 250,85" fill="#e3f3e7" fill-opacity="0.92" stroke="#2e8b57" stroke-width="6"></polygon> <g stroke="#fff" stroke-width="7" paint-order="stroke" stroke-linejoin="round"> <text x="99" y="307" font-size="30" font-weight="700">P₁</text> <text x="179" y="347" font-size="30" font-weight="700">P₂</text> <text x="469" y="137" font-size="30" font-weight="700">P₃</text> <text x="277" y="355" font-size="28" font-weight="700">L = P₁ ∩ P₂</text> </g>
 </svg>
@@ -1386,15 +1438,16 @@ x+2y-z&amp;=2\\
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<h3 id="a-whole-line-of-solutions">A whole line of solutions</h3>
+<h4 id="a-whole-line-of-solutions">A whole line of solutions</h4>
 <svg class="diagram-image" viewbox="0 0 620 420" width="100%" role="img" aria-label="Three distinct planes sharing one common line, so every point on the line solves all three equations.">
 <polygon points="75,315 400,365 550,155 225,105" fill="#dceef7" fill-opacity="0.72" stroke="#007acc" stroke-width="5"></polygon> <polygon points="155,365 450,290 420,70 125,145" fill="#fff0dc" fill-opacity="0.68" stroke="#f39c34" stroke-width="5"></polygon> <polygon points="95,350 465,315 520,105 150,140" fill="#e3f3e7" fill-opacity="0.58" stroke="#2e8b57" stroke-width="5"></polygon> <line x1="175" y1="337" x2="427" y2="275" stroke="#252525" stroke-width="9"></line> <circle cx="175" cy="337" r="8" fill="#252525"></circle> <circle cx="427" cy="275" r="8" fill="#252525"></circle> <g stroke="#fff" stroke-width="7" paint-order="stroke" stroke-linejoin="round"> <text x="96" y="302" font-size="30" font-weight="700">P₁</text> <text x="168" y="347" font-size="30" font-weight="700">P₂</text> <text x="469" y="149" font-size="30" font-weight="700">P₃</text> <text x="302" y="259" font-size="28" font-weight="700">solution line L</text> </g>
 </svg>
 <p>All three planes contain the same solution line <span class="math inline">\(L\)</span></p>
 </div></div>
 </section>
-<section id="a-free-variable-produces-infinitely-many-solutions" class="slide level2">
-<h2>A free variable produces infinitely many solutions</h2>
+<section class="slide level2">
+
+<h3 id="a-free-variable-produces-infinitely-many-solutions">A free variable produces infinitely many solutions</h3>
 <p>For the consistent echelon system</p>
 <p><span class="math display">\[\begin{align*}
 x+2y-z&amp;=2\\
@@ -1414,8 +1467,9 @@ x=\frac{-4-z}{5}
 \]</span></p>
 <p>Different values of <span class="math inline">\(z\)</span> give infinitely many solutions</p>
 </section>
-<section id="now-the-three-outcomes-are-visible" class="slide level2">
-<h2>Now the three outcomes are visible</h2>
+<section class="slide level2">
+
+<h3 id="now-the-three-outcomes-are-visible">Now the three outcomes are visible</h3>
 <p>After elimination:</p>
 <table class="caption-top">
 <colgroup>
@@ -1453,8 +1507,8 @@ x=\frac{-4-z}{5}
 </div>
 <p><span class="math inline">\(\exstar\)</span> Why would two distinct solutions force infinitely many?</p>
 </section>
-<section id="a-resistance-network" class="slide level2">
-<h2>A resistance network</h2>
+<section id="resistance-circuit" class="slide level2">
+<h2>Resistance circuit</h2>
 <h3 id="a-reasonable-circuit">A reasonable circuit</h3>
 <div class="columns">
 <div class="column" style="width:47%;">
@@ -1474,7 +1528,7 @@ x=\frac{-4-z}{5}
       &amp; -2I_2 &amp; +4I_3 &amp; =0
 \end{matrix}
 \]</span></p>
-<p><span class="math inline">\(\exstar\)</span> Use Gaussian elimination to obtain</p>
+<p><span class="math inline">\(\exstar\)</span> Verify by <span class="alert">Gaussian elimination</span> that</p>
 <p><span class="math display">\[
 (I_1,I_2,I_3)=(3.6,1.8,0.9)\,\mathrm{mA}
 \]</span></p>
@@ -1504,7 +1558,7 @@ x=\frac{-4-z}{5}
      &amp; -2I_2 &amp; +4I_3 &amp; =0
 \end{matrix}
 \]</span></p>
-<p>The first row is already the contradiction</p>
+<p>The first row is already the <span class="alert">contradiction</span></p>
 <p><span class="math display">\[
 [\,0\quad0\quad0\mid9\,]
 \]</span></p>
@@ -1512,14 +1566,114 @@ x=\frac{-4-z}{5}
 <p>The idealized short-circuit model is inconsistent</p>
 </div>
 </div></div>
+</section>
+<section id="row-operations-are-reversible-matrix-actions" class="slide level2">
+<h2>Row operations are reversible matrix actions</h2>
+<p>Matrix multiplication gives an <span class="alert">algebraic representation</span> of the same row operations in the language of vectors and matrices</p>
+<h3 id="the-same-step-is-left-multiplication">The same step is left multiplication</h3>
+<p>The <span class="math inline">\(3\times3\)</span> <span class="alert">identity matrix</span> has ones on its diagonal and zeros elsewhere:</p>
+<p><span class="math display">\[
+\mat{I}=
+\begin{bmatrix}
+1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;1
+\end{bmatrix}
+\xrightarrow{R_2\leftarrow R_2-2R_1}
+\mat{M}_1=
+\begin{bmatrix}
+1&amp;0&amp;0\\-2&amp;1&amp;0\\0&amp;0&amp;1
+\end{bmatrix}
+\]</span></p>
+<p>Then <span class="alert">left multiplication</span> performs that row operation:</p>
+<p><span class="math display">\[
+\mat{M}_1[\,\mat{A}\mid\vct{b}\,]
+=
+\left[\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-7\\3&amp;1&amp;2&amp;1
+\end{array}\right]
+\]</span></p>
+<div class="key-point">
+<p><span class="math inline">\(\mat{M}_1\)</span> is an <span class="alert">elementary matrix</span>: equation operation, row operation, and matrix multiplication describe the same step</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="try-it-connect-the-three-views">Try it: connect the three views</h3>
+<p><span class="math inline">\(\exstar\)</span> Return to the operation that eliminated <span class="math inline">\(x\)</span> from equation <span class="math inline">\(E_3\)</span>:</p>
+<p><span class="math display">\[
+E_3\leftarrow E_3-3E_1
+\]</span></p>
+<ol type="1">
+<li>Write the corresponding operation on row <span class="math inline">\(R_3\)</span></li>
+<li>Build <span class="math inline">\(\mat{M}_2\)</span> by applying that row operation to <span class="math inline">\(\mat{I}\)</span></li>
+<li>Verify that <span class="math inline">\(\mat{M}_2[\,\mat{A}\mid\vct{b}\,]\)</span> produces the same augmented matrix</li>
+</ol>
+<div class="key-point">
+<p>Before computing: which rows must remain unchanged?</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="undoing-restores-the-original-system">Undoing restores the original system</h3>
+<p>Undo <span class="math inline">\(R_2\leftarrow R_2-2R_1\)</span> with <span class="math inline">\(R_2\leftarrow R_2+2R_1\)</span>:</p>
+<p><span class="math display">\[
+\mat{N}_1=
+\begin{bmatrix}
+1&amp;0&amp;0\\2&amp;1&amp;0\\0&amp;0&amp;1
+\end{bmatrix}
+\]</span></p>
+<p>Indeed,</p>
+<p><span class="math display">\[
+\mat{N}_1\mat{M}_1=\mat{I}
+=
+\begin{bmatrix}
+1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;1
+\end{bmatrix}
+\]</span></p>
+<p>Associativity shows that the whole system is restored:</p>
+<p><span class="math display">\[
+\mat{N}_1\bigl(\mat{M}_1[\,\mat{A}\mid\vct{b}\,]\bigr)
+=(\mat{N}_1\mat{M}_1)[\,\mat{A}\mid\vct{b}\,]
+=[\,\mat{A}\mid\vct{b}\,]
+\]</span></p>
+<div class="key-point">
+<p><a href="02-inverses-and-invertibility.html">Inverses</a> will call <span class="math inline">\(\mat{N}_1\)</span> the <span class="alert">inverse</span> of <span class="math inline">\(\mat{M}_1\)</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="elimination-is-an-ordered-product">Elimination is an ordered product</h3>
+<p>If elimination applies <span class="math inline">\(\mat{M}_1,\ldots,\mat{M}_k\)</span>, then</p>
+<p><span class="math display">\[
+\mat{M}_k\cdots\mat{M}_1
+[\,\mat{A}\mid\vct{b}\,]
+=
+[\,\mat{U}\mid\vct{c}\,]
+\]</span></p>
+<p>This product records the elimination algebraically; it <span class="alert">need not be formed</span> to solve the system</p>
+<ul>
+<li>the <span class="alert">rightmost matrix</span> <span class="math inline">\(\mat{M}_1\)</span> acts first</li>
+</ul>
+<div class="key-point">
+<p>Matrix multiplication is <span class="alert">associative</span>: factors may be regrouped. It is generally <span class="alert">not commutative</span>: factors may not be reordered.</p>
+</div>
 </section></section>
+<section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
+<h1>Big Ideas</h1>
+<ul>
+<li><span class="alert">Equations show the details</span>; <span class="alert">augmented matrices compress the same information</span> for computation; <span class="alert">elementary matrices encode row operations algebraically</span></li>
+<li>Reversible row operations preserve the solution set</li>
+<li>Dot products express individual equations; matrix multiplication collects many dot products and composes actions</li>
+<li>Pivots organize elimination and reveal whether a system has <span class="alert">zero, one, or infinitely many solutions</span></li>
+<li>Compute only what the problem requires: direct elimination solves the system; elementary-matrix products record the process but need not be formed</li>
+</ul>
+</section>
+
 <section>
 <section id="compute-and-look-ahead" class="title-slide slide level1 center">
 <h1>Compute and Look Ahead</h1>
 <p>Use computation to carry out row operations—not to replace interpretation</p>
 <ul>
 <li><a href="#/companion-computation">Companion computation</a></li>
-<li><a href="#/reversibility-will-become-a-matrix-property">Reversibility will become a matrix property</a></li>
 <li><a href="#/where-this-leads">Where this leads</a></li>
 </ul>
 </section>
@@ -1540,21 +1694,6 @@ x=\frac{-4-z}{5}
 <p>Standard kernel: <code>qmcpy</code></p>
 </div></div>
 </section>
-<section id="reversibility-will-become-a-matrix-property" class="slide level2">
-<h2>Reversibility will become a matrix property</h2>
-<p>Each row operation can itself be represented by a matrix <span class="math inline">\(\mat{E}\)</span> acting on the <span class="alert">left</span>:</p>
-<p><span class="math display">\[
-\mat{A}\longmapsto\mat{E}\mat{A},
-\qquad
-\vct{b}\longmapsto\mat{E}\vct{b}
-\]</span></p>
-<p>Undoing the row operation means applying an inverse transformation <span class="math inline">\(\mat{E}^{-1}\)</span></p>
-<div class="key-point">
-<p><span class="alert">Nonsingular</span> means reversible: a nonsingular matrix has an inverse</p>
-</div>
-<p>For now: row operations are reversible transformations of equations</p>
-<p>Later: elementary matrices explain those transformations algebraically</p>
-</section>
 <section id="where-this-leads" class="slide level2">
 <h2>Where this leads</h2>
 <p>Elimination answers a concrete question:</p>
@@ -1569,7 +1708,7 @@ x=\frac{-4-z}{5}
 <li>How does algebra reveal the geometry of the solution set?</li>
 </ul>
 <div class="key-point">
-<p>Next: use matrix structure to understand when transformations are reversible</p>
+<p>Next: <a href="02-inverses-and-invertibility.html" class="alert">when is <span class="math inline">\(\mat{A}\)</span> itself a reversible matrix action?</a></p>
 </div>
 
 </section></section>
@@ -2134,8 +2273,8 @@ x=\frac{-4-z}{5}
     {
       "deck_prev_file": "00-why-linear-algebra.html",
       "deck_prev_title": "Why Linear Algebra?",
-      "deck_next_file": "02-determinants.html",
-      "deck_next_title": "Determinants"
+      "deck_next_file": "02-inverses-and-invertibility.html",
+      "deck_next_title": "Inverses and Invertibility"
     }
     </script>
     

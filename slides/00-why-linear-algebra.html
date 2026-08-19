@@ -711,11 +711,13 @@ Course decks
 <ul>
 <li><a href="00-why-linear-algebra.html" class="alert">Why Linear Algebra?</a></li>
 <li><a href="01-systems-and-matrices.html">Systems and Matrices</a></li>
-<li><a href="02-determinants.html">Determinants</a></li>
-<li><a href="03-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
-<li><a href="04-general-vector-spaces.html">Vector Spaces</a></li>
-<li><a href="05-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
-<li><a href="06-inner-product-spaces.html">Inner Products</a></li>
+<li><a href="02-inverses-and-invertibility.html">Inverses</a></li>
+<li><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a></li>
+<li><a href="04-determinants.html">Determinants</a></li>
+<li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
+<li><a href="06-general-vector-spaces.html">Vector Spaces</a></li>
+<li><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
+<li><a href="08-inner-product-spaces.html">Inner Products</a></li>
 </ul>
 </div><div class="column" style="width:55%;">
 <h3>
@@ -1379,8 +1381,24 @@ prediction
 </ol>
 </div></div>
 <p>May reduce storage and operations by exploiting <span class="alert">structure</span>: sparsity, symmetry, low rank, …</p>
+</section>
+<section class="slide level2">
+
+<h3 id="compute-only-what-the-problem-requires">Compute only what the problem requires</h3>
+<p>Unnecessary computation</p>
+<ul>
+<li>wastes time</li>
+<li>uses memory and energy</li>
+<li>creates additional opportunities for round-off error to accumulate or propagate</li>
+</ul>
+<p>Examples:</p>
+<ul>
+<li>solve <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> directly instead of computing <span class="math inline">\(\mat{A}^{-1}\vct{b}\)</span></li>
+<li>reuse elimination structure or a factorization when many right-hand sides share <span class="math inline">\(\mat{A}\)</span></li>
+<li>exploit sparsity, symmetry, low rank, and other structure</li>
+</ul>
 <div class="key-point">
-<p>Although implementing an algorithm can aid learning, for production work, a tested numerical library is the responsible choice</p>
+<p>Do no unnecessary computation; for production work, use a tested numerical library</p>
 </div>
 <p>Reliable software cannot fix ill-posedness or remove sensitivity inherent in an ill-conditioned problem.</p>
 </section>
@@ -1438,23 +1456,30 @@ prediction
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
+<li><a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">Associativity</a></li>
 <li><a href="01-systems-and-matrices.html#the-augmented-matrix-stores-the-system">Augmented matrix</a></li>
 <li><a href="01-systems-and-matrices.html#back-substitution">Back substitution</a></li>
 <li><a href="#/equivalent-mathematics-unequal-computations">Catastrophic cancellation</a></li>
+<li><a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">Commutativity</a></li>
 <li><a href="#/a-correct-computation-can-still-cost-too-much">Computational cost</a></li>
-<li><a href="01-systems-and-matrices.html#the-bottom-rows-reveal-the-other-possibilities">Consistent / inconsistent system</a></li>
+<li><a href="01-systems-and-matrices.html#read-the-solution-set">Consistent / inconsistent system</a></li>
+<li><a href="02-inverses-and-invertibility.html#covariance-describes-joint-variation">Covariance matrix</a></li>
 <li><a href="01-systems-and-matrices.html#combines-coefficients-and-unknowns">Dot product</a></li>
+<li><a href="01-systems-and-matrices.html#row-operations-are-reversible-matrix-actions">Elementary matrix</a></li>
 <li><a href="01-systems-and-matrices.html#three-reversible-moves">Elementary row operations</a></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
 <li><a href="01-systems-and-matrices.html#elimination">Elimination</a></li>
 <li><a href="01-systems-and-matrices.html#measures-alignment">Euclidean norm</a></li>
-<li><a href="01-systems-and-matrices.html#a-free-variable-produces-infinitely-many-solutions">Free variable</a></li>
+<li><a href="01-systems-and-matrices.html#read-the-solution-set">Free variable</a></li>
+<li><a href="02-inverses-and-invertibility.html#reduce-beside-the-identity">Gauss–Jordan reduction</a></li>
 <li><a href="01-systems-and-matrices.html#a-linear-equation-describes-a-hyperplane">Hyperplane</a></li>
+<li><a href="01-systems-and-matrices.html#row-operations-are-reversible-matrix-actions">Identity matrix</a></li>
 <li><a href="#/almost-parallel-almost-unknowable">Ill-conditioned problem</a></li>
 <li><a href="#/too-little-information-many-answers">Ill-posed problem</a></li>
 <li><a href="#/represent-a-network-by-an-incidence-matrix">Incidence matrix</a></li>
+<li><a href="02-inverses-and-invertibility.html#an-inverse-undoes-a-matrix-action">Inverse matrix</a></li>
 </ul>
 </div></div>
 </section>
@@ -1465,20 +1490,23 @@ prediction
 <div class="column" style="width:50%;">
 <ul>
 <li><a href="#/when-the-constraints-cannot-all-be-satisfied">Least squares</a></li>
+<li><a href="02-inverses-and-invertibility.html#production-creates-internal-demand">Leontief input–output model</a></li>
 <li><a href="01-systems-and-matrices.html#from-one-equation-to-systems-of-equations">Linear system</a></li>
 <li><a href="#/represent-objects-numerically">Matrix</a></li>
 <li><a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">Matrix–matrix multiplication</a></li>
 <li><a href="01-systems-and-matrices.html#each-equation-is-one-dot-product">Matrix–vector multiplication</a></li>
+<li><a href="02-inverses-and-invertibility.html#invertible-or-singular">Nonsingular / singular matrix</a></li>
 <li><a href="#/equivalent-mathematics-unequal-computations">Numerical instability</a></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
 <li><a href="01-systems-and-matrices.html#measures-alignment">Orthogonal vectors</a></li>
 <li><a href="01-systems-and-matrices.html#parallel-vectors-point-along-one-line">Parallel vectors</a></li>
-<li><a href="01-systems-and-matrices.html#pivots-organize-elimination">Pivot</a></li>
+<li><a href="01-systems-and-matrices.html#eliminate-and-organize-with-pivots">Pivot</a></li>
+<li><a href="02-inverses-and-invertibility.html#precision-describes-conditional-structure">Precision matrix</a></li>
 <li><a href="#/what-does-the-system-tell-us">Redundant constraint</a></li>
 <li><a href="01-systems-and-matrices.html#three-reversible-moves">Reversible transformation</a></li>
-<li><a href="01-systems-and-matrices.html#pivots-organize-elimination">Row echelon form</a></li>
+<li><a href="01-systems-and-matrices.html#eliminate-and-organize-with-pivots">Row echelon form</a></li>
 </ul>
 </div></div>
 </section>
