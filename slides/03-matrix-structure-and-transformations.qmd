@@ -5,7 +5,7 @@ deck_title: "{{< meta decks.d03.title >}}"
 deck_short_title: "{{< meta decks.d03.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 3</span>
+  <span class="deck-meta">{{< meta texts.anton.short >}} §§1.7–1.9</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">
@@ -18,6 +18,6 @@ include-after-body:
       </script>
 ---
 
-# Euclidean vector spaces
+# Matrix Structure and Transformations
 
-Chapter 3 content will be developed in this deck.
+Anton §§1.7–1.9 content will be developed in this deck.

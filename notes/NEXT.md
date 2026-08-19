@@ -2,60 +2,70 @@
 
 ## Current task
 
-Review and refine the Lecture 01 companion notebook draft.
+Develop Deck 03: Matrix Structure and Transformations.
 
 ## Current state
 
-- Deck numbering and the remaining Chapter 1 architecture have been decided
-  but not yet implemented. Decks will be numbered sequentially by teaching
-  order rather than Anton chapter: Deck 01 remains Systems and Matrices, Deck
-  02 will cover Inverses and Invertibility, Deck 03 will cover Matrix
-  Structure and Transformations, and the current Chapter 2–6 placeholders
-  will become Decks 04–08. Anton coverage will appear separately in deck
-  metadata and title-slide subtitles, and applications will be woven into the
-  theory and methodology they motivate.
-- Lecture 01 instructor review is complete through the end of the deck. The
-  heading hierarchy and section-overview links have been audited, and all
-  seven decks render successfully.
-- The deck begins with scalar equations and concrete zero/one/infinitely-many
-  solution sets, develops elimination on equations, and only then introduces
-  dot products, matrix multiplication, `\mat{A}\vct{x}=\vct{b}`, augmented
-  matrices, pivots, echelon form, consistency, and free variables. Reduced row
-  echelon form is intentionally omitted from Deck 01 because its computation
-  uses Gaussian elimination and back substitution; Gauss–Jordan reduction is
-  deferred to Deck 02, where reducing `[A | I]` to `[I | A^{-1}]` gives it a
-  structural purpose.
-- One recurring three-variable system connects equation-level elimination to
-  augmented-matrix elimination and now has solution $(-1,2,1)$. The deck also
-  includes a required row exchange, reverse-engineered inconsistent and
-  dependent three-plane systems, and readable geometric diagrams. Its
-  resistance-network exercise uses three clockwise mesh currents and a
-  coupled $3\times3$ system; replacing the first top and left vertical
-  resistances by ideal wires creates a short circuit and the contradiction
-  row $[\,0\ 0\ 0\mid9\,]$.
-- `notebooks/demonstrations/01-systems-and-matrices.ipynb` is now an executable
-  32-cell working draft linked from the deck and the Notebooks page. It uses
-  SymPy for exact row operations, echelon forms, augmented-rank classification,
-  parameterized solutions, and exact residuals; it uses NumPy for unique
-  floating-point solves, numerical residuals, and rank checks. Prediction
-  prompts precede the zero/one/infinitely-many comparison and the
-  resistance-network computations.
-- The recurring system is isolated in one clearly marked editable `A`, `b`
-  cell. Exact reusable routines display every forward-elimination operation
-  and each bottom-to-top back-substitution calculation. Student directions
-  explain how to change the equations and restart and run all cells; singular
-  edits report that unique back substitution or a NumPy square solve does not
-  apply instead of stopping execution.
-- All 15 code cells execute without errors using the `qmcpy` kernel. The draft
-  explicitly warns that numerical rank deficiency does not distinguish no
-  solutions from infinitely many and keeps the exact SymPy analysis
-  authoritative for that distinction.
-- Shared presentation guidance now names the 47%–6%–47% two-column layout the
-  **Pomona gutter**.
+- The sequential Deck 00–08 architecture is implemented. Deck 01 remains
+  Systems and Matrices, Deck 02 is Inverses and Invertibility, Deck 03 is the
+  placeholder for Matrix Structure and Transformations, and Anton Chapters
+  2–6 are represented by Decks 04–08. Metadata, previous/next navigation,
+  course maps, schedule links, and internal links use the new numbering.
+- `slides/02-inverses-and-invertibility.qmd` is a concise, 28-slide,
+  instructor-reviewed deck covering Anton §§1.4–1.6 and an integrated §1.11
+  Leontief input–output
+  application. It develops inverse matrices, inverse algebra, Gauss–Jordan
+  reduction of `[A | I]` to `[I | A^{-1}]`, equivalent signs of invertibility,
+  and the distinction between conceptual inverses and direct computational
+  solves. The standalone $2\times2$ inverse formula is intentionally omitted;
+  determinants remain in Deck 04. The deck now opens by contrasting Deck 01's
+  rectangular setting with its square-matrix focus. It derives a nonzero null
+  vector for singular $\mat{A}$ from a missing pivot and free variable, then
+  shows explicitly why the right-hand side determines no solutions versus
+  infinitely many. A high-level Gaussian-process application now interprets
+  covariance as joint variation and precision as conditional structure and
+  covariance-aware weighting, while reinforcing solves rather than explicit
+  inversion.
+- Deck 01 now develops elementary matrices through a continuing three-equation
+  example and a student exercise that connect an equation operation, the
+  corresponding augmented-matrix row operation, and left multiplication by a
+  row-operation matrix. The notation distinguishes $E_i$ for equations, $R_i$
+  for matrix rows, and $\mat{M}_j$ for row-operation matrices. `Eliminate on
+  Matrices` now completes direct augmented-matrix elimination, pivots, back
+  substitution, solution-set interpretation, and a resistance-circuit
+  application before reinterpreting row operations as matrix actions. It
+  identifies direct row operations as the computational method closest to
+  software and elementary matrices as an algebraic representation that need
+  not be formed for a solve. The section then writes elimination as an ordered
+  product and distinguishes associativity (regrouping is allowed) from
+  noncommutativity (reordering is not). Deck 01 previews inverses by pairing the
+  $3\times3$ matrix $\mat{M}_1$ with an undoing matrix $\mat{N}_1$ satisfying
+  $\mat{N}_1\mat{M}_1=\mat{I}$; Deck 02 reuses the same pair, defines an inverse,
+  and identifies $\mat{N}_1=\mat{M}_1^{-1}$ before explaining why elementary
+  matrices are invertible. Deck 02 explicitly notes the special commuting pair
+  $\mat{A}\mat{A}^{-1}=\mat{I}=\mat{A}^{-1}\mat{A}$ and uses associativity to
+  derive the reverse-order product rule. It closes by handing off to Deck 03's
+  matrix structure and transformation geometry. Course maps in Decks 00–02
+  show the full Deck 00–08 sequence.
+- The course-wide computational principle is now explicit in Deck 00 and
+  `notes/COURSE-PHILOSOPHY.md`: compute only what the problem requires because
+  unnecessary work wastes time and creates more opportunities for round-off
+  error to accumulate or propagate. For one or a few right-hand sides, use
+  Gaussian elimination and back substitution; for many right-hand sides,
+  reuse elimination structure or a factorization; compute an explicit inverse
+  when the inverse itself is the object of interest.
+- Decks 01 and 02 now close their substantive content with gold-bordered `Big
+  Ideas` summaries before the next-deck handoff, and their Course Maps link to
+  those summaries. `AUTHOR_WORKFLOW.md` records this as the convention for each
+  completed instructional deck beginning with Deck 01.
+- The Lecture 01 companion notebook has been instructor-reviewed and was
+  judged fine for now; no further notebook revisions were requested during
+  this task.
 
 ## Questions to resolve
 
-- Whether the draft has the right depth and pacing for its first classroom use.
+- Which Anton §§1.7–1.9 ideas should carry the most classroom weight in Deck
+  03 while preserving the established representation-and-action narrative.
 
 ## Constraints
 
@@ -63,19 +73,22 @@ Review and refine the Lecture 01 companion notebook draft.
   notation.
 - Number decks by teaching sequence, show Anton coverage separately, and
   integrate applications with the theory or methodology they motivate.
-- Preserve the equations-first, reversibility-first narrative.
+- Preserve the equations-first, reversibility-first narrative and the smooth
+  transition from Deck 01.
+- Reserve $E_i$ for equations, $R_i$ for matrix rows, and $\mat{M}_j$ for
+  row-operation matrices.
+- Do not teach the special $2\times2$ inverse formula before determinants;
+  use Gauss–Jordan reduction to compute an inverse.
+- Do not present explicit inversion as the routine way to solve linear
+  systems. Use Gauss–Jordan reduction because it is useful for finding the
+  inverse itself, while retaining Gaussian elimination and back substitution
+  for one or a few right-hand sides.
 - Keep mathematical exposition authoritative in the RevealJS deck.
-- Treat the notebook as a computational companion rather than a second source
-  of mathematical content.
-- Use SymPy `Matrix` for readable matrix displays and the `qmcpy` kernel.
-- Use NumPy for floating-point solves and residual checks without letting
-  numerical rank heuristics replace exact structural interpretation.
 - Reuse the established course-wide diagram primitives before adding
   deck-specific styling.
 
 ## Done when
 
-- The working draft has been instructor-reviewed and refined into a polished
-  computational companion that executes cleanly with the `qmcpy` kernel,
-  supports rather than duplicates the deck, and preserves working deck and
-  website links.
+- Deck 03 has an instructor-reviewable draft with a smooth Deck 02→03→04
+  handoff, accurate Anton coverage, integrated applications where appropriate,
+  and visibly sound slides at the standard RevealJS viewport.

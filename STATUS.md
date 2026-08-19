@@ -16,13 +16,14 @@ Mathematical content should be maintained only in the slides.
    the three-deck Chapter 1 teaching sequence and application integration.
 7. [x] Develop and validate the first Python demonstration.
 8. [x] Construct and execute the Lecture 01 companion notebook draft.
-9. [ ] Review and finalize the Lecture 01 companion notebook.
-10. [ ] Implement the sequential Deck 00–08 architecture: create Decks 02 and
+9. [x] Review and finalize the Lecture 01 companion notebook.
+10. [x] Implement the sequential Deck 00–08 architecture: create Decks 02 and
     03, renumber the current Chapter 2–6 placeholders as Decks 04–08, and
     update all metadata, navigation, schedule, course-map, and internal links.
-11. [ ] Develop Deck 02: Inverses and Invertibility.
-12. [ ] Develop Deck 03: Matrix Structure and Transformations.
-13. [ ] Decide and document the Canvas quiz strategy.
+11. [x] Draft Deck 02: Inverses and Invertibility.
+12. [x] Review and refine Deck 02 for classroom use.
+13. [ ] Develop Deck 03: Matrix Structure and Transformations.
+14. [ ] Decide and document the Canvas quiz strategy.
 
 ## Later course construction
 

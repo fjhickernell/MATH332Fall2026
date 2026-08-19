@@ -117,7 +117,7 @@ RevealJS, so notebooks should use self-contained notation when necessary.
 
 Render the root website and the independent `slides/` project. Stage slide
 output beneath `_site/slides` for an assembled-site check. Review every
-warning or error, verify all seven decks and their navigation, and keep
+warning or error, verify all nine decks and their navigation, and keep
 generated files out of Git.
 
 ## Git and checkpoints

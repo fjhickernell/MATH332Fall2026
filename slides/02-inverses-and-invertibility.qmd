@@ -1,0 +1,669 @@
+---
+title: "{{< meta course_title >}}"
+deck_id: d02
+deck_title: "{{< meta decks.d02.title >}}"
+deck_short_title: "{{< meta decks.d02.short_title >}}"
+subtitle: |
+  <span class="deck-title">{{< meta deck_title >}}</span><br>
+  <span class="deck-meta">{{< meta texts.anton.short >}} §§1.4–1.6, 1.11</span>
+include-after-body:
+  - text: |
+      <script id="deck-nav-meta" type="application/json">
+      {
+        "deck_prev_file": "{{< meta decks.d01.file >}}",
+        "deck_prev_title": "{{< meta decks.d01.title >}}",
+        "deck_next_file": "{{< meta decks.d03.file >}}",
+        "deck_next_title": "{{< meta decks.d03.title >}}"
+      }
+      </script>
+---
+
+# Course Map
+
+::: {.columns}
+::: {.column width="45%"}
+<h3>Course decks</h3>
+
+- [Why Linear Algebra?]({{< meta decks.d00.file >}})
+- [Systems and Matrices]({{< meta decks.d01.file >}})
+- [Inverses]({{< meta decks.d02.file >}}){.alert}
+- [Matrix Transformations]({{< meta decks.d03.file >}})
+- [Determinants]({{< meta decks.d04.file >}})
+- [Euclidean Spaces]({{< meta decks.d05.file >}})
+- [Vector Spaces]({{< meta decks.d06.file >}})
+- [Eigenvalues]({{< meta decks.d07.file >}})
+- [Inner Products]({{< meta decks.d08.file >}})
+:::
+
+::: {.column width="55%"}
+<h3>In this deck</h3>
+
+- [From Row Operations to Inverses](#from-row-operations-to-inverses)
+- [Inverse Algebra](#inverse-algebra)
+- [Compute an Inverse](#compute-an-inverse)
+- [Invertibility and Linear Systems](#invertibility-and-linear-systems)
+- [Leontief Input–Output Models](#leontief-inputoutput-models)
+- [Gaussian Covariance and Precision](#gaussian-covariance-and-precision)
+- [Big Ideas](#big-ideas)
+- [What Comes Next](#what-comes-next)
+:::
+:::
+
+# From Row Operations to Inverses
+
+Undoing a row operation leads directly to the idea of an inverse matrix
+
+- [Why square matrices?](#why-square-matrices)
+- [An inverse undoes a matrix action](#an-inverse-undoes-a-matrix-action)
+- [Elementary matrices are invertible](#elementary-matrices-are-invertible)
+- [Invertible or singular](#invertible-or-singular)
+
+## Why square matrices?
+
+::: {.columns}
+::: {.column width="47%"}
+### [Systems and Matrices]({{< meta decks.d01.file >}}): rectangular allowed
+
+$$
+\mat{A}\in\reals^{m\times n}
+$$
+
+- $m$ equations
+- $n$ unknowns
+- $m$ and $n$ need not agree
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### [Inverses]({{< meta decks.d02.file >}}): square throughout
+
+$$
+\mat{A}\in\reals^{n\times n}
+$$
+
+- $n$ equations
+- $n$ unknowns
+- a two-sided inverse may exist
+:::
+:::
+
+A [two-sided inverse]{.alert} must undo $\mat{A}$ in both orders:
+
+$$
+\mat{A}^{-1}\mat{A}=\mat{I}_n,
+\qquad
+\mat{A}\mat{A}^{-1}=\mat{I}_n
+$$
+
+::: {.key-point}
+This deck focuses on [square matrices]{.alert}; rectangular matrices remain important but cannot have a two-sided inverse
+:::
+
+## An inverse undoes a matrix action
+
+The identity matrix leaves every vector unchanged:
+
+$$
+\mat{I}\vct{x}=\vct{x}
+$$
+
+An [inverse]{.alert} of a square matrix $\mat{A}$ undoes its action on both sides:
+
+$$
+\mat{A}^{-1}\mat{A}=\mat{I},
+\qquad
+\mat{A}\mat{A}^{-1}=\mat{I}
+$$
+
+Matrix multiplication is generally [not commutative]{.alert}, but a matrix and its inverse [do commute]{.alert}: both products equal $\mat{I}$
+
+::: {.key-point}
+$\mat{A}$ is [invertible]{.alert}, or [nonsingular]{.alert}, when $\mat{A}^{-1}$ exists
+:::
+
+## Elementary matrices are invertible
+
+Recall from [Systems and Matrices]({{< meta decks.d01.file >}}#/undoing-restores-the-original-system): $\mat{M}_1$ performs $R_2\leftarrow R_2-2R_1$, while $\mat{N}_1$ performs the reverse operation $R_2\leftarrow R_2+2R_1$:
+
+$$
+\mat{M}_1=
+\begin{bmatrix}
+1&0&0\\-2&1&0\\0&0&1
+\end{bmatrix},
+\qquad
+\mat{N}_1=
+\begin{bmatrix}
+1&0&0\\2&1&0\\0&0&1
+\end{bmatrix}
+$$
+
+A direct check gives
+
+$$
+\mat{N}_1\mat{M}_1=\mat{I}
+=\mat{M}_1\mat{N}_1
+$$
+
+Now we can write $\mat{N}_1=\mat{M}_1^{-1}$
+
+::: {.key-point}
+Every elementary matrix is invertible; its inverse performs the reverse row operation
+:::
+
+## Invertible or singular
+
+For a square matrix $\mat{A}$:
+
+::: {.columns}
+::: {.column width="47%"}
+### Invertible = nonsingular
+
+$\mat{A}^{-1}$ exists
+
+- every output $\vct{b}=\mat{A}\vct{x}$ has [exactly one input]{.alert} $\vct{x}$
+- distinct inputs produce distinct outputs—no information is lost
+- in echelon form, [every row and column has a pivot]{.alert}
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### Singular
+
+$\mat{A}^{-1}$ does not exist
+
+- some $\vct{b}$ [cannot be reached]{.alert} as $\mat{A}\vct{x}$
+- distinct inputs can produce the same output—information is lost
+- in echelon form, [at least one row and one column have no pivot]{.alert}
+:::
+:::
+
+::: {.key-point}
+Use pivots to test invertibility: row-reduce $\mat{A}$ and inspect its echelon form
+
+Some treatments invoke determinants here; [we will defer them]{.alert}. Elimination reveals the pivots directly, while a computed determinant can be unreliable when $\mat{A}$ is nearly singular.
+:::
+
+# Inverse Algebra
+
+An inverse is unique, and order remains essential
+
+- [The inverse is unique](#the-inverse-is-unique)
+- [Undo products in reverse order](#undo-products-in-reverse-order)
+
+## The inverse is unique
+
+Suppose $\mat{B}$ and $\mat{C}$ both invert $\mat{A}$. Then
+
+$$
+\mat{B}
+=\mat{B}\mat{I}
+=\mat{B}(\mat{A}\mat{C})
+=(\mat{B}\mat{A})\mat{C}
+=\mat{I}\mat{C}
+=\mat{C}
+$$
+
+Therefore an invertible matrix has exactly one inverse, denoted $\mat{A}^{-1}$
+
+::: {.key-point}
+Verify a proposed inverse in both orders: $\mat{B}\mat{A}=\mat{I}=\mat{A}\mat{B}$
+:::
+
+## Undo products in reverse order
+
+If $\mat{A}$ and $\mat{B}$ are invertible, then
+
+$$
+(\mat{A}\mat{B})^{-1}=\mat{B}^{-1}\mat{A}^{-1}
+$$
+
+[Associativity]{.alert} lets us regroup without changing the order:
+
+$$
+(\mat{A}\mat{B})(\mat{B}^{-1}\mat{A}^{-1})
+=\mat{A}\mat{I}\mat{A}^{-1}=\mat{I}
+$$
+
+There is no standard matrix quotient $\mat{B}/\mat{A}$: the products
+$\mat{A}^{-1}\mat{B}$ and $\mat{B}\mat{A}^{-1}$ generally differ
+
+::: {.key-point}
+The rightmost factor acts first; taking an inverse reverses the order
+:::
+
+# Compute an Inverse
+
+Gauss–Jordan reduction records the row operations that turn $\mat{A}$ into $\mat{I}$
+
+- [Reduce beside the identity](#reduce-beside-the-identity)
+- [Find an inverse](#find-an-inverse)
+- [A missing pivot proves singularity](#a-missing-pivot-proves-singularity)
+
+## Reduce beside the identity
+
+Let $\mat{M}_1,\ldots,\mat{M}_k$ represent the successive row operations. The same ordered product acts on both blocks:
+
+\begin{align*}
+\mat{M}_k\cdots\mat{M}_1
+[\,\mat{A}\mid\mat{I}\,]
+&=
+[\,\mat{M}_k\cdots\mat{M}_1\mat{A}
+\mid
+\mat{M}_k\cdots\mat{M}_1\,]\\
+&=
+[\,\mat{I}\mid\mat{M}\,],
+\qquad
+\mat{M}=\mat{M}_k\cdots\mat{M}_1
+\end{align*}
+
+The left block gives $\mat{M}\mat{A}=\mat{I}$. Because $\mat{M}$ is a product of invertible elementary matrices, $\mat{M}=\mat{A}^{-1}$.
+
+::: {.key-point}
+Gaussian elimination solves systems; Gauss–Jordan reduction is useful here because the inverse itself is the goal
+:::
+
+## Find an inverse
+
+For $\mat{A}=\begin{bmatrix}1&1\\2&3\end{bmatrix}$,
+
+$$
+\left[\begin{array}{cc|cc}
+1&1&1&0\\2&3&0&1
+\end{array}\right]
+\xrightarrow{R_2\leftarrow R_2-2R_1}
+\left[\begin{array}{cc|cc}
+1&1&1&0\\0&1&-2&1
+\end{array}\right]
+$$
+
+$$
+\xrightarrow{R_1\leftarrow R_1-R_2}
+\left[\begin{array}{cc|cc}
+1&0&3&-1\\0&1&-2&1
+\end{array}\right]
+$$
+
+Thus $\mat{A}^{-1}=\begin{bmatrix}3&-1\\-2&1\end{bmatrix}$
+
+## A missing pivot proves singularity
+
+For $\mat{A}=\begin{bmatrix}1&2\\2&4\end{bmatrix}$,
+
+$$
+\left[\begin{array}{cc|cc}
+1&2&1&0\\2&4&0&1
+\end{array}\right]
+\xrightarrow{R_2\leftarrow R_2-2R_1}
+\left[\begin{array}{cc|cc}
+1&2&1&0\\0&0&-2&1
+\end{array}\right]
+$$
+
+The left block cannot become $\mat{I}$: its second pivot is missing
+
+::: {.key-point}
+Failure is information: the matrix is singular, so no inverse exists
+:::
+
+# Invertibility and Linear Systems
+
+One structural property controls every system $\mat{A}\vct{x}=\vct{b}$
+
+- [One theorem, many viewpoints](#one-theorem-many-viewpoints)
+- [Reversible versus information-losing](#reversible-versus-information-losing)
+- [The right-hand side decides](#the-right-hand-side-decides)
+- [Choose the least computation](#choose-the-least-computation)
+
+## One theorem, many viewpoints
+
+For a square $n\times n$ matrix $\mat{A}$, these statements are equivalent:
+
+::: {.columns}
+::: {.column width="50%"}
+- $\mat{A}$ is invertible
+- $\mat{A}$ row-reduces to $\mat{I}$
+- an echelon form of $\mat{A}$ has $n$ pivots
+:::
+
+::: {.column width="50%"}
+- $\mat{A}\vct{x}=\vct{0}$ has only $\vct{x}=\vct{0}$
+- $\mat{A}\vct{x}=\vct{b}$ has exactly one solution for every $\vct{b}$
+- $\mat{A}$ is a product of elementary matrices
+:::
+:::
+
+::: {.key-point}
+These are algebraic, computational, and geometric views of [reversibility]{.alert}
+:::
+
+## Reversible versus information-losing
+
+::: {.columns}
+::: {.column width="47%"}
+### $\mat{A}$ invertible
+
+No pivot is missing, so
+
+$$
+\mat{A}\vct{x}=\vct{0}
+\quad\Longrightarrow\quad
+\vct{x}=\vct{0}
+$$
+
+For every $\vct{b}$,
+
+$$
+\vct{x}=\mat{A}^{-1}\vct{b}
+$$
+
+exists and is unique
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### $\mat{A}$ singular
+
+Row reduction has a missing pivot. The homogeneous system is always consistent, so a nonpivot column gives a free variable.
+
+Choose the free variable(s) to obtain $\vct{z}\ne\vct{0}$ with
+
+$$
+\mat{A}\vct{z}=\vct{0}
+$$
+:::
+:::
+
+::: {.key-point}
+A singular action loses information: $\mat{A}(\vct{x}+t\vct{z})=\mat{A}\vct{x}$ for every $t$
+:::
+
+## The right-hand side decides
+
+For singular square $\mat{A}$, the outcome of $\mat{A}\vct{x}=\vct{b}$ depends on $\vct{b}$
+
+::: {.columns}
+::: {.column width="47%"}
+### Inconsistent
+
+If elimination produces a contradiction,
+
+$$
+[\,0\ \cdots\ 0\mid c\,],
+\qquad c\ne0,
+$$
+
+then there is [no solution]{.alert}
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### Consistent
+
+If $\vct{x}_0$ is one solution and $\mat{A}\vct{z}=\vct{0}$ with $\vct{z}\ne\vct{0}$, then
+
+\begin{align*}
+\mat{A}(\vct{x}_0+t\vct{z})
+&=\mat{A}\vct{x}_0+t\mat{A}\vct{z}\\
+&=\vct{b}+t\vct{0}=\vct{b}
+\end{align*}
+
+for every $t$: there are [infinitely many solutions]{.alert}
+:::
+:::
+
+::: {.key-point}
+For singular square $\mat{A}$, no right-hand side gives exactly one solution: $\vct{b}$ determines none or infinitely many
+:::
+
+## Choose the least computation
+
+::: {.columns}
+::: {.column width="47%"}
+### One or a few right-hand sides
+
+Use Gaussian elimination and back substitution on
+
+$$
+[\,\mat{A}\mid\vct{b}_1\ \cdots\ \vct{b}_k\,]
+$$
+
+Do not compute the entire inverse
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### Many systems, same $\mat{A}$
+
+Reuse the elimination structure or a factorization
+
+Compute $\mat{A}^{-1}$ when the inverse itself is the object of interest
+:::
+:::
+
+::: {.key-point}
+Unnecessary computation costs time and creates more opportunities for round-off error
+:::
+
+# Leontief Input–Output Models
+
+An economy must meet external demand while supporting its own production
+
+- [Production creates internal demand](#production-creates-internal-demand)
+- [One forecast or a response map?](#one-forecast-or-a-response-map)
+- [Check the model, not only the arithmetic](#check-the-model-not-only-the-arithmetic)
+
+## Production creates internal demand
+
+Let
+
+\begin{align*}
+x_i & = \alerttext{gross production}\text{ of sector }i, \\
+d_i & = \alerttext{external demand}\text{ for sector }i, \\
+c_{ij} & = \text{output from sector }i\text{ needed per unit produced by sector }j.
+\end{align*}
+
+For all sectors at once,
+
+$$
+\underbrace{\vct{x}}_{\text{total}}
+=\underbrace{\mat{C}\vct{x}}_{\text{internal}}
++\underbrace{\vct{d}}_{\text{external}}
+$$
+
+Therefore
+
+$$
+(\mat{I}-\mat{C})\vct{x}=\vct{d}
+$$
+
+::: {.key-point}
+The solution $\vct{x}$ is the gross production plan required to meet $\vct{d}$. This is a [static balance model]{.alert}, not an optimization problem or a dynamic steady-state model.
+:::
+
+## One forecast or a response map?
+
+Let
+
+$$
+\mat{C}=\begin{bmatrix}.20&.10\\.30&.25\end{bmatrix},
+\qquad
+\vct{d}=\begin{bmatrix}72\\30\end{bmatrix}
+$$
+
+::: {.columns}
+::: {.column width="47%"}
+### One demand forecast
+
+Solve $(\mat{I}-\mat{C})\vct{x}=\vct{d}$ directly:
+
+$$
+\vct{x}=\begin{bmatrix}100\\80\end{bmatrix}
+$$
+
+This is the gross production required for the specified $\vct{d}$
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### Many possible demands
+
+The response map is
+
+$$
+(\mat{I}-\mat{C})^{-1}
+\approx
+\begin{bmatrix}1.316&.175\\.526&1.404\end{bmatrix}
+$$
+:::
+:::
+
+## Check the model, not only the arithmetic
+
+For $\vct{x}=(100,80)^{\mathsf T}$,
+
+$$
+\mat{C}\vct{x}+\vct{d}
+=\begin{bmatrix}28\\50\end{bmatrix}
++\begin{bmatrix}72\\30\end{bmatrix}
+=\begin{bmatrix}100\\80\end{bmatrix}
+=\vct{x}
+$$
+
+- the inverse columns describe production responses to added demand
+- nonnegative gross production is required for a meaningful plan
+- if $\mat{I}-\mat{C}$ is singular, there is no unique response map
+
+::: {.key-point}
+Interpret the model before trusting the answer
+:::
+
+# Gaussian Covariance and Precision
+
+A preview for later courses in statistics, AI, and data science—no statistics background is required
+
+- [Covariance describes joint variation](#covariance-describes-joint-variation)
+- [Precision describes conditional structure](#precision-describes-conditional-structure)
+
+## Covariance describes joint variation
+
+At selected inputs $t_1,\ldots,t_n$, a Gaussian-process model collects its values into a Gaussian vector:
+
+$$
+\vf=
+\begin{bmatrix}
+f(t_1)&\cdots&f(t_n)
+\end{bmatrix}^{\mathsf T}
+\sim\Norm(\vmu,\mSigma),
+\qquad
+\mSigma_{ij}=K(t_i,t_j)
+$$
+
+::: {.columns}
+::: {.column width="47%"}
+### Diagonal entries
+
+$$
+\mSigma_{ii}=\var(f(t_i))
+$$
+
+describe uncertainty at individual inputs
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### Off-diagonal entries
+
+$$
+\mSigma_{ij}=\cov(f(t_i),f(t_j))
+$$
+
+describe how values at two inputs vary together
+:::
+:::
+
+::: {.key-point}
+For now, remember the role: the square matrix $\mSigma$ records uncertainty and what varies together
+:::
+
+## Precision describes conditional structure
+
+When $\mSigma$ is invertible, its [precision matrix]{.alert} is
+
+$$
+\mQ=\mSigma^{-1}
+$$
+
+::: {.columns}
+::: {.column width="47%"}
+### Statistical meaning
+
+- $\vr^{\mathsf T}\mQ\vr$ weights a departure $\vr=\vf-\vmu$ relative to the expected joint variation
+- for a Gaussian vector, $\mQ_{ij}=0$ means components $i$ and $j$ are conditionally independent given the others
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### Computational meaning
+
+If a calculation needs
+
+$$
+\valpha=\mQ\vr,
+$$
+
+solve
+
+$$
+\mSigma\valpha=\vr
+$$
+
+rather than forming $\mQ$
+:::
+:::
+
+::: {.key-point}
+This is a preview, not a derivation to memorize. Covariance describes what varies together; precision describes conditional relationships and covariance-aware weighting.
+:::
+
+# Big Ideas {data-state="goldborder"}
+
+- An inverse [undoes a square matrix action]{.alert} on both sides: $\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}$
+- A square matrix is invertible exactly when row reduction produces an echelon form with [a pivot in every row and column]{.alert}; then $\mat{A}\vct{x}=\vct{b}$ has exactly one solution for every $\vct{b}$
+- [Gauss–Jordan reduction]{.alert} of $[\,\mat{A}\mid\mat{I}\,]$ computes $\mat{A}^{-1}$ when the inverse itself is needed
+- Products undo in [reverse order]{.alert}; associativity permits regrouping, not reordering
+- Use the [least computation]{.alert} the problem requires: solve directly for one or a few right-hand sides; form a reusable response map only when it is needed
+- Applications give inverses meaning: a Leontief response map connects demand to production; Gaussian precision describes [conditional structure and covariance-aware weighting]{.alert}
+
+# What Comes Next
+
+[Inverses]({{< meta decks.d02.file >}}) asked whether a matrix action can be undone:
+
+$$
+\vct{x}\xrightarrow{\mat{A}}\mat{A}\vct{x}
+\xrightarrow{\mat{A}^{-1}}\vct{x}
+$$
+
+[Matrix Transformations]({{< meta decks.d03.file >}}) asks what matrix structure reveals about the action:
+
+- diagonal, triangular, and symmetric matrices
+- reflections, rotations, projections, and composition
+
+::: {.key-point}
+Next: [connect matrix structure with transformations and geometry]({{< meta decks.d03.file >}}){.alert}
+:::

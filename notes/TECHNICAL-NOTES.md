@@ -48,3 +48,23 @@ details here when they are durable but too specific for `AGENTS.md`.
 - Live browser inspection was unavailable during drafting. Before treating the
   deck as classroom-ready, inspect every slide at the standard RevealJS
   viewport and fix overflow, spacing, pacing, or density issues.
+
+### Chapter 1 deck transition — 2026-08-19
+
+- The dated Lecture 01 notes above describe the first draft, not the current
+  deck. `slides/01-systems-and-matrices.qmd` now has 48 slides and carries the
+  arc from equation operations through augmented-matrix elimination, pivots,
+  solution sets, a resistance circuit, and finally elementary matrices as an
+  algebraic representation of reversible row operations.
+- `slides/02-inverses-and-invertibility.qmd` has 28 slides. It restricts the
+  inverse discussion to square matrices, develops inverse algebra and
+  Gauss–Jordan computation, and treats Leontief production and Gaussian
+  covariance/precision as conceptual applications rather than derivations to
+  memorize.
+- The cumulative glossary in Deck 00 links each term to its first substantial
+  treatment. Application-specific terms introduced in Deck 02, including
+  covariance and precision matrices, belong in that index as they are added.
+- The root site and all nine decks rendered successfully on 2026-08-19. The
+  revised Decks 00–02 course maps, Deck 01 elimination and Big Ideas slides,
+  and Deck 02 framing, applications, and Big Ideas slides were visually
+  checked at the standard RevealJS viewport.

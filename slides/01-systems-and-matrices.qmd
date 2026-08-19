@@ -5,7 +5,7 @@ deck_title: "{{< meta decks.d01.title >}}"
 deck_short_title: "{{< meta decks.d01.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 1</span>
+  <span class="deck-meta">{{< meta texts.anton.short >}} §§1.1–1.3, 1.10</span>
 jupyter: qmcpy
 include-after-body:
   - text: |
@@ -27,11 +27,13 @@ include-after-body:
 
 - [Why Linear Algebra?]({{< meta decks.d00.file >}})
 - [Systems and Matrices]({{< meta decks.d01.file >}}){.alert}
-- [Determinants]({{< meta decks.d02.file >}})
-- [Euclidean Spaces]({{< meta decks.d03.file >}})
-- [Vector Spaces]({{< meta decks.d04.file >}})
-- [Eigenvalues]({{< meta decks.d05.file >}})
-- [Inner Products]({{< meta decks.d06.file >}})
+- [Inverses]({{< meta decks.d02.file >}})
+- [Matrix Transformations]({{< meta decks.d03.file >}})
+- [Determinants]({{< meta decks.d04.file >}})
+- [Euclidean Spaces]({{< meta decks.d05.file >}})
+- [Vector Spaces]({{< meta decks.d06.file >}})
+- [Eigenvalues]({{< meta decks.d07.file >}})
+- [Inner Products]({{< meta decks.d08.file >}})
 :::
 
 ::: {.column width="55%"}
@@ -41,6 +43,7 @@ include-after-body:
 - [Eliminate on Equations](#eliminate-on-equations)
 - [The Dot Product](#the-dot-product)
 - [Eliminate on Matrices](#eliminate-on-matrices)
+- [Big Ideas](#big-ideas)
 - [Compute and Look Ahead](#compute-and-look-ahead)
 :::
 :::
@@ -352,7 +355,7 @@ The original system has the unique solution $(x,y,z)=(-1,2,1)$
 ## Why elimination works
 
 ::: {.columns}
-::: {.column width="52%"}
+::: {.column width="47%"}
 1. Eliminate $x$ below the first equation
 
    $\implies$ an equivalent system
@@ -364,7 +367,10 @@ The original system has the unique solution $(x,y,z)=(-1,2,1)$
 3. Back substitution reveals the solution
 :::
 
-::: {.column width="48%"}
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
 Elimination [does not]{.alert}
 
 - guess a solution
@@ -680,7 +686,9 @@ and likewise for $\mat{B}\in\reals^{n\times p}$ and $\mat{C}=\mat{A}\mat{B}\in\r
 \end{align*}
 
 ::: {.key-point}
-[Matrix–matrix multiplication]{.alert} collects all dot products of rows of the first matrix with columns of the second
+[Matrix–matrix multiplication]{.alert} collects all dot products of rows of the first matrix with columns of the second.
+
+It is [associative but generally not commutative]{.alert}: compatible factors may be regrouped, not reordered.
 :::
 
 ## A general linear system
@@ -739,17 +747,74 @@ Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible oper
 
 # Eliminate on Matrices
 
-- [Matrix elimination repeats the same work](#matrix-elimination-repeats-the-same-work)
-- [Pivots organize elimination](#pivots-organize-elimination)
-- [Read the unique solution by back substitution](#read-the-unique-solution-by-back-substitution)
-- [The bottom row(s) reveal the other possibilities](#the-bottom-rows-reveal-the-other-possibilities)
-- [A free variable produces infinitely many solutions](#a-free-variable-produces-infinitely-many-solutions)
-- [Now the three outcomes are visible](#now-the-three-outcomes-are-visible)
-- [A resistance network](#a-resistance-network)
+[Compute with rows first]{.alert}; reinterpret the same steps as reversible matrix actions later
 
-## Matrix elimination repeats the same work
+- [Translate equations into matrix rows](#translate-equations-into-matrix-rows)
+- [Eliminate and organize with pivots](#eliminate-and-organize-with-pivots)
+- [Read the solution set (back substitution)](#read-the-solution-set)
+- [Resistance circuit](#resistance-circuit)
+- [Row operations are reversible matrix actions](#row-operations-are-reversible-matrix-actions)
 
-Same mathematical work, less repeated notation
+## Translate equations into matrix rows
+
+### One step, two notations
+
+::: {.columns}
+::: {.column width="47%"}
+#### Operate on equations
+
+Start with
+
+$$
+\begin{aligned}
+x+2y-z&=2 &&(E_1)\\
+2x-y+z&=-3 &&(E_2)\\
+3x+y+2z&=1 &&(E_3)
+\end{aligned}
+$$
+
+Apply $E_2\leftarrow E_2-2E_1$:
+
+$$
+-5y+3z=-7
+$$
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+#### Operate on rows
+
+The same coefficients and right-hand sides give
+
+$$
+\begin{gathered}
+\left[\begin{array}{rrr|r}
+1&2&-1&2\\2&-1&1&-3\\3&1&2&1
+\end{array}\right]
+\\[-0.2em]
+\overset{R_2\leftarrow R_2-2R_1}{\Downarrow}
+\\[-0.2em]
+\left[\begin{array}{rrr|r}
+1&2&-1&2\\0&-5&3&-7\\3&1&2&1
+\end{array}\right]
+\end{gathered}
+$$
+:::
+:::
+
+::: {.key-point}
+$E_i$ names an equation; $R_i$ names the corresponding matrix row
+:::
+
+## Eliminate and organize with pivots
+
+For a solve, operate directly on $[\,\mat{A}\mid\vct{b}\,]$; this is closest to the computation carried out by software
+
+### Matrix elimination repeats the same work
+
+Continue the same elimination with compact matrix notation:
 
 \begin{align*}
 &\left[
@@ -771,7 +836,9 @@ Same mathematical work, less repeated notation
 \right]
 \end{align*}
 
-## Pivots organize elimination
+---
+
+### Pivots organize elimination
 
 $$
 \left[
@@ -824,7 +891,11 @@ Now the entry in position $(1,1)$ can organize elimination below it
 When a pivot candidate is zero, exchange rows to bring a nonzero entry into the pivot position
 :::
 
-## Read the unique solution by back substitution
+$\exstar$ After the exchange, which row operation eliminates the $2$ below the new first pivot?
+
+## Read the solution set (back substitution) {#read-the-solution-set}
+
+### Read the unique solution by back substitution
 
 \begin{align*}
 \left[
@@ -848,13 +919,15 @@ Every variable column contains a pivot
 No variable can be chosen freely, so the consistent system has exactly one solution
 :::
 
-## The bottom row(s) reveal the other possibilities {#the-bottom-rows-reveal-the-other-possibilities}
+---
+
+### The bottom row(s) reveal the other possibilities
 
 Suppose elimination instead produced one of these echelon forms
 
 ::: {.columns}
 ::: {.column width="50%"}
-### Contradiction
+#### Contradiction
 
 $$
 \left[
@@ -872,7 +945,7 @@ A bottom row represents the equation $0=2$
 :::
 
 ::: {.column width="50%"}
-### Missing constraint
+#### Missing constraint
 
 $$
 \left[
@@ -898,7 +971,7 @@ Undoing the same elimination steps gives two possible original systems
 
 ::: {.columns}
 ::: {.column width="47%"}
-### Contradiction
+#### Contradiction
 
 \begin{align*}
 x+2y-z&=2\\
@@ -914,7 +987,7 @@ The first two equations imply $3x+y=-1$, which conflicts with the third
 :::
 
 ::: {.column width="47%"}
-### Missing constraint
+#### Missing constraint
 
 \begin{align*}
 x+2y-z&=2\\
@@ -936,7 +1009,7 @@ Reversible row operations let us move between the original planes and the bottom
 
 ::: {.columns}
 ::: {.column width="47%"}
-### No common intersection
+#### No common intersection
 
 <svg class="diagram-image" viewBox="0 0 620 420" width="100%" role="img" aria-label="Three planes with no common intersection. The first two planes meet along a line, while the third plane does not contain that line.">
   <polygon points="70,320 395,370 545,160 220,110" fill="#dceef7" fill-opacity="0.72" stroke="#007acc" stroke-width="6"/>
@@ -958,7 +1031,7 @@ $P_1$ and $P_2$ meet along $L$, but $P_3$ does not contain $L$
 :::
 
 ::: {.column width="47%"}
-### A whole line of solutions
+#### A whole line of solutions
 
 <svg class="diagram-image" viewBox="0 0 620 420" width="100%" role="img" aria-label="Three distinct planes sharing one common line, so every point on the line solves all three equations.">
   <polygon points="75,315 400,365 550,155 225,105" fill="#dceef7" fill-opacity="0.72" stroke="#007acc" stroke-width="5"/>
@@ -979,7 +1052,9 @@ All three planes contain the same solution line $L$
 :::
 :::
 
-## A free variable produces infinitely many solutions
+---
+
+### A free variable produces infinitely many solutions
 
 For the consistent echelon system
 
@@ -1005,7 +1080,9 @@ $$
 
 Different values of $z$ give infinitely many solutions
 
-## Now the three outcomes are visible
+---
+
+### Now the three outcomes are visible
 
 After elimination:
 
@@ -1021,7 +1098,7 @@ A linear system has zero, one, or infinitely many solutions—never exactly two
 
 $\exstar$ Why would two distinct solutions force infinitely many?
 
-## A resistance network
+## Resistance circuit
 
 ### A reasonable circuit
 
@@ -1065,7 +1142,7 @@ $$
 \end{matrix}
 $$
 
-$\exstar$ Use Gaussian elimination to obtain
+$\exstar$ Verify by [Gaussian elimination]{.alert} that
 
 $$
 (I_1,I_2,I_3)=(3.6,1.8,0.9)\,\mathrm{mA}
@@ -1125,7 +1202,7 @@ $$
 \end{matrix}
 $$
 
-The first row is already the contradiction
+The first row is already the [contradiction]{.alert}
 
 $$
 [\,0\quad0\quad0\mid9\,]
@@ -1137,12 +1214,127 @@ The idealized short-circuit model is inconsistent
 :::
 :::
 
+## Row operations are reversible matrix actions
+
+Matrix multiplication gives an [algebraic representation]{.alert} of the same row operations in the language of vectors and matrices
+
+### The same step is left multiplication
+
+The $3\times3$ [identity matrix]{.alert} has ones on its diagonal and zeros elsewhere:
+
+$$
+\mat{I}=
+\begin{bmatrix}
+1&0&0\\0&1&0\\0&0&1
+\end{bmatrix}
+\xrightarrow{R_2\leftarrow R_2-2R_1}
+\mat{M}_1=
+\begin{bmatrix}
+1&0&0\\-2&1&0\\0&0&1
+\end{bmatrix}
+$$
+
+Then [left multiplication]{.alert} performs that row operation:
+
+$$
+\mat{M}_1[\,\mat{A}\mid\vct{b}\,]
+=
+\left[\begin{array}{rrr|r}
+1&2&-1&2\\0&-5&3&-7\\3&1&2&1
+\end{array}\right]
+$$
+
+::: {.key-point}
+$\mat{M}_1$ is an [elementary matrix]{.alert}: equation operation, row operation, and matrix multiplication describe the same step
+:::
+
+---
+
+### Try it: connect the three views
+
+$\exstar$ Return to the operation that eliminated $x$ from equation $E_3$:
+
+$$
+E_3\leftarrow E_3-3E_1
+$$
+
+1. Write the corresponding operation on row $R_3$
+2. Build $\mat{M}_2$ by applying that row operation to $\mat{I}$
+3. Verify that $\mat{M}_2[\,\mat{A}\mid\vct{b}\,]$ produces the same augmented matrix
+
+::: {.key-point}
+Before computing: which rows must remain unchanged?
+:::
+
+---
+
+### Undoing restores the original system
+
+Undo $R_2\leftarrow R_2-2R_1$ with $R_2\leftarrow R_2+2R_1$:
+
+$$
+\mat{N}_1=
+\begin{bmatrix}
+1&0&0\\2&1&0\\0&0&1
+\end{bmatrix}
+$$
+
+Indeed,
+
+$$
+\mat{N}_1\mat{M}_1=\mat{I}
+=
+\begin{bmatrix}
+1&0&0\\0&1&0\\0&0&1
+\end{bmatrix}
+$$
+
+Associativity shows that the whole system is restored:
+
+$$
+\mat{N}_1\bigl(\mat{M}_1[\,\mat{A}\mid\vct{b}\,]\bigr)
+=(\mat{N}_1\mat{M}_1)[\,\mat{A}\mid\vct{b}\,]
+=[\,\mat{A}\mid\vct{b}\,]
+$$
+
+::: {.key-point}
+[Inverses]({{< meta decks.d02.file >}}) will call $\mat{N}_1$ the [inverse]{.alert} of $\mat{M}_1$
+:::
+
+---
+
+### Elimination is an ordered product
+
+If elimination applies $\mat{M}_1,\ldots,\mat{M}_k$, then
+
+$$
+\mat{M}_k\cdots\mat{M}_1
+[\,\mat{A}\mid\vct{b}\,]
+=
+[\,\mat{U}\mid\vct{c}\,]
+$$
+
+This product records the elimination algebraically; it [need not be formed]{.alert} to solve the system
+
+- the [rightmost matrix]{.alert} $\mat{M}_1$ acts first
+
+::: {.key-point}
+Matrix multiplication is [associative]{.alert}: factors may be regrouped. It is generally [not commutative]{.alert}: factors may not be reordered.
+:::
+
+# Big Ideas {data-state="goldborder"}
+
+- [Equations show the details]{.alert}; [augmented matrices compress the same information]{.alert} for computation; [elementary matrices encode row operations algebraically]{.alert}
+- Reversible row operations preserve the solution set
+- Dot products express individual equations; matrix multiplication collects many dot products and composes actions
+- Pivots organize elimination and reveal whether a system has [zero, one, or infinitely many solutions]{.alert}
+- Compute only what the problem requires: direct elimination solves the system; elementary-matrix products record the process but need not be formed
+
 # Compute and Look Ahead
 
 Use computation to carry out row operations—not to replace interpretation
 
 - [Companion computation](#companion-computation)
-- [Reversibility will become a matrix property](#reversibility-will-become-a-matrix-property)
 - [Where this leads](#where-this-leads)
 
 ## Companion computation
@@ -1179,26 +1371,6 @@ Standard kernel: `qmcpy`
 :::
 :::
 
-## Reversibility will become a matrix property
-
-Each row operation can itself be represented by a matrix $\mat{E}$ acting on the [left]{.alert}:
-
-$$
-\mat{A}\longmapsto\mat{E}\mat{A},
-\qquad
-\vct{b}\longmapsto\mat{E}\vct{b}
-$$
-
-Undoing the row operation means applying an inverse transformation $\mat{E}^{-1}$
-
-::: {.key-point}
-[Nonsingular]{.alert} means reversible: a nonsingular matrix has an inverse
-:::
-
-For now: row operations are reversible transformations of equations
-
-Later: elementary matrices explain those transformations algebraically
-
 ## Where this leads
 
 Elimination answers a concrete question:
@@ -1215,5 +1387,5 @@ It also opens structural questions:
 - How does algebra reveal the geometry of the solution set?
 
 ::: {.key-point}
-Next: use matrix structure to understand when transformations are reversible
+Next: [when is $\mat{A}$ itself a reversible matrix action?]({{< meta decks.d02.file >}}){.alert}
 :::

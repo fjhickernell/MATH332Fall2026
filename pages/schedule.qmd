@@ -12,7 +12,7 @@ quizzes, holidays, and examination details are finalized.
 | Week | Date | Topic | Slides / Materials |
 |---:|---|---|---|
 | 1 | Tue Aug 18 | Why linear algebra? and course introduction<br>Systems of Equations | [Why Linear Algebra?](../slides/00-why-linear-algebra.html)<br>[Systems and Matrices](../slides/01-systems-and-matrices.html) |
-| | Thu Aug 20 | | |
+| | Thu Aug 20 | Inverses and invertibility | [Inverses](../slides/02-inverses-and-invertibility.html) |
 | 2 | Tue Aug 25 | | |
 | | Thu Aug 27 | | |
 

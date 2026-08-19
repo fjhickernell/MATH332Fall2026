@@ -54,6 +54,19 @@ content is maintained only once.
 - Prefer readable Quarto Markdown for headings, text, columns, equations, and
   ordinary emphasis. Use raw HTML when a diagram or specialized layout is
   materially easier to construct that way.
+- In slide-editing requests, interpret **highlight** as the established
+  `{.alert}` style and **emphasize** as italic emphasis such as `\emph{}` unless
+  the user specifies another treatment.
+- When prose refers to another course deck, use the metadata-defined short deck
+  title and link it to that deck or the relevant slide. Avoid bare numeric
+  labels such as `Deck 02` unless the deck number or sequence is itself the
+  point.
+- Beginning with Deck 01, each completed instructional deck should close its
+  substantive content with a `# Big Ideas {data-state="goldborder"}` summary
+  slide before any next-deck handoff. Include `Big Ideas` in the Course Map and
+  summarize only ideas earned by that deck, using concise statements and
+  selective `{.alert}` highlighting. Add the slide when a deck is developed;
+  do not invent summaries for placeholders.
 - RevealJS hierarchy exception: inside a `#` section slide, use an HTML `<h3>`
   for a visible tertiary heading because Quarto `###` does not render there as
   intended. Inside a `##` slide, ordinary Quarto `###` headings work normally.
@@ -61,6 +74,10 @@ content is maintained only once.
 - Typeset matrix symbols in sans serif. In RevealJS slides, use `\mat{A}` from
   the JavaScript-provided MathJax macros. JupyterLab does not load those
   macros, so use explicit `\mathsf{A}` in notebook Markdown.
+- Use the shared statistical notation macros in slides, including `\Norm` for
+  the normal distribution and the lowercase Biometrika-style operators `\var`
+  and `\cov`. Do not replace them with ad hoc `\mathcal{N}`, `\operatorname{Var}`,
+  or `\operatorname{Cov}` forms.
 - Mark questions and in-class exercises with `$\exstar$` (or the appropriate
   shared exercise notation). Do not place worked answers later in the
   student-visible deck when they would reveal an activity students should do
@@ -116,7 +133,7 @@ rsync -a --delete slides/_site/ _site/slides/
 ```
 
 After rendering, inspect warnings, open representative website pages and all
-seven decks, verify previous/next deck navigation, and confirm that internal
+nine decks, verify previous/next deck navigation, and confirm that internal
 links and shared `classlib` assets resolve. Do not commit `_site/`, `.quarto/`,
 or other generated output.
 

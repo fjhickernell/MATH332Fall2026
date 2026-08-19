@@ -18,23 +18,31 @@ decks:
     title: Systems of Linear Equations and Matrices
     short_title: Systems and Matrices
   d02:
-    file: 02-determinants.html
+    file: 02-inverses-and-invertibility.html
+    title: Inverses and Invertibility
+    short_title: Inverses
+  d03:
+    file: 03-matrix-structure-and-transformations.html
+    title: Matrix Structure and Transformations
+    short_title: Matrix Transformations
+  d04:
+    file: 04-determinants.html
     title: Determinants
     short_title: Determinants
-  d03:
-    file: 03-euclidean-vector-spaces.html
+  d05:
+    file: 05-euclidean-vector-spaces.html
     title: Euclidean Vector Spaces
     short_title: Euclidean Spaces
-  d04:
-    file: 04-general-vector-spaces.html
+  d06:
+    file: 06-general-vector-spaces.html
     title: General Vector Spaces
     short_title: Vector Spaces
-  d05:
-    file: 05-eigenvalues-and-eigenvectors.html
+  d07:
+    file: 07-eigenvalues-and-eigenvectors.html
     title: Eigenvalues and Eigenvectors
     short_title: Eigenvalues
-  d06:
-    file: 06-inner-product-spaces.html
+  d08:
+    file: 08-inner-product-spaces.html
     title: Inner Product Spaces
     short_title: Inner Products
 
