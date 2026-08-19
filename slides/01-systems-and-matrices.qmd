@@ -254,19 +254,19 @@ $\exstar$ Decide whether each transformation preserves the solution set for ever
 
 ::: {.columns}
 ::: {.column width="50%"}
-1. $E_2\leftarrow E_2-2E_1$
+1. $E_3\leftarrow 0E_3$
 
 2. $E_1\leftrightarrow E_3$
 
-3. $E_1\leftarrow -3E_1$
+3. $E_2\leftarrow E_2-2E_1$
 :::
 
 ::: {.column width="50%"}
 4. $E_2\leftarrow E_1+E_2$, then discard $E_1$
 
-5. $E_3\leftarrow 0E_3$
+5. $E_1\leftarrow -3E_1$
 
-6. $E_1$ \leftarrow$ $E_1^2$
+6. $E_1 \leftarrow E_1^2$
 :::
 :::
 
