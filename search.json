@@ -67,7 +67,7 @@
     "href": "pages/notebooks.html#demonstrations",
     "title": "Jupyter Notebooks",
     "section": "Demonstrations",
-    "text": "Demonstrations\nInstructor demonstrations illustrate linear algebra concepts and connect algebraic calculations with geometric interpretation.\n\nMatrix Computation: NumPy and SymPy — a companion to Lecture 00 introducing numerical and exact matrix calculations, linear systems, least squares, and responsible computation\nSystems and Matrices — a placeholder companion to Lecture 01 that will develop Gaussian elimination, solution-set comparisons, and the resistance-network exercise"
+    "text": "Demonstrations\nInstructor demonstrations illustrate linear algebra concepts and connect algebraic calculations with geometric interpretation.\n\nMatrix Computation: NumPy and SymPy — a companion to Lecture 00 introducing numerical and exact matrix calculations, linear systems, least squares, and responsible computation\nSystems and Matrices — an executable working draft for Lecture 01 combining exact SymPy elimination, back substitution, and classification with NumPy solves, residual checks, and the resistance-network exercise"
   },
   {
     "objectID": "pages/notebooks.html#exercises",
