@@ -18,9 +18,11 @@ Develop the Lecture 01 companion notebook.
 - One recurring three-variable system connects equation-level elimination to
   augmented-matrix elimination and now has solution $(-1,2,1)$. The deck also
   includes a required row exchange, reverse-engineered inconsistent and
-  dependent three-plane systems, readable geometric diagrams, and a
-  three-node resistance-network exercise with a 9 V source and kilohm
-  resistors.
+  dependent three-plane systems, and readable geometric diagrams. Its
+  resistance-network exercise uses three clockwise mesh currents and a
+  coupled $3\times3$ system; replacing the first top and left vertical
+  resistances by ideal wires creates a short circuit and the contradiction
+  row $[\,0\ 0\ 0\mid9\,]$.
 - `notebooks/demonstrations/01-systems-and-matrices.ipynb` is a valid placeholder
   linked from the deck and the Notebooks page. Its planned scope is SymPy
   Gaussian elimination, comparison of zero/one/infinitely-many solution sets,

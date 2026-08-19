@@ -746,6 +746,7 @@ Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible oper
 - [A free variable produces infinitely many solutions](#a-free-variable-produces-infinitely-many-solutions)
 - [Now the three outcomes are visible](#now-the-three-outcomes-are-visible)
 - [A resistance network](#a-resistance-network)
+- [A short circuit creates no solution](#a-short-circuit-creates-no-solution)
 
 ## Matrix elimination repeats the same work
 
@@ -1023,51 +1024,26 @@ $\exstar$ Why would two distinct solutions force infinitely many?
 
 ## A resistance network
 
-Kirchhoff's current law turns conservation of electric current into a linear system
+A $9\,\mathrm{V}$ source drives three coupled current loops
 
 ::: {.columns}
 ::: {.column width="47%"}
-<svg class="diagram-image" viewBox="0 0 820 500" width="100%" role="img" aria-label="A resistor ladder with a 9 volt source and three unknown node voltages. Series resistors connect the source to v one, v one to v two, and v two to v three. Each node also has a resistor to ground.">
-  <line x1="92" y1="140" x2="130" y2="140" stroke="#333" stroke-width="6"/>
-  <polyline points="130,140 145,115 165,165 185,115 205,165 225,115 240,140" fill="none" stroke="#c62828" stroke-width="6"/>
-  <line x1="240" y1="140" x2="270" y2="140" stroke="#333" stroke-width="6"/>
-  <circle cx="270" cy="140" r="10" fill="#007acc"/>
-  <line x1="270" y1="140" x2="300" y2="140" stroke="#333" stroke-width="6"/>
-  <polyline points="300,140 315,115 335,165 355,115 375,165 395,115 410,140" fill="none" stroke="#c62828" stroke-width="6"/>
-  <line x1="410" y1="140" x2="440" y2="140" stroke="#333" stroke-width="6"/>
-  <circle cx="440" cy="140" r="10" fill="#007acc"/>
-  <line x1="440" y1="140" x2="470" y2="140" stroke="#333" stroke-width="6"/>
-  <polyline points="470,140 485,115 505,165 525,115 545,165 565,115 580,140" fill="none" stroke="#c62828" stroke-width="6"/>
-  <line x1="580" y1="140" x2="610" y2="140" stroke="#333" stroke-width="6"/>
-  <circle cx="610" cy="140" r="10" fill="#007acc"/>
-  <line x1="270" y1="140" x2="270" y2="245" stroke="#333" stroke-width="6"/>
-  <polyline points="270,245 245,265 295,285 245,305 295,325 270,345" fill="none" stroke="#c62828" stroke-width="6"/>
-  <line x1="270" y1="345" x2="270" y2="405" stroke="#333" stroke-width="6"/>
-  <line x1="440" y1="140" x2="440" y2="245" stroke="#333" stroke-width="6"/>
-  <polyline points="440,245 415,265 465,285 415,305 465,325 440,345" fill="none" stroke="#c62828" stroke-width="6"/>
-  <line x1="440" y1="345" x2="440" y2="405" stroke="#333" stroke-width="6"/>
-  <line x1="610" y1="140" x2="610" y2="245" stroke="#333" stroke-width="6"/>
-  <polyline points="610,245 585,265 635,285 585,305 635,325 610,345" fill="none" stroke="#c62828" stroke-width="6"/>
-  <line x1="610" y1="345" x2="610" y2="405" stroke="#333" stroke-width="6"/>
-  <line x1="32" y1="140" x2="92" y2="140" stroke="#333" stroke-width="7"/>
-  <line x1="45" y1="200" x2="79" y2="200" stroke="#333" stroke-width="4"/>
-  <line x1="62" y1="200" x2="62" y2="405" stroke="#333" stroke-width="6"/>
-  <text x="20" y="105" font-size="34" font-weight="700">9 V</text>
-  <g stroke="#333" fill="none">
-    <path d="M230 405h80M242 419h56M254 433h32" stroke-width="5"/>
-    <path d="M400 405h80M412 419h56M424 433h32" stroke-width="5"/>
-    <path d="M570 405h80M582 419h56M594 433h32" stroke-width="5"/>
-    <path d="M22 405h80M34 419h56M46 433h32" stroke-width="5"/>
-  </g>
-  <text x="155" y="95" font-size="27" font-weight="700">1 kΩ</text>
-  <text x="325" y="95" font-size="27" font-weight="700">2 kΩ</text>
-  <text x="495" y="95" font-size="27" font-weight="700">1 kΩ</text>
-  <text x="205" y="300" font-size="27" font-weight="700">3 kΩ</text>
-  <text x="375" y="300" font-size="27" font-weight="700">2 kΩ</text>
-  <text x="650" y="300" font-size="27" font-weight="700">1 kΩ</text>
-  <text x="240" y="205" font-size="32" font-style="italic" font-weight="700">v₁</text>
-  <text x="410" y="205" font-size="32" font-style="italic" font-weight="700">v₂</text>
-  <text x="580" y="205" font-size="32" font-style="italic" font-weight="700">v₃</text>
+<svg class="diagram-image" viewBox="0 0 740 500" width="100%" role="img" aria-label="A 9 volt source drives a resistor ladder with three clockwise mesh currents I one, I two, and I three.">
+  <path d="M90 110h100m360 0h70M90 410h530M90 110v95m0 110v95" fill="none" stroke="#333" stroke-width="7"/>
+  <path d="M45 235h90M62 285h56M90 205v30m0 50v30" fill="none" stroke="#333" stroke-width="7"/>
+  <path d="M190 110l18-25 22 50 22-50 22 50 22-50 18 25" fill="none" stroke="#c62828" stroke-width="7"/>
+  <path d="M314 110h52l18-25 22 50 22-50 22 50 22-50 18 25h60" fill="none" stroke="#c62828" stroke-width="7"/>
+  <path d="M314 110v85l-25 15 50 20-50 20 50 20-25 15v125M490 110v85l-25 15 50 20-50 20 50 20-25 15v125M620 110v85l-25 15 50 20-50 20 50 20-25 15v125" fill="none" stroke="#c62828" stroke-width="7"/>
+  <circle cx="190" cy="110" r="10" fill="#007acc"/><circle cx="314" cy="110" r="10" fill="#007acc"/>
+  <circle cx="490" cy="110" r="10" fill="#007acc"/><circle cx="620" cy="110" r="10" fill="#007acc"/>
+  <text x="22" y="265" font-size="32" font-weight="700">9 V</text>
+  <text x="222" y="72" font-size="26" font-weight="700">1 kΩ</text><text x="392" y="72" font-size="26" font-weight="700">2 kΩ</text><text x="522" y="72" font-size="26" font-weight="700">1 kΩ</text>
+  <text x="245" y="255" font-size="26" font-weight="700">3 kΩ</text><text x="420" y="255" font-size="26" font-weight="700">2 kΩ</text><text x="650" y="255" font-size="26" font-weight="700">1 kΩ</text>
+  <path d="M155 335h95M350 335h75M525 335h55" stroke="#007acc" stroke-width="7"/>
+  <path d="M143 335l20-12v24zM338 335l20-12v24zM513 335l20-12v24z" fill="#007acc"/>
+  <text x="175" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₁</text>
+  <text x="365" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₂</text>
+  <text x="530" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₃</text>
 </svg>
 :::
 
@@ -1075,21 +1051,85 @@ Kirchhoff's current law turns conservation of electric current into a linear sys
 :::
 
 ::: {.column width="47%"}
-Apply current balance at $v_1,v_2,v_3$, measuring voltage in $\mathrm{V}$ and resistance in $\mathrm{k}\Omega$
+Add the voltage drops around each clockwise loop, with current in $\mathrm{mA}$
 
-\begin{align*}
-11v_1-3v_2&=54\\
--v_1+4v_2-2v_3&=0\\
--v_2+2v_3&=0
-\end{align*}
-
-$\exstar$ Use Gaussian elimination to obtain the known solution
+For the first loop: $1I_1+3(I_1-I_2)=9$
 
 $$
-(v_1,v_2,v_3)=(5.4,1.8,0.9)\,\mathrm{V}
+\begin{matrix}
+4I_1  & -3I_2 &       & =9\\
+-3I_1 & +7I_2 & -2I_3 & =0\\
+      & -2I_2 & +4I_3 & =0
+\end{matrix}
 $$
 
-Because $\mathrm{V}/\mathrm{k}\Omega=\mathrm{mA}$, every computed branch current is in $\mathrm{mA}$
+$\exstar$ Use Gaussian elimination to obtain
+
+$$
+(I_1,I_2,I_3)=(3.6,1.8,0.9)\,\mathrm{mA}
+$$
+
+::: {.key-point}
+Three loop equations determine three mesh currents
+:::
+:::
+:::
+
+## A short circuit creates no solution
+
+Set the first top resistance and the left vertical resistance to zero
+
+::: {.columns}
+::: {.column width="47%"}
+<svg class="diagram-image" viewBox="0 0 740 500" width="100%" role="img" aria-label="The same three-loop resistor ladder with the first top resistance and the left vertical resistance replaced by zero-resistance wires, creating a short circuit around the 9 volt source.">
+  <path d="M90 110h100m360 0h70M90 410h530M90 110v95m0 110v95" fill="none" stroke="#333" stroke-width="7"/>
+  <path d="M45 235h90M62 285h56M90 205v30m0 50v30" fill="none" stroke="#333" stroke-width="7"/>
+  <path d="M190 110l18-25 22 50 22-50 22 50 22-50 18 25" fill="none" stroke="#c62828" stroke-width="7"/>
+  <path d="M314 110h52l18-25 22 50 22-50 22 50 22-50 18 25h60" fill="none" stroke="#c62828" stroke-width="7"/>
+  <path d="M314 110v85l-25 15 50 20-50 20 50 20-25 15v125M490 110v85l-25 15 50 20-50 20 50 20-25 15v125M620 110v85l-25 15 50 20-50 20 50 20-25 15v125" fill="none" stroke="#c62828" stroke-width="7"/>
+  <circle cx="190" cy="110" r="10" fill="#007acc"/><circle cx="314" cy="110" r="10" fill="#007acc"/>
+  <circle cx="490" cy="110" r="10" fill="#007acc"/><circle cx="620" cy="110" r="10" fill="#007acc"/>
+  <text x="22" y="265" font-size="32" font-weight="700">9 V</text>
+  <text x="222" y="72" font-size="26" font-weight="700">1 kΩ</text><text x="392" y="72" font-size="26" font-weight="700">2 kΩ</text><text x="522" y="72" font-size="26" font-weight="700">1 kΩ</text>
+  <text x="245" y="255" font-size="26" font-weight="700">3 kΩ</text><text x="420" y="255" font-size="26" font-weight="700">2 kΩ</text><text x="650" y="255" font-size="26" font-weight="700">1 kΩ</text>
+  <path d="M155 335h95M350 335h75M525 335h55" stroke="#007acc" stroke-width="7"/>
+  <path d="M143 335l20-12v24zM338 335l20-12v24zM513 335l20-12v24z" fill="#007acc"/>
+  <text x="175" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₁</text>
+  <text x="365" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₂</text>
+  <text x="530" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₃</text>
+  <path d="M190 110h124M314 110v300" fill="none" stroke="#007acc" stroke-width="11"/>
+  <rect x="214" y="45" width="78" height="38" rx="8" fill="#f5f7fb"/>
+  <rect x="224" y="224" width="78" height="38" rx="8" fill="#f5f7fb"/>
+  <text x="220" y="74" font-size="28" font-weight="700" fill="#007acc">0 Ω</text>
+  <text x="230" y="253" font-size="28" font-weight="700" fill="#007acc">0 Ω</text>
+</svg>
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+The first loop now contains a $9\,\mathrm{V}$ source but no resistance
+
+$0I_1+0(I_1-I_2)=9$
+
+$$
+\begin{matrix}
+0I_1 &       &       & =9\\
+     & 4I_2  & -2I_3 & =0\\
+     & -2I_2 & +4I_3 & =0
+\end{matrix}
+$$
+
+The first row is already the contradiction
+
+$$
+[\,0\quad0\quad0\mid9\,]
+$$
+
+::: {.key-point}
+The idealized short-circuit model is inconsistent
+:::
 :::
 :::
 
