@@ -77,6 +77,7 @@ AI can be a capable assistant that helps [solve]{.alert} research problems
 
 - [Ken Ono: How AI Will Unleash a New Kind of Intelligence](https://www.youtube.com/watch?v=jGZOi-7haCw&t=23s)
 - [Terence Tao: Mathematics in the Age of AI](https://teorth.github.io/tao-web/slides/age-of-ai-icm-2026.pdf)
+- [The Washington Post: Mathematicians ask what’s left for humans when AI can do math research](https://www.washingtonpost.com/technology/2026/08/19/mathematicians-ask-whats-left-humans-when-ai-can-do-math-research/)
 
 ::: {.key-point style="margin-top: -0.4em;"}
 We need to understand what AI produces—and learn how to guide it
@@ -94,4 +95,7 @@ The political environment is also [disruptive]{.alert}
 - Terence Tao, “Mathematics in the Age of AI,” public lecture slides,
   International Congress of Mathematicians, July 24, 2026,
   https://teorth.github.io/tao-web/slides/age-of-ai-icm-2026.pdf
+- Miriam Waldvogel, “This may be the first academic profession to see its work
+  taken over by AI,” *The Washington Post*, August 19, 2026,
+  https://www.washingtonpost.com/technology/2026/08/19/mathematicians-ask-whats-left-humans-when-ai-can-do-math-research/
 :::
