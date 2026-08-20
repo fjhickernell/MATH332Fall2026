@@ -54,6 +54,10 @@ content is maintained only once.
 - Prefer readable Quarto Markdown for headings, text, columns, equations, and
   ordinary emphasis. Use raw HTML when a diagram or specialized layout is
   materially easier to construct that way.
+- When a `.key-point` callout contains two or more distinct takeaways, place a
+  standalone `&nbsp;` paragraph between them to create a small visual
+  separation. Do not insert a spacer between clauses that form one definition,
+  contrast, or tightly coupled statement.
 - In slide-editing requests, interpret **highlight** as the established
   `{.alert}` style and **emphasize** as italic emphasis such as `\emph{}` unless
   the user specifies another treatment.

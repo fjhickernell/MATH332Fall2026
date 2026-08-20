@@ -83,6 +83,8 @@ $$
 ::: {.key-point}
 For a positive integer $k$, $\mat{D}^k$ has diagonal entries $d_i^k$
 
+&nbsp;
+
 If every $d_i\ne0$, $\mat{D}^{-1}$ has diagonal entries $1/d_i$
 :::
 
@@ -126,6 +128,8 @@ Zeros lie [below]{.alert} the diagonal
 
 ::: {.key-point}
 A triangular matrix is invertible exactly when every diagonal entry is nonzero
+
+&nbsp;
 
 Its inverse has the same triangular form
 :::
@@ -214,6 +218,8 @@ $$
 
 ::: {.key-point}
 Without row exchanges, elimination gives $\mat{A}=\mat{L}\mat{U}$
+
+&nbsp;
 
 We use this factorization without proving the general result
 :::

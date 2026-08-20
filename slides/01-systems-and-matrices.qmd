@@ -416,6 +416,10 @@ $$
 
 ::: {.key-point}
 A [dot product]{.alert} turns two vectors into one scalar by pairing corresponding entries
+
+&nbsp;
+
+The standard dot product on $\reals^n$ is our first [inner product]{.alert}—the model for measuring length, angle, and orthogonality
 :::
 
 ---
@@ -439,7 +443,70 @@ The dot product defines the [Euclidean norm]{.alert} and measures alignment:
 - $\vct{a}^{\top}\vct{x}<0$ — obtuse angle
 
 ::: {.key-point}
-Two vectors are [orthogonal]{.alert} when $\vct{a}^{\top}\vct{x}=0$ <br>Nonzero orthogonal vectors are perpendicular
+Two vectors are [orthogonal]{.alert} when $\vct{a}^{\top}\vct{x}=0$
+
+&nbsp;
+
+Nonzero orthogonal vectors are perpendicular
+:::
+
+---
+
+### Why the cosine appears
+
+The three points $\vct{0},\vct{a},\vct{x}$ lie in a plane or along a line.
+
+<svg class="diagram-image dot-product-cosine-geometry" viewBox="0 0 700 390" width="68%" role="img" aria-label="A plane contains the triangle with vertices zero, a, and x.  Arrows from zero to a and zero to x form the angle theta.  The arrow from x to a is a minus x.">
+  <defs>
+    <marker id="cosine-arrow-blue" markerWidth="20" markerHeight="14" refX="19" refY="7" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,20 7,0 14" fill="#007acc"/></marker>
+    <marker id="cosine-arrow-orange" markerWidth="20" markerHeight="14" refX="19" refY="7" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,20 7,0 14" fill="#f39c34"/></marker>
+    <marker id="cosine-arrow-purple" markerWidth="20" markerHeight="14" refX="19" refY="7" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,20 7,0 14" fill="#7b4ab5"/></marker>
+  </defs>
+  <polygon points="20,335 475,388 695,80 240,25" fill="#eaf5fa" stroke="#9ab9c8" stroke-width="3"/>
+  <text class="plane-label" x="460" y="68" font-size="27" font-weight="650">one plane</text>
+  <polygon points="118,308 492,327 281,82" fill="#fff" fill-opacity="0.72" stroke="#65757e" stroke-width="3"/>
+  <path d="M118 308L492 327" fill="none" stroke="#007acc" stroke-width="7" marker-end="url(#cosine-arrow-blue)"/>
+  <path d="M118 308L281 82" fill="none" stroke="#f39c34" stroke-width="7" marker-end="url(#cosine-arrow-orange)"/>
+  <path d="M281 82L492 327" fill="none" stroke="#7b4ab5" stroke-width="7" marker-end="url(#cosine-arrow-purple)"/>
+  <path d="M184 311A67 67 0 0 0 157 254" fill="none" stroke="#c62828" stroke-width="4"/>
+  <circle cx="118" cy="308" r="7" fill="#333"/>
+  <text x="82" y="350" font-size="34" font-weight="700">0</text>
+  <text x="305" y="355" font-size="38" font-style="italic" font-weight="700" style="fill:#007acc">a</text>
+  <text x="174" y="169" font-size="38" font-style="italic" font-weight="700" style="fill:#a85b00">x</text>
+  <text x="407" y="177" font-size="36" font-style="italic" font-weight="700" style="fill:#684093">a − x</text>
+  <text x="169" y="271" font-size="34" font-style="italic" font-weight="700" style="fill:#c62828">θ</text>
+</svg>
+
+---
+
+### Geometry meets coordinate algebra
+
+The planar [Law of Cosines]{.alert} gives
+
+$$
+\lVert\vct{a}-\vct{x}\rVert^2
+=\lVert\vct{a}\rVert^2+\lVert\vct{x}\rVert^2
+-2\lVert\vct{a}\rVert\lVert\vct{x}\rVert\cos(\theta)
+$$
+
+Coordinate algebra gives
+
+\begin{align*}
+\lVert\vct{a}-\vct{x}\rVert^2
+  &=(\vct{a}-\vct{x})^{\top}(\vct{a}-\vct{x})\\
+  &=\lVert\vct{a}\rVert^2+\lVert\vct{x}\rVert^2
+    -2\vct{a}^{\top}\vct{x}
+\end{align*}
+
+Comparing the two expressions proves
+
+$$
+\vct{a}^{\top}\vct{x}
+=\lVert\vct{a}\rVert\lVert\vct{x}\rVert\cos(\theta)
+$$
+
+::: {.key-point}
+In $\reals^n$, geometry explains the formula; in a general inner-product space, the formula [defines the angle]{.alert}
 :::
 
 ---
@@ -687,6 +754,8 @@ and likewise for $\mat{B}\in\reals^{n\times p}$ and $\mat{C}=\mat{A}\mat{B}\in\r
 
 ::: {.key-point}
 [Matrix–matrix multiplication]{.alert} collects all dot products of rows of the first matrix with columns of the second.
+
+&nbsp;
 
 It is [associative but generally not commutative]{.alert}: compatible factors may be regrouped, not reordered.
 :::

@@ -48,6 +48,10 @@
   font-family: "Times New Roman", Times, serif;
 }
 
+.reveal svg.dot-product-cosine-geometry text:not(.plane-label) {
+  font-family: "Times New Roman", Times, serif;
+}
+
 .reveal .parallel-outcome-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

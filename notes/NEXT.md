@@ -62,8 +62,12 @@ refinements.
   matrices are invertible. Deck 02 explicitly notes the special commuting pair
   $\mat{A}\mat{A}^{-1}=\mat{I}=\mat{A}^{-1}\mat{A}$ and uses associativity to
   derive the reverse-order product rule. It closes by handing off to Deck 03's
-  matrix structure and transformation geometry. Course maps in Decks 00–02
-  show the full Deck 00–08 sequence.
+  matrix structure and transformation geometry. Deck 01's dot-product section
+  now identifies the standard dot product on $\reals^n$ as the course's first
+  inner product and derives its cosine formula from the planar Law of Cosines,
+  supported by a labeled triangle in the plane containing
+  $\vct{0},\vct{a},\vct{x}$. Course maps in Decks 00–02 show the full Deck
+  00–08 sequence.
 - The course-wide computational principle is now explicit in Deck 00 and
   `notes/COURSE-PHILOSOPHY.md`: compute only what the problem requires because
   unnecessary work wastes time and creates more opportunities for round-off

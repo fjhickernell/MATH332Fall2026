@@ -184,6 +184,8 @@ $\mat{A}^{-1}$ does not exist
 ::: {.key-point}
 Use pivots to test invertibility: row-reduce $\mat{A}$ and inspect its echelon form
 
+&nbsp;
+
 Some treatments invoke determinants here; [we will defer them]{.alert}. Elimination reveals the pivots directly, while a computed determinant can be unreliable when $\mat{A}$ is nearly singular.
 :::
 
