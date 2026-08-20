@@ -517,11 +517,14 @@ Machine learning also needs probability, optimization, nonlinear models, data, a
 
 # Compute Responsibly
 
+- [From calculation aids to AI](#from-calculation-aids-to-ai)
 - [Too little information, many answers](#too-little-information-many-answers)
 - [Almost parallel, almost unknowable](#almost-parallel-almost-unknowable)
 - [Equivalent mathematics, unequal computations](#equivalent-mathematics-unequal-computations)
 - [A correct computation can still cost too much](#a-correct-computation-can-still-cost-too-much)
 - [Can we trust the answer?](#can-we-trust-the-answer)
+
+{{< include ../classlib/classlib/quarto/slides/shared/general/computing-technology-timeline.qmd >}}
 
 ## Too little information, many answers
 
