@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-08-19">
+  <meta name="dcterms.date" content="2026-08-20">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -598,7 +598,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">August 19, 2026</p>
+  <p class="date">August 20, 2026</p>
 </section>
 <section id="we-begin-this-semester-amid-significant-change" class="slide level2">
 <h2>We begin this semester amid significant change</h2>
@@ -1461,9 +1461,11 @@ prediction
 <li><a href="01-systems-and-matrices.html#back-substitution">Back substitution</a></li>
 <li><a href="#/equivalent-mathematics-unequal-computations">Catastrophic cancellation</a></li>
 <li><a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">Commutativity</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#composition-is-matrix-multiplication">Composition of transformations</a></li>
 <li><a href="#/a-correct-computation-can-still-cost-too-much">Computational cost</a></li>
 <li><a href="01-systems-and-matrices.html#read-the-solution-set">Consistent / inconsistent system</a></li>
 <li><a href="02-inverses-and-invertibility.html#covariance-describes-joint-variation">Covariance matrix</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#diagonal-matrices-act-one-coordinate-at-a-time">Diagonal matrix</a></li>
 <li><a href="01-systems-and-matrices.html#combines-coefficients-and-unknowns">Dot product</a></li>
 <li><a href="01-systems-and-matrices.html#row-operations-are-reversible-matrix-actions">Elementary matrix</a></li>
 <li><a href="01-systems-and-matrices.html#three-reversible-moves">Elementary row operations</a></li>
@@ -1492,8 +1494,10 @@ prediction
 <li><a href="#/when-the-constraints-cannot-all-be-satisfied">Least squares</a></li>
 <li><a href="02-inverses-and-invertibility.html#production-creates-internal-demand">Leontief input–output model</a></li>
 <li><a href="01-systems-and-matrices.html#from-one-equation-to-systems-of-equations">Linear system</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#linear-transformations-preserve-combinations">Linear transformation</a></li>
 <li><a href="#/represent-objects-numerically">Matrix</a></li>
 <li><a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">Matrix–matrix multiplication</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#a-matrix-maps-one-coordinate-space-into-another">Matrix operator</a></li>
 <li><a href="01-systems-and-matrices.html#each-equation-is-one-dot-product">Matrix–vector multiplication</a></li>
 <li><a href="02-inverses-and-invertibility.html#invertible-or-singular">Nonsingular / singular matrix</a></li>
 <li><a href="#/equivalent-mathematics-unequal-computations">Numerical instability</a></li>
@@ -1502,10 +1506,16 @@ prediction
 <ul>
 <li><a href="01-systems-and-matrices.html#measures-alignment">Orthogonal vectors</a></li>
 <li><a href="01-systems-and-matrices.html#parallel-vectors-point-along-one-line">Parallel vectors</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#a-permutation-matrix-records-row-order">Permutation matrix</a></li>
 <li><a href="01-systems-and-matrices.html#eliminate-and-organize-with-pivots">Pivot</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#scipy-plu">PLU factorization</a></li>
 <li><a href="02-inverses-and-invertibility.html#precision-describes-conditional-structure">Precision matrix</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#projections-discard-information">Projection</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#a-matrix-maps-one-coordinate-space-into-another">Range of a transformation</a></li>
 <li><a href="#/what-does-the-system-tell-us">Redundant constraint</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#reflections-preserve-information">Reflection</a></li>
 <li><a href="01-systems-and-matrices.html#three-reversible-moves">Reversible transformation</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#rotation-follows-the-basis-directions">Rotation</a></li>
 <li><a href="01-systems-and-matrices.html#eliminate-and-organize-with-pivots">Row echelon form</a></li>
 </ul>
 </div></div>
@@ -1519,11 +1529,16 @@ prediction
 <li><a href="#/represent-objects-numerically">Scalar</a></li>
 <li><a href="#/images-contain-important-patterns">Singular value decomposition (SVD)</a></li>
 <li><a href="01-systems-and-matrices.html#from-one-equation-to-systems-of-equations">Solution / solution set</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#standard-basis-vectors-reveal-every-column">Standard basis</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#standard-basis-vectors-reveal-every-column">Standard matrix</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#symmetric-matrices-mirror-pairwise-relationships">Symmetric matrix</a></li>
 <li><a href="#/represent-objects-numerically">Tensor</a></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
 <li><a href="#/act-on-these-objects-via-transformations-to-obtain-new-objects">Transformation</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#transpose-exchanges-rows-and-columns">Transpose</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#triangular-matrices-expose-pivots">Triangular matrix</a></li>
 <li><a href="#/represent-objects-numerically">Vector</a></li>
 </ul>
 </div></div>

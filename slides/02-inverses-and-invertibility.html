@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-08-19">
+  <meta name="dcterms.date" content="2026-08-20">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -597,7 +597,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">August 19, 2026</p>
+  <p class="date">August 20, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 center">
 <h1>Course Map</h1>
@@ -968,6 +968,41 @@ In this deck
 <div class="key-point">
 <p>Unnecessary computation costs time and creates more opportunities for round-off error</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="elimination-leaves-reusable-factors">Elimination leaves reusable factors</h3>
+<p>When Gaussian elimination proceeds without row exchanges, the inverse elimination matrices multiply to a <span class="alert">unit lower-triangular matrix</span> <span class="math inline">\(\mat{L}\)</span>—a matrix with <span class="math inline">\(1\)</span>’s on its diagonal and zeros above it</p>
+<p>Without proof for now,</p>
+<p><span class="math display">\[
+\mat{A}=\mat{L}\mat{U},
+\]</span></p>
+<p>where <span class="math inline">\(\mat{U}\)</span> is the upper-triangular matrix produced by elimination</p>
+<p>If row exchanges are used, a permutation matrix records them. Using <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html">SciPy’s convention</a>,</p>
+<p><span class="math display">\[
+\mat{A}=\mat{P}\mat{L}\mat{U},
+\qquad
+\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}
+\]</span></p>
+<div class="key-point">
+<p><a href="03-matrix-structure-and-transformations.html#elimination-becomes-a-factorization">Matrix Transformations</a> will connect these factors to row permutations</p>
+</div>
+<aside class="notes">
+<p>Sources:</p>
+<ul>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html">SciPy <code>scipy.linalg.lu</code> documentation</a></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="leontief-inputoutput-models" class="title-slide slide level1 center">

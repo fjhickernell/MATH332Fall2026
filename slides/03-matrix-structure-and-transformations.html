@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-08-19">
+  <meta name="dcterms.date" content="2026-08-20">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -35,6 +35,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="03-matrix-structure-and-transformations_files/libs/revealjs/dist/theme/quarto-aa9501165e211a18d09432a60bdd8753.css">
   <link href="03-matrix-structure-and-transformations_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -597,11 +663,641 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">August 19, 2026</p>
+  <p class="date">August 20, 2026</p>
 </section>
-<section id="matrix-structure-and-transformations" class="title-slide slide level1 center">
-<h1>Matrix Structure and Transformations</h1>
-<p>Anton §§1.7–1.9 content will be developed in this deck.</p>
+<section id="course-map" class="title-slide slide level1 center">
+<h1>Course Map</h1>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3>
+Course decks
+</h3>
+<ul>
+<li><a href="00-why-linear-algebra.html">Why Linear Algebra?</a></li>
+<li><a href="01-systems-and-matrices.html">Systems and Matrices</a></li>
+<li><a href="02-inverses-and-invertibility.html">Inverses</a></li>
+<li><a href="03-matrix-structure-and-transformations.html" class="alert">Matrix Transformations</a></li>
+<li><a href="04-determinants.html">Determinants</a></li>
+<li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
+<li><a href="06-general-vector-spaces.html">Vector Spaces</a></li>
+<li><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
+<li><a href="08-inner-product-spaces.html">Inner Products</a></li>
+</ul>
+</div><div class="column" style="width:55%;">
+<h3>
+In this deck
+</h3>
+<ul>
+<li><a href="#/matrix-patterns">Matrix Patterns</a></li>
+<li><a href="#/elimination-becomes-a-factorization">Elimination Becomes a Factorization</a></li>
+<li><a href="#/matrices-as-linear-transformations">Matrices as Linear Transformations</a></li>
+<li><a href="#/geometry-of-matrix-transformations">Geometry of Matrix Transformations</a></li>
+<li><a href="#/compose-and-undo-transformations">Compose and Undo Transformations</a></li>
+<li><a href="#/big-ideas">Big Ideas</a></li>
+<li><a href="#/what-comes-next">What Comes Next</a></li>
+</ul>
+</div></div>
+</section>
+
+<section>
+<section id="matrix-patterns" class="title-slide slide level1 center">
+<h1>Matrix Patterns</h1>
+<p>The pattern of entries can reveal how a matrix behaves before any calculation</p>
+<ul>
+<li><a href="#/diagonal-matrices-act-one-coordinate-at-a-time">Diagonal matrices act one coordinate at a time</a></li>
+<li><a href="#/triangular-matrices-expose-pivots">Triangular matrices expose pivots</a></li>
+<li><a href="#/transpose-exchanges-rows-and-columns">Transpose exchanges rows and columns</a></li>
+<li><a href="#/symmetric-matrices-mirror-pairwise-relationships">Symmetric matrices mirror pairwise relationships</a></li>
+</ul>
+</section>
+<section id="diagonal-matrices-act-one-coordinate-at-a-time" class="slide level2">
+<h2>Diagonal matrices act one coordinate at a time</h2>
+<p>For</p>
+<p><span class="math display">\[
+\mat{D}=\begin{bmatrix}
+d_1&amp;0&amp;\cdots&amp;0\\
+0&amp;d_2&amp;\cdots&amp;0\\
+\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\
+0&amp;0&amp;\cdots&amp;d_n
+\end{bmatrix},
+\]</span></p>
+<p>each coordinate is scaled independently:</p>
+<p><span class="math display">\[
+\mat{D}\vct{x}
+=
+\begin{bmatrix}
+d_1x_1&amp;d_2x_2&amp;\cdots&amp;d_nx_n
+\end{bmatrix}^{\mathsf T}
+\]</span></p>
+<div class="key-point">
+<p>For a positive integer <span class="math inline">\(k\)</span>, <span class="math inline">\(\mat{D}^k\)</span> has diagonal entries <span class="math inline">\(d_i^k\)</span></p>
+<p>If every <span class="math inline">\(d_i\ne0\)</span>, <span class="math inline">\(\mat{D}^{-1}\)</span> has diagonal entries <span class="math inline">\(1/d_i\)</span></p>
+</div>
+</section>
+<section id="triangular-matrices-expose-pivots" class="slide level2">
+<h2>Triangular matrices expose pivots</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="lower-triangular">Lower triangular</h3>
+<p><span class="math display">\[
+\mat{L}=\begin{bmatrix}
+\ell_{11}&amp;0&amp;0\\
+\ell_{21}&amp;\ell_{22}&amp;0\\
+\ell_{31}&amp;\ell_{32}&amp;\ell_{33}
+\end{bmatrix}
+\]</span></p>
+<p>Zeros lie <span class="alert">above</span> the diagonal</p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="upper-triangular">Upper triangular</h3>
+<p><span class="math display">\[
+\mat{U}=\begin{bmatrix}
+u_{11}&amp;u_{12}&amp;u_{13}\\
+0&amp;u_{22}&amp;u_{23}\\
+0&amp;0&amp;u_{33}
+\end{bmatrix}
+\]</span></p>
+<p>Zeros lie <span class="alert">below</span> the diagonal</p>
+</div></div>
+<ul>
+<li>Gaussian elimination with a pivot in every row produces an upper-triangular matrix</li>
+<li>triangular systems are solved in order by forward or back substitution</li>
+</ul>
+<div class="key-point">
+<p>A triangular matrix is invertible exactly when every diagonal entry is nonzero</p>
+<p>Its inverse has the same triangular form</p>
+</div>
+</section>
+<section id="transpose-exchanges-rows-and-columns" class="slide level2">
+<h2>Transpose exchanges rows and columns</h2>
+<p>For</p>
+<p><span class="math display">\[
+\mat{A}=\begin{bmatrix}1&amp;2&amp;3\\4&amp;5&amp;6\end{bmatrix},
+\qquad
+\mat{A}^{\mathsf T}=\begin{bmatrix}1&amp;4\\2&amp;5\\3&amp;6\end{bmatrix}
+\]</span></p>
+<ul>
+<li>entries exchange positions: <span class="math inline">\((\mat{A}^{\mathsf T})_{ij}=a_{ji}\)</span></li>
+<li>products reverse order: <span class="math inline">\((\mat{A}\mat{B})^{\mathsf T}=\mat{B}^{\mathsf T}\mat{A}^{\mathsf T}\)</span></li>
+</ul>
+<div class="key-point">
+<p>The transpose exchanges the roles of rows and columns</p>
+</div>
+</section>
+<section id="symmetric-matrices-mirror-pairwise-relationships" class="slide level2">
+<h2>Symmetric matrices mirror pairwise relationships</h2>
+<p>A square matrix is <span class="alert">symmetric</span> when</p>
+<p><span class="math display">\[
+\mat{S}=\mat{S}^{\mathsf T}
+\]</span></p>
+<p>For example,</p>
+<p><span class="math display">\[
+\mat{S}=\begin{bmatrix}
+4&amp;-1&amp;2\\
+-1&amp;3&amp;0\\
+2&amp;0&amp;5
+\end{bmatrix}
+\]</span></p>
+<p>has matching entries <span class="math inline">\(s_{ij}=s_{ji}\)</span> across its diagonal</p>
+<ul>
+<li>invertible covariance matrices and their precision matrices are symmetric (<a href="02-inverses-and-invertibility.html#covariance-describes-joint-variation">Inverses</a>)</li>
+<li><span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}\)</span> and <span class="math inline">\(\mat{A}\mat{A}^{\mathsf T}\)</span> are always symmetric</li>
+</ul>
+<div class="key-point">
+<p>Symmetry records the same pairwise value in both directions</p>
+</div>
+</section></section>
+<section>
+<section id="elimination-becomes-a-factorization" class="title-slide slide level1 center">
+<h1>Elimination Becomes a Factorization</h1>
+<p>Elimination separates a matrix into simpler structured factors</p>
+<p>PLU is a short supplement connecting Anton’s triangular matrices to elimination and SciPy</p>
+<ul>
+<li><a href="#/inverse-elimination-matrices-form-l">Inverse elimination matrices form <span class="math inline">\(\mat{L}\)</span></a></li>
+<li><a href="#/a-permutation-matrix-records-row-order">A permutation matrix records row order</a></li>
+<li><a href="#/scipy-plu">SciPy writes <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span></a></li>
+<li><a href="#/triangular-factors-organize-repeated-solves">Triangular factors organize repeated solves</a></li>
+</ul>
+</section>
+<section id="inverse-elimination-matrices-form-l" class="slide level2">
+<h2>Inverse elimination matrices form <span class="math inline">\(\mat{L}\)</span></h2>
+<p>Recall the coefficient matrix from <a href="01-systems-and-matrices.html#the-augmented-matrix-stores-the-system">Systems and Matrices</a>:</p>
+<p><span class="math display">\[
+\mat{A}=
+\begin{bmatrix}
+1&amp;2&amp;-1\\
+2&amp;-1&amp;1\\
+3&amp;1&amp;2
+\end{bmatrix}
+=
+\underbrace{\begin{bmatrix}
+1&amp;0&amp;0\\
+2&amp;1&amp;0\\
+3&amp;1&amp;1
+\end{bmatrix}}_{\mat{L}}
+\underbrace{\begin{bmatrix}
+1&amp;2&amp;-1\\
+0&amp;-5&amp;3\\
+0&amp;0&amp;2
+\end{bmatrix}}_{\mat{U}}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\mat{U}\)</span> is the upper-triangular matrix produced by elimination</li>
+<li><span class="math inline">\(\mat{L}\)</span> collects the inverse elimination operations in a unit lower-triangular matrix</li>
+</ul>
+<div class="key-point">
+<p>Without row exchanges, elimination gives <span class="math inline">\(\mat{A}=\mat{L}\mat{U}\)</span></p>
+<p>We use this factorization without proving the general result</p>
+</div>
+</section>
+<section id="a-permutation-matrix-records-row-order" class="slide level2">
+<h2>A permutation matrix records row order</h2>
+<p>A <span class="alert">permutation matrix</span> is obtained by reordering the rows of the identity matrix</p>
+<p><span class="math display">\[
+\mat{P}=\begin{bmatrix}
+0&amp;1&amp;0\\
+0&amp;0&amp;1\\
+1&amp;0&amp;0
+\end{bmatrix},
+\qquad
+\mat{P}
+\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
+=
+\begin{bmatrix}x_2\\x_3\\x_1\end{bmatrix}
+\]</span></p>
+<p>Left multiplication by <span class="math inline">\(\mat{P}\)</span> reorders matrix rows in the same pattern</p>
+<p>Every row and column of <span class="math inline">\(\mat{P}\)</span> contains exactly one <span class="math inline">\(1\)</span></p>
+<p><span class="math display">\[
+\mat{P}^{-1}=\mat{P}^{\mathsf T},
+\qquad
+\mat{P}^{\mathsf T}\mat{P}=\mat{I}
+\]</span></p>
+<div class="key-point">
+<p>A single row-exchange matrix is symmetric; a general permutation matrix need not be</p>
+</div>
+</section>
+<section id="scipy-plu" class="slide level2">
+<h2>SciPy writes <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span></h2>
+<p>If elimination uses a row reordering, then</p>
+<p><span class="math display">\[
+\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}
+\qquad\Longleftrightarrow\qquad
+\mat{A}=\mat{P}\mat{L}\mat{U}
+\]</span></p>
+<p>For the <span class="math inline">\(\mat{A}\)</span> below, SciPy returns the nonsymmetric <span class="math inline">\(\mat{P}\)</span> shown on the preceding slide</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<ul>
+<li><span class="math inline">\(\mat{P}^{\mathsf T}\)</span> places rows in elimination order</li>
+<li><span class="math inline">\(\mat{L}\)</span> records elimination multipliers</li>
+<li><span class="math inline">\(\mat{U}\)</span> is upper triangular</li>
+<li><span class="math inline">\(\mat{P}\)</span> restores the original row order</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.linalg <span class="im">import</span> lu</span>
+<span id="cb1-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>],</span>
+<span id="cb1-5"><a href="" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>],</span>
+<span id="cb1-6"><a href="" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>]])</span>
+<span id="cb1-7"><a href="" aria-hidden="true" tabindex="-1"></a>P, L, U <span class="op">=</span> lu(A)</span>
+<span id="cb1-8"><a href="" aria-hidden="true" tabindex="-1"></a>np.allclose(A, P <span class="op">@</span> L <span class="op">@</span> U)       <span class="co"># True</span></span>
+<span id="cb1-9"><a href="" aria-hidden="true" tabindex="-1"></a>np.allclose(P.T <span class="op">@</span> A, L <span class="op">@</span> U)     <span class="co"># True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div></div>
+<div class="small">
+<p>This is the convention returned by <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html">SciPy’s <code>lu</code> function</a></p>
+</div>
+<aside class="notes">
+<p>Sources:</p>
+<ul>
+<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html">SciPy <code>scipy.linalg.lu</code> documentation</a></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="triangular-factors-organize-repeated-solves" class="slide level2">
+<h2>Triangular factors organize repeated solves</h2>
+<p>If <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span>, then</p>
+<p><span class="math display">\[
+\mat{A}\vct{x}=\vct{b}
+\qquad\Longleftrightarrow\qquad
+\mat{L}\mat{U}\vct{x}=\mat{P}^{\mathsf T}\vct{b}
+\]</span></p>
+<p>Introduce <span class="math inline">\(\vct{y}=\mat{U}\vct{x}\)</span> and solve two triangular systems:</p>
+<p><span class="math display">\[
+\underbrace{\mat{L}\vct{y}=\mat{P}^{\mathsf T}\vct{b}}_{\text{forward substitution}},
+\qquad
+\underbrace{\mat{U}\vct{x}=\vct{y}}_{\text{back substitution}}
+\]</span></p>
+<div class="key-point">
+<p>For many right-hand sides, reuse <span class="math inline">\(\mat{P}\)</span>, <span class="math inline">\(\mat{L}\)</span>, and <span class="math inline">\(\mat{U}\)</span>; do not form <span class="math inline">\(\mat{A}^{-1}\)</span> merely to solve</p>
+</div>
+</section></section>
+<section>
+<section id="matrices-as-linear-transformations" class="title-slide slide level1 center">
+<h1>Matrices as Linear Transformations</h1>
+<p>A matrix is an input–output rule that preserves linear combinations</p>
+<ul>
+<li><a href="#/a-matrix-maps-one-coordinate-space-into-another">A matrix maps one coordinate space into another</a></li>
+<li><a href="#/linear-transformations-preserve-combinations">Linear transformations preserve combinations</a></li>
+<li><a href="#/standard-basis-vectors-reveal-every-column">Standard basis vectors reveal every column</a></li>
+<li><a href="#/build-a-standard-matrix-from-an-action">Build a standard matrix from an action</a></li>
+</ul>
+</section>
+<section id="a-matrix-maps-one-coordinate-space-into-another" class="slide level2">
+<h2>A matrix maps one coordinate space into another</h2>
+<p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, define</p>
+<p><span class="math display">\[
+T_{\mat{A}}:\reals^n\longrightarrow\reals^m,
+\qquad
+T_{\mat{A}}(\vct{x})=\mat{A}\vct{x}
+\]</span></p>
+<p>When <span class="math inline">\(m=n\)</span>, <span class="math inline">\(T_{\mat{A}}\)</span> is a <span class="alert">matrix operator</span> on <span class="math inline">\(\reals^n\)</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="domain">Domain</h3>
+<p><span class="math inline">\(\reals^n\)</span>: the allowed inputs</p>
+<p>Columns of <span class="math inline">\(\mat{A}\)</span> determine the input dimension</p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="codomain-and-range">Codomain and range</h3>
+<p><span class="math inline">\(\reals^m\)</span>: the allowed outputs</p>
+<p>The <span class="alert">range</span> is the subset actually reached</p>
+</div></div>
+<div class="key-point">
+<p>Matrix size is output dimension by input dimension</p>
+</div>
+</section>
+<section id="linear-transformations-preserve-combinations" class="slide level2">
+<h2>Linear transformations preserve combinations</h2>
+<p>A transformation <span class="math inline">\(T\)</span> is <span class="alert">linear</span> when</p>
+<p><span class="math display">\[
+T(\vct{u}+\vct{v})=T(\vct{u})+T(\vct{v}),
+\qquad
+T(c\vct{u})=cT(\vct{u})
+\]</span></p>
+<p>Equivalently, for all scalars <span class="math inline">\(a,b\)</span>,</p>
+<p><span class="math display">\[
+T(a\vct{u}+b\vct{v})
+=aT(\vct{u})+bT(\vct{v})
+\]</span></p>
+<p>Every matrix transformation <span class="math inline">\(T_{\mat{A}}(\vct{x})=\mat{A}\vct{x}\)</span> is linear</p>
+<div class="key-point">
+<p>Linearity forces <span class="math inline">\(T(\vct{0})=\vct{0}\)</span>, so a translation <span class="math inline">\(\vct{x}\mapsto\mat{A}\vct{x}+\vct{b}\)</span> is not linear unless <span class="math inline">\(\vct{b}=\vct{0}\)</span></p>
+</div>
+</section>
+<section id="standard-basis-vectors-reveal-every-column" class="slide level2">
+<h2>Standard basis vectors reveal every column</h2>
+<p>The <span class="math inline">\(j\)</span>th <span class="alert">standard basis vector</span> <span class="math inline">\(\vct{e}_j\)</span> has a <span class="math inline">\(1\)</span> in position <span class="math inline">\(j\)</span> and zeros elsewhere</p>
+<p>Every vector is a linear combination of these vectors:</p>
+<p><span class="math display">\[
+\vct{x}=x_1\vct{e}_1+\cdots+x_n\vct{e}_n
+\]</span></p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+T(\vct{x})
+=x_1T(\vct{e}_1)+\cdots+x_nT(\vct{e}_n)
+\]</span></p>
+<p>For the standard matrix <span class="math inline">\(\mat{A}\)</span> of <span class="math inline">\(T\)</span>,</p>
+<p><span class="math display">\[
+\mat{A}
+=\begin{bmatrix}
+T(\vct{e}_1)&amp;\cdots&amp;T(\vct{e}_n)
+\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<p>Every linear <span class="math inline">\(T:\reals^n\to\reals^m\)</span> has exactly one standard matrix <span class="math inline">\(\mat{A}\)</span>; its <span class="math inline">\(j\)</span>th column is <span class="math inline">\(T(\vct{e}_j)\)</span></p>
+</div>
+</section>
+<section id="build-a-standard-matrix-from-an-action" class="slide level2">
+<h2>Build a standard matrix from an action</h2>
+<p>Let <span class="math inline">\(T:\reals^2\to\reals^3\)</span> be</p>
+<p><span class="math display">\[
+T(x,y)=(x+2y,\ 3x-y,\ -x+y)
+\]</span></p>
+<p>The basis images are</p>
+<p><span class="math display">\[
+T(\vct{e}_1)=T(1,0)=\begin{bmatrix}1\\3\\-1\end{bmatrix},
+\qquad
+T(\vct{e}_2)=T(0,1)=\begin{bmatrix}2\\-1\\1\end{bmatrix}
+\]</span></p>
+<p>Place them in the columns of the standard matrix:</p>
+<p><span class="math display">\[
+\mat{A}=\begin{bmatrix}1&amp;2\\3&amp;-1\\-1&amp;1\end{bmatrix},
+\qquad
+T(\vct{x})=\mat{A}\vct{x}
+\]</span></p>
+<div class="key-point">
+<p>The dimensions <span class="math inline">\(\reals^2\to\reals^3\)</span> require a <span class="math inline">\(3\times2\)</span> standard matrix</p>
+</div>
+</section></section>
+<section>
+<section id="geometry-of-matrix-transformations" class="title-slide slide level1 center">
+<h1>Geometry of Matrix Transformations</h1>
+<p>The images of the coordinate directions reveal the geometry</p>
+<ul>
+<li><a href="#/one-vector-reveals-three-different-actions">One vector reveals three different actions</a></li>
+<li><a href="#/diagonal-actions-stretch-and-flip-coordinate-directions">Diagonal actions stretch and flip coordinate directions</a></li>
+<li><a href="#/reflections-preserve-information">Reflections preserve information</a></li>
+<li><a href="#/projections-discard-information">Projections discard information</a></li>
+<li><a href="#/rotation-follows-the-basis-directions">Rotation follows the basis directions</a></li>
+</ul>
+</section>
+<section id="one-vector-reveals-three-different-actions" class="slide level2">
+<h2>One vector reveals three different actions</h2>
+<div class="columns">
+<div class="column" style="width:12%;">
+
+</div><div class="column" style="width:76%;">
+<svg viewbox="0 0 720 360" width="100%" role="img" aria-label="The vector two comma one and its images under reflection across y equals x, projection onto the x-axis, and counterclockwise rotation by ninety degrees">
+<defs> <marker id="d03-arrow-blue" markerwidth="10" markerheight="7" refx="9" refy="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#007acc"></polygon></marker> <marker id="d03-arrow-orange" markerwidth="10" markerheight="7" refx="9" refy="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#d97904"></polygon></marker> <marker id="d03-arrow-green" markerwidth="10" markerheight="7" refx="9" refy="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#26864a"></polygon></marker> <marker id="d03-arrow-purple" markerwidth="10" markerheight="7" refx="9" refy="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#7651a8"></polygon></marker> </defs> <path d="M70 180H660M360 330V20" stroke="#777" stroke-width="3"></path> <text x="665" y="188" font-size="24">x</text> <text x="368" y="28" font-size="24">y</text> <g fill="none" stroke-width="7"> <path d="M360 180L500 110" stroke="#007acc" marker-end="url(#d03-arrow-blue)"></path> <path d="M360 180L430 40" stroke="#d97904" marker-end="url(#d03-arrow-orange)"></path> <path d="M360 180L500 180" stroke="#26864a" marker-end="url(#d03-arrow-green)"></path> <path d="M360 180L290 40" stroke="#7651a8" marker-end="url(#d03-arrow-purple)"></path> </g> <g font-size="24" font-weight="600"> <text x="510" y="105" fill="#007acc">v = (2,1)</text> <text x="440" y="42" fill="#d97904">Hv = (1,2)</text> <text x="510" y="207" fill="#26864a">Qv = (2,0)</text> <text x="165" y="42" fill="#7651a8">R₉₀v = (−1,2)</text> </g>
+</svg>
+</div><div class="column" style="width:12%;">
+
+</div></div>
+<div class="key-point">
+<p>One input, three matrix actions: reflection, projection, and rotation</p>
+</div>
+</section>
+<section id="diagonal-actions-stretch-and-flip-coordinate-directions" class="slide level2">
+<h2>Diagonal actions stretch and flip coordinate directions</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="stretch-by-different-amounts">Stretch by different amounts</h3>
+<p><span class="math display">\[
+\begin{bmatrix}2&amp;0\\0&amp;\tfrac12\end{bmatrix}
+\begin{bmatrix}x\\y\end{bmatrix}
+=
+\begin{bmatrix}2x\\y/2\end{bmatrix}
+\]</span></p>
+<ul>
+<li>horizontal distances double</li>
+<li>vertical distances halve</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="flip-one-direction">Flip one direction</h3>
+<p><span class="math display">\[
+\begin{bmatrix}-1&amp;0\\0&amp;1\end{bmatrix}
+\begin{bmatrix}x\\y\end{bmatrix}
+=
+\begin{bmatrix}-x\\y\end{bmatrix}
+\]</span></p>
+<ul>
+<li>the first coordinate reverses</li>
+<li>the second stays fixed</li>
+</ul>
+</div></div>
+<div class="key-point">
+<p>Diagonal structure turns independent coordinate actions into one matrix transformation</p>
+</div>
+</section>
+<section id="reflections-preserve-information" class="slide level2">
+<h2>Reflections preserve information</h2>
+<p>Reflection across the line <span class="math inline">\(y=x\)</span> exchanges the coordinates:</p>
+<p><span class="math display">\[
+\mat{H}=\begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix},
+\qquad
+\mat{H}\begin{bmatrix}x\\y\end{bmatrix}
+=\begin{bmatrix}y\\x\end{bmatrix}
+\]</span></p>
+<p>Its columns are the reflected basis vectors:</p>
+<p><span class="math display">\[
+\mat{H}\vct{e}_1=\vct{e}_2,
+\qquad
+\mat{H}\vct{e}_2=\vct{e}_1
+\]</span></p>
+<p>Reflecting twice restores every vector:</p>
+<p><span class="math display">\[
+\mat{H}^2=\mat{I},
+\qquad
+\mat{H}^{-1}=\mat{H}
+\]</span></p>
+<div class="key-point">
+<p>A reflection changes geometry without losing information</p>
+</div>
+</section>
+<section id="projections-discard-information" class="slide level2">
+<h2>Projections discard information</h2>
+<p>Projection onto the <span class="math inline">\(x\)</span>-axis keeps the first coordinate and removes the second:</p>
+<p><span class="math display">\[
+\mat{Q}=\begin{bmatrix}1&amp;0\\0&amp;0\end{bmatrix},
+\qquad
+\mat{Q}\begin{bmatrix}x\\y\end{bmatrix}
+=\begin{bmatrix}x\\0\end{bmatrix}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\mat{Q}\)</span> is diagonal and symmetric</li>
+<li><span class="math inline">\(\mat{Q}^2=\mat{Q}\)</span>: projecting again changes nothing</li>
+<li>every point on the vertical line through <span class="math inline">\((x,0)\)</span> has the same image</li>
+</ul>
+<div class="key-point">
+<p>A projection is singular: it collapses a direction and cannot be undone</p>
+</div>
+</section>
+<section id="rotation-follows-the-basis-directions" class="slide level2">
+<h2>Rotation follows the basis directions</h2>
+<p>A counterclockwise rotation through angle <span class="math inline">\(\theta\)</span> sends</p>
+<p><span class="math display">\[
+\vct{e}_1\longmapsto
+\begin{bmatrix}\cos\theta\\\sin\theta\end{bmatrix},
+\qquad
+\vct{e}_2\longmapsto
+\begin{bmatrix}-\sin\theta\\\cos\theta\end{bmatrix}
+\]</span></p>
+<p>These images become the columns:</p>
+<p><span class="math display">\[
+\mat{R}_{\theta}
+=\begin{bmatrix}
+\cos\theta&amp;-\sin\theta\\
+\sin\theta&amp;\cos\theta
+\end{bmatrix}
+\]</span></p>
+<p>Rotating backward undoes the action:</p>
+<p><span class="math display">\[
+\mat{R}_{\theta}^{-1}=\mat{R}_{-\theta}=\mat{R}_{\theta}^{\mathsf T}
+\]</span></p>
+</section></section>
+<section>
+<section id="compose-and-undo-transformations" class="title-slide slide level1 center">
+<h1>Compose and Undo Transformations</h1>
+<p>Matrix multiplication records a sequence of actions</p>
+<ul>
+<li><a href="#/composition-is-matrix-multiplication">Composition is matrix multiplication</a></li>
+<li><a href="#/order-can-change-the-picture">Order can change the picture</a></li>
+<li><a href="#/inverse-transformations-undo-in-reverse-order">Inverse transformations undo in reverse order</a></li>
+<li><a href="#/a-factorization-is-a-composition-of-simpler-actions">A factorization is a composition of simpler actions</a></li>
+</ul>
+</section>
+<section id="composition-is-matrix-multiplication" class="slide level2">
+<h2>Composition is matrix multiplication</h2>
+<p>Suppose</p>
+<p><span class="math display">\[
+T_{\mat{A}}:\reals^n\to\reals^k,
+\qquad
+T_{\mat{B}}:\reals^k\to\reals^m
+\]</span></p>
+<p>First apply <span class="math inline">\(T_{\mat{A}}\)</span>, then <span class="math inline">\(T_{\mat{B}}\)</span>:</p>
+<p><span class="math display">\[
+(T_{\mat{B}}\circ T_{\mat{A}})(\vct{x})
+=\mat{B}(\mat{A}\vct{x})
+=(\mat{B}\mat{A})\vct{x}
+\]</span></p>
+<div class="key-point">
+<p>The rightmost matrix acts first: <span class="math inline">\(T_{\mat{B}}\circ T_{\mat{A}}=T_{\mat{B}\mat{A}}\)</span></p>
+</div>
+</section>
+<section id="order-can-change-the-picture" class="slide level2">
+<h2>Order can change the picture</h2>
+<p>Let <span class="math inline">\(\mat{R}\)</span> rotate <span class="math inline">\(90^\circ\)</span> counterclockwise and let <span class="math inline">\(\mat{Q}\)</span> project onto the <span class="math inline">\(x\)</span>-axis:</p>
+<p><span class="math display">\[
+\mat{R}=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix},
+\qquad
+\mat{Q}=\begin{bmatrix}1&amp;0\\0&amp;0\end{bmatrix}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="rotate-then-project">Rotate, then project</h3>
+<p><span class="math display">\[
+\mat{Q}\mat{R}\begin{bmatrix}x\\y\end{bmatrix}
+=\begin{bmatrix}-y\\0\end{bmatrix}
+\]</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="project-then-rotate">Project, then rotate</h3>
+<p><span class="math display">\[
+\mat{R}\mat{Q}\begin{bmatrix}x\\y\end{bmatrix}
+=\begin{bmatrix}0\\x\end{bmatrix}
+\]</span></p>
+</div></div>
+<p>Usually <span class="math inline">\(\mat{Q}\mat{R}\ne\mat{R}\mat{Q}\)</span>; planar rotations about the same origin are a useful commuting exception</p>
+</section>
+<section id="inverse-transformations-undo-in-reverse-order" class="slide level2">
+<h2>Inverse transformations undo in reverse order</h2>
+<p>If <span class="math inline">\(T_{\mat{A}}\)</span> and <span class="math inline">\(T_{\mat{B}}\)</span> are invertible operators on <span class="math inline">\(\reals^n\)</span>, then</p>
+<p><span class="math display">\[
+(T_{\mat{B}}\circ T_{\mat{A}})^{-1}
+=T_{\mat{A}^{-1}}\circ T_{\mat{B}^{-1}}
+\]</span></p>
+<p>The corresponding matrix rule from <a href="02-inverses-and-invertibility.html#undo-products-in-reverse-order">Inverses</a> is</p>
+<p><span class="math display">\[
+(\mat{B}\mat{A})^{-1}
+=\mat{A}^{-1}\mat{B}^{-1}
+\]</span></p>
+<ul>
+<li>rotations are undone by rotation through the opposite angle</li>
+<li>reflections are undone by the same reflection</li>
+<li>projections have no inverse because they lose information</li>
+</ul>
+<div class="key-point">
+<p>Undo the last action first</p>
+</div>
+</section>
+<section id="a-factorization-is-a-composition-of-simpler-actions" class="slide level2">
+<h2>A factorization is a composition of simpler actions</h2>
+<p>The PLU factorization</p>
+<p><span class="math display">\[
+\mat{A}=\mat{P}\mat{L}\mat{U}
+\]</span></p>
+<p>describes the action of <span class="math inline">\(\mat{A}\)</span> as a sequence:</p>
+<p><span class="math display">\[
+\vct{x}
+\xrightarrow{\ \mat{U}\ }
+\mat{U}\vct{x}
+\xrightarrow{\ \mat{L}\ }
+\mat{L}\mat{U}\vct{x}
+\xrightarrow{\ \mat{P}\ }
+\mat{P}\mat{L}\mat{U}\vct{x}
+=\mat{A}\vct{x}
+\]</span></p>
+<div class="key-point">
+<p>Factorization is representation by simpler actions; multiplication composes them</p>
+</div>
+</section></section>
+<section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
+<h1>Big Ideas</h1>
+<ul>
+<li>Special matrix <span class="alert">patterns reveal behavior</span> before computation</li>
+<li>In SciPy’s convention, elimination gives <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span></li>
+<li>A <span class="alert">linear transformation</span> preserves combinations; basis images determine its standard matrix</li>
+<li>Reflections and rotations are reversible; projections <span class="alert">discard information</span></li>
+<li>In a product, the <span class="alert">rightmost transformation acts first</span></li>
+<li>Inverses undo compositions in reverse order</li>
+</ul>
+</section>
+
+<section id="what-comes-next" class="title-slide slide level1 center">
+<h1>What Comes Next</h1>
+<p>Matrix transformations can</p>
+<ul>
+<li>stretch or shrink regions</li>
+<li>preserve or reverse orientation</li>
+<li>flatten a plane into a line</li>
+</ul>
+<p><a href="04-determinants.html">Determinants</a> will attach one number to a square matrix action and answer:</p>
+<ul>
+<li>By what factor does area or volume change?</li>
+<li>Is orientation preserved or reversed?</li>
+<li>Has a dimension collapsed?</li>
+</ul>
+<div class="key-point">
+<p>Next: <a href="04-determinants.html" class="alert">measure how a matrix transformation scales and orients space</a></p>
+</div>
 
 </section>
     </div>
