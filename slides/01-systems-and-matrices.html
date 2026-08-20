@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="01-systems-and-matrices_files/libs/revealjs/dist/theme/quarto-aa9501165e211a18d09432a60bdd8753.css">
+  <link rel="stylesheet" href="01-systems-and-matrices_files/libs/revealjs/dist/theme/quarto-357f34afe40eaef5438313718ece303d.css">
   <link href="01-systems-and-matrices_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="01-systems-and-matrices_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="01-systems-and-matrices_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -951,6 +951,8 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 2 - 1)=-1
 \]</span></p>
 <div class="key-point">
 <p>A <span class="alert">dot product</span> turns two vectors into one scalar by pairing corresponding entries</p>
+<p>&nbsp;</p>
+<p>The standard dot product on <span class="math inline">\(\reals^n\)</span> is our first <span class="alert">inner product</span>—the model for measuring length, angle, and orthogonality</p>
 </div>
 </section>
 <section class="slide level2">
@@ -971,7 +973,42 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 2 - 1)=-1
 <li><span class="math inline">\(\vct{a}^{\top}\vct{x}&lt;0\)</span> — obtuse angle</li>
 </ul>
 <div class="key-point">
-<p>Two vectors are <span class="alert">orthogonal</span> when <span class="math inline">\(\vct{a}^{\top}\vct{x}=0\)</span> <br>Nonzero orthogonal vectors are perpendicular</p>
+<p>Two vectors are <span class="alert">orthogonal</span> when <span class="math inline">\(\vct{a}^{\top}\vct{x}=0\)</span></p>
+<p>&nbsp;</p>
+<p>Nonzero orthogonal vectors are perpendicular</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="why-the-cosine-appears">Why the cosine appears</h3>
+<p>The three points <span class="math inline">\(\vct{0},\vct{a},\vct{x}\)</span> lie in a plane or along a line.</p>
+<svg class="diagram-image dot-product-cosine-geometry" viewbox="0 0 700 390" width="68%" role="img" aria-label="A plane contains the triangle with vertices zero, a, and x.  Arrows from zero to a and zero to x form the angle theta.  The arrow from x to a is a minus x.">
+<defs> <marker id="cosine-arrow-blue" markerwidth="20" markerheight="14" refx="19" refy="7" orient="auto" markerunits="userSpaceOnUse"><polygon points="0 0,20 7,0 14" fill="#007acc"></polygon></marker> <marker id="cosine-arrow-orange" markerwidth="20" markerheight="14" refx="19" refy="7" orient="auto" markerunits="userSpaceOnUse"><polygon points="0 0,20 7,0 14" fill="#f39c34"></polygon></marker> <marker id="cosine-arrow-purple" markerwidth="20" markerheight="14" refx="19" refy="7" orient="auto" markerunits="userSpaceOnUse"><polygon points="0 0,20 7,0 14" fill="#7b4ab5"></polygon></marker> </defs> <polygon points="20,335 475,388 695,80 240,25" fill="#eaf5fa" stroke="#9ab9c8" stroke-width="3"></polygon> <text class="plane-label" x="460" y="68" font-size="27" font-weight="650">one plane</text> <polygon points="118,308 492,327 281,82" fill="#fff" fill-opacity="0.72" stroke="#65757e" stroke-width="3"></polygon> <path d="M118 308L492 327" fill="none" stroke="#007acc" stroke-width="7" marker-end="url(#cosine-arrow-blue)"></path> <path d="M118 308L281 82" fill="none" stroke="#f39c34" stroke-width="7" marker-end="url(#cosine-arrow-orange)"></path> <path d="M281 82L492 327" fill="none" stroke="#7b4ab5" stroke-width="7" marker-end="url(#cosine-arrow-purple)"></path> <path d="M184 311A67 67 0 0 0 157 254" fill="none" stroke="#c62828" stroke-width="4"></path> <circle cx="118" cy="308" r="7" fill="#333"></circle> <text x="82" y="350" font-size="34" font-weight="700">0</text> <text x="305" y="355" font-size="38" font-style="italic" font-weight="700" style="fill:#007acc">a</text> <text x="174" y="169" font-size="38" font-style="italic" font-weight="700" style="fill:#a85b00">x</text> <text x="407" y="177" font-size="36" font-style="italic" font-weight="700" style="fill:#684093">a − x</text> <text x="169" y="271" font-size="34" font-style="italic" font-weight="700" style="fill:#c62828">θ</text>
+</svg>
+</section>
+<section class="slide level2">
+
+<h3 id="geometry-meets-coordinate-algebra">Geometry meets coordinate algebra</h3>
+<p>The planar <span class="alert">Law of Cosines</span> gives</p>
+<p><span class="math display">\[
+\lVert\vct{a}-\vct{x}\rVert^2
+=\lVert\vct{a}\rVert^2+\lVert\vct{x}\rVert^2
+-2\lVert\vct{a}\rVert\lVert\vct{x}\rVert\cos(\theta)
+\]</span></p>
+<p>Coordinate algebra gives</p>
+<p><span class="math display">\[\begin{align*}
+\lVert\vct{a}-\vct{x}\rVert^2
+  &amp;=(\vct{a}-\vct{x})^{\top}(\vct{a}-\vct{x})\\
+  &amp;=\lVert\vct{a}\rVert^2+\lVert\vct{x}\rVert^2
+    -2\vct{a}^{\top}\vct{x}
+\end{align*}\]</span></p>
+<p>Comparing the two expressions proves</p>
+<p><span class="math display">\[
+\vct{a}^{\top}\vct{x}
+=\lVert\vct{a}\rVert\lVert\vct{x}\rVert\cos(\theta)
+\]</span></p>
+<div class="key-point">
+<p>In <span class="math inline">\(\reals^n\)</span>, geometry explains the formula; in a general inner-product space, the formula <span class="alert">defines the angle</span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -1160,6 +1197,7 @@ x + 2y -z = 2 \\
 \end{align*}\]</span></p>
 <div class="key-point">
 <p><span class="alert">Matrix–matrix multiplication</span> collects all dot products of rows of the first matrix with columns of the second.</p>
+<p>&nbsp;</p>
 <p>It is <span class="alert">associative but generally not commutative</span>: compatible factors may be regrouped, not reordered.</p>
 </div>
 </section>
