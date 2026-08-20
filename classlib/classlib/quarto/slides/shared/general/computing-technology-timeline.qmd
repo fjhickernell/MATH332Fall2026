@@ -1,0 +1,240 @@
+## From calculation aids to AI
+
+<style>
+.computing-timeline {
+  --timeline-blue: #007acc;
+  --timeline-gold: #f39c34;
+  --timeline-teal: #0f8b8d;
+  --timeline-ink: #183447;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  grid-template-rows: repeat(3, 11rem);
+  column-gap: 0.55rem;
+  row-gap: 1.45rem;
+  margin: 2.5rem 0 0;
+}
+.computing-timeline-path {
+  position: absolute;
+  top: 8.25rem;
+  left: 0.7rem;
+  right: 0.7rem;
+  z-index: 0;
+  width: calc(100% - 1.4rem);
+  height: 21.7rem;
+  overflow: visible;
+  pointer-events: none;
+}
+.computing-timeline-path path {
+  fill: none;
+  stroke: url(#computing-path-gradient);
+  stroke-width: 0.28rem;
+  vector-effect: non-scaling-stroke;
+}
+.computing-milestone {
+  position: relative;
+  z-index: 1;
+  align-self: start;
+  text-align: center;
+  color: var(--timeline-ink);
+  font-size: 0.64em;
+  line-height: 1.08;
+  height: 11rem;
+  box-sizing: border-box;
+}
+.computing-row-2 {
+  grid-row: 2;
+  align-self: start;
+  padding-top: 6.3rem;
+}
+.computing-row-3 {
+  grid-row: 3;
+  align-self: start;
+  padding-top: 5.55rem;
+}
+.computing-milestone::after {
+  content: "";
+  position: absolute;
+  top: 7.85rem;
+  left: calc(50% - 0.54rem);
+  width: 0.72rem;
+  height: 0.72rem;
+  margin: 0;
+  border: 0.18rem solid white;
+  border-radius: 50%;
+  background: var(--timeline-blue);
+  box-shadow: 0 0 0 0.08rem var(--timeline-blue);
+}
+.computing-row-2::after {
+  top: 5.1rem;
+  background: var(--timeline-gold);
+  box-shadow: 0 0 0 0.08rem var(--timeline-gold);
+}
+.computing-row-3::after {
+  top: 4.36rem;
+  background: var(--timeline-teal);
+  box-shadow: 0 0 0 0.08rem var(--timeline-teal);
+}
+.computing-year {
+  display: block;
+  color: var(--timeline-blue);
+  font-size: 1.22em;
+  font-weight: 750;
+  letter-spacing: 0.01em;
+}
+.computing-row-2 .computing-year {
+  color: #a85b00;
+}
+.computing-row-3 .computing-year {
+  color: #087174;
+}
+.computing-label {
+  display: block;
+  margin-top: 0.12rem;
+  font-weight: 650;
+}
+.computing-detail {
+  display: block;
+  margin-top: 0.1rem;
+  color: #506572;
+  font-size: 0.88em;
+}
+.computing-hidden-figures img {
+  width: 3.4rem;
+  height: 2.5rem;
+  margin: 0.08rem auto 0;
+  border-radius: 0.25rem;
+  object-fit: cover;
+  object-position: 50% 27%;
+  filter: grayscale(100%);
+}
+.computing-hidden-figures .computing-detail {
+  margin-top: 0.02rem;
+  font-size: 0.72em;
+}
+.computing-timeline-note {
+  margin-top: 4.7rem;
+  color: #5f6f79;
+  font-size: 0.64em;
+  text-align: right;
+}
+.computing-software {
+  position: absolute;
+  z-index: 2;
+  transform: translateX(-50%);
+  padding: 0.16rem 0.32rem;
+  border-bottom: 0.12rem solid #9a72b0;
+  background: white;
+  color: #5f3d78;
+  font-size: 0.64em;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.computing-software-fortran {
+  top: 9.7rem;
+  left: 87%;
+}
+.computing-software-c {
+  top: 15.25rem;
+  left: 85%;
+}
+.computing-software-tex {
+  top: 13.25rem;
+  left: 76%;
+}
+.computing-software-wordstar {
+  top: 15.25rem;
+  left: 70%;
+}
+.computing-software-internet {
+  top: 13.25rem;
+  left: 62%;
+}
+.computing-software-matlab {
+  top: 15.25rem;
+  left: 54%;
+}
+.computing-software-python {
+  top: 15.25rem;
+  left: 29%;
+}
+</style>
+
+<div class="computing-timeline" role="img" aria-label="A three-row serpentine timeline from the abacus through supercomputers to artificial intelligence">
+  <svg class="computing-timeline-path" viewBox="0 0 1000 434" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="computing-path-gradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#007acc" />
+        <stop offset="30%" stop-color="#007acc" />
+        <stop offset="43%" stop-color="#f39c34" />
+        <stop offset="56%" stop-color="#f39c34" />
+        <stop offset="74%" stop-color="#0f8b8d" />
+        <stop offset="100%" stop-color="#0f8b8d" />
+      </linearGradient>
+    </defs>
+    <path d="M 0 3 H 970 C 986 3 997 14 997 30 V 170 C 997 185 985 197 970 197 H 30 C 15 197 3 209 3 224 V 404 C 3 419 15 431 30 431 H 1000" />
+  </svg>
+  <div class="computing-milestone" style="grid-column: 1; grid-row: 1;"><span class="computing-year">c. 2500 BCE</span><span class="computing-label">Abacus</span><span class="computing-detail">arithmetic made tangible</span></div>
+  <div class="computing-milestone" style="grid-column: 2; grid-row: 1;"><span class="computing-year">1620s</span><span class="computing-label">Slide rule</span><span class="computing-detail">analog multiplication</span></div>
+  <div class="computing-milestone" style="grid-column: 3; grid-row: 1;"><span class="computing-year">1890</span><span class="computing-label">Punched-card tabulation</span><span class="computing-detail">data processed at scale</span></div>
+  <div class="computing-milestone" style="grid-column: 4; grid-row: 1;"><span class="computing-year">1930s–60s</span><span class="computing-label">Electromechanical calculators</span><span class="computing-detail">office and engineering workhorses</span></div>
+  <div class="computing-milestone computing-hidden-figures" style="grid-column: 5; grid-row: 1;"><span class="computing-year">1940s–60s</span><span class="computing-label">Human computers</span><img src="../classlib/classlib/quarto/slides/assets/general/computing-timeline/katherine-johnson-1966.jpeg" alt="Katherine Johnson at her desk at NASA in 1966"><span class="computing-detail"><em>Hidden Figures</em> (2016)</span></div>
+  <div class="computing-milestone" style="grid-column: 6; grid-row: 1;"><span class="computing-year">1946</span><span class="computing-label">ENIAC</span><span class="computing-detail">general-purpose electronic computing</span></div>
+  <div class="computing-milestone" style="grid-column: 7; grid-row: 1;"><span class="computing-year">1947–58</span><span class="computing-label">Transistor → integrated circuit</span><span class="computing-detail">electronics shrink onto chips</span></div>
+  <div class="computing-milestone computing-row-2" style="grid-column: 7; grid-row: 2;"><span class="computing-year">1971</span><span class="computing-label">Microprocessor</span><span class="computing-detail">a CPU on one chip</span></div>
+  <div class="computing-milestone computing-row-2" style="grid-column: 6; grid-row: 2;"><span class="computing-year">1976</span><span class="computing-label">Cray-1</span><span class="computing-detail">vector supercomputing</span></div>
+  <div class="computing-milestone computing-row-2" style="grid-column: 5; grid-row: 2;"><span class="computing-year">1977–81</span><span class="computing-label">Personal computers</span><span class="computing-detail">computing reaches homes and desks</span></div>
+  <div class="computing-milestone computing-row-2" style="grid-column: 4; grid-row: 2;"><span class="computing-year">1984–95</span><span class="computing-label">Graphical operating systems</span><span class="computing-detail">Macintosh, then Windows</span></div>
+  <div class="computing-milestone computing-row-2" style="grid-column: 2; grid-row: 2;"><span class="computing-year">1993</span><span class="computing-label">The Web goes mainstream</span><span class="computing-detail">networked information for everyone</span></div>
+  <div class="computing-milestone computing-row-3" style="grid-column: 1; grid-row: 3;"><span class="computing-year">2007</span><span class="computing-label">Modern smartphone</span><span class="computing-detail">a computer in every pocket</span></div>
+  <div class="computing-milestone computing-row-3" style="grid-column: 3; grid-row: 3;"><span class="computing-year">2010s</span><span class="computing-label">Cloud computing</span><span class="computing-detail">compute and data become services</span></div>
+  <div class="computing-milestone computing-row-3" style="grid-column: 5; grid-row: 3;"><span class="computing-year">2022</span><span class="computing-label">Exascale supercomputer</span><span class="computing-detail">Frontier exceeds one exaflop</span></div>
+  <div class="computing-milestone computing-row-3" style="grid-column: 7; grid-row: 3;"><span class="computing-year">2022–</span><span class="computing-label">Generative AI</span><span class="computing-detail">computing becomes conversational</span></div>
+  <span class="computing-software computing-software-fortran">1957 · FORTRAN</span>
+  <span class="computing-software computing-software-c">1972 · C</span>
+  <span class="computing-software computing-software-tex">1978 · TeX</span>
+  <span class="computing-software computing-software-wordstar">1978 · WORDSTAR</span>
+  <span class="computing-software computing-software-internet">1983 · INTERNET (TCP/IP)</span>
+  <span class="computing-software computing-software-matlab">1984 · MATLAB</span>
+  <span class="computing-software computing-software-python">1991 · Python</span>
+</div>
+
+<div class="computing-timeline-note">Dates mark representative introductions or inflection points; adoption overlapped across eras</div>
+
+::: {.notes}
+[Sources]
+
+- Simson L. Garfinkel and Rachel H. Grunspan, *The Computer Book: From the
+  Abacus to Artificial Intelligence, 250 Milestones in the History of Computer
+  Science*, Sterling, 2018
+- Computer History Museum, “Timeline of Computer History,”
+  https://www.computerhistory.org/timeline/
+- Computer History Museum, “The Cray-1 Supercomputer,”
+  https://www.computerhistory.org/revolution/story/7
+- Oak Ridge Leadership Computing Facility, “Frontier,”
+  https://www.olcf.ornl.gov/olcf-resources/compute-systems/frontier/
+- National Institute of Standards and Technology, “The Transistor,”
+  https://www.nist.gov/pml/transistor
+- National Bureau of Standards, “Semiconductor Measurement Technology,” for
+  Jack Kilby's 1958 integrated circuit,
+  https://nvlpubs.nist.gov/nistpubs/jres/086/6/jresv86n6.pdf
+- Internet Society, “A Brief History of the Internet,” for the ARPANET
+  transition to TCP/IP on January 1, 1983,
+  https://www.internetsociety.org/internet/history-internet/brief-history-internet/
+- Computer History Museum, “Software & Languages,” for WordStar (1978),
+  https://www.computerhistory.org/timeline/software-languages/
+- TeX Users Group, “History of TeX,” and Joe Weening interview, for TeX78,
+  https://tug.org/whatis.html and https://www.tug.org/interviews/weening.html
+- IBM, “The IBM 704,” and MathWorks, “The Origins of MATLAB,” for FORTRAN and
+  MATLAB milestones; Bell Labs, “The Development of the C Language”; Python
+  Software Foundation, “History and License”
+- CERN, “A short history of the Web,”
+  https://home.cern/science/computing/birth-web/short-history-web
+- NASA, “Hidden Figures” gallery and “Katherine Johnson,”
+  https://www.nasa.gov/gallery/hidden-figures/ and
+  https://www.nasa.gov/image-detail/1-1966-l-06717_2/
+- Katherine Johnson photograph: NASA, 1966, public domain
+- *Hidden Figures*, directed by Theodore Melfi, 20th Century Fox, 2016
+:::
