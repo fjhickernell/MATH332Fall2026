@@ -18,6 +18,739 @@ include-after-body:
       </script>
 ---
 
-# Matrix Structure and Transformations
+# Course Map
 
-Anton §§1.7–1.9 content will be developed in this deck.
+::: {.columns}
+::: {.column width="45%"}
+<h3>Course decks</h3>
+
+- [Why Linear Algebra?]({{< meta decks.d00.file >}})
+- [Systems and Matrices]({{< meta decks.d01.file >}})
+- [Inverses]({{< meta decks.d02.file >}})
+- [Matrix Transformations]({{< meta decks.d03.file >}}){.alert}
+- [Determinants]({{< meta decks.d04.file >}})
+- [Euclidean Spaces]({{< meta decks.d05.file >}})
+- [Vector Spaces]({{< meta decks.d06.file >}})
+- [Eigenvalues]({{< meta decks.d07.file >}})
+- [Inner Products]({{< meta decks.d08.file >}})
+:::
+
+::: {.column width="55%"}
+<h3>In this deck</h3>
+
+- [Matrix Patterns](#matrix-patterns)
+- [Elimination Becomes a Factorization](#elimination-becomes-a-factorization)
+- [Matrices as Linear Transformations](#matrices-as-linear-transformations)
+- [Geometry of Matrix Transformations](#geometry-of-matrix-transformations)
+- [Compose and Undo Transformations](#compose-and-undo-transformations)
+- [Big Ideas](#big-ideas)
+- [What Comes Next](#what-comes-next)
+:::
+:::
+
+# Matrix Patterns
+
+The pattern of entries can reveal how a matrix behaves before any calculation
+
+- [Diagonal matrices act one coordinate at a time](#diagonal-matrices-act-one-coordinate-at-a-time)
+- [Triangular matrices expose pivots](#triangular-matrices-expose-pivots)
+- [Transpose exchanges rows and columns](#transpose-exchanges-rows-and-columns)
+- [Symmetric matrices mirror pairwise relationships](#symmetric-matrices-mirror-pairwise-relationships)
+
+## Diagonal matrices act one coordinate at a time
+
+For
+
+$$
+\mat{D}=\begin{bmatrix}
+d_1&0&\cdots&0\\
+0&d_2&\cdots&0\\
+\vdots&\vdots&\ddots&\vdots\\
+0&0&\cdots&d_n
+\end{bmatrix},
+$$
+
+each coordinate is scaled independently:
+
+$$
+\mat{D}\vct{x}
+=
+\begin{bmatrix}
+d_1x_1&d_2x_2&\cdots&d_nx_n
+\end{bmatrix}^{\mathsf T}
+$$
+
+::: {.key-point}
+For a positive integer $k$, $\mat{D}^k$ has diagonal entries $d_i^k$
+
+If every $d_i\ne0$, $\mat{D}^{-1}$ has diagonal entries $1/d_i$
+:::
+
+## Triangular matrices expose pivots
+
+::: {.columns}
+::: {.column width="47%"}
+### Lower triangular
+
+$$
+\mat{L}=\begin{bmatrix}
+\ell_{11}&0&0\\
+\ell_{21}&\ell_{22}&0\\
+\ell_{31}&\ell_{32}&\ell_{33}
+\end{bmatrix}
+$$
+
+Zeros lie [above]{.alert} the diagonal
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### Upper triangular
+
+$$
+\mat{U}=\begin{bmatrix}
+u_{11}&u_{12}&u_{13}\\
+0&u_{22}&u_{23}\\
+0&0&u_{33}
+\end{bmatrix}
+$$
+
+Zeros lie [below]{.alert} the diagonal
+:::
+:::
+
+- Gaussian elimination with a pivot in every row produces an upper-triangular matrix
+- triangular systems are solved in order by forward or back substitution
+
+::: {.key-point}
+A triangular matrix is invertible exactly when every diagonal entry is nonzero
+
+Its inverse has the same triangular form
+:::
+
+## Transpose exchanges rows and columns
+
+For
+
+$$
+\mat{A}=\begin{bmatrix}1&2&3\\4&5&6\end{bmatrix},
+\qquad
+\mat{A}^{\mathsf T}=\begin{bmatrix}1&4\\2&5\\3&6\end{bmatrix}
+$$
+
+- entries exchange positions: $(\mat{A}^{\mathsf T})_{ij}=a_{ji}$
+- products reverse order: $(\mat{A}\mat{B})^{\mathsf T}=\mat{B}^{\mathsf T}\mat{A}^{\mathsf T}$
+
+::: {.key-point}
+The transpose exchanges the roles of rows and columns
+:::
+
+## Symmetric matrices mirror pairwise relationships
+
+A square matrix is [symmetric]{.alert} when
+
+$$
+\mat{S}=\mat{S}^{\mathsf T}
+$$
+
+For example,
+
+$$
+\mat{S}=\begin{bmatrix}
+4&-1&2\\
+-1&3&0\\
+2&0&5
+\end{bmatrix}
+$$
+
+has matching entries $s_{ij}=s_{ji}$ across its diagonal
+
+- invertible covariance matrices and their precision matrices are symmetric ([Inverses]({{< meta decks.d02.file >}}#covariance-describes-joint-variation))
+- $\mat{A}^{\mathsf T}\mat{A}$ and $\mat{A}\mat{A}^{\mathsf T}$ are always symmetric
+
+::: {.key-point}
+Symmetry records the same pairwise value in both directions
+:::
+
+# Elimination Becomes a Factorization
+
+Elimination separates a matrix into simpler structured factors
+
+PLU is a short supplement connecting Anton's triangular matrices to elimination and SciPy
+
+- [Inverse elimination matrices form $\mat{L}$](#inverse-elimination-matrices-form-l)
+- [A permutation matrix records row order](#a-permutation-matrix-records-row-order)
+- [SciPy writes $\mat{A}=\mat{P}\mat{L}\mat{U}$](#scipy-plu)
+- [Triangular factors organize repeated solves](#triangular-factors-organize-repeated-solves)
+
+## Inverse elimination matrices form $\mat{L}$ {#inverse-elimination-matrices-form-l}
+
+Recall the coefficient matrix from [Systems and Matrices]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system):
+
+$$
+\mat{A}=
+\begin{bmatrix}
+1&2&-1\\
+2&-1&1\\
+3&1&2
+\end{bmatrix}
+=
+\underbrace{\begin{bmatrix}
+1&0&0\\
+2&1&0\\
+3&1&1
+\end{bmatrix}}_{\mat{L}}
+\underbrace{\begin{bmatrix}
+1&2&-1\\
+0&-5&3\\
+0&0&2
+\end{bmatrix}}_{\mat{U}}
+$$
+
+- $\mat{U}$ is the upper-triangular matrix produced by elimination
+- $\mat{L}$ collects the inverse elimination operations in a unit lower-triangular matrix
+
+::: {.key-point}
+Without row exchanges, elimination gives $\mat{A}=\mat{L}\mat{U}$
+
+We use this factorization without proving the general result
+:::
+
+## A permutation matrix records row order
+
+A [permutation matrix]{.alert} is obtained by reordering the rows of the identity matrix
+
+$$
+\mat{P}=\begin{bmatrix}
+0&1&0\\
+0&0&1\\
+1&0&0
+\end{bmatrix},
+\qquad
+\mat{P}
+\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
+=
+\begin{bmatrix}x_2\\x_3\\x_1\end{bmatrix}
+$$
+
+Left multiplication by $\mat{P}$ reorders matrix rows in the same pattern
+
+Every row and column of $\mat{P}$ contains exactly one $1$
+
+$$
+\mat{P}^{-1}=\mat{P}^{\mathsf T},
+\qquad
+\mat{P}^{\mathsf T}\mat{P}=\mat{I}
+$$
+
+::: {.key-point}
+A single row-exchange matrix is symmetric; a general permutation matrix need not be
+:::
+
+## SciPy writes $\mat{A}=\mat{P}\mat{L}\mat{U}$ {#scipy-plu}
+
+If elimination uses a row reordering, then
+
+$$
+\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}
+\qquad\Longleftrightarrow\qquad
+\mat{A}=\mat{P}\mat{L}\mat{U}
+$$
+
+For the $\mat{A}$ below, SciPy returns the nonsymmetric $\mat{P}$ shown on the preceding slide
+
+::: {.columns}
+::: {.column width="47%"}
+- $\mat{P}^{\mathsf T}$ places rows in elimination order
+- $\mat{L}$ records elimination multipliers
+- $\mat{U}$ is upper triangular
+- $\mat{P}$ restores the original row order
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+```{.python code-line-numbers="false"}
+import numpy as np
+from scipy.linalg import lu
+
+A = np.array([[0, 3, 1],
+              [2, 1, 3],
+              [4, 2, 2]])
+P, L, U = lu(A)
+np.allclose(A, P @ L @ U)       # True
+np.allclose(P.T @ A, L @ U)     # True
+```
+:::
+:::
+
+::: {.small}
+This is the convention returned by [SciPy's `lu` function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html)
+:::
+
+::: {.notes}
+Sources:
+
+- [SciPy `scipy.linalg.lu` documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html)
+:::
+
+## Triangular factors organize repeated solves
+
+If $\mat{A}=\mat{P}\mat{L}\mat{U}$, then
+
+$$
+\mat{A}\vct{x}=\vct{b}
+\qquad\Longleftrightarrow\qquad
+\mat{L}\mat{U}\vct{x}=\mat{P}^{\mathsf T}\vct{b}
+$$
+
+Introduce $\vct{y}=\mat{U}\vct{x}$ and solve two triangular systems:
+
+$$
+\underbrace{\mat{L}\vct{y}=\mat{P}^{\mathsf T}\vct{b}}_{\text{forward substitution}},
+\qquad
+\underbrace{\mat{U}\vct{x}=\vct{y}}_{\text{back substitution}}
+$$
+
+::: {.key-point}
+For many right-hand sides, reuse $\mat{P}$, $\mat{L}$, and $\mat{U}$; do not form $\mat{A}^{-1}$ merely to solve
+:::
+
+# Matrices as Linear Transformations
+
+A matrix is an input–output rule that preserves linear combinations
+
+- [A matrix maps one coordinate space into another](#a-matrix-maps-one-coordinate-space-into-another)
+- [Linear transformations preserve combinations](#linear-transformations-preserve-combinations)
+- [Standard basis vectors reveal every column](#standard-basis-vectors-reveal-every-column)
+- [Build a standard matrix from an action](#build-a-standard-matrix-from-an-action)
+
+## A matrix maps one coordinate space into another
+
+For $\mat{A}\in\reals^{m\times n}$, define
+
+$$
+T_{\mat{A}}:\reals^n\longrightarrow\reals^m,
+\qquad
+T_{\mat{A}}(\vct{x})=\mat{A}\vct{x}
+$$
+
+When $m=n$, $T_{\mat{A}}$ is a [matrix operator]{.alert} on $\reals^n$
+
+::: {.columns}
+::: {.column width="47%"}
+### Domain
+
+$\reals^n$: the allowed inputs
+
+Columns of $\mat{A}$ determine the input dimension
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### Codomain and range
+
+$\reals^m$: the allowed outputs
+
+The [range]{.alert} is the subset actually reached
+:::
+:::
+
+::: {.key-point}
+Matrix size is output dimension by input dimension
+:::
+
+## Linear transformations preserve combinations
+
+A transformation $T$ is [linear]{.alert} when
+
+$$
+T(\vct{u}+\vct{v})=T(\vct{u})+T(\vct{v}),
+\qquad
+T(c\vct{u})=cT(\vct{u})
+$$
+
+Equivalently, for all scalars $a,b$,
+
+$$
+T(a\vct{u}+b\vct{v})
+=aT(\vct{u})+bT(\vct{v})
+$$
+
+Every matrix transformation $T_{\mat{A}}(\vct{x})=\mat{A}\vct{x}$ is linear
+
+::: {.key-point}
+Linearity forces $T(\vct{0})=\vct{0}$, so a translation $\vct{x}\mapsto\mat{A}\vct{x}+\vct{b}$ is not linear unless $\vct{b}=\vct{0}$
+:::
+
+## Standard basis vectors reveal every column
+
+The $j$th [standard basis vector]{.alert} $\vct{e}_j$ has a $1$ in position $j$ and zeros elsewhere
+
+Every vector is a linear combination of these vectors:
+
+$$
+\vct{x}=x_1\vct{e}_1+\cdots+x_n\vct{e}_n
+$$
+
+Therefore,
+
+$$
+T(\vct{x})
+=x_1T(\vct{e}_1)+\cdots+x_nT(\vct{e}_n)
+$$
+
+For the standard matrix $\mat{A}$ of $T$,
+
+$$
+\mat{A}
+=\begin{bmatrix}
+T(\vct{e}_1)&\cdots&T(\vct{e}_n)
+\end{bmatrix}
+$$
+
+::: {.key-point}
+Every linear $T:\reals^n\to\reals^m$ has exactly one standard matrix $\mat{A}$; its $j$th column is $T(\vct{e}_j)$
+:::
+
+## Build a standard matrix from an action
+
+Let $T:\reals^2\to\reals^3$ be
+
+$$
+T(x,y)=(x+2y,\ 3x-y,\ -x+y)
+$$
+
+The basis images are
+
+$$
+T(\vct{e}_1)=T(1,0)=\begin{bmatrix}1\\3\\-1\end{bmatrix},
+\qquad
+T(\vct{e}_2)=T(0,1)=\begin{bmatrix}2\\-1\\1\end{bmatrix}
+$$
+
+Place them in the columns of the standard matrix:
+
+$$
+\mat{A}=\begin{bmatrix}1&2\\3&-1\\-1&1\end{bmatrix},
+\qquad
+T(\vct{x})=\mat{A}\vct{x}
+$$
+
+::: {.key-point}
+The dimensions $\reals^2\to\reals^3$ require a $3\times2$ standard matrix
+:::
+
+# Geometry of Matrix Transformations
+
+The images of the coordinate directions reveal the geometry
+
+- [One vector reveals three different actions](#one-vector-reveals-three-different-actions)
+- [Diagonal actions stretch and flip coordinate directions](#diagonal-actions-stretch-and-flip-coordinate-directions)
+- [Reflections preserve information](#reflections-preserve-information)
+- [Projections discard information](#projections-discard-information)
+- [Rotation follows the basis directions](#rotation-follows-the-basis-directions)
+
+## One vector reveals three different actions
+
+::: {.columns}
+::: {.column width="12%"}
+:::
+
+::: {.column width="76%"}
+<svg viewBox="0 0 720 360" width="100%" role="img" aria-label="The vector two comma one and its images under reflection across y equals x, projection onto the x-axis, and counterclockwise rotation by ninety degrees">
+<defs>
+<marker id="d03-arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#007acc"/></marker>
+<marker id="d03-arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#d97904"/></marker>
+<marker id="d03-arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#26864a"/></marker>
+<marker id="d03-arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#7651a8"/></marker>
+</defs>
+<path d="M70 180H660M360 330V20" stroke="#777" stroke-width="3"/>
+<text x="665" y="188" font-size="24">x</text>
+<text x="368" y="28" font-size="24">y</text>
+<g fill="none" stroke-width="7">
+<path d="M360 180L500 110" stroke="#007acc" marker-end="url(#d03-arrow-blue)"/>
+<path d="M360 180L430 40" stroke="#d97904" marker-end="url(#d03-arrow-orange)"/>
+<path d="M360 180L500 180" stroke="#26864a" marker-end="url(#d03-arrow-green)"/>
+<path d="M360 180L290 40" stroke="#7651a8" marker-end="url(#d03-arrow-purple)"/>
+</g>
+<g font-size="24" font-weight="600">
+<text x="510" y="105" fill="#007acc">v = (2,1)</text>
+<text x="440" y="42" fill="#d97904">Hv = (1,2)</text>
+<text x="510" y="207" fill="#26864a">Qv = (2,0)</text>
+<text x="165" y="42" fill="#7651a8">R₉₀v = (−1,2)</text>
+</g>
+</svg>
+:::
+
+::: {.column width="12%"}
+:::
+:::
+
+::: {.key-point}
+One input, three matrix actions: reflection, projection, and rotation
+:::
+
+## Diagonal actions stretch and flip coordinate directions
+
+::: {.columns}
+::: {.column width="47%"}
+### Stretch by different amounts
+
+$$
+\begin{bmatrix}2&0\\0&\tfrac12\end{bmatrix}
+\begin{bmatrix}x\\y\end{bmatrix}
+=
+\begin{bmatrix}2x\\y/2\end{bmatrix}
+$$
+
+- horizontal distances double
+- vertical distances halve
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### Flip one direction
+
+$$
+\begin{bmatrix}-1&0\\0&1\end{bmatrix}
+\begin{bmatrix}x\\y\end{bmatrix}
+=
+\begin{bmatrix}-x\\y\end{bmatrix}
+$$
+
+- the first coordinate reverses
+- the second stays fixed
+:::
+:::
+
+::: {.key-point}
+Diagonal structure turns independent coordinate actions into one matrix transformation
+:::
+
+## Reflections preserve information
+
+Reflection across the line $y=x$ exchanges the coordinates:
+
+$$
+\mat{H}=\begin{bmatrix}0&1\\1&0\end{bmatrix},
+\qquad
+\mat{H}\begin{bmatrix}x\\y\end{bmatrix}
+=\begin{bmatrix}y\\x\end{bmatrix}
+$$
+
+Its columns are the reflected basis vectors:
+
+$$
+\mat{H}\vct{e}_1=\vct{e}_2,
+\qquad
+\mat{H}\vct{e}_2=\vct{e}_1
+$$
+
+Reflecting twice restores every vector:
+
+$$
+\mat{H}^2=\mat{I},
+\qquad
+\mat{H}^{-1}=\mat{H}
+$$
+
+::: {.key-point}
+A reflection changes geometry without losing information
+:::
+
+## Projections discard information
+
+Projection onto the $x$-axis keeps the first coordinate and removes the second:
+
+$$
+\mat{Q}=\begin{bmatrix}1&0\\0&0\end{bmatrix},
+\qquad
+\mat{Q}\begin{bmatrix}x\\y\end{bmatrix}
+=\begin{bmatrix}x\\0\end{bmatrix}
+$$
+
+- $\mat{Q}$ is diagonal and symmetric
+- $\mat{Q}^2=\mat{Q}$: projecting again changes nothing
+- every point on the vertical line through $(x,0)$ has the same image
+
+::: {.key-point}
+A projection is singular: it collapses a direction and cannot be undone
+:::
+
+## Rotation follows the basis directions
+
+A counterclockwise rotation through angle $\theta$ sends
+
+$$
+\vct{e}_1\longmapsto
+\begin{bmatrix}\cos\theta\\\sin\theta\end{bmatrix},
+\qquad
+\vct{e}_2\longmapsto
+\begin{bmatrix}-\sin\theta\\\cos\theta\end{bmatrix}
+$$
+
+These images become the columns:
+
+$$
+\mat{R}_{\theta}
+=\begin{bmatrix}
+\cos\theta&-\sin\theta\\
+\sin\theta&\cos\theta
+\end{bmatrix}
+$$
+
+Rotating backward undoes the action:
+
+$$
+\mat{R}_{\theta}^{-1}=\mat{R}_{-\theta}=\mat{R}_{\theta}^{\mathsf T}
+$$
+
+# Compose and Undo Transformations
+
+Matrix multiplication records a sequence of actions
+
+- [Composition is matrix multiplication](#composition-is-matrix-multiplication)
+- [Order can change the picture](#order-can-change-the-picture)
+- [Inverse transformations undo in reverse order](#inverse-transformations-undo-in-reverse-order)
+- [A factorization is a composition of simpler actions](#a-factorization-is-a-composition-of-simpler-actions)
+
+## Composition is matrix multiplication
+
+Suppose
+
+$$
+T_{\mat{A}}:\reals^n\to\reals^k,
+\qquad
+T_{\mat{B}}:\reals^k\to\reals^m
+$$
+
+First apply $T_{\mat{A}}$, then $T_{\mat{B}}$:
+
+$$
+(T_{\mat{B}}\circ T_{\mat{A}})(\vct{x})
+=\mat{B}(\mat{A}\vct{x})
+=(\mat{B}\mat{A})\vct{x}
+$$
+
+::: {.key-point}
+The rightmost matrix acts first: $T_{\mat{B}}\circ T_{\mat{A}}=T_{\mat{B}\mat{A}}$
+:::
+
+## Order can change the picture
+
+Let $\mat{R}$ rotate $90^\circ$ counterclockwise and let $\mat{Q}$ project onto the $x$-axis:
+
+$$
+\mat{R}=\begin{bmatrix}0&-1\\1&0\end{bmatrix},
+\qquad
+\mat{Q}=\begin{bmatrix}1&0\\0&0\end{bmatrix}
+$$
+
+::: {.columns}
+::: {.column width="47%"}
+### Rotate, then project
+
+$$
+\mat{Q}\mat{R}\begin{bmatrix}x\\y\end{bmatrix}
+=\begin{bmatrix}-y\\0\end{bmatrix}
+$$
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### Project, then rotate
+
+$$
+\mat{R}\mat{Q}\begin{bmatrix}x\\y\end{bmatrix}
+=\begin{bmatrix}0\\x\end{bmatrix}
+$$
+:::
+:::
+
+Usually $\mat{Q}\mat{R}\ne\mat{R}\mat{Q}$; planar rotations about the same origin are a useful commuting exception
+
+## Inverse transformations undo in reverse order
+
+If $T_{\mat{A}}$ and $T_{\mat{B}}$ are invertible operators on $\reals^n$, then
+
+$$
+(T_{\mat{B}}\circ T_{\mat{A}})^{-1}
+=T_{\mat{A}^{-1}}\circ T_{\mat{B}^{-1}}
+$$
+
+The corresponding matrix rule from [Inverses]({{< meta decks.d02.file >}}#undo-products-in-reverse-order) is
+
+$$
+(\mat{B}\mat{A})^{-1}
+=\mat{A}^{-1}\mat{B}^{-1}
+$$
+
+- rotations are undone by rotation through the opposite angle
+- reflections are undone by the same reflection
+- projections have no inverse because they lose information
+
+::: {.key-point}
+Undo the last action first
+:::
+
+## A factorization is a composition of simpler actions
+
+The PLU factorization
+
+$$
+\mat{A}=\mat{P}\mat{L}\mat{U}
+$$
+
+describes the action of $\mat{A}$ as a sequence:
+
+$$
+\vct{x}
+\xrightarrow{\ \mat{U}\ }
+\mat{U}\vct{x}
+\xrightarrow{\ \mat{L}\ }
+\mat{L}\mat{U}\vct{x}
+\xrightarrow{\ \mat{P}\ }
+\mat{P}\mat{L}\mat{U}\vct{x}
+=\mat{A}\vct{x}
+$$
+
+::: {.key-point}
+Factorization is representation by simpler actions; multiplication composes them
+:::
+
+# Big Ideas {data-state="goldborder"}
+
+- Special matrix [patterns reveal behavior]{.alert} before computation
+- In SciPy's convention, elimination gives $\mat{A}=\mat{P}\mat{L}\mat{U}$
+- A [linear transformation]{.alert} preserves combinations; basis images determine its standard matrix
+- Reflections and rotations are reversible; projections [discard information]{.alert}
+- In a product, the [rightmost transformation acts first]{.alert}
+- Inverses undo compositions in reverse order
+
+# What Comes Next
+
+Matrix transformations can
+
+- stretch or shrink regions
+- preserve or reverse orientation
+- flatten a plane into a line
+
+[Determinants]({{< meta decks.d04.file >}}) will attach one number to a square matrix action and answer:
+
+- By what factor does area or volume change?
+- Is orientation preserved or reversed?
+- Has a dimension collapsed?
+
+::: {.key-point}
+Next: [measure how a matrix transformation scales and orients space]({{< meta decks.d04.file >}}){.alert}
+:::

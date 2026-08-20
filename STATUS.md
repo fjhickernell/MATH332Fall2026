@@ -22,8 +22,9 @@ Mathematical content should be maintained only in the slides.
     update all metadata, navigation, schedule, course-map, and internal links.
 11. [x] Draft Deck 02: Inverses and Invertibility.
 12. [x] Review and refine Deck 02 for classroom use.
-13. [ ] Develop Deck 03: Matrix Structure and Transformations.
-14. [ ] Decide and document the Canvas quiz strategy.
+13. [x] Draft Deck 03: Matrix Structure and Transformations.
+14. [ ] Review and refine Deck 03 with the instructor for classroom use.
+15. [ ] Decide and document the Canvas quiz strategy.
 
 ## Later course construction
 

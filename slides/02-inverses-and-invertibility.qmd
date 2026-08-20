@@ -454,6 +454,38 @@ Compute $\mat{A}^{-1}$ when the inverse itself is the object of interest
 Unnecessary computation costs time and creates more opportunities for round-off error
 :::
 
+---
+
+### Elimination leaves reusable factors
+
+When Gaussian elimination proceeds without row exchanges, the inverse elimination matrices multiply to a [unit lower-triangular matrix]{.alert} $\mat{L}$—a matrix with $1$'s on its diagonal and zeros above it
+
+Without proof for now,
+
+$$
+\mat{A}=\mat{L}\mat{U},
+$$
+
+where $\mat{U}$ is the upper-triangular matrix produced by elimination
+
+If row exchanges are used, a permutation matrix records them. Using [SciPy's convention](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html),
+
+$$
+\mat{A}=\mat{P}\mat{L}\mat{U},
+\qquad
+\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}
+$$
+
+::: {.key-point}
+[Matrix Transformations]({{< meta decks.d03.file >}}#elimination-becomes-a-factorization) will connect these factors to row permutations
+:::
+
+::: {.notes}
+Sources:
+
+- [SciPy `scipy.linalg.lu` documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html)
+:::
+
 # Leontief Input–Output Models
 
 An economy must meet external demand while supporting its own production

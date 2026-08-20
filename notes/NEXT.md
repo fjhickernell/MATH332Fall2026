@@ -2,16 +2,16 @@
 
 ## Current task
 
-Develop Deck 03: Matrix Structure and Transformations.
+Review the Deck 03 draft with the instructor and make any requested
+refinements.
 
 ## Current state
 
-- The sequential Deck 00–08 architecture is implemented. Deck 01 remains
-  Systems and Matrices, Deck 02 is Inverses and Invertibility, Deck 03 is the
-  placeholder for Matrix Structure and Transformations, and Anton Chapters
-  2–6 are represented by Decks 04–08. Metadata, previous/next navigation,
-  course maps, schedule links, and internal links use the new numbering.
-- `slides/02-inverses-and-invertibility.qmd` is a concise, 28-slide,
+- The sequential Deck 00–08 architecture is implemented. Decks 01–03 now have
+  substantive drafts, and Anton Chapters 2–6 are represented by Decks 04–08.
+  Metadata, previous/next navigation, course maps, schedule links, and internal
+  links use the sequential numbering.
+- `slides/02-inverses-and-invertibility.qmd` is a concise, 29-slide,
   instructor-reviewed deck covering Anton §§1.4–1.6 and an integrated §1.11
   Leontief input–output
   application. It develops inverse matrices, inverse algebra, Gauss–Jordan
@@ -25,7 +25,24 @@ Develop Deck 03: Matrix Structure and Transformations.
   infinitely many. A high-level Gaussian-process application now interprets
   covariance as joint variation and precision as conditional structure and
   covariance-aware weighting, while reinforcing solves rather than explicit
-  inversion.
+  inversion. It now previews triangular factorization without proof: inverse
+  elimination matrices form a unit lower-triangular factor when elimination
+  proceeds without row exchanges, and Deck 03 accounts for row order with a
+  permutation matrix.
+- `slides/03-matrix-structure-and-transformations.qmd` is a 30-slide
+  instructor-review draft covering Anton §§1.7–1.9. It develops diagonal,
+  triangular, transposed, and symmetric structure; supplements Anton with PLU;
+  defines linear transformations and standard matrices; treats scaling,
+  reflections, projections, and rotations, including a coordinate-plane
+  comparison of three actions; and closes with composition, inverse actions,
+  and a determinant handoff. It uses SciPy's convention
+  $\mat{A}=\mat{P}\mat{L}\mat{U}$, equivalently
+  $\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}$. The Markdown parses cleanly,
+  the displayed examples have been checked computationally, and internal
+  fragment targets have been checked. The root site and all nine decks render
+  cleanly outside the filesystem sandbox; Deck 03 has been inspected slide by
+  slide at the standard $1600\times1000$ RevealJS viewport, and the assembled
+  site's student-facing local files and fragments resolve.
 - Deck 01 now develops elementary matrices through a continuing three-equation
   example and a student exercise that connect an equation operation, the
   corresponding augmented-matrix row operation, and left multiplication by a
@@ -64,8 +81,10 @@ Develop Deck 03: Matrix Structure and Transformations.
 
 ## Questions to resolve
 
-- Which Anton §§1.7–1.9 ideas should carry the most classroom weight in Deck
-  03 while preserving the established representation-and-action narrative.
+- Does the Deck 03 draft place the right classroom weight on special matrix
+  structure, PLU, geometric transformations, and composition?
+- Which slides need additional examples, exercises, visual explanation, or
+  trimming after instructor review?
 
 ## Constraints
 
@@ -83,12 +102,20 @@ Develop Deck 03: Matrix Structure and Transformations.
   systems. Use Gauss–Jordan reduction because it is useful for finding the
   inverse itself, while retaining Gaussian elimination and back substitution
   for one or a few right-hand sides.
+- Use SciPy's PLU convention
+  $\mat{A}=\mat{P}\mat{L}\mat{U}$ and explain that
+  $\mat{P}^{\mathsf T}$ applies the row ordering used for elimination.
+- Treat PLU as a concise structural bridge, not as a numerical-methods unit;
+  omit pivot-selection algorithms, stability analysis, operation counts, and
+  storage details.
 - Keep mathematical exposition authoritative in the RevealJS deck.
 - Reuse the established course-wide diagram primitives before adding
   deck-specific styling.
 
 ## Done when
 
-- Deck 03 has an instructor-reviewable draft with a smooth Deck 02→03→04
-  handoff, accurate Anton coverage, integrated applications where appropriate,
-  and visibly sound slides at the standard RevealJS viewport.
+- The instructor has reviewed Deck 03's scope, sequence, examples, and
+  mathematical emphasis, and requested refinements are complete.
+- Any requested refinements render cleanly and remain visibly sound at the
+  standard RevealJS viewport, with working section, glossary, and
+  previous/next links.

@@ -725,9 +725,11 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 - [Back substitution]({{< meta decks.d01.file >}}#back-substitution)
 - [Catastrophic cancellation](#equivalent-mathematics-unequal-computations)
 - [Commutativity]({{< meta decks.d01.file >}}#matrix-matrix-multiplication-collects-dot-products)
+- [Composition of transformations]({{< meta decks.d03.file >}}#composition-is-matrix-multiplication)
 - [Computational cost](#a-correct-computation-can-still-cost-too-much)
 - [Consistent / inconsistent system]({{< meta decks.d01.file >}}#read-the-solution-set)
 - [Covariance matrix]({{< meta decks.d02.file >}}#covariance-describes-joint-variation)
+- [Diagonal matrix]({{< meta decks.d03.file >}}#diagonal-matrices-act-one-coordinate-at-a-time)
 - [Dot product]({{< meta decks.d01.file >}}#combines-coefficients-and-unknowns)
 - [Elementary matrix]({{< meta decks.d01.file >}}#row-operations-are-reversible-matrix-actions)
 - [Elementary row operations]({{< meta decks.d01.file >}}#three-reversible-moves)
@@ -756,8 +758,10 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 - [Least squares](#when-the-constraints-cannot-all-be-satisfied)
 - [Leontief input–output model]({{< meta decks.d02.file >}}#production-creates-internal-demand)
 - [Linear system]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
+- [Linear transformation]({{< meta decks.d03.file >}}#linear-transformations-preserve-combinations)
 - [Matrix](#represent-objects-numerically)
 - [Matrix–matrix multiplication]({{< meta decks.d01.file >}}#matrix-matrix-multiplication-collects-dot-products)
+- [Matrix operator]({{< meta decks.d03.file >}}#a-matrix-maps-one-coordinate-space-into-another)
 - [Matrix–vector multiplication]({{< meta decks.d01.file >}}#each-equation-is-one-dot-product)
 - [Nonsingular / singular matrix]({{< meta decks.d02.file >}}#invertible-or-singular)
 - [Numerical instability](#equivalent-mathematics-unequal-computations)
@@ -766,10 +770,16 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 ::: {.column width="50%"}
 - [Orthogonal vectors]({{< meta decks.d01.file >}}#measures-alignment)
 - [Parallel vectors]({{< meta decks.d01.file >}}#parallel-vectors-point-along-one-line)
+- [Permutation matrix]({{< meta decks.d03.file >}}#a-permutation-matrix-records-row-order)
 - [Pivot]({{< meta decks.d01.file >}}#eliminate-and-organize-with-pivots)
+- [PLU factorization]({{< meta decks.d03.file >}}#scipy-plu)
 - [Precision matrix]({{< meta decks.d02.file >}}#precision-describes-conditional-structure)
+- [Projection]({{< meta decks.d03.file >}}#projections-discard-information)
+- [Range of a transformation]({{< meta decks.d03.file >}}#a-matrix-maps-one-coordinate-space-into-another)
 - [Redundant constraint](#what-does-the-system-tell-us)
+- [Reflection]({{< meta decks.d03.file >}}#reflections-preserve-information)
 - [Reversible transformation]({{< meta decks.d01.file >}}#three-reversible-moves)
+- [Rotation]({{< meta decks.d03.file >}}#rotation-follows-the-basis-directions)
 - [Row echelon form]({{< meta decks.d01.file >}}#eliminate-and-organize-with-pivots)
 :::
 :::
@@ -783,11 +793,16 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 - [Scalar](#represent-objects-numerically)
 - [Singular value decomposition (SVD)](#images-contain-important-patterns)
 - [Solution / solution set]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
+- [Standard basis]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column)
+- [Standard matrix]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column)
+- [Symmetric matrix]({{< meta decks.d03.file >}}#symmetric-matrices-mirror-pairwise-relationships)
 - [Tensor](#represent-objects-numerically)
 :::
 
 ::: {.column width="50%"}
 - [Transformation](#act-on-these-objects-via-transformations-to-obtain-new-objects)
+- [Transpose]({{< meta decks.d03.file >}}#transpose-exchanges-rows-and-columns)
+- [Triangular matrix]({{< meta decks.d03.file >}}#triangular-matrices-expose-pivots)
 - [Vector](#represent-objects-numerically)
 :::
 :::

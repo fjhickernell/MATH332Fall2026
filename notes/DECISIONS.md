@@ -6,6 +6,26 @@ would benefit from understanding why a choice was made.
 
 ## Decision log
 
+### 2026-08-20 — Use SciPy's permutation convention for PLU
+
+- **Decision:** Introduce triangular factorization briefly in Deck 02 and
+  develop it in Deck 03 using
+  $\mat{A}=\mat{P}\mat{L}\mat{U}$, equivalently
+  $\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}$. Thus
+  $\mat{P}^{\mathsf T}$ places the rows in elimination order and $\mat{P}$
+  restores the original order. State without proof that, when elimination
+  proceeds without row exchanges, the inverse elimination matrices multiply
+  to a unit lower-triangular matrix.
+- **Rationale:** This is the convention returned by `scipy.linalg.lu`, so
+  students will recognize the decomposition in later computational work.
+  PLU also connects Deck 01's row operations and Deck 02's inverse algebra to
+  Deck 03's triangular structure and composition of transformations without
+  turning the course into numerical linear algebra.
+- **Consequences:** Keep pivot-selection strategies, stability analysis,
+  operation counts, and storage details out of the introductory treatment.
+  Do not assume a general permutation matrix equals its transpose; only a
+  single row-exchange matrix is necessarily symmetric.
+
 ### 2026-08-19 — Number decks by teaching sequence and split Anton Chapter 1
 
 - **Decision:** Number the authoritative course decks sequentially by teaching
