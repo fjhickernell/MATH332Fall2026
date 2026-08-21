@@ -87,6 +87,11 @@ refinements.
 
 - Does the Deck 03 draft place the right classroom weight on special matrix
   structure, PLU, geometric transformations, and composition?
+- Should Deck 03's PLU treatment include a brief forward signpost to Strang's
+  later $\mat{A}=\mat{C}\mat{R}$ rank factorization? Keep any mention
+  prospective rather than developing it here: the full treatment belongs
+  after vector spaces, subspaces, basis, column and row spaces, RREF pivot
+  columns, and rank have been established.
 - Which slides need additional examples, exercises, visual explanation, or
   trimming after instructor review?
 

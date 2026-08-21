@@ -6,6 +6,16 @@ state why the work was deferred when that context will matter later.
 
 ## Deferred work
 
+- When developing Deck 06, introduce Strang's
+  $\mat{A}=\mat{C}\mat{R}$ rank factorization after students have learned
+  vector spaces, subspaces, span, linear independence, basis and coordinates,
+  column and row spaces, RREF pivot columns, and rank. Construct $\mat{C}$
+  from the pivot columns of the original matrix and $\mat{R}$ from the
+  corresponding coordinate coefficients, conveniently obtained as the
+  nonzero rows of $\operatorname{rref}(\mat{A})$. Use the topic to reconnect
+  Deck 01's row operations with Deck 03's factorization viewpoint. During the
+  Deck 03 review, consider only a brief forward signpost; do not move the full
+  treatment there before its space, basis, and rank prerequisites.
 - Before the next offering, rethink the role and sequencing of Deck 00. In the
   first Fall 2026 lecture, its abstract overview was too much to absorb before
   students had encountered concrete linear systems. Only part of the deck was
