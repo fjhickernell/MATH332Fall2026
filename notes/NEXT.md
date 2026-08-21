@@ -2,8 +2,8 @@
 
 ## Current task
 
-Review the Deck 03 draft with the instructor and make any requested
-refinements.
+Prepare and assign Assignment 1 by Monday, August 24, 2026. Then review the
+Deck 03 draft with the instructor and make any requested refinements.
 
 ## Current state
 
@@ -85,6 +85,7 @@ refinements.
 
 ## Questions to resolve
 
+- What content, student due date, and Canvas settings should Assignment 1 use?
 - Does the Deck 03 draft place the right classroom weight on special matrix
   structure, PLU, geometric transformations, and composition?
 - Should Deck 03's PLU treatment include a brief forward signpost to Strang's
@@ -123,6 +124,8 @@ refinements.
 
 ## Done when
 
+- Assignment 1 is finalized, linked from the assignments page, configured in
+  Canvas, and assigned by Monday, August 24.
 - The instructor has reviewed Deck 03's scope, sequence, examples, and
   mathematical emphasis, and requested refinements are complete.
 - Any requested refinements render cleanly and remain visibly sound at the
