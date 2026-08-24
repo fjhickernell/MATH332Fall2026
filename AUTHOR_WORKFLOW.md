@@ -85,6 +85,8 @@ revised:
   lowercase unless they begin or end the heading. Write `##` slide headings
   and `###` subheadings in sentence case: capitalize only the first word and
   proper nouns, acronyms, and mathematical notation.
+- In the Course Map's **In this deck** list, repeat each linked `#` section
+  heading exactly, including its title capitalization and punctuation.
 - Every instructional `#` section slide must link to all of its child `##`
   slides in presentation order; `###` subheadings do not belong in this list.
   When the section slide also contains content, place brief framing or
