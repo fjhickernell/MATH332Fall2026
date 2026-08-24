@@ -31,9 +31,10 @@ Mathematical content should be maintained only in the slides.
 - [ ] Develop the authoritative Decks 04–08 for Anton Chapters 2–6.
 - [x] Create the initial Notebooks page for demonstrations and exercises.
 - [x] Add student repository-access instructions.
-- [x] Create Assignment 1 for Anton Exercises 1.3.15, 1.2.38, and 1.3.2;
-  publish it in Canvas for 20 points with its assignment-specific self-sign-up
-  pair groups; and add its course-page, schedule, and Deck 03 notices.
+- [x] Create Assignment 1 for Anton §§1.2–1.3; publish it in Canvas for
+  20 points; convert it to an individual, automatically graded WileyPLUS
+  assignment when the original textbook exercises proved unavailable; and
+  add its course-page, schedule, and Deck 03 notices.
 - [x] Publish the Assignment 1 website updates.
 - [x] Replace the Canvas description with links to the authoritative course
   website pages and post the Canvas announcement.

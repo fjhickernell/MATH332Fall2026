@@ -63,6 +63,16 @@ revised:
    group and submission information students need. Do not repeat the assignment
    content or due date in the announcement.
 
+   Canvas group assignments cannot use External Tools. When an automatically
+   graded LTI assignment is the objective, use an individual assignment unless
+   the tool and Canvas explicitly support group grade passback. Before
+   converting an existing published assignment, verify the complete submission
+   roster, preserve its Canvas URL, points, and due date, and confirm the
+   selected question set, attempt policy, grade passback, and student-visible
+   launch. Reconcile the course-hosted detail page, assignments table, schedule,
+   Canvas description, and announcement with the individual external-tool
+   workflow.
+
 ## Slide-source conventions
 
 - Whenever a homework, assignment, quiz, or similar assessed item

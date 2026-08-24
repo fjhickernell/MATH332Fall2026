@@ -6,6 +6,21 @@ would benefit from understanding why a choice was made.
 
 ## Decision log
 
+### 2026-08-24 — Prefer WileyPLUS autograding over exact textbook exercise numbers
+
+- **Decision:** Use an individual WileyPLUS External Tool assignment when
+  automatic grading is required, even when that requires replacing assigned
+  Anton exercise numbers with comparable Wiley questions. Preserve
+  self-selected pairs for file-upload assignments that support Canvas groups.
+- **Rationale:** Wiley's paired question bank did not contain Anton Exercises
+  1.3.15 or 1.2.38, and Canvas prohibits group assignments from using External
+  Tools. WileyPLUS provides per-student automatic grading and Canvas grade
+  passback.
+- **Consequences:** Assignment 1 uses four randomized Wiley questions covering
+  Gaussian elimination, matrix dimensions, matrix multiplication by columns,
+  and a matrix-product equation. It is individual, worth 20 points, due
+  September 4 at 11:59 PM Chicago Time, and retains its original Canvas URL.
+
 ### 2026-08-24 — Index elimination matrices by pivot-column stage
 
 - **Decision:** Use $\mat{M}_j$ for the grouped elimination matrix that clears
