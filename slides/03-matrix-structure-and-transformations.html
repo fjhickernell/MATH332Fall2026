@@ -814,11 +814,12 @@ u_{11}&amp;u_{12}&amp;u_{13}\\
 <section id="elimination-becomes-a-factorization" class="title-slide slide level1 center">
 <h1>Elimination Becomes a Factorization</h1>
 <p>Elimination separates a matrix into simpler structured factors</p>
-<p>PLU is a short supplement connecting Anton’s triangular matrices to elimination and SciPy</p>
+<p>Start with LU when no row exchanges are needed; then add a permutation matrix to obtain the PLU form used by SciPy</p>
 <ul>
 <li><a href="#/inverse-elimination-matrices-form-l">Inverse elimination matrices form <span class="math inline">\(\mat{L}\)</span></a></li>
 <li><a href="#/a-permutation-matrix-records-row-order">A permutation matrix records row order</a></li>
 <li><a href="#/scipy-plu">SciPy writes <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span></a></li>
+<li><a href="#/rectangular-plu-uses-compact-factors">Rectangular PLU uses compact factors</a></li>
 <li><a href="#/triangular-factors-organize-repeated-solves">Triangular factors organize repeated solves</a></li>
 </ul>
 </section>
@@ -832,22 +833,40 @@ u_{11}&amp;u_{12}&amp;u_{13}\\
 2&amp;-1&amp;1\\
 3&amp;1&amp;2
 \end{bmatrix}
-=
-\underbrace{\begin{bmatrix}
-1&amp;0&amp;0\\
-2&amp;1&amp;0\\
-3&amp;1&amp;1
-\end{bmatrix}}_{\mat{L}}
-\underbrace{\begin{bmatrix}
+\]</span></p>
+<p>The two column-elimination stages give</p>
+<p><span class="math display">\[
+\mat{M}_1=
+\begin{bmatrix}1&amp;0&amp;0\\-2&amp;1&amp;0\\-3&amp;0&amp;1\end{bmatrix},
+\qquad
+\mat{M}_2=
+\begin{bmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;-1&amp;1\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\mat{U}=\mat{M}_2\mat{M}_1\mat{A}
+=\begin{bmatrix}
 1&amp;2&amp;-1\\
 0&amp;-5&amp;3\\
 0&amp;0&amp;2
-\end{bmatrix}}_{\mat{U}}
+\end{bmatrix}
 \]</span></p>
-<ul>
-<li><span class="math inline">\(\mat{U}\)</span> is the upper-triangular matrix produced by elimination</li>
-<li><span class="math inline">\(\mat{L}\)</span> collects the inverse elimination operations in a unit lower-triangular matrix</li>
-</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="undoing-the-stages-produces-matl">Undoing the stages produces <span class="math inline">\(\mat{L}\)</span></h3>
+<p>The elimination stages satisfy</p>
+<p><span class="math display">\[
+\mat{U}=\mat{M}_2\mat{M}_1\mat{A}
+\]</span></p>
+<p>Undoing them in reverse order gives</p>
+<p><span class="math display">\[
+\mat{A}=
+\underbrace{\mat{M}_1^{-1}\mat{M}_2^{-1}}_{\mat{L}}\mat{U},
+\qquad
+\mat{L}=\begin{bmatrix}
+1&amp;0&amp;0\\2&amp;1&amp;0\\3&amp;1&amp;1
+\end{bmatrix}
+\]</span></p>
 <div class="key-point">
 <p>Without row exchanges, elimination gives <span class="math inline">\(\mat{A}=\mat{L}\mat{U}\)</span></p>
 <p>&nbsp;</p>
@@ -857,6 +876,7 @@ u_{11}&amp;u_{12}&amp;u_{13}\\
 <section id="a-permutation-matrix-records-row-order" class="slide level2">
 <h2>A permutation matrix records row order</h2>
 <p>A <span class="alert">permutation matrix</span> is obtained by reordering the rows of the identity matrix</p>
+<p>Write <span class="math inline">\(\mat{P}_{jk}\)</span> for one exchange of rows <span class="math inline">\(j\)</span> and <span class="math inline">\(k\)</span>. In PLU, <span class="math inline">\(\mat{P}\)</span> records the combined row ordering.</p>
 <p><span class="math display">\[
 \mat{P}=\begin{bmatrix}
 0&amp;1&amp;0\\
@@ -930,9 +950,41 @@ u_{11}&amp;u_{12}&amp;u_{13}\\
           display:block!important;
       }</style></aside>
 </section>
+<section id="rectangular-plu-uses-compact-factors" class="slide level2">
+<h2>Rectangular PLU uses compact factors</h2>
+<p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, set <span class="math inline">\(k=\min(m,n)\)</span>. SciPy returns</p>
+<p><span class="math display">\[
+\mat{P}\in\reals^{m\times m},
+\qquad
+\mat{L}\in\reals^{m\times k},
+\qquad
+\mat{U}\in\reals^{k\times n},
+\qquad
+\mat{A}=\mat{P}\mat{L}\mat{U}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="wide-or-square-mle-n">Wide or square: <span class="math inline">\(m\le n\)</span></h3>
+<ul>
+<li><span class="math inline">\(\mat{L}\)</span> is square and unit lower triangular</li>
+<li><span class="math inline">\(\mat{U}\)</span> has zeros below its diagonal</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="tall-mn">Tall: <span class="math inline">\(m&gt;n\)</span></h3>
+<ul>
+<li><span class="math inline">\(\mat{L}\)</span> has <span class="math inline">\(1\)</span>’s on its diagonal and zeros above it</li>
+<li><span class="math inline">\(\mat{U}\)</span> is square and upper triangular</li>
+</ul>
+</div></div>
+<div class="key-point">
+<p>For a tall matrix, the compact form omits the guaranteed zero rows at the bottom of full <span class="math inline">\(\mat{U}\)</span> and the matching columns of full <span class="math inline">\(\mat{L}\)</span></p>
+</div>
+</section>
 <section id="triangular-factors-organize-repeated-solves" class="slide level2">
 <h2>Triangular factors organize repeated solves</h2>
-<p>If <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span>, then</p>
+<p>For a square nonsingular matrix, if <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span>, then</p>
 <p><span class="math display">\[
 \mat{A}\vct{x}=\vct{b}
 \qquad\Longleftrightarrow\qquad

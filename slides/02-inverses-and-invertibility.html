@@ -641,7 +641,7 @@ In this deck
 <ul>
 <li><a href="#/why-square-matrices">Why square matrices?</a></li>
 <li><a href="#/an-inverse-undoes-a-matrix-action">An inverse undoes a matrix action</a></li>
-<li><a href="#/elementary-matrices-are-invertible">Elementary matrices are invertible</a></li>
+<li><a href="#/elimination-matrices-are-invertible">Elimination matrices are invertible</a></li>
 <li><a href="#/invertible-or-singular">Invertible or singular</a></li>
 </ul>
 </section>
@@ -698,18 +698,18 @@ In this deck
 <p><span class="math inline">\(\mat{A}\)</span> is <span class="alert">invertible</span>, or <span class="alert">nonsingular</span>, when <span class="math inline">\(\mat{A}^{-1}\)</span> exists</p>
 </div>
 </section>
-<section id="elementary-matrices-are-invertible" class="slide level2">
-<h2>Elementary matrices are invertible</h2>
-<p>Recall from <a href="01-systems-and-matrices.html#/undoing-restores-the-original-system">Systems and Matrices</a>: <span class="math inline">\(\mat{M}_1\)</span> performs <span class="math inline">\(R_2\leftarrow R_2-2R_1\)</span>, while <span class="math inline">\(\mat{N}_1\)</span> performs the reverse operation <span class="math inline">\(R_2\leftarrow R_2+2R_1\)</span>:</p>
+<section id="elimination-matrices-are-invertible" class="slide level2">
+<h2>Elimination matrices are invertible</h2>
+<p>Recall from <a href="01-systems-and-matrices.html#/undoing-restores-the-original-system">Systems and Matrices</a>: <span class="math inline">\(\mat{M}_1\)</span> zeros the first column below its pivot, while <span class="math inline">\(\mat{N}_1\)</span> reverses that elimination stage:</p>
 <p><span class="math display">\[
 \mat{M}_1=
 \begin{bmatrix}
-1&amp;0&amp;0\\-2&amp;1&amp;0\\0&amp;0&amp;1
+1&amp;0&amp;0\\-2&amp;1&amp;0\\-3&amp;0&amp;1
 \end{bmatrix},
 \qquad
 \mat{N}_1=
 \begin{bmatrix}
-1&amp;0&amp;0\\2&amp;1&amp;0\\0&amp;0&amp;1
+1&amp;0&amp;0\\2&amp;1&amp;0\\3&amp;0&amp;1
 \end{bmatrix}
 \]</span></p>
 <p>A direct check gives</p>
@@ -719,7 +719,7 @@ In this deck
 \]</span></p>
 <p>Now we can write <span class="math inline">\(\mat{N}_1=\mat{M}_1^{-1}\)</span></p>
 <div class="key-point">
-<p>Every elementary matrix is invertible; its inverse performs the reverse row operation</p>
+<p>Each <span class="math inline">\(\mat{M}_j\)</span> is a product of elementary matrices, so it is invertible; its inverse reverses the whole column-elimination stage</p>
 </div>
 </section>
 <section id="invertible-or-singular" class="slide level2">
@@ -804,20 +804,15 @@ In this deck
 </section>
 <section id="reduce-beside-the-identity" class="slide level2">
 <h2>Reduce beside the identity</h2>
-<p>Let <span class="math inline">\(\mat{M}_1,\ldots,\mat{M}_k\)</span> represent the successive row operations. The same ordered product acts on both blocks:</p>
-<p><span class="math display">\[\begin{align*}
-\mat{M}_k\cdots\mat{M}_1
-[\,\mat{A}\mid\mat{I}\,]
-&amp;=
-[\,\mat{M}_k\cdots\mat{M}_1\mat{A}
-\mid
-\mat{M}_k\cdots\mat{M}_1\,]\\
-&amp;=
-[\,\mat{I}\mid\mat{M}\,],
-\qquad
-\mat{M}=\mat{M}_k\cdots\mat{M}_1
-\end{align*}\]</span></p>
-<p>The left block gives <span class="math inline">\(\mat{M}\mat{A}=\mat{I}\)</span>. Because <span class="math inline">\(\mat{M}\)</span> is a product of invertible elementary matrices, <span class="math inline">\(\mat{M}=\mat{A}^{-1}\)</span>.</p>
+<p>Let <span class="math inline">\(\mat{G}\)</span> denote the product of the elementary matrices used in Gauss–Jordan reduction. Every row operation acts on both blocks, so</p>
+<p><span class="math display">\[
+\mat{G}[\,\mat{A}\mid\mat{I}\,]
+=
+[\,\mat{G}\mat{A}\mid\mat{G}\,]
+=
+[\,\mat{I}\mid\mat{G}\,]
+\]</span></p>
+<p>The left block gives <span class="math inline">\(\mat{G}\mat{A}=\mat{I}\)</span>. Since <span class="math inline">\(\mat{G}\)</span> is invertible, <span class="math inline">\(\mat{A}=\mat{G}^{-1}\)</span>; hence <span class="math inline">\(\mat{G}=\mat{A}^{-1}\)</span>.</p>
 <div class="key-point">
 <p>Gaussian elimination solves systems; Gauss–Jordan reduction is useful here because the inverse itself is the goal</p>
 </div>
@@ -973,37 +968,20 @@ In this deck
 <section class="slide level2">
 
 <h3 id="elimination-leaves-reusable-factors">Elimination leaves reusable factors</h3>
-<p>When Gaussian elimination proceeds without row exchanges, the inverse elimination matrices multiply to a <span class="alert">unit lower-triangular matrix</span> <span class="math inline">\(\mat{L}\)</span>—a matrix with <span class="math inline">\(1\)</span>’s on its diagonal and zeros above it</p>
-<p>Without proof for now,</p>
+<p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span> and <span class="math inline">\(q=\min(m-1,n)\)</span>, suppose no row exchanges are needed:</p>
+<p><span class="math display">\[
+\mat{U}=\mat{M}_q\cdots\mat{M}_1\mat{A}
+\]</span></p>
+<p>Undoing the stages in reverse order gives</p>
 <p><span class="math display">\[
 \mat{A}=\mat{L}\mat{U},
-\]</span></p>
-<p>where <span class="math inline">\(\mat{U}\)</span> is the upper-triangular matrix produced by elimination</p>
-<p>If row exchanges are used, a permutation matrix records them. Using <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html">SciPy’s convention</a>,</p>
-<p><span class="math display">\[
-\mat{A}=\mat{P}\mat{L}\mat{U},
 \qquad
-\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}
+\mat{L}=\mat{M}_1^{-1}\cdots\mat{M}_q^{-1},
 \]</span></p>
+<p>These are the full-form factors: <span class="math inline">\(\mat{L}\in\reals^{m\times m}\)</span> is unit lower triangular, while <span class="math inline">\(\mat{U}\in\reals^{m\times n}\)</span> has zeros below its diagonal (and is upper triangular when square)</p>
 <div class="key-point">
-<p><a href="03-matrix-structure-and-transformations.html#elimination-becomes-a-factorization">Matrix Transformations</a> will connect these factors to row permutations</p>
+<p><a href="03-matrix-structure-and-transformations.html#elimination-becomes-a-factorization">Matrix Transformations</a> will first develop this no-exchange LU example, then add a permutation matrix when row exchanges are needed</p>
 </div>
-<aside class="notes">
-<p>Sources:</p>
-<ul>
-<li><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html">SciPy <code>scipy.linalg.lu</code> documentation</a></li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
 </section></section>
 <section>
 <section id="leontief-inputoutput-models" class="title-slide slide level1 center">

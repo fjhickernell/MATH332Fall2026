@@ -1608,55 +1608,62 @@ x=\frac{-4-z}{5}
 <section id="row-operations-are-reversible-matrix-actions" class="slide level2">
 <h2>Row operations are reversible matrix actions</h2>
 <p>Matrix multiplication gives an <span class="alert">algebraic representation</span> of the same row operations in the language of vectors and matrices</p>
-<h3 id="the-same-step-is-left-multiplication">The same step is left multiplication</h3>
+<h3 id="one-matrix-completes-one-elimination-stage">One matrix completes one elimination stage</h3>
 <p>The <span class="math inline">\(3\times3\)</span> <span class="alert">identity matrix</span> has ones on its diagonal and zeros elsewhere:</p>
 <p><span class="math display">\[
 \mat{I}=
 \begin{bmatrix}
 1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;1
 \end{bmatrix}
-\xrightarrow{R_2\leftarrow R_2-2R_1}
+\xrightarrow[\ R_3\leftarrow R_3-3R_1\ ]{\ R_2\leftarrow R_2-2R_1\ }
 \mat{M}_1=
 \begin{bmatrix}
-1&amp;0&amp;0\\-2&amp;1&amp;0\\0&amp;0&amp;1
+1&amp;0&amp;0\\-2&amp;1&amp;0\\-3&amp;0&amp;1
 \end{bmatrix}
 \]</span></p>
-<p>Then <span class="alert">left multiplication</span> performs that row operation:</p>
+<p>Then <span class="alert">left multiplication</span> performs both row operations:</p>
 <p><span class="math display">\[
 \mat{M}_1[\,\mat{A}\mid\vct{b}\,]
 =
 \left[\begin{array}{rrr|r}
-1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-7\\3&amp;1&amp;2&amp;1
+1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-7\\0&amp;-5&amp;5&amp;-5
 \end{array}\right]
 \]</span></p>
 <div class="key-point">
-<p><span class="math inline">\(\mat{M}_1\)</span> is an <span class="alert">elementary matrix</span>: equation operation, row operation, and matrix multiplication describe the same step</p>
+<p>Each individual row operation produces an <span class="alert">elementary matrix</span>; their product <span class="math inline">\(\mat{M}_1\)</span> is an <span class="alert">elimination matrix</span> that zeros the entire first column below the pivot</p>
 </div>
 </section>
 <section class="slide level2">
 
-<h3 id="try-it-connect-the-three-views">Try it: connect the three views</h3>
-<p><span class="math inline">\(\exstar\)</span> Return to the operation that eliminated <span class="math inline">\(x\)</span> from equation <span class="math inline">\(E_3\)</span>:</p>
+<h3 id="the-next-pivot-column-has-its-own-matrix">The next pivot column has its own matrix</h3>
+<p>The second elimination stage uses <span class="math inline">\(R_3\leftarrow R_3-R_2\)</span>:</p>
 <p><span class="math display">\[
-E_3\leftarrow E_3-3E_1
+\mat{M}_2=
+\begin{bmatrix}
+1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;-1&amp;1
+\end{bmatrix}
 \]</span></p>
-<ol type="1">
-<li>Write the corresponding operation on row <span class="math inline">\(R_3\)</span></li>
-<li>Build <span class="math inline">\(\mat{M}_2\)</span> by applying that row operation to <span class="math inline">\(\mat{I}\)</span></li>
-<li>Verify that <span class="math inline">\(\mat{M}_2[\,\mat{A}\mid\vct{b}\,]\)</span> produces the same augmented matrix</li>
-</ol>
+<p>Therefore</p>
+<p><span class="math display">\[
+\mat{M}_2\mat{M}_1[\,\mat{A}\mid\vct{b}\,]
+=
+\left[\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-7\\0&amp;0&amp;2&amp;2
+\end{array}\right]
+=[\,\mat{U}\mid\vct{c}\,]
+\]</span></p>
 <div class="key-point">
-<p>Before computing: which rows must remain unchanged?</p>
+<p><span class="math inline">\(\mat{M}_j\)</span> groups all row additions that zero column <span class="math inline">\(j\)</span> below its pivot</p>
 </div>
 </section>
 <section class="slide level2">
 
 <h3 id="undoing-restores-the-original-system">Undoing restores the original system</h3>
-<p>Undo <span class="math inline">\(R_2\leftarrow R_2-2R_1\)</span> with <span class="math inline">\(R_2\leftarrow R_2+2R_1\)</span>:</p>
+<p>Undo the first elimination stage with <span class="math inline">\(R_2\leftarrow R_2+2R_1\)</span> and <span class="math inline">\(R_3\leftarrow R_3+3R_1\)</span>:</p>
 <p><span class="math display">\[
 \mat{N}_1=
 \begin{bmatrix}
-1&amp;0&amp;0\\2&amp;1&amp;0\\0&amp;0&amp;1
+1&amp;0&amp;0\\2&amp;1&amp;0\\3&amp;0&amp;1
 \end{bmatrix}
 \]</span></p>
 <p>Indeed,</p>
@@ -1680,17 +1687,19 @@ E_3\leftarrow E_3-3E_1
 <section class="slide level2">
 
 <h3 id="elimination-is-an-ordered-product">Elimination is an ordered product</h3>
-<p>If elimination applies <span class="math inline">\(\mat{M}_1,\ldots,\mat{M}_k\)</span>, then</p>
+<p>First suppose no row exchanges are needed. For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, the last possible elimination stage is</p>
 <p><span class="math display">\[
-\mat{M}_k\cdots\mat{M}_1
+q=\min(m-1,n)
+\]</span></p>
+<p>Because <span class="math inline">\(\mat{M}_j\)</span> zeros column <span class="math inline">\(j\)</span> below row <span class="math inline">\(j\)</span>,</p>
+<p><span class="math display">\[
+\mat{M}_q\cdots\mat{M}_1
 [\,\mat{A}\mid\vct{b}\,]
 =
 [\,\mat{U}\mid\vct{c}\,]
 \]</span></p>
 <p>This product records the elimination algebraically; it <span class="alert">need not be formed</span> to solve the system</p>
-<ul>
-<li>the <span class="alert">rightmost matrix</span> <span class="math inline">\(\mat{M}_1\)</span> acts first</li>
-</ul>
+<p>The <span class="alert">rightmost matrix</span> <span class="math inline">\(\mat{M}_1\)</span> acts first. For a square or wide matrix, <span class="math inline">\(q=\min(m,n)-1\)</span>; a tall matrix may also need <span class="math inline">\(\mat{M}_n\)</span> because column <span class="math inline">\(n\)</span> can have entries below row <span class="math inline">\(n\)</span>.</p>
 <div class="key-point">
 <p>Matrix multiplication is <span class="alert">associative</span>: factors may be regrouped. It is generally <span class="alert">not commutative</span>: factors may not be reordered.</p>
 </div>
@@ -1698,11 +1707,11 @@ E_3\leftarrow E_3-3E_1
 <section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Big Ideas</h1>
 <ul>
-<li><span class="alert">Equations show the details</span>; <span class="alert">augmented matrices compress the same information</span> for computation; <span class="alert">elementary matrices encode row operations algebraically</span></li>
+<li><span class="alert">Equations show the details</span>; <span class="alert">augmented matrices compress the same information</span> for computation; <span class="alert">elimination matrices group row operations algebraically</span></li>
 <li>Reversible row operations preserve the solution set</li>
 <li>Dot products express individual equations; matrix multiplication collects many dot products and composes actions</li>
 <li>Pivots organize elimination and reveal whether a system has <span class="alert">zero, one, or infinitely many solutions</span></li>
-<li>Compute only what the problem requires: direct elimination solves the system; elementary-matrix products record the process but need not be formed</li>
+<li>Compute only what the problem requires: direct elimination solves the system; elimination-matrix products record the process but need not be formed</li>
 </ul>
 </section>
 
