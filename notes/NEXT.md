@@ -2,21 +2,48 @@
 
 ## Current task
 
-Review the Deck 03 draft with the instructor and make any requested
-refinements.
+Before class on Tuesday, August 25, determine whether WileyPLUS has
+auto-gradable versions of Anton Exercises 1.3.15, 1.2.38, and 1.3.2. If all
+three are suitable, convert the already-published Canvas Assignment 1 from a
+pair-group file-upload assignment to an individual WileyPLUS assignment while
+preserving its Canvas URL, 20-point value, and September 4 due date. If any
+exercise is unavailable or unsuitable for automatic grading, stop and ask the
+instructor whether to substitute a Wiley question or retain manual submission.
+Resume the Deck 03 instructor review after this time-sensitive decision.
 
 ## Current state
 
 - Assignment 1 is defined as Anton Exercises 1.3.15, 1.2.38, and 1.3.2,
   due Friday, September 4, 2026, at 11:59 PM Chicago Time. Its course-hosted
   detail page, assignments-table entry, schedule entry, and Deck 03 title-slide
-  notice are published and render cleanly. Canvas Assignment 1 is published for
-  20 points with unlimited file-upload attempts and its own 20-group
-  self-sign-up set, `Assignment 1 Groups`, limited to pairs; one submission and
-  grade are shared by each group. The course-hosted detail page is the
-  authoritative source. The Canvas description links to the live assignment
-  and course Assignments pages without repeating the exercise details, and the
-  Canvas announcement has been posted.
+  notice are published and render cleanly. Canvas Assignment 1 remains
+  published at course `23913`, assignment `101984`, for 20 points with
+  unlimited file-upload attempts and its own 20-group self-sign-up set,
+  `Assignment 1 Groups`, limited to pairs; one submission and grade are shared
+  by each group. The course-hosted detail page is the authoritative source.
+  The Canvas description links to the live assignment and course Assignments
+  pages without repeating the exercise details, and the Canvas announcement
+  has been posted.
+- **Immediate WileyPLUS handoff:** On August 24, the instructor paired the
+  MATH 332 Canvas course with WileyPLUS through Illinois Tech's admin-installed
+  `Wiley LTI 1.3`. Do not install the App Center entry `WileyPLUS (new)` or use
+  its legacy Consumer Key/Shared Secret form. The relevant Canvas assignment
+  tool is `Wiley Assignments`. The paired Wiley question-set selector works,
+  and Wiley's `Chapter 1 Homework` library set previews ten auto-gradable
+  questions, but they are not the assigned Exercises 1.3.15, 1.2.38, and
+  1.3.2. `My Sets` was empty at the time of inspection, so a custom question
+  set must be built or selected after verifying the exact exercises. Wiley can
+  auto-grade supported questions and synchronize each student's score to
+  Canvas. Canvas explicitly warns that group assignments cannot use External
+  Tools and will uncheck the group setting when saved; Wiley/LTI grade
+  passback is per student. The instructor therefore intends to make Assignment
+  1 individual if the exact questions are suitable, because automatic grading
+  is the goal. The instructor does **not** want a separate practice set now.
+  SpeedGrader showed `0/21 Graded`, and the displayed group had no submission;
+  confirm that no student or group has submitted before changing the published
+  assignment. Also confirm that every student has WileyPLUS access before the
+  conversion. Do not record the Wiley integration code or transient LTI launch
+  URLs in the repository.
 - The sequential Deck 00–08 architecture is implemented. Decks 01–03 now have
   substantive drafts, and Anton Chapters 2–6 are represented by Decks 04–08.
   Metadata, previous/next navigation, course maps, schedule links, and internal
@@ -101,10 +128,14 @@ refinements.
 
 ## Questions to resolve
 
-- **Temporary cross-machine reconciliation note:** On the next machine, check
-  whether an earlier Assignment 1 source or Canvas assignment already exists
-  there. Reconcile it with the Assignment 1 created on M3, then remove this
-  note.
+- Are Exercises 1.3.15, 1.2.38, and 1.3.2 all present in the paired WileyPLUS
+  question bank in auto-gradable forms that assess the intended work?
+- If any assigned exercise is unavailable or unsuitable, should it be replaced
+  by a Wiley question, or should Assignment 1 retain manual file submission?
+- Do all enrolled students already have WileyPLUS access through the course
+  adoption, and what registration step will they see on first launch?
+- Has any student or group submitted Assignment 1? Check the complete
+  submission roster, not only the first SpeedGrader group, before conversion.
 - Does the Deck 03 draft place the right classroom weight on special matrix
   structure, PLU, geometric transformations, and composition?
 - Should Deck 03's PLU treatment include a brief forward signpost to Strang's
@@ -143,11 +174,31 @@ refinements.
 - Keep mathematical exposition authoritative in the RevealJS deck.
 - Reuse the established course-wide diagram primitives before adding
   deck-specific styling.
+- Do not create a WileyPLUS practice set; the current objective is to decide
+  whether WileyPLUS can replace Assignment 1 and provide automatic grading.
+- Preserve the existing Canvas Assignment 1 URL if conversion proceeds so the
+  published course-site links remain valid. Do not save the External Tool
+  conversion until the exact questions, student access, points, due date,
+  attempt policy, and absence of submissions have been verified.
+- If conversion proceeds, make Assignment 1 explicitly individual everywhere.
+  Reconcile `assignments/assignment_1.qmd`, `pages/assignments.qmd`, Canvas
+  settings and description, and the already-posted Canvas announcement. Remove
+  or qualify file-upload, PDF/code-submission, pair-group, and shared-grade
+  instructions that no longer apply. Retain the September 4, 11:59 PM Chicago
+  due date and the existing Deck 03 due-date notice unless the instructor
+  changes them.
 
 ## Done when
 
-- Assignment 1 is finalized, linked from the assignments page, configured in
-  Canvas, and assigned by Monday, August 24.
+- The instructor has verified whether all three assigned exercises can be
+  auto-graded in WileyPLUS. If conversion is approved, the existing Canvas
+  Assignment 1 is individual, deep-linked to the intended custom Wiley question
+  set, worth 20 points, due September 4 at 11:59 PM Chicago Time, and confirmed
+  to return grades to Canvas. Student access and the student-visible launch are
+  verified, and the course website and Canvas communication consistently state
+  the individual WileyPLUS workflow. If conversion is not feasible, the
+  instructor has made and documented the alternative decision without
+  disrupting the published assignment.
 - The instructor has reviewed Deck 03's scope, sequence, examples, and
   mathematical emphasis, and requested refinements are complete.
 - Any requested refinements render cleanly and remain visibly sound at the
