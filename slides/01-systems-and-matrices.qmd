@@ -1287,7 +1287,7 @@ The idealized short-circuit model is inconsistent
 
 Matrix multiplication gives an [algebraic representation]{.alert} of the same row operations in the language of vectors and matrices
 
-### The same step is left multiplication
+### One matrix completes one elimination stage
 
 The $3\times3$ [identity matrix]{.alert} has ones on its diagonal and zeros elsewhere:
 
@@ -1296,55 +1296,66 @@ $$
 \begin{bmatrix}
 1&0&0\\0&1&0\\0&0&1
 \end{bmatrix}
-\xrightarrow{R_2\leftarrow R_2-2R_1}
+\xrightarrow[\ R_3\leftarrow R_3-3R_1\ ]{\ R_2\leftarrow R_2-2R_1\ }
 \mat{M}_1=
 \begin{bmatrix}
-1&0&0\\-2&1&0\\0&0&1
+1&0&0\\-2&1&0\\-3&0&1
 \end{bmatrix}
 $$
 
-Then [left multiplication]{.alert} performs that row operation:
+Then [left multiplication]{.alert} performs both row operations:
 
 $$
 \mat{M}_1[\,\mat{A}\mid\vct{b}\,]
 =
 \left[\begin{array}{rrr|r}
-1&2&-1&2\\0&-5&3&-7\\3&1&2&1
+1&2&-1&2\\0&-5&3&-7\\0&-5&5&-5
 \end{array}\right]
 $$
 
 ::: {.key-point}
-$\mat{M}_1$ is an [elementary matrix]{.alert}: equation operation, row operation, and matrix multiplication describe the same step
+Each individual row operation produces an [elementary matrix]{.alert}; their product $\mat{M}_1$ is an [elimination matrix]{.alert} that zeros the entire first column below the pivot
 :::
 
 ---
 
-### Try it: connect the three views
+### The next pivot column has its own matrix
 
-$\exstar$ Return to the operation that eliminated $x$ from equation $E_3$:
+The second elimination stage uses $R_3\leftarrow R_3-R_2$:
 
 $$
-E_3\leftarrow E_3-3E_1
+\mat{M}_2=
+\begin{bmatrix}
+1&0&0\\0&1&0\\0&-1&1
+\end{bmatrix}
 $$
 
-1. Write the corresponding operation on row $R_3$
-2. Build $\mat{M}_2$ by applying that row operation to $\mat{I}$
-3. Verify that $\mat{M}_2[\,\mat{A}\mid\vct{b}\,]$ produces the same augmented matrix
+Therefore
+
+$$
+\mat{M}_2\mat{M}_1[\,\mat{A}\mid\vct{b}\,]
+=
+\left[\begin{array}{rrr|r}
+1&2&-1&2\\0&-5&3&-7\\0&0&2&2
+\end{array}\right]
+=[\,\mat{U}\mid\vct{c}\,]
+$$
 
 ::: {.key-point}
-Before computing: which rows must remain unchanged?
+$\mat{M}_j$ groups all row additions that zero column $j$ below its pivot
 :::
 
 ---
 
 ### Undoing restores the original system
 
-Undo $R_2\leftarrow R_2-2R_1$ with $R_2\leftarrow R_2+2R_1$:
+Undo the first elimination stage with
+$R_2\leftarrow R_2+2R_1$ and $R_3\leftarrow R_3+3R_1$:
 
 $$
 \mat{N}_1=
 \begin{bmatrix}
-1&0&0\\2&1&0\\0&0&1
+1&0&0\\2&1&0\\3&0&1
 \end{bmatrix}
 $$
 
@@ -1374,10 +1385,17 @@ $$
 
 ### Elimination is an ordered product
 
-If elimination applies $\mat{M}_1,\ldots,\mat{M}_k$, then
+First suppose no row exchanges are needed. For
+$\mat{A}\in\reals^{m\times n}$, the last possible elimination stage is
 
 $$
-\mat{M}_k\cdots\mat{M}_1
+q=\min(m-1,n)
+$$
+
+Because $\mat{M}_j$ zeros column $j$ below row $j$,
+
+$$
+\mat{M}_q\cdots\mat{M}_1
 [\,\mat{A}\mid\vct{b}\,]
 =
 [\,\mat{U}\mid\vct{c}\,]
@@ -1385,7 +1403,7 @@ $$
 
 This product records the elimination algebraically; it [need not be formed]{.alert} to solve the system
 
-- the [rightmost matrix]{.alert} $\mat{M}_1$ acts first
+The [rightmost matrix]{.alert} $\mat{M}_1$ acts first. For a square or wide matrix, $q=\min(m,n)-1$; a tall matrix may also need $\mat{M}_n$ because column $n$ can have entries below row $n$.
 
 ::: {.key-point}
 Matrix multiplication is [associative]{.alert}: factors may be regrouped. It is generally [not commutative]{.alert}: factors may not be reordered.
@@ -1393,11 +1411,11 @@ Matrix multiplication is [associative]{.alert}: factors may be regrouped. It is 
 
 # Big Ideas {data-state="goldborder"}
 
-- [Equations show the details]{.alert}; [augmented matrices compress the same information]{.alert} for computation; [elementary matrices encode row operations algebraically]{.alert}
+- [Equations show the details]{.alert}; [augmented matrices compress the same information]{.alert} for computation; [elimination matrices group row operations algebraically]{.alert}
 - Reversible row operations preserve the solution set
 - Dot products express individual equations; matrix multiplication collects many dot products and composes actions
 - Pivots organize elimination and reveal whether a system has [zero, one, or infinitely many solutions]{.alert}
-- Compute only what the problem requires: direct elimination solves the system; elementary-matrix products record the process but need not be formed
+- Compute only what the problem requires: direct elimination solves the system; elimination-matrix products record the process but need not be formed
 
 # Compute and Look Ahead
 

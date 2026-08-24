@@ -54,9 +54,10 @@ details here when they are durable but too specific for `AGENTS.md`.
 - The dated Lecture 01 notes above describe the first draft, not the current
   deck. `slides/01-systems-and-matrices.qmd` now has 48 slides and carries the
   arc from equation operations through augmented-matrix elimination, pivots,
-  solution sets, a resistance circuit, and finally elementary matrices as an
-  algebraic representation of reversible row operations.
-- `slides/02-inverses-and-invertibility.qmd` has 28 slides. It restricts the
+  solution sets, a resistance circuit, and finally grouped elimination
+  matrices, built from elementary matrices, as an algebraic representation of
+  reversible row operations.
+- `slides/02-inverses-and-invertibility.qmd` has 29 slides. It restricts the
   inverse discussion to square matrices, develops inverse algebra and
   Gauss–Jordan computation, and treats Leontief production and Gaussian
   covariance/precision as conceptual applications rather than derivations to

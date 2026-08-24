@@ -183,11 +183,12 @@ Symmetry records the same pairwise value in both directions
 
 Elimination separates a matrix into simpler structured factors
 
-PLU is a short supplement connecting Anton's triangular matrices to elimination and SciPy
+Start with LU when no row exchanges are needed; then add a permutation matrix to obtain the PLU form used by SciPy
 
 - [Inverse elimination matrices form $\mat{L}$](#inverse-elimination-matrices-form-l)
 - [A permutation matrix records row order](#a-permutation-matrix-records-row-order)
 - [SciPy writes $\mat{A}=\mat{P}\mat{L}\mat{U}$](#scipy-plu)
+- [Rectangular PLU uses compact factors](#rectangular-plu-uses-compact-factors)
 - [Triangular factors organize repeated solves](#triangular-factors-organize-repeated-solves)
 
 ## Inverse elimination matrices form $\mat{L}$ {#inverse-elimination-matrices-form-l}
@@ -201,21 +202,47 @@ $$
 2&-1&1\\
 3&1&2
 \end{bmatrix}
-=
-\underbrace{\begin{bmatrix}
-1&0&0\\
-2&1&0\\
-3&1&1
-\end{bmatrix}}_{\mat{L}}
-\underbrace{\begin{bmatrix}
+$$
+
+The two column-elimination stages give
+
+$$
+\mat{M}_1=
+\begin{bmatrix}1&0&0\\-2&1&0\\-3&0&1\end{bmatrix},
+\qquad
+\mat{M}_2=
+\begin{bmatrix}1&0&0\\0&1&0\\0&-1&1\end{bmatrix}
+$$
+
+$$
+\mat{U}=\mat{M}_2\mat{M}_1\mat{A}
+=\begin{bmatrix}
 1&2&-1\\
 0&-5&3\\
 0&0&2
-\end{bmatrix}}_{\mat{U}}
+\end{bmatrix}
 $$
 
-- $\mat{U}$ is the upper-triangular matrix produced by elimination
-- $\mat{L}$ collects the inverse elimination operations in a unit lower-triangular matrix
+---
+
+### Undoing the stages produces $\mat{L}$
+
+The elimination stages satisfy
+
+$$
+\mat{U}=\mat{M}_2\mat{M}_1\mat{A}
+$$
+
+Undoing them in reverse order gives
+
+$$
+\mat{A}=
+\underbrace{\mat{M}_1^{-1}\mat{M}_2^{-1}}_{\mat{L}}\mat{U},
+\qquad
+\mat{L}=\begin{bmatrix}
+1&0&0\\2&1&0\\3&1&1
+\end{bmatrix}
+$$
 
 ::: {.key-point}
 Without row exchanges, elimination gives $\mat{A}=\mat{L}\mat{U}$
@@ -228,6 +255,8 @@ We use this factorization without proving the general result
 ## A permutation matrix records row order
 
 A [permutation matrix]{.alert} is obtained by reordering the rows of the identity matrix
+
+Write $\mat{P}_{jk}$ for one exchange of rows $j$ and $k$. In PLU, $\mat{P}$ records the combined row ordering.
 
 $$
 \mat{P}=\begin{bmatrix}
@@ -304,9 +333,46 @@ Sources:
 - [SciPy `scipy.linalg.lu` documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html)
 :::
 
+## Rectangular PLU uses compact factors
+
+For $\mat{A}\in\reals^{m\times n}$, set $k=\min(m,n)$. SciPy returns
+
+$$
+\mat{P}\in\reals^{m\times m},
+\qquad
+\mat{L}\in\reals^{m\times k},
+\qquad
+\mat{U}\in\reals^{k\times n},
+\qquad
+\mat{A}=\mat{P}\mat{L}\mat{U}
+$$
+
+::: {.columns}
+::: {.column width="47%"}
+### Wide or square: $m\le n$
+
+- $\mat{L}$ is square and unit lower triangular
+- $\mat{U}$ has zeros below its diagonal
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### Tall: $m>n$
+
+- $\mat{L}$ has $1$'s on its diagonal and zeros above it
+- $\mat{U}$ is square and upper triangular
+:::
+:::
+
+::: {.key-point}
+For a tall matrix, the compact form omits the guaranteed zero rows at the bottom of full $\mat{U}$ and the matching columns of full $\mat{L}$
+:::
+
 ## Triangular factors organize repeated solves
 
-If $\mat{A}=\mat{P}\mat{L}\mat{U}$, then
+For a square nonsingular matrix, if $\mat{A}=\mat{P}\mat{L}\mat{U}$, then
 
 $$
 \mat{A}\vct{x}=\vct{b}

@@ -6,6 +6,26 @@ would benefit from understanding why a choice was made.
 
 ## Decision log
 
+### 2026-08-24 — Index elimination matrices by pivot-column stage
+
+- **Decision:** Use $\mat{M}_j$ for the grouped elimination matrix that clears
+  column $j$ below row $j$, rather than for one elementary row operation. Keep
+  individual one-row-operation matrices conceptually distinct as elementary
+  matrices. In the no-row-exchange case, index the nontrivial elimination
+  stages through $q=\min(m-1,n)$ for an $m\times n$ matrix.
+- **Rationale:** The index $j$ then identifies the pivot column and the number
+  of grouped stages is determined by the matrix dimensions. The bound requires
+  special care for tall matrices: when $m>n$, the last coefficient column may
+  still need an $\mat{M}_n$ stage.
+- **Consequences:** Use $\mat{U}=\mat{M}_q\cdots\mat{M}_1\mat{A}$ and
+  $\mat{L}=\mat{M}_1^{-1}\cdots\mat{M}_q^{-1}$ when no row exchanges are
+  needed. Use a single $\mat{G}$ for the complete product of row-operation
+  matrices in Gauss–Jordan reduction; do not introduce indexed Gauss–Jordan
+  stage matrices unless a later algorithm genuinely needs them. Use
+  $\mat{P}_{jk}$ only when naming the elementary permutation matrix that
+  exchanges rows $j$ and $k$, and reserve $\mat{P}$ for the accumulated
+  permutation in PLU.
+
 ### 2026-08-20 — Use SciPy's permutation convention for PLU
 
 - **Decision:** Introduce triangular factorization briefly in Deck 02 and
@@ -24,7 +44,11 @@ would benefit from understanding why a choice was made.
 - **Consequences:** Keep pivot-selection strategies, stability analysis,
   operation counts, and storage details out of the introductory treatment.
   Do not assume a general permutation matrix equals its transpose; only a
-  single row-exchange matrix is necessarily symmetric.
+  single row-exchange matrix is necessarily symmetric. Begin with the square,
+  no-exchange LU example. For rectangular
+  $\mat{A}\in\reals^{m\times n}$, state SciPy's compact factor shapes using
+  $k=\min(m,n)$ and distinguish them once from the full elimination-product
+  factors.
 
 ### 2026-08-19 — Number decks by teaching sequence and split Anton Chapter 1
 

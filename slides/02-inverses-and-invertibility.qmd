@@ -55,7 +55,7 @@ Undoing a row operation leads directly to the idea of an inverse matrix
 
 - [Why square matrices?](#why-square-matrices)
 - [An inverse undoes a matrix action](#an-inverse-undoes-a-matrix-action)
-- [Elementary matrices are invertible](#elementary-matrices-are-invertible)
+- [Elimination matrices are invertible](#elimination-matrices-are-invertible)
 - [Invertible or singular](#invertible-or-singular)
 
 ## Why square matrices?
@@ -123,19 +123,19 @@ Matrix multiplication is generally [not commutative]{.alert}, but a matrix and i
 $\mat{A}$ is [invertible]{.alert}, or [nonsingular]{.alert}, when $\mat{A}^{-1}$ exists
 :::
 
-## Elementary matrices are invertible
+## Elimination matrices are invertible
 
-Recall from [Systems and Matrices]({{< meta decks.d01.file >}}#/undoing-restores-the-original-system): $\mat{M}_1$ performs $R_2\leftarrow R_2-2R_1$, while $\mat{N}_1$ performs the reverse operation $R_2\leftarrow R_2+2R_1$:
+Recall from [Systems and Matrices]({{< meta decks.d01.file >}}#/undoing-restores-the-original-system): $\mat{M}_1$ zeros the first column below its pivot, while $\mat{N}_1$ reverses that elimination stage:
 
 $$
 \mat{M}_1=
 \begin{bmatrix}
-1&0&0\\-2&1&0\\0&0&1
+1&0&0\\-2&1&0\\-3&0&1
 \end{bmatrix},
 \qquad
 \mat{N}_1=
 \begin{bmatrix}
-1&0&0\\2&1&0\\0&0&1
+1&0&0\\2&1&0\\3&0&1
 \end{bmatrix}
 $$
 
@@ -149,7 +149,7 @@ $$
 Now we can write $\mat{N}_1=\mat{M}_1^{-1}$
 
 ::: {.key-point}
-Every elementary matrix is invertible; its inverse performs the reverse row operation
+Each $\mat{M}_j$ is a product of elementary matrices, so it is invertible; its inverse reverses the whole column-elimination stage
 :::
 
 ## Invertible or singular
@@ -247,22 +247,17 @@ Gauss–Jordan reduction records the row operations that turn $\mat{A}$ into $\m
 
 ## Reduce beside the identity
 
-Let $\mat{M}_1,\ldots,\mat{M}_k$ represent the successive row operations. The same ordered product acts on both blocks:
+Let $\mat{G}$ denote the product of the elementary matrices used in Gauss–Jordan reduction. Every row operation acts on both blocks, so
 
-\begin{align*}
-\mat{M}_k\cdots\mat{M}_1
-[\,\mat{A}\mid\mat{I}\,]
-&=
-[\,\mat{M}_k\cdots\mat{M}_1\mat{A}
-\mid
-\mat{M}_k\cdots\mat{M}_1\,]\\
-&=
-[\,\mat{I}\mid\mat{M}\,],
-\qquad
-\mat{M}=\mat{M}_k\cdots\mat{M}_1
-\end{align*}
+$$
+\mat{G}[\,\mat{A}\mid\mat{I}\,]
+=
+[\,\mat{G}\mat{A}\mid\mat{G}\,]
+=
+[\,\mat{I}\mid\mat{G}\,]
+$$
 
-The left block gives $\mat{M}\mat{A}=\mat{I}$. Because $\mat{M}$ is a product of invertible elementary matrices, $\mat{M}=\mat{A}^{-1}$.
+The left block gives $\mat{G}\mat{A}=\mat{I}$. Since $\mat{G}$ is invertible, $\mat{A}=\mat{G}^{-1}$; hence $\mat{G}=\mat{A}^{-1}$.
 
 ::: {.key-point}
 Gaussian elimination solves systems; Gauss–Jordan reduction is useful here because the inverse itself is the goal
@@ -460,32 +455,24 @@ Unnecessary computation costs time and creates more opportunities for round-off 
 
 ### Elimination leaves reusable factors
 
-When Gaussian elimination proceeds without row exchanges, the inverse elimination matrices multiply to a [unit lower-triangular matrix]{.alert} $\mat{L}$—a matrix with $1$'s on its diagonal and zeros above it
+For $\mat{A}\in\reals^{m\times n}$ and $q=\min(m-1,n)$, suppose no row exchanges are needed:
 
-Without proof for now,
+$$
+\mat{U}=\mat{M}_q\cdots\mat{M}_1\mat{A}
+$$
+
+Undoing the stages in reverse order gives
 
 $$
 \mat{A}=\mat{L}\mat{U},
-$$
-
-where $\mat{U}$ is the upper-triangular matrix produced by elimination
-
-If row exchanges are used, a permutation matrix records them. Using [SciPy's convention](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html),
-
-$$
-\mat{A}=\mat{P}\mat{L}\mat{U},
 \qquad
-\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}
+\mat{L}=\mat{M}_1^{-1}\cdots\mat{M}_q^{-1},
 $$
+
+These are the full-form factors: $\mat{L}\in\reals^{m\times m}$ is unit lower triangular, while $\mat{U}\in\reals^{m\times n}$ has zeros below its diagonal (and is upper triangular when square)
 
 ::: {.key-point}
-[Matrix Transformations]({{< meta decks.d03.file >}}#elimination-becomes-a-factorization) will connect these factors to row permutations
-:::
-
-::: {.notes}
-Sources:
-
-- [SciPy `scipy.linalg.lu` documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html)
+[Matrix Transformations]({{< meta decks.d03.file >}}#elimination-becomes-a-factorization) will first develop this no-exchange LU example, then add a permutation matrix when row exchanges are needed
 :::
 
 # Leontief Input–Output Models

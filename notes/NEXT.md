@@ -36,12 +36,14 @@ refinements.
   covariance as joint variation and precision as conditional structure and
   covariance-aware weighting, while reinforcing solves rather than explicit
   inversion. It now previews triangular factorization without proof: inverse
-  elimination matrices form a unit lower-triangular factor when elimination
-  proceeds without row exchanges, and Deck 03 accounts for row order with a
+  grouped column-elimination matrices yield a unit lower-triangular factor
+  when elimination proceeds without row exchanges. Deck 03 first develops
+  that plain LU example and only then accounts for row order with a
   permutation matrix.
-- `slides/03-matrix-structure-and-transformations.qmd` is a 30-slide
+- `slides/03-matrix-structure-and-transformations.qmd` is a 32-slide
   instructor-review draft covering Anton §§1.7–1.9. It develops diagonal,
-  triangular, transposed, and symmetric structure; supplements Anton with PLU;
+  triangular, transposed, and symmetric structure; supplements Anton with PLU,
+  including SciPy's compact factor shapes for rectangular matrices;
   defines linear transformations and standard matrices; treats scaling,
   reflections, projections, and rotations, including a coordinate-plane
   comparison of three actions; and closes with composition, inverse actions,
@@ -53,23 +55,27 @@ refinements.
   cleanly outside the filesystem sandbox; Deck 03 has been inspected slide by
   slide at the standard $1600\times1000$ RevealJS viewport, and the assembled
   site's student-facing local files and fragments resolve.
-- Deck 01 now develops elementary matrices through a continuing three-equation
-  example and a student exercise that connect an equation operation, the
-  corresponding augmented-matrix row operation, and left multiplication by a
-  row-operation matrix. The notation distinguishes $E_i$ for equations, $R_i$
-  for matrix rows, and $\mat{M}_j$ for row-operation matrices. `Eliminate on
+- Deck 01 now develops grouped elimination matrices through a continuing
+  three-equation example that connects equation operations, the corresponding
+  augmented-matrix row operations, and left multiplication. The notation
+  distinguishes $E_i$ for equations, $R_i$ for matrix rows, and $\mat{M}_j$
+  for the matrix that zeros column $j$ below row $j$. Each $\mat{M}_j$ is a
+  product of elementary matrices. `Eliminate on
   Matrices` now completes direct augmented-matrix elimination, pivots, back
   substitution, solution-set interpretation, and a resistance-circuit
   application before reinterpreting row operations as matrix actions. It
   identifies direct row operations as the computational method closest to
-  software and elementary matrices as an algebraic representation that need
-  not be formed for a solve. The section then writes elimination as an ordered
-  product and distinguishes associativity (regrouping is allowed) from
-  noncommutativity (reordering is not). Deck 01 previews inverses by pairing the
-  $3\times3$ matrix $\mat{M}_1$ with an undoing matrix $\mat{N}_1$ satisfying
-  $\mat{N}_1\mat{M}_1=\mat{I}$; Deck 02 reuses the same pair, defines an inverse,
-  and identifies $\mat{N}_1=\mat{M}_1^{-1}$ before explaining why elementary
-  matrices are invertible. Deck 02 explicitly notes the special commuting pair
+  software and elimination matrices as an algebraic representation that need
+  not be formed for a solve. The section uses
+  $q=\min(m-1,n)$ stages for an $m\times n$ matrix, explicitly noting that a
+  tall matrix may require $\mat{M}_n$, then distinguishes associativity
+  (regrouping is allowed) from noncommutativity (reordering is not). Deck 01
+  previews inverses by pairing the $3\times3$ matrix $\mat{M}_1$, which clears
+  the entire first column below its pivot, with an undoing matrix $\mat{N}_1$
+  satisfying $\mat{N}_1\mat{M}_1=\mat{I}$; Deck 02 reuses the same pair, defines
+  an inverse, and identifies $\mat{N}_1=\mat{M}_1^{-1}$ before explaining why
+  grouped elimination matrices are invertible. Deck 02 explicitly notes the
+  special commuting pair
   $\mat{A}\mat{A}^{-1}=\mat{I}=\mat{A}^{-1}\mat{A}$ and uses associativity to
   derive the reverse-order product rule. It closes by handing off to Deck 03's
   matrix structure and transformation geometry. Deck 01's dot-product section
@@ -117,8 +123,11 @@ refinements.
   integrate applications with the theory or methodology they motivate.
 - Preserve the equations-first, reversibility-first narrative and the smooth
   transition from Deck 01.
-- Reserve $E_i$ for equations, $R_i$ for matrix rows, and $\mat{M}_j$ for
-  row-operation matrices.
+- Reserve $E_i$ for equations, $R_i$ for matrix rows, and $\mat{M}_j$ for the
+  grouped elimination matrix that zeros column $j$ below row $j$.
+- Use one aggregate $\mat{G}$ for the complete Gauss–Jordan row-operation
+  product. Use $\mat{P}_{jk}$ only when a particular row exchange must be
+  named, and $\mat{P}$ for the accumulated permutation in PLU.
 - Do not teach the special $2\times2$ inverse formula before determinants;
   use Gauss–Jordan reduction to compute an inverse.
 - Do not present explicit inversion as the routine way to solve linear
