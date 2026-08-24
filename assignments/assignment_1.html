@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Assignments – MATH 332 — Fall 2026</title>
+<title>Assignment 1: Anton Exercises 1.3.15, 1.2.38, and 1.3.2 – MATH 332 — Fall 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -73,6 +73,353 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+  // Shared semantic notation for MathJax in Quarto RevealJS slides.
+  // A string defines a zero-argument macro; [replacement, n] defines one
+  // with n arguments. Backslashes are escaped for JavaScript strings.
+  // The companion hickernell-latex-macros.tex is not yet synchronized with
+  // this registry; equivalent definitions should eventually share one source.
+  window.MathJax = {
+    startup: {
+      typeset: false,
+      pageReady: () => {
+        const typesetAndLayout = (() => {
+          let busy = false;
+          let queued = false;
+
+          const run = async () => {
+            if (busy) {
+              queued = true;
+              return;
+            }
+            busy = true;
+            queued = false;
+
+            try {
+              await MathJax.typesetPromise();
+              if (window.Reveal && typeof Reveal.layout === "function") {
+                Reveal.layout();
+              }
+            } finally {
+              busy = false;
+              if (queued) {
+                requestAnimationFrame(run);
+              }
+            }
+          };
+
+          return () => requestAnimationFrame(run);
+        })();
+
+        return MathJax.startup.defaultPageReady().then(() => {
+          if (window.Reveal) {
+            Reveal.on("ready", typesetAndLayout);
+            Reveal.on("slidechanged", typesetAndLayout);
+            Reveal.on("fragmentshown", typesetAndLayout);
+            Reveal.on("fragmenthidden", typesetAndLayout);
+          }
+          typesetAndLayout();
+        });
+      }
+    },
+    
+    svg: {
+      mtextInheritFont: true,
+      fontCache: "global"
+    },
+    
+    tex: {
+      macros: {
+
+        // Presentation helpers
+        mathlink: ["\\href{#1}{\\text{\\color{##0f8b8d}{#2}}}", 2],
+        yamlref: ["{\\text{#1}}", 1],
+        frag: ["{\\class{fragment}{#2}}", 2],
+        alert: ["{\\class{alert}{#1}}", 1],
+        alerttext: ["{\\class{alert}{\\text{#1}}}", 1],
+        alerttextsf: ["{\\class{alert}{\\textsf{#1}}}",1],
+        mat: ["{\\mathsf{#1}}", 1],
+        tens: ["{\\mathcal{#1}}", 1],
+        vct: ["{\\boldsymbol{#1}}", 1],
+        notimplies: "\\ \\mathrel{\\not\\!\\!\\!\\Longrightarrow}",
+        convas: ["\\xrightarrow{\\mathsf{a.s.}}", 0],
+        convp:  ["\\xrightarrow{\\Prob}", 0],
+        convd:  ["\\xrightarrow{\\mathsf{d}}", 0],
+
+        nconvas: ["\\mathrel{\\;\\not\\!\\!\\!\\xrightarrow{\\mathsf{a.s.}}}", 0],
+        nconvp:  ["\\mathrel{\\;\\not\\!\\xrightarrow{\\Prob}}", 0],
+        nconvd:  ["\\mathrel{\\;\\not\\!\\xrightarrow{\\mathsf{d}}}", 0],
+
+        asto: ["\\xrightarrow{\\mathsf{a.s.}}", 0],
+        pto:  ["\\xrightarrow{\\Prob}", 0],
+        dto:  ["\\xrightarrow{\\mathsf{d}}", 0],
+
+        // Common mathematical operators
+        success: "{\\operatorname{succ}}",
+        sinc:    "{\\operatorname{sinc}}",
+        sech:    "{\\operatorname{sech}}",
+        csch:    "{\\operatorname{csch}}",
+
+        // Probability and expectation; exercise notation uses exstar below
+        Prob: "{\\mathbb{P}}",
+        Ex:   "{\\mathbb{E}}", // expectation, not exercise
+
+
+        dist:  "{\\operatorname{dist}}",
+        Dsc:  "{\\operatorname{D}}",
+        ESD:  "{\\operatorname{ESD}}",
+        WESD:  "{\\operatorname{WESD}}",
+        Vtn:   "{\\operatorname{V}}",
+        spn:   "{\\operatorname{span}}",
+        sgn:   "{\\operatorname{sgn}}",
+        releff: "{\\operatorname{rel-eff}}",
+        mse:   "{\\operatorname{mse}}",
+        rmse:  "{\\operatorname{rmse}}",
+        rank:  "{\\operatorname{rank}}",
+        erfc:  "{\\operatorname{erfc}}",
+        erf:   "{\\operatorname{erf}}",
+        cov:   "{\\operatorname{cov}}",
+        cost:  "{\\operatorname{cost}}",
+        comp:  "{\\operatorname{comp}}",
+        corr:  "{\\operatorname{corr}}",
+        diag:  "{\\operatorname{diag}}",
+        power: "{\\operatorname{power}}",
+        var:   "{\\operatorname{var}}",
+        opt:   "{\\operatorname{opt}}",
+        brandnew: "{\\operatorname{new}}",
+        std:   "{\\operatorname{std}}",
+        se:    "{\\operatorname{se}}",
+        kurt:  "{\\operatorname{kurt}}",
+        med:   "{\\operatorname{med}}",
+        vol:   "{\\operatorname{vol}}",
+        bias:  "{\\operatorname{bias}}",
+        RR:   "{\\mathcal{R}}",
+        SS:   "{\\operatorname{SS}}",
+        RSS:  "{\\operatorname{RSS}}",
+        SST:  "{\\operatorname{SST}}",
+        SSR:  "{\\operatorname{SSR}}",
+        SSB:  "{\\operatorname{SSB}}",
+        SSW:  "{\\operatorname{SSW}}",
+        MSB:  "{\\operatorname{MSB}}",
+        MSW:  "{\\operatorname{MSW}}",
+
+        // Probability distributions
+        Bern:  "{\\operatorname{Bern}}",
+        Bin:   "{\\operatorname{Bin}}",
+        Unif:  "{\\operatorname{Unif}}",
+        Norm:  "{\\operatorname{Norm}}",
+        Exp:   "{\\operatorname{Exp}}",
+        Gam:   "{\\operatorname{Gamma}}",
+        Pois:  "{\\operatorname{Pois}}",
+        Geom:  "{\\operatorname{Geom}}",
+        Cauchy:"{\\operatorname{Cauchy}}",
+        Laplace:"{\\operatorname{Laplace}}",
+        Beta:  "{\\operatorname{Beta}}",
+        Weibull:"{\\operatorname{Weibull}}",
+        Lognorm:"{\\operatorname{Lognormal}}",
+        GP:     "{\\operatorname{GP}}",
+
+        argmin: ["\\operatorname*{argmin}", 0],
+        argmax: ["\\operatorname*{argmax}", 0],
+        Argmin: ["\\argmin\\limits_{#1}", 1],
+        Argmax: ["\\argmax\\limits_{#1}", 1],
+
+        sign:  "{\\operatorname{sign}}",
+        spann: "{\\operatorname{span}}",
+        cond:  "{\\operatorname{cond}}",
+        trace: "{\\operatorname{trace}}",
+        det:   "{\\operatorname{det}}",
+        Si:    "{\\operatorname{Si}}",
+        col:   "{\\operatorname{col}}",
+        nullspace: "{\\operatorname{null}}",
+        Order: "{\\mathcal{O}}",
+        logit: "{\\operatorname{logit}}",
+        probit: "{\\operatorname{probit}}",
+
+        IIDsim: "\\mathrel{\\stackrel{\\mathrm{IID}}{\\sim}}",
+        LDsim:  "\\mathrel{\\stackrel{\\mathrm{LD}}{\\sim}}",
+        appxsim: "\\mathrel{\\stackrel{\\cdot}{\\sim}}",
+
+        naturals:  "{\\mathbb{N}}",
+        natzero:   "{\\mathbb{N}_0}",
+        integers:  "{\\mathbb{Z}}",
+        rationals: "{\\mathbb{Q}}",
+        reals:     "{\\mathbb{R}}",
+        complex:   "{\\mathbb{C}}",
+        bbone:     "{\\mathbb{1}}",
+        indic:     "{\\mathop{\\mathchoice{\\large\\mathbb{1}}{\\large\\mathbb{1}}{\\mathbb{1}}{\\mathbb{1}}}}",  // indic: enlarged blackboard-bold indicator (uses mathchoice so subscripts scale)
+
+        abs:  ["{\\left\\lvert #1 \\right\\rvert}", 1],
+        norm: ["{\\left\\lVert #1 \\right\\rVert}", 1],
+        ip:   ["{\\left\\langle #1, #2 \\right\\rangle}", 2],
+        dim:   "{\\operatorname{dim}}",
+        df:   "{\\mathrm{df}}",
+        SE:   "{\\operatorname{SE}}",
+
+
+        bvec: ["{\\boldsymbol{#1}}", 1],
+        avec: ["{\\vec{#1}}", 1],
+        vecsym: ["{\\boldsymbol{#1}}", 1],
+
+        va:  "{\\boldsymbol{a}}",
+        vb:  "{\\boldsymbol{b}}",
+        vc:  "{\\boldsymbol{c}}",
+        vd:  "{\\boldsymbol{d}}",
+        ve:  "{\\boldsymbol{e}}",
+        vf:  "{\\boldsymbol{f}}",
+        vg:  "{\\boldsymbol{g}}",
+        vh:  "{\\boldsymbol{h}}",
+        vi:  "{\\boldsymbol{i}}",
+        vj:  "{\\boldsymbol{j}}",
+        vk:  "{\\boldsymbol{k}}",
+        vl:  "{\\boldsymbol{l}}",
+        vm:  "{\\boldsymbol{m}}",
+        vn:  "{\\boldsymbol{n}}",
+        vo:  "{\\boldsymbol{o}}",
+        vp:  "{\\boldsymbol{p}}",
+        vq:  "{\\boldsymbol{q}}",
+        vr:  "{\\boldsymbol{r}}",
+        vs:  "{\\boldsymbol{s}}",
+        vt:  "{\\boldsymbol{t}}",
+        vu:  "{\\boldsymbol{u}}",
+        vv:  "{\\boldsymbol{v}}",
+        vw:  "{\\boldsymbol{w}}",
+        vx:  "{\\boldsymbol{x}}",
+        vy:  "{\\boldsymbol{y}}",
+        vz:  "{\\boldsymbol{z}}",
+
+        vA:  "{\\boldsymbol{A}}",
+        vB:  "{\\boldsymbol{B}}",
+        vC:  "{\\boldsymbol{C}}",
+        vD:  "{\\boldsymbol{D}}",
+        vE:  "{\\boldsymbol{E}}",
+        vF:  "{\\boldsymbol{F}}",
+        vG:  "{\\boldsymbol{G}}",
+        vH:  "{\\boldsymbol{H}}",
+        vI:  "{\\boldsymbol{I}}",
+        vJ:  "{\\boldsymbol{J}}",
+        vK:  "{\\boldsymbol{K}}",
+        vL:  "{\\boldsymbol{L}}",
+        vM:  "{\\boldsymbol{M}}",
+        vN:  "{\\boldsymbol{N}}",
+        vO:  "{\\boldsymbol{O}}",
+        vP:  "{\\boldsymbol{P}}",
+        vQ:  "{\\boldsymbol{Q}}",
+        vR:  "{\\boldsymbol{R}}",
+        vS:  "{\\boldsymbol{S}}",
+        vT:  "{\\boldsymbol{T}}",
+        vU:  "{\\boldsymbol{U}}",
+        vV:  "{\\boldsymbol{V}}",
+        vW:  "{\\boldsymbol{W}}",
+        vX:  "{\\boldsymbol{X}}",
+        vY:  "{\\boldsymbol{Y}}",
+        vZ:  "{\\boldsymbol{Z}}",
+
+        
+        tvf: "{\\widetilde{\\boldsymbol{f}}}",
+        tvy: "{\\widetilde{\\boldsymbol{y}}}",
+        
+        tg:  "{\\widetilde{g}}",
+        tK:  "{\\widetilde{K}}",
+        tX:  "{\\widetilde{X}}",
+        tY:  "{\\widetilde{Y}}",
+        tZ:  "{\\widetilde{Z}}",
+        tildeh: "{\\widetilde{h}}",
+
+        valpha: "{\\boldsymbol{\\alpha}}",
+        vbeta:  "{\\boldsymbol{\\beta}}",
+        vgamma: "{\\boldsymbol{\\gamma}}",
+        vdelta: "{\\boldsymbol{\\delta}}",
+        vDelta: "{\\boldsymbol{\\Delta}}",
+        vepsilon: "{\\boldsymbol{\\epsilon}}",
+        vveps: "{\\boldsymbol{\\varepsilon}}",
+        vlambda:  "{\\boldsymbol{\\lambda}}",
+        vsigma:   "{\\boldsymbol{\\sigma}}",
+        vtheta:   "{\\boldsymbol{\\theta}}",
+        vTheta:   "{\\boldsymbol{\\Theta}}",
+        vomega:   "{\\boldsymbol{\\omega}}",
+        vpi:      "{\\boldsymbol{\\pi}}",
+        vphi:     "{\\boldsymbol{\\phi}}",
+        vPhi:     "{\\boldsymbol{\\Phi}}",
+        vmu:      "{\\boldsymbol{\\mu}}",
+        vnu:     "{\\boldsymbol{\\nu}}",
+        vzeta:   "{\\boldsymbol{\\zeta}}",
+
+        mA: "{\\mathsf{A}}",
+        mH: "{\\mathsf{H}}",
+        mX: "{\\mathsf{X}}",
+        mY: "{\\mathsf{Y}}",
+        mW: "{\\mathsf{W}}",
+        mP: "{\\mathsf{P}}",
+        mQ: "{\\mathsf{Q}}",
+        mR: "{\\mathsf{R}}",
+        mI: "{\\mathsf{I}}",
+        mzero: "{\\mathsf{0}}",
+        mone: "{\\mathsf{1}}",
+
+        htheta: "{\\widehat{\\theta}}",
+        hvtheta: "{\\widehat{\\boldsymbol{\\theta}}}",
+        tvtheta: "{\\widetilde{\\boldsymbol{\\theta}}}",
+        hTheta: "{\\widehat{\\Theta}}",
+        hbeta:  "{\\widehat{\\beta}}",
+        hvbeta: "{\\widehat{\\boldsymbol{\\beta}}}",
+        hlambda: "{\\widehat{\\lambda}}",
+        hmu:    "{\\widehat{\\mu}}",
+        hvmu:   "{\\widehat{\\boldsymbol{\\mu}}}",
+        hsigma: "{\\widehat{\\sigma}}",
+        hSigma: "{\\widehat{\\Sigma}}",
+        hp:    "{\\widehat{p}}",
+        hJ:    "{\\widehat{J}}",
+        hf:    "{\\widehat{f}}",
+        hF:    "{\\widehat{F}}",
+        hP:     "{\\widehat{P}}",
+        hX:     "{\\widehat{X}}",
+        hY:     "{\\widehat{Y}}",
+        hvY:    "{\\widehat{\\boldsymbol{Y}}}",
+        hvx:    "{\\widehat{\\boldsymbol{x}}}",
+        hZ:     "{\\widehat{Z}}",
+        hveps:   "{\\widehat{\\varepsilon}}",
+        hvveps: "{\\widehat{\\boldsymbol{\\varepsilon}}}",
+
+        ct: "{\\mathcal{T}}",
+        ch: "{\\mathcal{H}}",
+        ck: "{\\mathcal{K}}",
+        cf: "{\\mathcal{F}}",
+        cc: "{\\mathcal{C}}",
+        cx: "{\\mathcal{X}}",
+
+        vzero: "{\\boldsymbol{0}}",
+        vone:  "{\\boldsymbol{1}}",
+        vinf:  "{\\boldsymbol{\\infty}}",
+        
+        barD: "{\\overline{D}}",
+        barx: "{\\overline{x}}",
+        barX: "{\\overline{X}}",
+        barY: "{\\overline{Y}}",
+        bary: "{\\overline{y}}",
+        barZ: "{\\overline{Z}}",
+
+        me:  "{\\mathrm{e}}",
+        mi:  "{\\mathrm{i}}",
+        mpi: "{\\mathrm{\\pi}}",
+        mK: "{\\mathsf{K}}",
+        tmK: "{\\widetilde{\\mathsf{K}}}",
+        mSigma: "{\\mathsf{\\Sigma}}",
+
+        dif: "{\\mathrm{d}}",
+        IID: "{\\mathrm{IID}}",
+        MLE: "{\\mathrm{MLE}}",
+        LRT: "{\\mathrm{LRT}}",
+
+        // Exercise markers and exercise-specific relations
+        exstar: "{\\mathop{\\mathchoice{\\color{gold}{\\Large\\star}}{\\color{gold}{\\Large\\star}}{\\color{gold}{\\large\\star}}{\\color{gold}{\\star}}}}",
+        exeq: "{\\mathrel{\\,\\overset{\\exstar}{=}\\,}}",
+        exsim: "{\\mathrel{\\,\\overset{\\exstar}{\\sim}\\,}}",
+        
+      } 
+    }
+  };
+</script>
 
 
 <link rel="stylesheet" href="../classlib/classlib/quarto/website/hickernell-website.css">
@@ -108,7 +455,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Notebooks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../pages/assignments.html" aria-current="page"> 
+    <a class="nav-link" href="../pages/assignments.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
@@ -190,8 +537,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#ground-rules-for-assignments" id="toc-ground-rules-for-assignments" class="nav-link active" data-scroll-target="#ground-rules-for-assignments">Ground rules for assignments</a></li>
-  <li><a href="#list-of-assignments" id="toc-list-of-assignments" class="nav-link" data-scroll-target="#list-of-assignments">List of assignments</a></li>
+  <li><a href="#due-date" id="toc-due-date" class="nav-link active" data-scroll-target="#due-date">Due date</a></li>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
+  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   </ul>
 </nav>
 </nav>
@@ -204,7 +552,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignments</h1>
+<h1 class="title">Assignment 1: Anton Exercises 1.3.15, 1.2.38, and 1.3.2</h1>
 </div>
 
 
@@ -221,45 +569,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="ground-rules-for-assignments" class="level2">
-<h2 class="anchored" data-anchor-id="ground-rules-for-assignments">Ground rules for assignments</h2>
-<ul>
-<li><p>Unless otherwise stated, you may work on assignments <strong>individually</strong> or in <strong>pairs</strong>, and your choice may change from one assignment to the next.</p></li>
-<li><p>For each assignment, I will create a <strong>group set in Canvas</strong>; you will sign up to form your group.</p></li>
-<li><p><strong>Only one person per group submits</strong> the assignment in Canvas. The submission is automatically shared with all group members.</p></li>
-<li><p>Grades and feedback are shared with the whole group. By default, all members receive the <strong>same grade</strong>.</p></li>
-<li><p>Assignments are due by <strong>11:59 PM Chicago Time</strong> on the due date. Canvas displays due dates in your time zone.</p></li>
-<li><p>Each submission must include <strong>all relevant files</strong>:</p>
-<ol type="1">
-<li>A self-contained, working copy of any code used.</li>
-<li>A PDF version of item 1, including the output, plus any analytical work. Legible handwriting and typed work are both acceptable. You may embed analytical work as Markdown in the code.</li>
-</ol></li>
-</ul>
+<section id="due-date" class="level2">
+<h2 class="anchored" data-anchor-id="due-date">Due date</h2>
+<p><strong>Due:</strong> Friday, September 4, 2026, at 11:59 PM Chicago Time</p>
 </section>
-<section id="list-of-assignments" class="level2">
-<h2 class="anchored" data-anchor-id="list-of-assignments">List of assignments</h2>
-<p>Assignment details and due dates will be added as they are finalized.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Assignment</th>
-<th style="text-align: left;">Coverage</th>
-<th style="text-align: left;">Due Date</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><a href="https://iit.instructure.com/courses/23913/assignments/98516">Assignment 0 — Diagnostic Survey</a><br><strong>Complete and submit this assignment individually, not as a group.</strong></td>
-<td style="text-align: left;">MATH 332 profile survey</td>
-<td style="text-align: left;">August 21, 2026</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><a href="../assignments/assignment_1.html">Assignment 1 — Anton Exercises 1.3.15, 1.2.38, and 1.3.2</a></td>
-<td style="text-align: left;">Anton §§1.2–1.3</td>
-<td style="text-align: left;">September 4, 2026</td>
-</tr>
-</tbody>
-</table>
+<section id="assignment" class="level2">
+<h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
+<p>Complete Exercises 1.3.15, 1.2.38, and 1.3.2 in Howard Anton, <em>Elementary Linear Algebra: Applications Version</em>, 12th edition.</p>
+</section>
+<section id="submission" class="level2">
+<h2 class="anchored" data-anchor-id="submission">Submission</h2>
+<p>Submit your work through <a href="https://iit.instructure.com/courses/23913/assignments/101984">Assignment 1 in Canvas</a>.</p>
+<p>Follow the submission requirements on the <a href="../pages/assignments.html">Assignments</a> page. Your work should include enough explanation and supporting calculations or code for another reader to reproduce and understand your results.</p>
 
 
 </section>
