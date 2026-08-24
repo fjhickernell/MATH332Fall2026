@@ -7,6 +7,16 @@ Deck 03 draft with the instructor and make any requested refinements.
 
 ## Current state
 
+- Assignment 1 is defined as Anton Exercises 1.3.15, 1.2.38, and 1.3.2,
+  due Friday, September 4, 2026, at 11:59 PM Chicago Time. Its course-hosted
+  detail page, assignments-table entry, schedule entry, and Deck 03 title-slide
+  notice are published and render cleanly. Canvas Assignment 1 is published for
+  20 points with unlimited file-upload attempts and its own 20-group
+  self-sign-up set, `Assignment 1 Groups`, limited to pairs; one submission and
+  grade are shared by each group. The course-hosted detail page is the
+  authoritative source. The remaining assignment work is to replace Canvas's
+  repeated exercise details with links to the live assignment and course
+  Assignments pages, then post the Canvas announcement.
 - The sequential Deck 00–08 architecture is implemented. Decks 01–03 now have
   substantive drafts, and Anton Chapters 2–6 are represented by Decks 04–08.
   Metadata, previous/next navigation, course maps, schedule links, and internal
@@ -85,7 +95,10 @@ Deck 03 draft with the instructor and make any requested refinements.
 
 ## Questions to resolve
 
-- What content, student due date, and Canvas settings should Assignment 1 use?
+- **Temporary cross-machine reconciliation note:** On the next machine, check
+  whether an earlier Assignment 1 source or Canvas assignment already exists
+  there. Reconcile it with the Assignment 1 created on M3, then remove this
+  note.
 - Does the Deck 03 draft place the right classroom weight on special matrix
   structure, PLU, geometric transformations, and composition?
 - Should Deck 03's PLU treatment include a brief forward signpost to Strang's
