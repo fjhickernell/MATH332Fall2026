@@ -2,8 +2,8 @@
 
 ## Current task
 
-Prepare and assign Assignment 1 by Monday, August 24, 2026. Then review the
-Deck 03 draft with the instructor and make any requested refinements.
+Review the Deck 03 draft with the instructor and make any requested
+refinements.
 
 ## Current state
 
@@ -14,9 +14,9 @@ Deck 03 draft with the instructor and make any requested refinements.
   20 points with unlimited file-upload attempts and its own 20-group
   self-sign-up set, `Assignment 1 Groups`, limited to pairs; one submission and
   grade are shared by each group. The course-hosted detail page is the
-  authoritative source. The remaining assignment work is to replace Canvas's
-  repeated exercise details with links to the live assignment and course
-  Assignments pages, then post the Canvas announcement.
+  authoritative source. The Canvas description links to the live assignment
+  and course Assignments pages without repeating the exercise details, and the
+  Canvas announcement has been posted.
 - The sequential Deck 00–08 architecture is implemented. Decks 01–03 now have
   substantive drafts, and Anton Chapters 2–6 are represented by Decks 04–08.
   Metadata, previous/next navigation, course maps, schedule links, and internal

@@ -59,8 +59,9 @@ revised:
    course-hosted detail page; the Canvas description should link to that page
    and to the course Assignments page rather than repeat instructions that
    could later diverge. Verify the published assignment, then announce it in
-   Canvas with its due date and the information students need to begin and
-   submit it.
+   Canvas by linking to the live course pages and providing only the operational
+   group and submission information students need. Do not repeat the assignment
+   content or due date in the announcement.
 
 ## Slide-source conventions
 

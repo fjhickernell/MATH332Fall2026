@@ -35,7 +35,7 @@ Mathematical content should be maintained only in the slides.
   publish it in Canvas for 20 points with its assignment-specific self-sign-up
   pair groups; and add its course-page, schedule, and Deck 03 notices.
 - [x] Publish the Assignment 1 website updates.
-- [ ] Replace the Canvas description with links to the authoritative course
+- [x] Replace the Canvas description with links to the authoritative course
   website pages and post the Canvas announcement.
 - [ ] Create assignments, quizzes, tests, and review materials.
 - [ ] Validate navigation, links, notation, accessibility, and visible layout
