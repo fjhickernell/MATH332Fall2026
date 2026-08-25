@@ -25,14 +25,14 @@
     "href": "pages/resources.html",
     "title": "Resources",
     "section": "",
-    "text": "Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition."
+    "text": "WileyPLUS access for Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition, is required. All homework will be assigned, completed individually, and automatically graded through WileyPLUS. Launch each homework assignment from Canvas; do not search for or join the course separately on the WileyPLUS website.\nPurchase single-term access when prompted after launching a WileyPLUS assignment in Canvas. WileyPLUS includes the online textbook for the duration of the course.\n\n\n\nHoward Anton, Elementary Linear Algebra: Applications Version, 12th edition. The online textbook is included with required WileyPLUS access, so a separate printed copy is optional."
   },
   {
-    "objectID": "pages/resources.html#required-textbook",
-    "href": "pages/resources.html#required-textbook",
+    "objectID": "pages/resources.html#required-course-materials",
+    "href": "pages/resources.html#required-course-materials",
     "title": "Resources",
     "section": "",
-    "text": "Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition."
+    "text": "WileyPLUS access for Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition, is required. All homework will be assigned, completed individually, and automatically graded through WileyPLUS. Launch each homework assignment from Canvas; do not search for or join the course separately on the WileyPLUS website.\nPurchase single-term access when prompted after launching a WileyPLUS assignment in Canvas. WileyPLUS includes the online textbook for the duration of the course.\n\n\n\nHoward Anton, Elementary Linear Algebra: Applications Version, 12th edition. The online textbook is included with required WileyPLUS access, so a separate printed copy is optional."
   },
   {
     "objectID": "pages/resources.html#computing-resources",
@@ -46,7 +46,7 @@
     "href": "pages/resources.html#course-systems",
     "title": "Resources",
     "section": "Course systems",
-    "text": "Course systems\n\n\n\nResource\nLocation\n\n\n\n\nCanvas\nMATH 332 course\n\n\nCourse repository\nMATH332Fall2026 on GitHub\n\n\nRepository setup\nAccessing the Course Repository\n\n\nNotebooks\nDemonstrations and exercises\n\n\nPython demonstrations\nValidated demonstrations\n\n\nPython exercises\nLinks will be added after validation"
+    "text": "Course systems\n\n\n\nResource\nLocation\n\n\n\n\nCanvas\nMATH 332 course\n\n\nWileyPLUS\nLaunch homework assignments through Canvas\n\n\nCourse repository\nMATH332Fall2026 on GitHub\n\n\nRepository setup\nAccessing the Course Repository\n\n\nNotebooks\nDemonstrations and exercises\n\n\nPython demonstrations\nValidated demonstrations\n\n\nPython exercises\nLinks will be added after validation"
   },
   {
     "objectID": "pages/resources.html#professional-community",
@@ -95,7 +95,14 @@
     "href": "index.html#course-description",
     "title": "Welcome to MATH 332",
     "section": "Course Description",
-    "text": "Course Description\nThis course develops the theory and applications of linear algebra through systems of equations, matrices, determinants, vector spaces, eigenvalues and eigenvectors, and inner product spaces. Python will support visualization, numerical computation, symbolic computation, and experimentation.\n\n\nInstructor: Fred J. Hickernell\n\n\n\nOffice: Galvin Tower 18C3-1\nOffice hours: By appointment (book here)\nPhone: 312-567-8983\nEmail: hickernell@illinoistech.edu\nWebsite     LinkedIn     Google Scholar     Mathematics Genealogy Profile\n\nBrief bio: Fred J. Hickernell is professor of applied mathematics. His research focuses on improving the efficiency of computer simulations and developing justifiable stopping criteria. He has spent most of his career at Hong Kong Baptist University and Illinois Institute of Technology, often in academic administrative roles. He has served on the editorial boards of the Journal of Complexity, Mathematics of Computation, and the SIAM Journal on Numerical Analysis. He is a Fellow of the Institute of Mathematical Statistics and the recipient of the 2016 Joseph F. Traub Prize for Achievement in Information-Based Complexity.\nHickernell speaks Cantonese and enjoys Chinese food. He is married with adult children. He enjoys discussing matters of substance. His most important identity is a disciple of Jesus.\n\n\nRequired textbook: Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition\n\n\n\nRecommended resources\n\n\nPython\nJupyter\nNumPy\nSciPy\nMatplotlib\nSymPy\nCourse repository\n\n\n\n\nPrerequisites\n\nThe prerequisite is MATH 251. It will help to be familiar with:\n\nA bit of vectors and matrices (but not required)\nJupyter notebooks\n\n\n\n\nWhere to find it\n\nClass meetings combine whiteboard explanation with linked lecture slides, live polls, and computational activities. Use the course website as the starting point for each meeting, and come prepared to open the slides, Canvas, and Jupyter notebooks during class.\n\n\n\nThis course website\nCanvas website\n\n\n\n\nCourse information\nGrades\n\n\nSchedule\nAnnouncements\n\n\nSchedule and slides\nDiscussions\n\n\nNotebooks\n\n\n\nAssignments\nAssignments and submissions\n\n\nQuizzes\nQuizzes\n\n\nTests\n\n\n\nResources\n\n\n\nPolicies\n\n\n\nCourse repository"
+    "text": "Course Description\nThis course develops the theory and applications of linear algebra through systems of equations, matrices, determinants, vector spaces, eigenvalues and eigenvectors, and inner product spaces. Python will support visualization, numerical computation, symbolic computation, and experimentation.\n\n\nInstructor: Fred J. Hickernell\n\n\n\nOffice: Galvin Tower 18C3-1\nOffice hours: By appointment (book here)\nPhone: 312-567-8983\nEmail: hickernell@illinoistech.edu\nWebsite     LinkedIn     Google Scholar     Mathematics Genealogy Profile\n\nBrief bio: Fred J. Hickernell is professor of applied mathematics. His research focuses on improving the efficiency of computer simulations and developing justifiable stopping criteria. He has spent most of his career at Hong Kong Baptist University and Illinois Institute of Technology, often in academic administrative roles. He has served on the editorial boards of the Journal of Complexity, Mathematics of Computation, and the SIAM Journal on Numerical Analysis. He is a Fellow of the Institute of Mathematical Statistics and the recipient of the 2016 Joseph F. Traub Prize for Achievement in Information-Based Complexity.\nHickernell speaks Cantonese and enjoys Chinese food. He is married with adult children. He enjoys discussing matters of substance. His most important identity is a disciple of Jesus."
+  },
+  {
+    "objectID": "index.html#required-course-materials",
+    "href": "index.html#required-course-materials",
+    "title": "Welcome to MATH 332",
+    "section": "Required course materials",
+    "text": "Required course materials\n\nWileyPLUS access: WileyPLUS is required for this course. All homework will be assigned, completed individually, and automatically graded through WileyPLUS. Launch each homework assignment from Canvas.\nTextbook: Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition. Single-term WileyPLUS access includes the online textbook for the duration of the course, so a separate printed copy is optional. See Resources for details.\n\n\n\nRecommended resources\n\n\nPython\nJupyter\nNumPy\nSciPy\nMatplotlib\nSymPy\nCourse repository\n\n\n\n\nPrerequisites\n\nThe prerequisite is MATH 251. It will help to be familiar with:\n\nA bit of vectors and matrices (but not required)\nJupyter notebooks\n\n\n\n\nWhere to find it\n\nClass meetings combine whiteboard explanation with linked lecture slides, live polls, and computational activities. Use the course website as the starting point for each meeting, and come prepared to open the slides, Canvas, and Jupyter notebooks during class.\n\n\n\nThis course website\nCanvas website\n\n\n\n\nCourse information\nGrades\n\n\nSchedule\nAnnouncements\n\n\nSchedule and slides\nDiscussions\n\n\nNotebooks\n\n\n\nAssignments\nWileyPLUS homework, assignments, and submissions\n\n\nQuizzes\nQuizzes\n\n\nTests\n\n\n\nResources\n\n\n\nPolicies\n\n\n\nCourse repository"
   },
   {
     "objectID": "index.html#course-outline",
@@ -109,7 +116,7 @@
     "href": "index.html#assessment",
     "title": "Welcome to MATH 332",
     "section": "Assessment",
-    "text": "Assessment\n\nAssignments: 20%\nQuizzes: format, dates TBD 15%\nTests: dates TBD 25%\nFinal Exam: on the date assigned by the registrar 40%\nExtra Credit: From August 24 through December 6, you may earn extra credit by being the first student to report a previously unreported error in\n\nmy lecture slides, Jupyter notebooks, or assignments at least 24 hours after the material was presented or posted; or\nthe textbook.\n\nReport each error by creating an issue in the course repository. Each confirmed error earns 0.5 or 1 percentage point, depending on the severity of the error, up to 10 percentage points total.\nExtra credit is added to your final weighted course total. Canvas may not display the weighted total correctly until grades have been recorded in every assessment category."
+    "text": "Assessment\n\nHomework assignments: 20%; assigned and completed individually through WileyPLUS\nQuizzes: format, dates TBD 15%\nTests: dates TBD 25%\nFinal Exam: on the date assigned by the registrar 40%\nExtra Credit: From August 24 through December 6, you may earn extra credit by being the first student to report a previously unreported error in\n\nmy lecture slides, Jupyter notebooks, or assignments at least 24 hours after the material was presented or posted; or\nthe textbook.\n\nReport each error by creating an issue in the course repository. Each confirmed error earns 0.5 or 1 percentage point, depending on the severity of the error, up to 10 percentage points total.\nExtra credit is added to your final weighted course total. Canvas may not display the weighted total correctly until grades have been recorded in every assessment category."
   },
   {
     "objectID": "classlib/website/software.html",
@@ -333,14 +340,21 @@
     "href": "pages/assignments.html",
     "title": "Assignments",
     "section": "",
-    "text": "Unless otherwise stated, you may work on file-upload assignments individually or in pairs, and your choice may change from one assignment to the next.\nFor each assignment that permits pairs, I will create a group set in Canvas; you will sign up to form your group.\nOnly one person per pair submits a group assignment in Canvas. The submission, grade, and feedback are automatically shared with both group members.\nAuto-graded external-tool assignments, including WileyPLUS assignments, are completed individually unless the assignment explicitly says otherwise.\nAssignments are due by 11:59 PM Chicago Time on the due date. Canvas displays due dates in your time zone.\nEach file-upload submission must include all relevant files:\n\nA self-contained, working copy of any code used.\nA PDF version of item 1, including the output, plus any analytical work. Legible handwriting and typed work are both acceptable. You may embed analytical work as Markdown in the code."
+    "text": "All homework will be assigned, completed individually, and automatically graded through WileyPLUS. WileyPLUS access is therefore a required course resource.\n\nLaunch every WileyPLUS homework assignment from Canvas. Do not search for or join the course separately on the WileyPLUS website.\nHomework scores are passed automatically from WileyPLUS to the Canvas gradebook.\nUnless a homework assignment states otherwise, it is due by 11:59 PM Chicago Time on the due date. Canvas displays due dates in your time zone."
   },
   {
-    "objectID": "pages/assignments.html#ground-rules-for-assignments",
-    "href": "pages/assignments.html#ground-rules-for-assignments",
+    "objectID": "pages/assignments.html#homework-in-wileyplus",
+    "href": "pages/assignments.html#homework-in-wileyplus",
     "title": "Assignments",
     "section": "",
-    "text": "Unless otherwise stated, you may work on file-upload assignments individually or in pairs, and your choice may change from one assignment to the next.\nFor each assignment that permits pairs, I will create a group set in Canvas; you will sign up to form your group.\nOnly one person per pair submits a group assignment in Canvas. The submission, grade, and feedback are automatically shared with both group members.\nAuto-graded external-tool assignments, including WileyPLUS assignments, are completed individually unless the assignment explicitly says otherwise.\nAssignments are due by 11:59 PM Chicago Time on the due date. Canvas displays due dates in your time zone.\nEach file-upload submission must include all relevant files:\n\nA self-contained, working copy of any code used.\nA PDF version of item 1, including the output, plus any analytical work. Legible handwriting and typed work are both acceptable. You may embed analytical work as Markdown in the code."
+    "text": "All homework will be assigned, completed individually, and automatically graded through WileyPLUS. WileyPLUS access is therefore a required course resource.\n\nLaunch every WileyPLUS homework assignment from Canvas. Do not search for or join the course separately on the WileyPLUS website.\nHomework scores are passed automatically from WileyPLUS to the Canvas gradebook.\nUnless a homework assignment states otherwise, it is due by 11:59 PM Chicago Time on the due date. Canvas displays due dates in your time zone."
+  },
+  {
+    "objectID": "pages/assignments.html#other-assignments",
+    "href": "pages/assignments.html#other-assignments",
+    "title": "Assignments",
+    "section": "Other assignments",
+    "text": "Other assignments\n\nUnless otherwise stated, you may work on non-homework file-upload assignments individually or in pairs, and your choice may change from one assignment to the next.\nFor each assignment that permits pairs, I will create a group set in Canvas; you will sign up to form your group.\nOnly one person per pair submits a group assignment in Canvas. The submission, grade, and feedback are automatically shared with both group members.\nUnless an assignment states otherwise, it is due by 11:59 PM Chicago Time on the due date. Canvas displays due dates in your time zone.\nEach file-upload submission must include all relevant files:\n\nA self-contained, working copy of any code used.\nA PDF version of item 1, including the output, plus any analytical work. Legible handwriting and typed work are both acceptable. You may embed analytical work as Markdown in the code."
   },
   {
     "objectID": "pages/assignments.html#list-of-assignments",
