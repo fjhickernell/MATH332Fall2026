@@ -45,6 +45,8 @@ website:
         text: Canvas
       - text: Resources
         menu:
+          - href: pages/resources.qmd
+            text: Course resources
           - href: classlib/classlib/quarto/pages/policies.qmd
             text: Policies
           - href: classlib/classlib/quarto/pages/git-clone-update-with-submodules.qmd

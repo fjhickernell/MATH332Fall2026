@@ -20,9 +20,16 @@ numerical computation, symbolic computation, and experimentation.
 
 {{< include classlib/classlib/quarto/snippets/fred-hickernell-bio.qmd >}}
 
-<div style="margin-top:1em; margin-bottom:0.4em;">
-<strong>Required textbook:</strong> Howard Anton, <em>Elementary Linear Algebra: Applications Version</em>, 12th edition
-</div>
+## Required course materials
+
+- **WileyPLUS access:** WileyPLUS is required for this course. All homework
+  will be assigned, completed individually, and automatically graded through
+  WileyPLUS. Launch each homework assignment from
+  [Canvas]({{< meta canvas.course >}}).
+- **Textbook:** Howard Anton, *Elementary Linear Algebra: Applications
+  Version*, 12th edition. Single-term WileyPLUS access includes the online
+  textbook for the duration of the course, so a separate printed copy is
+  optional. See [Resources](pages/resources.qmd) for details.
 
 <details>
 <summary><strong>Recommended resources</strong></summary>
@@ -61,7 +68,7 @@ and Jupyter notebooks during class.
 | [Schedule](pages/schedule.qmd) | Announcements |
 | [Schedule and slides](pages/schedule.qmd) | Discussions |
 | [Notebooks](pages/notebooks.qmd) | |
-| [Assignments](pages/assignments.qmd) | Assignments and submissions |
+| [Assignments](pages/assignments.qmd) | WileyPLUS homework, assignments, and submissions |
 | [Quizzes](pages/quizzes.qmd) | Quizzes |
 | [Tests](pages/tests.qmd) | |
 | [Resources](pages/resources.qmd) | |
@@ -123,7 +130,8 @@ Anton, Chapter 6. Detailed pacing is **TBD**.
 
 ## Assessment
 
-- [**Assignments:**](pages/assignments.qmd) 20%
+- [**Homework assignments:**](pages/assignments.qmd) 20%; assigned and
+  completed individually through WileyPLUS
 - [**Quizzes:**](pages/quizzes.qmd) format, dates **TBD** 15%
 - [**Tests:**](pages/tests.qmd) dates **TBD** 25%
 - [**Final Exam:**](pages/tests.qmd) _on the date assigned by the registrar_ 40%

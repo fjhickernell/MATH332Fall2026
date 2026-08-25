@@ -21,7 +21,12 @@ weight are right, and make the requested refinements.
   WileyPLUS overview showing four questions, 20 points, the correct due date,
   and the intended policies; the assignment itself was not started. The Canvas
   description and existing announcement now state the individual WileyPLUS
-  workflow. The course website sources are reconciled with that workflow.
+  workflow. The course homepage, Resources page, Assignments page, and
+  resource navigation now identify WileyPLUS as required, state that all
+  homework is completed individually and automatically graded there, and
+  explain that single-term access includes the online Anton textbook. A
+  matching Canvas welcome-page update has been drafted but remains unsaved
+  pending explicit confirmation to publish it to the live course.
 - The sequential Deck 00–08 architecture is implemented. Decks 01–03 now have
   substantive drafts, and Anton Chapters 2–6 are represented by Decks 04–08.
   Metadata, previous/next navigation, course maps, schedule links, and internal
@@ -106,6 +111,8 @@ weight are right, and make the requested refinements.
 
 ## Questions to resolve
 
+- Should the prepared WileyPLUS requirement be saved to the live Canvas
+  welcome page?
 - Does the Deck 03 draft place the right classroom weight on special matrix
   structure, PLU, geometric transformations, and composition?
 - Should Deck 03's PLU treatment include a brief forward signpost to Strang's

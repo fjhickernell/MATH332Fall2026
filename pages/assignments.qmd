@@ -2,9 +2,22 @@
 title: "Assignments"
 ---
 
-## Ground rules for assignments
+## Homework in WileyPLUS
 
-- Unless otherwise stated, you may work on file-upload assignments
+All homework will be assigned, completed **individually**, and automatically
+graded through WileyPLUS. WileyPLUS access is therefore a
+[required course resource](resources.qmd#wileyplus).
+
+- Launch every WileyPLUS homework assignment from Canvas. Do not search for or
+  join the course separately on the WileyPLUS website.
+- Homework scores are passed automatically from WileyPLUS to the Canvas
+  gradebook.
+- Unless a homework assignment states otherwise, it is due by **11:59 PM
+  Chicago Time** on the due date. Canvas displays due dates in your time zone.
+
+## Other assignments
+
+- Unless otherwise stated, you may work on non-homework file-upload assignments
   **individually** or in **pairs**, and your choice may change from one
   assignment to the next.
 - For each assignment that permits pairs, I will create a **group set in
@@ -12,11 +25,8 @@ title: "Assignments"
 - **Only one person per pair submits** a group assignment in Canvas. The
   submission, grade, and feedback are automatically shared with both group
   members.
-- Auto-graded external-tool assignments, including WileyPLUS assignments,
-  are completed **individually** unless the assignment explicitly says
-  otherwise.
-- Assignments are due by **11:59 PM Chicago Time** on the due date. Canvas
-  displays due dates in your time zone.
+- Unless an assignment states otherwise, it is due by **11:59 PM Chicago
+  Time** on the due date. Canvas displays due dates in your time zone.
 - Each file-upload submission must include **all relevant files**:
 
   1. A self-contained, working copy of any code used.

@@ -2,10 +2,25 @@
 title: "Resources"
 ---
 
-## Required textbook
+## Required course materials
+
+### WileyPLUS
+
+WileyPLUS access for Howard Anton, *Elementary Linear Algebra: Applications
+Version*, 12th edition, is required. All homework will be assigned, completed
+individually, and automatically graded through WileyPLUS. Launch each homework
+assignment from [Canvas]({{< meta canvas.course >}}); do not search for or join
+the course separately on the WileyPLUS website.
+
+Purchase single-term access when prompted after launching a WileyPLUS
+assignment in Canvas. WileyPLUS includes the online textbook for the duration
+of the course.
+
+### Textbook
 
 Howard Anton, *Elementary Linear Algebra: Applications Version*, 12th
-edition.
+edition. The online textbook is included with required WileyPLUS access, so a
+separate printed copy is optional.
 
 ## Computing resources
 
@@ -29,6 +44,7 @@ initial setup and the Notebooks page for validated demonstrations.
 | Resource | Location |
 |:---|:---|
 | Canvas | [MATH 332 course]({{< meta canvas.course >}}) |
+| WileyPLUS | Launch homework assignments through [Canvas]({{< meta canvas.course >}}) |
 | Course repository | [MATH332Fall2026 on GitHub](https://github.com/fjhickernell/MATH332Fall2026) |
 | Repository setup | [Accessing the Course Repository](../classlib/classlib/quarto/pages/git-clone-update-with-submodules.qmd) |
 | Notebooks | [Demonstrations and exercises](notebooks.qmd) |

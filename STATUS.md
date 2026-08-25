@@ -38,6 +38,11 @@ Mathematical content should be maintained only in the slides.
 - [x] Publish the Assignment 1 website updates.
 - [x] Replace the Canvas description with links to the authoritative course
   website pages and post the Canvas announcement.
+- [x] Make the required WileyPLUS access, individual homework workflow, and
+  included online textbook explicit on the course homepage, Resources page,
+  and Assignments page.
+- [ ] Save the matching required-resource statement on the live Canvas welcome
+  page; the edit is drafted and awaiting explicit publication confirmation.
 - [ ] Create assignments, quizzes, tests, and review materials.
 - [ ] Validate navigation, links, notation, accessibility, and visible layout
   as content is added.
