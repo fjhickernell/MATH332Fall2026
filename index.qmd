@@ -62,17 +62,22 @@ live polls, and computational activities. Use the course website as the
 starting point for each meeting, and come prepared to open the slides, Canvas,
 and Jupyter notebooks during class.
 
-| **This course website** | [**Canvas website**]({{< meta canvas.course >}}) |
+The course website is the authoritative source for course information,
+schedules, lecture notes, and assignment details. Use Canvas for announcements,
+launching WileyPLUS homework, completing the diagnostic survey, and checking
+grades.
+
+| **This course website** | [**Canvas**]({{< meta canvas.course >}}) |
 |---|---|
 | [Course information](index.qmd) | Grades |
-| [Schedule](pages/schedule.qmd) | Announcements |
-| [Schedule and slides](pages/schedule.qmd) | Discussions |
-| [Notebooks](pages/notebooks.qmd) | |
-| [Assignments](pages/assignments.qmd) | WileyPLUS homework, assignments, and submissions |
-| [Quizzes](pages/quizzes.qmd) | Quizzes |
-| [Tests](pages/tests.qmd) | |
-| [Resources](pages/resources.qmd) | |
-| [Policies](classlib/classlib/quarto/pages/policies.qmd) | |
+| [Schedule and lecture slides](pages/schedule.qmd) | Announcements |
+| [Jupyter notebooks](pages/notebooks.qmd) | WileyPLUS homework launches |
+| [Assignment rules, details, and due dates](pages/assignments.qmd) | Diagnostic survey |
+| [Quiz information and schedule](pages/quizzes.qmd) | |
+| [Test and exam information](pages/tests.qmd) | |
+| [Required resources](pages/resources.qmd) | |
+| [Course policies](classlib/classlib/quarto/pages/policies.qmd) | |
+| [Repository access instructions](classlib/classlib/quarto/pages/git-clone-update-with-submodules.qmd) | |
 | [Course repository](https://github.com/fjhickernell/MATH332Fall2026) | |
 
 </details>
