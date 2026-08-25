@@ -626,6 +626,7 @@ In this deck
 <li><a href="#/eliminate-on-equations">Eliminate on Equations</a></li>
 <li><a href="#/the-dot-product">The Dot Product</a></li>
 <li><a href="#/eliminate-on-matrices">Eliminate on Matrices</a></li>
+<li><a href="#/row-operations-are-reversible-matrix-actions">Row Operations Are Reversible Matrix Actions</a></li>
 <li><a href="#/big-ideas">Big Ideas</a></li>
 <li><a href="#/compute-and-look-ahead">Compute and Look Ahead</a></li>
 </ul>
@@ -1260,7 +1261,6 @@ x+2y-z&amp;=2\\
 <li><a href="#/eliminate-and-organize-with-pivots">Eliminate and organize with pivots</a></li>
 <li><a href="#/read-the-solution-set">Read the solution set (back substitution)</a></li>
 <li><a href="#/resistance-circuit">Resistance circuit</a></li>
-<li><a href="#/row-operations-are-reversible-matrix-actions">Row operations are reversible matrix actions</a></li>
 </ul>
 </section>
 <section id="translate-equations-into-matrix-rows" class="slide level2">
@@ -1604,11 +1604,20 @@ x=\frac{-4-z}{5}
 <p>The idealized short-circuit model is inconsistent</p>
 </div>
 </div></div>
-</section>
-<section id="row-operations-are-reversible-matrix-actions" class="slide level2">
-<h2>Row operations are reversible matrix actions</h2>
+</section></section>
+<section>
+<section id="row-operations-are-reversible-matrix-actions" class="title-slide slide level1 center">
+<h1>Row Operations Are Reversible Matrix Actions</h1>
 <p>Matrix multiplication gives an <span class="alert">algebraic representation</span> of the same row operations in the language of vectors and matrices</p>
-<h3 id="one-matrix-completes-one-elimination-stage">One matrix completes one elimination stage</h3>
+<ul>
+<li><a href="#/one-matrix-eliminates-on-one-column">One matrix eliminates on one column</a></li>
+<li><a href="#/the-next-pivot-column-has-its-own-matrix">The next pivot column has its own matrix</a></li>
+<li><a href="#/undoing-restores-the-original-system">Undoing restores the original system</a></li>
+<li><a href="#/elimination-is-an-ordered-product">Elimination is an ordered product</a></li>
+</ul>
+</section>
+<section id="one-matrix-eliminates-on-one-column" class="slide level2">
+<h2>One matrix eliminates on one column</h2>
 <p>The <span class="math inline">\(3\times3\)</span> <span class="alert">identity matrix</span> has ones on its diagonal and zeros elsewhere:</p>
 <p><span class="math display">\[
 \mat{I}=
@@ -1633,9 +1642,8 @@ x=\frac{-4-z}{5}
 <p>Each individual row operation produces an <span class="alert">elementary matrix</span>; their product <span class="math inline">\(\mat{M}_1\)</span> is an <span class="alert">elimination matrix</span> that zeros the entire first column below the pivot</p>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 id="the-next-pivot-column-has-its-own-matrix">The next pivot column has its own matrix</h3>
+<section id="the-next-pivot-column-has-its-own-matrix" class="slide level2">
+<h2>The next pivot column has its own matrix</h2>
 <p>The second elimination stage uses <span class="math inline">\(R_3\leftarrow R_3-R_2\)</span>:</p>
 <p><span class="math display">\[
 \mat{M}_2=
@@ -1656,9 +1664,8 @@ x=\frac{-4-z}{5}
 <p><span class="math inline">\(\mat{M}_j\)</span> groups all row additions that zero column <span class="math inline">\(j\)</span> below its pivot</p>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 id="undoing-restores-the-original-system">Undoing restores the original system</h3>
+<section id="undoing-restores-the-original-system" class="slide level2">
+<h2>Undoing restores the original system</h2>
 <p>Undo the first elimination stage with <span class="math inline">\(R_2\leftarrow R_2+2R_1\)</span> and <span class="math inline">\(R_3\leftarrow R_3+3R_1\)</span>:</p>
 <p><span class="math display">\[
 \mat{N}_1=
@@ -1684,9 +1691,8 @@ x=\frac{-4-z}{5}
 <p><a href="02-inverses-and-invertibility.html">Inverses</a> will call <span class="math inline">\(\mat{N}_1\)</span> the <span class="alert">inverse</span> of <span class="math inline">\(\mat{M}_1\)</span></p>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 id="elimination-is-an-ordered-product">Elimination is an ordered product</h3>
+<section id="elimination-is-an-ordered-product" class="slide level2">
+<h2>Elimination is an <span class="alert">ordered</span> product</h2>
 <p>First suppose no row exchanges are needed. For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, the last possible elimination stage is</p>
 <p><span class="math display">\[
 q=\min(m-1,n)
