@@ -837,6 +837,76 @@ In this deck
 \]</span></p>
 <p>Thus <span class="math inline">\(\mat{A}^{-1}=\begin{bmatrix}3&amp;-1\\-2&amp;1\end{bmatrix}\)</span></p>
 </section>
+<section class="slide level2">
+
+<h3 id="return-to-our-three-equation-matrix">Return to our three-equation matrix</h3>
+<p>For <a href="01-systems-and-matrices.html#/each-equation-is-one-dot-product">our three-equation system</a>, apply the same forward-elimination steps to both blocks of <span class="math inline">\([\,\mat{A}\mid\mat{I}\,]\)</span>:</p>
+<div class="small">
+<p><span class="math display">\[\begin{align*}
+\left[
+\begin{array}{rrr|rrr}
+1&amp;2&amp;-1&amp;1&amp;0&amp;0\\
+2&amp;-1&amp;1&amp;0&amp;1&amp;0\\
+3&amp;1&amp;2&amp;0&amp;0&amp;1
+\end{array}
+\right]
+&amp;\xrightarrow{\substack{R_2\leftarrow R_2-2R_1\\R_3\leftarrow R_3-3R_1}}
+\left[
+\begin{array}{rrr|rrr}
+1&amp;2&amp;-1&amp;1&amp;0&amp;0\\
+0&amp;-5&amp;3&amp;-2&amp;1&amp;0\\
+0&amp;-5&amp;5&amp;-3&amp;0&amp;1
+\end{array}
+\right]
+\\[0.8em]
+&amp;\xrightarrow{R_3\leftarrow R_3-R_2}
+\left[
+\begin{array}{rrr|rrr}
+1&amp;2&amp;-1&amp;1&amp;0&amp;0\\
+0&amp;-5&amp;3&amp;-2&amp;1&amp;0\\
+0&amp;0&amp;2&amp;-1&amp;-1&amp;1
+\end{array}
+\right].
+\end{align*}\]</span></p>
+</div>
+<p>The left block is now in row echelon form</p>
+</section>
+<section class="slide level2">
+
+<h3 id="finish-the-gaussjordan-reduction">Finish the Gauss–Jordan reduction</h3>
+<p>Continue upward until the left block becomes <span class="math inline">\(\mat{I}\)</span>:</p>
+<div class="small">
+<p><span class="math display">\[\begin{align*}
+\left[
+\begin{array}{rrr|rrr}
+1&amp;2&amp;-1&amp;1&amp;0&amp;0\\
+0&amp;-5&amp;3&amp;-2&amp;1&amp;0\\
+0&amp;0&amp;2&amp;-1&amp;-1&amp;1
+\end{array}
+\right]
+&amp;\xrightarrow{\substack{R_3\leftarrow \tfrac12R_3\\R_1\leftarrow R_1+R_3\\R_2\leftarrow R_2-3R_3}}
+\left[
+\begin{array}{rrr|rrr}
+1&amp;2&amp;0&amp;\tfrac12&amp;-\tfrac12&amp;\tfrac12\\
+0&amp;-5&amp;0&amp;-\tfrac12&amp;\tfrac52&amp;-\tfrac32\\
+0&amp;0&amp;1&amp;-\tfrac12&amp;-\tfrac12&amp;\tfrac12
+\end{array}
+\right]
+\\[0.8em]
+&amp;\xrightarrow{\substack{R_2\leftarrow -\tfrac15R_2\\R_1\leftarrow R_1-2R_2}}
+\left[
+\begin{array}{rrr|rrr}
+1&amp;0&amp;0&amp;\tfrac3{10}&amp;\tfrac12&amp;-\tfrac1{10}\\
+0&amp;1&amp;0&amp;\tfrac1{10}&amp;-\tfrac12&amp;\tfrac3{10}\\
+0&amp;0&amp;1&amp;-\tfrac12&amp;-\tfrac12&amp;\tfrac12
+\end{array}
+\right].
+\end{align*}\]</span></p>
+</div>
+<div class="key-point">
+<p>The right block is <span class="math inline">\(\mat{A}^{-1}\)</span>; for our original <span class="math inline">\(\vct{b}\)</span>, <span class="math inline">\(\mat{A}^{-1}\vct{b}=\begin{bmatrix}-1&amp;2&amp;1\end{bmatrix}^{\mathsf T}\)</span> recovers the solution</p>
+</div>
+</section>
 <section id="a-missing-pivot-proves-singularity" class="slide level2">
 <h2>A missing pivot proves singularity</h2>
 <p>For <span class="math inline">\(\mat{A}=\begin{bmatrix}1&amp;2\\2&amp;4\end{bmatrix}\)</span>,</p>
@@ -906,7 +976,11 @@ In this deck
 
 </div><div class="column" style="width:47%;">
 <h3 id="mata-singular"><span class="math inline">\(\mat{A}\)</span> singular</h3>
-<p>Row reduction has a missing pivot. The homogeneous system is always consistent, so a nonpivot column gives a free variable.</p>
+<ul>
+<li>row reduction has a missing pivot</li>
+<li>the homogeneous system is always consistent</li>
+<li>a nonpivot column gives a free variable</li>
+</ul>
 <p>Choose the free variable(s) to obtain <span class="math inline">\(\vct{z}\ne\vct{0}\)</span> with</p>
 <p><span class="math display">\[
 \mat{A}\vct{z}=\vct{0}
