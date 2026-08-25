@@ -36,13 +36,15 @@ weight are right, and make the requested refinements.
   substantive drafts, and Anton Chapters 2–6 are represented by Decks 04–08.
   Metadata, previous/next navigation, course maps, schedule links, and internal
   links use the sequential numbering.
-- `slides/02-inverses-and-invertibility.qmd` is a concise, 29-slide,
+- `slides/02-inverses-and-invertibility.qmd` is a concise, 31-slide,
   instructor-reviewed deck covering Anton §§1.4–1.6 and an integrated §1.11
   Leontief input–output
   application. It develops inverse matrices, inverse algebra, Gauss–Jordan
   reduction of `[A | I]` to `[I | A^{-1}]`, equivalent signs of invertibility,
   and the distinction between conceptual inverses and direct computational
-  solves. The standalone $2\times2$ inverse formula is intentionally omitted;
+  solves. It now carries Deck 01's three-equation matrix through a complete
+  $3\times3$ inverse calculation and uses the inverse to recover the original
+  solution. The standalone $2\times2$ inverse formula is intentionally omitted;
   determinants remain in Deck 04. The deck now opens by contrasting Deck 01's
   rectangular setting with its square-matrix focus. It derives a nonzero null
   vector for singular $\mat{A}$ from a missing pivot and free variable, then
