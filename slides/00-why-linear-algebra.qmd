@@ -740,7 +740,7 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 
 ::: {.column width="50%"}
 - [Elimination]({{< meta decks.d01.file >}}#elimination)
-- [Elimination matrix]({{< meta decks.d01.file >}}#one-matrix-completes-one-elimination-stage)
+- [Elimination matrix]({{< meta decks.d01.file >}}#one-matrix-eliminates-on-one-column)
 - [Euclidean norm]({{< meta decks.d01.file >}}#measures-alignment)
 - [Free variable]({{< meta decks.d01.file >}}#read-the-solution-set)
 - [Gauss–Jordan reduction]({{< meta decks.d02.file >}}#reduce-beside-the-identity)

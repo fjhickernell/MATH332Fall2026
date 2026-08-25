@@ -98,7 +98,9 @@ $$
 $$
 
 ::: {.key-point}
-This deck focuses on [square matrices]{.alert}; rectangular matrices remain important but cannot have a two-sided inverse
+This deck focuses on [square matrices]{.alert}; rectangular matrices remain
+important and cannot have a two-sided inverse, but they can have
+[pseudoinverses]{.alert} (later)
 :::
 
 ## An inverse undoes a matrix action

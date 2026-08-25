@@ -44,6 +44,7 @@ include-after-body:
 - [Eliminate on Equations](#eliminate-on-equations)
 - [The Dot Product](#the-dot-product)
 - [Eliminate on Matrices](#eliminate-on-matrices)
+- [Row Operations Are Reversible Matrix Actions](#row-operations-are-reversible-matrix-actions)
 - [Big Ideas](#big-ideas)
 - [Compute and Look Ahead](#compute-and-look-ahead)
 :::
@@ -823,7 +824,6 @@ Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible oper
 - [Eliminate and organize with pivots](#eliminate-and-organize-with-pivots)
 - [Read the solution set (back substitution)](#read-the-solution-set)
 - [Resistance circuit](#resistance-circuit)
-- [Row operations are reversible matrix actions](#row-operations-are-reversible-matrix-actions)
 
 ## Translate equations into matrix rows
 
@@ -1284,11 +1284,16 @@ The idealized short-circuit model is inconsistent
 :::
 :::
 
-## Row operations are reversible matrix actions
+# Row Operations Are Reversible Matrix Actions
 
 Matrix multiplication gives an [algebraic representation]{.alert} of the same row operations in the language of vectors and matrices
 
-### One matrix completes one elimination stage
+- [One matrix eliminates on one column](#one-matrix-eliminates-on-one-column)
+- [The next pivot column has its own matrix](#the-next-pivot-column-has-its-own-matrix)
+- [Undoing restores the original system](#undoing-restores-the-original-system)
+- [Elimination is an ordered product](#elimination-is-an-ordered-product)
+
+## One matrix eliminates on one column
 
 The $3\times3$ [identity matrix]{.alert} has ones on its diagonal and zeros elsewhere:
 
@@ -1318,9 +1323,7 @@ $$
 Each individual row operation produces an [elementary matrix]{.alert}; their product $\mat{M}_1$ is an [elimination matrix]{.alert} that zeros the entire first column below the pivot
 :::
 
----
-
-### The next pivot column has its own matrix
+## The next pivot column has its own matrix
 
 The second elimination stage uses $R_3\leftarrow R_3-R_2$:
 
@@ -1346,9 +1349,7 @@ $$
 $\mat{M}_j$ groups all row additions that zero column $j$ below its pivot
 :::
 
----
-
-### Undoing restores the original system
+## Undoing restores the original system
 
 Undo the first elimination stage with
 $R_2\leftarrow R_2+2R_1$ and $R_3\leftarrow R_3+3R_1$:
@@ -1382,9 +1383,7 @@ $$
 [Inverses]({{< meta decks.d02.file >}}) will call $\mat{N}_1$ the [inverse]{.alert} of $\mat{M}_1$
 :::
 
----
-
-### Elimination is an ordered product
+## Elimination is an [ordered]{.alert} product
 
 First suppose no row exchanges are needed. For
 $\mat{A}\in\reals^{m\times n}$, the last possible elimination stage is

@@ -78,7 +78,8 @@ weight are right, and make the requested refinements.
   product of elementary matrices. `Eliminate on
   Matrices` now completes direct augmented-matrix elimination, pivots, back
   substitution, solution-set interpretation, and a resistance-circuit
-  application before reinterpreting row operations as matrix actions. It
+  application. The separate `Row Operations Are Reversible Matrix Actions`
+  section then reinterprets row operations as matrix actions. It
   identifies direct row operations as the computational method closest to
   software and elimination matrices as an algebraic representation that need
   not be formed for a solve. The section uses
