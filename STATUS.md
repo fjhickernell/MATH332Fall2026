@@ -34,15 +34,15 @@ Mathematical content should be maintained only in the slides.
 - [x] Create Assignment 1 for Anton §§1.2–1.3; publish it in Canvas for
   20 points; convert it to an individual, automatically graded WileyPLUS
   assignment when the original textbook exercises proved unavailable; and
-  add its course-page, schedule, and Deck 03 notices.
+  add its course-page, schedule, and Deck 01 title-slide notice.
 - [x] Publish the Assignment 1 website updates.
 - [x] Replace the Canvas description with links to the authoritative course
   website pages and post the Canvas announcement.
-- [x] Make the required WileyPLUS access, individual homework workflow, and
-  included online textbook explicit on the course homepage, Resources page,
-  and Assignments page.
-- [ ] Save the matching required-resource statement on the live Canvas welcome
-  page; the edit is drafted and awaiting explicit publication confirmation.
+- [x] Make the required WileyPLUS access, course-wide individual-assignment
+  policy, and included online textbook explicit on the course homepage,
+  Resources page, and Assignments page.
+- [x] Save and publish the matching required-resource statement on the live
+  Canvas Welcome page.
 - [ ] Create assignments, quizzes, tests, and review materials.
 - [ ] Validate navigation, links, notation, accessibility, and visible layout
   as content is added.

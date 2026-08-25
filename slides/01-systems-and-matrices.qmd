@@ -5,7 +5,8 @@ deck_title: "{{< meta decks.d01.title >}}"
 deck_short_title: "{{< meta decks.d01.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} §§1.1–1.3, 1.10</span>
+  <span class="deck-meta">{{< meta texts.anton.short >}} §§1.1–1.3, 1.10<br>
+  Assignment 1 due 9/4</span>
 jupyter: qmcpy
 include-after-body:
   - text: |

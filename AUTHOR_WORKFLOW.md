@@ -38,11 +38,12 @@ revised:
    detail page when one exists; otherwise link directly to Canvas.
 5. Add or update the due-date entry in `pages/schedule.qmd`, linking to the
    same authoritative assignment details.
-6. Determine from the schedule which RevealJS deck is current when the
-   assignment is assigned. Add or update the due-date notice on that deck's
-   title slide and, when useful, a brief linked logistics slide describing the
-   assignment and group-submission expectations. Remove or replace stale
-   notices as the course advances.
+6. Determine from the assignment coverage which RevealJS deck contains the
+   relevant notes. Put the assignment name and due date on that deck's title
+   slide. If the coverage spans two or more decks, use only the earliest
+   relevant deck. When useful, add a brief linked logistics slide describing
+   the assignment and individual-submission expectations. Remove or replace
+   stale notices as the course advances.
 7. Render the root website and the independent slide project, assemble the
    complete site, and verify the assignment page, assignments table, schedule,
    Canvas links, deck notice, and internal links. Inspect the visible assignment
@@ -51,35 +52,31 @@ revised:
    Assignments-page URLs are live. This publication check is a hard gate before
    publishing the Canvas assignment.
 8. Finish and publish the Canvas assignment only after the website is live.
-   Unless the assignment explicitly requires individual work, create a
-   separate self-sign-up group set named `Assignment N Groups` for that
-   assignment so students may choose a new partner each time. Limit groups to
-   pairs, and configure Canvas so that one submission is shared by both group
-   members. Keep the assignment-specific details authoritative on the
-   course-hosted detail page; the Canvas description should link to that page
-   and to the course Assignments page rather than repeat instructions that
-   could later diverge. Verify the published assignment, then announce it in
-   Canvas by linking to the live course pages and providing only the operational
-   group and submission information students need. Do not repeat the assignment
-   content or due date in the announcement.
+   Configure every assignment for individual submission; do not create Canvas
+   assignment groups. Keep the assignment-specific details authoritative on
+   the course-hosted detail page; the Canvas description should link to that
+   page and to the course Assignments page rather than repeat instructions
+   that could later diverge. Verify the published assignment, then announce it
+   in Canvas by linking to the live course pages and providing only the
+   operational information students need. Do not repeat the assignment content
+   or due date in the announcement.
 
-   Canvas group assignments cannot use External Tools. When an automatically
-   graded LTI assignment is the objective, use an individual assignment unless
-   the tool and Canvas explicitly support group grade passback. Before
-   converting an existing published assignment, verify the complete submission
-   roster, preserve its Canvas URL, points, and due date, and confirm the
+   For WileyPLUS or another automatically graded LTI assignment, verify the
+   complete submission roster before converting an existing published
+   assignment, preserve its Canvas URL, points, and due date, and confirm the
    selected question set, attempt policy, grade passback, and student-visible
-   launch. Reconcile the course-hosted detail page, assignments table, schedule,
-   Canvas description, and announcement with the individual external-tool
-   workflow.
+   launch. Reconcile the course-hosted detail page, assignments table,
+   schedule, Canvas description, and announcement with the individual
+   external-tool workflow.
 
 ## Slide-source conventions
 
-- Whenever a homework, assignment, quiz, or similar assessed item
-  is finalized or updated on its course website page, also add or update its
-  due-date notice on the title slide of the deck current when the item is
-  assigned. Determine the relevant deck from the course schedule and the
-  assignment date; remove or replace stale notices as the course advances.
+- Whenever a homework, assignment, quiz, or similar assessed item is finalized
+  or updated on its course website page, also put its name and due date on the
+  title slide of one deck whose notes cover that item. If the coverage spans
+  two or more decks, use only the earliest relevant deck. Determine relevance
+  from the assignment coverage rather than the announcement date, and remove
+  or replace stale notices as the course advances.
 - Write `#` section headings in title case: capitalize principal words while
   leaving articles, coordinating conjunctions, and short prepositions
   lowercase unless they begin or end the heading. Write `##` slide headings

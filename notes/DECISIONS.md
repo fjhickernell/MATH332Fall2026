@@ -6,12 +6,26 @@ would benefit from understanding why a choice was made.
 
 ## Decision log
 
+### 2026-08-25 — Make every assignment individual
+
+- **Decision:** Require individual work and submission for every MATH 332
+  assignment. Do not create Canvas assignment groups or offer a pair-submission
+  option. This supersedes the earlier plan to retain pairs for file-upload
+  assignments.
+- **Rationale:** The instructor pivoted to one simple, consistent submission
+  policy for the course. All planned homework is delivered through WileyPLUS,
+  which grades and records work separately for each student.
+- **Consequences:** The Assignments page states the course-wide individual-work
+  rule and contains no alternate group or file-upload policy. Future Canvas
+  assignments and announcements must use individual-submission language.
+
 ### 2026-08-24 — Prefer WileyPLUS autograding over exact textbook exercise numbers
 
 - **Decision:** Use an individual WileyPLUS External Tool assignment when
   automatic grading is required, even when that requires replacing assigned
-  Anton exercise numbers with comparable Wiley questions. Preserve
-  self-selected pairs for file-upload assignments that support Canvas groups.
+  Anton exercise numbers with comparable Wiley questions. The accompanying
+  file-upload pair option was superseded by the August 25 decision to make
+  every assignment individual.
 - **Rationale:** Wiley's paired question bank did not contain Anton Exercises
   1.3.15 or 1.2.38, and Canvas prohibits group assignments from using External
   Tools. WileyPLUS provides per-student automatic grading and Canvas grade

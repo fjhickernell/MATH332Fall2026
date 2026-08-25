@@ -2,10 +2,11 @@
 title: "Assignments"
 ---
 
-## Homework in WileyPLUS
+## Individual assignments
 
-All homework will be assigned, completed **individually**, and automatically
-graded through WileyPLUS. WileyPLUS access is therefore a
+Every assignment in this course must be completed and submitted
+**individually**. All homework will be assigned and automatically graded
+through **WileyPLUS**. WileyPLUS access is therefore a
 [required course resource](resources.qmd#wileyplus).
 
 - Launch every WileyPLUS homework assignment from Canvas. Do not search for or
@@ -15,30 +16,11 @@ graded through WileyPLUS. WileyPLUS access is therefore a
 - Unless a homework assignment states otherwise, it is due by **11:59 PM
   Chicago Time** on the due date. Canvas displays due dates in your time zone.
 
-## Other assignments
-
-- Unless otherwise stated, you may work on non-homework file-upload assignments
-  **individually** or in **pairs**, and your choice may change from one
-  assignment to the next.
-- For each assignment that permits pairs, I will create a **group set in
-  Canvas**; you will sign up to form your group.
-- **Only one person per pair submits** a group assignment in Canvas. The
-  submission, grade, and feedback are automatically shared with both group
-  members.
-- Unless an assignment states otherwise, it is due by **11:59 PM Chicago
-  Time** on the due date. Canvas displays due dates in your time zone.
-- Each file-upload submission must include **all relevant files**:
-
-  1. A self-contained, working copy of any code used.
-  2. A PDF version of item 1, including the output, plus any analytical work.
-     Legible handwriting and typed work are both acceptable. You may embed
-     analytical work as Markdown in the code.
-
 ## List of assignments
 
-Assignment details and due dates will be added as they are finalized.
+The diagnostic survey and WileyPLUS homework assignments are listed below.
 
 | Assignment | Coverage | Due Date |
 |:---|:---|:---|
-| [Assignment 0 — Diagnostic Survey]({{< meta canvas.assignment_0 >}})<br>**Complete and submit this assignment individually, not as a group.** | MATH 332 profile survey | August 21, 2026 |
-| [Assignment 1 — WileyPLUS: Systems and Matrix Operations](../assignments/assignment_1.qmd)<br>**Complete this automatically graded assignment individually.** | Anton §§1.2–1.3 | September 4, 2026 |
+| [Assignment 0 — Diagnostic Survey]({{< meta canvas.assignment_0 >}}) | MATH 332 profile survey | August 21, 2026 |
+| [Assignment 1 — WileyPLUS: Systems and Matrix Operations](../assignments/assignment_1.qmd) | Anton §§1.2–1.3 | September 4, 2026 |
