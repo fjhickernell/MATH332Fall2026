@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-08-25">
+  <meta name="dcterms.date" content="2026-08-26">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="01-systems-and-matrices_files/libs/revealjs/dist/theme/quarto-357f34afe40eaef5438313718ece303d.css">
+  <link rel="stylesheet" href="01-systems-and-matrices_files/libs/revealjs/dist/theme/quarto-44ff67e6af21489f09dd400331430708.css">
   <link href="01-systems-and-matrices_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="01-systems-and-matrices_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="01-systems-and-matrices_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -597,7 +597,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">August 25, 2026</p>
+  <p class="date">August 26, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 center">
 <h1>Course Map</h1>
@@ -673,11 +673,11 @@ In this deck
 </div>
 <p>For the second and third examples, no reversible transformation can isolate <span class="math inline">\(x\)</span>: a zero coefficient remains zero</p>
 <div class="key-point">
-<p>A system of <span class="math inline">\(m\)</span> linear equations in <span class="math inline">\(n\)</span> unknowns has exactly one of three outcomes:</p>
+<p>A system of <span class="math inline">\(m\)</span> <span class="alert">linear</span> equations in <span class="math inline">\(n\)</span> unknowns has exactly one of three outcomes:</p>
 <ul>
-<li>one solution</li>
-<li>no solutions</li>
-<li>infinitely many solutions</li>
+<li><span class="alert">one</span> solution</li>
+<li><span class="alert">no</span> solutions</li>
+<li><span class="alert">infinitely many</span> solutions</li>
 </ul>
 </div>
 </section>
@@ -730,7 +730,7 @@ x+y&amp;=3\\
 <g class="geometry-gridline"><path d="M40 45H300M40 95H300M40 145H300M40 195H300M40 245H300M90 20V270M140 20V270M190 20V270M240 20V270M290 20V270"></path></g> <path class="geometry-axis" d="M40 245H305M90 270V15"></path> <path class="geometry-equation-one" d="M40 45L265 270"></path> <path class="geometry-equation-two" d="M165 270L248 20"></path> <circle class="geometry-solution" cx="190" cy="195" r="9"></circle> <text x="202" y="187" font-size="21">(2, 1)</text> <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
 </svg>
 <div class="solution-caption">
-Exactly one: the lines cross at <span class="math inline">\((2,1)\)</span>
+<span class="caption-line">Exactly one</span><span class="caption-line">The lines cross at <span class="math inline">\((2, 1)\)</span></span><span class="caption-line">Two consistent constraints for two unknowns</span>
 </div>
 </div>
 <div class="solution-geometry-card">
@@ -741,7 +741,7 @@ Exactly one: the lines cross at <span class="math inline">\((2,1)\)</span>
 <g class="geometry-gridline"><path d="M40 45H300M40 95H300M40 145H300M40 195H300M40 245H300M90 20V270M140 20V270M190 20V270M240 20V270M290 20V270"></path></g> <path class="geometry-axis" d="M40 245H305M90 270V15"></path> <path class="geometry-equation-one" d="M40 45L265 270"></path> <path class="geometry-equation-two" d="M65 20L315 270"></path> <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
 </svg>
 <div class="solution-caption">
-None: distinct parallel lines never meet
+<span class="caption-line">None</span><span class="caption-line">Distinct parallel lines never meet</span><span class="caption-line">Constraints conflict/inconsistent</span>
 </div>
 </div>
 <div class="solution-geometry-card">
@@ -752,7 +752,7 @@ None: distinct parallel lines never meet
 <g class="geometry-gridline"><path d="M40 45H300M40 95H300M40 145H300M40 195H300M40 245H300M90 20V270M140 20V270M190 20V270M240 20V270M290 20V270"></path></g> <path class="geometry-axis" d="M40 245H305M90 270V15"></path> <path class="geometry-equation-one" d="M40 45L265 270"></path> <path class="geometry-equation-two" d="M40 45L265 270"></path> <circle class="geometry-solution" cx="90" cy="95" r="7"></circle><circle class="geometry-solution" cx="140" cy="145" r="7"></circle><circle class="geometry-solution" cx="190" cy="195" r="7"></circle><circle class="geometry-solution" cx="240" cy="245" r="7"></circle> <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
 </svg>
 <div class="solution-caption">
-Infinitely many: both equations give the same line
+<span class="caption-line">Infinitely many</span><span class="caption-line">Both equations give the same line</span><span class="caption-line">Constraints too few</span>
 </div>
 </div>
 </div>
@@ -772,7 +772,7 @@ x+y&amp;=3  &amp;(E_1)\\
 <p>And the original system of equations can be recovered because</p>
 <p><span class="math display">\[E_2 = \bigl(E_2-3(E_1) \bigr) +3E_1=E_2\]</span></p>
 <div class="key-point">
-<p>The new system contains the same information because the step can be undone, i.e., it is reversible</p>
+<p>The new system contains the same information because the step can be undone, i.e., it is <span class="alert">reversible</span></p>
 </div>
 </section>
 <section id="three-reversible-moves" class="slide level2">
@@ -800,11 +800,11 @@ x+y&amp;=3  &amp;(E_1)\\
 </tbody>
 </table>
 <div class="key-point">
-<p>These <span class="alert">elementary row operations</span> preserve the entire solution set</p>
+<p>These <span class="alert">elementary row operations</span> preserve the entire solution set because they are reversible</p>
 </div>
 <ul>
 <li><p>The restriction <span class="math inline">\(c\ne0\)</span> for the last move matters: multiplying an equation by <span class="math inline">\(0\)</span> discards information</p></li>
-<li><p>The last move is not really needed</p></li>
+<li><p>The last move is not really needed for solving equations</p></li>
 </ul>
 </section>
 <section id="reversibleor-not" class="slide level2">
@@ -975,7 +975,6 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 2 - 1)=-1
 </ul>
 <div class="key-point">
 <p>Two vectors are <span class="alert">orthogonal</span> when <span class="math inline">\(\vct{a}^{\top}\vct{x}=0\)</span></p>
-<p>&nbsp;</p>
 <p>Nonzero orthogonal vectors are perpendicular</p>
 </div>
 </section>
@@ -1009,7 +1008,8 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 2 - 1)=-1
 =\lVert\vct{a}\rVert\lVert\vct{x}\rVert\cos(\theta)
 \]</span></p>
 <div class="key-point">
-<p>In <span class="math inline">\(\reals^n\)</span>, geometry explains the formula; in a general inner-product space, the formula <span class="alert">defines the angle</span></p>
+<p>In <span class="math inline">\(\reals^n\)</span>, geometry explains the formula</p>
+<p>In a general inner-product space, the formula <span class="alert">defines the angle</span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -1197,9 +1197,9 @@ x + 2y -z = 2 \\
      \end{bmatrix}
 \end{align*}\]</span></p>
 <div class="key-point">
-<p><span class="alert">Matrix–matrix multiplication</span> collects all dot products of rows of the first matrix with columns of the second.</p>
+<p><span class="alert">Matrix–matrix multiplication</span> collects all dot products of rows of the first matrix with columns of the second</p>
 <p>&nbsp;</p>
-<p>It is <span class="alert">associative but generally not commutative</span>: compatible factors may be regrouped, not reordered.</p>
+<p>It is <span class="alert">associative but generally not commutative</span>: compatible factors may be regrouped, not reordered</p>
 </div>
 </section>
 <section id="a-general-linear-system" class="slide level2">
@@ -1258,6 +1258,7 @@ x+2y-z&amp;=2\\
 <p><span class="alert">Compute with rows first</span>; reinterpret the same steps as reversible matrix actions later</p>
 <ul>
 <li><a href="#/translate-equations-into-matrix-rows">Translate equations into matrix rows</a></li>
+<li><a href="#/one-algorithm-many-valid-paths">One algorithm, many valid paths</a></li>
 <li><a href="#/eliminate-and-organize-with-pivots">Eliminate and organize with pivots</a></li>
 <li><a href="#/read-the-solution-set">Read the solution set (back substitution)</a></li>
 <li><a href="#/resistance-circuit">Resistance circuit</a></li>
@@ -1303,6 +1304,34 @@ x+2y-z&amp;=2 &amp;&amp;(E_1)\\
 <div class="key-point">
 <p><span class="math inline">\(E_i\)</span> names an equation; <span class="math inline">\(R_i\)</span> names the corresponding matrix row</p>
 </div>
+</section>
+<section id="one-algorithm-many-valid-paths" class="slide level2">
+<h2>One algorithm, many valid paths</h2>
+<p>Many sequences of <span class="alert">reversible</span> operations produce a correct echelon form</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="recipe-used-in-our-examples">Recipe used in our examples</h3>
+<p>For each pivot column, moving left to right:</p>
+<ol type="1">
+<li>Exchange equations or rows only if the pivot candidate is zero</li>
+<li>Keep the pivot equation or row in place</li>
+<li>Clear each entry below the pivot using</li>
+</ol>
+<p><span class="math display">\[
+E_i\leftarrow E_i-mE_j
+\qquad\text{or}\qquad
+R_i\leftarrow R_i-mR_j
+\]</span></p>
+<p>where <span class="math inline">\(m\)</span> is the entry to clear divided by the pivot</p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="your-work">Your work</h3>
+<p>You may choose any correct sequence of reversible operations, including unnecessary row exchanges or a different combination of scaling and replacement steps</p>
+<div class="key-point">
+<p>Our examples follow the same recipe every time so the steps are predictable rather than matters of preference</p>
+</div>
+</div></div>
 </section>
 <section id="eliminate-and-organize-with-pivots" class="slide level2">
 <h2>Eliminate and organize with pivots</h2>
@@ -1618,19 +1647,85 @@ x=\frac{-4-z}{5}
 </section>
 <section id="one-matrix-eliminates-on-one-column" class="slide level2">
 <h2>One matrix eliminates on one column</h2>
-<p>The <span class="math inline">\(3\times3\)</span> <span class="alert">identity matrix</span> has ones on its diagonal and zeros elsewhere:</p>
+<h3 id="start-with-one-row-replacement">Start with one row replacement</h3>
+<p>Let an arbitrary <span class="math inline">\(3\times3\)</span> matrix be written in terms of its rows and its nine entries:</p>
 <p><span class="math display">\[
-\mat{I}=
+\mat{A}=
 \begin{bmatrix}
-1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;1
+\vct{a}_1^{\mathsf T}\\
+\vct{a}_2^{\mathsf T}\\
+\vct{a}_3^{\mathsf T}
 \end{bmatrix}
-\xrightarrow[\ R_3\leftarrow R_3-3R_1\ ]{\ R_2\leftarrow R_2-2R_1\ }
-\mat{M}_1=
+=
+\begin{bmatrix}
+a_{11}&amp;a_{12}&amp;a_{13}\\
+a_{21}&amp;a_{22}&amp;a_{23}\\
+a_{31}&amp;a_{32}&amp;a_{33}
+\end{bmatrix}
+\]</span></p>
+<p>To perform <span class="math inline">\(R_2\leftarrow R_2-mR_1\)</span>, multiply on the left:</p>
+<p><span class="math display">\[\begin{gather*}
+\begin{bmatrix}
+1&amp;0&amp;0\\
+-m&amp;1&amp;0\\
+0&amp;0&amp;1
+\end{bmatrix}
+\begin{bmatrix}
+\vct{a}_1^{\mathsf T}\\
+\vct{a}_2^{\mathsf T}\\
+\vct{a}_3^{\mathsf T}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\vct{a}_1^{\mathsf T}\\
+\vct{a}_2^{\mathsf T}-m\vct{a}_1^{\mathsf T}\\
+\vct{a}_3^{\mathsf T}
+\end{bmatrix}
+\\
+\begin{bmatrix}
+1&amp;0&amp;0\\
+-m&amp;1&amp;0\\
+0&amp;0&amp;1
+\end{bmatrix}
+\begin{bmatrix}
+a_{11}&amp;a_{12}&amp;a_{13}\\
+a_{21}&amp;a_{22}&amp;a_{23}\\
+a_{31}&amp;a_{32}&amp;a_{33}
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_{11}&amp;a_{12}&amp;a_{13}\\
+a_{21}-ma_{11}&amp;a_{22}-ma_{12}&amp;a_{23}-ma_{13}\\
+a_{31}&amp;a_{32}&amp;a_{33}
+\end{bmatrix}
+\end{gather*}\]</span></p>
+<div class="key-point">
+<p>This <span class="alert">row-operation matrix</span> changes row <span class="math inline">\(2\)</span> and leaves rows <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> unchanged</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="group-the-first-column-operations">Group the first-column operations</h3>
+<p>For our augmented matrix, the first elimination stage combines two row-operation matrices:</p>
+<p><span class="math display">\[
+\overset{R_3\leftarrow R_3-3R_1}{
+\begin{bmatrix}
+1&amp;0&amp;0\\0&amp;1&amp;0\\-3&amp;0&amp;1
+\end{bmatrix}
+}
+\overset{R_2\leftarrow R_2-2R_1}{
+\begin{bmatrix}
+1&amp;0&amp;0\\-2&amp;1&amp;0\\0&amp;0&amp;1
+\end{bmatrix}
+}
+=
+\mat{M}_1
+=
 \begin{bmatrix}
 1&amp;0&amp;0\\-2&amp;1&amp;0\\-3&amp;0&amp;1
 \end{bmatrix}
 \]</span></p>
-<p>Then <span class="alert">left multiplication</span> performs both row operations:</p>
+<p><span class="alert">Left multiplication</span> now performs both row operations:</p>
 <p><span class="math display">\[
 \mat{M}_1[\,\mat{A}\mid\vct{b}\,]
 =
@@ -1639,7 +1734,7 @@ x=\frac{-4-z}{5}
 \end{array}\right]
 \]</span></p>
 <div class="key-point">
-<p>Each individual row operation produces an <span class="alert">elementary matrix</span>; their product <span class="math inline">\(\mat{M}_1\)</span> is an <span class="alert">elimination matrix</span> that zeros the entire first column below the pivot</p>
+<p><span class="math inline">\(\mat{M}_1\)</span> is an <span class="alert">elimination matrix</span>: it groups the row operations that zero the first column below the pivot</p>
 </div>
 </section>
 <section id="the-next-pivot-column-has-its-own-matrix" class="slide level2">
@@ -1704,10 +1799,15 @@ q=\min(m-1,n)
 =
 [\,\mat{U}\mid\vct{c}\,]
 \]</span></p>
-<p>This product records the elimination algebraically; it <span class="alert">need not be formed</span> to solve the system</p>
-<p>The <span class="alert">rightmost matrix</span> <span class="math inline">\(\mat{M}_1\)</span> acts first. For a square or wide matrix, <span class="math inline">\(q=\min(m,n)-1\)</span>; a tall matrix may also need <span class="math inline">\(\mat{M}_n\)</span> because column <span class="math inline">\(n\)</span> can have entries below row <span class="math inline">\(n\)</span>.</p>
+<ul>
+<li><p>This product records the elimination algebraically; it <span class="alert">need not be formed</span> to solve the system</p></li>
+<li><p>The <span class="alert">rightmost matrix</span> <span class="math inline">\(\mat{M}_1\)</span> acts first.</p></li>
+<li><p>For a square or wide matrix (<span class="math inline">\(m\le n\)</span>), <span class="math inline">\(q=m-1\)</span></p></li>
+<li><p>A tall matrix (<span class="math inline">\(m &gt; n\)</span>) may also need <span class="math inline">\(\mat{M}_n\)</span> because column <span class="math inline">\(n\)</span> can have entries below row <span class="math inline">\(n\)</span></p></li>
+</ul>
 <div class="key-point">
-<p>Matrix multiplication is <span class="alert">associative</span>: factors may be regrouped. It is generally <span class="alert">not commutative</span>: factors may not be reordered.</p>
+<p>Matrix multiplication is <span class="alert">associative</span>: factors may be regrouped</p>
+<p>It is generally <span class="alert">not commutative</span>: factors may not be reordered</p>
 </div>
 </section></section>
 <section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">

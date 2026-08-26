@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-08-25">
+  <meta name="dcterms.date" content="2026-08-26">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="02-inverses-and-invertibility_files/libs/revealjs/dist/theme/quarto-357f34afe40eaef5438313718ece303d.css">
+  <link rel="stylesheet" href="02-inverses-and-invertibility_files/libs/revealjs/dist/theme/quarto-44ff67e6af21489f09dd400331430708.css">
   <link href="02-inverses-and-invertibility_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="02-inverses-and-invertibility_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="02-inverses-and-invertibility_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -597,7 +597,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">August 25, 2026</p>
+  <p class="date">August 26, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 center">
 <h1>Course Map</h1>
@@ -640,7 +640,7 @@ In this deck
 <p>Undoing a row operation leads directly to the idea of an inverse matrix</p>
 <ul>
 <li><a href="#/why-square-matrices">Why square matrices?</a></li>
-<li><a href="#/an-inverse-undoes-a-matrix-action">An inverse undoes a matrix action</a></li>
+<li><a href="#/an-inverse-undoes-a-matrix-action">Reversible means invertible</a></li>
 <li><a href="#/elimination-matrices-are-invertible">Elimination matrices are invertible</a></li>
 <li><a href="#/invertible-or-singular">Invertible or singular</a></li>
 </ul>
@@ -681,21 +681,32 @@ In this deck
 <p>This deck focuses on <span class="alert">square matrices</span>; rectangular matrices remain important and cannot have a two-sided inverse, but they can have <span class="alert">pseudoinverses</span> (later)</p>
 </div>
 </section>
-<section id="an-inverse-undoes-a-matrix-action" class="slide level2">
-<h2>An inverse undoes a matrix action</h2>
-<p>The identity matrix leaves every vector unchanged:</p>
+<section id="an-inverse-undoes-a-matrix-action" class="slide level2" data-state="goldborder">
+<h2>Reversible means invertible</h2>
+<p>In <a href="01-systems-and-matrices.html">Systems and Matrices</a>, <span class="alert">reversible</span> meant that an operation could be undone</p>
+<p>For a square matrix <span class="math inline">\(\mat{A}\)</span>, the action <span class="math inline">\(\vct{x}\mapsto\mat{A}\vct{x}\)</span> is reversible exactly when another matrix <span class="math inline">\(\mat{A}^{-1}\)</span> undoes it in both directions:</p>
 <p><span class="math display">\[
-\mat{I}\vct{x}=\vct{x}
+\vct{x}
+\xrightarrow{\ \mat{A}\ }
+\mat{A}\vct{x}
+\xrightarrow{\ \mat{A}^{-1}\ }
+\vct{x},
+\qquad
+\vct{x}
+\xrightarrow{\ \mat{A}^{-1}\ }
+\mat{A}^{-1}\vct{x}
+\xrightarrow{\ \mat{A}\ }
+\vct{x}
 \]</span></p>
-<p>An <span class="alert">inverse</span> of a square matrix <span class="math inline">\(\mat{A}\)</span> undoes its action on both sides:</p>
+<p>Equivalently,</p>
 <p><span class="math display">\[
 \mat{A}^{-1}\mat{A}=\mat{I},
 \qquad
 \mat{A}\mat{A}^{-1}=\mat{I}
 \]</span></p>
-<p>Matrix multiplication is generally <span class="alert">not commutative</span>, but a matrix and its inverse <span class="alert">do commute</span>: both products equal <span class="math inline">\(\mat{I}\)</span></p>
+<p>Then <span class="math inline">\(\mat{A}\)</span> is <span class="alert">invertible</span>, or <span class="alert">nonsingular</span>, and <span class="math inline">\(\mat{A}^{-1}\)</span> is its inverse</p>
 <div class="key-point">
-<p><span class="math inline">\(\mat{A}\)</span> is <span class="alert">invertible</span>, or <span class="alert">nonsingular</span>, when <span class="math inline">\(\mat{A}^{-1}\)</span> exists</p>
+<p>Our intuitive idea of a <span class="alert">reversible matrix action</span> means multiplication by an <span class="alert">invertible matrix</span></p>
 </div>
 </section>
 <section id="elimination-matrices-are-invertible" class="slide level2">
@@ -747,8 +758,9 @@ In this deck
 </div></div>
 <div class="key-point">
 <p>Use pivots to test invertibility: row-reduce <span class="math inline">\(\mat{A}\)</span> and inspect its echelon form</p>
-<p>&nbsp;</p>
-<p>Some treatments invoke determinants here; <span class="alert">we will defer them</span>. Elimination reveals the pivots directly, while a computed determinant can be unreliable when <span class="math inline">\(\mat{A}\)</span> is nearly singular.</p>
+<p>Some treatments invoke determinants here; <span class="alert">we will defer them</span></p>
+<p>Elimination reveals the pivots directly</p>
+<p>A computed determinant can be unreliable when <span class="math inline">\(\mat{A}\)</span> is nearly singular</p>
 </div>
 </section></section>
 <section>
@@ -756,13 +768,19 @@ In this deck
 <h1>Inverse Algebra</h1>
 <p>An inverse is unique, and order remains essential</p>
 <ul>
-<li><a href="#/the-inverse-is-unique">The inverse is unique</a></li>
+<li><a href="#/the-inverse-is-unique">Left and right inverses must agree</a></li>
 <li><a href="#/undo-products-in-reverse-order">Undo products in reverse order</a></li>
 </ul>
 </section>
 <section id="the-inverse-is-unique" class="slide level2">
-<h2>The inverse is unique</h2>
-<p>Suppose <span class="math inline">\(\mat{B}\)</span> and <span class="math inline">\(\mat{C}\)</span> both invert <span class="math inline">\(\mat{A}\)</span>. Then</p>
+<h2>Left and right inverses must agree</h2>
+<p>Suppose <span class="math inline">\(\mat{B}\)</span> is a <span class="alert">left inverse</span> and <span class="math inline">\(\mat{C}\)</span> is a <span class="alert">right inverse</span> of <span class="math inline">\(\mat{A}\)</span>:</p>
+<p><span class="math display">\[
+\mat{B}\mat{A}=\mat{I},
+\qquad
+\mat{A}\mat{C}=\mat{I}
+\]</span></p>
+<p>Associativity connects them:</p>
 <p><span class="math display">\[
 \mat{B}
 =\mat{B}\mat{I}
@@ -771,9 +789,10 @@ In this deck
 =\mat{I}\mat{C}
 =\mat{C}
 \]</span></p>
-<p>Therefore an invertible matrix has exactly one inverse, denoted <span class="math inline">\(\mat{A}^{-1}\)</span></p>
+<p>Thus any left inverse and right inverse of the same matrix must agree</p>
 <div class="key-point">
-<p>Verify a proposed inverse in both orders: <span class="math inline">\(\mat{B}\mat{A}=\mat{I}=\mat{A}\mat{B}\)</span></p>
+<p>A two-sided inverse is therefore <span class="alert">unique</span>; we denote it <span class="math inline">\(\mat{A}^{-1}\)</span></p>
+<p>A matrix commutes with its inverse: <span class="math inline">\(\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}\)</span></p>
 </div>
 </section>
 <section id="undo-products-in-reverse-order" class="slide level2">
@@ -1143,6 +1162,7 @@ c_{ij} &amp; = \text{output from sector }i\text{ needed per unit produced by sec
 <ul>
 <li><a href="#/covariance-describes-joint-variation">Covariance describes joint variation</a></li>
 <li><a href="#/precision-describes-conditional-structure">Precision describes conditional structure</a></li>
+<li><a href="#/compute-a-precision-matrix">Compute a precision matrix</a></li>
 </ul>
 </section>
 <section id="covariance-describes-joint-variation" class="slide level2">
@@ -1207,6 +1227,45 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 <div class="key-point">
 <p>This is a preview, not a derivation to memorize. Covariance describes what varies together; precision describes conditional relationships and covariance-aware weighting.</p>
 </div>
+</section>
+<section id="compute-a-precision-matrix" class="slide level2">
+<h2>Compute a precision matrix</h2>
+<p><span class="math inline">\(\exstar\)</span> A Gaussian vector has covariance matrix</p>
+<p><span class="math display">\[
+\mSigma=
+\begin{bmatrix}
+1&amp;1&amp;0\\
+1&amp;2&amp;1\\
+0&amp;1&amp;2
+\end{bmatrix}
+\]</span></p>
+<ol type="1">
+<li>Compute the precision matrix <span class="math inline">\(\mQ=\mSigma^{-1}\)</span> by Gauss–Jordan reduction of <span class="math inline">\([\,\mSigma\mid\mat{I}\,]\)</span></li>
+<li>Verify that <span class="math inline">\(\mSigma\mQ=\mat{I}\)</span></li>
+<li>Compare <span class="math inline">\(\mSigma_{13}\)</span> with <span class="math inline">\(\mQ_{13}\)</span>. What does this reveal about zeros in covariance and precision matrices?</li>
+</ol>
+<aside class="notes">
+<p>Instructor result:</p>
+<p><span class="math display">\[
+\mQ=
+\begin{bmatrix}
+3&amp;-2&amp;1\\
+-2&amp;2&amp;-1\\
+1&amp;-1&amp;1
+\end{bmatrix}
+\]</span></p>
+<p>Here <span class="math inline">\(\mSigma_{13}=0\)</span> but <span class="math inline">\(\mQ_{13}=1\)</span></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Big Ideas</h1>
