@@ -98,7 +98,9 @@
 
 .reveal .solution-geometry-card {
   display: grid;
+  grid-template-rows: 3.1em 300px auto;
   justify-items: center;
+  align-content: start;
   gap: 0.12em;
   min-width: 0;
   text-align: center;
@@ -109,7 +111,7 @@
   font-size: 0.76em;
 }
 
-.reveal .solution-geometry-card svg {
+.reveal .solution-geometry-card > svg {
   display: block;
   width: 100%;
   max-height: 300px;
@@ -120,6 +122,11 @@
   font-size: 0.72em;
   font-weight: 650;
   line-height: 1.15;
+}
+
+.reveal .solution-geometry-card .caption-line {
+  display: block;
+  white-space: nowrap;
 }
 
 .reveal .geometry-gridline {

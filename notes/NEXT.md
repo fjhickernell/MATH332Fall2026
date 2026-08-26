@@ -36,7 +36,7 @@ weight are right, and make the requested refinements.
   substantive drafts, and Anton Chapters 2–6 are represented by Decks 04–08.
   Metadata, previous/next navigation, course maps, schedule links, and internal
   links use the sequential numbering.
-- `slides/02-inverses-and-invertibility.qmd` is a concise, 31-slide,
+- `slides/02-inverses-and-invertibility.qmd` is a concise, 32-slide,
   instructor-reviewed deck covering Anton §§1.4–1.6 and an integrated §1.11
   Leontief input–output
   application. It develops inverse matrices, inverse algebra, Gauss–Jordan
@@ -56,7 +56,14 @@ weight are right, and make the requested refinements.
   grouped column-elimination matrices yield a unit lower-triangular factor
   when elimination proceeds without row exchanges. Deck 03 first develops
   that plain LU example and only then accounts for row order with a
-  permutation matrix.
+  permutation matrix. A gold-bordered slide now makes the central equivalence
+  explicit: a reversible square-matrix action is multiplication by an
+  invertible matrix. The uniqueness argument now proves directly that any
+  left inverse and right inverse of the same matrix agree. The Gaussian
+  covariance and precision preview now ends with a student exercise using a
+  positive-definite tridiagonal covariance matrix whose integer-valued inverse
+  illustrates that covariance and precision matrices can have different zero
+  patterns; the result is retained only in presenter notes.
 - `slides/03-matrix-structure-and-transformations.qmd` is a 32-slide
   instructor-review draft covering Anton §§1.7–1.9. It develops diagonal,
   triangular, transposed, and symmetric structure; supplements Anton with PLU,
@@ -77,7 +84,12 @@ weight are right, and make the requested refinements.
   augmented-matrix row operations, and left multiplication. The notation
   distinguishes $E_i$ for equations, $R_i$ for matrix rows, and $\mat{M}_j$
   for the matrix that zeros column $j$ below row $j$. Each $\mat{M}_j$ is a
-  product of elementary matrices. `Eliminate on
+  product of elementary matrices. A new `One algorithm, many valid paths`
+  slide states the fixed pivot-column recipe used in course examples while
+  allowing students to use any correct sequence of reversible operations.
+  The row-operation-matrix development now begins with an arbitrary
+  $3\times3$ matrix and displays left multiplication in both row-vector and
+  full entrywise forms before grouping operations into $\mat{M}_1$. `Eliminate on
   Matrices` now completes direct augmented-matrix elimination, pivots, back
   substitution, solution-set interpretation, and a resistance-circuit
   application. The separate `Row Operations Are Reversible Matrix Actions`

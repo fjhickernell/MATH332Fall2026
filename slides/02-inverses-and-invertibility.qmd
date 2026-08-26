@@ -54,7 +54,7 @@ include-after-body:
 Undoing a row operation leads directly to the idea of an inverse matrix
 
 - [Why square matrices?](#why-square-matrices)
-- [An inverse undoes a matrix action](#an-inverse-undoes-a-matrix-action)
+- [Reversible means invertible](#an-inverse-undoes-a-matrix-action)
 - [Elimination matrices are invertible](#elimination-matrices-are-invertible)
 - [Invertible or singular](#invertible-or-singular)
 
@@ -103,15 +103,27 @@ important and cannot have a two-sided inverse, but they can have
 [pseudoinverses]{.alert} (later)
 :::
 
-## An inverse undoes a matrix action
+## Reversible means invertible {#an-inverse-undoes-a-matrix-action data-state="goldborder"}
 
-The identity matrix leaves every vector unchanged:
+In [Systems and Matrices]({{< meta decks.d01.file >}}), [reversible]{.alert} meant that an operation could be undone
+
+For a square matrix $\mat{A}$, the action $\vct{x}\mapsto\mat{A}\vct{x}$ is reversible exactly when another matrix $\mat{A}^{-1}$ undoes it in both directions:
 
 $$
-\mat{I}\vct{x}=\vct{x}
+\vct{x}
+\xrightarrow{\ \mat{A}\ }
+\mat{A}\vct{x}
+\xrightarrow{\ \mat{A}^{-1}\ }
+\vct{x},
+\qquad
+\vct{x}
+\xrightarrow{\ \mat{A}^{-1}\ }
+\mat{A}^{-1}\vct{x}
+\xrightarrow{\ \mat{A}\ }
+\vct{x}
 $$
 
-An [inverse]{.alert} of a square matrix $\mat{A}$ undoes its action on both sides:
+Equivalently,
 
 $$
 \mat{A}^{-1}\mat{A}=\mat{I},
@@ -119,10 +131,10 @@ $$
 \mat{A}\mat{A}^{-1}=\mat{I}
 $$
 
-Matrix multiplication is generally [not commutative]{.alert}, but a matrix and its inverse [do commute]{.alert}: both products equal $\mat{I}$
+Then $\mat{A}$ is [invertible]{.alert}, or [nonsingular]{.alert}, and $\mat{A}^{-1}$ is its inverse
 
 ::: {.key-point}
-$\mat{A}$ is [invertible]{.alert}, or [nonsingular]{.alert}, when $\mat{A}^{-1}$ exists
+Our intuitive idea of a [reversible matrix action]{.alert} means multiplication by an [invertible matrix]{.alert}
 :::
 
 ## Elimination matrices are invertible
@@ -186,21 +198,31 @@ $\mat{A}^{-1}$ does not exist
 ::: {.key-point}
 Use pivots to test invertibility: row-reduce $\mat{A}$ and inspect its echelon form
 
-&nbsp;
+Some treatments invoke determinants here; [we will defer them]{.alert}
 
-Some treatments invoke determinants here; [we will defer them]{.alert}. Elimination reveals the pivots directly, while a computed determinant can be unreliable when $\mat{A}$ is nearly singular.
+Elimination reveals the pivots directly
+
+A computed determinant can be unreliable when $\mat{A}$ is nearly singular
 :::
 
 # Inverse Algebra
 
 An inverse is unique, and order remains essential
 
-- [The inverse is unique](#the-inverse-is-unique)
+- [Left and right inverses must agree](#the-inverse-is-unique)
 - [Undo products in reverse order](#undo-products-in-reverse-order)
 
-## The inverse is unique
+## Left and right inverses must agree {#the-inverse-is-unique}
 
-Suppose $\mat{B}$ and $\mat{C}$ both invert $\mat{A}$. Then
+Suppose $\mat{B}$ is a [left inverse]{.alert} and $\mat{C}$ is a [right inverse]{.alert} of $\mat{A}$:
+
+$$
+\mat{B}\mat{A}=\mat{I},
+\qquad
+\mat{A}\mat{C}=\mat{I}
+$$
+
+Associativity connects them:
 
 $$
 \mat{B}
@@ -211,10 +233,12 @@ $$
 =\mat{C}
 $$
 
-Therefore an invertible matrix has exactly one inverse, denoted $\mat{A}^{-1}$
+Thus any left inverse and right inverse of the same matrix must agree
 
 ::: {.key-point}
-Verify a proposed inverse in both orders: $\mat{B}\mat{A}=\mat{I}=\mat{A}\mat{B}$
+A two-sided inverse is therefore [unique]{.alert}; we denote it $\mat{A}^{-1}$
+
+A matrix commutes with its inverse: $\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}$
 :::
 
 ## Undo products in reverse order
@@ -656,6 +680,7 @@ A preview for later courses in statistics, AI, and data science—no statistics 
 
 - [Covariance describes joint variation](#covariance-describes-joint-variation)
 - [Precision describes conditional structure](#precision-describes-conditional-structure)
+- [Compute a precision matrix](#compute-a-precision-matrix)
 
 ## Covariance describes joint variation
 
@@ -740,6 +765,38 @@ rather than forming $\mQ$
 
 ::: {.key-point}
 This is a preview, not a derivation to memorize. Covariance describes what varies together; precision describes conditional relationships and covariance-aware weighting.
+:::
+
+## Compute a precision matrix
+
+$\exstar$ A Gaussian vector has covariance matrix
+
+$$
+\mSigma=
+\begin{bmatrix}
+1&1&0\\
+1&2&1\\
+0&1&2
+\end{bmatrix}
+$$
+
+1. Compute the precision matrix $\mQ=\mSigma^{-1}$ by Gauss--Jordan reduction of $[\,\mSigma\mid\mat{I}\,]$
+2. Verify that $\mSigma\mQ=\mat{I}$
+3. Compare $\mSigma_{13}$ with $\mQ_{13}$. What does this reveal about zeros in covariance and precision matrices?
+
+::: {.notes}
+Instructor result:
+
+$$
+\mQ=
+\begin{bmatrix}
+3&-2&1\\
+-2&2&-1\\
+1&-1&1
+\end{bmatrix}
+$$
+
+Here $\mSigma_{13}=0$ but $\mQ_{13}=1$
 :::
 
 # Big Ideas {data-state="goldborder"}

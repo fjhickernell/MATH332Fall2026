@@ -102,11 +102,11 @@ We transform equations in ways that are [reversible]{.alert} and so preserve the
 For the second and third examples, no reversible transformation can isolate $x$: a zero coefficient remains zero
 
 ::: {.key-point}
-A system of $m$ linear equations in $n$ unknowns has exactly one of three outcomes:
+A system of $m$ [linear]{.alert} equations in $n$ unknowns has exactly one of three outcomes:
 
-- one solution
-- no solutions
-- infinitely many solutions
+- [one]{.alert} solution
+- [no]{.alert} solutions
+- [infinitely many]{.alert} solutions
 :::
 
 ## From one equation to systems of equations
@@ -176,7 +176,7 @@ $\begin{aligned}x+y&=3\\3x-y&=5\end{aligned}$
   <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
 </svg>
 
-<div class="solution-caption">Exactly one: the lines cross at $(2,1)$</div>
+<div class="solution-caption"><span class="caption-line">Exactly one</span><span class="caption-line">The lines cross at $(2, 1)$</span><span class="caption-line">Two consistent constraints for two unknowns</span></div>
 :::
 
 ::: {.solution-geometry-card}
@@ -192,7 +192,7 @@ $\begin{aligned}x+y&=3\\x+y&=4\end{aligned}$
   <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
 </svg>
 
-<div class="solution-caption">None: distinct parallel lines never meet</div>
+<div class="solution-caption"><span class="caption-line">None</span><span class="caption-line">Distinct parallel lines never meet</span><span class="caption-line">Constraints conflict/inconsistent</span></div>
 :::
 
 ::: {.solution-geometry-card}
@@ -209,7 +209,7 @@ $\begin{aligned}x+y&=3\\2x+2y&=6\end{aligned}$
   <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
 </svg>
 
-<div class="solution-caption">Infinitely many: both equations give the same line</div>
+<div class="solution-caption"><span class="caption-line">Infinitely many</span><span class="caption-line">Both equations give the same line</span><span class="caption-line">Constraints too few</span></div>
 :::
 :::
 
@@ -234,7 +234,7 @@ And the original system of equations can be recovered because
 $$E_2 = \bigl(E_2-3(E_1) \bigr) +3E_1=E_2$$
 
 ::: {.key-point}
-The new system contains the same information because the step can be undone, i.e., it is reversible
+The new system contains the same information because the step can be undone, i.e., it is [reversible]{.alert}
 :::
 
 ## Three reversible moves
@@ -246,12 +246,12 @@ The new system contains the same information because the step can be undone, i.e
 | Replace $E_i$ by $cE_i$, $c\ne0$ | multiply by $1/c$ |
 
 ::: {.key-point}
-These [elementary row operations]{.alert} preserve the entire solution set
+These [elementary row operations]{.alert} preserve the entire solution set because they are reversible
 :::
 
 - The restriction $c\ne0$ for the last move matters: multiplying an equation by $0$ discards information
 
-- The last move is not really needed
+- The last move is not really needed for solving equations
 
 ## Reversible—or not?
 
@@ -447,8 +447,6 @@ The dot product defines the [Euclidean norm]{.alert} and measures alignment:
 ::: {.key-point}
 Two vectors are [orthogonal]{.alert} when $\vct{a}^{\top}\vct{x}=0$
 
-&nbsp;
-
 Nonzero orthogonal vectors are perpendicular
 :::
 
@@ -508,7 +506,9 @@ $$
 $$
 
 ::: {.key-point}
-In $\reals^n$, geometry explains the formula; in a general inner-product space, the formula [defines the angle]{.alert}
+In $\reals^n$, geometry explains the formula
+
+In a general inner-product space, the formula [defines the angle]{.alert}
 :::
 
 ---
@@ -755,11 +755,11 @@ and likewise for $\mat{B}\in\reals^{n\times p}$ and $\mat{C}=\mat{A}\mat{B}\in\r
 \end{align*}
 
 ::: {.key-point}
-[Matrix–matrix multiplication]{.alert} collects all dot products of rows of the first matrix with columns of the second.
+[Matrix–matrix multiplication]{.alert} collects all dot products of rows of the first matrix with columns of the second
 
 &nbsp;
 
-It is [associative but generally not commutative]{.alert}: compatible factors may be regrouped, not reordered.
+It is [associative but generally not commutative]{.alert}: compatible factors may be regrouped, not reordered
 :::
 
 ## A general linear system
@@ -821,6 +821,7 @@ Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible oper
 [Compute with rows first]{.alert}; reinterpret the same steps as reversible matrix actions later
 
 - [Translate equations into matrix rows](#translate-equations-into-matrix-rows)
+- [One algorithm, many valid paths](#one-algorithm-many-valid-paths)
 - [Eliminate and organize with pivots](#eliminate-and-organize-with-pivots)
 - [Read the solution set (back substitution)](#read-the-solution-set)
 - [Resistance circuit](#resistance-circuit)
@@ -876,6 +877,43 @@ $$
 
 ::: {.key-point}
 $E_i$ names an equation; $R_i$ names the corresponding matrix row
+:::
+
+## One algorithm, many valid paths
+
+Many sequences of [reversible]{.alert} operations produce a correct echelon form
+
+::: {.columns}
+::: {.column width="47%"}
+### Recipe used in our examples
+
+For each pivot column, moving left to right:
+
+1. Exchange equations or rows only if the pivot candidate is zero
+2. Keep the pivot equation or row in place
+3. Clear each entry below the pivot using
+
+$$
+E_i\leftarrow E_i-mE_j
+\qquad\text{or}\qquad
+R_i\leftarrow R_i-mR_j
+$$
+
+where $m$ is the entry to clear divided by the pivot
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### Your work
+
+You may choose any correct sequence of reversible operations, including unnecessary row exchanges or a different combination of scaling and replacement steps
+
+::: {.key-point}
+Our examples follow the same recipe every time so the steps are predictable rather than matters of preference
+:::
+:::
 :::
 
 ## Eliminate and organize with pivots
@@ -1295,21 +1333,93 @@ Matrix multiplication gives an [algebraic representation]{.alert} of the same ro
 
 ## One matrix eliminates on one column
 
-The $3\times3$ [identity matrix]{.alert} has ones on its diagonal and zeros elsewhere:
+### Start with one row replacement
+
+Let an arbitrary $3\times3$ matrix be written in terms of its rows and its nine entries:
 
 $$
-\mat{I}=
+\mat{A}=
 \begin{bmatrix}
-1&0&0\\0&1&0\\0&0&1
+\vct{a}_1^{\mathsf T}\\
+\vct{a}_2^{\mathsf T}\\
+\vct{a}_3^{\mathsf T}
 \end{bmatrix}
-\xrightarrow[\ R_3\leftarrow R_3-3R_1\ ]{\ R_2\leftarrow R_2-2R_1\ }
-\mat{M}_1=
+=
+\begin{bmatrix}
+a_{11}&a_{12}&a_{13}\\
+a_{21}&a_{22}&a_{23}\\
+a_{31}&a_{32}&a_{33}
+\end{bmatrix}
+$$
+
+To perform $R_2\leftarrow R_2-mR_1$, multiply on the left:
+
+\begin{gather*}
+\begin{bmatrix}
+1&0&0\\
+-m&1&0\\
+0&0&1
+\end{bmatrix}
+\begin{bmatrix}
+\vct{a}_1^{\mathsf T}\\
+\vct{a}_2^{\mathsf T}\\
+\vct{a}_3^{\mathsf T}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\vct{a}_1^{\mathsf T}\\
+\vct{a}_2^{\mathsf T}-m\vct{a}_1^{\mathsf T}\\
+\vct{a}_3^{\mathsf T}
+\end{bmatrix}
+\\
+\begin{bmatrix}
+1&0&0\\
+-m&1&0\\
+0&0&1
+\end{bmatrix}
+\begin{bmatrix}
+a_{11}&a_{12}&a_{13}\\
+a_{21}&a_{22}&a_{23}\\
+a_{31}&a_{32}&a_{33}
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_{11}&a_{12}&a_{13}\\
+a_{21}-ma_{11}&a_{22}-ma_{12}&a_{23}-ma_{13}\\
+a_{31}&a_{32}&a_{33}
+\end{bmatrix}
+\end{gather*}
+
+::: {.key-point}
+This [row-operation matrix]{.alert} changes row $2$ and leaves rows $1$ and $3$ unchanged
+:::
+
+---
+
+### Group the first-column operations
+
+For our augmented matrix, the first elimination stage combines two row-operation matrices:
+
+$$
+\overset{R_3\leftarrow R_3-3R_1}{
+\begin{bmatrix}
+1&0&0\\0&1&0\\-3&0&1
+\end{bmatrix}
+}
+\overset{R_2\leftarrow R_2-2R_1}{
+\begin{bmatrix}
+1&0&0\\-2&1&0\\0&0&1
+\end{bmatrix}
+}
+=
+\mat{M}_1
+=
 \begin{bmatrix}
 1&0&0\\-2&1&0\\-3&0&1
 \end{bmatrix}
 $$
 
-Then [left multiplication]{.alert} performs both row operations:
+[Left multiplication]{.alert} now performs both row operations:
 
 $$
 \mat{M}_1[\,\mat{A}\mid\vct{b}\,]
@@ -1320,7 +1430,7 @@ $$
 $$
 
 ::: {.key-point}
-Each individual row operation produces an [elementary matrix]{.alert}; their product $\mat{M}_1$ is an [elimination matrix]{.alert} that zeros the entire first column below the pivot
+$\mat{M}_1$ is an [elimination matrix]{.alert}: it groups the row operations that zero the first column below the pivot
 :::
 
 ## The next pivot column has its own matrix
@@ -1401,12 +1511,18 @@ $$
 [\,\mat{U}\mid\vct{c}\,]
 $$
 
-This product records the elimination algebraically; it [need not be formed]{.alert} to solve the system
+- This product records the elimination algebraically; it [need not be formed]{.alert} to solve the system
 
-The [rightmost matrix]{.alert} $\mat{M}_1$ acts first. For a square or wide matrix, $q=\min(m,n)-1$; a tall matrix may also need $\mat{M}_n$ because column $n$ can have entries below row $n$.
+- The [rightmost matrix]{.alert} $\mat{M}_1$ acts first.
+
+- For a square or wide matrix ($m\le n$), $q=m-1$
+
+- A tall matrix ($m > n$) may also need $\mat{M}_n$ because column $n$ can have entries below row $n$
 
 ::: {.key-point}
-Matrix multiplication is [associative]{.alert}: factors may be regrouped. It is generally [not commutative]{.alert}: factors may not be reordered.
+Matrix multiplication is [associative]{.alert}: factors may be regrouped
+
+It is generally [not commutative]{.alert}: factors may not be reordered
 :::
 
 # Big Ideas {data-state="goldborder"}
