@@ -841,6 +841,16 @@ x+2y-z&amp;=2 \qquad &amp;(E_1)\\
 3x+y+2z&amp;=1 &amp;(E_3)
 \end{align*}\]</span></p>
 <p>Goal: create equations with fewer unknowns while preserving every solution</p>
+<div class="key-point">
+<p>Elimination produces the equivalent <span class="alert">triangular system</span>, which is easy to solve</p>
+<p><span class="math display">\[
+\begin{aligned}
+x+2y-z&amp;=2\\
+-5y+3z&amp;=-7\\
+2z&amp;=2
+\end{aligned}
+\]</span></p>
+</div>
 </section>
 <section id="elimination" class="slide level2">
 <h2>Elimination</h2>
@@ -1263,6 +1273,21 @@ x+2y-z&amp;=2\\
 <li><a href="#/read-the-solution-set">Read the solution set (back substitution)</a></li>
 <li><a href="#/resistance-circuit">Resistance circuit</a></li>
 </ul>
+<p><span class="math display">\[
+[\,\mat{A}\mid\vct{b}\,]
+=
+\left[\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\2&amp;-1&amp;1&amp;-3\\3&amp;1&amp;2&amp;1
+\end{array}\right]
+\;\longrightarrow\;
+\left[\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-7\\0&amp;0&amp;2&amp;2
+\end{array}\right]
+=[\,\mat{U}\mid\vct{c}\,]
+\]</span></p>
+<div class="key-point">
+<p><span class="math inline">\([\,\mat{U}\mid\vct{c}\,]\)</span> represents the triangular system <span class="math inline">\(\mat{U}\vct{x}=\vct{c}\)</span>; <span class="alert">back substitution</span> then solves for <span class="math inline">\(\vct{x}\)</span></p>
+</div>
 </section>
 <section id="translate-equations-into-matrix-rows" class="slide level2">
 <h2>Translate equations into matrix rows</h2>
@@ -1644,6 +1669,27 @@ x=\frac{-4-z}{5}
 <li><a href="#/undoing-restores-the-original-system">Undoing restores the original system</a></li>
 <li><a href="#/elimination-is-an-ordered-product">Elimination is an ordered product</a></li>
 </ul>
+<p>For our example, the two elimination stages are</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mat{M}_2\mat{M}_1[\,\mat{A}\mid\vct{b}\,]
+&amp;=
+\begin{bmatrix}
+1&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;-1&amp;1
+\end{bmatrix}
+\begin{bmatrix}
+1&amp;0&amp;0\\-2&amp;1&amp;0\\-3&amp;0&amp;1
+\end{bmatrix}
+\left[\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\2&amp;-1&amp;1&amp;-3\\3&amp;1&amp;2&amp;1
+\end{array}\right]\\[0.6em]
+&amp;=
+\left[\begin{array}{rrr|r}
+1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-7\\0&amp;0&amp;2&amp;2
+\end{array}\right]
+=[\,\mat{U}\mid\vct{c}\,]
+\end{aligned}
+\]</span></p>
 </section>
 <section id="one-matrix-eliminates-on-one-column" class="slide level2">
 <h2>One matrix eliminates on one column</h2>
@@ -1757,6 +1803,8 @@ a_{31}&amp;a_{32}&amp;a_{33}
 \]</span></p>
 <div class="key-point">
 <p><span class="math inline">\(\mat{M}_j\)</span> groups all row additions that zero column <span class="math inline">\(j\)</span> below its pivot</p>
+<p>&nbsp;</p>
+<p><span class="math inline">\([\,\mat{U}\mid\vct{c}\,]\)</span> represents <span class="math inline">\(\mat{U}\vct{x}=\vct{c}\)</span>; <span class="alert">back substitution</span> now solves for <span class="math inline">\(\vct{x}\)</span></p>
 </div>
 </section>
 <section id="undoing-restores-the-original-system" class="slide level2">
@@ -1813,11 +1861,15 @@ q=\min(m-1,n)
 <section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Big Ideas</h1>
 <ul>
-<li><span class="alert">Equations show the details</span>; <span class="alert">augmented matrices compress the same information</span> for computation; <span class="alert">elimination matrices group row operations algebraically</span></li>
-<li>Reversible row operations preserve the solution set</li>
-<li>Dot products express individual equations; matrix multiplication collects many dot products and composes actions</li>
-<li>Pivots organize elimination and reveal whether a system has <span class="alert">zero, one, or infinitely many solutions</span></li>
-<li>Compute only what the problem requires: direct elimination solves the system; elimination-matrix products record the process but need not be formed</li>
+<li><p><span class="alert">Equations show the details</span>; <span class="alert">augmented matrices compress the same information</span> for computation; <span class="alert">elimination matrices group row operations algebraically</span></p></li>
+<li><p>Reversible row operations preserve the solution set</p></li>
+<li><p><span class="alert">Dot products</span> express individual equations; matrix multiplication collects many dot products and composes actions</p></li>
+<li><p><span class="alert">Pivots</span> organize elimination and reveal whether a system has <span class="alert">zero, one, or infinitely many solutions</span></p></li>
+<li><p>Compute only what the problem requires</p>
+<ul>
+<li>Direct elimination solves the system</li>
+<li>Elimination-matrix products record the process but need not be formed</li>
+</ul></li>
 </ul>
 </section>
 
