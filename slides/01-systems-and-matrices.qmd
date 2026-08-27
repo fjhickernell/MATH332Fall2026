@@ -293,6 +293,18 @@ x+2y-z&=2 \qquad &(E_1)\\
 
 Goal: create equations with fewer unknowns while preserving every solution
 
+::: {.key-point}
+Elimination produces the equivalent [triangular system]{.alert}, which is easy to solve
+
+$$
+\begin{aligned}
+x+2y-z&=2\\
+-5y+3z&=-7\\
+2z&=2
+\end{aligned}
+$$
+:::
+
 ## Elimination
 
 ### Eliminate $x$ in the equations below the first
@@ -826,6 +838,25 @@ Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible oper
 - [Read the solution set (back substitution)](#read-the-solution-set)
 - [Resistance circuit](#resistance-circuit)
 
+$$
+[\,\mat{A}\mid\vct{b}\,]
+=
+\left[\begin{array}{rrr|r}
+1&2&-1&2\\2&-1&1&-3\\3&1&2&1
+\end{array}\right]
+\;\longrightarrow\;
+\left[\begin{array}{rrr|r}
+1&2&-1&2\\0&-5&3&-7\\0&0&2&2
+\end{array}\right]
+=[\,\mat{U}\mid\vct{c}\,]
+$$
+
+::: {.key-point}
+$[\,\mat{U}\mid\vct{c}\,]$ represents the triangular system
+$\mat{U}\vct{x}=\vct{c}$; [back substitution]{.alert} then solves for
+$\vct{x}$
+:::
+
 ## Translate equations into matrix rows
 
 ### One step, two notations
@@ -1331,6 +1362,29 @@ Matrix multiplication gives an [algebraic representation]{.alert} of the same ro
 - [Undoing restores the original system](#undoing-restores-the-original-system)
 - [Elimination is an ordered product](#elimination-is-an-ordered-product)
 
+For our example, the two elimination stages are
+
+$$
+\begin{aligned}
+\mat{M}_2\mat{M}_1[\,\mat{A}\mid\vct{b}\,]
+&=
+\begin{bmatrix}
+1&0&0\\0&1&0\\0&-1&1
+\end{bmatrix}
+\begin{bmatrix}
+1&0&0\\-2&1&0\\-3&0&1
+\end{bmatrix}
+\left[\begin{array}{rrr|r}
+1&2&-1&2\\2&-1&1&-3\\3&1&2&1
+\end{array}\right]\\[0.6em]
+&=
+\left[\begin{array}{rrr|r}
+1&2&-1&2\\0&-5&3&-7\\0&0&2&2
+\end{array}\right]
+=[\,\mat{U}\mid\vct{c}\,]
+\end{aligned}
+$$
+
 ## One matrix eliminates on one column
 
 ### Start with one row replacement
@@ -1457,6 +1511,11 @@ $$
 
 ::: {.key-point}
 $\mat{M}_j$ groups all row additions that zero column $j$ below its pivot
+
+&nbsp;
+
+$[\,\mat{U}\mid\vct{c}\,]$ represents $\mat{U}\vct{x}=\vct{c}$;
+[back substitution]{.alert} now solves for $\vct{x}$
 :::
 
 ## Undoing restores the original system
@@ -1529,9 +1588,12 @@ It is generally [not commutative]{.alert}: factors may not be reordered
 
 - [Equations show the details]{.alert}; [augmented matrices compress the same information]{.alert} for computation; [elimination matrices group row operations algebraically]{.alert}
 - Reversible row operations preserve the solution set
-- Dot products express individual equations; matrix multiplication collects many dot products and composes actions
-- Pivots organize elimination and reveal whether a system has [zero, one, or infinitely many solutions]{.alert}
-- Compute only what the problem requires: direct elimination solves the system; elimination-matrix products record the process but need not be formed
+- [Dot products]{.alert} express individual equations; matrix multiplication collects many dot products and composes actions
+- [Pivots]{.alert} organize elimination and reveal whether a system has [zero, one, or infinitely many solutions]{.alert}
+- Compute only what the problem requires
+
+    - Direct elimination solves the system
+    - Elimination-matrix products record the process but need not be formed
 
 # Compute and Look Ahead
 

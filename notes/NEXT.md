@@ -2,11 +2,21 @@
 
 ## Current task
 
-Review Deck 03 with the instructor, decide whether its scope and classroom
-weight are right, and make the requested refinements.
+Restore Google Colab support for the companion notebooks without downgrading
+QMCPy. Fix the shared `classlib` import path, validate the Lecture 01 notebook
+end to end in Colab, publish the shared-library fix, and update this course's
+pinned `classlib` commit. Resume the Deck 03 instructor review afterward.
 
 ## Current state
 
+- In a clean Colab runtime, the Lecture 01 setup cell installs
+  `HickernellAcademicLib`, but `from classlib.nbviz import ...` fails because
+  `classlib/__init__.py` eagerly imports legacy generators and
+  `generators/kronecker.py` imports a QMCPy module path that is no longer
+  available. Installing QMCPy 1.6.1 did not repair that import in an isolated
+  Python 3.13 test, and the instructor explicitly does not want to regress to
+  an old QMCPy release. The pedagogical notebook content remains approved;
+  the unresolved issue is its clean Colab runtime path.
 - Assignment 1 is now an individual, automatically graded WileyPLUS External
   Tool assignment. The exact Anton Exercises 1.3.15 and 1.2.38 were not in the
   paired question bank, so the instructor prioritized autograding and approved
@@ -113,7 +123,14 @@ weight are right, and make the requested refinements.
   inner product and derives its cosine formula from the planar Law of Cosines,
   supported by a labeled triangle in the plane containing
   $\vct{0},\vct{a},\vct{x}$. Course maps in Decks 00–02 show the full Deck
-  00–08 sequence.
+  00–08 sequence. Its three elimination-paradigm section openers now carry the
+  same example explicitly: the equivalent triangular equations, the augmented
+  matrix reduction to $[\mat{U}\mid\vct{c}]$, and the fully written matrix
+  identity
+  $\mat{M}_2\mat{M}_1[\mat{A}\mid\vct{b}]=[\mat{U}\mid\vct{c}]$. The deck
+  emphasizes that $[\mat{U}\mid\vct{c}]$ represents
+  $\mat{U}\vct{x}=\vct{c}$ and that back substitution solves for
+  $\vct{x}$.
 - The course-wide computational principle is now explicit in Deck 00 and
   `notes/COURSE-PHILOSOPHY.md`: compute only what the problem requires because
   unnecessary work wastes time and creates more opportunities for round-off
@@ -125,12 +142,15 @@ weight are right, and make the requested refinements.
   Ideas` summaries before the next-deck handoff, and their Course Maps link to
   those summaries. `AUTHOR_WORKFLOW.md` records this as the convention for each
   completed instructional deck beginning with Deck 01.
-- The Lecture 01 companion notebook has been instructor-reviewed and was
-  judged fine for now; no further notebook revisions were requested during
-  this task.
+- The Lecture 01 companion notebook has been instructor-reviewed and its
+  pedagogical content was judged fine for now; the Colab import failure above
+  is the remaining operational defect.
 
 ## Questions to resolve
 
+- Should `classlib/__init__.py` stop eagerly importing the legacy generators,
+  or should those imports become optional or lazy while preserving existing
+  consumers?
 - Does the Deck 03 draft place the right classroom weight on special matrix
   structure, PLU, geometric transformations, and composition?
 - Should Deck 03's PLU treatment include a brief forward signpost to Strang's
@@ -143,6 +163,10 @@ weight are right, and make the requested refinements.
 
 ## Constraints
 
+- Do not pin or downgrade to QMCPy 1.6.1; support the current QMCPy interface.
+- Develop and validate the reusable repair in the authoritative
+  `HickernellAcademicLib` repository, push it there first, and only then update
+  this consumer's pinned `classlib` commit.
 - Use Anton Chapter 1 as the course spine and the established MATH 332
   notation.
 - Number decks by teaching sequence, show Anton coverage separately, and
@@ -172,6 +196,11 @@ weight are right, and make the requested refinements.
 
 ## Done when
 
+- A clean current Colab runtime installs the shared library and executes the
+  Lecture 01 companion notebook end to end without an import failure, the
+  shared-library fix is committed and pushed upstream, and this repository is
+  pinned to that published `classlib` commit.
+- The Colab repair is complete and Deck 03 is again the current MATH 332 task.
 - The instructor has reviewed Deck 03's scope, sequence, examples, and
   mathematical emphasis, and requested refinements are complete.
 - Any requested refinements render cleanly and remain visibly sound at the
