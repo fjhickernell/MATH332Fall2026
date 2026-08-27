@@ -178,6 +178,19 @@ python -m pip install -e classlib
 python -m ipykernel install --user --name qmcpy --display-name "qmcpy"
 ```
 
+### Colab notebooks
+
+A student-facing Colab badge must open the notebook in this repository and be
+tested end to end before publication. Keep the setup cell a no-op outside
+Colab. In Colab, clone the current course repository, initialize the recorded
+`classlib` submodule using its public HTTPS URL, and install that checkout.
+This preserves the course's validated shared-library version instead of
+silently substituting a moving branch or an unrelated package release.
+
+Install TeX packages only for notebooks that enable Matplotlib's external TeX
+rendering. Do not change the working directory during setup, and remind
+students that Colab does not save changes back to the course repository.
+
 ## Preview and render
 
 Preview the website:
