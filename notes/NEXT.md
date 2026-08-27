@@ -2,21 +2,22 @@
 
 ## Current task
 
-Restore Google Colab support for the companion notebooks without downgrading
-QMCPy. Fix the shared `classlib` import path, validate the Lecture 01 notebook
-end to end in Colab, publish the shared-library fix, and update this course's
-pinned `classlib` commit. Resume the Deck 03 instructor review afterward.
+Validate both published companion notebooks end to end in clean Google Colab
+runtimes without downgrading QMCPy. The shared-library repair is published and
+this course already pins it. Resume the Deck 03 instructor review afterward.
 
 ## Current state
 
-- In a clean Colab runtime, the Lecture 01 setup cell installs
-  `HickernellAcademicLib`, but `from classlib.nbviz import ...` fails because
-  `classlib/__init__.py` eagerly imports legacy generators and
-  `generators/kronecker.py` imports a QMCPy module path that is no longer
-  available. Installing QMCPy 1.6.1 did not repair that import in an isolated
-  Python 3.13 test, and the instructor explicitly does not want to regress to
-  an old QMCPy release. The pedagogical notebook content remains approved;
-  the unresolved issue is its clean Colab runtime path.
+- The shared `classlib` import repair is tested, committed, and published as
+  HickernellAcademicLib commit `615b402`. `classlib.nbviz` no longer imports
+  legacy QMCPy-dependent generators eagerly; generator exports remain
+  available lazily. This course pins that published commit in course commit
+  `1f6e047`, which is also published on `origin/main`. Both MATH 332 companion
+  notebooks now clone this course in Colab, initialize its recorded `classlib`
+  commit through a public HTTPS URL, install that exact checkout, and leave the
+  working directory unchanged. Both execute cleanly with the local `qmcpy`
+  kernel, and the root site, all nine decks, and the assembled site render
+  cleanly. Clean live-Colab validation remains pending.
 - Assignment 1 is now an individual, automatically graded WileyPLUS External
   Tool assignment. The exact Anton Exercises 1.3.15 and 1.2.38 were not in the
   paired question bank, so the instructor prioritized autograding and approved
@@ -148,9 +149,6 @@ pinned `classlib` commit. Resume the Deck 03 instructor review afterward.
 
 ## Questions to resolve
 
-- Should `classlib/__init__.py` stop eagerly importing the legacy generators,
-  or should those imports become optional or lazy while preserving existing
-  consumers?
 - Does the Deck 03 draft place the right classroom weight on special matrix
   structure, PLU, geometric transformations, and composition?
 - Should Deck 03's PLU treatment include a brief forward signpost to Strang's
@@ -196,11 +194,10 @@ pinned `classlib` commit. Resume the Deck 03 instructor review afterward.
 
 ## Done when
 
-- A clean current Colab runtime installs the shared library and executes the
-  Lecture 01 companion notebook end to end without an import failure, the
-  shared-library fix is committed and pushed upstream, and this repository is
-  pinned to that published `classlib` commit.
-- The Colab repair is complete and Deck 03 is again the current MATH 332 task.
+- Clean current Colab runtimes install the recorded shared library and execute
+  both the Deck 00 and Deck 01 companion notebooks end to end without an import
+  failure. The Colab repair is then complete and Deck 03 is again the current
+  MATH 332 task.
 - The instructor has reviewed Deck 03's scope, sequence, examples, and
   mathematical emphasis, and requested refinements are complete.
 - Any requested refinements render cleanly and remain visibly sound at the
