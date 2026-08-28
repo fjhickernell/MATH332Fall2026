@@ -191,6 +191,16 @@ Install TeX packages only for notebooks that enable Matplotlib's external TeX
 rendering. Do not change the working directory during setup, and remind
 students that Colab does not save changes back to the course repository.
 
+### Notebook execution timing
+
+Every course notebook must set
+`NOTEBOOK_START_TIME = time.perf_counter()` in its initial setup cell, before
+Colab detection and setup, and keep a final code cell with the ID
+`notebook-runtime` that reports `Total execution time for this notebook is …
+min … sec.` The runtime cell must remain the notebook's last cell. Validate the
+complete run and its timing output with the `qmcpy` kernel before publication;
+clean-Colab validation remains a separate publication requirement.
+
 ## Preview and render
 
 Preview the website:
