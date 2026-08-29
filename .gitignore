@@ -1,17 +1,22 @@
+# Quarto output and caches
 .quarto/
 _site/
 site_libs/
 *_files/
 **/*.quarto_ipynb
 .quarto-watch-logs/
+
+# macOS and local environment files
 .DS_Store
 **/.DS_Store
-.ipynb_checkpoints/
-**/.ipynb_checkpoints/
+.Renviron
+
+# Python caches and virtual environments
 __pycache__/
 *.py[cod]
 .venv/
 venv/
 
-
-/.quarto/
+# Jupyter checkpoints and JupyterLab Desktop project state
+**/.ipynb_checkpoints/
+**/.jupyter/
