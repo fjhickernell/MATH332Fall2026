@@ -46,6 +46,12 @@ components, shared styling, or notebook presentation, read
 policies, terminology, notation, navigation, validation requirements, and
 intentional exceptions. Do not duplicate universal style guidance locally.
 
+Before substantial slide work, also read
+`classlib/docs/slide-style.md`; before substantial webpage work, read
+`classlib/docs/webpage-style.md`. MATH 332 currently has no separate local
+style guides, so record a new local guide only when the course develops a
+genuine addition or explicit exception.
+
 If local guidance conflicts with shared guidance, follow an explicitly
 documented local exception and flag any apparent accidental inconsistency.
 

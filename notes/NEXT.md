@@ -8,11 +8,12 @@ this course already pins it. Resume the Deck 03 instructor review afterward.
 
 ## Current state
 
-- The shared `classlib` import repair is tested, committed, and published as
+- The shared `classlib` import repair is tested, committed, and published in
   HickernellAcademicLib commit `615b402`. `classlib.nbviz` no longer imports
   legacy QMCPy-dependent generators eagerly; generator exports remain
-  available lazily. This course pins that published commit in course commit
-  `1f6e047`, which is also published on `origin/main`. Both MATH 332 companion
+  available lazily. The current `classlib` pin advances to commit `22a02a4`,
+  which retains that repair and adds the authoritative shared slide and
+  webpage style guides. Both MATH 332 companion
   notebooks now clone this course in Colab, initialize its recorded `classlib`
   commit through a public HTTPS URL, install that exact checkout, and leave the
   working directory unchanged. Both execute cleanly with the local `qmcpy`
