@@ -1,206 +1,122 @@
 [
   {
-    "objectID": "pages/tests.html",
-    "href": "pages/tests.html",
-    "title": "Tests",
+    "objectID": "pages/schedule.html",
+    "href": "pages/schedule.html",
+    "title": "Schedule",
     "section": "",
-    "text": "NoteInstructions pending\n\n\n\nPermitted materials, calculator rules, room procedures, and other test instructions are TBD."
+    "text": "Classes normally meet Tuesdays and Thursdays at 11:25 AM in PH 109.\nThis schedule is provisional and will be updated as topics, assignments, quizzes, holidays, and examination details are finalized.\n\nAugust\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\n1\nTue Aug 18\nWhy linear algebra? and course introductionSystems of Equations\nWhy Linear Algebra?Systems and Matrices\n\n\n\nThu Aug 20\nInverses and invertibility\nInverses\n\n\n2\nTue Aug 25\n\n\n\n\n\nThu Aug 27\n\n\n\n\n\n\n\nSeptember\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\n3\nTue Sep 1\n\n\n\n\n\nThu Sep 3\n\n\n\n\n\nFri Sep 4\nAssignment 1 due\nWileyPLUS: Systems and Matrix Operations\n\n\n4\nTue Sep 8\n\n\n\n\n\nThu Sep 10\nQuiz 1\nQuizzes and testsSystems of Linear Equations and MatricesInverses and Invertibility\n\n\n5\nTue Sep 15\n\n\n\n\n\nThu Sep 17\n\n\n\n\n6\nTue Sep 22\n\n\n\n\n\nThu Sep 24\n\n\n\n\n7\nTue Sep 29\n\n\n\n\n\n\n\nOctober\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\n7\nThu Oct 1\n\n\n\n\n8\nTue Oct 6\n\n\n\n\n\nThu Oct 8\n\n\n\n\n9\nTue Oct 13\nNo Class — Fall Break\n\n\n\n\nThu Oct 15\n\n\n\n\n10\nTue Oct 20\n\n\n\n\n\nThu Oct 22\n\n\n\n\n11\nTue Oct 27\n\n\n\n\n\nThu Oct 29\n\n\n\n\n\n\n\nNovember\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\n12\nTue Nov 3\n\n\n\n\n\nThu Nov 5\n\n\n\n\n13\nTue Nov 10\n\n\n\n\n\nThu Nov 12\n\n\n\n\n14\nTue Nov 17\n\n\n\n\n\nThu Nov 19\n\n\n\n\n15\nTue Nov 24\n\n\n\n\n\nThu Nov 26\nNo Class — Thanksgiving holiday\n\n\n\n\n\n\nDecember\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\n16\nTue Dec 1\n\n\n\n\n\nThu Dec 3\n\n\n\n\n\nThe official last day of classes is Saturday, December 5. Because the course meets on Tuesdays and Thursdays, Thursday, December 3 is the final regular class meeting.\n\n\nFinal examinations\nFinal examinations occur during the following week.\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\n17\nTBA\nFinal Exam — time and location TBA"
   },
   {
-    "objectID": "pages/tests.html#instructions-for-tests-and-exams",
-    "href": "pages/tests.html#instructions-for-tests-and-exams",
-    "title": "Tests",
+    "objectID": "pages/quizzes-and-tests.html",
+    "href": "pages/quizzes-and-tests.html",
+    "title": "Quizzes and Tests",
     "section": "",
-    "text": "NoteInstructions pending\n\n\n\nPermitted materials, calculator rules, room procedures, and other test instructions are TBD."
+    "text": "Quizzes are held during the last 15 minutes of class.\nTests use the full 75-minute class period.\nStudents with recognized accommodations will receive the testing arrangements specified in their accommodation letters."
   },
   {
-    "objectID": "pages/tests.html#this-semesters-tests-and-final-examination",
-    "href": "pages/tests.html#this-semesters-tests-and-final-examination",
-    "title": "Tests",
-    "section": "This semester’s tests and final examination",
-    "text": "This semester’s tests and final examination\nDates, coverage, locations, formats, and review materials will be added as they are finalized.\n\n\n\n\n\n\n\n\n\nDate\nAssessment\nCoverage or details\nReview materials\n\n\n\n\nTBD\nTest 1\nTBD\nTBD\n\n\nTBD\nTest 2\nTBD\nTBD\n\n\nTBD\nFinal examination\nDate, time, location, format, and coverage TBD\nTBD"
+    "objectID": "pages/quizzes-and-tests.html#rules-for-quizzes-and-tests",
+    "href": "pages/quizzes-and-tests.html#rules-for-quizzes-and-tests",
+    "title": "Quizzes and Tests",
+    "section": "Rules for quizzes and tests",
+    "text": "Rules for quizzes and tests\nUnless the instructor explicitly says otherwise:\n\nQuizzes and tests are completed individually.\nQuizzes and tests are closed book, but you may use up to four letter-sized sheets of paper as memory aids. For the final examination, you may use up to eight letter-sized sheets of paper.\nCalculators and all other electronic devices—including phones, smartwatches, earbuds, tablets, and computers—are not allowed. Silence and place them in a bag under your desk or at the front of the room before the quiz or test begins.\nUse only materials explicitly permitted for that quiz or test. Do not share materials.\nKeep your attention on your own work. Do not communicate with another student, look at or copy another student’s work, make your work available to another student, or give or receive assistance. Direct questions to the instructor.\n\nCheating or attempted cheating—including using an unauthorized device, resource, or assistance—will be handled under the course Academic Integrity, Technology, and AI Usage policy."
   },
   {
-    "objectID": "pages/resources.html",
-    "href": "pages/resources.html",
-    "title": "Resources",
+    "objectID": "pages/quizzes-and-tests.html#quiz-and-test-schedule",
+    "href": "pages/quizzes-and-tests.html#quiz-and-test-schedule",
+    "title": "Quizzes and Tests",
+    "section": "Quiz and test schedule",
+    "text": "Quiz and test schedule\nDates, coverage, time limits, permitted materials, and review resources will be added as each quiz or test is finalized. Test 1 has not yet been scheduled.\n\n\n\nDate\nQuiz or test\nCoverage\n\n\n\n\nSeptember 10, 2026\nQuiz 1\nSystems of Linear Equations and MatricesInverses and Invertibility\n\n\nTBD — not yet scheduled\nTest 1\nTBD\n\n\nTBD\nTest 2\nTBD\n\n\nTBD\nFinal examination\nDate, time, location, format, and coverage TBD"
+  },
+  {
+    "objectID": "pages/assignments.html",
+    "href": "pages/assignments.html",
+    "title": "Assignments",
     "section": "",
-    "text": "WileyPLUS access for Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition, is required. All homework will be assigned, completed individually, and automatically graded through WileyPLUS. Launch each homework assignment from Canvas; do not search for or join the course separately on the WileyPLUS website.\nPurchase single-term access when prompted after launching a WileyPLUS assignment in Canvas. WileyPLUS includes the online textbook for the duration of the course.\n\n\n\nHoward Anton, Elementary Linear Algebra: Applications Version, 12th edition. The online textbook is included with required WileyPLUS access, so a separate printed copy is optional."
+    "text": "Every assignment in this course must be completed and submitted individually. All homework will be assigned and automatically graded through WileyPLUS. WileyPLUS access is therefore a required course resource.\n\nLaunch every WileyPLUS homework assignment from Canvas. Do not search for or join the course separately on the WileyPLUS website.\nHomework scores are passed automatically from WileyPLUS to the Canvas gradebook.\nUnless a homework assignment states otherwise, it is due by 11:59 PM Chicago Time on the due date. Canvas displays due dates in your time zone."
   },
   {
-    "objectID": "pages/resources.html#required-course-materials",
-    "href": "pages/resources.html#required-course-materials",
-    "title": "Resources",
+    "objectID": "pages/assignments.html#individual-assignments",
+    "href": "pages/assignments.html#individual-assignments",
+    "title": "Assignments",
     "section": "",
-    "text": "WileyPLUS access for Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition, is required. All homework will be assigned, completed individually, and automatically graded through WileyPLUS. Launch each homework assignment from Canvas; do not search for or join the course separately on the WileyPLUS website.\nPurchase single-term access when prompted after launching a WileyPLUS assignment in Canvas. WileyPLUS includes the online textbook for the duration of the course.\n\n\n\nHoward Anton, Elementary Linear Algebra: Applications Version, 12th edition. The online textbook is included with required WileyPLUS access, so a separate printed copy is optional."
+    "text": "Every assignment in this course must be completed and submitted individually. All homework will be assigned and automatically graded through WileyPLUS. WileyPLUS access is therefore a required course resource.\n\nLaunch every WileyPLUS homework assignment from Canvas. Do not search for or join the course separately on the WileyPLUS website.\nHomework scores are passed automatically from WileyPLUS to the Canvas gradebook.\nUnless a homework assignment states otherwise, it is due by 11:59 PM Chicago Time on the due date. Canvas displays due dates in your time zone."
   },
   {
-    "objectID": "pages/resources.html#computing-resources",
-    "href": "pages/resources.html#computing-resources",
-    "title": "Resources",
-    "section": "Computing resources",
-    "text": "Computing resources\nThe course will use Python for numerical and symbolic matrix computation, visualization, and experimentation. Use the repository-access instructions for initial setup and the Notebooks page for validated demonstrations.\n\n\nInitial Python environment\n\n\nNumPy for array and numerical matrix computation\nSciPy for scientific computing\nMatplotlib for visualization\nSymPy for exact symbolic computation\nJupyterLab for demonstrations and exercises"
+    "objectID": "pages/assignments.html#list-of-assignments",
+    "href": "pages/assignments.html#list-of-assignments",
+    "title": "Assignments",
+    "section": "List of assignments",
+    "text": "List of assignments\nThe diagnostic survey and WileyPLUS homework assignments are listed below.\n\n\n\nAssignment\nCoverage\nDue Date\n\n\n\n\nAssignment 0 — Diagnostic Survey\nMATH 332 profile survey\nAugust 21, 2026\n\n\nAssignment 1 — WileyPLUS: Systems and Matrix Operations\nAnton §§1.2–1.3\nSeptember 4, 2026"
   },
   {
-    "objectID": "pages/resources.html#course-systems",
-    "href": "pages/resources.html#course-systems",
-    "title": "Resources",
-    "section": "Course systems",
-    "text": "Course systems\n\n\n\nResource\nLocation\n\n\n\n\nCanvas\nMATH 332 course\n\n\nWileyPLUS\nLaunch homework assignments through Canvas\n\n\nCourse repository\nMATH332Fall2026 on GitHub\n\n\nRepository setup\nAccessing the Course Repository\n\n\nNotebooks\nDemonstrations and exercises\n\n\nPython demonstrations\nValidated demonstrations\n\n\nPython exercises\nLinks will be added after validation"
-  },
-  {
-    "objectID": "pages/resources.html#professional-community",
-    "href": "pages/resources.html#professional-community",
-    "title": "Resources",
-    "section": "Professional community",
-    "text": "Professional community\nStudents interested in applied mathematics can explore SIAM student membership."
-  },
-  {
-    "objectID": "pages/notebooks.html",
-    "href": "pages/notebooks.html",
-    "title": "Jupyter Notebooks",
+    "objectID": "classlib/website/talks.html",
+    "href": "classlib/website/talks.html",
+    "title": "Talks",
     "section": "",
-    "text": "Course notebooks provide executable demonstrations and exercises for numerical matrix computation, exact symbolic computation, visualization, and experimentation."
+    "text": "Recent\n\n\n\n\nMCQMC 2026 Plenary and Special Session Talks\n\n\nSIAM UQ 2026\n\n\n\nSome earliier talks are Speaker Deck"
   },
   {
-    "objectID": "pages/notebooks.html#demonstrations",
-    "href": "pages/notebooks.html#demonstrations",
-    "title": "Jupyter Notebooks",
-    "section": "Demonstrations",
-    "text": "Demonstrations\nInstructor demonstrations illustrate linear algebra concepts and connect algebraic calculations with geometric interpretation.\n\nMatrix Computation: NumPy and SymPy — a companion to Lecture 00 introducing numerical and exact matrix calculations, linear systems, least squares, and responsible computation\nSystems and Matrices — the reviewed companion to Lecture 01, combining exact SymPy elimination, back substitution, and classification with NumPy solves, residual checks, and the resistance-network exercise\nInverses and Invertibility — a draft companion to Lecture 02 combining pivot tests, exact inverses, singular systems, direct solves, and the Leontief and precision applications\nMatrix Structure and Transformations — a draft companion to Lecture 03 exploring matrix patterns, SciPy PLU factorization, basis images, geometric transformations, and composition"
-  },
-  {
-    "objectID": "pages/notebooks.html#exercises",
-    "href": "pages/notebooks.html#exercises",
-    "title": "Jupyter Notebooks",
-    "section": "Exercises",
-    "text": "Exercises\nStudent exercises will provide opportunities to explore matrices, vector spaces, transformations, eigenvalues, and inner products computationally. Exercise notebooks will be linked here after they have been developed and validated."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Welcome to MATH 332",
+    "objectID": "classlib/website/papers.html",
+    "href": "classlib/website/papers.html",
+    "title": "Publications",
     "section": "",
-    "text": "This is the course website for MATH 332 — Fall 2026 Section 002 at Illinois Institute of Technology."
+    "text": "Coming soon.\n\n\n\nGoogle Scholar\nORCID"
   },
   {
-    "objectID": "index.html#linear-algebra-theory-and-applications",
-    "href": "index.html#linear-algebra-theory-and-applications",
-    "title": "Welcome to MATH 332",
+    "objectID": "classlib/website/papers.html#publications",
+    "href": "classlib/website/papers.html#publications",
+    "title": "Publications",
     "section": "",
-    "text": "This is the course website for MATH 332 — Fall 2026 Section 002 at Illinois Institute of Technology."
+    "text": "Coming soon.\n\n\n\nGoogle Scholar\nORCID"
   },
   {
-    "objectID": "index.html#course-description",
-    "href": "index.html#course-description",
-    "title": "Welcome to MATH 332",
-    "section": "Course Description",
-    "text": "Course Description\nThis course develops the theory and applications of linear algebra through systems of equations, matrices, determinants, vector spaces, eigenvalues and eigenvectors, and inner product spaces. Python will support visualization, numerical computation, symbolic computation, and experimentation.\n\n\nInstructor: Fred J. Hickernell\n\n\n\nOffice: Galvin Tower 18C3-1\nOffice hours: By appointment (book here)\nPhone: 312-567-8983\nEmail: hickernell@illinoistech.edu\nWebsite     LinkedIn     Google Scholar     Mathematics Genealogy Profile\n\nBrief bio: Fred J. Hickernell is professor of applied mathematics. His research focuses on improving the efficiency of computer simulations and developing justifiable stopping criteria. He has spent most of his career at Hong Kong Baptist University and Illinois Institute of Technology, often in academic administrative roles. He has served on the editorial boards of the Journal of Complexity, Mathematics of Computation, and the SIAM Journal on Numerical Analysis. He is a Fellow of the Institute of Mathematical Statistics and the recipient of the 2016 Joseph F. Traub Prize for Achievement in Information-Based Complexity.\nHickernell speaks Cantonese and enjoys Chinese food. He is married with adult children. He enjoys discussing matters of substance. His most important identity is a disciple of Jesus."
-  },
-  {
-    "objectID": "index.html#required-course-materials",
-    "href": "index.html#required-course-materials",
-    "title": "Welcome to MATH 332",
-    "section": "Required course materials",
-    "text": "Required course materials\n\nWileyPLUS access: WileyPLUS is required for this course. All homework will be assigned, completed individually, and automatically graded through WileyPLUS. Launch each homework assignment from Canvas.\nTextbook: Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition. Single-term WileyPLUS access includes the online textbook for the duration of the course, so a separate printed copy is optional. See Resources for details.\n\n\n\nRecommended resources\n\n\nPython\nJupyter\nNumPy\nSciPy\nMatplotlib\nSymPy\nCourse repository\n\n\n\n\nPrerequisites\n\nThe prerequisite is MATH 251. It will help to be familiar with:\n\nA bit of vectors and matrices (but not required)\nJupyter notebooks\n\n\n\n\nWhere to find it\n\nClass meetings combine whiteboard explanation with linked lecture slides, live polls, and computational activities. Use the course website as the starting point for each meeting, and come prepared to open the slides, Canvas, and Jupyter notebooks during class.\nThe course website is the authoritative source for course information, schedules, lecture notes, and assignment details. Use Canvas for announcements, launching WileyPLUS homework, completing the diagnostic survey, and checking grades.\n\n\n\nThis course website\nCanvas\n\n\n\n\nCourse information\nGrades\n\n\nSchedule and lecture slides\nAnnouncements\n\n\nJupyter notebooks\nWileyPLUS homework launches\n\n\nAssignment rules, details, and due dates\nDiagnostic survey\n\n\nQuiz information and schedule\n\n\n\nTest and exam information\n\n\n\nRequired resources\n\n\n\nCourse policies\n\n\n\nRepository access instructions\n\n\n\nCourse repository"
-  },
-  {
-    "objectID": "index.html#course-outline",
-    "href": "index.html#course-outline",
-    "title": "Welcome to MATH 332",
-    "section": "Course Outline",
-    "text": "Course Outline\n\n\nWhy Linear Algebra?\n\nCourse motivation and roadmap.\n\n\n\nSystems of Linear Equations and Matrices\n\nAnton, Chapter 1. Detailed pacing is TBD.\n\n\n\nDeterminants\n\nAnton, Chapter 2. Detailed pacing is TBD.\n\n\n\nEuclidean Vector Spaces\n\nAnton, Chapter 3. Detailed pacing is TBD.\n\n\n\nGeneral Vector Spaces\n\nAnton, Chapter 4. Detailed pacing is TBD.\n\n\n\nEigenvalues and Eigenvectors\n\nAnton, Chapter 5. Detailed pacing is TBD.\n\n\n\nInner Product Spaces\n\nAnton, Chapter 6. Detailed pacing is TBD."
-  },
-  {
-    "objectID": "index.html#assessment",
-    "href": "index.html#assessment",
-    "title": "Welcome to MATH 332",
-    "section": "Assessment",
-    "text": "Assessment\n\nHomework assignments: 20%; all homework assignments are completed individually through WileyPLUS\nQuizzes: format, dates TBD 15%\nTests: dates TBD 25%\nFinal Exam: on the date assigned by the registrar 40%\nExtra Credit: From August 24 through December 6, you may earn extra credit by being the first student to report a previously unreported error in\n\nmy lecture slides, Jupyter notebooks, or assignments at least 24 hours after the material was presented or posted; or\nthe textbook.\n\nReport each error by creating an issue in the course repository. Each confirmed error earns 0.5 or 1 percentage point, depending on the severity of the error, up to 10 percentage points total.\nExtra credit is added to your final weighted course total. Canvas may not display the weighted total correctly until grades have been recorded in every assessment category."
-  },
-  {
-    "objectID": "classlib/website/software.html",
-    "href": "classlib/website/software.html",
-    "title": "Software",
+    "objectID": "classlib/website/courses.html",
+    "href": "classlib/website/courses.html",
+    "title": "Courses",
     "section": "",
-    "text": "QMCPy\nQMCSoftware GitHub Organization\nHickernellAcademicLib"
+    "text": "Course\nWebsite\n\n\n\n\nMATH 476\nSpring 2026\n\n\nMATH 563\nSpring 2026\n\n\nMATH 565\nFall 2025"
   },
   {
-    "objectID": "classlib/website/software.html#software",
-    "href": "classlib/website/software.html#software",
-    "title": "Software",
+    "objectID": "classlib/website/courses.html#current-and-recent-courses",
+    "href": "classlib/website/courses.html#current-and-recent-courses",
+    "title": "Courses",
     "section": "",
-    "text": "QMCPy\nQMCSoftware GitHub Organization\nHickernellAcademicLib"
+    "text": "Course\nWebsite\n\n\n\n\nMATH 476\nSpring 2026\n\n\nMATH 563\nSpring 2026\n\n\nMATH 565\nFall 2025"
   },
   {
-    "objectID": "classlib/website/index.html",
-    "href": "classlib/website/index.html",
-    "title": "Personal Academic Library",
-    "section": "",
-    "text": "Professor of Applied Mathematics\nIllinois Institute of Technology\nThis site collects my talks, publications, course materials, software projects, and other academic resources."
-  },
-  {
-    "objectID": "classlib/website/index.html#featured-resources",
-    "href": "classlib/website/index.html#featured-resources",
-    "title": "Personal Academic Library",
-    "section": "Featured Resources",
-    "text": "Featured Resources\n\nMCQMC 2026 Plenary Slides\nQMCPy and QMCSoftware"
-  },
-  {
-    "objectID": "classlib/website/index.html#research-interests",
-    "href": "classlib/website/index.html#research-interests",
-    "title": "Personal Academic Library",
-    "section": "Research Interests",
-    "text": "Research Interests\n(Quasi-)Monte Carlo Methods, Information-Based Complexity, High-Dimensional Integraton and Approximation, Uncertainty Quantification, Scientific Software"
-  },
-  {
-    "objectID": "classlib/classlib/quarto/snippets/search-test-archives.html",
-    "href": "classlib/classlib/quarto/snippets/search-test-archives.html",
+    "objectID": "classlib/classlib/quarto/snippets/fred-hickernell-bio.html",
+    "href": "classlib/classlib/quarto/snippets/fred-hickernell-bio.html",
     "title": "MATH 332 — Fall 2026",
     "section": "",
-    "text": "Tip🔎 How to search the archives (PDFs) for keywords\n\n\n\n\n\nGoal: find which past exams mention a term (e.g., Brownian, Sobol, CLT) inside PDF test and exam files.\nThe folder assets/tests/archive in the course repository contains subfolders for archived tests from past semesters for MATH 476, MATH 563, and MATH 565. The subfolders are the course numbers, e.g., archive/563 for MATH 563 tests.\n\nMac (Homebrew) / Linux\nOne-time setup (install pdfgrep):\nbrew install pdfgrep\nEach time you want to search the archive:\n\nNavigate to the root of your local course repository root, then run:\n\ncd assets/tests\n\nUse one of the following commands to search the archives:\n\nSearch all archives in this repo:\npdfgrep -rniH -C2 'your term here' archive\nSearch one specific archive folder:\npdfgrep -rniH -C2 'your term here' archive/563\nSearch multiple archives at once:\npdfgrep -rniH -C2 'your term here' archive/476 archive/563\nExamples:\npdfgrep -rniH -C2 'brownian' archive\npdfgrep -rniH -C2 'sobol' archive\npdfgrep -rniH -C2 'central limit|CLT' archive\n\n\nWindows (recommended: WSL)\nOn Windows, the recommended approach is to use Windows Subsystem for Linux (WSL), which lets you run the same commands as Mac/Linux users.\nAfter installing WSL (e.g., Ubuntu):\ncd /mnt/c/Users/YourName/path/to/course-repo/assets/tests\nsudo apt update\nsudo apt install pdfgrep\npdfgrep -rniH -C2 'your term here' archive\nIf you prefer not to use WSL, note that Windows does not include a native equivalent of pdfgrep; setup and commands vary by third-party tools."
+    "text": "Instructor: Fred J. Hickernell\n\n\n\nOffice: Galvin Tower 18C3-1\nOffice hours: By appointment (book here)\nPhone: 312-567-8983\nEmail: hickernell@illinoistech.edu\nWebsite     LinkedIn     Google Scholar     Mathematics Genealogy Profile\n\nBrief bio: Fred J. Hickernell is professor of applied mathematics. His research focuses on improving the efficiency of computer simulations and developing justifiable stopping criteria. He has spent most of his career at Hong Kong Baptist University and Illinois Institute of Technology, often in academic administrative roles. He has served on the editorial boards of the Journal of Complexity, Mathematics of Computation, and the SIAM Journal on Numerical Analysis. He is a Fellow of the Institute of Mathematical Statistics and the recipient of the 2016 Joseph F. Traub Prize for Achievement in Information-Based Complexity.\nHickernell speaks Cantonese and enjoys Chinese food. He is married with adult children. He enjoys discussing matters of substance. His most important identity is a disciple of Jesus."
   },
   {
-    "objectID": "classlib/classlib/quarto/pages/stats-qs.html",
-    "href": "classlib/classlib/quarto/pages/stats-qs.html",
-    "title": "Big Statistics Questions We Ask",
+    "objectID": "classlib/classlib/quarto/pages/policies.html",
+    "href": "classlib/classlib/quarto/pages/policies.html",
+    "title": "Policies",
     "section": "",
-    "text": "Filter by course\n\n  \n     MATH 476 Statistics\n     MATH 563 Mathematical Statistics\n     MATH 565 Monte Carlo Methods\n  \n  \n\n\n\nModeling\n\n  Course(s)\n  Big question\n\n\n\n  476, 563, 565\n  \n    What is the population?\n    All US adults? All future units from a production line? All students with bachelor's degree? All continuous functions on a given domain?\n  \n\n\n\n  476, 563, 565\n  \n    What features are we interested in?\n    Mean? Variance? Quantiles? Regression function? Entire distribution?\n  \n\n\n\n  476, 563\n  \n    What does the model fail to capture?\n    Explanatory variables? Interactions? Nonlinearities?\n  \n\n\n\n  476, 563\n  \n    Are the distributional assumptions correct?\n    Normality? Skewness? Heavy tails? Independence?\n  \n\n\n\nSampling\n\n  Course(s)\n  Big question\n\n\n\n  476, 563, 565\n  \n    How do we sample from the population?\n    Independent and identically distributed (IID)? Low discrepancy (LD)? Stratified sampling? Designed experiment?\n  \n\n\n\n  476, 563\n  \n    What can go wrong between intended and actual sampling?\n    Nonresponse and missingness? Measurement error? Coverage error?\n  \n\n\n\nPoint Estimation\n\n  Course(s)\n  Big question\n\n\n\n  476, 563\n  \n    What is the estimand?\n    \n      Parameter vs functional of a distribution\n      What does it mean in context?\n      What is random, what is fixed?\n    \n  \n\n\n\n  563\n  \n    What makes an estimator “optimal”?\n    \n      Loss functions and risk\n      Invariance/equivariance (as appropriate)\n      Benchmarks and lower bounds (when assumptions hold)"
+    "text": "Reasonable accommodations will be made for students with documented disabilities. In order to receive accommodations, students must obtain a letter of accommodation from the Center for Disability Resources and make an appointment to speak with me, Fred Hickernell, as soon as possible. The Center for Disability Resources (CDR) is located in 3424 S. State St., room 1C3-2 (on the first floor), telephone 312-567-5744 or disabilities@illinoistech.edu."
   },
   {
-    "objectID": "classlib/classlib/quarto/pages/interesting-articles-links.html",
-    "href": "classlib/classlib/quarto/pages/interesting-articles-links.html",
-    "title": "Interesting Articles & Links",
+    "objectID": "classlib/classlib/quarto/pages/policies.html#accommodations-for-disabilities",
+    "href": "classlib/classlib/quarto/pages/policies.html#accommodations-for-disabilities",
+    "title": "Policies",
     "section": "",
-    "text": "This page collects optional articles, essays, videos, and interactive resources that connect probability, statistics, and data science to real applications, historical context, or broader ideas.\n\nStatistical Inference and Data Science\n\nThe Lady Tasting Tea\n\nA famous experiment conducted by Ronald Fisher to test whether a woman could distinguish between tea poured before or after milk\nThis experiment is often cited as an example of a randomized controlled trial and the basis for Fisher’s exact test\n\nStatistical Modeling: The Two Cultures\n\nAn influential paper by Leo Breiman that discusses the differences between traditional statistical modeling and algorithmic modeling in data science\nBreiman argues that the algorithmic modeling culture, which focuses on predictive accuracy, is often more effective than the traditional statistical modeling culture, which focuses on inference and understanding\n\nAs Forecasts Go, You Can Bet on Monte Carlo\n\nAn article from the Wall Street Journal that discusses the use of Monte Carlo simulations in financial forecasting and risk management\nThe article highlights how Monte Carlo methods can help quantify uncertainty and improve decision-making in finance\n\n\n\n\nSoftware and Libraries\n\nqmcpy.org: A Python Library for Quasi-Monte Carlo Methods\n\nA Python library for quasi-Monte Carlo methods, which are used to improve the efficiency of numerical integration and simulation\n\nRankings of Computer Languages\n\nA ranking of programming languages based on their popularity and usage in the industry\nStatistical questions include: What are the errors in the percentages? What is the significance of a change in rank?"
+    "text": "Reasonable accommodations will be made for students with documented disabilities. In order to receive accommodations, students must obtain a letter of accommodation from the Center for Disability Resources and make an appointment to speak with me, Fred Hickernell, as soon as possible. The Center for Disability Resources (CDR) is located in 3424 S. State St., room 1C3-2 (on the first floor), telephone 312-567-5744 or disabilities@illinoistech.edu."
   },
   {
-    "objectID": "assignments/assignment_1.html",
-    "href": "assignments/assignment_1.html",
-    "title": "Assignment 1: WileyPLUS — Systems and Matrix Operations",
-    "section": "",
-    "text": "Due: Friday, September 4, 2026, at 11:59 PM Chicago Time"
+    "objectID": "classlib/classlib/quarto/pages/policies.html#sexual-harassment-and-discrimination-information",
+    "href": "classlib/classlib/quarto/pages/policies.html#sexual-harassment-and-discrimination-information",
+    "title": "Policies",
+    "section": "Sexual Harassment and Discrimination Information",
+    "text": "Sexual Harassment and Discrimination Information\nIllinois Tech prohibits all sexual harassment, sexual misconduct, and gender discrimination by any member of our community. This includes harassment among students, staff, or faculty. Sexual harassment of a student by a faculty member or sexual harassment of an employee by a supervisor is particularly serious. Such conduct may easily create an intimidating, hostile, or offensive environment.\nIllinois Tech encourages anyone experiencing sexual harassment or sexual misconduct to speak with the Office of Title IX Compliance for information on support options and the resolution process.\nYou can report sexual harassment electronically at iit.edu/incidentreport, which may be completed anonymously. You may additionally report by contacting the Title IX Coordinator, Virginia Foster at foster@illinoistech.edu. For confidential support, you may reach Illinois Tech’s Confidential Advisor at (773) 907-1062. You can also contact a licensed practitioner in Illinois Tech’s Student Health and Wellness Center at student.health@illinoistech.edu or (312)567-7550."
   },
   {
-    "objectID": "assignments/assignment_1.html#due-date",
-    "href": "assignments/assignment_1.html#due-date",
-    "title": "Assignment 1: WileyPLUS — Systems and Matrix Operations",
-    "section": "",
-    "text": "Due: Friday, September 4, 2026, at 11:59 PM Chicago Time"
-  },
-  {
-    "objectID": "assignments/assignment_1.html#assignment",
-    "href": "assignments/assignment_1.html#assignment",
-    "title": "Assignment 1: WileyPLUS — Systems and Matrix Operations",
-    "section": "Assignment",
-    "text": "Assignment\nComplete the following four questions in WileyPLUS. Each question is worth 5 points.\n\nChapter 1, Section 1.3, Question 09a\nChapter 1, Section 1.3, Question 16\nChapter 1, Section 1.3, Question 02b\nChapter 1, Section 1.2, Question 05\n\nThe questions cover Gaussian elimination, matrix dimensions, matrix multiplication by columns, and a matrix-product equation. WileyPLUS randomizes values separately for each student while keeping a student’s values fixed across attempts."
-  },
-  {
-    "objectID": "assignments/assignment_1.html#submission",
-    "href": "assignments/assignment_1.html#submission",
-    "title": "Assignment 1: WileyPLUS — Systems and Matrix Operations",
-    "section": "Submission",
-    "text": "Submission\nLaunch Assignment 1 in Canvas and complete it individually in WileyPLUS. The assignment is automatically graded. You have three attempts per question with no score reduction, and WileyPLUS keeps your best score. Your work is automatically submitted to the Canvas gradebook on the due date."
+    "objectID": "classlib/classlib/quarto/pages/policies.html#academic-integrity-technology-and-ai-usage",
+    "href": "classlib/classlib/quarto/pages/policies.html#academic-integrity-technology-and-ai-usage",
+    "title": "Policies",
+    "section": "Academic Integrity, Technology, and AI Usage",
+    "text": "Academic Integrity, Technology, and AI Usage\nYou are encouraged to use technology, including AI tools like ChatGPT, to explore ideas and complete assignments or projects, as long as you understand the work and can explain it yourself. On tests and the final exam, no technology or AI will be allowed unless I say otherwise. Always use these tools to support your learning, not to replace it, and give credit if they meaningfully contribute to your work.\nStudents are expected to uphold the highest standards of honesty in their academic work, in accordance with Illinois Tech’s Code of Academic Honesty.\n\nPermitted Use\n\nAssignments & Projects: You are encouraged to use technology and AI tools to assist in problem-solving, exploring concepts, and checking work.\nYou must critically evaluate AI-generated content for accuracy, completeness, and clarity.\nYou are responsible for understanding and being able to explain any work produced with technological assistance.\n\n\n\nProhibited Use\n\nTests & Final Exam: No technology, AI tools, or external resources may be used unless explicitly allowed by the instructor.\nSubmitting AI-generated or technological outputs without personal understanding is prohibited and will be treated as a violation.\n\n\n\nCitations & Transparency\nIf you use AI tools, software, or other external resources in a way that significantly shapes your work, you must acknowledge it (e.g., “Approach suggested by ChatGPT”).\n\n\nConsequences\nViolations will be handled according to Illinois Tech’s Code of Academic Honesty."
   },
   {
     "objectID": "classlib/classlib/quarto/pages/git-clone-update-with-submodules.html",
@@ -266,122 +182,185 @@
     "text": "Common issues and fixes\n\n“fatal: not a git repository”\nYou’re not inside the course repository folder. Change into it:\ncd MATHXXXSpring20YY\n\n\n“Permission denied (publickey)” (SSH)\nYou’re using an SSH URL but your SSH key isn’t set up for GitHub. Use the HTTPS URL instead, or configure SSH.\n\n\nSubmodule errors after pulling\nRe-run the submodule update:\ngit submodule update --init --recursive\n\n\nYou accidentally cloned without submodules\nFrom inside the course repository:\ngit submodule update --init --recursive\n\n\nAvoid updating submodules beyond what the instructor pinned\nStudents should not run git submodule update --remote unless explicitly instructed."
   },
   {
-    "objectID": "classlib/classlib/quarto/pages/policies.html",
-    "href": "classlib/classlib/quarto/pages/policies.html",
-    "title": "Policies",
+    "objectID": "assignments/assignment_1.html",
+    "href": "assignments/assignment_1.html",
+    "title": "Assignment 1: WileyPLUS — Systems and Matrix Operations",
     "section": "",
-    "text": "Reasonable accommodations will be made for students with documented disabilities. In order to receive accommodations, students must obtain a letter of accommodation from the Center for Disability Resources and make an appointment to speak with me, Fred Hickernell, as soon as possible. The Center for Disability Resources (CDR) is located in 3424 S. State St., room 1C3-2 (on the first floor), telephone 312-567-5744 or disabilities@illinoistech.edu."
+    "text": "Due: Friday, September 4, 2026, at 11:59 PM Chicago Time"
   },
   {
-    "objectID": "classlib/classlib/quarto/pages/policies.html#accommodations-for-disabilities",
-    "href": "classlib/classlib/quarto/pages/policies.html#accommodations-for-disabilities",
-    "title": "Policies",
+    "objectID": "assignments/assignment_1.html#due-date",
+    "href": "assignments/assignment_1.html#due-date",
+    "title": "Assignment 1: WileyPLUS — Systems and Matrix Operations",
     "section": "",
-    "text": "Reasonable accommodations will be made for students with documented disabilities. In order to receive accommodations, students must obtain a letter of accommodation from the Center for Disability Resources and make an appointment to speak with me, Fred Hickernell, as soon as possible. The Center for Disability Resources (CDR) is located in 3424 S. State St., room 1C3-2 (on the first floor), telephone 312-567-5744 or disabilities@illinoistech.edu."
+    "text": "Due: Friday, September 4, 2026, at 11:59 PM Chicago Time"
   },
   {
-    "objectID": "classlib/classlib/quarto/pages/policies.html#sexual-harassment-and-discrimination-information",
-    "href": "classlib/classlib/quarto/pages/policies.html#sexual-harassment-and-discrimination-information",
-    "title": "Policies",
-    "section": "Sexual Harassment and Discrimination Information",
-    "text": "Sexual Harassment and Discrimination Information\nIllinois Tech prohibits all sexual harassment, sexual misconduct, and gender discrimination by any member of our community. This includes harassment among students, staff, or faculty. Sexual harassment of a student by a faculty member or sexual harassment of an employee by a supervisor is particularly serious. Such conduct may easily create an intimidating, hostile, or offensive environment.\nIllinois Tech encourages anyone experiencing sexual harassment or sexual misconduct to speak with the Office of Title IX Compliance for information on support options and the resolution process.\nYou can report sexual harassment electronically at iit.edu/incidentreport, which may be completed anonymously. You may additionally report by contacting the Title IX Coordinator, Virginia Foster at foster@illinoistech.edu. For confidential support, you may reach Illinois Tech’s Confidential Advisor at (773) 907-1062. You can also contact a licensed practitioner in Illinois Tech’s Student Health and Wellness Center at student.health@illinoistech.edu or (312)567-7550."
+    "objectID": "assignments/assignment_1.html#assignment",
+    "href": "assignments/assignment_1.html#assignment",
+    "title": "Assignment 1: WileyPLUS — Systems and Matrix Operations",
+    "section": "Assignment",
+    "text": "Assignment\nComplete the following four questions in WileyPLUS. Each question is worth 5 points.\n\nChapter 1, Section 1.3, Question 09a\nChapter 1, Section 1.3, Question 16\nChapter 1, Section 1.3, Question 02b\nChapter 1, Section 1.2, Question 05\n\nThe questions cover Gaussian elimination, matrix dimensions, matrix multiplication by columns, and a matrix-product equation. WileyPLUS randomizes values separately for each student while keeping a student’s values fixed across attempts."
   },
   {
-    "objectID": "classlib/classlib/quarto/pages/policies.html#academic-integrity-technology-and-ai-usage",
-    "href": "classlib/classlib/quarto/pages/policies.html#academic-integrity-technology-and-ai-usage",
-    "title": "Policies",
-    "section": "Academic Integrity, Technology, and AI Usage",
-    "text": "Academic Integrity, Technology, and AI Usage\nYou are encouraged to use technology, including AI tools like ChatGPT, to explore ideas and complete assignments or projects, as long as you understand the work and can explain it yourself. On tests and the final exam, no technology or AI will be allowed unless I say otherwise. Always use these tools to support your learning, not to replace it, and give credit if they meaningfully contribute to your work.\nStudents are expected to uphold the highest standards of honesty in their academic work, in accordance with Illinois Tech’s Code of Academic Honesty.\n\nPermitted Use\n\nAssignments & Projects: You are encouraged to use technology and AI tools to assist in problem-solving, exploring concepts, and checking work.\nYou must critically evaluate AI-generated content for accuracy, completeness, and clarity.\nYou are responsible for understanding and being able to explain any work produced with technological assistance.\n\n\n\nProhibited Use\n\nTests & Final Exam: No technology, AI tools, or external resources may be used unless explicitly allowed by the instructor.\nSubmitting AI-generated or technological outputs without personal understanding is prohibited and will be treated as a violation.\n\n\n\nCitations & Transparency\nIf you use AI tools, software, or other external resources in a way that significantly shapes your work, you must acknowledge it (e.g., “Approach suggested by ChatGPT”).\n\n\nConsequences\nViolations will be handled according to Illinois Tech’s Code of Academic Honesty."
+    "objectID": "assignments/assignment_1.html#submission",
+    "href": "assignments/assignment_1.html#submission",
+    "title": "Assignment 1: WileyPLUS — Systems and Matrix Operations",
+    "section": "Submission",
+    "text": "Submission\nLaunch Assignment 1 in Canvas and complete it individually in WileyPLUS. The assignment is automatically graded. You have three attempts per question with no score reduction, and WileyPLUS keeps your best score. Your work is automatically submitted to the Canvas gradebook on the due date."
   },
   {
-    "objectID": "classlib/classlib/quarto/snippets/fred-hickernell-bio.html",
-    "href": "classlib/classlib/quarto/snippets/fred-hickernell-bio.html",
+    "objectID": "classlib/classlib/quarto/pages/interesting-articles-links.html",
+    "href": "classlib/classlib/quarto/pages/interesting-articles-links.html",
+    "title": "Interesting Articles & Links",
+    "section": "",
+    "text": "This page collects optional articles, essays, videos, and interactive resources that connect probability, statistics, and data science to real applications, historical context, or broader ideas.\n\nStatistical Inference and Data Science\n\nThe Lady Tasting Tea\n\nA famous experiment conducted by Ronald Fisher to test whether a woman could distinguish between tea poured before or after milk\nThis experiment is often cited as an example of a randomized controlled trial and the basis for Fisher’s exact test\n\nStatistical Modeling: The Two Cultures\n\nAn influential paper by Leo Breiman that discusses the differences between traditional statistical modeling and algorithmic modeling in data science\nBreiman argues that the algorithmic modeling culture, which focuses on predictive accuracy, is often more effective than the traditional statistical modeling culture, which focuses on inference and understanding\n\nAs Forecasts Go, You Can Bet on Monte Carlo\n\nAn article from the Wall Street Journal that discusses the use of Monte Carlo simulations in financial forecasting and risk management\nThe article highlights how Monte Carlo methods can help quantify uncertainty and improve decision-making in finance\n\n\n\n\nSoftware and Libraries\n\nqmcpy.org: A Python Library for Quasi-Monte Carlo Methods\n\nA Python library for quasi-Monte Carlo methods, which are used to improve the efficiency of numerical integration and simulation\n\nRankings of Computer Languages\n\nA ranking of programming languages based on their popularity and usage in the industry\nStatistical questions include: What are the errors in the percentages? What is the significance of a change in rank?"
+  },
+  {
+    "objectID": "classlib/classlib/quarto/pages/stats-qs.html",
+    "href": "classlib/classlib/quarto/pages/stats-qs.html",
+    "title": "Big Statistics Questions We Ask",
+    "section": "",
+    "text": "Filter by course\n\n  \n     MATH 476 Statistics\n     MATH 563 Mathematical Statistics\n     MATH 565 Monte Carlo Methods\n  \n  \n\n\n\nModeling\n\n  Course(s)\n  Big question\n\n\n\n  476, 563, 565\n  \n    What is the population?\n    All US adults? All future units from a production line? All students with bachelor's degree? All continuous functions on a given domain?\n  \n\n\n\n  476, 563, 565\n  \n    What features are we interested in?\n    Mean? Variance? Quantiles? Regression function? Entire distribution?\n  \n\n\n\n  476, 563\n  \n    What does the model fail to capture?\n    Explanatory variables? Interactions? Nonlinearities?\n  \n\n\n\n  476, 563\n  \n    Are the distributional assumptions correct?\n    Normality? Skewness? Heavy tails? Independence?\n  \n\n\n\nSampling\n\n  Course(s)\n  Big question\n\n\n\n  476, 563, 565\n  \n    How do we sample from the population?\n    Independent and identically distributed (IID)? Low discrepancy (LD)? Stratified sampling? Designed experiment?\n  \n\n\n\n  476, 563\n  \n    What can go wrong between intended and actual sampling?\n    Nonresponse and missingness? Measurement error? Coverage error?\n  \n\n\n\nPoint Estimation\n\n  Course(s)\n  Big question\n\n\n\n  476, 563\n  \n    What is the estimand?\n    \n      Parameter vs functional of a distribution\n      What does it mean in context?\n      What is random, what is fixed?\n    \n  \n\n\n\n  563\n  \n    What makes an estimator “optimal”?\n    \n      Loss functions and risk\n      Invariance/equivariance (as appropriate)\n      Benchmarks and lower bounds (when assumptions hold)"
+  },
+  {
+    "objectID": "classlib/classlib/quarto/snippets/search-test-archives.html",
+    "href": "classlib/classlib/quarto/snippets/search-test-archives.html",
     "title": "MATH 332 — Fall 2026",
     "section": "",
-    "text": "Instructor: Fred J. Hickernell\n\n\n\nOffice: Galvin Tower 18C3-1\nOffice hours: By appointment (book here)\nPhone: 312-567-8983\nEmail: hickernell@illinoistech.edu\nWebsite     LinkedIn     Google Scholar     Mathematics Genealogy Profile\n\nBrief bio: Fred J. Hickernell is professor of applied mathematics. His research focuses on improving the efficiency of computer simulations and developing justifiable stopping criteria. He has spent most of his career at Hong Kong Baptist University and Illinois Institute of Technology, often in academic administrative roles. He has served on the editorial boards of the Journal of Complexity, Mathematics of Computation, and the SIAM Journal on Numerical Analysis. He is a Fellow of the Institute of Mathematical Statistics and the recipient of the 2016 Joseph F. Traub Prize for Achievement in Information-Based Complexity.\nHickernell speaks Cantonese and enjoys Chinese food. He is married with adult children. He enjoys discussing matters of substance. His most important identity is a disciple of Jesus."
+    "text": "Tip🔎 How to search the archives (PDFs) for keywords\n\n\n\n\n\nGoal: find which past exams mention a term (e.g., Brownian, Sobol, CLT) inside PDF test and exam files.\nThe folder assets/tests/archive in the course repository contains subfolders for archived tests from past semesters for MATH 476, MATH 563, and MATH 565. The subfolders are the course numbers, e.g., archive/563 for MATH 563 tests.\n\nMac (Homebrew) / Linux\nOne-time setup (install pdfgrep):\nbrew install pdfgrep\nEach time you want to search the archive:\n\nNavigate to the root of your local course repository root, then run:\n\ncd assets/tests\n\nUse one of the following commands to search the archives:\n\nSearch all archives in this repo:\npdfgrep -rniH -C2 'your term here' archive\nSearch one specific archive folder:\npdfgrep -rniH -C2 'your term here' archive/563\nSearch multiple archives at once:\npdfgrep -rniH -C2 'your term here' archive/476 archive/563\nExamples:\npdfgrep -rniH -C2 'brownian' archive\npdfgrep -rniH -C2 'sobol' archive\npdfgrep -rniH -C2 'central limit|CLT' archive\n\n\nWindows (recommended: WSL)\nOn Windows, the recommended approach is to use Windows Subsystem for Linux (WSL), which lets you run the same commands as Mac/Linux users.\nAfter installing WSL (e.g., Ubuntu):\ncd /mnt/c/Users/YourName/path/to/course-repo/assets/tests\nsudo apt update\nsudo apt install pdfgrep\npdfgrep -rniH -C2 'your term here' archive\nIf you prefer not to use WSL, note that Windows does not include a native equivalent of pdfgrep; setup and commands vary by third-party tools."
   },
   {
-    "objectID": "classlib/website/courses.html",
-    "href": "classlib/website/courses.html",
-    "title": "Courses",
+    "objectID": "classlib/website/index.html",
+    "href": "classlib/website/index.html",
+    "title": "Personal Academic Library",
     "section": "",
-    "text": "Course\nWebsite\n\n\n\n\nMATH 476\nSpring 2026\n\n\nMATH 563\nSpring 2026\n\n\nMATH 565\nFall 2025"
+    "text": "Professor of Applied Mathematics\nIllinois Institute of Technology\nThis site collects my talks, publications, course materials, software projects, and other academic resources."
   },
   {
-    "objectID": "classlib/website/courses.html#current-and-recent-courses",
-    "href": "classlib/website/courses.html#current-and-recent-courses",
-    "title": "Courses",
+    "objectID": "classlib/website/index.html#featured-resources",
+    "href": "classlib/website/index.html#featured-resources",
+    "title": "Personal Academic Library",
+    "section": "Featured Resources",
+    "text": "Featured Resources\n\nMCQMC 2026 Plenary Slides\nQMCPy and QMCSoftware"
+  },
+  {
+    "objectID": "classlib/website/index.html#research-interests",
+    "href": "classlib/website/index.html#research-interests",
+    "title": "Personal Academic Library",
+    "section": "Research Interests",
+    "text": "Research Interests\n(Quasi-)Monte Carlo Methods, Information-Based Complexity, High-Dimensional Integraton and Approximation, Uncertainty Quantification, Scientific Software"
+  },
+  {
+    "objectID": "classlib/website/software.html",
+    "href": "classlib/website/software.html",
+    "title": "Software",
     "section": "",
-    "text": "Course\nWebsite\n\n\n\n\nMATH 476\nSpring 2026\n\n\nMATH 563\nSpring 2026\n\n\nMATH 565\nFall 2025"
+    "text": "QMCPy\nQMCSoftware GitHub Organization\nHickernellAcademicLib"
   },
   {
-    "objectID": "classlib/website/papers.html",
-    "href": "classlib/website/papers.html",
-    "title": "Publications",
+    "objectID": "classlib/website/software.html#software",
+    "href": "classlib/website/software.html#software",
+    "title": "Software",
     "section": "",
-    "text": "Coming soon.\n\n\n\nGoogle Scholar\nORCID"
+    "text": "QMCPy\nQMCSoftware GitHub Organization\nHickernellAcademicLib"
   },
   {
-    "objectID": "classlib/website/papers.html#publications",
-    "href": "classlib/website/papers.html#publications",
-    "title": "Publications",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to MATH 332",
     "section": "",
-    "text": "Coming soon.\n\n\n\nGoogle Scholar\nORCID"
+    "text": "This is the course website for MATH 332 — Fall 2026 Section 002 at Illinois Institute of Technology."
   },
   {
-    "objectID": "classlib/website/talks.html",
-    "href": "classlib/website/talks.html",
-    "title": "Talks",
+    "objectID": "index.html#linear-algebra-theory-and-applications",
+    "href": "index.html#linear-algebra-theory-and-applications",
+    "title": "Welcome to MATH 332",
     "section": "",
-    "text": "Recent\n\n\n\n\nMCQMC 2026 Plenary and Special Session Talks\n\n\nSIAM UQ 2026\n\n\n\nSome earliier talks are Speaker Deck"
+    "text": "This is the course website for MATH 332 — Fall 2026 Section 002 at Illinois Institute of Technology."
   },
   {
-    "objectID": "pages/assignments.html",
-    "href": "pages/assignments.html",
-    "title": "Assignments",
+    "objectID": "index.html#course-description",
+    "href": "index.html#course-description",
+    "title": "Welcome to MATH 332",
+    "section": "Course Description",
+    "text": "Course Description\nThis course develops the theory and applications of linear algebra through systems of equations, matrices, determinants, vector spaces, eigenvalues and eigenvectors, and inner product spaces. Python will support visualization, numerical computation, symbolic computation, and experimentation.\n\n\nInstructor: Fred J. Hickernell\n\n\n\nOffice: Galvin Tower 18C3-1\nOffice hours: By appointment (book here)\nPhone: 312-567-8983\nEmail: hickernell@illinoistech.edu\nWebsite     LinkedIn     Google Scholar     Mathematics Genealogy Profile\n\nBrief bio: Fred J. Hickernell is professor of applied mathematics. His research focuses on improving the efficiency of computer simulations and developing justifiable stopping criteria. He has spent most of his career at Hong Kong Baptist University and Illinois Institute of Technology, often in academic administrative roles. He has served on the editorial boards of the Journal of Complexity, Mathematics of Computation, and the SIAM Journal on Numerical Analysis. He is a Fellow of the Institute of Mathematical Statistics and the recipient of the 2016 Joseph F. Traub Prize for Achievement in Information-Based Complexity.\nHickernell speaks Cantonese and enjoys Chinese food. He is married with adult children. He enjoys discussing matters of substance. His most important identity is a disciple of Jesus."
+  },
+  {
+    "objectID": "index.html#required-course-materials",
+    "href": "index.html#required-course-materials",
+    "title": "Welcome to MATH 332",
+    "section": "Required course materials",
+    "text": "Required course materials\n\nWileyPLUS access: WileyPLUS is required for this course. All homework will be assigned, completed individually, and automatically graded through WileyPLUS. Launch each homework assignment from Canvas.\nTextbook: Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition. Single-term WileyPLUS access includes the online textbook for the duration of the course, so a separate printed copy is optional. See Resources for details.\n\n\n\nRecommended resources\n\n\nPython\nJupyter\nNumPy\nSciPy\nMatplotlib\nSymPy\nCourse repository\n\n\n\n\nPrerequisites\n\nThe prerequisite is MATH 251. It will help to be familiar with:\n\nA bit of vectors and matrices (but not required)\nJupyter notebooks\n\n\n\n\nWhere to find it\n\nClass meetings combine whiteboard explanation with linked lecture slides, live polls, and computational activities. Use the course website as the starting point for each meeting, and come prepared to open the slides, Canvas, and Jupyter notebooks during class.\nThe course website is the authoritative source for course information, schedules, lecture notes, and assignment details. Use Canvas for announcements, launching WileyPLUS homework, completing the diagnostic survey, and checking grades.\n\n\n\nThis course website\nCanvas\n\n\n\n\nCourse information\nGrades\n\n\nSchedule and lecture slides\nAnnouncements\n\n\nJupyter notebooks\nWileyPLUS homework launches\n\n\nAssignment rules, details, and due dates\nDiagnostic survey\n\n\nQuizzes and tests\n\n\n\nRequired resources\n\n\n\nCourse policies\n\n\n\nRepository access instructions\n\n\n\nCourse repository"
+  },
+  {
+    "objectID": "index.html#course-outline",
+    "href": "index.html#course-outline",
+    "title": "Welcome to MATH 332",
+    "section": "Course Outline",
+    "text": "Course Outline\n\n\nWhy Linear Algebra?\n\nCourse motivation and roadmap.\n\n\n\nSystems of Linear Equations and Matrices\n\nAnton, Chapter 1. Detailed pacing is TBD.\n\n\n\nDeterminants\n\nAnton, Chapter 2. Detailed pacing is TBD.\n\n\n\nEuclidean Vector Spaces\n\nAnton, Chapter 3. Detailed pacing is TBD.\n\n\n\nGeneral Vector Spaces\n\nAnton, Chapter 4. Detailed pacing is TBD.\n\n\n\nEigenvalues and Eigenvectors\n\nAnton, Chapter 5. Detailed pacing is TBD.\n\n\n\nInner Product Spaces\n\nAnton, Chapter 6. Detailed pacing is TBD."
+  },
+  {
+    "objectID": "index.html#assessment",
+    "href": "index.html#assessment",
+    "title": "Welcome to MATH 332",
+    "section": "Assessment",
+    "text": "Assessment\n\nHomework assignments: 20%; all homework assignments are completed individually through WileyPLUS\nQuizzes: 15%; Quiz 1 is September 10; later dates TBD\nTests: 25%; Test 1 is not yet scheduled\nFinal Exam: 40%; on the date assigned by the registrar\nExtra Credit: From August 24 through December 6, you may earn extra credit by being the first student to report a previously unreported error in\n\nmy lecture slides, Jupyter notebooks, or assignments at least 24 hours after the material was presented or posted; or\nthe textbook.\n\nReport each error by creating an issue in the course repository. Each confirmed error earns 0.5 or 1 percentage point, depending on the severity of the error, up to 10 percentage points total.\nExtra credit is added to your final weighted course total. Canvas may not display the weighted total correctly until grades have been recorded in every assessment category."
+  },
+  {
+    "objectID": "pages/notebooks.html",
+    "href": "pages/notebooks.html",
+    "title": "Jupyter Notebooks",
     "section": "",
-    "text": "Every assignment in this course must be completed and submitted individually. All homework will be assigned and automatically graded through WileyPLUS. WileyPLUS access is therefore a required course resource.\n\nLaunch every WileyPLUS homework assignment from Canvas. Do not search for or join the course separately on the WileyPLUS website.\nHomework scores are passed automatically from WileyPLUS to the Canvas gradebook.\nUnless a homework assignment states otherwise, it is due by 11:59 PM Chicago Time on the due date. Canvas displays due dates in your time zone."
+    "text": "Course notebooks provide executable demonstrations and exercises for numerical matrix computation, exact symbolic computation, visualization, and experimentation."
   },
   {
-    "objectID": "pages/assignments.html#individual-assignments",
-    "href": "pages/assignments.html#individual-assignments",
-    "title": "Assignments",
+    "objectID": "pages/notebooks.html#demonstrations",
+    "href": "pages/notebooks.html#demonstrations",
+    "title": "Jupyter Notebooks",
+    "section": "Demonstrations",
+    "text": "Demonstrations\nInstructor demonstrations illustrate linear algebra concepts and connect algebraic calculations with geometric interpretation.\n\nMatrix Computation: NumPy and SymPy — a companion to Lecture 00 introducing numerical and exact matrix calculations, linear systems, least squares, and responsible computation\nSystems and Matrices — the reviewed companion to Lecture 01, combining exact SymPy elimination, back substitution, and classification with NumPy solves, residual checks, and the resistance-network exercise\nInverses and Invertibility — a draft companion to Lecture 02 combining pivot tests, exact inverses, singular systems, direct solves, and the Leontief and precision applications\nMatrix Structure and Transformations — a draft companion to Lecture 03 exploring matrix patterns, SciPy PLU factorization, basis images, geometric transformations, and composition"
+  },
+  {
+    "objectID": "pages/notebooks.html#exercises",
+    "href": "pages/notebooks.html#exercises",
+    "title": "Jupyter Notebooks",
+    "section": "Exercises",
+    "text": "Exercises\nStudent exercises will provide opportunities to explore matrices, vector spaces, transformations, eigenvalues, and inner products computationally. Exercise notebooks will be linked here after they have been developed and validated."
+  },
+  {
+    "objectID": "pages/resources.html",
+    "href": "pages/resources.html",
+    "title": "Resources",
     "section": "",
-    "text": "Every assignment in this course must be completed and submitted individually. All homework will be assigned and automatically graded through WileyPLUS. WileyPLUS access is therefore a required course resource.\n\nLaunch every WileyPLUS homework assignment from Canvas. Do not search for or join the course separately on the WileyPLUS website.\nHomework scores are passed automatically from WileyPLUS to the Canvas gradebook.\nUnless a homework assignment states otherwise, it is due by 11:59 PM Chicago Time on the due date. Canvas displays due dates in your time zone."
+    "text": "WileyPLUS access for Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition, is required. All homework will be assigned, completed individually, and automatically graded through WileyPLUS. Launch each homework assignment from Canvas; do not search for or join the course separately on the WileyPLUS website.\nPurchase single-term access when prompted after launching a WileyPLUS assignment in Canvas. WileyPLUS includes the online textbook for the duration of the course.\n\n\n\nHoward Anton, Elementary Linear Algebra: Applications Version, 12th edition. The online textbook is included with required WileyPLUS access, so a separate printed copy is optional."
   },
   {
-    "objectID": "pages/assignments.html#list-of-assignments",
-    "href": "pages/assignments.html#list-of-assignments",
-    "title": "Assignments",
-    "section": "List of assignments",
-    "text": "List of assignments\nThe diagnostic survey and WileyPLUS homework assignments are listed below.\n\n\n\nAssignment\nCoverage\nDue Date\n\n\n\n\nAssignment 0 — Diagnostic Survey\nMATH 332 profile survey\nAugust 21, 2026\n\n\nAssignment 1 — WileyPLUS: Systems and Matrix Operations\nAnton §§1.2–1.3\nSeptember 4, 2026"
-  },
-  {
-    "objectID": "pages/quizzes.html",
-    "href": "pages/quizzes.html",
-    "title": "Quizzes",
+    "objectID": "pages/resources.html#required-course-materials",
+    "href": "pages/resources.html#required-course-materials",
+    "title": "Resources",
     "section": "",
-    "text": "NoteProvisional plan\n\n\n\nQuizzes will probably be administered through Canvas. The quiz format, attempt policy, and grading policy are TBD."
+    "text": "WileyPLUS access for Howard Anton, Elementary Linear Algebra: Applications Version, 12th edition, is required. All homework will be assigned, completed individually, and automatically graded through WileyPLUS. Launch each homework assignment from Canvas; do not search for or join the course separately on the WileyPLUS website.\nPurchase single-term access when prompted after launching a WileyPLUS assignment in Canvas. WileyPLUS includes the online textbook for the duration of the course.\n\n\n\nHoward Anton, Elementary Linear Algebra: Applications Version, 12th edition. The online textbook is included with required WileyPLUS access, so a separate printed copy is optional."
   },
   {
-    "objectID": "pages/quizzes.html#quiz-administration",
-    "href": "pages/quizzes.html#quiz-administration",
-    "title": "Quizzes",
-    "section": "",
-    "text": "NoteProvisional plan\n\n\n\nQuizzes will probably be administered through Canvas. The quiz format, attempt policy, and grading policy are TBD."
+    "objectID": "pages/resources.html#computing-resources",
+    "href": "pages/resources.html#computing-resources",
+    "title": "Resources",
+    "section": "Computing resources",
+    "text": "Computing resources\nThe course will use Python for numerical and symbolic matrix computation, visualization, and experimentation. Use the repository-access instructions for initial setup and the Notebooks page for validated demonstrations.\n\n\nInitial Python environment\n\n\nNumPy for array and numerical matrix computation\nSciPy for scientific computing\nMatplotlib for visualization\nSymPy for exact symbolic computation\nJupyterLab for demonstrations and exercises"
   },
   {
-    "objectID": "pages/quizzes.html#quiz-schedule",
-    "href": "pages/quizzes.html#quiz-schedule",
-    "title": "Quizzes",
-    "section": "Quiz schedule",
-    "text": "Quiz schedule\nQuiz coverage and dates will be added after they are finalized.\n\n\n\nQuiz\nCoverage\nDate\n\n\n\n\nQuiz 1 — TBD\nTBD\nTBD"
+    "objectID": "pages/resources.html#course-systems",
+    "href": "pages/resources.html#course-systems",
+    "title": "Resources",
+    "section": "Course systems",
+    "text": "Course systems\n\n\n\nResource\nLocation\n\n\n\n\nCanvas\nMATH 332 course\n\n\nWileyPLUS\nLaunch homework assignments through Canvas\n\n\nCourse repository\nMATH332Fall2026 on GitHub\n\n\nRepository setup\nAccessing the Course Repository\n\n\nNotebooks\nDemonstrations and exercises\n\n\nPython demonstrations\nValidated demonstrations\n\n\nPython exercises\nLinks will be added after validation"
   },
   {
-    "objectID": "pages/schedule.html",
-    "href": "pages/schedule.html",
-    "title": "Schedule",
-    "section": "",
-    "text": "Classes normally meet Tuesdays and Thursdays at 11:25 AM in PH 109.\nThis schedule is provisional and will be updated as topics, assignments, quizzes, holidays, and examination details are finalized.\n\nAugust\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\n1\nTue Aug 18\nWhy linear algebra? and course introductionSystems of Equations\nWhy Linear Algebra?Systems and Matrices\n\n\n\nThu Aug 20\nInverses and invertibility\nInverses\n\n\n2\nTue Aug 25\n\n\n\n\n\nThu Aug 27\n\n\n\n\n\n\n\nSeptember\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\n3\nTue Sep 1\n\n\n\n\n\nThu Sep 3\n\n\n\n\n\nFri Sep 4\nAssignment 1 due\nWileyPLUS: Systems and Matrix Operations\n\n\n4\nTue Sep 8\n\n\n\n\n\nThu Sep 10\n\n\n\n\n5\nTue Sep 15\n\n\n\n\n\nThu Sep 17\n\n\n\n\n6\nTue Sep 22\n\n\n\n\n\nThu Sep 24\n\n\n\n\n7\nTue Sep 29\n\n\n\n\n\n\n\nOctober\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\n7\nThu Oct 1\n\n\n\n\n8\nTue Oct 6\n\n\n\n\n\nThu Oct 8\n\n\n\n\n9\nTue Oct 13\nNo Class — Fall Break\n\n\n\n\nThu Oct 15\n\n\n\n\n10\nTue Oct 20\n\n\n\n\n\nThu Oct 22\n\n\n\n\n11\nTue Oct 27\n\n\n\n\n\nThu Oct 29\n\n\n\n\n\n\n\nNovember\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\n12\nTue Nov 3\n\n\n\n\n\nThu Nov 5\n\n\n\n\n13\nTue Nov 10\n\n\n\n\n\nThu Nov 12\n\n\n\n\n14\nTue Nov 17\n\n\n\n\n\nThu Nov 19\n\n\n\n\n15\nTue Nov 24\n\n\n\n\n\nThu Nov 26\nNo Class — Thanksgiving holiday\n\n\n\n\n\n\nDecember\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\n16\nTue Dec 1\n\n\n\n\n\nThu Dec 3\n\n\n\n\n\nThe official last day of classes is Saturday, December 5. Because the course meets on Tuesdays and Thursdays, Thursday, December 3 is the final regular class meeting.\n\n\nFinal examinations\nFinal examinations occur during the following week.\n\n\n\nWeek\nDate\nTopic\nSlides / Materials\n\n\n\n\n17\nTBA\nFinal Exam — time and location TBA"
+    "objectID": "pages/resources.html#professional-community",
+    "href": "pages/resources.html#professional-community",
+    "title": "Resources",
+    "section": "Professional community",
+    "text": "Professional community\nStudents interested in applied mathematics can explore SIAM student membership."
   }
 ]
