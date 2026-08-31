@@ -18,6 +18,12 @@ algebraic calculations with geometric interpretation.
   — the reviewed companion to Lecture 01, combining exact SymPy
   elimination, back substitution, and classification with NumPy solves,
   residual checks, and the resistance-network exercise
+- [Inverses and Invertibility](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/02-inverses-and-invertibility.ipynb)
+  — a draft companion to Lecture 02 combining pivot tests, exact inverses,
+  singular systems, direct solves, and the Leontief and precision applications
+- [Matrix Structure and Transformations](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/03-matrix-structure-and-transformations.ipynb)
+  — a draft companion to Lecture 03 exploring matrix patterns, SciPy PLU
+  factorization, basis images, geometric transformations, and composition
 
 ## Exercises
 

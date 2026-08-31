@@ -2,9 +2,10 @@
 
 ## Current task
 
-Validate both published companion notebooks end to end in clean Google Colab
-runtimes without downgrading QMCPy. The shared-library repair is published and
-this course already pins it. Resume the Deck 03 instructor review afterward.
+Validate all four published companion notebooks end to end in clean Google
+Colab runtimes without downgrading QMCPy. The shared-library repair is
+published and this course already pins it. Resume the Deck 03 instructor
+review afterward.
 
 ## Current state
 
@@ -14,12 +15,20 @@ this course already pins it. Resume the Deck 03 instructor review afterward.
   available lazily. The current `classlib` pin advances to commit `526eecf`,
   which retains that repair and the authoritative shared style guides, adds
   the shared heading-hierarchy convention, and supplies the `\mLambda` slide
-  macro. Both MATH 332 companion
-  notebooks now clone this course in Colab, initialize its recorded `classlib`
-  commit through a public HTTPS URL, install that exact checkout, and leave the
-  working directory unchanged. Both execute cleanly with the local `qmcpy`
-  kernel, and the root site, all nine decks, and the assembled site render
-  cleanly. Clean live-Colab validation remains pending.
+  macro. All four MATH 332 companion notebooks clone this course in Colab,
+  initialize its recorded `classlib` commit through a public HTTPS URL,
+  install that exact checkout, and leave the working directory unchanged. All
+  four execute cleanly with the local `qmcpy` kernel, and the root site, all
+  nine decks, and the assembled site render cleanly. Clean live-Colab
+  validation remains pending.
+- The Deck 02 companion notebook develops exact augmented-matrix reduction,
+  inverse construction, singular systems, inverse algebra, direct numerical
+  solves, a Leontief model, and covariance versus precision. Its opening now
+  reduces $[\mat{A}\mid\vct{b}]$ to $[\mat{I}\mid\vct{x}]$ and interprets the
+  solution directly. The Deck 03 companion notebook develops matrix patterns,
+  reusable PLU factors, standard matrices, transformation geometry, and
+  composition. Both notebooks follow the shared heading-hierarchy convention,
+  have saved executed outputs, and are linked from the Notebooks page.
 - Assignment 1 is now an individual, automatically graded WileyPLUS External
   Tool assignment. The exact Anton Exercises 1.3.15 and 1.2.38 were not in the
   paired question bank, so the instructor prioritized autograding and approved
@@ -77,7 +86,7 @@ this course already pins it. Resume the Deck 03 instructor review afterward.
   positive-definite tridiagonal covariance matrix whose integer-valued inverse
   illustrates that covariance and precision matrices can have different zero
   patterns; the result is retained only in presenter notes.
-- `slides/03-matrix-structure-and-transformations.qmd` is a 32-slide
+- `slides/03-matrix-structure-and-transformations.qmd` is a 38-slide
   instructor-review draft covering Anton §§1.7–1.9. It develops diagonal,
   triangular, transposed, and symmetric structure; supplements Anton with PLU,
   including SciPy's compact factor shapes for rectangular matrices;
@@ -86,7 +95,13 @@ this course already pins it. Resume the Deck 03 instructor review afterward.
   comparison of three actions; and closes with composition, inverse actions,
   and a determinant handoff. It uses SciPy's convention
   $\mat{A}=\mat{P}\mat{L}\mat{U}$, equivalently
-  $\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}$. The Markdown parses cleanly,
+  $\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}$. Its triangular-matrix sequence
+  now computes a $3\times3$ upper-triangular inverse by Gauss–Jordan
+  reduction. Its PLU bridge uses $\mat{\Pi}_j$ for a stage permutation and
+  $\mat{P}$ for the accumulated permutation, explains the conjugated
+  elimination matrices $\widetilde{\mat{M}}_j$ for a general $q$-stage
+  factorization, and finishes with a concrete $3\times3$ example requiring
+  two row exchanges. The Markdown parses cleanly,
   the displayed examples have been checked computationally, and internal
   fragment targets have been checked. The root site and all nine decks render
   cleanly outside the filesystem sandbox; Deck 03 has been inspected slide by
@@ -180,7 +195,9 @@ this course already pins it. Resume the Deck 03 instructor review afterward.
   grouped elimination matrix that zeros column $j$ below row $j$.
 - Use one aggregate $\mat{G}$ for the complete Gauss–Jordan row-operation
   product. Use $\mat{P}_{jk}$ only when a particular row exchange must be
-  named, and $\mat{P}$ for the accumulated permutation in PLU.
+  named, $\mat{\Pi}_j$ for the stage permutation before elimination stage
+  $j$, and $\mat{P}$ for the accumulated permutation in PLU. Do not introduce
+  an auxiliary $\mat{Q}_j$ for the cumulative permutation.
 - Do not teach the special $2\times2$ inverse formula before determinants;
   use Gauss–Jordan reduction to compute an inverse.
 - Do not present explicit inversion as the routine way to solve linear
@@ -200,9 +217,9 @@ this course already pins it. Resume the Deck 03 instructor review afterward.
 ## Done when
 
 - Clean current Colab runtimes install the recorded shared library and execute
-  both the Deck 00 and Deck 01 companion notebooks end to end without an import
-  failure. The Colab repair is then complete and Deck 03 is again the current
-  MATH 332 task.
+  the Deck 00--03 companion notebooks end to end without an import failure.
+  The Colab repair is then complete and Deck 03 is again the current MATH 332
+  task.
 - The instructor has reviewed Deck 03's scope, sequence, examples, and
   mathematical emphasis, and requested refinements are complete.
 - Any requested refinements render cleanly and remain visibly sound at the

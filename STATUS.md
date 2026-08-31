@@ -30,6 +30,7 @@ Mathematical content should be maintained only in the slides.
 
 - [ ] Develop the authoritative Decks 04–08 for Anton Chapters 2–6.
 - [x] Create the initial Notebooks page for demonstrations and exercises.
+- [x] Create and locally validate companion notebooks for Decks 02 and 03.
 - [x] Add student repository-access instructions.
 - [x] Create Assignment 1 for Anton §§1.2–1.3; publish it in Canvas for
   20 points; convert it to an individual, automatically graded WileyPLUS
