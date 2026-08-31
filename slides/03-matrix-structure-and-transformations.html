@@ -767,9 +767,83 @@ u_{11}&amp;u_{12}&amp;u_{13}\\
 <li>triangular systems are solved in order by forward or back substitution</li>
 </ul>
 <div class="key-point">
-<p>A triangular matrix is invertible exactly when every diagonal entry is nonzero</p>
+<p>A triangular matrix is invertible exactly when <span class="alert">every diagonal entry is nonzero</span></p>
 <p>&nbsp;</p>
 <p>Its inverse has the same triangular form</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="a-3times3-upper-triangular-example">A <span class="math inline">\(3\times3\)</span> upper-triangular example</h3>
+<p><span class="math display">\[
+\mat{U}=
+\begin{bmatrix}
+1&amp;2&amp;1\\
+0&amp;2&amp;2\\
+0&amp;0&amp;1
+\end{bmatrix}
+\]</span></p>
+<ul>
+<li>Diagonal pivots — <span class="math inline">\(1,2,1\)</span></li>
+<li>Every pivot nonzero — <span class="math inline">\(\mat{U}\)</span> invertible</li>
+<li>Inverse from Gauss–Jordan reduction of <span class="math inline">\([\,\mat{U}\mid\mat{I}\,]\)</span></li>
+</ul>
+<p><span class="math display">\[
+\left[
+\begin{array}{rrr|rrr}
+1&amp;2&amp;1&amp;1&amp;0&amp;0\\
+0&amp;2&amp;2&amp;0&amp;1&amp;0\\
+0&amp;0&amp;1&amp;0&amp;0&amp;1
+\end{array}
+\right]
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="reduce-upward-to-gaussjordan-form">Reduce upward to Gauss–Jordan form</h3>
+<div class="small">
+<p><span class="math display">\[\begin{align*}
+\left[
+\begin{array}{rrr|rrr}
+1&amp;2&amp;1&amp;1&amp;0&amp;0\\
+0&amp;2&amp;2&amp;0&amp;1&amp;0\\
+0&amp;0&amp;1&amp;0&amp;0&amp;1
+\end{array}
+\right]
+&amp;\xrightarrow{R_2\leftarrow\tfrac12R_2}
+\left[
+\begin{array}{rrr|rrr}
+1&amp;2&amp;1&amp;1&amp;0&amp;0\\
+0&amp;1&amp;1&amp;0&amp;\tfrac12&amp;0\\
+0&amp;0&amp;1&amp;0&amp;0&amp;1
+\end{array}
+\right]
+\\[0.5em]
+&amp;\xrightarrow{\substack{R_1\leftarrow R_1-R_3\\R_2\leftarrow R_2-R_3}}
+\left[
+\begin{array}{rrr|rrr}
+1&amp;2&amp;0&amp;1&amp;0&amp;-1\\
+0&amp;1&amp;0&amp;0&amp;\tfrac12&amp;-1\\
+0&amp;0&amp;1&amp;0&amp;0&amp;1
+\end{array}
+\right]
+\\[0.5em]
+&amp;\xrightarrow{R_1\leftarrow R_1-2R_2}
+\left[
+\begin{array}{rrr|rrr}
+1&amp;0&amp;0&amp;1&amp;-1&amp;1\\
+0&amp;1&amp;0&amp;0&amp;\tfrac12&amp;-1\\
+0&amp;0&amp;1&amp;0&amp;0&amp;1
+\end{array}
+\right]
+\end{align*}\]</span></p>
+</div>
+<div class="key-point">
+<ul>
+<li>Left block — <span class="math inline">\(\mat{I}\)</span></li>
+<li>Right block — <span class="math inline">\(\mat{U}^{-1}\)</span></li>
+<li><span class="math inline">\(\mat{U}^{-1}\)</span> — upper triangular again</li>
+</ul>
 </div>
 </section>
 <section id="transpose-exchanges-rows-and-columns" class="slide level2">
@@ -880,18 +954,18 @@ u_{11}&amp;u_{12}&amp;u_{13}\\
 <p>Write <span class="math inline">\(\mat{P}_{jk}\)</span> for one exchange of rows <span class="math inline">\(j\)</span> and <span class="math inline">\(k\)</span>. In PLU, <span class="math inline">\(\mat{P}\)</span> records the combined row ordering.</p>
 <p><span class="math display">\[
 \mat{P}=\begin{bmatrix}
-0&amp;1&amp;0\\
 0&amp;0&amp;1\\
-1&amp;0&amp;0
+1&amp;0&amp;0\\
+0&amp;1&amp;0
 \end{bmatrix},
 \qquad
 \mat{P}
 \begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
 =
-\begin{bmatrix}x_2\\x_3\\x_1\end{bmatrix}
+\begin{bmatrix}x_3\\x_1\\x_2\end{bmatrix}
 \]</span></p>
 <p>Left multiplication by <span class="math inline">\(\mat{P}\)</span> reorders matrix rows in the same pattern</p>
-<p>Every row and column of <span class="math inline">\(\mat{P}\)</span> contains exactly one <span class="math inline">\(1\)</span></p>
+<p><span class="alert">Every row and column of <span class="math inline">\(\mat{P}\)</span> contains exactly one <span class="math inline">\(1\)</span></span></p>
 <p><span class="math display">\[
 \mat{P}^{-1}=\mat{P}^{\mathsf T},
 \qquad
@@ -899,6 +973,176 @@ u_{11}&amp;u_{12}&amp;u_{13}\\
 \]</span></p>
 <div class="key-point">
 <p>A single row-exchange matrix is symmetric; a general permutation matrix need not be</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="collect-interleaved-row-exchanges">Collect interleaved row exchanges</h3>
+<p>Rightmost factor acts first</p>
+<p><span class="math display">\[
+\mat{U}=\mat{M}_2\mat{\Pi}_2\mat{M}_1\mat{\Pi}_1\mat{A}
+\]</span></p>
+<p>Insert <span class="math inline">\(\mat{\Pi}_2^{\mathsf T}\mat{\Pi}_2=\mat{I}\)</span></p>
+<p><span class="math display">\[
+\mat{\Pi}_2\mat{M}_1
+=\mat{\Pi}_2\mat{M}_1
+\bigl(\mat{\Pi}_2^{\mathsf T}\mat{\Pi}_2\bigr)
+=
+\underbrace{\bigl(\mat{\Pi}_2\mat{M}_1\mat{\Pi}_2^{\mathsf T}\bigr)}_{\widetilde{\mat{M}}_1}
+\mat{\Pi}_2
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\mat{U}
+=\mat{M}_2\widetilde{\mat{M}}_1
+\underbrace{\bigl(\mat{\Pi}_2\mat{\Pi}_1\bigr)}_{\mat{P}^{\mathsf T}}
+\mat{A}
+=\mat{L}^{-1}\mat{P}^{\mathsf T}\mat{A},
+\qquad
+\mat{L}=\widetilde{\mat{M}}_1^{-1}\mat{M}_2^{-1}
+\]</span></p>
+<div class="key-point">
+<ul>
+<li><span class="math inline">\(\mat{M}_1\longrightarrow\widetilde{\mat{M}}_1\)</span></li>
+<li><span class="math inline">\(\mat{M}_2\)</span> unchanged</li>
+<li>Move and relabel — not ordinary commutation</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="general-q-stage-pattern">General <span class="math inline">\(q\)</span>-stage pattern</h3>
+<ul>
+<li><span class="math inline">\(\mat{\Pi}_j\)</span> — row exchange before stage <span class="math inline">\(j\)</span> or <span class="math inline">\(\mat{I}\)</span> if none</li>
+<li><span class="math inline">\(\mat{M}_j\)</span> — eliminate below pivot <span class="math inline">\(j\)</span></li>
+</ul>
+<p><span class="math display">\[
+\mat{U}
+=\mat{M}_q\mat{\Pi}_q
+\mat{M}_{q-1}\mat{\Pi}_{q-1}
+\cdots
+\mat{M}_1\mat{\Pi}_1\mat{A}
+\]</span></p>
+<p>All row exchanges after stage <span class="math inline">\(j\)</span></p>
+<p><span class="math display">\[
+\widetilde{\mat{M}}_j
+=
+\bigl(\mat{\Pi}_q\cdots\mat{\Pi}_{j+1}\bigr)
+\mat{M}_j
+\bigl(\mat{\Pi}_q\cdots\mat{\Pi}_{j+1}\bigr)^{\mathsf T}
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[\begin{align*}
+\mat{P}^{\mathsf T}
+&amp;=\mat{\Pi}_q\cdots\mat{\Pi}_1,\\
+\mat{U}
+&amp;=\widetilde{\mat{M}}_q\cdots\widetilde{\mat{M}}_1
+\mat{P}^{\mathsf T}\mat{A},\\
+\mat{L}
+&amp;=\widetilde{\mat{M}}_1^{-1}\cdots\widetilde{\mat{M}}_q^{-1}
+\end{align*}\]</span></p>
+<div class="key-point">
+<ul>
+<li>Later row exchanges relabel earlier elimination stages</li>
+<li><span class="math inline">\(\widetilde{\mat{M}}_q=\mat{M}_q\)</span></li>
+<li>No commuting assumption</li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="concrete-example-first-exchange">Concrete example — first exchange</h3>
+<p><span class="math display">\[
+\mat{A}=
+\begin{bmatrix}
+0&amp;0&amp;1\\
+2&amp;2&amp;0\\
+1&amp;3&amp;1
+\end{bmatrix}
+\]</span></p>
+<ul>
+<li>First pivot zero</li>
+<li><span class="math inline">\(\mat{\Pi}_1=\mat{P}_{12}\)</span> — exchange rows <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span></li>
+</ul>
+<p><span class="math display">\[
+\mat{\Pi}_1\mat{A}
+=
+\begin{bmatrix}
+2&amp;2&amp;0\\
+0&amp;0&amp;1\\
+1&amp;3&amp;1
+\end{bmatrix}
+\]</span></p>
+<p>Eliminate below the first pivot</p>
+<p><span class="math display">\[
+\mat{M}_1=
+\begin{bmatrix}
+1&amp;0&amp;0\\
+0&amp;1&amp;0\\
+-\tfrac12&amp;0&amp;1
+\end{bmatrix},
+\qquad
+\mat{M}_1\mat{\Pi}_1\mat{A}
+=
+\begin{bmatrix}
+2&amp;2&amp;0\\
+0&amp;0&amp;1\\
+0&amp;2&amp;1
+\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<p>Next pivot zero — another row exchange</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="concrete-example-second-exchange">Concrete example — second exchange</h3>
+<p><span class="math inline">\(\mat{\Pi}_2=\mat{P}_{23}\)</span> — exchange rows <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span></p>
+<p><span class="math display">\[
+\mat{U}
+=\mat{M}_2\mat{\Pi}_2\mat{M}_1\mat{\Pi}_1\mat{A}
+=
+\begin{bmatrix}
+2&amp;2&amp;0\\
+0&amp;2&amp;1\\
+0&amp;0&amp;1
+\end{bmatrix},
+\qquad
+\mat{M}_2=\mat{I}
+\]</span></p>
+<p>Collect the exchanges</p>
+<div class="small">
+<p><span class="math display">\[
+\widetilde{\mat{M}}_1
+=\mat{\Pi}_2\mat{M}_1\mat{\Pi}_2^{\mathsf T}
+=
+\begin{bmatrix}
+1&amp;0&amp;0\\
+-\tfrac12&amp;1&amp;0\\
+0&amp;0&amp;1
+\end{bmatrix},
+\qquad
+\mat{L}=\widetilde{\mat{M}}_1^{-1}
+=
+\begin{bmatrix}
+1&amp;0&amp;0\\
+\tfrac12&amp;1&amp;0\\
+0&amp;0&amp;1
+\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\mat{P}^{\mathsf T}
+=\mat{\Pi}_2\mat{\Pi}_1
+=
+\begin{bmatrix}
+0&amp;1&amp;0\\
+0&amp;0&amp;1\\
+1&amp;0&amp;0
+\end{bmatrix}
+\]</span></p>
+</div>
+<div class="key-point">
+<p><span class="math inline">\(\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}\)</span> <span class="math inline">\(\qquad\Longleftrightarrow\qquad\)</span> <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span></p>
 </div>
 </section>
 <section id="scipy-plu" class="slide level2">
@@ -909,7 +1153,7 @@ u_{11}&amp;u_{12}&amp;u_{13}\\
 \qquad\Longleftrightarrow\qquad
 \mat{A}=\mat{P}\mat{L}\mat{U}
 \]</span></p>
-<p>For the <span class="math inline">\(\mat{A}\)</span> below, SciPy returns the nonsymmetric <span class="math inline">\(\mat{P}\)</span> shown on the preceding slide</p>
+<p>For this <span class="math inline">\(\mat{A}\)</span>, SciPy returns the nonsymmetric <span class="math inline">\(\mat{P}\)</span> shown in the permutation example</p>
 <div class="columns">
 <div class="column" style="width:47%;">
 <ul>
@@ -924,9 +1168,9 @@ u_{11}&amp;u_{12}&amp;u_{13}\\
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.linalg <span class="im">import</span> lu</span>
 <span id="cb1-3"><a href="" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">1</span>],</span>
-<span id="cb1-5"><a href="" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>],</span>
-<span id="cb1-6"><a href="" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">2</span>]])</span>
+<span id="cb1-4"><a href="" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([[<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>],</span>
+<span id="cb1-5"><a href="" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">0</span>],</span>
+<span id="cb1-6"><a href="" aria-hidden="true" tabindex="-1"></a>              [<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>]])</span>
 <span id="cb1-7"><a href="" aria-hidden="true" tabindex="-1"></a>P, L, U <span class="op">=</span> lu(A)</span>
 <span id="cb1-8"><a href="" aria-hidden="true" tabindex="-1"></a>np.allclose(A, P <span class="op">@</span> L <span class="op">@</span> U)       <span class="co"># True</span></span>
 <span id="cb1-9"><a href="" aria-hidden="true" tabindex="-1"></a>np.allclose(P.T <span class="op">@</span> A, L <span class="op">@</span> U)     <span class="co"># True</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

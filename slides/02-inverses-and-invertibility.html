@@ -672,20 +672,28 @@ In this deck
 <li>a two-sided inverse may exist</li>
 </ul>
 </div></div>
-<p>A <span class="alert">two-sided inverse</span> must undo <span class="math inline">\(\mat{A}\)</span> in both orders:</p>
+<p><span class="alert">Two-sided inverse</span> — undo <span class="math inline">\(\mat{A}\)</span> in both orders</p>
 <p><span class="math display">\[
 \mat{A}^{-1}\mat{A}=\mat{I}_n,
 \qquad
 \mat{A}\mat{A}^{-1}=\mat{I}_n
 \]</span></p>
 <div class="key-point">
-<p>This deck focuses on <span class="alert">square matrices</span>; rectangular matrices remain important and cannot have a two-sided inverse, but they can have <span class="alert">pseudoinverses</span> (later)</p>
+<ul>
+<li>This deck — <span class="alert">square matrices</span></li>
+<li>Rectangular matrices — no two-sided inverse</li>
+<li><span class="alert">Pseudoinverses</span> — later</li>
+</ul>
 </div>
 </section>
 <section id="an-inverse-undoes-a-matrix-action" class="slide level2" data-state="goldborder">
 <h2>Reversible means invertible</h2>
-<p>In <a href="01-systems-and-matrices.html">Systems and Matrices</a>, <span class="alert">reversible</span> meant that an operation could be undone</p>
-<p>For a square matrix <span class="math inline">\(\mat{A}\)</span>, the action <span class="math inline">\(\vct{x}\mapsto\mat{A}\vct{x}\)</span> is reversible exactly when another matrix <span class="math inline">\(\mat{A}^{-1}\)</span> undoes it in both directions:</p>
+<p><a href="01-systems-and-matrices.html">Systems and Matrices</a> — <span class="alert">reversible</span> means undoable</p>
+<p>For square <span class="math inline">\(\mat{A}\)</span></p>
+<ul>
+<li>action <span class="math inline">\(\vct{x}\mapsto\mat{A}\vct{x}\)</span></li>
+<li>reversible exactly when <span class="math inline">\(\mat{A}^{-1}\)</span> undoes both directions</li>
+</ul>
 <p><span class="math display">\[
 \vct{x}
 \xrightarrow{\ \mat{A}\ }
@@ -705,14 +713,21 @@ In this deck
 \qquad
 \mat{A}\mat{A}^{-1}=\mat{I}
 \]</span></p>
-<p>Then <span class="math inline">\(\mat{A}\)</span> is <span class="alert">invertible</span>, or <span class="alert">nonsingular</span>, and <span class="math inline">\(\mat{A}^{-1}\)</span> is its inverse</p>
+<ul>
+<li><span class="math inline">\(\mat{A}\)</span> — <span class="alert">invertible</span> or <span class="alert">nonsingular</span></li>
+<li><span class="math inline">\(\mat{A}^{-1}\)</span> — inverse of <span class="math inline">\(\mat{A}\)</span></li>
+</ul>
 <div class="key-point">
-<p>Our intuitive idea of a <span class="alert">reversible matrix action</span> means multiplication by an <span class="alert">invertible matrix</span></p>
+<p><span class="alert">Reversible matrix action</span> <span class="math inline">\(=\)</span> multiplication by an <span class="alert">invertible matrix</span></p>
 </div>
 </section>
 <section id="elimination-matrices-are-invertible" class="slide level2">
 <h2>Elimination matrices are invertible</h2>
-<p>Recall from <a href="01-systems-and-matrices.html#/undoing-restores-the-original-system">Systems and Matrices</a>: <span class="math inline">\(\mat{M}_1\)</span> zeros the first column below its pivot, while <span class="math inline">\(\mat{N}_1\)</span> reverses that elimination stage:</p>
+<p>From <a href="01-systems-and-matrices.html#/undoing-restores-the-original-system">Systems and Matrices</a></p>
+<ul>
+<li><span class="math inline">\(\mat{M}_1\)</span> — zeros the first column below its pivot</li>
+<li><span class="math inline">\(\mat{N}_1\)</span> — reverses that elimination stage</li>
+</ul>
 <p><span class="math display">\[
 \mat{M}_1=
 \begin{bmatrix}
@@ -731,7 +746,11 @@ In this deck
 \]</span></p>
 <p>Now we can write <span class="math inline">\(\mat{N}_1=\mat{M}_1^{-1}\)</span></p>
 <div class="key-point">
-<p>Each <span class="math inline">\(\mat{M}_j\)</span> is a product of elementary matrices, so it is invertible; its inverse reverses the whole column-elimination stage</p>
+<ul>
+<li><span class="math inline">\(\mat{M}_j\)</span> — product of elementary matrices</li>
+<li>Hence invertible</li>
+<li><span class="math inline">\(\mat{M}_j^{-1}\)</span> — reverses the whole column-elimination stage</li>
+</ul>
 </div>
 </section>
 <section id="invertible-or-singular" class="slide level2">
@@ -758,16 +777,18 @@ In this deck
 </ul>
 </div></div>
 <div class="key-point">
-<p>Use pivots to test invertibility: row-reduce <span class="math inline">\(\mat{A}\)</span> and inspect its echelon form</p>
-<p>Some treatments invoke determinants here; <span class="alert">we will defer them</span></p>
-<p>Elimination reveals the pivots directly</p>
-<p>A computed determinant can be unreliable when <span class="math inline">\(\mat{A}\)</span> is nearly singular</p>
+<ul>
+<li>Pivot test — row-reduce <span class="math inline">\(\mat{A}\)</span> and inspect its echelon form</li>
+<li>Determinants — <span class="alert">deferred</span></li>
+<li>Elimination — pivots directly visible</li>
+<li>Nearly singular <span class="math inline">\(\mat{A}\)</span> — computed determinant potentially unreliable</li>
+</ul>
 </div>
 </section></section>
 <section>
 <section id="inverse-algebra" class="title-slide slide level1 center">
 <h1>Inverse Algebra</h1>
-<p>An inverse is unique, and order remains essential</p>
+<p>Unique inverse, essential order</p>
 <ul>
 <li><a href="#/the-inverse-is-unique">Left and right inverses must agree</a></li>
 <li><a href="#/undo-products-in-reverse-order">Undo products in reverse order</a></li>
@@ -792,8 +813,10 @@ In this deck
 \]</span></p>
 <p>Thus any left inverse and right inverse of the same matrix must agree</p>
 <div class="key-point">
-<p>A two-sided inverse is therefore <span class="alert">unique</span>; we denote it <span class="math inline">\(\mat{A}^{-1}\)</span></p>
-<p>A matrix commutes with its inverse: <span class="math inline">\(\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}\)</span></p>
+<ul>
+<li>Two-sided inverse — <span class="alert">unique</span> and denoted <span class="math inline">\(\mat{A}^{-1}\)</span></li>
+<li>Special commuting pair — <span class="math inline">\(\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}\)</span></li>
+</ul>
 </div>
 </section>
 <section id="undo-products-in-reverse-order" class="slide level2">
@@ -807,9 +830,15 @@ In this deck
 (\mat{A}\mat{B})(\mat{B}^{-1}\mat{A}^{-1})
 =\mat{A}\mat{I}\mat{A}^{-1}=\mat{I}
 \]</span></p>
-<p>There is no standard matrix quotient <span class="math inline">\(\mat{B}/\mat{A}\)</span>: the products <span class="math inline">\(\mat{A}^{-1}\mat{B}\)</span> and <span class="math inline">\(\mat{B}\mat{A}^{-1}\)</span> generally differ</p>
+<ul>
+<li>No standard matrix quotient <span class="math inline">\(\mat{B}/\mat{A}\)</span></li>
+<li><span class="math inline">\(\mat{A}^{-1}\mat{B}\)</span> and <span class="math inline">\(\mat{B}\mat{A}^{-1}\)</span> generally different</li>
+</ul>
 <div class="key-point">
-<p>The rightmost factor acts first; taking an inverse reverses the order</p>
+<ul>
+<li>Rightmost factor acts first</li>
+<li>Inverse reverses factor order</li>
+</ul>
 </div>
 </section></section>
 <section>
@@ -824,7 +853,8 @@ In this deck
 </section>
 <section id="reduce-beside-the-identity" class="slide level2">
 <h2>Reduce beside the identity</h2>
-<p>Let <span class="math inline">\(\mat{G}\)</span> denote the product of the elementary matrices used in Gauss–Jordan reduction. Every row operation acts on both blocks, so</p>
+<p><span class="math inline">\(\mat{G}\)</span> — product of the Gauss–Jordan elementary matrices</p>
+<p>Same row operations on both blocks</p>
 <p><span class="math display">\[
 \mat{G}[\,\mat{A}\mid\mat{I}\,]
 =
@@ -832,9 +862,19 @@ In this deck
 =
 [\,\mat{I}\mid\mat{G}\,]
 \]</span></p>
-<p>The left block gives <span class="math inline">\(\mat{G}\mat{A}=\mat{I}\)</span>. Since <span class="math inline">\(\mat{G}\)</span> is invertible, <span class="math inline">\(\mat{A}=\mat{G}^{-1}\)</span>; hence <span class="math inline">\(\mat{G}=\mat{A}^{-1}\)</span>.</p>
+<p>From the left block</p>
+<p><span class="math display">\[
+\mat{G}\mat{A}=\mat{I}
+\implies
+\mat{A}=\mat{G}^{-1}
+\implies
+\mat{G}=\mat{A}^{-1}
+\]</span></p>
 <div class="key-point">
-<p>Gaussian elimination solves systems; Gauss–Jordan reduction is useful here because the inverse itself is the goal</p>
+<ul>
+<li>Gaussian elimination — solve systems</li>
+<li>Gauss–Jordan reduction — compute the inverse</li>
+</ul>
 </div>
 </section>
 <section id="find-an-inverse" class="slide level2">
@@ -860,7 +900,11 @@ In this deck
 <section class="slide level2">
 
 <h3 id="return-to-our-three-equation-matrix">Return to our three-equation matrix</h3>
-<p>For <a href="01-systems-and-matrices.html#/each-equation-is-one-dot-product">our three-equation system</a>, apply the same forward-elimination steps to both blocks of <span class="math inline">\([\,\mat{A}\mid\mat{I}\,]\)</span>:</p>
+<p><a href="01-systems-and-matrices.html#/each-equation-is-one-dot-product">Our three-equation system</a></p>
+<ul>
+<li>Same forward-elimination steps</li>
+<li>Both blocks of <span class="math inline">\([\,\mat{A}\mid\mat{I}\,]\)</span></li>
+</ul>
 <div class="small">
 <p><span class="math display">\[\begin{align*}
 \left[
@@ -886,7 +930,7 @@ In this deck
 0&amp;-5&amp;3&amp;-2&amp;1&amp;0\\
 0&amp;0&amp;2&amp;-1&amp;-1&amp;1
 \end{array}
-\right].
+\right]
 \end{align*}\]</span></p>
 </div>
 <p>The left block is now in row echelon form</p>
@@ -920,11 +964,14 @@ In this deck
 0&amp;1&amp;0&amp;\tfrac1{10}&amp;-\tfrac12&amp;\tfrac3{10}\\
 0&amp;0&amp;1&amp;-\tfrac12&amp;-\tfrac12&amp;\tfrac12
 \end{array}
-\right].
+\right]
 \end{align*}\]</span></p>
 </div>
 <div class="key-point">
-<p>The right block is <span class="math inline">\(\mat{A}^{-1}\)</span>; for our original <span class="math inline">\(\vct{b}\)</span>, <span class="math inline">\(\mat{A}^{-1}\vct{b}=\begin{bmatrix}-1&amp;2&amp;1\end{bmatrix}^{\mathsf T}\)</span> recovers the solution</p>
+<ul>
+<li>Right block — <span class="math inline">\(\mat{A}^{-1}\)</span></li>
+<li>Original <span class="math inline">\(\vct{b}\)</span> — <span class="math inline">\(\mat{A}^{-1}\vct{b}=\begin{bmatrix}-1&amp;2&amp;1\end{bmatrix}^{\mathsf T}\)</span></li>
+</ul>
 </div>
 </section>
 <section id="a-missing-pivot-proves-singularity" class="slide level2">
@@ -939,9 +986,15 @@ In this deck
 1&amp;2&amp;1&amp;0\\0&amp;0&amp;-2&amp;1
 \end{array}\right]
 \]</span></p>
-<p>The left block cannot become <span class="math inline">\(\mat{I}\)</span>: its second pivot is missing</p>
+<ul>
+<li>Second pivot missing</li>
+<li>Left block cannot become <span class="math inline">\(\mat{I}\)</span></li>
+</ul>
 <div class="key-point">
-<p>Failure is information: the matrix is singular, so no inverse exists</p>
+<ul>
+<li>Missing pivot — <span class="math inline">\(\mat{A}\)</span> singular</li>
+<li>No inverse</li>
+</ul>
 </div>
 </section></section>
 <section>
@@ -973,7 +1026,7 @@ In this deck
 </ul>
 </div></div>
 <div class="key-point">
-<p>These are algebraic, computational, and geometric views of <span class="alert">reversibility</span></p>
+<p>Algebraic, computational, and geometric views of <span class="alert">reversibility</span></p>
 </div>
 </section>
 <section id="reversible-versus-information-losing" class="slide level2">
@@ -1007,7 +1060,10 @@ In this deck
 \]</span></p>
 </div></div>
 <div class="key-point">
-<p>A singular action loses information: <span class="math inline">\(\mat{A}(\vct{x}+t\vct{z})=\mat{A}\vct{x}\)</span> for every <span class="math inline">\(t\)</span></p>
+<ul>
+<li>Singular action — information loss</li>
+<li><span class="math inline">\(\mat{A}(\vct{x}+t\vct{z})=\mat{A}\vct{x}\)</span> for every <span class="math inline">\(t\)</span></li>
+</ul>
 </div>
 </section>
 <section id="the-right-hand-side-decides" class="slide level2">
@@ -1032,10 +1088,13 @@ In this deck
 &amp;=\mat{A}\vct{x}_0+t\mat{A}\vct{z}\\
 &amp;=\vct{b}+t\vct{0}=\vct{b}
 \end{align*}\]</span></p>
-<p>for every <span class="math inline">\(t\)</span>: there are <span class="alert">infinitely many solutions</span></p>
+<p>For every <span class="math inline">\(t\)</span> — <span class="alert">infinitely many solutions</span></p>
 </div></div>
 <div class="key-point">
-<p>For singular square <span class="math inline">\(\mat{A}\)</span>, no right-hand side gives exactly one solution: <span class="math inline">\(\vct{b}\)</span> determines none or infinitely many</p>
+<ul>
+<li>Singular square <span class="math inline">\(\mat{A}\)</span> — never exactly one solution</li>
+<li>Depending on <span class="math inline">\(\vct{b}\)</span> — none or infinitely many</li>
+</ul>
 </div>
 </section>
 <section id="choose-the-least-computation" class="slide level2">
@@ -1056,7 +1115,10 @@ In this deck
 <p>Compute <span class="math inline">\(\mat{A}^{-1}\)</span> when the inverse itself is the object of interest</p>
 </div></div>
 <div class="key-point">
-<p>Unnecessary computation costs time and creates more opportunities for round-off error</p>
+<ul>
+<li>Unnecessary computation — more time</li>
+<li>More opportunities for round-off error</li>
+</ul>
 </div>
 </section>
 <section class="slide level2">
@@ -1072,9 +1134,18 @@ In this deck
 \qquad
 \mat{L}=\mat{M}_1^{-1}\cdots\mat{M}_q^{-1},
 \]</span></p>
-<p>These are the full-form factors: <span class="math inline">\(\mat{L}\in\reals^{m\times m}\)</span> is unit lower triangular, while <span class="math inline">\(\mat{U}\in\reals^{m\times n}\)</span> has zeros below its diagonal (and is upper triangular when square)</p>
+<p>Full-form factors</p>
+<ul>
+<li><span class="math inline">\(\mat{L}\in\reals^{m\times m}\)</span> — unit lower triangular</li>
+<li><span class="math inline">\(\mat{U}\in\reals^{m\times n}\)</span> — zeros below its diagonal</li>
+<li>Square <span class="math inline">\(\mat{U}\)</span> — upper triangular</li>
+</ul>
 <div class="key-point">
-<p><a href="03-matrix-structure-and-transformations.html#elimination-becomes-a-factorization">Matrix Transformations</a> will first develop this no-exchange LU example, then add a permutation matrix when row exchanges are needed</p>
+<p>Next in <a href="03-matrix-structure-and-transformations.html#elimination-becomes-a-factorization">Matrix Transformations</a></p>
+<ul>
+<li>No-exchange LU example</li>
+<li>Permutation matrix for row exchanges</li>
+</ul>
 </div>
 </section></section>
 <section>
@@ -1093,7 +1164,7 @@ In this deck
 <p><span class="math display">\[\begin{align*}
 x_i &amp; = \alerttext{gross production}\text{ of sector }i, \\
 d_i &amp; = \alerttext{external demand}\text{ for sector }i, \\
-c_{ij} &amp; = \text{output from sector }i\text{ needed per unit produced by sector }j.
+c_{ij} &amp; = \text{output from sector }i\text{ needed per unit produced by sector }j
 \end{align*}\]</span></p>
 <p>For all sectors at once,</p>
 <p><span class="math display">\[
@@ -1106,7 +1177,12 @@ c_{ij} &amp; = \text{output from sector }i\text{ needed per unit produced by sec
 (\mat{I}-\mat{C})\vct{x}=\vct{d}
 \]</span></p>
 <div class="key-point">
-<p>The solution <span class="math inline">\(\vct{x}\)</span> is the gross production plan required to meet <span class="math inline">\(\vct{d}\)</span>. This is a <span class="alert">static balance model</span>, not an optimization problem or a dynamic steady-state model.</p>
+<ul>
+<li><span class="math inline">\(\vct{x}\)</span> — gross production plan meeting <span class="math inline">\(\vct{d}\)</span></li>
+<li><span class="alert">Static balance model</span></li>
+<li>Not optimization</li>
+<li>Not a dynamic steady-state model</li>
+</ul>
 </div>
 </section>
 <section id="one-forecast-or-a-response-map" class="slide level2">
@@ -1124,7 +1200,7 @@ c_{ij} &amp; = \text{output from sector }i\text{ needed per unit produced by sec
 <p><span class="math display">\[
 \vct{x}=\begin{bmatrix}100\\80\end{bmatrix}
 \]</span></p>
-<p>This is the gross production required for the specified <span class="math inline">\(\vct{d}\)</span></p>
+<p>Gross production for the specified <span class="math inline">\(\vct{d}\)</span></p>
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
@@ -1148,18 +1224,23 @@ c_{ij} &amp; = \text{output from sector }i\text{ needed per unit produced by sec
 =\vct{x}
 \]</span></p>
 <ul>
-<li>the inverse columns describe production responses to added demand</li>
-<li>nonnegative gross production is required for a meaningful plan</li>
-<li>if <span class="math inline">\(\mat{I}-\mat{C}\)</span> is singular, there is no unique response map</li>
+<li>Inverse columns — production responses to added demand</li>
+<li>Nonnegative gross production — meaningful plan</li>
 </ul>
 <div class="key-point">
-<p>Interpret the model before trusting the answer</p>
+<ul>
+<li>Singular <span class="math inline">\(\mat{I}-\mat{C}\)</span> — a nonzero adjustment <span class="math inline">\(\vct{z}\)</span> with <span class="math inline">\(\vct{z}=\mat{C}\vct{z}\)</span></li>
+<li>Gross-output change exactly absorbed by internal requirements</li>
+<li>No change in net output for external users</li>
+<li>Compatible <span class="math inline">\(\vct{d}\)</span> — a family of plans <span class="math inline">\(\vct{x}+t\vct{z}\)</span></li>
+<li>Some <span class="math inline">\(\vct{d}\)</span> — no production plan</li>
+</ul>
 </div>
 </section></section>
 <section>
 <section id="gaussian-covariance-and-precision" class="title-slide slide level1 center">
 <h1>Gaussian Covariance and Precision</h1>
-<p>A preview for later courses in statistics, AI, and data science—no statistics background is required</p>
+<p>Preview for statistics, AI, and data science — no background required</p>
 <ul>
 <li><a href="#/covariance-describes-joint-variation">Covariance describes joint variation</a></li>
 <li><a href="#/precision-describes-conditional-structure">Precision describes conditional structure</a></li>
@@ -1168,7 +1249,7 @@ c_{ij} &amp; = \text{output from sector }i\text{ needed per unit produced by sec
 </section>
 <section id="covariance-describes-joint-variation" class="slide level2">
 <h2>Covariance describes joint variation</h2>
-<p>At selected inputs <span class="math inline">\(t_1,\ldots,t_n\)</span>, a Gaussian-process model collects its values into a Gaussian vector:</p>
+<p>Gaussian-process values at selected inputs <span class="math inline">\(t_1,\ldots,t_n\)</span></p>
 <p><span class="math display">\[
 \vf=
 \begin{bmatrix}
@@ -1195,7 +1276,7 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 <p>describe how values at two inputs vary together</p>
 </div></div>
 <div class="key-point">
-<p>For now, remember the role: the square matrix <span class="math inline">\(\mSigma\)</span> records uncertainty and what varies together</p>
+<p><span class="math inline">\(\mSigma\)</span> — uncertainty and joint variation</p>
 </div>
 </section>
 <section id="precision-describes-conditional-structure" class="slide level2">
@@ -1208,8 +1289,8 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 <div class="column" style="width:47%;">
 <h3 id="statistical-meaning">Statistical meaning</h3>
 <ul>
-<li><span class="math inline">\(\vr^{\mathsf T}\mQ\vr\)</span> weights a departure <span class="math inline">\(\vr=\vf-\vmu\)</span> relative to the expected joint variation</li>
-<li>for a Gaussian vector, <span class="math inline">\(\mQ_{ij}=0\)</span> means components <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are conditionally independent given the others</li>
+<li><span class="math inline">\(\vr^{\mathsf T}\mQ\vr\)</span> — departure <span class="math inline">\(\vr=\vf-\vmu\)</span> weighted against expected joint variation</li>
+<li><span class="math inline">\(\mQ_{ij}=0\)</span> — components <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> conditionally independent given the others</li>
 </ul>
 </div><div class="column" style="width:6%;">
 
@@ -1226,7 +1307,11 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 <p>rather than forming <span class="math inline">\(\mQ\)</span></p>
 </div></div>
 <div class="key-point">
-<p>This is a preview, not a derivation to memorize. Covariance describes what varies together; precision describes conditional relationships and covariance-aware weighting.</p>
+<ul>
+<li>Preview only — no derivation to memorize</li>
+<li>Covariance — joint variation</li>
+<li>Precision — conditional relationships and covariance-aware weighting</li>
+</ul>
 </div>
 </section>
 <section id="compute-a-precision-matrix" class="slide level2">
@@ -1243,7 +1328,7 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 <ol type="1">
 <li>Compute the precision matrix <span class="math inline">\(\mQ=\mSigma^{-1}\)</span> by Gauss–Jordan reduction of <span class="math inline">\([\,\mSigma\mid\mat{I}\,]\)</span></li>
 <li>Verify that <span class="math inline">\(\mSigma\mQ=\mat{I}\)</span></li>
-<li>Compare <span class="math inline">\(\mSigma_{13}\)</span> with <span class="math inline">\(\mQ_{13}\)</span>. What does this reveal about zeros in covariance and precision matrices?</li>
+<li>Compare <span class="math inline">\(\mSigma_{13}\)</span> with <span class="math inline">\(\mQ_{13}\)</span> — interpret the different zero patterns</li>
 </ol>
 <aside class="notes">
 <p>Instructor result:</p>
@@ -1271,29 +1356,47 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 <section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Big Ideas</h1>
 <ul>
-<li>An inverse <span class="alert">undoes a square matrix action</span> on both sides: <span class="math inline">\(\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}\)</span></li>
-<li>A square matrix is invertible exactly when row reduction produces an echelon form with <span class="alert">a pivot in every row and column</span>; then <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> has exactly one solution for every <span class="math inline">\(\vct{b}\)</span></li>
-<li><span class="alert">Gauss–Jordan reduction</span> of <span class="math inline">\([\,\mat{A}\mid\mat{I}\,]\)</span> computes <span class="math inline">\(\mat{A}^{-1}\)</span> when the inverse itself is needed</li>
-<li>Products undo in <span class="alert">reverse order</span>; associativity permits regrouping, not reordering</li>
-<li>Use the <span class="alert">least computation</span> the problem requires: solve directly for one or a few right-hand sides; form a reusable response map only when it is needed</li>
-<li>Applications give inverses meaning: a Leontief response map connects demand to production; Gaussian precision describes <span class="alert">conditional structure and covariance-aware weighting</span></li>
+<li>Inverse — <span class="alert">undoes a square matrix action</span> on both sides
+<ul>
+<li><span class="math inline">\(\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}\)</span></li>
+</ul></li>
+<li>Invertible square matrix
+<ul>
+<li><span class="alert">Pivot in every row and column</span></li>
+<li>Exactly one solution for every <span class="math inline">\(\vct{b}\)</span></li>
+</ul></li>
+<li><span class="alert">Gauss–Jordan reduction</span> of <span class="math inline">\([\,\mat{A}\mid\mat{I}\,]\)</span> — compute <span class="math inline">\(\mat{A}^{-1}\)</span> when needed</li>
+<li>Product inverse — <span class="alert">reverse factor order</span>
+<ul>
+<li>Associativity — regroup, never reorder</li>
+</ul></li>
+<li><span class="alert">Least computation</span>
+<ul>
+<li>One or a few right-hand sides — solve directly</li>
+<li>Reusable response map — only when needed</li>
+</ul></li>
+<li>Applications
+<ul>
+<li>Leontief response map — demand to production</li>
+<li>Gaussian precision — <span class="alert">conditional structure and covariance-aware weighting</span></li>
+</ul></li>
 </ul>
 </section>
 
 <section id="what-comes-next" class="title-slide slide level1 center">
 <h1>What Comes Next</h1>
-<p><a href="02-inverses-and-invertibility.html">Inverses</a> asked whether a matrix action can be undone:</p>
+<p><a href="02-inverses-and-invertibility.html">Inverses</a> — undoing a matrix action</p>
 <p><span class="math display">\[
 \vct{x}\xrightarrow{\mat{A}}\mat{A}\vct{x}
 \xrightarrow{\mat{A}^{-1}}\vct{x}
 \]</span></p>
-<p><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a> asks what matrix structure reveals about the action:</p>
+<p><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a> — structure reveals the action</p>
 <ul>
 <li>diagonal, triangular, and symmetric matrices</li>
 <li>reflections, rotations, projections, and composition</li>
 </ul>
 <div class="key-point">
-<p>Next: <a href="03-matrix-structure-and-transformations.html" class="alert">connect matrix structure with transformations and geometry</a></p>
+<p>Next — <a href="03-matrix-structure-and-transformations.html" class="alert">matrix structure, transformations, and geometry</a></p>
 </div>
 
 </section>
