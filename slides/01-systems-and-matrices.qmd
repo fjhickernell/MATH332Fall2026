@@ -996,6 +996,12 @@ $$
 
 This is [row echelon form]{.alert}
 
+::: {.key-point}
+For a consistent system, pivots in the [variable columns]{.alert} count
+independent constraints; each pivot column identifies one
+[pivot variable]{.alert}
+:::
+
 ::: {.small}
 Pivot entries need not equal $1$ in row echelon form
 :::
@@ -1236,6 +1242,37 @@ A linear system has zero, one, or infinitely many solutions—never exactly two
 :::
 
 $\exstar$ Why would two distinct solutions force infinitely many?
+
+---
+
+### Fewer equations than unknowns cannot give a unique solution
+
+Let $r$ be the number of pivots in the $n$ variable columns. For a
+[consistent system]{.alert}, there are
+
+$$
+\underbrace{r}_{\text{pivot variables}}
+\qquad\text{and}\qquad
+\underbrace{n-r}_{\text{free variables}}
+$$
+
+The pivot variables are solved in terms of the free variables, so every
+variable is uniquely determined exactly when $r=n$
+
+With $m$ equations, at most $m$ variable columns can contain pivots. Hence
+
+$$
+m<n
+\quad\implies\quad
+r\le m<n
+\quad\implies\quad
+n-r>0
+$$
+
+::: {.key-point}
+If $m<n$, the system has [no solutions]{.alert} or
+[infinitely many solutions]{.alert}—never exactly one
+:::
 
 ## Resistance circuit
 

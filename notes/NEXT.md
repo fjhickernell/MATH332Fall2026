@@ -11,9 +11,10 @@ this course already pins it. Resume the Deck 03 instructor review afterward.
 - The shared `classlib` import repair is tested, committed, and published in
   HickernellAcademicLib commit `615b402`. `classlib.nbviz` no longer imports
   legacy QMCPy-dependent generators eagerly; generator exports remain
-  available lazily. The current `classlib` pin advances to commit `22a02a4`,
-  which retains that repair and adds the authoritative shared slide and
-  webpage style guides. Both MATH 332 companion
+  available lazily. The current `classlib` pin advances to commit `526eecf`,
+  which retains that repair and the authoritative shared style guides, adds
+  the shared heading-hierarchy convention, and supplies the `\mLambda` slide
+  macro. Both MATH 332 companion
   notebooks now clone this course in Colab, initialize its recorded `classlib`
   commit through a public HTTPS URL, install that exact checkout, and leave the
   working directory unchanged. Both execute cleanly with the local `qmcpy`
@@ -132,7 +133,10 @@ this course already pins it. Resume the Deck 03 instructor review afterward.
   $\mat{M}_2\mat{M}_1[\mat{A}\mid\vct{b}]=[\mat{U}\mid\vct{c}]$. The deck
   emphasizes that $[\mat{U}\mid\vct{c}]$ represents
   $\mat{U}\vct{x}=\vct{c}$ and that back substitution solves for
-  $\vct{x}$.
+  $\vct{x}$. Its pivot discussion now identifies pivots in the variable
+  columns as independent constraints and proves that a consistent system with
+  fewer equations than unknowns must have a free variable and therefore
+  cannot have a unique solution.
 - The course-wide computational principle is now explicit in Deck 00 and
   `notes/COURSE-PHILOSOPHY.md`: compute only what the problem requires because
   unnecessary work wastes time and creates more opportunities for round-off

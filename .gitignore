@@ -20,3 +20,5 @@ venv/
 # Jupyter checkpoints and JupyterLab Desktop project state
 **/.ipynb_checkpoints/
 **/.jupyter/
+
+/.quarto/
