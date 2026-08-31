@@ -91,8 +91,9 @@ not automatically propagate into Jupyter.
 
 ## 7. Assignments and quizzes
 
-Create homework that reinforces theory and computation. Determine the Canvas
-quiz strategy before publishing quiz dates or links.
+Create homework that reinforces theory and computation. Administer quizzes on
+paper, record their common rules and coverage on the combined Quizzes and
+Tests page, and use Canvas on-paper assignments for manual grade entry.
 
 ## 8. Tests
 

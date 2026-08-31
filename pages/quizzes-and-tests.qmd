@@ -1,0 +1,43 @@
+---
+title: "Quizzes and Tests"
+---
+
+- Quizzes are held during the **last 15 minutes of class**.
+- Tests use the **full 75-minute class period**.
+- Students with recognized accommodations will receive the testing
+  arrangements specified in their accommodation letters.
+
+## Rules for quizzes and tests
+
+Unless the instructor explicitly says otherwise:
+
+- Quizzes and tests are completed **individually**.
+- Quizzes and tests are **closed book**, but you may use up to **four
+  letter-sized sheets of paper** as memory aids. For the final examination,
+  you may use up to **eight letter-sized sheets of paper**.
+- Calculators and all other electronic devices—including phones,
+  smartwatches, earbuds, tablets, and computers—are **not allowed**. Silence
+  and place them in a bag under your desk or at the front of the room before
+  the quiz or test begins.
+- Use only materials explicitly permitted for that quiz or test. Do not share
+  materials.
+- Keep your attention on your own work. Do not communicate with another
+  student, look at or copy another student's work, make your work available
+  to another student, or give or receive assistance. Direct questions to the
+  instructor.
+
+Cheating or attempted cheating—including using an unauthorized device,
+resource, or assistance—will be handled under the course
+[Academic Integrity, Technology, and AI Usage policy](../classlib/classlib/quarto/pages/policies.qmd#academic-integrity-technology-and-ai-usage).
+
+## Quiz and test schedule
+
+Dates, coverage, time limits, permitted materials, and review resources will
+be added as each quiz or test is finalized. Test 1 has not yet been scheduled.
+
+| Date | Quiz or test | Coverage |
+|:---|:---|:---|
+| September 10, 2026 | Quiz 1 | [Systems of Linear Equations and Matrices](../slides/01-systems-and-matrices.html)<br>[Inverses and Invertibility](../slides/02-inverses-and-invertibility.html) |
+| TBD — not yet scheduled | Test 1 | TBD |
+| TBD | Test 2 | TBD |
+| TBD | Final examination | Date, time, location, format, and coverage TBD |

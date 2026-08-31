@@ -69,14 +69,49 @@ revised:
    schedule, Canvas description, and announcement with the individual
    external-tool workflow.
 
+## Adding or updating a quiz or test
+
+Use the following workflow whenever a quiz, test, or final-exam detail is
+finalized or materially revised:
+
+1. Confirm the assessment name, date, duration, coverage, point value, and
+   Canvas status. Leave unresolved dates and details explicitly marked TBD.
+2. Maintain `pages/quizzes-and-tests.qmd` as the authoritative location for
+   the combined assessment schedule and course-wide rules. State common rules
+   once rather than repeating an administration column for every assessment.
+   MATH 332 quizzes and tests are closed book and allow no devices; students
+   may use up to four letter-sized sheets of paper as memory aids, while the
+   final examination allows up to eight. Include the individual-work and
+   academic-integrity expectations and state that students with recognized
+   accommodations receive the testing arrangements specified in their
+   accommodation letters.
+3. Record quiz coverage only on the combined Quizzes and Tests page. Quizzes
+   use the last 15 minutes of class, tests use the full 75-minute class period,
+   and these common timing rules belong in the page guidance rather than in
+   every schedule row.
+4. Add the assessment to `pages/schedule.qmd`. Put only its name in the class
+   event column. In the materials column, link to the combined Quizzes and
+   Tests page and to every covered deck by its full title, placing each link
+   on its own line with `<br>`.
+5. Add the assessment name and date to the title slide of the latest deck
+   included in its coverage. Do not put the coverage or duration on the deck
+   title slide, and remove or replace stale notices as the course advances.
+6. For a paper assessment, create a Canvas assignment configured for **On
+   Paper** submission so that it appears in Grades without accepting an online
+   submission. Grade the papers and enter scores manually. Do not publish a
+   saved Canvas draft until publication is explicitly intended.
+7. Render and assemble the complete course site. Verify the combined page,
+   schedule links, assessment notice, internal navigation, and affected deck
+   at the standard RevealJS viewport before checkpointing.
+
 ## Slide-source conventions
 
-- Whenever a homework, assignment, quiz, or similar assessed item is finalized
-  or updated on its course website page, also put its name and due date on the
-  title slide of one deck whose notes cover that item. If the coverage spans
-  two or more decks, use only the earliest relevant deck. Determine relevance
-  from the assignment coverage rather than the announcement date, and remove
-  or replace stale notices as the course advances.
+- Whenever an assessed item is finalized or updated on its course website
+  page, also put its name and date on exactly one relevant deck title slide,
+  following the assessment-specific workflow above. Use the earliest covered
+  deck for an assignment and the latest covered deck for a quiz or test. Do
+  not add quiz or test coverage or duration to the deck title, and remove or
+  replace stale notices as the course advances.
 - Write `#` section headings in title case: capitalize principal words while
   leaving articles, coordinating conjunctions, and short prepositions
   lowercase unless they begin or end the heading. Write `##` slide headings

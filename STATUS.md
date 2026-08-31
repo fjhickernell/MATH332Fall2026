@@ -24,7 +24,8 @@ Mathematical content should be maintained only in the slides.
 12. [x] Review and refine Deck 02 for classroom use.
 13. [x] Draft Deck 03: Matrix Structure and Transformations.
 14. [ ] Review and refine Deck 03 with the instructor for classroom use.
-15. [ ] Decide and document the Canvas quiz strategy.
+15. [x] Decide and document the paper quiz and test strategy, including the
+    Canvas gradebook workflow for manually entered scores.
 
 ## Later course construction
 
@@ -44,6 +45,10 @@ Mathematical content should be maintained only in the slides.
   Resources page, and Assignments page.
 - [x] Save and publish the matching required-resource statement on the live
   Canvas Welcome page.
+- [x] Schedule Quiz 1 for the last 15 minutes of class on September 10,
+  covering Decks 01--02; create the combined Quizzes and Tests page, add the
+  schedule and Deck 02 notices, and save the unpublished 20-point Canvas
+  on-paper assignment for manual grade entry.
 - [ ] Create assignments, quizzes, tests, and review materials.
 - [ ] Validate navigation, links, notation, accessibility, and visible layout
   as content is added.

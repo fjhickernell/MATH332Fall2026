@@ -37,10 +37,8 @@ website:
         text: Notebooks
       - href: pages/assignments.qmd
         text: Assignments
-      - href: pages/quizzes.qmd
-        text: Quizzes
-      - href: pages/tests.qmd
-        text: Tests
+      - href: pages/quizzes-and-tests.qmd
+        text: Quizzes and Tests
       - href: "{{< meta canvas.course >}}"
         text: Canvas
       - text: Resources

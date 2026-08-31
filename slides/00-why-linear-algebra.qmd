@@ -865,7 +865,7 @@ course materials, and Canvas for grades.
 
     - Lecture slides are under the [Schedule](https://fjhickernell.github.io/MATH332Fall2026/pages/schedule.html)
 
-    - Course work appears under [Assignments](https://fjhickernell.github.io/MATH332Fall2026/pages/assignments.html), [Quizzes](https://fjhickernell.github.io/MATH332Fall2026/pages/quizzes.html), and [Tests](https://fjhickernell.github.io/MATH332Fall2026/pages/tests.html)
+    - Course work appears under [Assignments](https://fjhickernell.github.io/MATH332Fall2026/pages/assignments.html) and [Quizzes and Tests](https://fjhickernell.github.io/MATH332Fall2026/pages/quizzes-and-tests.html)
 
     - Basic course information is on the [Welcome page](https://fjhickernell.github.io/MATH332Fall2026/)
 

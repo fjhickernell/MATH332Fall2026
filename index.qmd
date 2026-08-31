@@ -73,8 +73,7 @@ grades.
 | [Schedule and lecture slides](pages/schedule.qmd) | Announcements |
 | [Jupyter notebooks](pages/notebooks.qmd) | WileyPLUS homework launches |
 | [Assignment rules, details, and due dates](pages/assignments.qmd) | Diagnostic survey |
-| [Quiz information and schedule](pages/quizzes.qmd) | |
-| [Test and exam information](pages/tests.qmd) | |
+| [Quizzes and tests](pages/quizzes-and-tests.qmd) | |
 | [Required resources](pages/resources.qmd) | |
 | [Course policies](classlib/classlib/quarto/pages/policies.qmd) | |
 | [Repository access instructions](classlib/classlib/quarto/pages/git-clone-update-with-submodules.qmd) | |
@@ -137,9 +136,11 @@ Anton, Chapter 6. Detailed pacing is **TBD**.
 
 - [**Homework assignments:**](pages/assignments.qmd) 20%; all homework
   assignments are completed individually through WileyPLUS
-- [**Quizzes:**](pages/quizzes.qmd) format, dates **TBD** 15%
-- [**Tests:**](pages/tests.qmd) dates **TBD** 25%
-- [**Final Exam:**](pages/tests.qmd) _on the date assigned by the registrar_ 40%
+- [**Quizzes: 15%**](pages/quizzes-and-tests.qmd); Quiz 1 is September 10;
+  later dates **TBD**
+- [**Tests: 25%**](pages/quizzes-and-tests.qmd); Test 1 is not yet scheduled
+- [**Final Exam: 40%**](pages/quizzes-and-tests.qmd); _on the date assigned by
+  the registrar_
 - **Extra Credit:** From August 24 through December 6, you may earn extra
   credit by being the first student to report a previously unreported error in
 

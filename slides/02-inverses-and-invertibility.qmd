@@ -5,7 +5,8 @@ deck_title: "{{< meta decks.d02.title >}}"
 deck_short_title: "{{< meta decks.d02.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} §§1.4–1.6, 1.11</span>
+  <span class="deck-meta">{{< meta texts.anton.short >}} §§1.4–1.6, 1.11<br>
+  Quiz 1 · Sep 10</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">

@@ -54,6 +54,15 @@ review afterward.
   relevant deck, using the earlier deck when coverage spans multiple decks.
   Assignment 1 now appears only on the Deck 01 title slide. The live Canvas
   Welcome page publishes the matching required-resource statement.
+- Quiz 1 is scheduled for the last 15 minutes of class on September 10 and
+  covers **Systems of Linear Equations and Matrices** and **Inverses and
+  Invertibility**. The combined Quizzes and Tests page records the paper,
+  closed-book, no-device rules, the four-sheet memory-aid allowance for
+  quizzes and tests, the eight-sheet allowance for the final examination,
+  academic-integrity expectations, recognized-accommodation arrangements,
+  and the assessment schedule. Test 1 is not yet scheduled. Canvas course
+  `23913` contains unpublished 20-point on-paper assignment `102857`, ready
+  for manual grade entry after the paper quiz is graded.
 - The sequential Deck 00–08 architecture is implemented. Decks 01–03 now have
   substantive drafts, and Anton Chapters 2–6 are represented by Decks 04–08.
   Metadata, previous/next navigation, course maps, schedule links, and internal
