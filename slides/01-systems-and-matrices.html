@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-08-29">
+  <meta name="dcterms.date" content="2026-08-31">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -459,6 +459,7 @@
           mpi: "{\\mathrm{\\pi}}",
           mK: "{\\mathsf{K}}",
           tmK: "{\\widetilde{\\mathsf{K}}}",
+          mLambda: "{\\mathsf{\\Lambda}}",
           mSigma: "{\\mathsf{\\Sigma}}",
 
           dif: "{\\mathrm{d}}",
@@ -597,7 +598,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">August 29, 2026</p>
+  <p class="date">August 31, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 center">
 <h1>Course Map</h1>
@@ -1402,6 +1403,9 @@ R_i\leftarrow R_i-mR_j
 <li>zero rows, if any, lie at the bottom</li>
 </ul>
 <p>This is <span class="alert">row echelon form</span></p>
+<div class="key-point">
+<p>For a consistent system, pivots in the <span class="alert">variable columns</span> count independent constraints; each pivot column identifies one <span class="alert">pivot variable</span></p>
+</div>
 <div class="small">
 <p>Pivot entries need not equal <span class="math inline">\(1\)</span> in row echelon form</p>
 </div>
@@ -1598,6 +1602,28 @@ x=\frac{-4-z}{5}
 <p>A linear system has zero, one, or infinitely many solutions—never exactly two</p>
 </div>
 <p><span class="math inline">\(\exstar\)</span> Why would two distinct solutions force infinitely many?</p>
+</section>
+<section class="slide level2">
+
+<h3 id="fewer-equations-than-unknowns-cannot-give-a-unique-solution">Fewer equations than unknowns cannot give a unique solution</h3>
+<p>Let <span class="math inline">\(r\)</span> be the number of pivots in the <span class="math inline">\(n\)</span> variable columns. For a <span class="alert">consistent system</span>, there are</p>
+<p><span class="math display">\[
+\underbrace{r}_{\text{pivot variables}}
+\qquad\text{and}\qquad
+\underbrace{n-r}_{\text{free variables}}
+\]</span></p>
+<p>The pivot variables are solved in terms of the free variables, so every variable is uniquely determined exactly when <span class="math inline">\(r=n\)</span></p>
+<p>With <span class="math inline">\(m\)</span> equations, at most <span class="math inline">\(m\)</span> variable columns can contain pivots. Hence</p>
+<p><span class="math display">\[
+m&lt;n
+\quad\implies\quad
+r\le m&lt;n
+\quad\implies\quad
+n-r&gt;0
+\]</span></p>
+<div class="key-point">
+<p>If <span class="math inline">\(m&lt;n\)</span>, the system has <span class="alert">no solutions</span> or <span class="alert">infinitely many solutions</span>—never exactly one</p>
+</div>
 </section>
 <section id="resistance-circuit" class="slide level2">
 <h2>Resistance circuit</h2>

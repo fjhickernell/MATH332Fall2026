@@ -329,6 +329,7 @@
         mpi: "{\\mathrm{\\pi}}",
         mK: "{\\mathsf{K}}",
         tmK: "{\\widetilde{\\mathsf{K}}}",
+        mLambda: "{\\mathsf{\\Lambda}}",
         mSigma: "{\\mathsf{\\Sigma}}",
 
         dif: "{\\mathrm{d}}",
