@@ -12,6 +12,9 @@ title: "Quizzes and Tests"
 Unless the instructor explicitly says otherwise:
 
 - Quizzes and tests are completed **individually**.
+- For an application problem, you will **not** need to derive the linear
+  system of equations unless the instructor tells you otherwise. When a
+  derivation is not required, the linear system will be provided.
 - Quizzes and tests are **closed book**, but you may use up to **four
   letter-sized sheets of paper** as memory aids. For the final examination,
   you may use up to **eight letter-sized sheets of paper**.

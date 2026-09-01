@@ -26,6 +26,10 @@ Mathematical content should be maintained only in the slides.
 14. [ ] Review and refine Deck 03 with the instructor for classroom use.
 15. [x] Decide and document the paper quiz and test strategy, including the
     Canvas gradebook workflow for manually entered scores.
+16. [x] Clarify that quiz and test application problems provide the linear
+    system unless deriving it is explicitly assigned.
+17. [x] Add a tridiagonal finite-difference ODE boundary-value application to
+    Deck 03.
 
 ## Later course construction
 

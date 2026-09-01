@@ -84,7 +84,9 @@ finalized or materially revised:
    final examination allows up to eight. Include the individual-work and
    academic-integrity expectations and state that students with recognized
    accommodations receive the testing arrangements specified in their
-   accommodation letters.
+   accommodation letters. Unless the instructor explicitly announces
+   otherwise, application problems must provide the linear system rather than
+   require students to derive it from the application.
 3. Record quiz coverage only on the combined Quizzes and Tests page. Quizzes
    use the last 15 minutes of class, tests use the full 75-minute class period,
    and these common timing rules belong in the page guidance rather than in

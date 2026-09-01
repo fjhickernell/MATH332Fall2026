@@ -54,6 +54,7 @@ The pattern of entries can reveal how a matrix behaves before any calculation
 
 - [Diagonal matrices act one coordinate at a time](#diagonal-matrices-act-one-coordinate-at-a-time)
 - [Triangular matrices expose pivots](#triangular-matrices-expose-pivots)
+- [Tridiagonal matrices couple neighboring grid values](#tridiagonal-matrices-couple-neighboring-grid-values)
 - [Transpose exchanges rows and columns](#transpose-exchanges-rows-and-columns)
 - [Symmetric matrices mirror pairwise relationships](#symmetric-matrices-mirror-pairwise-relationships)
 
@@ -207,6 +208,108 @@ $$
 - Left block — $\mat{I}$
 - Right block — $\mat{U}^{-1}$
 - $\mat{U}^{-1}$ — upper triangular again
+:::
+
+## Tridiagonal matrices couple neighboring grid values
+
+Consider the linear boundary-value problem
+
+$$
+a(x)y''(x)+b(x)y'(x)+c(x)y(x)=d(x),
+\qquad y(0)=y(1)=0
+$$
+
+At the interior grid points $x_i=ih$, $i=1,\ldots,n$, where $h=1/(n+1)$,
+
+$$
+y''(x_i)\approx\frac{y_{i-1}-2y_i+y_{i+1}}{h^2},
+\qquad
+y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
+$$
+
+::: {.key-point}
+Each centered-difference equation couples only the neighboring values
+$y_{i-1}$, $y_i$, and $y_{i+1}$
+:::
+
+---
+
+### Three coefficients form three diagonals
+
+Write $a_i=a(x_i)$, and similarly for $b_i,c_i,d_i$. Then
+
+$$
+\alpha_i y_{i-1}+\beta_i y_i+\gamma_i y_{i+1}=d_i,
+$$
+
+$$
+\alpha_i=\frac{a_i}{h^2}-\frac{b_i}{2h},
+\qquad
+\beta_i=-\frac{2a_i}{h^2}+c_i,
+\qquad
+\gamma_i=\frac{a_i}{h^2}+\frac{b_i}{2h}
+$$
+
+Because $y_0=y_{n+1}=0$, the unknowns $\vct{y}=[y_1,\ldots,y_n]^{\mathsf T}$ satisfy
+
+$$
+\begin{bmatrix}
+\beta_1&\gamma_1&&&0\\
+\alpha_2&\beta_2&\gamma_2&&\\
+&\ddots&\ddots&\ddots&\\
+&&\alpha_{n-1}&\beta_{n-1}&\gamma_{n-1}\\
+0&&&\alpha_n&\beta_n
+\end{bmatrix}
+\vct{y}
+=
+\begin{bmatrix}d_1\\d_2\\\vdots\\d_{n-1}\\d_n\end{bmatrix}
+$$
+
+---
+
+### A concrete boundary-value problem
+
+Take
+
+$$
+-y''(x)+y'(x)+y(x)=x,
+\qquad y(0)=y(1)=0
+$$
+
+With four interior points, $h=1/5$. Multiplying the centered-difference
+equations by $2$ gives
+
+$$
+\begin{bmatrix}
+102&-45&0&0\\
+-55&102&-45&0\\
+0&-55&102&-45\\
+0&0&-55&102
+\end{bmatrix}
+\begin{bmatrix}y_1\\y_2\\y_3\\y_4\end{bmatrix}
+=
+\begin{bmatrix}2/5\\4/5\\6/5\\8/5\end{bmatrix}
+$$
+
+::: {.key-point}
+- Second derivative — main diagonal and both neighboring diagonals
+- First derivative — unequal off-diagonal entries, so this matrix is not symmetric
+:::
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Numerically solve the system for $\vct{y}=[y_1,y_2,y_3,y_4]^{\mathsf T}$.</span>
+:::
+
+::: {.notes}
+The numerical solution is
+
+$$
+\vct{y}\approx
+\begin{bmatrix}
+0.0242901\\0.0461686\\0.0571833\\0.0465204
+\end{bmatrix}.
+$$
 :::
 
 ## Transpose exchanges rows and columns

@@ -60,9 +60,12 @@ review afterward.
   closed-book, no-device rules, the four-sheet memory-aid allowance for
   quizzes and tests, the eight-sheet allowance for the final examination,
   academic-integrity expectations, recognized-accommodation arrangements,
-  and the assessment schedule. Test 1 is not yet scheduled. Canvas course
-  `23913` contains unpublished 20-point on-paper assignment `102857`, ready
-  for manual grade entry after the paper quiz is graded.
+  and the assessment schedule. Unless the instructor explicitly says
+  otherwise, students will be given the linear system for an application
+  problem rather than be asked to derive it from the application. Test 1 is
+  not yet scheduled. Canvas course `23913` contains unpublished 20-point
+  on-paper assignment `102857`, ready for manual grade entry after the paper
+  quiz is graded.
 - The sequential Deck 00–08 architecture is implemented. Decks 01–03 now have
   substantive drafts, and Anton Chapters 2–6 are represented by Decks 04–08.
   Metadata, previous/next navigation, course maps, schedule links, and internal
@@ -95,10 +98,15 @@ review afterward.
   positive-definite tridiagonal covariance matrix whose integer-valued inverse
   illustrates that covariance and precision matrices can have different zero
   patterns; the result is retained only in presenter notes.
-- `slides/03-matrix-structure-and-transformations.qmd` is a 38-slide
+- `slides/03-matrix-structure-and-transformations.qmd` is a 41-slide
   instructor-review draft covering Anton §§1.7–1.9. It develops diagonal,
-  triangular, transposed, and symmetric structure; supplements Anton with PLU,
-  including SciPy's compact factor shapes for rectangular matrices;
+  triangular, tridiagonal, transposed, and symmetric structure. Its
+  tridiagonal sequence derives the centered-difference system for a linear
+  ODE boundary-value problem and gives a concrete nonsymmetric four-interior-
+  point example. A starred exercise asks students to solve the displayed
+  system numerically, with the solution retained in presenter notes. The deck
+  supplements Anton with PLU, including SciPy's compact factor shapes for
+  rectangular matrices;
   defines linear transformations and standard matrices; treats scaling,
   reflections, projections, and rotations, including a coordinate-plane
   comparison of three actions; and closes with composition, inverse actions,
