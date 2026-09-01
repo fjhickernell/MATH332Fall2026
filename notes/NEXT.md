@@ -51,9 +51,9 @@ review afterward.
   course is now completed and submitted individually, and the Assignments page
   and author workflow contain no alternate group-submission policy. The author
   workflow also requires an assignment name and due date on exactly one
-  relevant deck, using the earlier deck when coverage spans multiple decks.
-  Assignment 1 now appears only on the Deck 01 title slide. The live Canvas
-  Welcome page publishes the matching required-resource statement.
+  relevant deck, choosing one suitable covered deck when the placement is
+  ambiguous. Assignment 1 appears only on the Deck 01 title slide. The live
+  Canvas Welcome page publishes the matching required-resource statement.
 - Quiz 1 is scheduled for the last 15 minutes of class on September 10 and
   covers **Systems of Linear Equations and Matrices** and **Inverses and
   Invertibility**. The combined Quizzes and Tests page records the paper,
@@ -63,9 +63,12 @@ review afterward.
   and the assessment schedule. Unless the instructor explicitly says
   otherwise, students will be given the linear system for an application
   problem rather than be asked to derive it from the application. Test 1 is
-  not yet scheduled. Canvas course `23913` contains unpublished 20-point
-  on-paper assignment `102857`, ready for manual grade entry after the paper
-  quiz is graded.
+  scheduled for the full class period on September 17 and covers **Systems of
+  Linear Equations and Matrices**, **Inverses and Invertibility**, and **Matrix
+  Structure and Transformations**. Its date and coverage appear on the
+  schedule, the combined Quizzes and Tests page, and the Deck 03 title slide.
+  Canvas course `23913` contains unpublished 20-point on-paper assignment
+  `102857`, ready for manual grade entry after the paper quiz is graded.
 - The sequential Deck 00–08 architecture is implemented. Decks 01–03 now have
   substantive drafts, and Anton Chapters 2–6 are represented by Decks 04–08.
   Metadata, previous/next navigation, course maps, schedule links, and internal

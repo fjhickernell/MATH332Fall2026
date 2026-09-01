@@ -39,11 +39,11 @@ revised:
 5. Add or update the due-date entry in `pages/schedule.qmd`, linking to the
    same authoritative assignment details.
 6. Determine from the assignment coverage which RevealJS deck contains the
-   relevant notes. Put the assignment name and due date on that deck's title
-   slide. If the coverage spans two or more decks, use only the earliest
-   relevant deck. When useful, add a brief linked logistics slide describing
-   the assignment and individual-submission expectations. Remove or replace
-   stale notices as the course advances.
+   relevant notes. Put the assignment name and due date on exactly one deck's
+   title slide. If the appropriate deck is ambiguous, choose one suitable deck
+   rather than duplicating the reminder. When useful, add a brief linked
+   logistics slide describing the assignment and individual-submission
+   expectations. Remove or replace stale notices as the course advances.
 7. Render the root website and the independent slide project, assemble the
    complete site, and verify the assignment page, assignments table, schedule,
    Canvas links, deck notice, and internal links. Inspect the visible assignment
@@ -92,9 +92,10 @@ finalized or materially revised:
    and these common timing rules belong in the page guidance rather than in
    every schedule row.
 4. Add the assessment to `pages/schedule.qmd`. Put only its name in the class
-   event column. In the materials column, link to the combined Quizzes and
-   Tests page and to every covered deck by its full title, placing each link
-   on its own line with `<br>`.
+   event column. In the materials column, link to every covered deck by its
+   full title, placing each link on its own line with `<br>`. The Quizzes and
+   Tests page is available through the site navigation and should not be
+   linked redundantly from an assessment's schedule row.
 5. Add the assessment name and date to the title slide of the latest deck
    included in its coverage. Do not put the coverage or duration on the deck
    title slide, and remove or replace stale notices as the course advances.
@@ -110,10 +111,11 @@ finalized or materially revised:
 
 - Whenever an assessed item is finalized or updated on its course website
   page, also put its name and date on exactly one relevant deck title slide,
-  following the assessment-specific workflow above. Use the earliest covered
-  deck for an assignment and the latest covered deck for a quiz or test. Do
-  not add quiz or test coverage or duration to the deck title, and remove or
-  replace stale notices as the course advances.
+  following the assessment-specific workflow above. Choose one suitable
+  covered deck for an assignment when the placement is ambiguous, and use the
+  latest covered deck for a quiz or test. Do not add quiz or test coverage or
+  duration to the deck title, and remove or replace stale notices as the
+  course advances.
 - Write `#` section headings in title case: capitalize principal words while
   leaving articles, coordinating conjunctions, and short prepositions
   lowercase unless they begin or end the heading. Write `##` slide headings

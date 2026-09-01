@@ -36,11 +36,11 @@ resource, or assistance—will be handled under the course
 ## Quiz and test schedule
 
 Dates, coverage, time limits, permitted materials, and review resources will
-be added as each quiz or test is finalized. Test 1 has not yet been scheduled.
+be added as each quiz or test is finalized.
 
 | Date | Quiz or test | Coverage |
 |:---|:---|:---|
 | September 10, 2026 | Quiz 1 | [Systems of Linear Equations and Matrices](../slides/01-systems-and-matrices.html)<br>[Inverses and Invertibility](../slides/02-inverses-and-invertibility.html) |
-| TBD — not yet scheduled | Test 1 | TBD |
+| September 17, 2026 | Test 1 | [Systems of Linear Equations and Matrices](../slides/01-systems-and-matrices.html)<br>[Inverses and Invertibility](../slides/02-inverses-and-invertibility.html)<br>[Matrix Structure and Transformations](../slides/03-matrix-structure-and-transformations.html) |
 | TBD | Test 2 | TBD |
 | TBD | Final examination | Date, time, location, format, and coverage TBD |
