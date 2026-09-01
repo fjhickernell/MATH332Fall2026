@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-08-31">
+  <meta name="dcterms.date" content="2026-09-01">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -665,7 +665,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">August 31, 2026</p>
+  <p class="date">September 1, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 center">
 <h1>Course Map</h1>
@@ -708,6 +708,7 @@ In this deck
 <ul>
 <li><a href="#/diagonal-matrices-act-one-coordinate-at-a-time">Diagonal matrices act one coordinate at a time</a></li>
 <li><a href="#/triangular-matrices-expose-pivots">Triangular matrices expose pivots</a></li>
+<li><a href="#/tridiagonal-matrices-couple-neighboring-grid-values">Tridiagonal matrices couple neighboring grid values</a></li>
 <li><a href="#/transpose-exchanges-rows-and-columns">Transpose exchanges rows and columns</a></li>
 <li><a href="#/symmetric-matrices-mirror-pairwise-relationships">Symmetric matrices mirror pairwise relationships</a></li>
 </ul>
@@ -846,6 +847,100 @@ u_{11}&amp;u_{12}&amp;u_{13}\\
 <li><span class="math inline">\(\mat{U}^{-1}\)</span> — upper triangular again</li>
 </ul>
 </div>
+</section>
+<section id="tridiagonal-matrices-couple-neighboring-grid-values" class="slide level2">
+<h2>Tridiagonal matrices couple neighboring grid values</h2>
+<p>Consider the linear boundary-value problem</p>
+<p><span class="math display">\[
+a(x)y''(x)+b(x)y'(x)+c(x)y(x)=d(x),
+\qquad y(0)=y(1)=0
+\]</span></p>
+<p>At the interior grid points <span class="math inline">\(x_i=ih\)</span>, <span class="math inline">\(i=1,\ldots,n\)</span>, where <span class="math inline">\(h=1/(n+1)\)</span>,</p>
+<p><span class="math display">\[
+y''(x_i)\approx\frac{y_{i-1}-2y_i+y_{i+1}}{h^2},
+\qquad
+y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
+\]</span></p>
+<div class="key-point">
+<p>Each centered-difference equation couples only the neighboring values <span class="math inline">\(y_{i-1}\)</span>, <span class="math inline">\(y_i\)</span>, and <span class="math inline">\(y_{i+1}\)</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="three-coefficients-form-three-diagonals">Three coefficients form three diagonals</h3>
+<p>Write <span class="math inline">\(a_i=a(x_i)\)</span>, and similarly for <span class="math inline">\(b_i,c_i,d_i\)</span>. Then</p>
+<p><span class="math display">\[
+\alpha_i y_{i-1}+\beta_i y_i+\gamma_i y_{i+1}=d_i,
+\]</span></p>
+<p><span class="math display">\[
+\alpha_i=\frac{a_i}{h^2}-\frac{b_i}{2h},
+\qquad
+\beta_i=-\frac{2a_i}{h^2}+c_i,
+\qquad
+\gamma_i=\frac{a_i}{h^2}+\frac{b_i}{2h}
+\]</span></p>
+<p>Because <span class="math inline">\(y_0=y_{n+1}=0\)</span>, the unknowns <span class="math inline">\(\vct{y}=[y_1,\ldots,y_n]^{\mathsf T}\)</span> satisfy</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+\beta_1&amp;\gamma_1&amp;&amp;&amp;0\\
+\alpha_2&amp;\beta_2&amp;\gamma_2&amp;&amp;\\
+&amp;\ddots&amp;\ddots&amp;\ddots&amp;\\
+&amp;&amp;\alpha_{n-1}&amp;\beta_{n-1}&amp;\gamma_{n-1}\\
+0&amp;&amp;&amp;\alpha_n&amp;\beta_n
+\end{bmatrix}
+\vct{y}
+=
+\begin{bmatrix}d_1\\d_2\\\vdots\\d_{n-1}\\d_n\end{bmatrix}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="a-concrete-boundary-value-problem">A concrete boundary-value problem</h3>
+<p>Take</p>
+<p><span class="math display">\[
+-y''(x)+y'(x)+y(x)=x,
+\qquad y(0)=y(1)=0
+\]</span></p>
+<p>With four interior points, <span class="math inline">\(h=1/5\)</span>. Multiplying the centered-difference equations by <span class="math inline">\(2\)</span> gives</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+102&amp;-45&amp;0&amp;0\\
+-55&amp;102&amp;-45&amp;0\\
+0&amp;-55&amp;102&amp;-45\\
+0&amp;0&amp;-55&amp;102
+\end{bmatrix}
+\begin{bmatrix}y_1\\y_2\\y_3\\y_4\end{bmatrix}
+=
+\begin{bmatrix}2/5\\4/5\\6/5\\8/5\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<ul>
+<li>Second derivative — main diagonal and both neighboring diagonals</li>
+<li>First derivative — unequal off-diagonal entries, so this matrix is not symmetric</li>
+</ul>
+</div>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Numerically solve the system for <span class="math inline">\(\vct{y}=[y_1,y_2,y_3,y_4]^{\mathsf T}\)</span>.</span></p>
+</div>
+<aside class="notes">
+<p>The numerical solution is</p>
+<p><span class="math display">\[
+\vct{y}\approx
+\begin{bmatrix}
+0.0242901\\0.0461686\\0.0571833\\0.0465204
+\end{bmatrix}.
+\]</span></p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="transpose-exchanges-rows-and-columns" class="slide level2">
 <h2>Transpose exchanges rows and columns</h2>
