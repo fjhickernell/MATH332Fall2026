@@ -1060,7 +1060,6 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 =
 \begin{bmatrix}x_3\\x_1\\x_2\end{bmatrix}
 \]</span></p>
-<p>Left multiplication by <span class="math inline">\(\mat{P}\)</span> reorders matrix rows in the same pattern</p>
 <p><span class="alert">Every row and column of <span class="math inline">\(\mat{P}\)</span> contains exactly one <span class="math inline">\(1\)</span></span></p>
 <p><span class="math display">\[
 \mat{P}^{-1}=\mat{P}^{\mathsf T},
@@ -1070,6 +1069,46 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 <div class="key-point">
 <p>A single row-exchange matrix is symmetric; a general permutation matrix need not be</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="left-permutes-rows-right-permutes-columns">Left permutes rows; right permutes columns</h3>
+<p>Write the rows of <span class="math inline">\(\mat{A}\)</span> as <span class="math inline">\(\vct{a}_i^{\mathsf T}\)</span> and its columns as <span class="math inline">\(\vct{A}_j\)</span>. For the displayed <span class="math inline">\(\mat{P}\)</span>,</p>
+<p><span class="math display">\[
+\mat{P}\mat{A}
+=
+\begin{bmatrix}
+0&amp;0&amp;1\\
+1&amp;0&amp;0\\
+0&amp;1&amp;0
+\end{bmatrix}
+\mat{A}
+=
+\begin{bmatrix}
+\vct{a}_3^{\mathsf T}\\
+\vct{a}_1^{\mathsf T}\\
+\vct{a}_2^{\mathsf T}
+\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\mat{A}\mat{P}
+=
+\mat{A}
+\begin{bmatrix}
+0&amp;0&amp;1\\
+1&amp;0&amp;0\\
+0&amp;1&amp;0
+\end{bmatrix}
+=
+\begin{bmatrix}\vct{A}_2&amp;\vct{A}_3&amp;\vct{A}_1\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<ul>
+<li>Left multiplication by a permutation matrix permutes rows</li>
+<li>Right multiplication by a permutation matrix permutes columns</li>
+</ul>
+</div>
+<p>Because this <span class="math inline">\(\mat{P}\)</span> is not symmetric, <span class="math inline">\(\mat{A}\mat{P}^{\mathsf T}\)</span>—not <span class="math inline">\(\mat{A}\mat{P}\)</span>—uses the same ordering as <span class="math inline">\(\mat{P}\mat{A}\)</span></p>
 </section>
 <section class="slide level2">
 
@@ -1087,7 +1126,14 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 \underbrace{\bigl(\mat{\Pi}_2\mat{M}_1\mat{\Pi}_2^{\mathsf T}\bigr)}_{\widetilde{\mat{M}}_1}
 \mat{\Pi}_2
 \]</span></p>
-<p>Therefore</p>
+<div class="key-point">
+<p>Move and relabel the elimination stage—do not commute the factors</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="relabeled-stages-reveal-matl">Relabeled stages reveal <span class="math inline">\(\mat{L}\)</span></h3>
+<p>The collected factors give</p>
 <p><span class="math display">\[
 \mat{U}
 =\mat{M}_2\widetilde{\mat{M}}_1
@@ -1101,7 +1147,7 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 <ul>
 <li><span class="math inline">\(\mat{M}_1\longrightarrow\widetilde{\mat{M}}_1\)</span></li>
 <li><span class="math inline">\(\mat{M}_2\)</span> unchanged</li>
-<li>Move and relabel — not ordinary commutation</li>
+<li><span class="math inline">\(\widetilde{\mat{M}}_1\)</span> remains unit lower triangular because <span class="math inline">\(\mat{\Pi}_2\)</span> exchanges only rows below the first pivot</li>
 </ul>
 </div>
 </section>
@@ -1109,7 +1155,7 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 
 <h3 id="general-q-stage-pattern">General <span class="math inline">\(q\)</span>-stage pattern</h3>
 <ul>
-<li><span class="math inline">\(\mat{\Pi}_j\)</span> — row exchange before stage <span class="math inline">\(j\)</span> or <span class="math inline">\(\mat{I}\)</span> if none</li>
+<li><span class="math inline">\(\mat{\Pi}_j\)</span> — row exchange before stage <span class="math inline">\(j\)</span>, fixing rows <span class="math inline">\(1,\ldots,j-1\)</span>, or <span class="math inline">\(\mat{I}\)</span> if none</li>
 <li><span class="math inline">\(\mat{M}_j\)</span> — eliminate below pivot <span class="math inline">\(j\)</span></li>
 </ul>
 <p><span class="math display">\[
@@ -1119,7 +1165,7 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 \cdots
 \mat{M}_1\mat{\Pi}_1\mat{A}
 \]</span></p>
-<p>All row exchanges after stage <span class="math inline">\(j\)</span></p>
+<p>Every exchange after stage <span class="math inline">\(j\)</span> acts only among rows <span class="math inline">\(j+1,\ldots,m\)</span>. Set</p>
 <p><span class="math display">\[
 \widetilde{\mat{M}}_j
 =
@@ -1127,7 +1173,14 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 \mat{M}_j
 \bigl(\mat{\Pi}_q\cdots\mat{\Pi}_{j+1}\bigr)^{\mathsf T}
 \]</span></p>
-<p>Therefore</p>
+<div class="key-point">
+<p>Conjugation applies the same relabeling to rows and columns</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="the-relabeled-stages-stay-lower-triangular">The relabeled stages stay lower triangular</h3>
+<p>Because <span class="math inline">\(\mat{\Pi}_q\cdots\mat{\Pi}_{j+1}\)</span> fixes the first <span class="math inline">\(j\)</span> rows and columns, conjugation only reorders the entries below the diagonal in column <span class="math inline">\(j\)</span>. Therefore <span class="math inline">\(\widetilde{\mat{M}}_j\)</span> and <span class="math inline">\(\widetilde{\mat{M}}_j^{-1}\)</span> remain unit lower triangular.</p>
 <p><span class="math display">\[\begin{align*}
 \mat{P}^{\mathsf T}
 &amp;=\mat{\Pi}_q\cdots\mat{\Pi}_1,\\
@@ -1139,9 +1192,9 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 \end{align*}\]</span></p>
 <div class="key-point">
 <ul>
-<li>Later row exchanges relabel earlier elimination stages</li>
+<li>Later row exchanges relabel only the unused rows of earlier stages</li>
 <li><span class="math inline">\(\widetilde{\mat{M}}_q=\mat{M}_q\)</span></li>
-<li>No commuting assumption</li>
+<li><span class="math inline">\(\mat{L}\)</span> is a product of unit lower-triangular matrices and is therefore unit lower triangular</li>
 </ul>
 </div>
 </section>
