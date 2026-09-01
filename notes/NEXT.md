@@ -98,7 +98,7 @@ review afterward.
   positive-definite tridiagonal covariance matrix whose integer-valued inverse
   illustrates that covariance and precision matrices can have different zero
   patterns; the result is retained only in presenter notes.
-- `slides/03-matrix-structure-and-transformations.qmd` is a 41-slide
+- `slides/03-matrix-structure-and-transformations.qmd` is a 44-slide
   instructor-review draft covering Anton §§1.7–1.9. It develops diagonal,
   triangular, tridiagonal, transposed, and symmetric structure. Its
   tridiagonal sequence derives the centered-difference system for a linear
@@ -117,13 +117,16 @@ review afterward.
   reduction. Its PLU bridge uses $\mat{\Pi}_j$ for a stage permutation and
   $\mat{P}$ for the accumulated permutation, explains the conjugated
   elimination matrices $\widetilde{\mat{M}}_j$ for a general $q$-stage
-  factorization, and finishes with a concrete $3\times3$ example requiring
-  two row exchanges. The Markdown parses cleanly,
-  the displayed examples have been checked computationally, and internal
-  fragment targets have been checked. The root site and all nine decks render
-  cleanly outside the filesystem sandbox; Deck 03 has been inspected slide by
-  slide at the standard $1600\times1000$ RevealJS viewport, and the assembled
-  site's student-facing local files and fragments resolve.
+  factorization, and explains why restricting later pivot exchanges to the
+  unused rows preserves their unit lower-triangular structure. It now states
+  explicitly that left multiplication by a permutation matrix permutes rows
+  and right multiplication permutes columns. The sequence finishes with a
+  concrete $3\times3$ example requiring two row exchanges. The Markdown parses
+  cleanly, the displayed examples have been checked computationally, and
+  internal fragment targets have been checked. The root site and all nine
+  decks render cleanly outside the filesystem sandbox; Deck 03 has been
+  inspected slide by slide at the standard $1600\times1000$ RevealJS viewport,
+  and the assembled site's student-facing local files and fragments resolve.
 - Deck 01 now develops grouped elimination matrices through a continuing
   three-equation example that connects equation operations, the corresponding
   augmented-matrix row operations, and left multiplication. The notation

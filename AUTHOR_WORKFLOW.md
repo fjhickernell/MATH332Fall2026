@@ -158,6 +158,10 @@ finalized or materially revised:
 - In slide-editing requests, interpret **highlight** as the established
   `{.alert}` style and **emphasize** as italic emphasis such as `\emph{}` unless
   the user specifies another treatment.
+- For a matrix such as $\mat{A}$, denote its columns by uppercase vector
+  symbols $\vct{A}_j$ and its rows by lowercase transposed vector symbols
+  $\vct{a}_i^{\mathsf T}$. Apply the same uppercase-column/lowercase-row
+  convention to other matrices.
 - When prose refers to another course deck, use the metadata-defined short deck
   title and link it to that deck or the relevant slide. Avoid bare numeric
   labels such as `Deck 02` unless the deck number or sequence is itself the

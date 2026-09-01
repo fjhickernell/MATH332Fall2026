@@ -448,8 +448,6 @@ $$
 \begin{bmatrix}x_3\\x_1\\x_2\end{bmatrix}
 $$
 
-Left multiplication by $\mat{P}$ reorders matrix rows in the same pattern
-
 [Every row and column of $\mat{P}$ contains exactly one $1$]{.alert}
 
 $$
@@ -461,6 +459,51 @@ $$
 ::: {.key-point}
 A single row-exchange matrix is symmetric; a general permutation matrix need not be
 :::
+
+---
+
+### Left permutes rows; right permutes columns
+
+Write the rows of $\mat{A}$ as $\vct{a}_i^{\mathsf T}$ and its columns as
+$\vct{A}_j$. For the displayed $\mat{P}$,
+
+$$
+\mat{P}\mat{A}
+=
+\begin{bmatrix}
+0&0&1\\
+1&0&0\\
+0&1&0
+\end{bmatrix}
+\mat{A}
+=
+\begin{bmatrix}
+\vct{a}_3^{\mathsf T}\\
+\vct{a}_1^{\mathsf T}\\
+\vct{a}_2^{\mathsf T}
+\end{bmatrix}
+$$
+
+$$
+\mat{A}\mat{P}
+=
+\mat{A}
+\begin{bmatrix}
+0&0&1\\
+1&0&0\\
+0&1&0
+\end{bmatrix}
+=
+\begin{bmatrix}\vct{A}_2&\vct{A}_3&\vct{A}_1\end{bmatrix}
+$$
+
+::: {.key-point}
+- Left multiplication by a permutation matrix permutes rows
+- Right multiplication by a permutation matrix permutes columns
+:::
+
+Because this $\mat{P}$ is not symmetric, $\mat{A}\mat{P}^{\mathsf T}$—not
+$\mat{A}\mat{P}$—uses the same ordering as $\mat{P}\mat{A}$
 
 ---
 
@@ -483,7 +526,15 @@ $$
 \mat{\Pi}_2
 $$
 
-Therefore
+::: {.key-point}
+Move and relabel the elimination stage—do not commute the factors
+:::
+
+---
+
+### Relabeled stages reveal $\mat{L}$
+
+The collected factors give
 
 $$
 \mat{U}
@@ -498,14 +549,16 @@ $$
 ::: {.key-point}
 - $\mat{M}_1\longrightarrow\widetilde{\mat{M}}_1$
 - $\mat{M}_2$ unchanged
-- Move and relabel — not ordinary commutation
+- $\widetilde{\mat{M}}_1$ remains unit lower triangular because
+  $\mat{\Pi}_2$ exchanges only rows below the first pivot
 :::
 
 ---
 
 ### General $q$-stage pattern
 
-- $\mat{\Pi}_j$ — row exchange before stage $j$ or $\mat{I}$ if none
+- $\mat{\Pi}_j$ — row exchange before stage $j$, fixing rows
+  $1,\ldots,j-1$, or $\mat{I}$ if none
 - $\mat{M}_j$ — eliminate below pivot $j$
 
 $$
@@ -516,7 +569,7 @@ $$
 \mat{M}_1\mat{\Pi}_1\mat{A}
 $$
 
-All row exchanges after stage $j$
+Every exchange after stage $j$ acts only among rows $j+1,\ldots,m$. Set
 
 $$
 \widetilde{\mat{M}}_j
@@ -526,7 +579,18 @@ $$
 \bigl(\mat{\Pi}_q\cdots\mat{\Pi}_{j+1}\bigr)^{\mathsf T}
 $$
 
-Therefore
+::: {.key-point}
+Conjugation applies the same relabeling to rows and columns
+:::
+
+---
+
+### The relabeled stages stay lower triangular
+
+Because $\mat{\Pi}_q\cdots\mat{\Pi}_{j+1}$ fixes the first $j$ rows and
+columns, conjugation only reorders the entries below the diagonal in column
+$j$. Therefore $\widetilde{\mat{M}}_j$ and
+$\widetilde{\mat{M}}_j^{-1}$ remain unit lower triangular.
 
 \begin{align*}
 \mat{P}^{\mathsf T}
@@ -539,9 +603,10 @@ Therefore
 \end{align*}
 
 ::: {.key-point}
-- Later row exchanges relabel earlier elimination stages
+- Later row exchanges relabel only the unused rows of earlier stages
 - $\widetilde{\mat{M}}_q=\mat{M}_q$
-- No commuting assumption
+- $\mat{L}$ is a product of unit lower-triangular matrices and is therefore
+  unit lower triangular
 :::
 
 ---
