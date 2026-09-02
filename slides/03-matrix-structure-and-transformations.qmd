@@ -846,7 +846,15 @@ multiple right-hand sides, and residual checks.
 
 # Matrices as Linear Transformations
 
-A matrix turns input vectors into output vectors by one fixed rule
+We now study functions, or transformations, from $\reals^n$ to $\reals^m$
+
+Every $\mat{A}\in\reals^{m\times n}$ defines one:
+
+$$
+T_{\mat{A}}:\reals^n\longrightarrow\reals^m,
+\qquad
+T_{\mat{A}}(\vct{x})=\mat{A}\vct{x}
+$$
 
 - [A matrix turns an input vector into an output vector](#a-matrix-maps-one-coordinate-space-into-another)
 - [Combine first or transform first—the output agrees](#linear-transformations-preserve-combinations)
