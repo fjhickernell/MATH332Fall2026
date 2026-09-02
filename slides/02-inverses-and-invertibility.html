@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-09-01">
+  <meta name="dcterms.date" content="2026-09-02">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -477,6 +477,57 @@
       }
     };
   </script>
+  <script>
+    // Quarto 1.10 emits Reveal's MathJax 2 plugin even when html-math-method
+    // points to MathJax 3. Replace that plugin before Reveal.initialize() so
+    // the shared MathJax 3 configuration can load without a MathJax.Hub error.
+    (() => {
+      const defaultMathJax3Url =
+        "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js";
+
+      const mathJax3Plugin = {
+        id: "mathjax3",
+        init(deck) {
+          const configuredUrl = deck.getConfig().math?.mathjax;
+          const script = document.createElement("script");
+          script.id = "MathJax-script";
+          script.src = configuredUrl || defaultMathJax3Url;
+          script.async = true;
+
+          return new Promise((resolve, reject) => {
+            script.addEventListener(
+              "load",
+              () => {
+                const startup = window.MathJax?.startup?.promise;
+                if (startup && typeof startup.then === "function") {
+                  startup.then(resolve, reject);
+                } else {
+                  resolve();
+                }
+              },
+              { once: true }
+            );
+            script.addEventListener("error", reject, { once: true });
+            document.head.appendChild(script);
+          });
+        }
+      };
+
+      let revealMath;
+      Object.defineProperty(window, "RevealMath", {
+        configurable: true,
+        get() {
+          return revealMath;
+        },
+        set(pluginBundle) {
+          revealMath =
+            pluginBundle && typeof pluginBundle.MathJax3 === "function"
+              ? mathJax3Plugin
+              : pluginBundle;
+        }
+      });
+    })();
+  </script>
   <script id="course-website-meta" type="application/json">
   {
     "course_website": "https://fjhickernell.github.io/MATH332Fall2026/",
@@ -599,7 +650,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">September 1, 2026</p>
+  <p class="date">September 2, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 center">
 <h1>Course Map</h1>
@@ -611,7 +662,7 @@ Course decks
 <ul>
 <li><a href="00-why-linear-algebra.html">Why Linear Algebra?</a></li>
 <li><a href="01-systems-and-matrices.html">Systems and Matrices</a></li>
-<li><a href="02-inverses-and-invertibility.html" class="alert">Inverses</a></li>
+<li><a href="02-inverses-and-invertibility.html">Inverses</a> — <span class="alert">current</span></li>
 <li><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a></li>
 <li><a href="04-determinants.html">Determinants</a></li>
 <li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
@@ -748,8 +799,7 @@ In this deck
 <p>Now we can write <span class="math inline">\(\mat{N}_1=\mat{M}_1^{-1}\)</span></p>
 <div class="key-point">
 <ul>
-<li><span class="math inline">\(\mat{M}_j\)</span> — product of elementary matrices</li>
-<li>Hence invertible</li>
+<li><span class="math inline">\(\mat{M}_j\)</span> — an invertible product of elementary matrices</li>
 <li><span class="math inline">\(\mat{M}_j^{-1}\)</span> — reverses the whole column-elimination stage</li>
 </ul>
 </div>
@@ -762,7 +812,7 @@ In this deck
 <h3 id="invertible-nonsingular">Invertible = nonsingular</h3>
 <p><span class="math inline">\(\mat{A}^{-1}\)</span> exists</p>
 <ul>
-<li>every output <span class="math inline">\(\vct{b}=\mat{A}\vct{x}\)</span> has <span class="alert">exactly one input</span> <span class="math inline">\(\vct{x}\)</span></li>
+<li>for every <span class="math inline">\(\vct{b}\)</span>, <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> has <span class="alert">exactly one solution</span></li>
 <li>distinct inputs produce distinct outputs—no information is lost</li>
 <li>in echelon form, <span class="alert">every row and column has a pivot</span></li>
 </ul>
@@ -779,10 +829,9 @@ In this deck
 </div></div>
 <div class="key-point">
 <ul>
-<li>Pivot test — row-reduce <span class="math inline">\(\mat{A}\)</span> and inspect its echelon form</li>
-<li>Determinants — <span class="alert">deferred</span></li>
-<li>Elimination — pivots directly visible</li>
-<li>Nearly singular <span class="math inline">\(\mat{A}\)</span> — computed determinant potentially unreliable</li>
+<li>Pivot test — row-reduce <span class="math inline">\(\mat{A}\)</span> and inspect its pivots</li>
+<li>Determinants — <span class="alert">deferred</span>; elimination shows pivots directly</li>
+<li>Near singularity — computed determinants may be unreliable</li>
 </ul>
 </div>
 </section></section>
@@ -827,10 +876,14 @@ In this deck
 (\mat{A}\mat{B})^{-1}=\mat{B}^{-1}\mat{A}^{-1}
 \]</span></p>
 <p><span class="alert">Associativity</span> lets us regroup without changing the order:</p>
-<p><span class="math display">\[
+<p><span class="math display">\[\begin{align*}
 (\mat{A}\mat{B})(\mat{B}^{-1}\mat{A}^{-1})
-=\mat{A}\mat{I}\mat{A}^{-1}=\mat{I}
-\]</span></p>
+&amp;=\mat{A}(\mat{B}\mat{B}^{-1})\mat{A}^{-1}
+=\mat{A}\mat{A}^{-1}=\mat{I},\\
+(\mat{B}^{-1}\mat{A}^{-1})(\mat{A}\mat{B})
+&amp;=\mat{B}^{-1}(\mat{A}^{-1}\mat{A})\mat{B}
+=\mat{B}^{-1}\mat{B}=\mat{I}.
+\end{align*}\]</span></p>
 <ul>
 <li>No standard matrix quotient <span class="math inline">\(\mat{B}/\mat{A}\)</span></li>
 <li><span class="math inline">\(\mat{A}^{-1}\mat{B}\)</span> and <span class="math inline">\(\mat{B}\mat{A}^{-1}\)</span> generally different</li>
@@ -1103,7 +1156,7 @@ In this deck
 <div class="columns">
 <div class="column" style="width:47%;">
 <h3 id="one-or-a-few-right-hand-sides">One or a few right-hand sides</h3>
-<p>Use Gaussian elimination and back substitution on</p>
+<p>Use Gaussian elimination and back substitution:</p>
 <p><span class="math display">\[
 [\,\mat{A}\mid\vct{b}_1\ \cdots\ \vct{b}_k\,]
 \]</span></p>
@@ -1142,11 +1195,7 @@ In this deck
 <li>Square <span class="math inline">\(\mat{U}\)</span> — upper triangular</li>
 </ul>
 <div class="key-point">
-<p>Next in <a href="03-matrix-structure-and-transformations.html#elimination-becomes-a-factorization">Matrix Transformations</a></p>
-<ul>
-<li>No-exchange LU example</li>
-<li>Permutation matrix for row exchanges</li>
-</ul>
+<p>Next in <a href="03-matrix-structure-and-transformations.html#elimination-becomes-a-factorization">Matrix Transformations</a> — no-exchange LU and permutation matrices for row exchanges</p>
 </div>
 </section></section>
 <section>
@@ -1161,7 +1210,7 @@ In this deck
 </section>
 <section id="production-creates-internal-demand" class="slide level2">
 <h2>Production creates internal demand</h2>
-<p>Let</p>
+<p>For sectors <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span>, define</p>
 <p><span class="math display">\[\begin{align*}
 x_i &amp; = \alerttext{gross production}\text{ of sector }i, \\
 d_i &amp; = \alerttext{external demand}\text{ for sector }i, \\
@@ -1180,15 +1229,13 @@ c_{ij} &amp; = \text{output from sector }i\text{ needed per unit produced by sec
 <div class="key-point">
 <ul>
 <li><span class="math inline">\(\vct{x}\)</span> — gross production plan meeting <span class="math inline">\(\vct{d}\)</span></li>
-<li><span class="alert">Static balance model</span></li>
-<li>Not optimization</li>
-<li>Not a dynamic steady-state model</li>
+<li><span class="alert">Static balance model</span> — neither an optimization nor a dynamic steady-state model</li>
 </ul>
 </div>
 </section>
 <section id="one-forecast-or-a-response-map" class="slide level2">
 <h2>One forecast or a response map?</h2>
-<p>Let</p>
+<p>Consider a two-sector economy:</p>
 <p><span class="math display">\[
 \mat{C}=\begin{bmatrix}.20&amp;.10\\.30&amp;.25\end{bmatrix},
 \qquad
@@ -1197,7 +1244,7 @@ c_{ij} &amp; = \text{output from sector }i\text{ needed per unit produced by sec
 <div class="columns">
 <div class="column" style="width:47%;">
 <h3 id="one-demand-forecast">One demand forecast</h3>
-<p>Solve <span class="math inline">\((\mat{I}-\mat{C})\vct{x}=\vct{d}\)</span> directly:</p>
+<p>Solve directly:</p>
 <p><span class="math display">\[
 \vct{x}=\begin{bmatrix}100\\80\end{bmatrix}
 \]</span></p>
@@ -1230,11 +1277,10 @@ c_{ij} &amp; = \text{output from sector }i\text{ needed per unit produced by sec
 </ul>
 <div class="key-point">
 <ul>
-<li>Singular <span class="math inline">\(\mat{I}-\mat{C}\)</span> — a nonzero adjustment <span class="math inline">\(\vct{z}\)</span> with <span class="math inline">\(\vct{z}=\mat{C}\vct{z}\)</span></li>
-<li>Gross-output change exactly absorbed by internal requirements</li>
-<li>No change in net output for external users</li>
-<li>Compatible <span class="math inline">\(\vct{d}\)</span> — a family of plans <span class="math inline">\(\vct{x}+t\vct{z}\)</span></li>
-<li>Some <span class="math inline">\(\vct{d}\)</span> — no production plan</li>
+<li>Singular <span class="math inline">\(\mat{I}-\mat{C}\)</span> — a nonzero <span class="math inline">\(\vct{z}\)</span> satisfies <span class="math inline">\(\vct{z}=\mat{C}\vct{z}\)</span></li>
+<li>Along <span class="math inline">\(\vct{z}\)</span>, gross-output changes are absorbed internally</li>
+<li>Compatible <span class="math inline">\(\vct{d}\)</span> — <span class="math inline">\(\vct{x}+t\vct{z}\)</span> is an algebraic solution for every <span class="math inline">\(t\in\reals\)</span>; only nonnegative members are feasible plans</li>
+<li>Some <span class="math inline">\(\vct{d}\)</span> — no solution</li>
 </ul>
 </div>
 </section></section>
@@ -1291,7 +1337,7 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 <h3 id="statistical-meaning">Statistical meaning</h3>
 <ul>
 <li><span class="math inline">\(\vr^{\mathsf T}\mQ\vr\)</span> — departure <span class="math inline">\(\vr=\vf-\vmu\)</span> weighted against expected joint variation</li>
-<li><span class="math inline">\(\mQ_{ij}=0\)</span> — components <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> conditionally independent given the others</li>
+<li>For <span class="math inline">\(i\ne j\)</span>: <span class="math inline">\(\mQ_{ij}=0\)</span> exactly when <span class="math inline">\(f_i\)</span> and <span class="math inline">\(f_j\)</span> are conditionally independent given the rest</li>
 </ul>
 </div><div class="column" style="width:6%;">
 
@@ -1308,16 +1354,12 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 <p>rather than forming <span class="math inline">\(\mQ\)</span></p>
 </div></div>
 <div class="key-point">
-<ul>
-<li>Preview only — no derivation to memorize</li>
-<li>Covariance — joint variation</li>
-<li>Precision — conditional relationships and covariance-aware weighting</li>
-</ul>
+<p>Preview only — <span class="alert">covariance</span>: joint variation; <span class="alert">precision</span>: conditional structure</p>
 </div>
 </section>
 <section id="compute-a-precision-matrix" class="slide level2">
 <h2>Compute a precision matrix</h2>
-<p><span class="math inline">\(\exstar\)</span> A Gaussian vector has covariance matrix</p>
+<p>A Gaussian vector has covariance matrix</p>
 <p><span class="math display">\[
 \mSigma=
 \begin{bmatrix}
@@ -1326,11 +1368,9 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 0&amp;1&amp;2
 \end{bmatrix}
 \]</span></p>
-<ol type="1">
-<li>Compute the precision matrix <span class="math inline">\(\mQ=\mSigma^{-1}\)</span> by Gauss–Jordan reduction of <span class="math inline">\([\,\mSigma\mid\mat{I}\,]\)</span></li>
-<li>Verify that <span class="math inline">\(\mSigma\mQ=\mat{I}\)</span></li>
-<li>Compare <span class="math inline">\(\mSigma_{13}\)</span> with <span class="math inline">\(\mQ_{13}\)</span> — interpret the different zero patterns</li>
-</ol>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> Compute the precision matrix <span class="math inline">\(\mQ=\mSigma^{-1}\)</span> by Gauss–Jordan reduction of <span class="math inline">\([\,\mSigma\mid\mat{I}\,]\)</span>. <span class="exsub">Verify that <span class="math inline">\(\mSigma\mQ=\mat{I}\)</span>.</span> <span class="exsub">Compare <span class="math inline">\(\mSigma_{13}\)</span> with <span class="math inline">\(\mQ_{13}\)</span> and interpret the different zero patterns.</span> </span></p>
+</div>
 <aside class="notes">
 <p>Instructor result:</p>
 <p><span class="math display">\[
@@ -1341,7 +1381,8 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 1&amp;-1&amp;1
 \end{bmatrix}
 \]</span></p>
-<p>Here <span class="math inline">\(\mSigma_{13}=0\)</span> but <span class="math inline">\(\mQ_{13}=1\)</span></p>
+<p>A direct multiplication gives <span class="math inline">\(\mSigma\mQ=\mat{I}\)</span>.</p>
+<p>Here <span class="math inline">\(\mSigma_{13}=0\)</span>, so components <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> are marginally uncorrelated—and, for a Gaussian vector, marginally independent. However, <span class="math inline">\(\mQ_{13}=1\ne0\)</span>, so they are not conditionally independent given component <span class="math inline">\(2\)</span>. Covariance and precision zeros encode different relationships.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1357,30 +1398,12 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 <section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Big Ideas</h1>
 <ul>
-<li>Inverse — <span class="alert">undoes a square matrix action</span> on both sides
-<ul>
-<li><span class="math inline">\(\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}\)</span></li>
-</ul></li>
-<li>Invertible square matrix
-<ul>
-<li><span class="alert">Pivot in every row and column</span></li>
-<li>Exactly one solution for every <span class="math inline">\(\vct{b}\)</span></li>
-</ul></li>
-<li><span class="alert">Gauss–Jordan reduction</span> of <span class="math inline">\([\,\mat{A}\mid\mat{I}\,]\)</span> — compute <span class="math inline">\(\mat{A}^{-1}\)</span> when needed</li>
-<li>Product inverse — <span class="alert">reverse factor order</span>
-<ul>
-<li>Associativity — regroup, never reorder</li>
-</ul></li>
-<li><span class="alert">Least computation</span>
-<ul>
-<li>One or a few right-hand sides — solve directly</li>
-<li>Reusable response map — only when needed</li>
-</ul></li>
-<li>Applications
-<ul>
-<li>Leontief response map — demand to production</li>
-<li>Gaussian precision — <span class="alert">conditional structure and covariance-aware weighting</span></li>
-</ul></li>
+<li><span class="alert">Two-sided inverse</span> — <span class="math inline">\(\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}\)</span></li>
+<li>Invertible — pivot in every row and column; one solution for every <span class="math inline">\(\vct{b}\)</span></li>
+<li>Product inverse — <span class="alert">reverse factor order</span></li>
+<li>Gauss–Jordan on <span class="math inline">\([\,\mat{A}\mid\mat{I}\,]\)</span> computes <span class="math inline">\(\mat{A}^{-1}\)</span></li>
+<li><span class="alert">Least computation</span> — solve a few right-hand sides directly; reuse factors or response maps for many</li>
+<li>Applications — Leontief maps demand to production; Gaussian precision captures conditional structure</li>
 </ul>
 </section>
 
@@ -1397,7 +1420,7 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 <li>reflections, rotations, projections, and composition</li>
 </ul>
 <div class="key-point">
-<p>Next — <a href="03-matrix-structure-and-transformations.html" class="alert">matrix structure, transformations, and geometry</a></p>
+<p>Next — <a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a>: <span class="alert">structure, transformations, and geometry</span></p>
 </div>
 
 </section>

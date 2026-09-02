@@ -1,0 +1,51 @@
+<script>
+  // Quarto 1.10 emits Reveal's MathJax 2 plugin even when html-math-method
+  // points to MathJax 3. Replace that plugin before Reveal.initialize() so
+  // the shared MathJax 3 configuration can load without a MathJax.Hub error.
+  (() => {
+    const defaultMathJax3Url =
+      "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js";
+
+    const mathJax3Plugin = {
+      id: "mathjax3",
+      init(deck) {
+        const configuredUrl = deck.getConfig().math?.mathjax;
+        const script = document.createElement("script");
+        script.id = "MathJax-script";
+        script.src = configuredUrl || defaultMathJax3Url;
+        script.async = true;
+
+        return new Promise((resolve, reject) => {
+          script.addEventListener(
+            "load",
+            () => {
+              const startup = window.MathJax?.startup?.promise;
+              if (startup && typeof startup.then === "function") {
+                startup.then(resolve, reject);
+              } else {
+                resolve();
+              }
+            },
+            { once: true }
+          );
+          script.addEventListener("error", reject, { once: true });
+          document.head.appendChild(script);
+        });
+      }
+    };
+
+    let revealMath;
+    Object.defineProperty(window, "RevealMath", {
+      configurable: true,
+      get() {
+        return revealMath;
+      },
+      set(pluginBundle) {
+        revealMath =
+          pluginBundle && typeof pluginBundle.MathJax3 === "function"
+            ? mathJax3Plugin
+            : pluginBundle;
+      }
+    });
+  })();
+</script>

@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-09-01">
+  <meta name="dcterms.date" content="2026-09-02">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -477,6 +477,57 @@
       }
     };
   </script>
+  <script>
+    // Quarto 1.10 emits Reveal's MathJax 2 plugin even when html-math-method
+    // points to MathJax 3. Replace that plugin before Reveal.initialize() so
+    // the shared MathJax 3 configuration can load without a MathJax.Hub error.
+    (() => {
+      const defaultMathJax3Url =
+        "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js";
+
+      const mathJax3Plugin = {
+        id: "mathjax3",
+        init(deck) {
+          const configuredUrl = deck.getConfig().math?.mathjax;
+          const script = document.createElement("script");
+          script.id = "MathJax-script";
+          script.src = configuredUrl || defaultMathJax3Url;
+          script.async = true;
+
+          return new Promise((resolve, reject) => {
+            script.addEventListener(
+              "load",
+              () => {
+                const startup = window.MathJax?.startup?.promise;
+                if (startup && typeof startup.then === "function") {
+                  startup.then(resolve, reject);
+                } else {
+                  resolve();
+                }
+              },
+              { once: true }
+            );
+            script.addEventListener("error", reject, { once: true });
+            document.head.appendChild(script);
+          });
+        }
+      };
+
+      let revealMath;
+      Object.defineProperty(window, "RevealMath", {
+        configurable: true,
+        get() {
+          return revealMath;
+        },
+        set(pluginBundle) {
+          revealMath =
+            pluginBundle && typeof pluginBundle.MathJax3 === "function"
+              ? mathJax3Plugin
+              : pluginBundle;
+        }
+      });
+    })();
+  </script>
   <script id="course-website-meta" type="application/json">
   {
     "course_website": "https://fjhickernell.github.io/MATH332Fall2026/",
@@ -599,11 +650,406 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">September 1, 2026</p>
+  <p class="date">September 2, 2026</p>
 </section>
-<section id="determinants" class="title-slide slide level1 center">
-<h1>Determinants</h1>
-<p>Chapter 2 content will be developed in this deck.</p>
+<section id="course-map" class="title-slide slide level1 center">
+<h1>Course Map</h1>
+<div class="columns">
+<div class="column" style="width:45%;">
+<h3>
+Course decks
+</h3>
+<ul>
+<li><a href="00-why-linear-algebra.html">Why Linear Algebra?</a></li>
+<li><a href="01-systems-and-matrices.html">Systems and Matrices</a></li>
+<li><a href="02-inverses-and-invertibility.html">Inverses</a></li>
+<li><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a></li>
+<li><a href="04-determinants.html">Determinants</a> — <span class="alert">current</span></li>
+<li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
+<li><a href="06-general-vector-spaces.html">Vector Spaces</a></li>
+<li><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
+<li><a href="08-inner-product-spaces.html">Inner Products</a></li>
+</ul>
+</div><div class="column" style="width:55%;">
+<h3>
+In this deck
+</h3>
+<ul>
+<li><a href="#/what-a-determinant-measures">What a Determinant Measures</a></li>
+<li><a href="#/compute-by-elimination">Compute by Elimination</a></li>
+<li><a href="#/what-the-determinant-reveals">What the Determinant Reveals</a></li>
+<li><a href="#/big-ideas">Big Ideas</a></li>
+<li><a href="#/what-comes-next">What Comes Next</a></li>
+</ul>
+</div></div>
+</section>
+
+<section>
+<section id="what-a-determinant-measures" class="title-slide slide level1 center">
+<h1>What a Determinant Measures</h1>
+<p>One scalar answers three questions about a square matrix transformation</p>
+<ul>
+<li><a href="#/a-determinant-is-a-signed-scale-factor">A determinant is a signed scale factor</a></li>
+<li><a href="#/familiar-transformations-tell-the-story">Familiar transformations tell the story</a></li>
+<li><a href="#/in-two-dimensions-ad-bc-is-signed-area">In two dimensions, <span class="math inline">\(ad-bc\)</span> is signed area</a></li>
+</ul>
+</section>
+<section id="a-determinant-is-a-signed-scale-factor" class="slide level2">
+<h2>A determinant is a signed scale factor</h2>
+<p>Let <span class="math inline">\(\mat{A}\in\reals^{n\times n}\)</span> and <span class="math inline">\(T_{\mat{A}}(\vct{x})=\mat{A}\vct{x}\)</span></p>
+<p>Let <span class="math inline">\(\mathcal S\subseteq\reals^n\)</span> be a measurable region: a set of column-vector points, not a matrix. Its image under the transformation is</p>
+<p><span class="math display">\[
+T_{\mat{A}}(\mathcal S)
+=\{\mat{A}\vct{x}:\vct{x}\in\mathcal S\}
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\operatorname{vol}_n\bigl(T_{\mat{A}}(\mathcal S)\bigr)
+=\abs{\det(\mat{A})}\operatorname{vol}_n(\mathcal S)
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\abs{\det(\mat{A})}\)</span> is the <span class="math inline">\(n\)</span>-dimensional volume scale factor</li>
+<li><span class="math inline">\(\det(\mat{A})&gt;0\)</span> preserves orientation</li>
+<li><span class="math inline">\(\det(\mat{A})&lt;0\)</span> reverses orientation</li>
+<li><span class="math inline">\(\det(\mat{A})=0\)</span> collapses at least one dimension</li>
+</ul>
+<div class="key-point">
+<p>The determinant records <span class="alert">scale, orientation, and collapse</span> in one number</p>
+</div>
+<aside class="notes">
+<p>Each <span class="math inline">\(\vct{x}\in\mathcal S\)</span> is a column vector, and <span class="math inline">\(\mat{A}\)</span> acts on every such point. If a polygon or polytope is described by a finite vertex matrix, place its vertex vectors in the columns so that left multiplication by <span class="math inline">\(\mat{A}\)</span> transforms all vertices at once.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="familiar-transformations-tell-the-story" class="slide level2">
+<h2>Familiar transformations tell the story</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 38%">
+<col style="width: 30%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Transformation in <span class="math inline">\(\reals^2\)</span></th>
+<th style="text-align: center;">Determinant</th>
+<th style="text-align: left;">Geometric effect</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(\operatorname{diag}(s,t)\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(st\)</span></td>
+<td style="text-align: left;">area scales by <span class="math inline">\(\abs{st}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(\begin{bmatrix}1&amp;c\\0&amp;1\end{bmatrix}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: left;">a shear changes shape, not area</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">rotation <span class="math inline">\(\mat{R}_\theta\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: left;">area and orientation are preserved</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">reflection <span class="math inline">\(\mat{H}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-1\)</span></td>
+<td style="text-align: left;">area is preserved; orientation reverses</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">projection onto a line <span class="math inline">\(\mat{Q}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: left;">the plane collapses to a line</td>
+</tr>
+</tbody>
+</table>
+<p>The sign distinguishes transformations that have the same area scale but opposite orientation</p>
+</section>
+<section id="in-two-dimensions-ad-bc-is-signed-area" class="slide level2">
+<h2>In two dimensions, <span class="math inline">\(ad-bc\)</span> is signed area</h2>
+<p>The columns are the images of the standard basis vectors:</p>
+<p><span class="math display">\[
+\mat{A}
+=\begin{bmatrix}a&amp;b\\c&amp;d\end{bmatrix}
+=\begin{bmatrix}\vct{A}_1&amp;\vct{A}_2\end{bmatrix}
+\]</span></p>
+<p>The image of the unit square is the parallelogram with edge vectors <span class="math inline">\(\vct{A}_1\)</span> and <span class="math inline">\(\vct{A}_2\)</span>, and</p>
+<p><span class="math display">\[
+\det(\mat{A})=ad-bc,
+\qquad
+\text{parallelogram area}=\abs{ad-bc}
+\]</span></p>
+<ul>
+<li>swapping the two columns reverses orientation and changes the sign</li>
+<li>dependent columns collapse the parallelogram and give determinant zero</li>
+</ul>
+<div class="key-point">
+<p>For larger matrices, <span class="alert">elimination is our computational route</span></p>
+</div>
+</section></section>
+<section>
+<section id="compute-by-elimination" class="title-slide slide level1 center">
+<h1>Compute by Elimination</h1>
+<p>The determinant follows the same row operations already used for systems, inverses, and PLU</p>
+<ul>
+<li><a href="#/three-row-operations-control-the-determinant">Three row operations control the determinant</a></li>
+<li><a href="#/triangular-matrices-end-the-computation">Triangular matrices end the computation</a></li>
+<li><a href="#/the-plu-example-already-contains-the-determinant">The PLU example already contains the determinant</a></li>
+<li><a href="#/try-it-by-elimination">Try it by elimination</a></li>
+</ul>
+<aside class="notes">
+<p>This compact treatment intentionally omits general cofactor expansion, adjugates, and Cramer’s rule. If recognition of those topics is later needed for Anton alignment, add it as optional material rather than making it the default computational route.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="three-row-operations-control-the-determinant" class="slide level2">
+<h2>Three row operations control the determinant</h2>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Row operation</th>
+<th style="text-align: left;">Effect on the determinant</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(R_i\leftrightarrow R_j\)</span></td>
+<td style="text-align: left;">multiply by <span class="math inline">\(-1\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(R_i\leftarrow cR_i\)</span>, <span class="math inline">\(c\ne0\)</span></td>
+<td style="text-align: left;">multiply by <span class="math inline">\(c\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(R_i\leftarrow R_i+cR_j\)</span>, <span class="math inline">\(i\ne j\)</span></td>
+<td style="text-align: left;">no change</td>
+</tr>
+</tbody>
+</table>
+<p>The analogous rules hold for column operations</p>
+<div class="key-point">
+<p>Use row replacement freely; track every row swap and scaling</p>
+</div>
+</section>
+<section id="triangular-matrices-end-the-computation" class="slide level2">
+<h2>Triangular matrices end the computation</h2>
+<p>For an upper-triangular matrix,</p>
+<p><span class="math display">\[
+\mat{U}=
+\begin{bmatrix}
+u_{11}&amp;u_{12}&amp;\cdots&amp;u_{1n}\\
+0&amp;u_{22}&amp;\cdots&amp;u_{2n}\\
+\vdots&amp;\ddots&amp;\ddots&amp;\vdots\\
+0&amp;\cdots&amp;0&amp;u_{nn}
+\end{bmatrix},
+\qquad
+\det(\mat{U})=\prod_{j=1}^n u_{jj}
+\]</span></p>
+<p>The same diagonal-product rule holds for lower-triangular matrices</p>
+<p>To compute <span class="math inline">\(\det(\mat{A})\)</span>:</p>
+<ol type="1">
+<li>Eliminate to triangular form using row replacements and swaps</li>
+<li>Avoid normalizing pivot rows; otherwise track the scaling</li>
+<li>If elimination used <span class="math inline">\(s\)</span> swaps, then <span class="math inline">\(\det(\mat{A})=(-1)^s\prod_{j=1}^n u_{jj}\)</span></li>
+</ol>
+</section>
+<section id="the-plu-example-already-contains-the-determinant" class="slide level2">
+<h2>The PLU example already contains the determinant</h2>
+<p>Return to the example from <a href="03-matrix-structure-and-transformations.html#elimination-becomes-a-factorization">Matrix Transformations</a>:</p>
+<p><span class="math display">\[
+\mat{A}=
+\begin{bmatrix}
+0&amp;0&amp;1\\
+2&amp;2&amp;0\\
+1&amp;3&amp;1
+\end{bmatrix}
+\quad\xrightarrow[\text{row replacement}]{\text{two row swaps}}\quad
+\mat{U}=
+\begin{bmatrix}
+2&amp;2&amp;0\\
+0&amp;2&amp;1\\
+0&amp;0&amp;1
+\end{bmatrix}
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\det(\mat{A})=(-1)^2(2)(2)(1)=4
+\]</span></p>
+<p>More generally, the factorization <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span> gives</p>
+<p><span class="math display">\[
+\det(\mat{A})
+=\det(\mat{P})\det(\mat{L})\det(\mat{U})
+=(-1)^s\prod_{j=1}^n u_{jj}
+\]</span></p>
+<p>because <span class="math inline">\(\mat{L}\)</span> is unit lower triangular</p>
+</section>
+<section id="try-it-by-elimination" class="slide level2">
+<h2>Try it by elimination</h2>
+<p><span class="math display">\[
+\mat{B}=
+\begin{bmatrix}
+2&amp;1&amp;0\\
+4&amp;3&amp;1\\
+2&amp;2&amp;3
+\end{bmatrix},
+\]</span></p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Compute <span class="math inline">\(\det(\mat{B})\)</span> using row replacements and swaps, but no pivot-row scaling. <span class="exsub">Which operations change the determinant?</span> <span class="exsub">Does your result show that <span class="math inline">\(\mat{B}\)</span> is invertible?</span> </span></p>
+</div>
+<aside class="notes">
+<p>Use <span class="math inline">\(R_2\leftarrow R_2-2R_1\)</span>, then <span class="math inline">\(R_3\leftarrow R_3-R_1\)</span>, then <span class="math inline">\(R_3\leftarrow R_3-R_2\)</span>. The resulting upper- triangular matrix has diagonal entries <span class="math inline">\(2,1,2\)</span>. No operation changes the determinant, so <span class="math inline">\(\det(\mat{B})=4\ne0\)</span> and <span class="math inline">\(\mat{B}\)</span> is invertible.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="what-the-determinant-reveals" class="title-slide slide level1 center">
+<h1>What the Determinant Reveals</h1>
+<p>The value connects computation, geometry, and matrix algebra</p>
+<ul>
+<li><a href="#/nonzero-determinant-means-invertible">Nonzero determinant means invertible</a></li>
+<li><a href="#/products-multiply-signed-scale-factors">Products multiply signed scale factors</a></li>
+<li><a href="#/eigenvalues-give-another-determinant-formula">Eigenvalues give another determinant formula</a></li>
+<li><a href="#/compute-only-what-the-problem-requires">Compute only what the problem requires</a></li>
+</ul>
+</section>
+<section id="nonzero-determinant-means-invertible" class="slide level2">
+<h2>Nonzero determinant means invertible</h2>
+<p>For a square matrix <span class="math inline">\(\mat{A}\in\reals^{n\times n}\)</span>,</p>
+<p><span class="math display">\[\begin{align*}
+\det(\mat{A})\ne0
+&amp;\iff \mat{A}\text{ has }\,n\text{ pivots}\\
+&amp;\iff \mat{A}^{-1}\text{ exists}\\
+&amp;\iff \text{for every }\vct{b}\in\reals^n,
+   \ \mat{A}\vct{x}=\vct{b}\text{ has exactly one solution}
+\end{align*}\]</span></p>
+<p>Likewise,</p>
+<p><span class="math display">\[
+\det(\mat{A})=0
+\iff \mat{A}\vct{z}=\vct{0}
+\text{ for some }\vct{z}\ne\vct{0}
+\]</span></p>
+<p>That nonzero direction collapses to <span class="math inline">\(\vct{0}\)</span></p>
+<div class="key-point">
+<p>The determinant summarizes a conclusion that elimination already reveals</p>
+</div>
+</section>
+<section id="products-multiply-signed-scale-factors" class="slide level2">
+<h2>Products multiply signed scale factors</h2>
+<p>First <span class="math inline">\(\mat{A}\)</span> acts, then <span class="math inline">\(\mat{B}\)</span> acts:</p>
+<p><span class="math display">\[
+\vct{x}\longmapsto\mat{A}\vct{x}
+\longmapsto\mat{B}\mat{A}\vct{x}
+\]</span></p>
+<p>Their signed scale factors multiply:</p>
+<p><span class="math display">\[
+\det(\mat{B}\mat{A})
+=\det(\mat{B})\det(\mat{A})
+\]</span></p>
+<p>Consequently, for <span class="math inline">\(k=1,2,\ldots\)</span>,</p>
+<p><span class="math display">\[
+\det(\mat{I})=1,
+\qquad
+\det(\mat{A}^k)=\det(\mat{A})^k
+\]</span></p>
+<p>If <span class="math inline">\(\mat{A}\)</span> is invertible, then <span class="math inline">\(\det(\mat{A}^{-1})=1/\det(\mat{A})\)</span></p>
+</section>
+<section id="eigenvalues-give-another-determinant-formula" class="slide level2">
+<h2>Eigenvalues give another determinant formula</h2>
+<p>An <span class="alert">eigenvector</span> is a nonzero vector that <span class="math inline">\(\mat{A}\)</span> maps to a scalar multiple of itself:</p>
+<p><span class="math display">\[
+\mat{A}\vct{v}=\lambda\vct{v},
+\qquad \vct{v}\ne\vct{0}
+\]</span></p>
+<p>The scale factor <span class="math inline">\(\lambda\)</span> is the corresponding <span class="alert">eigenvalue</span></p>
+<p><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a> will develop this idea. Counting repeated eigenvalues and allowing complex values,</p>
+<p><span class="math display">\[
+\det(\mat{A})=\lambda_1\lambda_2\cdots\lambda_n
+\]</span></p>
+<ul>
+<li>a zero eigenvalue is equivalent to a zero determinant</li>
+<li>for triangular <span class="math inline">\(\mat{U}\)</span>, the eigenvalues are <span class="math inline">\(u_{11},\ldots,u_{nn}\)</span>, matching the elimination formula</li>
+</ul>
+<aside class="notes">
+<p>For a real matrix, nonreal eigenvalues occur in conjugate pairs, so their product is real. Diagonalizability is not needed. The formula counts roots of the characteristic polynomial with algebraic multiplicity. Emphasize this as a forward preview, not as the Deck 07 development.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="compute-only-what-the-problem-requires" class="slide level2">
+<h2>Compute only what the problem requires</h2>
+<p>Use a determinant when the number itself answers the question:</p>
+<ul>
+<li>signed area or volume scaling</li>
+<li>orientation or dimension collapse</li>
+<li>a structural statement about invertibility</li>
+<li>the product of eigenvalues</li>
+</ul>
+<p>Use elimination or PLU—not determinant formulas—to solve <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span></p>
+<p>In floating-point computation, a small determinant depends strongly on scale and is not, by itself, a reliable test for a nearly singular matrix</p>
+<div class="key-point">
+<p>A determinant <span class="alert">summarizes structure</span>; it does not replace the factorization that computed it</p>
+</div>
+</section></section>
+<section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
+<h1>Big Ideas</h1>
+<ul>
+<li><span class="math inline">\(\det(\mat{A})\)</span> is the <span class="alert">signed volume scale factor</span> of a square matrix transformation</li>
+<li><span class="math inline">\(\abs{\det(\mat{A})}\)</span> measures scale, its sign records orientation, and zero means dimension collapse</li>
+<li>Compute determinants by <span class="alert">eliminating to triangular form</span> and tracking swaps and scalings</li>
+<li>PLU stores the needed information in the row permutation and the diagonal of <span class="math inline">\(\mat{U}\)</span></li>
+<li><span class="math inline">\(\det(\mat{A})\ne0\)</span> exactly when <span class="math inline">\(\mat{A}\)</span> is invertible</li>
+<li>Products multiply determinants; later, eigenvalues will also multiply to the determinant</li>
+</ul>
+</section>
+
+<section id="what-comes-next" class="title-slide slide level1 center">
+<h1>What Comes Next</h1>
+<p>Determinants measure how a matrix transformation changes volume and orientation</p>
+<p><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a> will make other geometric ideas systematic:</p>
+<ul>
+<li>length and distance</li>
+<li>angle and orthogonality</li>
+<li>projections and least-squares approximation</li>
+</ul>
+<div class="key-point">
+<p><span class="alert">Next:</span> <a href="05-euclidean-vector-spaces.html">measure vectors and compare directions</a></p>
+</div>
 
 </section>
     </div>

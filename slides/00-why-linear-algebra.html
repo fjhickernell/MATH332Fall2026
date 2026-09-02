@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-09-01">
+  <meta name="dcterms.date" content="2026-09-02">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -478,6 +478,57 @@
       }
     };
   </script>
+  <script>
+    // Quarto 1.10 emits Reveal's MathJax 2 plugin even when html-math-method
+    // points to MathJax 3. Replace that plugin before Reveal.initialize() so
+    // the shared MathJax 3 configuration can load without a MathJax.Hub error.
+    (() => {
+      const defaultMathJax3Url =
+        "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js";
+
+      const mathJax3Plugin = {
+        id: "mathjax3",
+        init(deck) {
+          const configuredUrl = deck.getConfig().math?.mathjax;
+          const script = document.createElement("script");
+          script.id = "MathJax-script";
+          script.src = configuredUrl || defaultMathJax3Url;
+          script.async = true;
+
+          return new Promise((resolve, reject) => {
+            script.addEventListener(
+              "load",
+              () => {
+                const startup = window.MathJax?.startup?.promise;
+                if (startup && typeof startup.then === "function") {
+                  startup.then(resolve, reject);
+                } else {
+                  resolve();
+                }
+              },
+              { once: true }
+            );
+            script.addEventListener("error", reject, { once: true });
+            document.head.appendChild(script);
+          });
+        }
+      };
+
+      let revealMath;
+      Object.defineProperty(window, "RevealMath", {
+        configurable: true,
+        get() {
+          return revealMath;
+        },
+        set(pluginBundle) {
+          revealMath =
+            pluginBundle && typeof pluginBundle.MathJax3 === "function"
+              ? mathJax3Plugin
+              : pluginBundle;
+        }
+      });
+    })();
+  </script>
   <script id="course-website-meta" type="application/json">
   {
     "course_website": "https://fjhickernell.github.io/MATH332Fall2026/",
@@ -600,7 +651,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">September 1, 2026</p>
+  <p class="date">September 2, 2026</p>
 </section>
 <section id="we-begin-this-semester-amid-significant-change" class="slide level2">
 <h2>We begin this semester amid significant change</h2>
@@ -713,7 +764,7 @@ Fred J. Hickernell
 Course decks
 </h3>
 <ul>
-<li><a href="00-why-linear-algebra.html" class="alert">Why Linear Algebra?</a></li>
+<li><a href="00-why-linear-algebra.html">Why Linear Algebra?</a> — <span class="alert">current</span></li>
 <li><a href="01-systems-and-matrices.html">Systems and Matrices</a></li>
 <li><a href="02-inverses-and-invertibility.html">Inverses</a></li>
 <li><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a></li>
@@ -1705,33 +1756,47 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <section id="terms-to-know" class="slide level2">
 <h2>Terms to know</h2>
 <p>Use this cumulative index to revisit the first substantial treatment of each term.</p>
-<h3 id="ai">A–I</h3>
+<h3 id="ad">A–D</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li><a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">Associativity</a></li>
+<li><a href="01-systems-and-matrices.html#by-rows">Associativity</a></li>
 <li><a href="01-systems-and-matrices.html#the-augmented-matrix-stores-the-system">Augmented matrix</a></li>
 <li><a href="01-systems-and-matrices.html#back-substitution">Back substitution</a></li>
 <li><a href="#/equivalent-mathematics-unequal-computations">Catastrophic cancellation</a></li>
-<li><a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">Commutativity</a></li>
+<li><a href="01-systems-and-matrices.html#by-rows">Commutativity</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#composition-is-matrix-multiplication">Composition of transformations</a></li>
-<li><a href="#/a-correct-computation-can-still-cost-too-much">Computational cost</a></li>
-<li><a href="01-systems-and-matrices.html#read-the-solution-set">Consistent / inconsistent system</a></li>
-<li><a href="02-inverses-and-invertibility.html#covariance-describes-joint-variation">Covariance matrix</a></li>
-<li><a href="03-matrix-structure-and-transformations.html#diagonal-matrices-act-one-coordinate-at-a-time">Diagonal matrix</a></li>
-<li><a href="01-systems-and-matrices.html#combines-coefficients-and-unknowns">Dot product</a></li>
-<li><a href="01-systems-and-matrices.html#row-operations-are-reversible-matrix-actions">Elementary matrix</a></li>
-<li><a href="01-systems-and-matrices.html#three-reversible-moves">Elementary row operations</a></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
+<li><a href="#/a-correct-computation-can-still-cost-too-much">Computational cost</a></li>
+<li><a href="01-systems-and-matrices.html#read-the-solution-set">Consistent / inconsistent system</a></li>
+<li><a href="02-inverses-and-invertibility.html#covariance-describes-joint-variation">Covariance matrix</a></li>
+<li><a href="04-determinants.html#a-determinant-is-a-signed-scale-factor">Determinant</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#diagonal-matrices-act-one-coordinate-at-a-time">Diagonal matrix</a></li>
+<li><a href="01-systems-and-matrices.html#combines-coefficients-and-unknowns">Dot product</a></li>
+</ul>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="ei">E–I</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><a href="01-systems-and-matrices.html#start-with-one-row-replacement">Elementary matrix</a></li>
+<li><a href="01-systems-and-matrices.html#three-reversible-moves">Elementary row operations</a></li>
 <li><a href="01-systems-and-matrices.html#elimination">Elimination</a></li>
-<li><a href="01-systems-and-matrices.html#one-matrix-eliminates-on-one-column">Elimination matrix</a></li>
+<li><a href="01-systems-and-matrices.html#group-the-first-column-operations">Elimination matrix</a></li>
+<li><a href="04-determinants.html#eigenvalues-give-another-determinant-formula">Eigenvalue</a></li>
 <li><a href="01-systems-and-matrices.html#measures-alignment">Euclidean norm</a></li>
-<li><a href="01-systems-and-matrices.html#read-the-solution-set">Free variable</a></li>
+<li><a href="01-systems-and-matrices.html#a-free-variable-produces-infinitely-many-solutions">Free variable</a></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
 <li><a href="02-inverses-and-invertibility.html#reduce-beside-the-identity">Gauss–Jordan reduction</a></li>
 <li><a href="01-systems-and-matrices.html#a-linear-equation-describes-a-hyperplane">Hyperplane</a></li>
-<li><a href="01-systems-and-matrices.html#row-operations-are-reversible-matrix-actions">Identity matrix</a></li>
+<li><a href="01-systems-and-matrices.html#undoing-restores-the-original-system">Identity matrix</a></li>
 <li><a href="#/almost-parallel-almost-unknowable">Ill-conditioned problem</a></li>
 <li><a href="#/too-little-information-many-answers">Ill-posed problem</a></li>
 <li><a href="#/represent-a-network-by-an-incidence-matrix">Incidence matrix</a></li>
@@ -1747,30 +1812,30 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <ul>
 <li><a href="#/when-the-constraints-cannot-all-be-satisfied">Least squares</a></li>
 <li><a href="02-inverses-and-invertibility.html#production-creates-internal-demand">Leontief input–output model</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#given-output-solve-column-weights">Linear combination</a></li>
 <li><a href="01-systems-and-matrices.html#from-one-equation-to-systems-of-equations">Linear system</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#linear-transformations-preserve-combinations">Linear transformation</a></li>
 <li><a href="#/represent-objects-numerically">Matrix</a></li>
 <li><a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">Matrix–matrix multiplication</a></li>
-<li><a href="03-matrix-structure-and-transformations.html#a-matrix-maps-one-coordinate-space-into-another">Matrix operator</a></li>
 <li><a href="01-systems-and-matrices.html#each-equation-is-one-dot-product">Matrix–vector multiplication</a></li>
 <li><a href="02-inverses-and-invertibility.html#invertible-or-singular">Nonsingular / singular matrix</a></li>
 <li><a href="#/equivalent-mathematics-unequal-computations">Numerical instability</a></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
+<li><a href="03-matrix-structure-and-transformations.html#orthogonal-matrices-have-orthonormal-rows-and-columns">Orthogonal matrix</a></li>
 <li><a href="01-systems-and-matrices.html#measures-alignment">Orthogonal vectors</a></li>
 <li><a href="01-systems-and-matrices.html#parallel-vectors-point-along-one-line">Parallel vectors</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#a-permutation-matrix-records-row-order">Permutation matrix</a></li>
-<li><a href="01-systems-and-matrices.html#eliminate-and-organize-with-pivots">Pivot</a></li>
-<li><a href="03-matrix-structure-and-transformations.html#scipy-plu">PLU factorization</a></li>
+<li><a href="01-systems-and-matrices.html#pivots-organize-elimination">Pivot</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#a-permutation-matrix-records-row-order">PLU factorization</a></li>
 <li><a href="02-inverses-and-invertibility.html#precision-describes-conditional-structure">Precision matrix</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#projections-discard-information">Projection</a></li>
-<li><a href="03-matrix-structure-and-transformations.html#a-matrix-maps-one-coordinate-space-into-another">Range of a transformation</a></li>
 <li><a href="#/what-does-the-system-tell-us">Redundant constraint</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#reflections-preserve-information">Reflection</a></li>
 <li><a href="01-systems-and-matrices.html#three-reversible-moves">Reversible transformation</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#rotation-follows-the-basis-directions">Rotation</a></li>
-<li><a href="01-systems-and-matrices.html#eliminate-and-organize-with-pivots">Row echelon form</a></li>
+<li><a href="01-systems-and-matrices.html#pivots-organize-elimination">Row echelon form</a></li>
 </ul>
 </div></div>
 </section>
@@ -1793,6 +1858,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <li><a href="#/act-on-these-objects-via-transformations-to-obtain-new-objects">Transformation</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#transpose-exchanges-rows-and-columns">Transpose</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#triangular-matrices-expose-pivots">Triangular matrix</a></li>
+<li><a href="03-matrix-structure-and-transformations.html#tridiagonal-matrices-couple-neighboring-grid-values">Tridiagonal matrix</a></li>
 <li><a href="#/represent-objects-numerically">Vector</a></li>
 </ul>
 </div></div>
@@ -1800,7 +1866,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <section id="complete-the-diagnostic-survey" class="slide level2">
 <h2>Complete the Diagnostic Survey</h2>
 <div class="key-point">
-<p>Complete <a href="https://iit.instructure.com/courses/23913/assignments/98516" class="alert">Assignment 0 — Diagnostic Survey</a> by August 21.</p>
+<p>Complete <a href="https://iit.instructure.com/courses/23913/assignments/98516">Assignment 0 — Diagnostic Survey</a> by <span class="alert">August 21</span>.</p>
 </div>
 <p>Complete and submit this assignment individually, not as a group.</p>
 </section>

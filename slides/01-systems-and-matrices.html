@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-09-01">
+  <meta name="dcterms.date" content="2026-09-02">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -477,6 +477,57 @@
       }
     };
   </script>
+  <script>
+    // Quarto 1.10 emits Reveal's MathJax 2 plugin even when html-math-method
+    // points to MathJax 3. Replace that plugin before Reveal.initialize() so
+    // the shared MathJax 3 configuration can load without a MathJax.Hub error.
+    (() => {
+      const defaultMathJax3Url =
+        "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js";
+
+      const mathJax3Plugin = {
+        id: "mathjax3",
+        init(deck) {
+          const configuredUrl = deck.getConfig().math?.mathjax;
+          const script = document.createElement("script");
+          script.id = "MathJax-script";
+          script.src = configuredUrl || defaultMathJax3Url;
+          script.async = true;
+
+          return new Promise((resolve, reject) => {
+            script.addEventListener(
+              "load",
+              () => {
+                const startup = window.MathJax?.startup?.promise;
+                if (startup && typeof startup.then === "function") {
+                  startup.then(resolve, reject);
+                } else {
+                  resolve();
+                }
+              },
+              { once: true }
+            );
+            script.addEventListener("error", reject, { once: true });
+            document.head.appendChild(script);
+          });
+        }
+      };
+
+      let revealMath;
+      Object.defineProperty(window, "RevealMath", {
+        configurable: true,
+        get() {
+          return revealMath;
+        },
+        set(pluginBundle) {
+          revealMath =
+            pluginBundle && typeof pluginBundle.MathJax3 === "function"
+              ? mathJax3Plugin
+              : pluginBundle;
+        }
+      });
+    })();
+  </script>
   <script id="course-website-meta" type="application/json">
   {
     "course_website": "https://fjhickernell.github.io/MATH332Fall2026/",
@@ -589,7 +640,7 @@
 
 <section id="title-slide" data-background-color="#f5f7fb" data-background-image="https://fjhickernell.github.io/MATH332Fall2026/classlib/classlib/quarto/assets/images/normal-scatter.png" data-background-position="top left" data-background-size="55%" class="quarto-title-block center">
   <h1 class="title">MATH 332 — Fall 2026</h1>
-  <p class="subtitle"><span class="deck-title">Systems of Linear Equations and Matrices</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul §§1.1–1.3, 1.10<br> Assignment 1 due 9/4</span></p>
+  <p class="subtitle"><span class="deck-title">Systems of Linear Equations and Matrices</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul §§1.1–1.3, 1.10<br> Assignment 1 due 9/7</span></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -599,7 +650,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">September 1, 2026</p>
+  <p class="date">September 2, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 center">
 <h1>Course Map</h1>
@@ -610,7 +661,7 @@ Course decks
 </h3>
 <ul>
 <li><a href="00-why-linear-algebra.html">Why Linear Algebra?</a></li>
-<li><a href="01-systems-and-matrices.html" class="alert">Systems and Matrices</a></li>
+<li><a href="01-systems-and-matrices.html">Systems and Matrices</a> — <span class="alert">current</span></li>
 <li><a href="02-inverses-and-invertibility.html">Inverses</a></li>
 <li><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a></li>
 <li><a href="04-determinants.html">Determinants</a></li>
@@ -719,7 +770,7 @@ x+y&amp;=3\\
 <p>Infinitely many</p>
 <p><span class="math display">\[\{(3-t,t):t\in\reals\}\]</span></p>
 </div></div>
-<p><span class="math inline">\(\exstar\)</span> What relationship between the two equations produces each outcome?</p>
+<p>The relationship between the two equations explains each outcome</p>
 </section>
 <section id="the-solution-is-where-the-lines-meet" class="slide level2">
 <h2>The solution is where the lines meet</h2>
@@ -732,7 +783,7 @@ x+y&amp;=3\\
 <g class="geometry-gridline"><path d="M40 45H300M40 95H300M40 145H300M40 195H300M40 245H300M90 20V270M140 20V270M190 20V270M240 20V270M290 20V270"></path></g> <path class="geometry-axis" d="M40 245H305M90 270V15"></path> <path class="geometry-equation-one" d="M40 45L265 270"></path> <path class="geometry-equation-two" d="M165 270L248 20"></path> <circle class="geometry-solution" cx="190" cy="195" r="9"></circle> <text x="202" y="187" font-size="21">(2, 1)</text> <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
 </svg>
 <div class="solution-caption">
-<span class="caption-line">Exactly one</span><span class="caption-line">The lines cross at <span class="math inline">\((2, 1)\)</span></span><span class="caption-line">Two consistent constraints for two unknowns</span>
+<span class="caption-line">Exactly one</span><span class="caption-line">The lines cross</span><span class="caption-line">at <span class="math inline">\((2, 1)\)</span></span><span class="caption-line">Two independent</span><span class="caption-line">consistent constraints</span>
 </div>
 </div>
 <div class="solution-geometry-card">
@@ -743,7 +794,7 @@ x+y&amp;=3\\
 <g class="geometry-gridline"><path d="M40 45H300M40 95H300M40 145H300M40 195H300M40 245H300M90 20V270M140 20V270M190 20V270M240 20V270M290 20V270"></path></g> <path class="geometry-axis" d="M40 245H305M90 270V15"></path> <path class="geometry-equation-one" d="M40 45L265 270"></path> <path class="geometry-equation-two" d="M65 20L315 270"></path> <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
 </svg>
 <div class="solution-caption">
-<span class="caption-line">None</span><span class="caption-line">Distinct parallel lines never meet</span><span class="caption-line">Constraints conflict/inconsistent</span>
+<span class="caption-line">None</span><span class="caption-line">Distinct parallel lines</span><span class="caption-line">never meet</span><span class="caption-line">Conflicting constraints</span><span class="caption-line">inconsistent system</span>
 </div>
 </div>
 <div class="solution-geometry-card">
@@ -754,7 +805,7 @@ x+y&amp;=3\\
 <g class="geometry-gridline"><path d="M40 45H300M40 95H300M40 145H300M40 195H300M40 245H300M90 20V270M140 20V270M190 20V270M240 20V270M290 20V270"></path></g> <path class="geometry-axis" d="M40 245H305M90 270V15"></path> <path class="geometry-equation-one" d="M40 45L265 270"></path> <path class="geometry-equation-two" d="M40 45L265 270"></path> <circle class="geometry-solution" cx="90" cy="95" r="7"></circle><circle class="geometry-solution" cx="140" cy="145" r="7"></circle><circle class="geometry-solution" cx="190" cy="195" r="7"></circle><circle class="geometry-solution" cx="240" cy="245" r="7"></circle> <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
 </svg>
 <div class="solution-caption">
-<span class="caption-line">Infinitely many</span><span class="caption-line">Both equations give the same line</span><span class="caption-line">Constraints too few</span>
+<span class="caption-line">Infinitely many</span><span class="caption-line">Both equations give</span><span class="caption-line">the same line</span><span class="caption-line">One independent constraint</span><span class="caption-line">second equation redundant</span>
 </div>
 </div>
 </div>
@@ -772,7 +823,7 @@ x+y&amp;=3  &amp;(E_1)\\
 -4y&amp;=-4 &amp; (E_2)-3 (E_1)
 \end{align*}\]</span></p>
 <p>And the original system of equations can be recovered because</p>
-<p><span class="math display">\[E_2 = \bigl(E_2-3(E_1) \bigr) +3E_1=E_2\]</span></p>
+<p><span class="math display">\[E_2^{\mathrm{old}}=E_2^{\mathrm{new}}+3E_1\]</span></p>
 <div class="key-point">
 <p>The new system contains the same information because the step can be undone, i.e., it is <span class="alert">reversible</span></p>
 </div>
@@ -792,7 +843,7 @@ x+y&amp;=3  &amp;(E_1)\\
 <td>interchange them again</td>
 </tr>
 <tr class="even">
-<td>Replace <span class="math inline">\(E_i\)</span> by <span class="math inline">\(E_i+cE_j\)</span></td>
+<td>Replace <span class="math inline">\(E_i\)</span> by <span class="math inline">\(E_i+cE_j\)</span>, <span class="math inline">\(i\ne j\)</span></td>
 <td>replace it by <span class="math inline">\(E_i-cE_j\)</span></td>
 </tr>
 <tr class="odd">
@@ -811,7 +862,9 @@ x+y&amp;=3  &amp;(E_1)\\
 </section>
 <section id="reversibleor-not" class="slide level2">
 <h2>Reversible—or not?</h2>
-<p><span class="math inline">\(\exstar\)</span> Decide whether each transformation preserves the solution set for every system</p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Decide whether each transformation preserves the solution set for every system</span></p>
+</div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ol type="1">
@@ -845,13 +898,11 @@ x+2y-z&amp;=2 \qquad &amp;(E_1)\\
 <p>Goal: create equations with fewer unknowns while preserving every solution</p>
 <div class="key-point">
 <p>Elimination produces the equivalent <span class="alert">triangular system</span>, which is easy to solve</p>
-<p><span class="math display">\[
-\begin{aligned}
+<p><span class="math display">\[\begin{align*}
 x+2y-z&amp;=2\\
 -5y+3z&amp;=-7\\
 2z&amp;=2
-\end{aligned}
-\]</span></p>
+\end{align*}\]</span></p>
 </div>
 </section>
 <section id="elimination" class="slide level2">
@@ -946,6 +997,7 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 2 - 1)=-1
 <li><a href="#/each-equation-is-one-dot-product">Each equation is one dot product</a></li>
 <li><a href="#/matrix-matrix-multiplication-collects-dot-products">Matrix–matrix multiplication collects dot products</a></li>
 <li><a href="#/a-general-linear-system">A general linear system</a></li>
+<li><a href="#/the-augmented-matrix-stores-the-system">The augmented matrix stores the system</a></li>
 </ul>
 </section>
 <section id="what-the-dot-product-reveals" class="slide level2">
@@ -971,7 +1023,7 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 2 - 1)=-1
 <section class="slide level2">
 
 <h3 id="measures-alignment">Measures alignment</h3>
-<p>For nonzero <span class="math inline">\(\vct{a},\vct{x}\in\reals^n\)</span>, let <span class="math inline">\(\theta\in[0,\pi]\)</span> be the angle between them</p>
+<p>For nonzero <span class="math inline">\(\vct{a},\vct{x}\in\reals^n\)</span>, the angle between them is <span class="math inline">\(\theta\in[0,\pi]\)</span></p>
 <p>The dot product defines the <span class="alert">Euclidean norm</span> and measures alignment:</p>
 <p><span class="math display">\[\begin{align*}
 \lVert\vct{a}\rVert
@@ -1021,16 +1073,15 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 2 - 1)=-1
 \]</span></p>
 <div class="key-point">
 <p>In <span class="math inline">\(\reals^n\)</span>, geometry explains the formula</p>
-<p>In a general inner-product space, the formula <span class="alert">defines the angle</span></p>
+<p>In a general real inner-product space, the formula <span class="alert">defines the angle</span></p>
 </div>
 </section>
 <section class="slide level2">
 
 <h3 id="parallel-vectors-point-along-one-line">Parallel vectors point along one line</h3>
-<p>Nonzero vectors <span class="math inline">\(\vct{a}\)</span> and <span class="math inline">\(\vct{x}\)</span> are <span class="alert">parallel</span> when</p>
+<p>Nonzero vectors <span class="math inline">\(\vct{a}\)</span> and <span class="math inline">\(\vct{x}\)</span> are <span class="alert">parallel</span> when there is a scalar <span class="math inline">\(\lambda\ne0\)</span> such that</p>
 <p><span class="math display">\[
 \vct{x}=\lambda\vct{a}
-\qquad\text{for some }\lambda\ne0
 \]</span></p>
 <ul>
 <li><span class="math inline">\(\lambda&gt;0\)</span> — same direction</li>
@@ -1078,7 +1129,7 @@ H=\{\vct{x}\in\reals^n:\vct{a}^{\top}\vct{x}=b\}
 \]</span></p>
 <p>Suppose <span class="math inline">\(\vct{a}_2=\lambda\vct{a}_1\)</span> with <span class="math inline">\(\lambda\ne0\)</span></p>
 <ul>
-<li>Left sides point in the same normal direction</li>
+<li>Left-side normal vectors are parallel, possibly oppositely oriented</li>
 <li>Right sides decide whether the planes coincide</li>
 </ul>
 <div class="parallel-outcome-grid">
@@ -1117,12 +1168,12 @@ x + 2y -z = 2 \\
 \end{matrix}
 \iff
 \begin{matrix}
-\vct{a}_1^{\top}\vct{x}=2
-&amp;\vct{a}_1^{\top}=\begin{bmatrix}1&amp;2&amp;-1\end{bmatrix}\\
-\vct{a}_2^{\top}\vct{x}=-3
-&amp;\vct{a}_2^{\top}=\begin{bmatrix}2&amp;-1&amp;1\end{bmatrix}\\
-\vct{a}_3^{\top}\vct{x}=1
-&amp;\vct{a}_3^{\top}=\begin{bmatrix}3&amp;1&amp;2\end{bmatrix}
+\vct{a}_1^{\mathsf T}\vct{x}=2
+&amp;\vct{a}_1^{\mathsf T}=\begin{bmatrix}1&amp;2&amp;-1\end{bmatrix}\\
+\vct{a}_2^{\mathsf T}\vct{x}=-3
+&amp;\vct{a}_2^{\mathsf T}=\begin{bmatrix}2&amp;-1&amp;1\end{bmatrix}\\
+\vct{a}_3^{\mathsf T}\vct{x}=1
+&amp;\vct{a}_3^{\mathsf T}=\begin{bmatrix}3&amp;1&amp;2\end{bmatrix}
 \end{matrix}
 \quad
 \vct{x}=\begin{bmatrix}x\\y\\z\end{bmatrix}
@@ -1145,28 +1196,49 @@ x + 2y -z = 2 \\
 </section>
 <section class="slide level2">
 
-<h3 id="what-matavctx-means">What <span class="math inline">\(\mat{A}\vct{x}\)</span> means</h3>
+<h3 id="what-matavctx-means-by-rows">What <span class="math inline">\(\mat{A}\vct{x}\)</span> means by rows</h3>
 <p><span class="math display">\[
 \mat{A}\vct{x}
 =
 \begin{bmatrix}
-\vct{a}_1^{\top}\vct{x}\\
-\vct{a}_2^{\top}\vct{x}\\
+\vct{a}_1^{\mathsf T}\vct{x}\\
+\vct{a}_2^{\mathsf T}\vct{x}\\
 \vdots\\
-\vct{a}_m^{\top}\vct{x}
+\vct{a}_m^{\mathsf T}\vct{x}
 \end{bmatrix}
 \qquad
-\vct{a}_i^{\top}=\text{row }i\text{ of }\mat{A}
+\vct{a}_i^{\mathsf T}=\text{row }i\text{ of }\mat{A}
 \]</span></p>
 <p>Thus</p>
 <p><span class="math display">\[
 \mat{A}\vct{x}=\vct{b}
 \qquad\Longleftrightarrow\qquad
-\vct{a}_i^{\top}\vct{x}=b_i
+\vct{a}_i^{\mathsf T}\vct{x}=b_i
 \quad(i=1,\ldots,m)
 \]</span></p>
 <div class="key-point">
 <p><span class="alert">Matrix–vector multiplication</span>: every matrix row takes a dot product with the vector</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="what-ax-means-by-columns">What <span class="math inline">\(\mat{A}\vct{x}\)</span> means by columns</h3>
+<p><span class="math inline">\(\mat{A}=[\vct{A}_1,\ldots,\vct{A}_n]\)</span></p>
+<p>Entries of <span class="math inline">\(\vct{x}\)</span> — weights on the columns</p>
+<p><span class="math display">\[
+\mat{A}\vct{x}
+=x_1\vct{A}_1+\cdots+x_n\vct{A}_n
+\]</span></p>
+<p>Running solution <span class="math inline">\((x,y,z)=(-1,2,1)\)</span></p>
+<p><span class="math display">\[
+-\begin{bmatrix}1\\2\\3\end{bmatrix}
++2\begin{bmatrix}2\\-1\\1\end{bmatrix}
++\begin{bmatrix}-1\\1\\2\end{bmatrix}
+=\begin{bmatrix}2\\-3\\1\end{bmatrix}
+=\vct{b}
+\]</span></p>
+<div class="key-point">
+<p>Given <span class="math inline">\(\vct{b}\)</span>, solve <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> for column weights that add up to <span class="math inline">\(\vct{b}\)</span></p>
 </div>
 </section>
 <section id="matrix-matrix-multiplication-collects-dot-products" class="slide level2">
@@ -1175,7 +1247,7 @@ x + 2y -z = 2 \\
 <p><span class="math display">\[\begin{gather*}
 \mat{A}=[\vct{A}_1,\ldots,\vct{A}_n]
 \qquad
-\mat{A}=\begin{bmatrix}\vct{a}_1^{\top}\\ \vdots\\ \vct{a}_m^{\top}\end{bmatrix}
+\mat{A}=\begin{bmatrix}\vct{a}_1^{\mathsf T}\\ \vdots\\ \vct{a}_m^{\mathsf T}\end{bmatrix}
 \end{gather*}\]</span></p>
 <p>and likewise for <span class="math inline">\(\mat{B}\in\reals^{n\times p}\)</span> and <span class="math inline">\(\mat{C}=\mat{A}\mat{B}\in\reals^{m\times p}\)</span></p>
 <h3 id="by-columns">By columns</h3>
@@ -1191,11 +1263,11 @@ x + 2y -z = 2 \\
 
 <h3 id="by-rows">By rows</h3>
 <p><span class="math display">\[\begin{align*}
-\begin{bmatrix}\vct{c}_1^{\top}\\ \vdots\\ \vct{c}_m^{\top}\end{bmatrix}
+\begin{bmatrix}\vct{c}_1^{\mathsf T}\\ \vdots\\ \vct{c}_m^{\mathsf T}\end{bmatrix}
   = \mat{C}
   = \mat{A}\mat{B}
-  &amp;= \begin{bmatrix}\vct{a}_1^{\top}\\ \vdots\\ \vct{a}_m^{\top}\end{bmatrix}\mat{B}
-   = \begin{bmatrix}\vct{a}_1^{\top}\mat{B}\\ \vdots\\ \vct{a}_m^{\top}\mat{B}\end{bmatrix}
+  &amp;= \begin{bmatrix}\vct{a}_1^{\mathsf T}\\ \vdots\\ \vct{a}_m^{\mathsf T}\end{bmatrix}\mat{B}
+   = \begin{bmatrix}\vct{a}_1^{\mathsf T}\mat{B}\\ \vdots\\ \vct{a}_m^{\mathsf T}\mat{B}\end{bmatrix}
 \end{align*}\]</span></p>
 <h3 id="entrywise">Entrywise</h3>
 <p><span class="math display">\[\begin{align*}
@@ -1203,9 +1275,9 @@ x + 2y -z = 2 \\
   = \mat{C}
   = \mat{A}\mat{B}
   &amp;= \begin{bmatrix}
-       \vct{a}_1^{\top}\vct{B}_1 &amp; \cdots &amp; \vct{a}_1^{\top}\vct{B}_p\\
+       \vct{a}_1^{\mathsf T}\vct{B}_1 &amp; \cdots &amp; \vct{a}_1^{\mathsf T}\vct{B}_p\\
        \vdots &amp; &amp; \vdots\\
-       \vct{a}_m^{\top}\vct{B}_1 &amp; \cdots &amp; \vct{a}_m^{\top}\vct{B}_p
+       \vct{a}_m^{\mathsf T}\vct{B}_1 &amp; \cdots &amp; \vct{a}_m^{\mathsf T}\vct{B}_p
      \end{bmatrix}
 \end{align*}\]</span></p>
 <div class="key-point">
@@ -1233,9 +1305,8 @@ a_{m1}x_1+\cdots+a_{mn}x_n&amp;=b_m
 \]</span></p>
 <p>The compact notation records all <span class="math inline">\(m\)</span> equations at once</p>
 </section>
-<section class="slide level2">
-
-<h3 id="the-augmented-matrix-stores-the-system">The augmented matrix stores the system</h3>
+<section id="the-augmented-matrix-stores-the-system" class="slide level2">
+<h2>The augmented matrix stores the system</h2>
 <p><span class="math display">\[
 \left.
 \begin{aligned}
@@ -1293,18 +1364,15 @@ x+2y-z&amp;=2\\
 </section>
 <section id="translate-equations-into-matrix-rows" class="slide level2">
 <h2>Translate equations into matrix rows</h2>
-<h3 id="one-step-two-notations">One step, two notations</h3>
 <div class="columns">
 <div class="column" style="width:47%;">
-<h4 id="operate-on-equations">Operate on equations</h4>
+<h3 id="operate-on-equations">Operate on equations</h3>
 <p>Start with</p>
-<p><span class="math display">\[
-\begin{aligned}
+<p><span class="math display">\[\begin{align*}
 x+2y-z&amp;=2 &amp;&amp;(E_1)\\
 2x-y+z&amp;=-3 &amp;&amp;(E_2)\\
 3x+y+2z&amp;=1 &amp;&amp;(E_3)
-\end{aligned}
-\]</span></p>
+\end{align*}\]</span></p>
 <p>Apply <span class="math inline">\(E_2\leftarrow E_2-2E_1\)</span>:</p>
 <p><span class="math display">\[
 -5y+3z=-7
@@ -1312,10 +1380,9 @@ x+2y-z&amp;=2 &amp;&amp;(E_1)\\
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<h4 id="operate-on-rows">Operate on rows</h4>
+<h3 id="operate-on-rows">Operate on rows</h3>
 <p>The same coefficients and right-hand sides give</p>
-<p><span class="math display">\[
-\begin{gathered}
+<p><span class="math display">\[\begin{gather*}
 \left[\begin{array}{rrr|r}
 1&amp;2&amp;-1&amp;2\\2&amp;-1&amp;1&amp;-3\\3&amp;1&amp;2&amp;1
 \end{array}\right]
@@ -1325,8 +1392,7 @@ x+2y-z&amp;=2 &amp;&amp;(E_1)\\
 \left[\begin{array}{rrr|r}
 1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-7\\3&amp;1&amp;2&amp;1
 \end{array}\right]
-\end{gathered}
-\]</span></p>
+\end{gather*}\]</span></p>
 </div></div>
 <div class="key-point">
 <p><span class="math inline">\(E_i\)</span> names an equation; <span class="math inline">\(R_i\)</span> names the corresponding matrix row</p>
@@ -1338,11 +1404,11 @@ x+2y-z&amp;=2 &amp;&amp;(E_1)\\
 <div class="columns">
 <div class="column" style="width:47%;">
 <h3 id="recipe-used-in-our-examples">Recipe used in our examples</h3>
-<p>For each pivot column, moving left to right:</p>
+<p>For each candidate column, moving left to right:</p>
 <ol type="1">
-<li>Exchange equations or rows only if the pivot candidate is zero</li>
-<li>Keep the pivot equation or row in place</li>
-<li>Clear each entry below the pivot using</li>
+<li>If the candidate is zero but a lower entry is not, swap rows</li>
+<li>If the column is zero from the current row down, skip it</li>
+<li>With a nonzero pivot in place, clear below using</li>
 </ol>
 <p><span class="math display">\[
 E_i\leftarrow E_i-mE_j
@@ -1413,7 +1479,7 @@ R_i\leftarrow R_i-mR_j
 </section>
 <section class="slide level2">
 
-<h3 id="a-zero-pivot-candidate-requires-a-row-exchange">A zero pivot candidate requires a row exchange</h3>
+<h3 id="a-zero-pivot-candidate-may-require-a-row-exchange">A zero pivot candidate may require a row exchange</h3>
 <p>The first entry cannot serve as a pivot</p>
 <p><span class="math display">\[\begin{align*}
 \left[
@@ -1434,9 +1500,11 @@ R_i\leftarrow R_i-mR_j
 \end{align*}\]</span></p>
 <p>Now the entry in position <span class="math inline">\((1,1)\)</span> can organize elimination below it</p>
 <div class="key-point">
-<p>When a pivot candidate is zero, exchange rows to bring a nonzero entry into the pivot position</p>
+<p>When a pivot candidate is zero, exchange rows if a nonzero entry lies below it; otherwise skip that column</p>
 </div>
-<p><span class="math inline">\(\exstar\)</span> After the exchange, which row operation eliminates the <span class="math inline">\(2\)</span> below the new first pivot?</p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>After the exchange, which row operation eliminates the <span class="math inline">\(2\)</span> below the new first pivot?</span></p>
+</div>
 </section>
 <section id="read-the-solution-set" class="slide level2">
 <h2>Read the solution set (back substitution)</h2>
@@ -1528,10 +1596,10 @@ x+2y-z&amp;=2\\
 <div class="columns">
 <div class="column" style="width:47%;">
 <h4 id="no-common-intersection">No common intersection</h4>
-<svg class="diagram-image" viewbox="0 0 620 420" width="100%" role="img" aria-label="Three planes with no common intersection. The first two planes meet along a line, while the third plane does not contain that line.">
+<svg class="diagram-image" viewbox="0 0 620 420" width="100%" role="img" aria-label="Three planes with no common intersection. The first two planes meet along a line that is disjoint from the third plane.">
 <polygon points="70,320 395,370 545,160 220,110" fill="#dceef7" fill-opacity="0.72" stroke="#007acc" stroke-width="6"></polygon> <polygon points="150,370 445,295 415,75 120,150" fill="#fff0dc" fill-opacity="0.68" stroke="#f39c34" stroke-width="6"></polygon> <line x1="170" y1="342" x2="422" y2="280" stroke="#252525" stroke-width="10"></line> <polygon points="65,155 365,215 550,145 250,85" fill="#e3f3e7" fill-opacity="0.92" stroke="#2e8b57" stroke-width="6"></polygon> <g stroke="#fff" stroke-width="7" paint-order="stroke" stroke-linejoin="round"> <text x="99" y="307" font-size="30" font-weight="700">P₁</text> <text x="179" y="347" font-size="30" font-weight="700">P₂</text> <text x="469" y="137" font-size="30" font-weight="700">P₃</text> <text x="277" y="355" font-size="28" font-weight="700">L = P₁ ∩ P₂</text> </g>
 </svg>
-<p><span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span> meet along <span class="math inline">\(L\)</span>, but <span class="math inline">\(P_3\)</span> does not contain <span class="math inline">\(L\)</span></p>
+<p><span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span> meet along <span class="math inline">\(L\)</span>, but <span class="math inline">\(P_3\cap L=\varnothing\)</span></p>
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
@@ -1602,7 +1670,9 @@ x=\frac{-4-z}{5}
 <div class="key-point">
 <p>A linear system has zero, one, or infinitely many solutions—never exactly two</p>
 </div>
-<p><span class="math inline">\(\exstar\)</span> Why would two distinct solutions force infinitely many?</p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Why would two distinct solutions force infinitely many?</span></p>
+</div>
 </section>
 <section class="slide level2">
 
@@ -1647,7 +1717,9 @@ n-r&gt;0
       &amp; -2I_2 &amp; +4I_3 &amp; =0
 \end{matrix}
 \]</span></p>
-<p><span class="math inline">\(\exstar\)</span> Verify by <span class="alert">Gaussian elimination</span> that</p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Verify by <span class="alert">Gaussian elimination</span> that</span></p>
+</div>
 <p><span class="math display">\[
 (I_1,I_2,I_3)=(3.6,1.8,0.9)\,\mathrm{mA}
 \]</span></p>
@@ -1663,7 +1735,7 @@ n-r&gt;0
 <div class="columns">
 <div class="column" style="width:47%;">
 <svg class="diagram-image" viewbox="0 0 740 500" width="100%" role="img" aria-label="The same three-loop resistor ladder with the first top resistance and the left vertical resistance replaced by zero-resistance wires, creating a short circuit around the 9 volt source.">
-<path d="M90 110h100m360 0h70M90 410h530M90 110v95m0 110v95" fill="none" stroke="#333" stroke-width="7"></path> <path d="M45 235h90M62 285h56M90 205v30m0 50v30" fill="none" stroke="#333" stroke-width="7"></path> <path d="M190 110l18-25 22 50 22-50 22 50 22-50 18 25" fill="none" stroke="#c62828" stroke-width="7"></path> <path d="M314 110h52l18-25 22 50 22-50 22 50 22-50 18 25h60" fill="none" stroke="#c62828" stroke-width="7"></path> <path d="M314 110v85l-25 15 50 20-50 20 50 20-25 15v125M490 110v85l-25 15 50 20-50 20 50 20-25 15v125M620 110v85l-25 15 50 20-50 20 50 20-25 15v125" fill="none" stroke="#c62828" stroke-width="7"></path> <circle cx="190" cy="110" r="10" fill="#007acc"></circle><circle cx="314" cy="110" r="10" fill="#007acc"></circle> <circle cx="490" cy="110" r="10" fill="#007acc"></circle><circle cx="620" cy="110" r="10" fill="#007acc"></circle> <text x="22" y="265" font-size="32" font-weight="700">9 V</text> <text x="222" y="72" font-size="26" font-weight="700">1 kΩ</text><text x="392" y="72" font-size="26" font-weight="700">2 kΩ</text><text x="522" y="72" font-size="26" font-weight="700">1 kΩ</text> <text x="215" y="255" font-size="26" font-weight="700">3 kΩ</text><text x="390" y="255" font-size="26" font-weight="700">2 kΩ</text><text x="665" y="255" font-size="26" font-weight="700">1 kΩ</text> <path d="M155 335h95M350 335h75M525 335h55" stroke="#007acc" stroke-width="7"></path> <path d="M143 335l20-12v24zM338 335l20-12v24zM513 335l20-12v24z" fill="#007acc"></path> <text x="175" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₁</text> <text x="365" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₂</text> <text x="530" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₃</text> <path d="M190 110h124M314 110v300" fill="none" stroke="#007acc" stroke-width="11"></path> <rect x="214" y="45" width="78" height="38" rx="8" fill="#f5f7fb"></rect> <rect x="205" y="224" width="78" height="38" rx="8" fill="#f5f7fb"></rect> <text x="220" y="74" font-size="28" font-weight="700" fill="#007acc">0 Ω</text> <text x="211" y="253" font-size="28" font-weight="700" fill="#007acc">0 Ω</text>
+<path d="M90 110h100m360 0h70M90 410h530M90 110v95m0 110v95" fill="none" stroke="#333" stroke-width="7"></path> <path d="M45 235h90M62 285h56M90 205v30m0 50v30" fill="none" stroke="#333" stroke-width="7"></path> <path d="M314 110h52l18-25 22 50 22-50 22 50 22-50 18 25h60" fill="none" stroke="#c62828" stroke-width="7"></path> <path d="M490 110v85l-25 15 50 20-50 20 50 20-25 15v125M620 110v85l-25 15 50 20-50 20 50 20-25 15v125" fill="none" stroke="#c62828" stroke-width="7"></path> <circle cx="190" cy="110" r="10" fill="#007acc"></circle><circle cx="314" cy="110" r="10" fill="#007acc"></circle> <circle cx="490" cy="110" r="10" fill="#007acc"></circle><circle cx="620" cy="110" r="10" fill="#007acc"></circle> <text x="22" y="265" font-size="32" font-weight="700">9 V</text> <text x="392" y="72" font-size="26" font-weight="700">2 kΩ</text><text x="522" y="72" font-size="26" font-weight="700">1 kΩ</text> <text x="390" y="255" font-size="26" font-weight="700">2 kΩ</text><text x="665" y="255" font-size="26" font-weight="700">1 kΩ</text> <path d="M155 335h95M350 335h75M525 335h55" stroke="#007acc" stroke-width="7"></path> <path d="M143 335l20-12v24zM338 335l20-12v24zM513 335l20-12v24z" fill="#007acc"></path> <text x="175" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₁</text> <text x="365" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₂</text> <text x="530" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₃</text> <path d="M190 110h124M314 110v300" fill="none" stroke="#007acc" stroke-width="11"></path> <rect x="214" y="45" width="78" height="38" rx="8" fill="#f5f7fb"></rect> <rect x="205" y="224" width="78" height="38" rx="8" fill="#f5f7fb"></rect> <text x="220" y="74" font-size="28" font-weight="700" fill="#007acc">0 Ω</text> <text x="211" y="253" font-size="28" font-weight="700" fill="#007acc">0 Ω</text>
 </svg>
 </div><div class="column" style="width:6%;">
 
@@ -1697,8 +1769,7 @@ n-r&gt;0
 <li><a href="#/elimination-is-an-ordered-product">Elimination is an ordered product</a></li>
 </ul>
 <p>For our example, the two elimination stages are</p>
-<p><span class="math display">\[
-\begin{aligned}
+<p><span class="math display">\[\begin{align*}
 \mat{M}_2\mat{M}_1[\,\mat{A}\mid\vct{b}\,]
 &amp;=
 \begin{bmatrix}
@@ -1715,8 +1786,7 @@ n-r&gt;0
 1&amp;2&amp;-1&amp;2\\0&amp;-5&amp;3&amp;-7\\0&amp;0&amp;2&amp;2
 \end{array}\right]
 =[\,\mat{U}\mid\vct{c}\,]
-\end{aligned}
-\]</span></p>
+\end{align*}\]</span></p>
 </section>
 <section id="one-matrix-eliminates-on-one-column" class="slide level2">
 <h2>One matrix eliminates on one column</h2>
@@ -1737,7 +1807,7 @@ a_{31}&amp;a_{32}&amp;a_{33}
 \end{bmatrix}
 \]</span></p>
 <p>To perform <span class="math inline">\(R_2\leftarrow R_2-mR_1\)</span>, multiply on the left:</p>
-<p><span class="math display">\[\begin{gather*}
+<p><span class="math display">\[
 \begin{bmatrix}
 1&amp;0&amp;0\\
 -m&amp;1&amp;0\\
@@ -1754,7 +1824,16 @@ a_{31}&amp;a_{32}&amp;a_{33}
 \vct{a}_2^{\mathsf T}-m\vct{a}_1^{\mathsf T}\\
 \vct{a}_3^{\mathsf T}
 \end{bmatrix}
-\\
+\]</span></p>
+<div class="key-point">
+<p>An <span class="alert">elementary matrix</span> performs one elementary row operation by left multiplication; here it changes row <span class="math inline">\(2\)</span> and leaves rows <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> unchanged</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="verify-the-action-entry-by-entry">Verify the action entry by entry</h3>
+<p>The same left multiplication changes every entry in row <span class="math inline">\(2\)</span> and no other row:</p>
+<p><span class="math display">\[
 \begin{bmatrix}
 1&amp;0&amp;0\\
 -m&amp;1&amp;0\\
@@ -1771,9 +1850,9 @@ a_{11}&amp;a_{12}&amp;a_{13}\\
 a_{21}-ma_{11}&amp;a_{22}-ma_{12}&amp;a_{23}-ma_{13}\\
 a_{31}&amp;a_{32}&amp;a_{33}
 \end{bmatrix}
-\end{gather*}\]</span></p>
+\]</span></p>
 <div class="key-point">
-<p>This <span class="alert">row-operation matrix</span> changes row <span class="math inline">\(2\)</span> and leaves rows <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> unchanged</p>
+<p>The row-vector and entrywise views describe the same row operation</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1843,7 +1922,7 @@ a_{31}&amp;a_{32}&amp;a_{33}
 1&amp;0&amp;0\\2&amp;1&amp;0\\3&amp;0&amp;1
 \end{bmatrix}
 \]</span></p>
-<p>Indeed,</p>
+<p>Indeed, <span class="math inline">\(\mat{I}\)</span> is the <span class="alert">identity matrix</span>, and</p>
 <p><span class="math display">\[
 \mat{N}_1\mat{M}_1=\mat{I}
 =
@@ -1862,8 +1941,8 @@ a_{31}&amp;a_{32}&amp;a_{33}
 </div>
 </section>
 <section id="elimination-is-an-ordered-product" class="slide level2">
-<h2>Elimination is an <span class="alert">ordered</span> product</h2>
-<p>First suppose no row exchanges are needed. For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, the last possible elimination stage is</p>
+<h2>Elimination is an ordered product</h2>
+<p>First suppose every successive diagonal pivot is nonzero, so no row exchanges or skipped pivot columns are needed. For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, the last possible elimination stage is</p>
 <p><span class="math display">\[
 q=\min(m-1,n)
 \]</span></p>
@@ -1911,7 +1990,7 @@ q=\min(m-1,n)
 </section>
 <section id="companion-computation" class="slide level2">
 <h2>Companion computation</h2>
-<p><a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/01-systems-and-matrices.ipynb" class="alert">Lecture 01 companion notebook</a> — executable working draft</p>
+<p>Use the <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/01-systems-and-matrices.ipynb">Lecture 01 companion notebook</a> for executable examples</p>
 <div class="columns">
 <div class="column" style="width:52%;">
 <p>Companion notebook workflow</p>
@@ -1940,7 +2019,7 @@ q=\min(m-1,n)
 <li>How does algebra reveal the geometry of the solution set?</li>
 </ul>
 <div class="key-point">
-<p>Next: <a href="02-inverses-and-invertibility.html" class="alert">when is <span class="math inline">\(\mat{A}\)</span> itself a reversible matrix action?</a></p>
+<p><span class="alert">Next:</span> <a href="02-inverses-and-invertibility.html">when is <span class="math inline">\(\mat{A}\)</span> itself a reversible matrix action?</a></p>
 </div>
 
 </section></section>
