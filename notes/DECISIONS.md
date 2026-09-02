@@ -6,6 +6,39 @@ would benefit from understanding why a choice was made.
 
 ## Decision log
 
+### 2026-09-02 — Keep WileyPLUS deadlines out of Canvas
+
+- **Decision:** For WileyPLUS External Tool assignments, set and revise the
+  deadline only in WileyPLUS. Leave the Canvas **Due** and **Until** fields
+  blank rather than duplicating the deadline there.
+- **Rationale:** WileyPLUS continued to show Assignment 1's original Friday
+  deadline after its Canvas deadline was changed and complained that Canvas
+  also had a deadline. The instructor corrected the WileyPLUS deadline
+  manually.
+- **Consequences:** Assignment 1 is due Monday, September 7, 2026, at 11:59 PM
+  Chicago Time in WileyPLUS. For future WileyPLUS assignments and deadline
+  changes, WileyPLUS is authoritative; the course pages, schedule, and deck
+  notice echo its deadline, while Canvas retains the launch, points, and grade
+  passback without its own deadline.
+
+### 2026-09-02 — Keep SciPy PLU implementation in the companion notebook
+
+- **Decision:** Keep Deck 03's live PLU sequence mathematical: derive
+  $\mat{A}=\mat{P}\mat{L}\mat{U}$, explain compact rectangular factors, and
+  finish with permutation, forward substitution, and back substitution for
+  repeated solves. Put SciPy APIs, packed storage, pivot-index bookkeeping,
+  and executable solves in the Lecture 03 companion notebook.
+- **Rationale:** The mathematical derivation is useful in class, but six
+  implementation slides after the triangular-solve conclusion interrupt the
+  lecture arc. The notebook is a better place to inspect code, run actual
+  solves, and check residuals.
+- **Consequences:** Deck 03 links to the notebook from its final PLU slide and
+  contains no SciPy code slides. The notebook must retain factor verification,
+  explicit forward and back solves, factor-once/solve-many examples, packed
+  $\mat{L}$/$\mat{U}$ storage with pivot history, residual checks, and compact
+  rectangular factors. Continue to omit pivot-selection algorithms, stability
+  analysis, and operation counts from this introductory treatment.
+
 ### 2026-08-25 — Make every assignment individual
 
 - **Decision:** Require individual work and submission for every MATH 332
@@ -32,8 +65,9 @@ would benefit from understanding why a choice was made.
   passback.
 - **Consequences:** Assignment 1 uses four randomized Wiley questions covering
   Gaussian elimination, matrix dimensions, matrix multiplication by columns,
-  and a matrix-product equation. It is individual, worth 20 points, due
-  September 4 at 11:59 PM Chicago Time, and retains its original Canvas URL.
+  and a matrix-product equation. It is individual, worth 20 points, and retains
+  its original Canvas URL. Its original September 4 deadline was extended on
+  September 2 to Monday, September 7, 2026, at 11:59 PM Chicago Time.
 
 ### 2026-08-24 — Index elimination matrices by pivot-column stage
 
@@ -70,8 +104,9 @@ would benefit from understanding why a choice was made.
   PLU also connects Deck 01's row operations and Deck 02's inverse algebra to
   Deck 03's triangular structure and composition of transformations without
   turning the course into numerical linear algebra.
-- **Consequences:** Keep pivot-selection strategies, stability analysis,
-  operation counts, and storage details out of the introductory treatment.
+- **Consequences:** Keep pivot-selection strategies, stability analysis, and
+  operation counts out of the introductory treatment. The September 2
+  decision above refines the former blanket exclusion of storage details.
   Do not assume a general permutation matrix equals its transpose; only a
   single row-exchange matrix is necessarily symmetric. Begin with the square,
   no-exchange LU example. For rectangular

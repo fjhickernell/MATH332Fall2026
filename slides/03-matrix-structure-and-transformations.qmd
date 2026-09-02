@@ -28,7 +28,7 @@ include-after-body:
 - [Why Linear Algebra?]({{< meta decks.d00.file >}})
 - [Systems and Matrices]({{< meta decks.d01.file >}})
 - [Inverses]({{< meta decks.d02.file >}})
-- [Matrix Transformations]({{< meta decks.d03.file >}}){.alert}
+- [Matrix Transformations]({{< meta decks.d03.file >}}) — [current]{.alert}
 - [Determinants]({{< meta decks.d04.file >}})
 - [Euclidean Spaces]({{< meta decks.d05.file >}})
 - [Vector Spaces]({{< meta decks.d06.file >}})
@@ -61,7 +61,7 @@ The pattern of entries can reveal how a matrix behaves before any calculation
 
 ## Diagonal matrices act one coordinate at a time
 
-For
+For the diagonal matrix
 
 $$
 \mat{D}=\begin{bmatrix}
@@ -125,7 +125,8 @@ Zeros lie [below]{.alert} the diagonal
 :::
 :::
 
-- Gaussian elimination with a pivot in every row produces an upper-triangular matrix
+- Gaussian elimination produces upper-triangular form for square matrices and
+  upper-trapezoidal form for rectangular matrices
 - triangular systems are solved in order by forward or back substitution
 
 ::: {.key-point}
@@ -165,10 +166,11 @@ $$
 
 ---
 
-### Reduce upward to Gauss–Jordan form
+### Normalize the second pivot
 
-::: {.small}
-\begin{align*}
+Start at the bottom and work upward
+
+$$
 \left[
 \begin{array}{rrr|rrr}
 1&2&1&1&0&0\\
@@ -176,7 +178,7 @@ $$
 0&0&1&0&0&1
 \end{array}
 \right]
-&\xrightarrow{R_2\leftarrow\tfrac12R_2}
+\xrightarrow{R_2\leftarrow\tfrac12R_2}
 \left[
 \begin{array}{rrr|rrr}
 1&2&1&1&0&0\\
@@ -184,8 +186,25 @@ $$
 0&0&1&0&0&1
 \end{array}
 \right]
-\\[0.5em]
-&\xrightarrow{\substack{R_1\leftarrow R_1-R_3\\R_2\leftarrow R_2-R_3}}
+$$
+
+::: {.key-point}
+All three diagonal pivots now equal $1$
+:::
+
+---
+
+### Clear above the third pivot
+
+$$
+\left[
+\begin{array}{rrr|rrr}
+1&2&1&1&0&0\\
+0&1&1&0&\tfrac12&0\\
+0&0&1&0&0&1
+\end{array}
+\right]
+\xrightarrow{\substack{R_1\leftarrow R_1-R_3\\R_2\leftarrow R_2-R_3}}
 \left[
 \begin{array}{rrr|rrr}
 1&2&0&1&0&-1\\
@@ -193,8 +212,25 @@ $$
 0&0&1&0&0&1
 \end{array}
 \right]
-\\[0.5em]
-&\xrightarrow{R_1\leftarrow R_1-2R_2}
+$$
+
+::: {.key-point}
+Use the third pivot to clear both entries above it
+:::
+
+---
+
+### Clear above the second pivot
+
+$$
+\left[
+\begin{array}{rrr|rrr}
+1&2&0&1&0&-1\\
+0&1&0&0&\tfrac12&-1\\
+0&0&1&0&0&1
+\end{array}
+\right]
+\xrightarrow{R_1\leftarrow R_1-2R_2}
 \left[
 \begin{array}{rrr|rrr}
 1&0&0&1&-1&1\\
@@ -202,8 +238,7 @@ $$
 0&0&1&0&0&1
 \end{array}
 \right]
-\end{align*}
-:::
+$$
 
 ::: {.key-point}
 - Left block — $\mat{I}$
@@ -315,7 +350,10 @@ $$
 
 ## Transpose exchanges rows and columns
 
-For
+We already used $\vct{a}^{\mathsf T}$ for a matrix row in
+[Systems and Matrices]({{< meta decks.d01.file >}}#each-equation-is-one-dot-product); now transpose any matrix:
+
+For example,
 
 $$
 \mat{A}=\begin{bmatrix}1&2&3\\4&5&6\end{bmatrix},
@@ -361,11 +399,11 @@ Symmetry records the same pairwise value in both directions
 
 Elimination separates a matrix into simpler structured factors
 
-Start with LU when no row exchanges are needed; then add a permutation matrix to obtain the PLU form used by SciPy
+Start with LU when no row exchanges are needed; then add a permutation matrix
+to obtain PLU and reuse the triangular factors to solve systems
 
 - [Inverse elimination matrices form $\mat{L}$](#inverse-elimination-matrices-form-l)
 - [A permutation matrix records row order](#a-permutation-matrix-records-row-order)
-- [SciPy writes $\mat{A}=\mat{P}\mat{L}\mat{U}$](#scipy-plu)
 - [Rectangular PLU uses compact factors](#rectangular-plu-uses-compact-factors)
 - [Triangular factors organize repeated solves](#triangular-factors-organize-repeated-solves)
 
@@ -427,7 +465,7 @@ Without row exchanges, elimination gives $\mat{A}=\mat{L}\mat{U}$
 
 &nbsp;
 
-We use this factorization without proving the general result
+Next we incorporate row exchanges and derive the general PLU pattern
 :::
 
 ## A permutation matrix records row order
@@ -636,6 +674,10 @@ $$
 \end{bmatrix}
 $$
 
+---
+
+### Concrete example — eliminate column 1
+
 Eliminate below the first pivot
 
 $$
@@ -673,14 +715,19 @@ $$
 2&2&0\\
 0&2&1\\
 0&0&1
-\end{bmatrix},
-\qquad
-\mat{M}_2=\mat{I}
+\end{bmatrix}
 $$
 
-Collect the exchanges
+::: {.key-point}
+The entry below the second pivot is already zero, so $\mat{M}_2=\mat{I}$
+:::
 
-::: {.small}
+---
+
+### Concrete example — recover $\mat{L}$
+
+The later exchange moves the first-stage multiplier from row $3$ to row $2$
+
 $$
 \widetilde{\mat{M}}_1
 =\mat{\Pi}_2\mat{M}_1\mat{\Pi}_2^{\mathsf T}
@@ -689,9 +736,16 @@ $$
 1&0&0\\
 -\tfrac12&1&0\\
 0&0&1
-\end{bmatrix},
-\qquad
-\mat{L}=\widetilde{\mat{M}}_1^{-1}
+\end{bmatrix}
+$$
+
+Since $\mat{L}^{-1}=\mat{M}_2\widetilde{\mat{M}}_1$, invert in reverse order; then use $\mat{M}_2=\mat{I}$
+
+$$
+\mat{L}
+=\bigl(\mat{M}_2\widetilde{\mat{M}}_1\bigr)^{-1}
+=\widetilde{\mat{M}}_1^{-1}\mat{M}_2^{-1}
+=\widetilde{\mat{M}}_1^{-1}
 =
 \begin{bmatrix}
 1&0&0\\
@@ -699,6 +753,12 @@ $$
 0&0&1
 \end{bmatrix}
 $$
+
+---
+
+### Concrete example — collect the row order
+
+The exchange matrices record the final row order
 
 $$
 \mat{P}^{\mathsf T}
@@ -710,7 +770,6 @@ $$
 1&0&0
 \end{bmatrix}
 $$
-:::
 
 ::: {.key-point}
 $\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}$
@@ -718,57 +777,9 @@ $\qquad\Longleftrightarrow\qquad$
 $\mat{A}=\mat{P}\mat{L}\mat{U}$
 :::
 
-## SciPy writes $\mat{A}=\mat{P}\mat{L}\mat{U}$ {#scipy-plu}
-
-If elimination uses a row reordering, then
-
-$$
-\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}
-\qquad\Longleftrightarrow\qquad
-\mat{A}=\mat{P}\mat{L}\mat{U}
-$$
-
-For this $\mat{A}$, SciPy returns the nonsymmetric $\mat{P}$ shown in the permutation example
-
-::: {.columns}
-::: {.column width="47%"}
-- $\mat{P}^{\mathsf T}$ places rows in elimination order
-- $\mat{L}$ records elimination multipliers
-- $\mat{U}$ is upper triangular
-- $\mat{P}$ restores the original row order
-:::
-
-::: {.column width="6%"}
-:::
-
-::: {.column width="47%"}
-```{.python code-line-numbers="false"}
-import numpy as np
-from scipy.linalg import lu
-
-A = np.array([[0, 0, 1],
-              [2, 2, 0],
-              [1, 3, 1]])
-P, L, U = lu(A)
-np.allclose(A, P @ L @ U)       # True
-np.allclose(P.T @ A, L @ U)     # True
-```
-:::
-:::
-
-::: {.small}
-This is the convention returned by [SciPy's `lu` function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html)
-:::
-
-::: {.notes}
-Sources:
-
-- [SciPy `scipy.linalg.lu` documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lu.html)
-:::
-
 ## Rectangular PLU uses compact factors
 
-For $\mat{A}\in\reals^{m\times n}$, set $k=\min(m,n)$. SciPy returns
+For $\mat{A}\in\reals^{m\times n}$, set $k=\min(m,n)$. Compact PLU factors have shapes
 
 $$
 \mat{P}\in\reals^{m\times m},
@@ -822,96 +833,178 @@ $$
 $$
 
 ::: {.key-point}
-For many right-hand sides, reuse $\mat{P}$, $\mat{L}$, and $\mat{U}$; do not form $\mat{A}^{-1}$ merely to solve
+Factor $\mat{A}$ once; for each new $\vct{b}$, compute
+$\vct{c}=\mat{P}^{\mathsf T}\vct{b}$, solve $\mat{L}\vct{y}=\vct{c}$,
+then solve $\mat{U}\vct{x}=\vct{y}$—without forming an inverse
+:::
+
+::: {.small}
+The [Lecture 03 companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/03-matrix-structure-and-transformations.ipynb)
+carries out these steps with SciPy, including packed factors, pivot indices,
+multiple right-hand sides, and residual checks.
 :::
 
 # Matrices as Linear Transformations
 
-A matrix is an input–output rule that preserves linear combinations
+A matrix turns input vectors into output vectors by one fixed rule
 
-- [A matrix maps one coordinate space into another](#a-matrix-maps-one-coordinate-space-into-another)
-- [Linear transformations preserve combinations](#linear-transformations-preserve-combinations)
-- [Standard basis vectors reveal every column](#standard-basis-vectors-reveal-every-column)
-- [Build a standard matrix from an action](#build-a-standard-matrix-from-an-action)
+- [A matrix turns an input vector into an output vector](#a-matrix-maps-one-coordinate-space-into-another)
+- [Combine first or transform first—the output agrees](#linear-transformations-preserve-combinations)
+- [Basis images determine the whole transformation](#standard-basis-vectors-reveal-every-column)
+- [Build the standard matrix from basis images](#build-a-standard-matrix-from-an-action)
 
-## A matrix maps one coordinate space into another
+## A matrix turns an input vector into an output vector {#a-matrix-maps-one-coordinate-space-into-another}
 
-For $\mat{A}\in\reals^{m\times n}$, define
+One concrete matrix and one input
 
 $$
-T_{\mat{A}}:\reals^n\longrightarrow\reals^m,
+\mat{A}
+=\begin{bmatrix}1&2\\3&-1\\-1&1\end{bmatrix},
 \qquad
-T_{\mat{A}}(\vct{x})=\mat{A}\vct{x}
+\vct{x}=\begin{bmatrix}4\\-2\end{bmatrix},
+\qquad
+\mat{A}\vct{x}=\begin{bmatrix}0\\14\\-6\end{bmatrix}=\vct{b}
 $$
-
-When $m=n$, $T_{\mat{A}}$ is a [matrix operator]{.alert} on $\reals^n$
 
 ::: {.columns}
 ::: {.column width="47%"}
-### Domain
+### Input: domain
 
-$\reals^n$: the allowed inputs
+$\vct{x}\in\reals^2$
 
-Columns of $\mat{A}$ determine the input dimension
+$\reals^2$ — real column vectors with two entries
+
+Number of columns $=$ input dimension $2$
 :::
 
 ::: {.column width="6%"}
 :::
 
 ::: {.column width="47%"}
-### Codomain and range
+### Output: codomain
 
-$\reals^m$: the allowed outputs
+$\vct{b}=\mat{A}\vct{x}\in\reals^3$
 
-The [range]{.alert} is the subset actually reached
+$\reals^3$ — real column vectors with three entries
+
+Number of rows $=$ output dimension $3$
 :::
 :::
 
 ::: {.key-point}
-Matrix size is output dimension by input dimension
+$\mat{A}\in\reals^{3\times2}$ — two-entry inputs to three-entry outputs
 :::
 
-## Linear transformations preserve combinations
+::: {.notes}
+The domain is the set of allowed inputs. The codomain is the declared space
+in which outputs live. The range is the subset of the codomain actually
+produced as $\vct{x}$ varies; postpone that distinction until students need it.
+:::
 
-A transformation $T$ is [linear]{.alert} when
+---
+
+### Given the output, solve for the column weights {#given-output-solve-column-weights}
+
+[Systems and Matrices]({{< meta decks.d01.file >}}#what-ax-means-by-columns)
+— solve $\mat{A}\vct{x}=\vct{b}$ for $\vct{x}$
+
+For the same matrix, $\mat{A}=[\vct{A}_1\ \vct{A}_2]$
 
 $$
-T(\vct{u}+\vct{v})=T(\vct{u})+T(\vct{v}),
+\mat{A}\vct{x}
+=x_1\vct{A}_1+x_2\vct{A}_2
+=\vct{b}
+$$
+
+[Linear combination]{.alert} — a weighted sum of vectors
+
+$$
+4\begin{bmatrix}1\\3\\-1\end{bmatrix}
+-2\begin{bmatrix}2\\-1\\1\end{bmatrix}
+=\begin{bmatrix}0\\14\\-6\end{bmatrix}
+=\vct{b}
+$$
+
+::: {.key-point}
+Solving $\mat{A}\vct{x}=\vct{b}$ — finding column weights in a linear
+combination that produces $\vct{b}$
+:::
+
+## Combine first or transform first—the output agrees {#linear-transformations-preserve-combinations}
+
+Same $\mat{A}$, input vectors $\vct{u}=\vct{e}_1$ and
+$\vct{v}=\vct{e}_2$, weights $2$ and $3$
+
+::: {.columns}
+::: {.column width="47%"}
+### Combine, then transform
+
+$$
+2\vct{u}+3\vct{v}
+=\begin{bmatrix}2\\3\end{bmatrix}
+$$
+
+$$
+\mat{A}(2\vct{u}+3\vct{v})
+=\begin{bmatrix}8\\3\\1\end{bmatrix}
+$$
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### Transform, then combine
+
+$$
+\mat{A}\vct{u}
+=\begin{bmatrix}1\\3\\-1\end{bmatrix},
 \qquad
-T(c\vct{u})=cT(\vct{u})
+\mat{A}\vct{v}
+=\begin{bmatrix}2\\-1\\1\end{bmatrix}
 $$
 
-Equivalently, for all scalars $a,b$,
-
 $$
-T(a\vct{u}+b\vct{v})
-=aT(\vct{u})+bT(\vct{v})
+2\mat{A}\vct{u}+3\mat{A}\vct{v}
+=\begin{bmatrix}8\\3\\1\end{bmatrix}
 $$
-
-Every matrix transformation $T_{\mat{A}}(\vct{x})=\mat{A}\vct{x}$ is linear
-
-::: {.key-point}
-Linearity forces $T(\vct{0})=\vct{0}$, so a translation $\vct{x}\mapsto\mat{A}\vct{x}+\vct{b}$ is not linear unless $\vct{b}=\vct{0}$
+:::
 :::
 
-## Standard basis vectors reveal every column
+::: {.key-point}
+A rule $T$ is a [linear transformation]{.alert} when, for every
+$\vct{u},\vct{v}$ and all scalars $a,b$,
+$T(a\vct{u}+b\vct{v})=aT(\vct{u})+bT(\vct{v})$
+:::
 
-The $j$th [standard basis vector]{.alert} $\vct{e}_j$ has a $1$ in position $j$ and zeros elsewhere
+::: {.notes}
+Matrix multiplication has this property because it distributes over vector
+addition and commutes with scalar multiplication.
 
-Every vector is a linear combination of these vectors:
+Optional contrast: a translation $\vct{x}\mapsto\mat{A}\vct{x}+\vct{b}$ is
+not linear unless $\vct{b}=\vct{0}$ because it moves the origin.
+:::
+
+## Basis images determine the whole transformation {#standard-basis-vectors-reveal-every-column}
+
+$j$th [standard basis vector]{.alert} $\vct{e}_j$ — a $1$ in position $j$,
+zeros elsewhere
+
+Every vector — a linear combination of the standard basis vectors
 
 $$
 \vct{x}=x_1\vct{e}_1+\cdots+x_n\vct{e}_n
 $$
 
-Therefore,
+Transform the weighted sum = use the same weights on the transformed basis
+vectors
 
 $$
 T(\vct{x})
 =x_1T(\vct{e}_1)+\cdots+x_nT(\vct{e}_n)
 $$
 
-For the standard matrix $\mat{A}$ of $T$,
+Basis images — columns of the standard matrix
 
 $$
 \mat{A}
@@ -921,18 +1014,23 @@ T(\vct{e}_1)&\cdots&T(\vct{e}_n)
 $$
 
 ::: {.key-point}
-Every linear $T:\reals^n\to\reals^m$ has exactly one standard matrix $\mat{A}$; its $j$th column is $T(\vct{e}_j)$
+Basis images — enough to determine every output
 :::
 
-## Build a standard matrix from an action
+::: {.notes}
+More formally, every linear $T:\reals^n\to\reals^m$ has exactly one standard
+matrix $\mat{A}$, whose $j$th column is $T(\vct{e}_j)$.
+:::
 
-Let $T:\reals^2\to\reals^3$ be
+## Build the standard matrix from basis images {#build-a-standard-matrix-from-an-action}
+
+Concrete rule behind the running matrix
 
 $$
 T(x,y)=(x+2y,\ 3x-y,\ -x+y)
 $$
 
-The basis images are
+Basis images
 
 $$
 T(\vct{e}_1)=T(1,0)=\begin{bmatrix}1\\3\\-1\end{bmatrix},
@@ -940,7 +1038,7 @@ T(\vct{e}_1)=T(1,0)=\begin{bmatrix}1\\3\\-1\end{bmatrix},
 T(\vct{e}_2)=T(0,1)=\begin{bmatrix}2\\-1\\1\end{bmatrix}
 $$
 
-Place them in the columns of the standard matrix:
+Basis images as columns
 
 $$
 \mat{A}=\begin{bmatrix}1&2\\3&-1\\-1&1\end{bmatrix},
@@ -949,48 +1047,50 @@ T(\vct{x})=\mat{A}\vct{x}
 $$
 
 ::: {.key-point}
-The dimensions $\reals^2\to\reals^3$ require a $3\times2$ standard matrix
+Dimensions $\reals^2\to\reals^3$ — a $3\times2$ standard matrix
 :::
 
 # Geometry of Matrix Transformations
 
 The images of the coordinate directions reveal the geometry
 
-- [One vector reveals three different actions](#one-vector-reveals-three-different-actions)
+- [One vector reveals four different actions](#one-vector-reveals-four-different-actions)
 - [Diagonal actions stretch and flip coordinate directions](#diagonal-actions-stretch-and-flip-coordinate-directions)
 - [Reflections preserve information](#reflections-preserve-information)
-- [Projections discard information](#projections-discard-information)
+- [Nonidentity projections discard information](#projections-discard-information)
 - [Rotation follows the basis directions](#rotation-follows-the-basis-directions)
+- [Orthogonal matrices have orthonormal rows and columns](#orthogonal-matrices-have-orthonormal-rows-and-columns)
 
-## One vector reveals three different actions
+## One vector reveals four different actions {#one-vector-reveals-four-different-actions}
 
 ::: {.columns}
 ::: {.column width="12%"}
 :::
 
 ::: {.column width="76%"}
-<svg viewBox="0 0 720 360" width="100%" role="img" aria-label="The vector two comma one and its images under reflection across y equals x, projection onto the x-axis, and counterclockwise rotation by ninety degrees">
+<svg viewBox="0 0 720 360" width="100%" role="img" aria-label="The input vector v equals two comma one. Diagonal stretching sends it to D v equals four comma one half; reflection across y equals x sends it to H v equals one comma two; projection onto the x-axis sends it to Q v equals two comma zero; and counterclockwise rotation by ninety degrees sends it to R sub ninety v equals negative one comma two.">
 <defs>
-<marker id="d03-arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#007acc"/></marker>
-<marker id="d03-arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#d97904"/></marker>
-<marker id="d03-arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#26864a"/></marker>
-<marker id="d03-arrow-purple" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0,10 3.5,0 7" fill="#7651a8"/></marker>
+<marker id="d03-arrow-blue" markerUnits="userSpaceOnUse" markerWidth="28" markerHeight="18" refX="15" refY="9" orient="auto"><polygon points="0 0,28 9,0 18" fill="#007acc"/></marker>
+<marker id="d03-arrow-red" markerUnits="userSpaceOnUse" markerWidth="28" markerHeight="18" refX="15" refY="9" orient="auto"><polygon points="0 0,28 9,0 18" fill="#c23b3b"/></marker>
+<marker id="d03-arrow-orange" markerUnits="userSpaceOnUse" markerWidth="28" markerHeight="18" refX="15" refY="9" orient="auto"><polygon points="0 0,28 9,0 18" fill="#d97904"/></marker>
+<marker id="d03-arrow-green" markerUnits="userSpaceOnUse" markerWidth="28" markerHeight="18" refX="15" refY="9" orient="auto"><polygon points="0 0,28 9,0 18" fill="#26864a"/></marker>
+<marker id="d03-arrow-purple" markerUnits="userSpaceOnUse" markerWidth="28" markerHeight="18" refX="15" refY="9" orient="auto"><polygon points="0 0,28 9,0 18" fill="#7651a8"/></marker>
 </defs>
 <path d="M70 180H660M360 330V20" stroke="#777" stroke-width="3"/>
-<text x="665" y="188" font-size="24">x</text>
-<text x="368" y="28" font-size="24">y</text>
-<g fill="none" stroke-width="7">
-<path d="M360 180L500 110" stroke="#007acc" marker-end="url(#d03-arrow-blue)"/>
-<path d="M360 180L430 40" stroke="#d97904" marker-end="url(#d03-arrow-orange)"/>
-<path d="M360 180L500 180" stroke="#26864a" marker-end="url(#d03-arrow-green)"/>
-<path d="M360 180L290 40" stroke="#7651a8" marker-end="url(#d03-arrow-purple)"/>
+<text x="665" y="188" font-size="24" font-family="Georgia, 'Times New Roman', serif" font-style="italic">x</text>
+<text x="368" y="28" font-size="24" font-family="Georgia, 'Times New Roman', serif" font-style="italic">y</text>
+<g fill="none" stroke-width="7" stroke-linecap="butt">
+<path d="M360 180L488.4 115.8" stroke="#007acc" marker-end="url(#d03-arrow-blue)"/>
+<path d="M360 180L627.1 146.6" stroke="#c23b3b" marker-end="url(#d03-arrow-red)"/>
+<path d="M360 180L424.2 51.6" stroke="#d97904" marker-end="url(#d03-arrow-orange)"/>
+<path d="M360 180L487 180" stroke="#26864a" marker-end="url(#d03-arrow-green)"/>
+<path d="M360 180L295.8 51.6" stroke="#7651a8" marker-end="url(#d03-arrow-purple)"/>
 </g>
-<g font-size="24" font-weight="600">
-<text x="510" y="105" fill="#007acc">v = (2,1)</text>
-<text x="440" y="42" fill="#d97904">Hv = (1,2)</text>
-<text x="510" y="207" fill="#26864a">Qv = (2,0)</text>
-<text x="165" y="42" fill="#7651a8">R₉₀v = (−1,2)</text>
-</g>
+<foreignObject x="500" y="66" width="190" height="48"><div xmlns="http://www.w3.org/1999/xhtml" class="diagram-label" style="font-size:24px;color:#007acc;">$\vct{v}=(2,1)$</div></foreignObject>
+<foreignObject x="530" y="106" width="190" height="48"><div xmlns="http://www.w3.org/1999/xhtml" class="diagram-label" style="font-size:24px;color:#c23b3b;">$\mat{D}\vct{v}=(4,\tfrac12)$</div></foreignObject>
+<foreignObject x="440" y="8" width="190" height="48"><div xmlns="http://www.w3.org/1999/xhtml" class="diagram-label" style="font-size:24px;color:#d97904;">$\mat{H}\vct{v}=(1,2)$</div></foreignObject>
+<foreignObject x="510" y="173" width="190" height="48"><div xmlns="http://www.w3.org/1999/xhtml" class="diagram-label" style="font-size:24px;color:#26864a;">$\mat{Q}\vct{v}=(2,0)$</div></foreignObject>
+<foreignObject x="165" y="8" width="205" height="48"><div xmlns="http://www.w3.org/1999/xhtml" class="diagram-label" style="font-size:24px;color:#7651a8;">$\mat{R}_{90}\vct{v}=(-1,2)$</div></foreignObject>
 </svg>
 :::
 
@@ -999,7 +1099,8 @@ The images of the coordinate directions reveal the geometry
 :::
 
 ::: {.key-point}
-One input, three matrix actions: reflection, projection, and rotation
+Shown above — diagonal stretch $\mat{D}$, reflection $\mat{H}$, projection
+$\mat{Q}$, and $90^\circ$ rotation $\mat{R}_{90}$
 :::
 
 ## Diagonal actions stretch and flip coordinate directions
@@ -1009,7 +1110,9 @@ One input, three matrix actions: reflection, projection, and rotation
 ### Stretch by different amounts
 
 $$
-\begin{bmatrix}2&0\\0&\tfrac12\end{bmatrix}
+\mat{D}=\begin{bmatrix}2&0\\0&\tfrac12\end{bmatrix},
+\qquad
+\mat{D}
 \begin{bmatrix}x\\y\end{bmatrix}
 =
 \begin{bmatrix}2x\\y/2\end{bmatrix}
@@ -1038,7 +1141,7 @@ $$
 :::
 
 ::: {.key-point}
-Diagonal structure turns independent coordinate actions into one matrix transformation
+Diagonal structure — independent actions on the coordinate directions
 :::
 
 ## Reflections preserve information
@@ -1072,7 +1175,7 @@ $$
 A reflection changes geometry without losing information
 :::
 
-## Projections discard information
+## Nonidentity projections discard information {#projections-discard-information}
 
 Projection onto the $x$-axis keeps the first coordinate and removes the second:
 
@@ -1088,7 +1191,7 @@ $$
 - every point on the vertical line through $(x,0)$ has the same image
 
 ::: {.key-point}
-A projection is singular: it collapses a direction and cannot be undone
+This projection is singular: it collapses a direction and cannot be undone
 :::
 
 ## Rotation follows the basis directions
@@ -1113,11 +1216,66 @@ $$
 \end{bmatrix}
 $$
 
+::: {.key-point}
+The columns show where the two coordinate directions go
+:::
+
+---
+
+### The plotted rotation uses $\theta=90^\circ$
+
+Since $\cos 90^\circ=0$ and $\sin 90^\circ=1$,
+
+$$
+\mat{R}_{90}
+=\begin{bmatrix}0&-1\\1&0\end{bmatrix},
+\qquad
+\mat{R}_{90}\begin{bmatrix}2\\1\end{bmatrix}
+=\begin{bmatrix}-1\\2\end{bmatrix}
+$$
+
 Rotating backward undoes the action:
 
 $$
-\mat{R}_{\theta}^{-1}=\mat{R}_{-\theta}=\mat{R}_{\theta}^{\mathsf T}
+\mat{R}_{90}^{-1}
+=\mat{R}_{-90}
+=\mat{R}_{90}^{\mathsf T}
 $$
+
+::: {.key-point}
+This is the purple arrow in the comparison picture
+:::
+
+## Orthogonal matrices have orthonormal rows and columns
+
+A real square matrix is [orthogonal]{.alert} when
+
+$$
+\mat{A}^{-1}=\mat{A}^{\mathsf T}
+$$
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>
+For $\mat{A}\in\reals^{2\times2}$, show that this identity holds exactly when its columns are an orthonormal pair—each has length $1$, and their dot product is $0$—and exactly when its rows are an orthonormal pair.
+<span class="exsub">Hint: the entries of $\mat{A}^{\mathsf T}\mat{A}$ are dot products of columns; the entries of $\mat{A}\mat{A}^{\mathsf T}$ are dot products of rows.</span>
+<span class="exsub">Verify the identity for the rotation $\mat{R}_{\theta}$ above and the reflection across $y=x$, $\mat{H}=\begin{bmatrix}0&1\\1&0\end{bmatrix}$.</span>
+</span>
+:::
+
+::: {.notes}
+Write $\mat{A}=[\vct{A}_1\ \vct{A}_2]$. The $(i,j)$ entry of
+$\mat{A}^{\mathsf T}\mat{A}$ is
+$\vct{A}_i^{\mathsf T}\vct{A}_j$, so
+$\mat{A}^{\mathsf T}\mat{A}=\mat{I}$ exactly when the columns are
+orthonormal. Likewise, the entries of
+$\mat{A}\mat{A}^{\mathsf T}$ are dot products of rows. For a square matrix,
+either identity makes $\mat{A}^{\mathsf T}$ the inverse, so both the column
+and row conditions hold.
+
+For the rotation, use $\cos^2\theta+\sin^2\theta=1$ and cancellation of the
+cross terms. The columns of $\mat{H}$ are $\vct{e}_2$ and $\vct{e}_1$.
+:::
 
 # Compose and Undo Transformations
 
@@ -1203,7 +1361,7 @@ $$
 
 - rotations are undone by rotation through the opposite angle
 - reflections are undone by the same reflection
-- projections have no inverse because they lose information
+- nonidentity projections have no inverse because they lose information
 
 ::: {.key-point}
 Undo the last action first
@@ -1237,9 +1395,13 @@ Factorization is representation by simpler actions; multiplication composes them
 # Big Ideas {data-state="goldborder"}
 
 - Special matrix [patterns reveal behavior]{.alert} before computation
-- In SciPy's convention, elimination gives $\mat{A}=\mat{P}\mat{L}\mat{U}$
-- A [linear transformation]{.alert} preserves combinations; basis images determine its standard matrix
-- Reflections and rotations are reversible; projections [discard information]{.alert}
+- With row exchanges, elimination gives
+  $\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}$, equivalently
+  $\mat{A}=\mat{P}\mat{L}\mat{U}$
+- [Linear transformation]{.alert} — combine first or transform first, same
+  result; basis images $\longrightarrow$ standard matrix
+- Rotations and reflections are [orthogonal]{.alert}: inverse equals transpose
+- Nonidentity projections [discard information]{.alert} and cannot be inverted
 - In a product, the [rightmost transformation acts first]{.alert}
 - Inverses undo compositions in reverse order
 
@@ -1258,5 +1420,5 @@ Matrix transformations can
 - Has a dimension collapsed?
 
 ::: {.key-point}
-Next: [measure how a matrix transformation scales and orients space]({{< meta decks.d04.file >}}){.alert}
+[Next:]{.alert} [measure how a matrix transformation scales and orients space]({{< meta decks.d04.file >}})
 :::

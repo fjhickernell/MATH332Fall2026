@@ -27,7 +27,7 @@ include-after-body:
 
 - [Why Linear Algebra?]({{< meta decks.d00.file >}})
 - [Systems and Matrices]({{< meta decks.d01.file >}})
-- [Inverses]({{< meta decks.d02.file >}}){.alert}
+- [Inverses]({{< meta decks.d02.file >}}) — [current]{.alert}
 - [Matrix Transformations]({{< meta decks.d03.file >}})
 - [Determinants]({{< meta decks.d04.file >}})
 - [Euclidean Spaces]({{< meta decks.d05.file >}})
@@ -171,8 +171,7 @@ $$
 Now we can write $\mat{N}_1=\mat{M}_1^{-1}$
 
 ::: {.key-point}
-- $\mat{M}_j$ — product of elementary matrices
-- Hence invertible
+- $\mat{M}_j$ — an invertible product of elementary matrices
 - $\mat{M}_j^{-1}$ — reverses the whole column-elimination stage
 :::
 
@@ -186,7 +185,7 @@ For a square matrix $\mat{A}$:
 
 $\mat{A}^{-1}$ exists
 
-- every output $\vct{b}=\mat{A}\vct{x}$ has [exactly one input]{.alert} $\vct{x}$
+- for every $\vct{b}$, $\mat{A}\vct{x}=\vct{b}$ has [exactly one solution]{.alert}
 - distinct inputs produce distinct outputs—no information is lost
 - in echelon form, [every row and column has a pivot]{.alert}
 :::
@@ -206,10 +205,9 @@ $\mat{A}^{-1}$ does not exist
 :::
 
 ::: {.key-point}
-- Pivot test — row-reduce $\mat{A}$ and inspect its echelon form
-- Determinants — [deferred]{.alert}
-- Elimination — pivots directly visible
-- Nearly singular $\mat{A}$ — computed determinant potentially unreliable
+- Pivot test — row-reduce $\mat{A}$ and inspect its pivots
+- Determinants — [deferred]{.alert}; elimination shows pivots directly
+- Near singularity — computed determinants may be unreliable
 :::
 
 # Inverse Algebra
@@ -257,10 +255,14 @@ $$
 
 [Associativity]{.alert} lets us regroup without changing the order:
 
-$$
+\begin{align*}
 (\mat{A}\mat{B})(\mat{B}^{-1}\mat{A}^{-1})
-=\mat{A}\mat{I}\mat{A}^{-1}=\mat{I}
-$$
+&=\mat{A}(\mat{B}\mat{B}^{-1})\mat{A}^{-1}
+=\mat{A}\mat{A}^{-1}=\mat{I},\\
+(\mat{B}^{-1}\mat{A}^{-1})(\mat{A}\mat{B})
+&=\mat{B}^{-1}(\mat{A}^{-1}\mat{A})\mat{B}
+=\mat{B}^{-1}\mat{B}=\mat{I}.
+\end{align*}
 
 - No standard matrix quotient $\mat{B}/\mat{A}$
 - $\mat{A}^{-1}\mat{B}$ and $\mat{B}\mat{A}^{-1}$ generally different
@@ -556,7 +558,7 @@ For every $t$ — [infinitely many solutions]{.alert}
 ::: {.column width="47%"}
 ### One or a few right-hand sides
 
-Use Gaussian elimination and back substitution on
+Use Gaussian elimination and back substitution:
 
 $$
 [\,\mat{A}\mid\vct{b}_1\ \cdots\ \vct{b}_k\,]
@@ -608,9 +610,7 @@ Full-form factors
 
 ::: {.key-point}
 Next in [Matrix Transformations]({{< meta decks.d03.file >}}#elimination-becomes-a-factorization)
-
-- No-exchange LU example
-- Permutation matrix for row exchanges
+— no-exchange LU and permutation matrices for row exchanges
 :::
 
 # Leontief Input–Output Models
@@ -623,7 +623,7 @@ An economy must meet external demand while supporting its own production
 
 ## Production creates internal demand
 
-Let
+For sectors $i$ and $j$, define
 
 \begin{align*}
 x_i & = \alerttext{gross production}\text{ of sector }i, \\
@@ -647,14 +647,12 @@ $$
 
 ::: {.key-point}
 - $\vct{x}$ — gross production plan meeting $\vct{d}$
-- [Static balance model]{.alert}
-- Not optimization
-- Not a dynamic steady-state model
+- [Static balance model]{.alert} — neither an optimization nor a dynamic steady-state model
 :::
 
 ## One forecast or a response map?
 
-Let
+Consider a two-sector economy:
 
 $$
 \mat{C}=\begin{bmatrix}.20&.10\\.30&.25\end{bmatrix},
@@ -666,7 +664,7 @@ $$
 ::: {.column width="47%"}
 ### One demand forecast
 
-Solve $(\mat{I}-\mat{C})\vct{x}=\vct{d}$ directly:
+Solve directly:
 
 $$
 \vct{x}=\begin{bmatrix}100\\80\end{bmatrix}
@@ -707,12 +705,10 @@ $$
 - Nonnegative gross production — meaningful plan
 
 ::: {.key-point}
-- Singular $\mat{I}-\mat{C}$ — a nonzero adjustment $\vct{z}$ with
-  $\vct{z}=\mat{C}\vct{z}$
-- Gross-output change exactly absorbed by internal requirements
-- No change in net output for external users
-- Compatible $\vct{d}$ — a family of plans $\vct{x}+t\vct{z}$
-- Some $\vct{d}$ — no production plan
+- Singular $\mat{I}-\mat{C}$ — a nonzero $\vct{z}$ satisfies $\vct{z}=\mat{C}\vct{z}$
+- Along $\vct{z}$, gross-output changes are absorbed internally
+- Compatible $\vct{d}$ — $\vct{x}+t\vct{z}$ is an algebraic solution for every $t\in\reals$; only nonnegative members are feasible plans
+- Some $\vct{d}$ — no solution
 :::
 
 # Gaussian Covariance and Precision
@@ -779,7 +775,7 @@ $$
 ### Statistical meaning
 
 - $\vr^{\mathsf T}\mQ\vr$ — departure $\vr=\vf-\vmu$ weighted against expected joint variation
-- $\mQ_{ij}=0$ — components $i$ and $j$ conditionally independent given the others
+- For $i\ne j$: $\mQ_{ij}=0$ exactly when $f_i$ and $f_j$ are conditionally independent given the rest
 :::
 
 ::: {.column width="6%"}
@@ -805,14 +801,12 @@ rather than forming $\mQ$
 :::
 
 ::: {.key-point}
-- Preview only — no derivation to memorize
-- Covariance — joint variation
-- Precision — conditional relationships and covariance-aware weighting
+Preview only — [covariance]{.alert}: joint variation; [precision]{.alert}: conditional structure
 :::
 
 ## Compute a precision matrix
 
-$\exstar$ A Gaussian vector has covariance matrix
+A Gaussian vector has covariance matrix
 
 $$
 \mSigma=
@@ -823,9 +817,14 @@ $$
 \end{bmatrix}
 $$
 
-1. Compute the precision matrix $\mQ=\mSigma^{-1}$ by Gauss–Jordan reduction of $[\,\mSigma\mid\mat{I}\,]$
-2. Verify that $\mSigma\mQ=\mat{I}$
-3. Compare $\mSigma_{13}$ with $\mQ_{13}$ — interpret the different zero patterns
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>
+Compute the precision matrix $\mQ=\mSigma^{-1}$ by Gauss–Jordan reduction of $[\,\mSigma\mid\mat{I}\,]$.
+<span class="exsub">Verify that $\mSigma\mQ=\mat{I}$.</span>
+<span class="exsub">Compare $\mSigma_{13}$ with $\mQ_{13}$ and interpret the different zero patterns.</span>
+</span>
+:::
 
 ::: {.notes}
 Instructor result:
@@ -839,25 +838,22 @@ $$
 \end{bmatrix}
 $$
 
-Here $\mSigma_{13}=0$ but $\mQ_{13}=1$
+A direct multiplication gives $\mSigma\mQ=\mat{I}$.
+
+Here $\mSigma_{13}=0$, so components $1$ and $3$ are marginally
+uncorrelated—and, for a Gaussian vector, marginally independent. However,
+$\mQ_{13}=1\ne0$, so they are not conditionally independent given component
+$2$. Covariance and precision zeros encode different relationships.
 :::
 
 # Big Ideas {data-state="goldborder"}
 
-- Inverse — [undoes a square matrix action]{.alert} on both sides
-  - $\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}$
-- Invertible square matrix
-  - [Pivot in every row and column]{.alert}
-  - Exactly one solution for every $\vct{b}$
-- [Gauss–Jordan reduction]{.alert} of $[\,\mat{A}\mid\mat{I}\,]$ — compute $\mat{A}^{-1}$ when needed
+- [Two-sided inverse]{.alert} — $\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}$
+- Invertible — pivot in every row and column; one solution for every $\vct{b}$
 - Product inverse — [reverse factor order]{.alert}
-  - Associativity — regroup, never reorder
-- [Least computation]{.alert}
-  - One or a few right-hand sides — solve directly
-  - Reusable response map — only when needed
-- Applications
-  - Leontief response map — demand to production
-  - Gaussian precision — [conditional structure and covariance-aware weighting]{.alert}
+- Gauss–Jordan on $[\,\mat{A}\mid\mat{I}\,]$ computes $\mat{A}^{-1}$
+- [Least computation]{.alert} — solve a few right-hand sides directly; reuse factors or response maps for many
+- Applications — Leontief maps demand to production; Gaussian precision captures conditional structure
 
 # What Comes Next
 
@@ -874,5 +870,5 @@ $$
 - reflections, rotations, projections, and composition
 
 ::: {.key-point}
-Next — [matrix structure, transformations, and geometry]({{< meta decks.d03.file >}}){.alert}
+Next — [Matrix Transformations]({{< meta decks.d03.file >}}): [structure, transformations, and geometry]{.alert}
 :::

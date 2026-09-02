@@ -13,6 +13,366 @@ include-after-body:
       </script>
 ---
 
-# Determinants
+# Course Map
 
-Chapter 2 content will be developed in this deck.
+::: {.columns}
+::: {.column width="45%"}
+<h3>Course decks</h3>
+
+- [Why Linear Algebra?]({{< meta decks.d00.file >}})
+- [Systems and Matrices]({{< meta decks.d01.file >}})
+- [Inverses]({{< meta decks.d02.file >}})
+- [Matrix Transformations]({{< meta decks.d03.file >}})
+- [Determinants]({{< meta decks.d04.file >}}) — [current]{.alert}
+- [Euclidean Spaces]({{< meta decks.d05.file >}})
+- [Vector Spaces]({{< meta decks.d06.file >}})
+- [Eigenvalues]({{< meta decks.d07.file >}})
+- [Inner Products]({{< meta decks.d08.file >}})
+:::
+
+::: {.column width="55%"}
+<h3>In this deck</h3>
+
+- [What a Determinant Measures](#what-a-determinant-measures)
+- [Compute by Elimination](#compute-by-elimination)
+- [What the Determinant Reveals](#what-the-determinant-reveals)
+- [Big Ideas](#big-ideas)
+- [What Comes Next](#what-comes-next)
+:::
+:::
+
+# What a Determinant Measures
+
+One scalar answers three questions about a square matrix transformation
+
+- [A determinant is a signed scale factor](#a-determinant-is-a-signed-scale-factor)
+- [Familiar transformations tell the story](#familiar-transformations-tell-the-story)
+- [In two dimensions, $ad-bc$ is signed area](#in-two-dimensions-ad-bc-is-signed-area)
+
+## A determinant is a signed scale factor
+
+Let $\mat{A}\in\reals^{n\times n}$ and
+$T_{\mat{A}}(\vct{x})=\mat{A}\vct{x}$
+
+Let $\mathcal S\subseteq\reals^n$ be a measurable region: a set of
+column-vector points, not a matrix. Its image under the transformation is
+
+$$
+T_{\mat{A}}(\mathcal S)
+=\{\mat{A}\vct{x}:\vct{x}\in\mathcal S\}
+$$
+
+Then
+
+$$
+\operatorname{vol}_n\bigl(T_{\mat{A}}(\mathcal S)\bigr)
+=\abs{\det(\mat{A})}\operatorname{vol}_n(\mathcal S)
+$$
+
+- $\abs{\det(\mat{A})}$ is the $n$-dimensional volume scale factor
+- $\det(\mat{A})>0$ preserves orientation
+- $\det(\mat{A})<0$ reverses orientation
+- $\det(\mat{A})=0$ collapses at least one dimension
+
+::: {.key-point}
+The determinant records [scale, orientation, and collapse]{.alert} in one number
+:::
+
+::: {.notes}
+Each $\vct{x}\in\mathcal S$ is a column vector, and $\mat{A}$ acts on every
+such point. If a polygon or polytope is described by a finite vertex matrix,
+place its vertex vectors in the columns so that left multiplication by
+$\mat{A}$ transforms all vertices at once.
+:::
+
+## Familiar transformations tell the story
+
+| Transformation in $\reals^2$ | Determinant | Geometric effect |
+|:---|:---:|:---|
+| $\operatorname{diag}(s,t)$ | $st$ | area scales by $\abs{st}$ |
+| $\begin{bmatrix}1&c\\0&1\end{bmatrix}$ | $1$ | a shear changes shape, not area |
+| rotation $\mat{R}_\theta$ | $1$ | area and orientation are preserved |
+| reflection $\mat{H}$ | $-1$ | area is preserved; orientation reverses |
+| projection onto a line $\mat{Q}$ | $0$ | the plane collapses to a line |
+
+The sign distinguishes transformations that have the same area scale but opposite orientation
+
+## In two dimensions, $ad-bc$ is signed area
+
+The columns are the images of the standard basis vectors:
+
+$$
+\mat{A}
+=\begin{bmatrix}a&b\\c&d\end{bmatrix}
+=\begin{bmatrix}\vct{A}_1&\vct{A}_2\end{bmatrix}
+$$
+
+The image of the unit square is the parallelogram with edge vectors
+$\vct{A}_1$ and $\vct{A}_2$, and
+
+$$
+\det(\mat{A})=ad-bc,
+\qquad
+\text{parallelogram area}=\abs{ad-bc}
+$$
+
+- swapping the two columns reverses orientation and changes the sign
+- dependent columns collapse the parallelogram and give determinant zero
+
+::: {.key-point}
+For larger matrices, [elimination is our computational route]{.alert}
+:::
+
+# Compute by Elimination
+
+The determinant follows the same row operations already used for systems,
+inverses, and PLU
+
+- [Three row operations control the determinant](#three-row-operations-control-the-determinant)
+- [Triangular matrices end the computation](#triangular-matrices-end-the-computation)
+- [The PLU example already contains the determinant](#the-plu-example-already-contains-the-determinant)
+- [Try it by elimination](#try-it-by-elimination)
+
+::: {.notes}
+This compact treatment intentionally omits general cofactor expansion,
+adjugates, and Cramer's rule. If recognition of those topics is later needed
+for Anton alignment, add it as optional material rather than making it the
+default computational route.
+:::
+
+## Three row operations control the determinant
+
+| Row operation | Effect on the determinant |
+|:---|:---|
+| $R_i\leftrightarrow R_j$ | multiply by $-1$ |
+| $R_i\leftarrow cR_i$, $c\ne0$ | multiply by $c$ |
+| $R_i\leftarrow R_i+cR_j$, $i\ne j$ | no change |
+
+The analogous rules hold for column operations
+
+::: {.key-point}
+Use row replacement freely; track every row swap and scaling
+:::
+
+## Triangular matrices end the computation
+
+For an upper-triangular matrix,
+
+$$
+\mat{U}=
+\begin{bmatrix}
+u_{11}&u_{12}&\cdots&u_{1n}\\
+0&u_{22}&\cdots&u_{2n}\\
+\vdots&\ddots&\ddots&\vdots\\
+0&\cdots&0&u_{nn}
+\end{bmatrix},
+\qquad
+\det(\mat{U})=\prod_{j=1}^n u_{jj}
+$$
+
+The same diagonal-product rule holds for lower-triangular matrices
+
+To compute $\det(\mat{A})$:
+
+1. Eliminate to triangular form using row replacements and swaps
+2. Avoid normalizing pivot rows; otherwise track the scaling
+3. If elimination used $s$ swaps, then
+   $\det(\mat{A})=(-1)^s\prod_{j=1}^n u_{jj}$
+
+## The PLU example already contains the determinant
+
+Return to the example from
+[Matrix Transformations]({{< meta decks.d03.file >}}#elimination-becomes-a-factorization):
+
+$$
+\mat{A}=
+\begin{bmatrix}
+0&0&1\\
+2&2&0\\
+1&3&1
+\end{bmatrix}
+\quad\xrightarrow[\text{row replacement}]{\text{two row swaps}}\quad
+\mat{U}=
+\begin{bmatrix}
+2&2&0\\
+0&2&1\\
+0&0&1
+\end{bmatrix}
+$$
+
+Therefore
+
+$$
+\det(\mat{A})=(-1)^2(2)(2)(1)=4
+$$
+
+More generally, the factorization
+$\mat{A}=\mat{P}\mat{L}\mat{U}$ gives
+
+$$
+\det(\mat{A})
+=\det(\mat{P})\det(\mat{L})\det(\mat{U})
+=(-1)^s\prod_{j=1}^n u_{jj}
+$$
+
+because $\mat{L}$ is unit lower triangular
+
+## Try it by elimination
+
+$$
+\mat{B}=
+\begin{bmatrix}
+2&1&0\\
+4&3&1\\
+2&2&3
+\end{bmatrix},
+$$
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Compute $\det(\mat{B})$ using row replacements and swaps, but no pivot-row scaling.
+<span class="exsub">Which operations change the determinant?</span>
+<span class="exsub">Does your result show that $\mat{B}$ is invertible?</span>
+</span>
+:::
+
+::: {.notes}
+Use $R_2\leftarrow R_2-2R_1$, then
+$R_3\leftarrow R_3-R_1$, then $R_3\leftarrow R_3-R_2$. The resulting upper-
+triangular matrix has diagonal entries $2,1,2$. No operation changes the
+determinant, so $\det(\mat{B})=4\ne0$ and $\mat{B}$ is invertible.
+:::
+
+# What the Determinant Reveals
+
+The value connects computation, geometry, and matrix algebra
+
+- [Nonzero determinant means invertible](#nonzero-determinant-means-invertible)
+- [Products multiply signed scale factors](#products-multiply-signed-scale-factors)
+- [Eigenvalues give another determinant formula](#eigenvalues-give-another-determinant-formula)
+- [Compute only what the problem requires](#compute-only-what-the-problem-requires)
+
+## Nonzero determinant means invertible
+
+For a square matrix $\mat{A}\in\reals^{n\times n}$,
+
+\begin{align*}
+\det(\mat{A})\ne0
+&\iff \mat{A}\text{ has }\,n\text{ pivots}\\
+&\iff \mat{A}^{-1}\text{ exists}\\
+&\iff \text{for every }\vct{b}\in\reals^n,
+   \ \mat{A}\vct{x}=\vct{b}\text{ has exactly one solution}
+\end{align*}
+
+Likewise,
+
+$$
+\det(\mat{A})=0
+\iff \mat{A}\vct{z}=\vct{0}
+\text{ for some }\vct{z}\ne\vct{0}
+$$
+
+That nonzero direction collapses to $\vct{0}$
+
+::: {.key-point}
+The determinant summarizes a conclusion that elimination already reveals
+:::
+
+## Products multiply signed scale factors
+
+First $\mat{A}$ acts, then $\mat{B}$ acts:
+
+$$
+\vct{x}\longmapsto\mat{A}\vct{x}
+\longmapsto\mat{B}\mat{A}\vct{x}
+$$
+
+Their signed scale factors multiply:
+
+$$
+\det(\mat{B}\mat{A})
+=\det(\mat{B})\det(\mat{A})
+$$
+
+Consequently, for $k=1,2,\ldots$,
+
+$$
+\det(\mat{I})=1,
+\qquad
+\det(\mat{A}^k)=\det(\mat{A})^k
+$$
+
+If $\mat{A}$ is invertible, then
+$\det(\mat{A}^{-1})=1/\det(\mat{A})$
+
+## Eigenvalues give another determinant formula
+
+An [eigenvector]{.alert} is a nonzero vector that $\mat{A}$ maps to a scalar
+multiple of itself:
+
+$$
+\mat{A}\vct{v}=\lambda\vct{v},
+\qquad \vct{v}\ne\vct{0}
+$$
+
+The scale factor $\lambda$ is the corresponding [eigenvalue]{.alert}
+
+[Eigenvalues]({{< meta decks.d07.file >}}) will develop this idea. Counting
+repeated eigenvalues and allowing complex values,
+
+$$
+\det(\mat{A})=\lambda_1\lambda_2\cdots\lambda_n
+$$
+
+- a zero eigenvalue is equivalent to a zero determinant
+- for triangular $\mat{U}$, the eigenvalues are
+  $u_{11},\ldots,u_{nn}$, matching the elimination formula
+
+::: {.notes}
+For a real matrix, nonreal eigenvalues occur in conjugate pairs, so their
+product is real. Diagonalizability is not needed. The formula counts roots of
+the characteristic polynomial with algebraic multiplicity. Emphasize this as
+a forward preview, not as the Deck 07 development.
+:::
+
+## Compute only what the problem requires
+
+Use a determinant when the number itself answers the question:
+
+- signed area or volume scaling
+- orientation or dimension collapse
+- a structural statement about invertibility
+- the product of eigenvalues
+
+Use elimination or PLU—not determinant formulas—to solve
+$\mat{A}\vct{x}=\vct{b}$
+
+In floating-point computation, a small determinant depends strongly on scale
+and is not, by itself, a reliable test for a nearly singular matrix
+
+::: {.key-point}
+A determinant [summarizes structure]{.alert}; it does not replace the factorization that computed it
+:::
+
+# Big Ideas {data-state="goldborder"}
+
+- $\det(\mat{A})$ is the [signed volume scale factor]{.alert} of a square matrix transformation
+- $\abs{\det(\mat{A})}$ measures scale, its sign records orientation, and zero means dimension collapse
+- Compute determinants by [eliminating to triangular form]{.alert} and tracking swaps and scalings
+- PLU stores the needed information in the row permutation and the diagonal of $\mat{U}$
+- $\det(\mat{A})\ne0$ exactly when $\mat{A}$ is invertible
+- Products multiply determinants; later, eigenvalues will also multiply to the determinant
+
+# What Comes Next
+
+Determinants measure how a matrix transformation changes volume and orientation
+
+[Euclidean Spaces]({{< meta decks.d05.file >}}) will make other geometric ideas systematic:
+
+- length and distance
+- angle and orthogonality
+- projections and least-squares approximation
+
+::: {.key-point}
+[Next:]{.alert} [measure vectors and compare directions]({{< meta decks.d05.file >}})
+:::

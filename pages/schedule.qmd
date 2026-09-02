@@ -22,7 +22,7 @@ quizzes, holidays, and examination details are finalized.
 |---:|---|---|---|
 | 3 | Tue Sep 1 | | |
 | | Thu Sep 3 | | |
-| | Fri Sep 4 | **Assignment 1 due** | [WileyPLUS: Systems and Matrix Operations](../assignments/assignment_1.qmd) |
+| | Mon Sep 7 | **Assignment 1 due** | [WileyPLUS: Systems and Matrix Operations](../assignments/assignment_1.qmd) |
 | 4 | Tue Sep 8 | | |
 | | Thu Sep 10 | **Quiz 1** | [Systems of Linear Equations and Matrices](../slides/01-systems-and-matrices.html)<br>[Inverses and Invertibility](../slides/02-inverses-and-invertibility.html) |
 | 5 | Tue Sep 15 | | |

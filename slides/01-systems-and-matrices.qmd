@@ -6,7 +6,7 @@ deck_short_title: "{{< meta decks.d01.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
   <span class="deck-meta">{{< meta texts.anton.short >}} §§1.1–1.3, 1.10<br>
-  Assignment 1 due 9/4</span>
+  Assignment 1 due 9/7</span>
 jupyter: qmcpy
 include-after-body:
   - text: |
@@ -27,7 +27,7 @@ include-after-body:
 <h3>Course decks</h3>
 
 - [Why Linear Algebra?]({{< meta decks.d00.file >}})
-- [Systems and Matrices]({{< meta decks.d01.file >}}){.alert}
+- [Systems and Matrices]({{< meta decks.d01.file >}}) — [current]{.alert}
 - [Inverses]({{< meta decks.d02.file >}})
 - [Matrix Transformations]({{< meta decks.d03.file >}})
 - [Determinants]({{< meta decks.d04.file >}})
@@ -156,7 +156,7 @@ $$\{(3-t,t):t\in\reals\}$$
 :::
 :::
 
-$\exstar$ What relationship between the two equations produces each outcome?
+The relationship between the two equations explains each outcome
 
 ## The solution is where the lines meet
 
@@ -176,7 +176,7 @@ $\begin{aligned}x+y&=3\\3x-y&=5\end{aligned}$
   <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
 </svg>
 
-<div class="solution-caption"><span class="caption-line">Exactly one</span><span class="caption-line">The lines cross at $(2, 1)$</span><span class="caption-line">Two consistent constraints for two unknowns</span></div>
+<div class="solution-caption"><span class="caption-line">Exactly one</span><span class="caption-line">The lines cross</span><span class="caption-line">at $(2, 1)$</span><span class="caption-line">Two independent</span><span class="caption-line">consistent constraints</span></div>
 :::
 
 ::: {.solution-geometry-card}
@@ -192,7 +192,7 @@ $\begin{aligned}x+y&=3\\x+y&=4\end{aligned}$
   <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
 </svg>
 
-<div class="solution-caption"><span class="caption-line">None</span><span class="caption-line">Distinct parallel lines never meet</span><span class="caption-line">Constraints conflict/inconsistent</span></div>
+<div class="solution-caption"><span class="caption-line">None</span><span class="caption-line">Distinct parallel lines</span><span class="caption-line">never meet</span><span class="caption-line">Conflicting constraints</span><span class="caption-line">inconsistent system</span></div>
 :::
 
 ::: {.solution-geometry-card}
@@ -209,7 +209,7 @@ $\begin{aligned}x+y&=3\\2x+2y&=6\end{aligned}$
   <text x="276" y="238" font-size="19">x</text><text x="99" y="35" font-size="19">y</text>
 </svg>
 
-<div class="solution-caption"><span class="caption-line">Infinitely many</span><span class="caption-line">Both equations give the same line</span><span class="caption-line">Constraints too few</span></div>
+<div class="solution-caption"><span class="caption-line">Infinitely many</span><span class="caption-line">Both equations give</span><span class="caption-line">the same line</span><span class="caption-line">One independent constraint</span><span class="caption-line">second equation redundant</span></div>
 :::
 :::
 
@@ -231,7 +231,7 @@ x+y&=3  &(E_1)\\
 
 And the original system of equations can be recovered because
 
-$$E_2 = \bigl(E_2-3(E_1) \bigr) +3E_1=E_2$$
+$$E_2^{\mathrm{old}}=E_2^{\mathrm{new}}+3E_1$$
 
 ::: {.key-point}
 The new system contains the same information because the step can be undone, i.e., it is [reversible]{.alert}
@@ -242,7 +242,7 @@ The new system contains the same information because the step can be undone, i.e
 | Transformation of the equations | Inverse transformation |
 |---|---|
 | Interchange $E_i$ and $E_j$ | interchange them again |
-| Replace $E_i$ by $E_i+cE_j$ | replace it by $E_i-cE_j$ |
+| Replace $E_i$ by $E_i+cE_j$, $i\ne j$ | replace it by $E_i-cE_j$ |
 | Replace $E_i$ by $cE_i$, $c\ne0$ | multiply by $1/c$ |
 
 ::: {.key-point}
@@ -255,7 +255,10 @@ These [elementary row operations]{.alert} preserve the entire solution set becau
 
 ## Reversible—or not?
 
-$\exstar$ Decide whether each transformation preserves the solution set for every system
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Decide whether each transformation preserves the solution set for every system</span>
+:::
 
 ::: {.columns}
 ::: {.column width="50%"}
@@ -296,13 +299,11 @@ Goal: create equations with fewer unknowns while preserving every solution
 ::: {.key-point}
 Elimination produces the equivalent [triangular system]{.alert}, which is easy to solve
 
-$$
-\begin{aligned}
+\begin{align*}
 x+2y-z&=2\\
 -5y+3z&=-7\\
 2z&=2
-\end{aligned}
-$$
+\end{align*}
 :::
 
 ## Elimination
@@ -408,6 +409,7 @@ The dot product connects algebraic computation with geometric length, angle, and
 - [Each equation is one dot product](#each-equation-is-one-dot-product)
 - [Matrix–matrix multiplication collects dot products](#matrix-matrix-multiplication-collects-dot-products)
 - [A general linear system](#a-general-linear-system)
+- [The augmented matrix stores the system](#the-augmented-matrix-stores-the-system)
 
 ## What the dot product reveals
 
@@ -440,7 +442,7 @@ The standard dot product on $\reals^n$ is our first [inner product]{.alert}—th
 
 ### Measures alignment
 
-For nonzero $\vct{a},\vct{x}\in\reals^n$, let $\theta\in[0,\pi]$ be the angle between them
+For nonzero $\vct{a},\vct{x}\in\reals^n$, the angle between them is $\theta\in[0,\pi]$
 
 The dot product defines the [Euclidean norm]{.alert} and measures alignment:
 
@@ -520,18 +522,17 @@ $$
 ::: {.key-point}
 In $\reals^n$, geometry explains the formula
 
-In a general inner-product space, the formula [defines the angle]{.alert}
+In a general real inner-product space, the formula [defines the angle]{.alert}
 :::
 
 ---
 
 ### Parallel vectors point along one line
 
-Nonzero vectors $\vct{a}$ and $\vct{x}$ are [parallel]{.alert} when
+Nonzero vectors $\vct{a}$ and $\vct{x}$ are [parallel]{.alert} when there is a scalar $\lambda\ne0$ such that
 
 $$
 \vct{x}=\lambda\vct{a}
-\qquad\text{for some }\lambda\ne0
 $$
 
 - $\lambda>0$ — same direction
@@ -609,7 +610,7 @@ $$
 
 Suppose $\vct{a}_2=\lambda\vct{a}_1$ with $\lambda\ne0$
 
-- Left sides point in the same normal direction
+- Left-side normal vectors are parallel, possibly oppositely oriented
 - Right sides decide whether the planes coincide
 
 ::: {.parallel-outcome-grid}
@@ -659,12 +660,12 @@ x + 2y -z = 2 \\
 \end{matrix}
 \iff
 \begin{matrix}
-\vct{a}_1^{\top}\vct{x}=2
-&\vct{a}_1^{\top}=\begin{bmatrix}1&2&-1\end{bmatrix}\\
-\vct{a}_2^{\top}\vct{x}=-3
-&\vct{a}_2^{\top}=\begin{bmatrix}2&-1&1\end{bmatrix}\\
-\vct{a}_3^{\top}\vct{x}=1
-&\vct{a}_3^{\top}=\begin{bmatrix}3&1&2\end{bmatrix}
+\vct{a}_1^{\mathsf T}\vct{x}=2
+&\vct{a}_1^{\mathsf T}=\begin{bmatrix}1&2&-1\end{bmatrix}\\
+\vct{a}_2^{\mathsf T}\vct{x}=-3
+&\vct{a}_2^{\mathsf T}=\begin{bmatrix}2&-1&1\end{bmatrix}\\
+\vct{a}_3^{\mathsf T}\vct{x}=1
+&\vct{a}_3^{\mathsf T}=\begin{bmatrix}3&1&2\end{bmatrix}
 \end{matrix}
 \quad
 \vct{x}=\begin{bmatrix}x\\y\\z\end{bmatrix}
@@ -691,19 +692,19 @@ $$
 
 ---
 
-### What $\mat{A}\vct{x}$ means
+### What $\mat{A}\vct{x}$ means by rows
 
 $$
 \mat{A}\vct{x}
 =
 \begin{bmatrix}
-\vct{a}_1^{\top}\vct{x}\\
-\vct{a}_2^{\top}\vct{x}\\
+\vct{a}_1^{\mathsf T}\vct{x}\\
+\vct{a}_2^{\mathsf T}\vct{x}\\
 \vdots\\
-\vct{a}_m^{\top}\vct{x}
+\vct{a}_m^{\mathsf T}\vct{x}
 \end{bmatrix}
 \qquad
-\vct{a}_i^{\top}=\text{row }i\text{ of }\mat{A}
+\vct{a}_i^{\mathsf T}=\text{row }i\text{ of }\mat{A}
 $$
 
 Thus
@@ -711,12 +712,40 @@ Thus
 $$
 \mat{A}\vct{x}=\vct{b}
 \qquad\Longleftrightarrow\qquad
-\vct{a}_i^{\top}\vct{x}=b_i
+\vct{a}_i^{\mathsf T}\vct{x}=b_i
 \quad(i=1,\ldots,m)
 $$
 
 ::: {.key-point}
 [Matrix–vector multiplication]{.alert}: every matrix row takes a dot product with the vector
+:::
+
+---
+
+### What $\mat{A}\vct{x}$ means by columns {#what-ax-means-by-columns}
+
+$\mat{A}=[\vct{A}_1,\ldots,\vct{A}_n]$
+
+Entries of $\vct{x}$ — weights on the columns
+
+$$
+\mat{A}\vct{x}
+=x_1\vct{A}_1+\cdots+x_n\vct{A}_n
+$$
+
+Running solution $(x,y,z)=(-1,2,1)$
+
+$$
+-\begin{bmatrix}1\\2\\3\end{bmatrix}
++2\begin{bmatrix}2\\-1\\1\end{bmatrix}
++\begin{bmatrix}-1\\1\\2\end{bmatrix}
+=\begin{bmatrix}2\\-3\\1\end{bmatrix}
+=\vct{b}
+$$
+
+::: {.key-point}
+Given $\vct{b}$, solve $\mat{A}\vct{x}=\vct{b}$ for column weights that add
+up to $\vct{b}$
 :::
 
 ## Matrix–matrix multiplication collects dot products {#matrix-matrix-multiplication-collects-dot-products}
@@ -726,7 +755,7 @@ For $\mat{A}\in\reals^{m\times n}$, use uppercase vector symbols for columns and
 \begin{gather*}
 \mat{A}=[\vct{A}_1,\ldots,\vct{A}_n]
 \qquad
-\mat{A}=\begin{bmatrix}\vct{a}_1^{\top}\\ \vdots\\ \vct{a}_m^{\top}\end{bmatrix}
+\mat{A}=\begin{bmatrix}\vct{a}_1^{\mathsf T}\\ \vdots\\ \vct{a}_m^{\mathsf T}\end{bmatrix}
 \end{gather*}
 
 and likewise for $\mat{B}\in\reals^{n\times p}$ and $\mat{C}=\mat{A}\mat{B}\in\reals^{m\times p}$
@@ -746,11 +775,11 @@ and likewise for $\mat{B}\in\reals^{n\times p}$ and $\mat{C}=\mat{A}\mat{B}\in\r
 ### By rows
 
 \begin{align*}
-\begin{bmatrix}\vct{c}_1^{\top}\\ \vdots\\ \vct{c}_m^{\top}\end{bmatrix}
+\begin{bmatrix}\vct{c}_1^{\mathsf T}\\ \vdots\\ \vct{c}_m^{\mathsf T}\end{bmatrix}
   = \mat{C}
   = \mat{A}\mat{B}
-  &= \begin{bmatrix}\vct{a}_1^{\top}\\ \vdots\\ \vct{a}_m^{\top}\end{bmatrix}\mat{B}
-   = \begin{bmatrix}\vct{a}_1^{\top}\mat{B}\\ \vdots\\ \vct{a}_m^{\top}\mat{B}\end{bmatrix}
+  &= \begin{bmatrix}\vct{a}_1^{\mathsf T}\\ \vdots\\ \vct{a}_m^{\mathsf T}\end{bmatrix}\mat{B}
+   = \begin{bmatrix}\vct{a}_1^{\mathsf T}\mat{B}\\ \vdots\\ \vct{a}_m^{\mathsf T}\mat{B}\end{bmatrix}
 \end{align*}
 
 ### Entrywise
@@ -760,9 +789,9 @@ and likewise for $\mat{B}\in\reals^{n\times p}$ and $\mat{C}=\mat{A}\mat{B}\in\r
   = \mat{C}
   = \mat{A}\mat{B}
   &= \begin{bmatrix}
-       \vct{a}_1^{\top}\vct{B}_1 & \cdots & \vct{a}_1^{\top}\vct{B}_p\\
+       \vct{a}_1^{\mathsf T}\vct{B}_1 & \cdots & \vct{a}_1^{\mathsf T}\vct{B}_p\\
        \vdots & & \vdots\\
-       \vct{a}_m^{\top}\vct{B}_1 & \cdots & \vct{a}_m^{\top}\vct{B}_p
+       \vct{a}_m^{\mathsf T}\vct{B}_1 & \cdots & \vct{a}_m^{\mathsf T}\vct{B}_p
      \end{bmatrix}
 \end{align*}
 
@@ -796,9 +825,7 @@ $$
 
 The compact notation records all $m$ equations at once
 
----
-
-### The augmented matrix stores the system
+## The augmented matrix stores the system
 
 $$
 \left.
@@ -859,21 +886,17 @@ $\vct{x}$
 
 ## Translate equations into matrix rows
 
-### One step, two notations
-
 ::: {.columns}
 ::: {.column width="47%"}
-#### Operate on equations
+### Operate on equations
 
 Start with
 
-$$
-\begin{aligned}
+\begin{align*}
 x+2y-z&=2 &&(E_1)\\
 2x-y+z&=-3 &&(E_2)\\
 3x+y+2z&=1 &&(E_3)
-\end{aligned}
-$$
+\end{align*}
 
 Apply $E_2\leftarrow E_2-2E_1$:
 
@@ -886,12 +909,11 @@ $$
 :::
 
 ::: {.column width="47%"}
-#### Operate on rows
+### Operate on rows
 
 The same coefficients and right-hand sides give
 
-$$
-\begin{gathered}
+\begin{gather*}
 \left[\begin{array}{rrr|r}
 1&2&-1&2\\2&-1&1&-3\\3&1&2&1
 \end{array}\right]
@@ -901,8 +923,7 @@ $$
 \left[\begin{array}{rrr|r}
 1&2&-1&2\\0&-5&3&-7\\3&1&2&1
 \end{array}\right]
-\end{gathered}
-$$
+\end{gather*}
 :::
 :::
 
@@ -918,11 +939,11 @@ Many sequences of [reversible]{.alert} operations produce a correct echelon form
 ::: {.column width="47%"}
 ### Recipe used in our examples
 
-For each pivot column, moving left to right:
+For each candidate column, moving left to right:
 
-1. Exchange equations or rows only if the pivot candidate is zero
-2. Keep the pivot equation or row in place
-3. Clear each entry below the pivot using
+1. If the candidate is zero but a lower entry is not, swap rows
+2. If the column is zero from the current row down, skip it
+3. With a nonzero pivot in place, clear below using
 
 $$
 E_i\leftarrow E_i-mE_j
@@ -1008,7 +1029,7 @@ Pivot entries need not equal $1$ in row echelon form
 
 ---
 
-### A zero pivot candidate requires a row exchange
+### A zero pivot candidate may require a row exchange
 
 The first entry cannot serve as a pivot
 
@@ -1033,10 +1054,13 @@ The first entry cannot serve as a pivot
 Now the entry in position $(1,1)$ can organize elimination below it
 
 ::: {.key-point}
-When a pivot candidate is zero, exchange rows to bring a nonzero entry into the pivot position
+When a pivot candidate is zero, exchange rows if a nonzero entry lies below it; otherwise skip that column
 :::
 
-$\exstar$ After the exchange, which row operation eliminates the $2$ below the new first pivot?
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>After the exchange, which row operation eliminates the $2$ below the new first pivot?</span>
+:::
 
 ## Read the solution set (back substitution) {#read-the-solution-set}
 
@@ -1156,7 +1180,7 @@ Reversible row operations let us move between the original planes and the bottom
 ::: {.column width="47%"}
 #### No common intersection
 
-<svg class="diagram-image" viewBox="0 0 620 420" width="100%" role="img" aria-label="Three planes with no common intersection. The first two planes meet along a line, while the third plane does not contain that line.">
+<svg class="diagram-image" viewBox="0 0 620 420" width="100%" role="img" aria-label="Three planes with no common intersection. The first two planes meet along a line that is disjoint from the third plane.">
   <polygon points="70,320 395,370 545,160 220,110" fill="#dceef7" fill-opacity="0.72" stroke="#007acc" stroke-width="6"/>
   <polygon points="150,370 445,295 415,75 120,150" fill="#fff0dc" fill-opacity="0.68" stroke="#f39c34" stroke-width="6"/>
   <line x1="170" y1="342" x2="422" y2="280" stroke="#252525" stroke-width="10"/>
@@ -1169,7 +1193,7 @@ Reversible row operations let us move between the original planes and the bottom
   </g>
 </svg>
 
-$P_1$ and $P_2$ meet along $L$, but $P_3$ does not contain $L$
+$P_1$ and $P_2$ meet along $L$, but $P_3\cap L=\varnothing$
 :::
 
 ::: {.column width="6%"}
@@ -1241,7 +1265,10 @@ After elimination:
 A linear system has zero, one, or infinitely many solutions—never exactly two
 :::
 
-$\exstar$ Why would two distinct solutions force infinitely many?
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Why would two distinct solutions force infinitely many?</span>
+:::
 
 ---
 
@@ -1318,7 +1345,10 @@ $$
 \end{matrix}
 $$
 
-$\exstar$ Verify by [Gaussian elimination]{.alert} that
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Verify by [Gaussian elimination]{.alert} that</span>
+:::
 
 $$
 (I_1,I_2,I_3)=(3.6,1.8,0.9)\,\mathrm{mA}
@@ -1341,14 +1371,13 @@ Set the first top resistance and the left vertical resistance to zero
 <svg class="diagram-image" viewBox="0 0 740 500" width="100%" role="img" aria-label="The same three-loop resistor ladder with the first top resistance and the left vertical resistance replaced by zero-resistance wires, creating a short circuit around the 9 volt source.">
   <path d="M90 110h100m360 0h70M90 410h530M90 110v95m0 110v95" fill="none" stroke="#333" stroke-width="7"/>
   <path d="M45 235h90M62 285h56M90 205v30m0 50v30" fill="none" stroke="#333" stroke-width="7"/>
-  <path d="M190 110l18-25 22 50 22-50 22 50 22-50 18 25" fill="none" stroke="#c62828" stroke-width="7"/>
   <path d="M314 110h52l18-25 22 50 22-50 22 50 22-50 18 25h60" fill="none" stroke="#c62828" stroke-width="7"/>
-  <path d="M314 110v85l-25 15 50 20-50 20 50 20-25 15v125M490 110v85l-25 15 50 20-50 20 50 20-25 15v125M620 110v85l-25 15 50 20-50 20 50 20-25 15v125" fill="none" stroke="#c62828" stroke-width="7"/>
+  <path d="M490 110v85l-25 15 50 20-50 20 50 20-25 15v125M620 110v85l-25 15 50 20-50 20 50 20-25 15v125" fill="none" stroke="#c62828" stroke-width="7"/>
   <circle cx="190" cy="110" r="10" fill="#007acc"/><circle cx="314" cy="110" r="10" fill="#007acc"/>
   <circle cx="490" cy="110" r="10" fill="#007acc"/><circle cx="620" cy="110" r="10" fill="#007acc"/>
   <text x="22" y="265" font-size="32" font-weight="700">9 V</text>
-  <text x="222" y="72" font-size="26" font-weight="700">1 kΩ</text><text x="392" y="72" font-size="26" font-weight="700">2 kΩ</text><text x="522" y="72" font-size="26" font-weight="700">1 kΩ</text>
-  <text x="215" y="255" font-size="26" font-weight="700">3 kΩ</text><text x="390" y="255" font-size="26" font-weight="700">2 kΩ</text><text x="665" y="255" font-size="26" font-weight="700">1 kΩ</text>
+  <text x="392" y="72" font-size="26" font-weight="700">2 kΩ</text><text x="522" y="72" font-size="26" font-weight="700">1 kΩ</text>
+  <text x="390" y="255" font-size="26" font-weight="700">2 kΩ</text><text x="665" y="255" font-size="26" font-weight="700">1 kΩ</text>
   <path d="M155 335h95M350 335h75M525 335h55" stroke="#007acc" stroke-width="7"/>
   <path d="M143 335l20-12v24zM338 335l20-12v24zM513 335l20-12v24z" fill="#007acc"/>
   <text x="175" y="375" font-size="30" font-style="italic" font-weight="700" fill="#007acc">I₁</text>
@@ -1401,8 +1430,7 @@ Matrix multiplication gives an [algebraic representation]{.alert} of the same ro
 
 For our example, the two elimination stages are
 
-$$
-\begin{aligned}
+\begin{align*}
 \mat{M}_2\mat{M}_1[\,\mat{A}\mid\vct{b}\,]
 &=
 \begin{bmatrix}
@@ -1419,8 +1447,7 @@ $$
 1&2&-1&2\\0&-5&3&-7\\0&0&2&2
 \end{array}\right]
 =[\,\mat{U}\mid\vct{c}\,]
-\end{aligned}
-$$
+\end{align*}
 
 ## One matrix eliminates on one column
 
@@ -1445,7 +1472,7 @@ $$
 
 To perform $R_2\leftarrow R_2-mR_1$, multiply on the left:
 
-\begin{gather*}
+$$
 \begin{bmatrix}
 1&0&0\\
 -m&1&0\\
@@ -1462,7 +1489,19 @@ To perform $R_2\leftarrow R_2-mR_1$, multiply on the left:
 \vct{a}_2^{\mathsf T}-m\vct{a}_1^{\mathsf T}\\
 \vct{a}_3^{\mathsf T}
 \end{bmatrix}
-\\
+$$
+
+::: {.key-point}
+An [elementary matrix]{.alert} performs one elementary row operation by left multiplication; here it changes row $2$ and leaves rows $1$ and $3$ unchanged
+:::
+
+---
+
+### Verify the action entry by entry
+
+The same left multiplication changes every entry in row $2$ and no other row:
+
+$$
 \begin{bmatrix}
 1&0&0\\
 -m&1&0\\
@@ -1479,10 +1518,10 @@ a_{11}&a_{12}&a_{13}\\
 a_{21}-ma_{11}&a_{22}-ma_{12}&a_{23}-ma_{13}\\
 a_{31}&a_{32}&a_{33}
 \end{bmatrix}
-\end{gather*}
+$$
 
 ::: {.key-point}
-This [row-operation matrix]{.alert} changes row $2$ and leaves rows $1$ and $3$ unchanged
+The row-vector and entrywise views describe the same row operation
 :::
 
 ---
@@ -1567,7 +1606,7 @@ $$
 \end{bmatrix}
 $$
 
-Indeed,
+Indeed, $\mat{I}$ is the [identity matrix]{.alert}, and
 
 $$
 \mat{N}_1\mat{M}_1=\mat{I}
@@ -1589,10 +1628,11 @@ $$
 [Inverses]({{< meta decks.d02.file >}}) will call $\mat{N}_1$ the [inverse]{.alert} of $\mat{M}_1$
 :::
 
-## Elimination is an [ordered]{.alert} product
+## Elimination is an ordered product
 
-First suppose no row exchanges are needed. For
-$\mat{A}\in\reals^{m\times n}$, the last possible elimination stage is
+First suppose every successive diagonal pivot is nonzero, so no row exchanges
+or skipped pivot columns are needed. For $\mat{A}\in\reals^{m\times n}$, the
+last possible elimination stage is
 
 $$
 q=\min(m-1,n)
@@ -1641,7 +1681,7 @@ Use computation to carry out row operations—not to replace interpretation
 
 ## Companion computation
 
-[Lecture 01 companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/01-systems-and-matrices.ipynb){.alert} — executable working draft
+Use the [Lecture 01 companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/01-systems-and-matrices.ipynb) for executable examples
 
 ::: {.columns}
 ::: {.column width="52%"}
@@ -1689,5 +1729,5 @@ It also opens structural questions:
 - How does algebra reveal the geometry of the solution set?
 
 ::: {.key-point}
-Next: [when is $\mat{A}$ itself a reversible matrix action?]({{< meta decks.d02.file >}}){.alert}
+[Next:]{.alert} [when is $\mat{A}$ itself a reversible matrix action?]({{< meta decks.d02.file >}})
 :::

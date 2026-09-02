@@ -63,11 +63,13 @@ revised:
 
    For WileyPLUS or another automatically graded LTI assignment, verify the
    complete submission roster before converting an existing published
-   assignment, preserve its Canvas URL, points, and due date, and confirm the
-   selected question set, attempt policy, grade passback, and student-visible
-   launch. Reconcile the course-hosted detail page, assignments table,
-   schedule, Canvas description, and announcement with the individual
-   external-tool workflow.
+   assignment and preserve its Canvas URL and points. Set and revise the
+   deadline only in WileyPLUS; leave the Canvas **Due** and **Until** fields
+   blank so that Canvas does not conflict with WileyPLUS's own deadline.
+   Confirm the WileyPLUS deadline, selected question set, attempt policy,
+   grade passback, and student-visible launch. Reconcile the course-hosted
+   detail page, assignments table, schedule, Canvas description, and
+   announcement with the individual external-tool workflow.
 
 ## Adding or updating a quiz or test
 

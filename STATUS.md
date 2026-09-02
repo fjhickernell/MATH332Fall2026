@@ -23,17 +23,18 @@ Mathematical content should be maintained only in the slides.
 11. [x] Draft Deck 02: Inverses and Invertibility.
 12. [x] Review and refine Deck 02 for classroom use.
 13. [x] Draft Deck 03: Matrix Structure and Transformations.
-14. [ ] Review and refine Deck 03 with the instructor for classroom use.
+14. [x] Review and refine Deck 03 with the instructor for classroom use.
 15. [x] Decide and document the paper quiz and test strategy, including the
     Canvas gradebook workflow for manually entered scores.
 16. [x] Clarify that quiz and test application problems provide the linear
     system unless deriving it is explicitly assigned.
 17. [x] Add a tridiagonal finite-difference ODE boundary-value application to
     Deck 03.
+18. [x] Develop and audit Deck 04: Determinants.
 
 ## Later course construction
 
-- [ ] Develop the authoritative Decks 04–08 for Anton Chapters 2–6.
+- [ ] Develop the authoritative Decks 05–08 for Anton Chapters 3–6.
 - [x] Create the initial Notebooks page for demonstrations and exercises.
 - [x] Create and locally validate companion notebooks for Decks 02 and 03.
 - [x] Add student repository-access instructions.

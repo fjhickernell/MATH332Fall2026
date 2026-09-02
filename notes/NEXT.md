@@ -3,19 +3,19 @@
 ## Current task
 
 Validate all four published companion notebooks end to end in clean Google
-Colab runtimes without downgrading QMCPy. The shared-library repair is
-published and this course already pins it. Resume the Deck 03 instructor
-review afterward.
+Colab runtimes without downgrading QMCPy. The Deck 03 instructor review,
+final audit, and PLU trim are complete; keep the removed SciPy material in the
+companion notebook rather than restoring it to the live deck.
 
 ## Current state
 
 - The shared `classlib` import repair is tested, committed, and published in
   HickernellAcademicLib commit `615b402`. `classlib.nbviz` no longer imports
   legacy QMCPy-dependent generators eagerly; generator exports remain
-  available lazily. The current `classlib` pin advances to commit `526eecf`,
-  which retains that repair and the authoritative shared style guides, adds
-  the shared heading-hierarchy convention, and supplies the `\mLambda` slide
-  macro. All four MATH 332 companion notebooks clone this course in Colab,
+  available lazily. The current `classlib` pin advances to commit `6d67cdb`,
+  which retains that repair and the authoritative shared style guides and adds
+  the shared MathJax 3 bridge for Reveal slides. All four MATH 332 companion
+  notebooks clone this course in Colab,
   initialize its recorded `classlib` commit through a public HTTPS URL,
   install that exact checkout, and leave the working directory unchanged. All
   four execute cleanly with the local `qmcpy` kernel, and the root site, all
@@ -35,15 +35,21 @@ review afterward.
   comparable substitutions. The custom 20-point set contains four randomized
   questions: 1.3.09a, 1.3.16, 1.3.02b, and 1.2.05, with three attempts per
   question, no score reduction, and the best score retained. It remains
-  published at Canvas course `23913`, assignment `101984`, preserving its URL
-  and September 4, 2026, 11:59 PM Chicago Time due date. All 21 SpeedGrader
-  roster entries were checked before conversion and had no submission. Canvas
+  published at Canvas course `23913`, assignment `101984`, preserving its URL.
+  Canvas was updated on September 2 with a September 7, 2026, 11:59 PM Chicago
+  Time deadline and student notification enabled, and Student View confirmed
+  that date. WileyPLUS nevertheless continued to show the original Friday
+  deadline and complained that Canvas also had a deadline; the instructor
+  manually changed WileyPLUS to Monday, September 7. For future WileyPLUS
+  assignments and deadline changes, set the deadline only in WileyPLUS and
+  leave the Canvas **Due** and **Until** fields blank. All 21 SpeedGrader roster
+  entries were checked before conversion and had no submission. Canvas
   confirmed that External Tools cannot be group assignments, so the group
-  setting was removed. The instructor Test Student successfully reached the
-  WileyPLUS overview showing four questions, 20 points, the correct due date,
-  and the intended policies; the assignment itself was not started. The Canvas
-  description and existing announcement now state the individual WileyPLUS
-  workflow. The course homepage, Resources page, Assignments page, and
+  setting was removed. The instructor Test Student previously reached the
+  WileyPLUS overview showing four questions, 20 points, and the intended
+  policies without starting the assignment. The Canvas description and
+  existing announcement now state the individual WileyPLUS workflow. The
+  course homepage, Resources page, Assignments page, and
   resource navigation now identify WileyPLUS as required, state that all
   homework is completed individually and automatically graded there, and
   explain that single-term access includes the online Anton textbook. The
@@ -69,8 +75,9 @@ review afterward.
   schedule, the combined Quizzes and Tests page, and the Deck 03 title slide.
   Canvas course `23913` contains unpublished 20-point on-paper assignment
   `102857`, ready for manual grade entry after the paper quiz is graded.
-- The sequential Deck 00–08 architecture is implemented. Decks 01–03 now have
-  substantive drafts, and Anton Chapters 2–6 are represented by Decks 04–08.
+- The sequential Deck 00–08 architecture is implemented. Decks 01–04 now have
+  substantive drafts, and Anton Chapters 3–6 are represented by placeholder
+  Decks 05–08.
   Metadata, previous/next navigation, course maps, schedule links, and internal
   links use the sequential numbering.
 - `slides/02-inverses-and-invertibility.qmd` is a concise, 32-slide,
@@ -101,18 +108,21 @@ review afterward.
   positive-definite tridiagonal covariance matrix whose integer-valued inverse
   illustrates that covariance and precision matrices can have different zero
   patterns; the result is retained only in presenter notes.
-- `slides/03-matrix-structure-and-transformations.qmd` is a 44-slide
-  instructor-review draft covering Anton §§1.7–1.9. It develops diagonal,
-  triangular, tridiagonal, transposed, and symmetric structure. Its
-  tridiagonal sequence derives the centered-difference system for a linear
+- `slides/03-matrix-structure-and-transformations.qmd` is a 51-slide,
+  instructor-reviewed deck covering Anton §§1.7–1.9. It develops diagonal,
+  triangular, tridiagonal, transposed, and symmetric structure. A starred
+  $2\times2$ exercise characterizes matrices whose inverse is their transpose
+  and compares rotation and reflection examples. Its tridiagonal sequence
+  derives the centered-difference system for a linear
   ODE boundary-value problem and gives a concrete nonsymmetric four-interior-
   point example. A starred exercise asks students to solve the displayed
   system numerically, with the solution retained in presenter notes. The deck
-  supplements Anton with PLU, including SciPy's compact factor shapes for
-  rectangular matrices;
-  defines linear transformations and standard matrices; treats scaling,
+  supplements Anton with PLU, including compact factor shapes for
+  rectangular matrices; introduces linear transformations through one
+  concrete $3\times2$ matrix, defines a linear combination only when that
+  term is first needed, and then develops standard matrices; treats scaling,
   reflections, projections, and rotations, including a coordinate-plane
-  comparison of three actions; and closes with composition, inverse actions,
+  comparison of four actions; and closes with composition, inverse actions,
   and a determinant handoff. It uses SciPy's convention
   $\mat{A}=\mat{P}\mat{L}\mat{U}$, equivalently
   $\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}$. Its triangular-matrix sequence
@@ -124,12 +134,25 @@ review afterward.
   unused rows preserves their unit lower-triangular structure. It now states
   explicitly that left multiplication by a permutation matrix permutes rows
   and right multiplication permutes columns. The sequence finishes with a
-  concrete $3\times3$ example requiring two row exchanges. The Markdown parses
+  concrete $3\times3$ example requiring two row exchanges. The retained
+  mathematical sequence ends by showing how one PLU factorization supports
+  repeated solves through permutation, forward substitution, and back
+  substitution without forming an inverse. Six SciPy implementation slides
+  formerly following that conclusion have been removed; the final PLU slide
+  links to the companion notebook instead. The notebook includes an executed
+  $5\times5$ example with three right-hand sides that agrees with explicit
+  pivoting, forward substitution, and back substitution. The Markdown parses
   cleanly, the displayed examples have been checked computationally, and
   internal fragment targets have been checked. The root site and all nine
   decks render cleanly outside the filesystem sandbox; Deck 03 has been
   inspected slide by slide at the standard $1600\times1000$ RevealJS viewport,
   and the assembled site's student-facing local files and fragments resolve.
+- `slides/04-determinants.qmd` is a substantive determinant deck covering
+  Anton Chapter 2. It motivates determinants as signed scale factors, computes
+  them by elimination and PLU, connects nonzero determinants with
+  invertibility, and closes with product and eigenvalue formulas, a
+  compute-only-what-is-needed decision rule, and a gold-bordered `Big Ideas`
+  summary.
 - Deck 01 now develops grouped elimination matrices through a continuing
   three-equation example that connects equation operations, the corresponding
   augmented-matrix row operations, and left multiplication. The notation
@@ -182,7 +205,7 @@ review afterward.
   Gaussian elimination and back substitution; for many right-hand sides,
   reuse elimination structure or a factorization; compute an explicit inverse
   when the inverse itself is the object of interest.
-- Decks 01 and 02 now close their substantive content with gold-bordered `Big
+- Decks 01–04 now close their substantive content with gold-bordered `Big
   Ideas` summaries before the next-deck handoff, and their Course Maps link to
   those summaries. `AUTHOR_WORKFLOW.md` records this as the convention for each
   completed instructional deck beginning with Deck 01.
@@ -190,17 +213,38 @@ review afterward.
   pedagogical content was judged fine for now; the Colab import failure above
   is the remaining operational defect.
 
+### Lecture 03 companion-notebook handoff
+
+Keep the SciPy material removed from Deck 03 in
+`notebooks/demonstrations/03-matrix-structure-and-transformations.ipynb`:
+
+- expose $\mat{P}$, $\mat{L}$, and $\mat{U}$ with `scipy.linalg.lu` and verify
+  both $\mat{A}=\mat{P}\mat{L}\mat{U}$ and
+  $\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}$;
+- solve for multiple right-hand sides by explicit forward and back
+  substitution, then check the residual and agreement with a direct solve;
+- demonstrate `lu_factor` and `lu_solve`, including factor-once/solve-many
+  reuse without forming $\mat{P}$ or an inverse;
+- unpack and explain the shared $\mat{L}$/$\mat{U}$ storage, the implicit unit
+  diagonal of $\mat{L}$, and the pivot swap history;
+- reconstruct the elimination row order, verify the packed factors, and check
+  solution residuals; and
+- show the compact factor shapes for one wide and one tall matrix.
+
+The notebook's PLU cells already provide this complete sequence. The
+next-machine check is to preserve it during clean-Colab validation, not to
+restore these details to the live deck. A short distinction between
+`lu(..., p_indices=True)` and `lu_factor`'s `piv` vector is optional; do not
+add it unless it improves the notebook without interrupting the solve
+narrative.
+
 ## Questions to resolve
 
-- Does the Deck 03 draft place the right classroom weight on special matrix
-  structure, PLU, geometric transformations, and composition?
 - Should Deck 03's PLU treatment include a brief forward signpost to Strang's
   later $\mat{A}=\mat{C}\mat{R}$ rank factorization? Keep any mention
   prospective rather than developing it here: the full treatment belongs
   after vector spaces, subspaces, basis, column and row spaces, RREF pivot
   columns, and rank have been established.
-- Which slides need additional examples, exercises, visual explanation, or
-  trimming after instructor review?
 
 ## Constraints
 
@@ -230,9 +274,11 @@ review afterward.
 - Use SciPy's PLU convention
   $\mat{A}=\mat{P}\mat{L}\mat{U}$ and explain that
   $\mat{P}^{\mathsf T}$ applies the row ordering used for elimination.
-- Treat PLU as a concise structural bridge, not as a numerical-methods unit;
-  omit pivot-selection algorithms, stability analysis, operation counts, and
-  storage details.
+- Treat PLU as a concise structural bridge, not as a numerical-methods unit.
+  Keep its mathematical derivation and triangular-solve conclusion in the
+  deck; keep SciPy APIs, packed factors, pivot indices, executable solves, and
+  residual checks in the companion notebook. Omit pivot-selection algorithms,
+  stability analysis, and operation counts.
 - Keep mathematical exposition authoritative in the RevealJS deck.
 - Reuse the established course-wide diagram primitives before adding
   deck-specific styling.
@@ -240,11 +286,8 @@ review afterward.
 ## Done when
 
 - Clean current Colab runtimes install the recorded shared library and execute
-  the Deck 00--03 companion notebooks end to end without an import failure.
-  The Colab repair is then complete and Deck 03 is again the current MATH 332
-  task.
-- The instructor has reviewed Deck 03's scope, sequence, examples, and
-  mathematical emphasis, and requested refinements are complete.
-- Any requested refinements render cleanly and remain visibly sound at the
-  standard RevealJS viewport, with working section, glossary, and
-  previous/next links.
+  the Deck 00--03 companion notebooks end to end without an import failure or
+  a QMCPy downgrade.
+- The Deck 03 notebook retains the SciPy PLU factor, solve, storage, pivot,
+  residual, and rectangular-shape sequence, and the live deck continues to
+  link to it without restoring the removed API and storage slides.
