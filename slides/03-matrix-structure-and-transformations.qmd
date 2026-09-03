@@ -833,15 +833,18 @@ $$
 $$
 
 ::: {.key-point}
-Factor $\mat{A}$ once; for each new $\vct{b}$, compute
-$\vct{c}=\mat{P}^{\mathsf T}\vct{b}$, solve $\mat{L}\vct{y}=\vct{c}$,
-then solve $\mat{U}\vct{x}=\vct{y}$—without forming an inverse
+First dense solve — factor and solve: $O(n^3)$ operations
+
+&nbsp;
+
+Each new $\vct{b}$ with saved PLU — permute, forward solve, and back solve:
+$O(n^2)$ operations, without forming an inverse
 :::
 
 ::: {.small}
 The [Lecture 03 companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/03-matrix-structure-and-transformations.ipynb)
 carries out these steps with SciPy, including packed factors, pivot indices,
-multiple right-hand sides, and residual checks.
+multiple right-hand sides, residual checks, and measured solve times.
 :::
 
 # Matrices as Linear Transformations

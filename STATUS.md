@@ -37,6 +37,12 @@ Mathematical content should be maintained only in the slides.
 - [ ] Develop the authoritative Decks 05–08 for Anton Chapters 3–6.
 - [x] Create the initial Notebooks page for demonstrations and exercises.
 - [x] Create and locally validate companion notebooks for Decks 02 and 03.
+- [x] Validate all four published Deck 00--03 companion notebooks end to end
+  in clean Google Colab runtimes using the recorded `classlib` commit without
+  downgrading QMCPy.
+- [x] Complete the Deck 03 companion's PLU sequence with printed factors for
+  the rectangular examples and measured $O(n^3)$ fresh-solve versus $O(n^2)$
+  saved-factor timing through $n=4096$.
 - [x] Add student repository-access instructions.
 - [x] Create Assignment 1 for Anton §§1.2–1.3; publish it in Canvas for
   20 points; convert it to an individual, automatically graded WileyPLUS
