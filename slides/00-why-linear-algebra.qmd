@@ -467,7 +467,9 @@ $$
 :::
 
 ::: {.key-point}
-Least squares asks for the closest possible output; projection identifies it geometrically.
+Least squares asks for the closest possible output
+
+Projection identifies it geometrically
 :::
 
 ## Repeated action reveals a persistent pattern
@@ -562,7 +564,9 @@ $$
 :::
 
 ::: {.key-point}
-An [ill-posed problem]{.alert} does not determine a unique, stable answer. Here uniqueness fails.
+An [ill-posed problem]{.alert} does not determine a unique, stable answer
+
+Here uniqueness fails
 :::
 
 One remedy: add a selection rule—e.g., the [smallest-norm]{.alert}
@@ -684,7 +688,9 @@ Examples:
 - exploit sparsity, symmetry, low rank, and other structure
 
 ::: {.key-point}
-Do no unnecessary computation; for production work, use a tested numerical library
+Do no unnecessary computation
+
+For production work, use a tested numerical library
 :::
 
 Reliable software cannot fix ill-posedness or remove sensitivity inherent in an ill-conditioned problem.
@@ -855,7 +861,9 @@ Complete and submit this assignment individually, not as a group.
 - experiment with Python in Jupyter/Colab notebooks
 
 ::: {.key-point}
-Computation supports understanding; it does not replace mathematical reasoning.
+Computation supports understanding
+
+It does not replace mathematical reasoning
 :::
 
 Jupyter/Colab notebooks support demonstrations and experiments.

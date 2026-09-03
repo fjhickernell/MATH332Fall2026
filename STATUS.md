@@ -49,7 +49,7 @@ Mathematical content should be maintained only in the slides.
   downgrading QMCPy.
 - [x] Complete the Deck 03 companion's PLU sequence with printed factors for
   the rectangular examples and measured $O(n^3)$ fresh-solve versus $O(n^2)$
-  saved-factor timing through $n=4096$.
+  saved-factor timing through $n=16384$.
 - [x] Add student repository-access instructions.
 - [x] Create Assignment 1 for Anton §§1.2–1.3; publish it in Canvas for
   20 points; convert it to an individual, automatically graded WileyPLUS

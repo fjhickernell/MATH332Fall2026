@@ -76,7 +76,9 @@ Let $\mat{A}\in\reals^{n\times n}$ and
 $T_{\mat{A}}(\vct{x})=\mat{A}\vct{x}$
 
 Let $\mathcal S\subseteq\reals^n$ be a measurable region: a set of
-column-vector points, not a matrix. Its image under the transformation is
+column-vector points, not a matrix
+
+Its image under the transformation is
 
 $$
 T_{\mat{A}}(\mathcal S)
@@ -338,8 +340,9 @@ $$
 
 The scale factor $\lambda$ is the corresponding [eigenvalue]{.alert}
 
-[Eigenvalues]({{< meta decks.d07.file >}}) will develop this idea. Counting
-repeated eigenvalues and allowing complex values,
+[Eigenvalues]({{< meta decks.d07.file >}}) will develop this idea
+
+Counting repeated eigenvalues and allowing complex values,
 
 $$
 \det(\mat{A})=\lambda_1\lambda_2\cdots\lambda_n
@@ -369,10 +372,13 @@ Use elimination or PLU—not determinant formulas—to solve
 $\mat{A}\vct{x}=\vct{b}$
 
 In floating-point computation, a small determinant depends strongly on scale
-and is not, by itself, a reliable test for a nearly singular matrix
+
+By itself, it is not a reliable test for a nearly singular matrix
 
 ::: {.key-point}
-A determinant [summarizes structure]{.alert}; it does not replace the factorization that computed it
+A determinant [summarizes structure]{.alert}
+
+It does not replace the factorization that computed it
 :::
 
 # Big Ideas {data-state="goldborder"}
@@ -382,7 +388,8 @@ A determinant [summarizes structure]{.alert}; it does not replace the factorizat
 - Compute determinants by [eliminating to triangular form]{.alert} and tracking swaps and scalings
 - PLU stores the needed information in the row permutation and the diagonal of $\mat{U}$
 - $\det(\mat{A})\ne0$ exactly when $\mat{A}$ is invertible
-- Products multiply determinants; later, eigenvalues will also multiply to the determinant
+- Products multiply determinants<br>Later, eigenvalues will also multiply to the
+  determinant
 
 # What Comes Next
 

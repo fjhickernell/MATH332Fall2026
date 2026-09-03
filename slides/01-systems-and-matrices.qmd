@@ -916,7 +916,9 @@ $$
 
 ::: {.key-point}
 $[\,\mat{U}\mid\vct{c}\,]$ represents the triangular system
-$\mat{U}\vct{x}=\vct{c}$; [back substitution]{.alert} then solves for
+$\mat{U}\vct{x}=\vct{c}$
+
+[Back substitution]{.alert} then solves for
 $\vct{x}$
 :::
 
@@ -996,7 +998,10 @@ where $m$ is the entry to clear divided by the pivot
 ::: {.column width="47%"}
 ### Your work
 
-You may choose any correct sequence of reversible operations, including unnecessary row exchanges or a different combination of scaling and replacement steps
+You may choose any correct sequence of reversible operations
+
+Valid choices include unnecessary row exchanges or a different combination of
+scaling and replacement steps
 
 ::: {.key-point}
 Our examples follow the same recipe every time so the steps are predictable rather than matters of preference
@@ -1006,7 +1011,9 @@ Our examples follow the same recipe every time so the steps are predictable rath
 
 ## Eliminate and organize with pivots
 
-For a solve, operate directly on $[\,\mat{A}\mid\vct{b}\,]$; this is closest to the computation carried out by software
+For a solve, operate directly on $[\,\mat{A}\mid\vct{b}\,]$
+
+This is closest to the computation carried out by software
 
 ### Matrix elimination repeats the same work
 
@@ -1090,7 +1097,9 @@ The first entry cannot serve as a pivot
 Now the entry in position $(1,1)$ can organize elimination below it
 
 ::: {.key-point}
-When a pivot candidate is zero, exchange rows if a nonzero entry lies below it; otherwise skip that column
+When a pivot candidate is zero, exchange rows if a nonzero entry lies below it
+
+Otherwise skip that column
 :::
 
 ::: {.exitem}
@@ -1528,7 +1537,10 @@ $$
 $$
 
 ::: {.key-point}
-An [elementary matrix]{.alert} performs one elementary row operation by left multiplication; here it changes row $2$ and leaves rows $1$ and $3$ unchanged
+An [elementary matrix]{.alert} performs one elementary row operation by left
+multiplication
+
+Here it changes row $2$ and leaves rows $1$ and $3$ unchanged
 :::
 
 ---
@@ -1683,7 +1695,8 @@ $$
 [\,\mat{U}\mid\vct{c}\,]
 $$
 
-- This product records the elimination algebraically; it [need not be formed]{.alert} to solve the system
+- This product records the elimination algebraically<br>It [need not be
+  formed]{.alert} to solve the system
 
 - The [rightmost matrix]{.alert} $\mat{M}_1$ acts first.
 
@@ -1699,9 +1712,12 @@ It is generally [not commutative]{.alert}: factors may not be reordered
 
 # Big Ideas {data-state="goldborder"}
 
-- [Equations show the details]{.alert}; [augmented matrices compress the same information]{.alert} for computation; [elimination matrices group row operations algebraically]{.alert}
+- [Equations show the details]{.alert}<br>[Augmented matrices compress the same
+  information]{.alert} for computation<br>[Elimination matrices group row
+  operations algebraically]{.alert}
 - Reversible row operations preserve the solution set
-- [Dot products]{.alert} express individual equations; matrix multiplication collects many dot products and composes actions
+- [Dot products]{.alert} express individual equations<br>Matrix multiplication
+  collects many dot products and composes actions
 - [Pivots]{.alert} organize elimination and reveal whether a system has [zero, one, or infinitely many solutions]{.alert}
 - Compute only what the problem requires
 

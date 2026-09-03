@@ -717,7 +717,8 @@ $$
 ::: {.key-point}
 - Singular $\mat{I}-\mat{C}$ — a nonzero $\vct{z}$ satisfies $\vct{z}=\mat{C}\vct{z}$
 - Along $\vct{z}$, gross-output changes are absorbed internally
-- Compatible $\vct{d}$ — $\vct{x}+t\vct{z}$ is an algebraic solution for every $t\in\reals$; only nonnegative members are feasible plans
+- Compatible $\vct{d}$ — $\vct{x}+t\vct{z}$ is an algebraic solution for every
+  $t\in\reals$<br>Only nonnegative members are feasible plans
 - Some $\vct{d}$ — no solution
 :::
 
@@ -862,8 +863,10 @@ $2$. Covariance and precision zeros encode different relationships.
 - Invertible — pivot in every row and column; one solution for every $\vct{b}$
 - Product inverse — [reverse factor order]{.alert}
 - Gauss–Jordan on $[\,\mat{A}\mid\mat{I}\,]$ computes $\mat{A}^{-1}$
-- [Least computation]{.alert} — solve a few right-hand sides directly; reuse factors or response maps for many
-- Applications — Leontief maps demand to production; Gaussian precision captures conditional structure
+- [Least computation]{.alert} — solve a few right-hand sides directly<br>Reuse
+  factors or response maps for many
+- Applications — Leontief maps demand to production<br>Gaussian precision
+  captures conditional structure
 
 # What Comes Next
 

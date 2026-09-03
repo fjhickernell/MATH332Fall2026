@@ -370,7 +370,9 @@ $$
 ## Transpose exchanges rows and columns
 
 We already used $\vct{a}^{\mathsf T}$ for a matrix row in
-[Systems and Matrices]({{< meta decks.d01.file >}}#each-equation-is-one-dot-product); now transpose any matrix:
+[Systems and Matrices]({{< meta decks.d01.file >}}#each-equation-is-one-dot-product)
+
+Now transpose any matrix:
 
 For example,
 
@@ -418,8 +420,8 @@ Symmetry records the same pairwise value in both directions
 
 Elimination separates a matrix into simpler structured factors
 
-Start with LU when no row exchanges are needed; then add a permutation matrix
-to obtain PLU and reuse the triangular factors to solve systems
+Start with LU when no row exchanges are needed<br>Add a permutation matrix to
+obtain PLU<br>Reuse the triangular factors to solve systems
 
 - [Inverse elimination matrices form $\mat{L}$](#inverse-elimination-matrices-form-l)
 - [A permutation matrix records row order](#a-permutation-matrix-records-row-order)
@@ -491,7 +493,9 @@ Next we incorporate row exchanges and derive the general PLU pattern
 
 A [permutation matrix]{.alert} is obtained by reordering the rows of the identity matrix
 
-Write $\mat{P}_{jk}$ for one exchange of rows $j$ and $k$. In PLU, $\mat{P}$ records the combined row ordering.
+Write $\mat{P}_{jk}$ for one exchange of rows $j$ and $k$
+
+In PLU, $\mat{P}$ records the combined row ordering
 
 $$
 \mat{P}=\begin{bmatrix}
@@ -515,7 +519,9 @@ $$
 $$
 
 ::: {.key-point}
-A single row-exchange matrix is symmetric; a general permutation matrix need not be
+A single row-exchange matrix is symmetric
+
+A general permutation matrix need not be
 :::
 
 ---
@@ -647,8 +653,10 @@ Conjugation applies the same relabeling to rows and columns
 
 Because $\mat{\Pi}_q\cdots\mat{\Pi}_{j+1}$ fixes the first $j$ rows and
 columns, conjugation only reorders the entries below the diagonal in column
-$j$. Therefore $\widetilde{\mat{M}}_j$ and
-$\widetilde{\mat{M}}_j^{-1}$ remain unit lower triangular.
+$j$
+
+Therefore $\widetilde{\mat{M}}_j$ and
+$\widetilde{\mat{M}}_j^{-1}$ remain unit lower triangular
 
 \begin{align*}
 \mat{P}^{\mathsf T}
@@ -758,7 +766,8 @@ $$
 \end{bmatrix}
 $$
 
-Since $\mat{L}^{-1}=\mat{M}_2\widetilde{\mat{M}}_1$, invert in reverse order; then use $\mat{M}_2=\mat{I}$
+Since $\mat{L}^{-1}=\mat{M}_2\widetilde{\mat{M}}_1$, invert in reverse order<br>Then
+use $\mat{M}_2=\mat{I}$
 
 $$
 \mat{L}
@@ -798,7 +807,8 @@ $\mat{A}=\mat{P}\mat{L}\mat{U}$
 
 ## Rectangular PLU uses compact factors
 
-For $\mat{A}\in\reals^{m\times n}$, set $k=\min(m,n)$. Compact PLU factors have shapes
+For $\mat{A}\in\reals^{m\times n}$, set $k=\min(m,n)$<br>Compact PLU factors
+have shapes
 
 $$
 \mat{P}\in\reals^{m\times m},
@@ -1287,7 +1297,9 @@ $$
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
 <span>
-For $\mat{A}\in\reals^{2\times2}$, show that this identity holds exactly when its columns are an orthonormal pair—each has length $1$, and their dot product is $0$—and exactly when its rows are an orthonormal pair.
+For $\mat{A}\in\reals^{2\times2}$, show that this identity holds exactly when
+its columns are an orthonormal pair—each has length $1$, and their dot product
+is $0$.<br>Show that it also holds exactly when its rows are an orthonormal pair.
 <span class="exsub">Hint: the entries of $\mat{A}^{\mathsf T}\mat{A}$ are dot products of columns; the entries of $\mat{A}\mat{A}^{\mathsf T}$ are dot products of rows.</span>
 <span class="exsub">Verify the identity for the rotation $\mat{R}_{\theta}$ above and the reflection across $y=x$, $\mat{H}=\begin{bmatrix}0&1\\1&0\end{bmatrix}$.</span>
 </span>
@@ -1371,7 +1383,9 @@ $$
 :::
 :::
 
-Usually $\mat{Q}\mat{R}\ne\mat{R}\mat{Q}$; planar rotations about the same origin are a useful commuting exception
+Usually $\mat{Q}\mat{R}\ne\mat{R}\mat{Q}$
+
+Planar rotations about the same origin are a useful commuting exception
 
 ## Inverse transformations undo in reverse order
 
@@ -1419,7 +1433,9 @@ $$
 $$
 
 ::: {.key-point}
-Factorization is representation by simpler actions; multiplication composes them
+Factorization is representation by simpler actions
+
+Multiplication composes them
 :::
 
 # Big Ideas {data-state="goldborder"}
@@ -1429,7 +1445,7 @@ Factorization is representation by simpler actions; multiplication composes them
   $\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}$, equivalently
   $\mat{A}=\mat{P}\mat{L}\mat{U}$
 - [Linear transformation]{.alert} — combine first or transform first, same
-  result; basis images $\longrightarrow$ standard matrix
+  result<br>Basis images $\longrightarrow$ standard matrix
 - Rotations and reflections are [orthogonal]{.alert}: inverse equals transpose
 - Nonidentity projections [discard information]{.alert} and cannot be inverted
 - In a product, the [rightmost transformation acts first]{.alert}

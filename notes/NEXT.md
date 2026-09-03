@@ -23,10 +23,10 @@ computational purpose it would serve.
 - Deck 03 now states that a first dense solve costs $O(n^3)$ operations and
   each new right-hand side costs $O(n^2)$ when saved PLU factors are reused.
   The companion notebook measures both paths for
-  $n=64,128,256,512,1024,2048,4096$ and displays a timing table and log--log
-  plot. On the Intel validation run, the final doubling gave ratios 6.51 for
-  a fresh solve versus 3.79 with saved PLU, approaching the theoretical
-  factors 8 and 4. The full notebook executes without errors, and Deck 03
+  $n=64,128,256,512,1024,2048,4096,8192,16384$ and displays a timing table
+  and log--log plot. On the M3 clean-kernel validation run, the $n=16384$
+  fresh solve took 5.996 seconds versus 0.203 seconds with saved PLU, a
+  29.5-fold speedup. The full notebook executes without errors, and Deck 03
   renders cleanly outside the filesystem sandbox.
 - Assignment 1 is the individual 20-point WileyPLUS assignment, due September
   7 at 11:59 PM Chicago Time. Quiz 1 is scheduled for September 10 and covers
