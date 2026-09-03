@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-09-02">
+  <meta name="dcterms.date" content="2026-09-03">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -650,7 +650,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">September 2, 2026</p>
+  <p class="date">September 3, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 center">
 <h1>Course Map</h1>
@@ -1372,10 +1372,12 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 \underbrace{\mat{U}\vct{x}=\vct{y}}_{\text{back substitution}}
 \]</span></p>
 <div class="key-point">
-<p>Factor <span class="math inline">\(\mat{A}\)</span> once; for each new <span class="math inline">\(\vct{b}\)</span>, compute <span class="math inline">\(\vct{c}=\mat{P}^{\mathsf T}\vct{b}\)</span>, solve <span class="math inline">\(\mat{L}\vct{y}=\vct{c}\)</span>, then solve <span class="math inline">\(\mat{U}\vct{x}=\vct{y}\)</span>—without forming an inverse</p>
+<p>First dense solve — factor and solve: <span class="math inline">\(O(n^3)\)</span> operations</p>
+<p>&nbsp;</p>
+<p>Each new <span class="math inline">\(\vct{b}\)</span> with saved PLU — permute, forward solve, and back solve: <span class="math inline">\(O(n^2)\)</span> operations, without forming an inverse</p>
 </div>
 <div class="small">
-<p>The <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/03-matrix-structure-and-transformations.ipynb">Lecture 03 companion notebook</a> carries out these steps with SciPy, including packed factors, pivot indices, multiple right-hand sides, and residual checks.</p>
+<p>The <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/03-matrix-structure-and-transformations.ipynb">Lecture 03 companion notebook</a> carries out these steps with SciPy, including packed factors, pivot indices, multiple right-hand sides, residual checks, and measured solve times.</p>
 </div>
 </section></section>
 <section>
