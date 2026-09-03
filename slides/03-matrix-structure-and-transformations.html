@@ -974,7 +974,8 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 </section>
 <section id="transpose-exchanges-rows-and-columns" class="slide level2">
 <h2>Transpose exchanges rows and columns</h2>
-<p>We already used <span class="math inline">\(\vct{a}^{\mathsf T}\)</span> for a matrix row in <a href="01-systems-and-matrices.html#each-equation-is-one-dot-product">Systems and Matrices</a>; now transpose any matrix:</p>
+<p>We already used <span class="math inline">\(\vct{a}^{\mathsf T}\)</span> for a matrix row in <a href="01-systems-and-matrices.html#each-equation-is-one-dot-product">Systems and Matrices</a></p>
+<p>Now transpose any matrix:</p>
 <p>For example,</p>
 <p><span class="math display">\[
 \mat{A}=\begin{bmatrix}1&amp;2&amp;3\\4&amp;5&amp;6\end{bmatrix},
@@ -1016,7 +1017,7 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 <section id="elimination-becomes-a-factorization" class="title-slide slide level1 center">
 <h1>Elimination Becomes a Factorization</h1>
 <p>Elimination separates a matrix into simpler structured factors</p>
-<p>Start with LU when no row exchanges are needed; then add a permutation matrix to obtain PLU and reuse the triangular factors to solve systems</p>
+<p>Start with LU when no row exchanges are needed<br>Add a permutation matrix to obtain PLU<br>Reuse the triangular factors to solve systems</p>
 <ul>
 <li><a href="#/inverse-elimination-matrices-form-l">Inverse elimination matrices form <span class="math inline">\(\mat{L}\)</span></a></li>
 <li><a href="#/a-permutation-matrix-records-row-order">A permutation matrix records row order</a></li>
@@ -1077,7 +1078,8 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 <section id="a-permutation-matrix-records-row-order" class="slide level2">
 <h2>A permutation matrix records row order</h2>
 <p>A <span class="alert">permutation matrix</span> is obtained by reordering the rows of the identity matrix</p>
-<p>Write <span class="math inline">\(\mat{P}_{jk}\)</span> for one exchange of rows <span class="math inline">\(j\)</span> and <span class="math inline">\(k\)</span>. In PLU, <span class="math inline">\(\mat{P}\)</span> records the combined row ordering.</p>
+<p>Write <span class="math inline">\(\mat{P}_{jk}\)</span> for one exchange of rows <span class="math inline">\(j\)</span> and <span class="math inline">\(k\)</span></p>
+<p>In PLU, <span class="math inline">\(\mat{P}\)</span> records the combined row ordering</p>
 <p><span class="math display">\[
 \mat{P}=\begin{bmatrix}
 0&amp;0&amp;1\\
@@ -1097,7 +1099,8 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 \mat{P}^{\mathsf T}\mat{P}=\mat{I}
 \]</span></p>
 <div class="key-point">
-<p>A single row-exchange matrix is symmetric; a general permutation matrix need not be</p>
+<p>A single row-exchange matrix is symmetric</p>
+<p>A general permutation matrix need not be</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1210,7 +1213,8 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 <section class="slide level2">
 
 <h3 id="the-relabeled-stages-stay-lower-triangular">The relabeled stages stay lower triangular</h3>
-<p>Because <span class="math inline">\(\mat{\Pi}_q\cdots\mat{\Pi}_{j+1}\)</span> fixes the first <span class="math inline">\(j\)</span> rows and columns, conjugation only reorders the entries below the diagonal in column <span class="math inline">\(j\)</span>. Therefore <span class="math inline">\(\widetilde{\mat{M}}_j\)</span> and <span class="math inline">\(\widetilde{\mat{M}}_j^{-1}\)</span> remain unit lower triangular.</p>
+<p>Because <span class="math inline">\(\mat{\Pi}_q\cdots\mat{\Pi}_{j+1}\)</span> fixes the first <span class="math inline">\(j\)</span> rows and columns, conjugation only reorders the entries below the diagonal in column <span class="math inline">\(j\)</span></p>
+<p>Therefore <span class="math inline">\(\widetilde{\mat{M}}_j\)</span> and <span class="math inline">\(\widetilde{\mat{M}}_j^{-1}\)</span> remain unit lower triangular</p>
 <p><span class="math display">\[\begin{align*}
 \mat{P}^{\mathsf T}
 &amp;=\mat{\Pi}_q\cdots\mat{\Pi}_1,\\
@@ -1309,7 +1313,7 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 0&amp;0&amp;1
 \end{bmatrix}
 \]</span></p>
-<p>Since <span class="math inline">\(\mat{L}^{-1}=\mat{M}_2\widetilde{\mat{M}}_1\)</span>, invert in reverse order; then use <span class="math inline">\(\mat{M}_2=\mat{I}\)</span></p>
+<p>Since <span class="math inline">\(\mat{L}^{-1}=\mat{M}_2\widetilde{\mat{M}}_1\)</span>, invert in reverse order<br>Then use <span class="math inline">\(\mat{M}_2=\mat{I}\)</span></p>
 <p><span class="math display">\[
 \mat{L}
 =\bigl(\mat{M}_2\widetilde{\mat{M}}_1\bigr)^{-1}
@@ -1343,7 +1347,7 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 </section>
 <section id="rectangular-plu-uses-compact-factors" class="slide level2">
 <h2>Rectangular PLU uses compact factors</h2>
-<p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, set <span class="math inline">\(k=\min(m,n)\)</span>. Compact PLU factors have shapes</p>
+<p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, set <span class="math inline">\(k=\min(m,n)\)</span><br>Compact PLU factors have shapes</p>
 <p><span class="math display">\[
 \mat{P}\in\reals^{m\times m},
 \qquad
@@ -1760,7 +1764,7 @@ T(\vct{x})=\mat{A}\vct{x}
 \mat{A}^{-1}=\mat{A}^{\mathsf T}
 \]</span></p>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> For <span class="math inline">\(\mat{A}\in\reals^{2\times2}\)</span>, show that this identity holds exactly when its columns are an orthonormal pair—each has length <span class="math inline">\(1\)</span>, and their dot product is <span class="math inline">\(0\)</span>—and exactly when its rows are an orthonormal pair. <span class="exsub">Hint: the entries of <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}\)</span> are dot products of columns; the entries of <span class="math inline">\(\mat{A}\mat{A}^{\mathsf T}\)</span> are dot products of rows.</span> <span class="exsub">Verify the identity for the rotation <span class="math inline">\(\mat{R}_{\theta}\)</span> above and the reflection across <span class="math inline">\(y=x\)</span>, <span class="math inline">\(\mat{H}=\begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix}\)</span>.</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> For <span class="math inline">\(\mat{A}\in\reals^{2\times2}\)</span>, show that this identity holds exactly when its columns are an orthonormal pair—each has length <span class="math inline">\(1\)</span>, and their dot product is <span class="math inline">\(0\)</span>.<br>Show that it also holds exactly when its rows are an orthonormal pair. <span class="exsub">Hint: the entries of <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}\)</span> are dot products of columns; the entries of <span class="math inline">\(\mat{A}\mat{A}^{\mathsf T}\)</span> are dot products of rows.</span> <span class="exsub">Verify the identity for the rotation <span class="math inline">\(\mat{R}_{\theta}\)</span> above and the reflection across <span class="math inline">\(y=x\)</span>, <span class="math inline">\(\mat{H}=\begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix}\)</span>.</span> </span></p>
 </div>
 <aside class="notes">
 <p>Write <span class="math inline">\(\mat{A}=[\vct{A}_1\ \vct{A}_2]\)</span>. The <span class="math inline">\((i,j)\)</span> entry of <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}\)</span> is <span class="math inline">\(\vct{A}_i^{\mathsf T}\vct{A}_j\)</span>, so <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}=\mat{I}\)</span> exactly when the columns are orthonormal. Likewise, the entries of <span class="math inline">\(\mat{A}\mat{A}^{\mathsf T}\)</span> are dot products of rows. For a square matrix, either identity makes <span class="math inline">\(\mat{A}^{\mathsf T}\)</span> the inverse, so both the column and row conditions hold.</p>
@@ -1830,7 +1834,8 @@ T_{\mat{B}}:\reals^k\to\reals^m
 =\begin{bmatrix}0\\x\end{bmatrix}
 \]</span></p>
 </div></div>
-<p>Usually <span class="math inline">\(\mat{Q}\mat{R}\ne\mat{R}\mat{Q}\)</span>; planar rotations about the same origin are a useful commuting exception</p>
+<p>Usually <span class="math inline">\(\mat{Q}\mat{R}\ne\mat{R}\mat{Q}\)</span></p>
+<p>Planar rotations about the same origin are a useful commuting exception</p>
 </section>
 <section id="inverse-transformations-undo-in-reverse-order" class="slide level2">
 <h2>Inverse transformations undo in reverse order</h2>
@@ -1871,7 +1876,8 @@ T_{\mat{B}}:\reals^k\to\reals^m
 =\mat{A}\vct{x}
 \]</span></p>
 <div class="key-point">
-<p>Factorization is representation by simpler actions; multiplication composes them</p>
+<p>Factorization is representation by simpler actions</p>
+<p>Multiplication composes them</p>
 </div>
 </section></section>
 <section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
@@ -1879,7 +1885,7 @@ T_{\mat{B}}:\reals^k\to\reals^m
 <ul>
 <li>Special matrix <span class="alert">patterns reveal behavior</span> before computation</li>
 <li>With row exchanges, elimination gives <span class="math inline">\(\mat{P}^{\mathsf T}\mat{A}=\mat{L}\mat{U}\)</span>, equivalently <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span></li>
-<li><span class="alert">Linear transformation</span> — combine first or transform first, same result; basis images <span class="math inline">\(\longrightarrow\)</span> standard matrix</li>
+<li><span class="alert">Linear transformation</span> — combine first or transform first, same result<br>Basis images <span class="math inline">\(\longrightarrow\)</span> standard matrix</li>
 <li>Rotations and reflections are <span class="alert">orthogonal</span>: inverse equals transpose</li>
 <li>Nonidentity projections <span class="alert">discard information</span> and cannot be inverted</li>
 <li>In a product, the <span class="alert">rightmost transformation acts first</span></li>

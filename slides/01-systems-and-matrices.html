@@ -1393,7 +1393,8 @@ x+2y-z&amp;=2\\
 =[\,\mat{U}\mid\vct{c}\,]
 \]</span></p>
 <div class="key-point">
-<p><span class="math inline">\([\,\mat{U}\mid\vct{c}\,]\)</span> represents the triangular system <span class="math inline">\(\mat{U}\vct{x}=\vct{c}\)</span>; <span class="alert">back substitution</span> then solves for <span class="math inline">\(\vct{x}\)</span></p>
+<p><span class="math inline">\([\,\mat{U}\mid\vct{c}\,]\)</span> represents the triangular system <span class="math inline">\(\mat{U}\vct{x}=\vct{c}\)</span></p>
+<p><span class="alert">Back substitution</span> then solves for <span class="math inline">\(\vct{x}\)</span></p>
 </div>
 </section>
 <section id="translate-equations-into-matrix-rows" class="slide level2">
@@ -1454,7 +1455,8 @@ R_i\leftarrow R_i-mR_j
 
 </div><div class="column" style="width:47%;">
 <h3 id="your-work">Your work</h3>
-<p>You may choose any correct sequence of reversible operations, including unnecessary row exchanges or a different combination of scaling and replacement steps</p>
+<p>You may choose any correct sequence of reversible operations</p>
+<p>Valid choices include unnecessary row exchanges or a different combination of scaling and replacement steps</p>
 <div class="key-point">
 <p>Our examples follow the same recipe every time so the steps are predictable rather than matters of preference</p>
 </div>
@@ -1462,7 +1464,8 @@ R_i\leftarrow R_i-mR_j
 </section>
 <section id="eliminate-and-organize-with-pivots" class="slide level2">
 <h2>Eliminate and organize with pivots</h2>
-<p>For a solve, operate directly on <span class="math inline">\([\,\mat{A}\mid\vct{b}\,]\)</span>; this is closest to the computation carried out by software</p>
+<p>For a solve, operate directly on <span class="math inline">\([\,\mat{A}\mid\vct{b}\,]\)</span></p>
+<p>This is closest to the computation carried out by software</p>
 <h3 id="matrix-elimination-repeats-the-same-work">Matrix elimination repeats the same work</h3>
 <p>Continue the same elimination with compact matrix notation:</p>
 <p><span class="math display">\[\begin{align*}
@@ -1534,7 +1537,8 @@ R_i\leftarrow R_i-mR_j
 \end{align*}\]</span></p>
 <p>Now the entry in position <span class="math inline">\((1,1)\)</span> can organize elimination below it</p>
 <div class="key-point">
-<p>When a pivot candidate is zero, exchange rows if a nonzero entry lies below it; otherwise skip that column</p>
+<p>When a pivot candidate is zero, exchange rows if a nonzero entry lies below it</p>
+<p>Otherwise skip that column</p>
 </div>
 <div class="exitem">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>After the exchange, which row operation eliminates the <span class="math inline">\(2\)</span> below the new first pivot?</span></p>
@@ -1860,7 +1864,8 @@ a_{31}&amp;a_{32}&amp;a_{33}
 \end{bmatrix}
 \]</span></p>
 <div class="key-point">
-<p>An <span class="alert">elementary matrix</span> performs one elementary row operation by left multiplication; here it changes row <span class="math inline">\(2\)</span> and leaves rows <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> unchanged</p>
+<p>An <span class="alert">elementary matrix</span> performs one elementary row operation by left multiplication</p>
+<p>Here it changes row <span class="math inline">\(2\)</span> and leaves rows <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span> unchanged</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1988,7 +1993,7 @@ q=\min(m-1,n)
 [\,\mat{U}\mid\vct{c}\,]
 \]</span></p>
 <ul>
-<li><p>This product records the elimination algebraically; it <span class="alert">need not be formed</span> to solve the system</p></li>
+<li><p>This product records the elimination algebraically<br>It <span class="alert">need not be formed</span> to solve the system</p></li>
 <li><p>The <span class="alert">rightmost matrix</span> <span class="math inline">\(\mat{M}_1\)</span> acts first.</p></li>
 <li><p>For a square or wide matrix (<span class="math inline">\(m\le n\)</span>), <span class="math inline">\(q=m-1\)</span></p></li>
 <li><p>A tall matrix (<span class="math inline">\(m &gt; n\)</span>) may also need <span class="math inline">\(\mat{M}_n\)</span> because column <span class="math inline">\(n\)</span> can have entries below row <span class="math inline">\(n\)</span></p></li>
@@ -2001,9 +2006,9 @@ q=\min(m-1,n)
 <section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Big Ideas</h1>
 <ul>
-<li><p><span class="alert">Equations show the details</span>; <span class="alert">augmented matrices compress the same information</span> for computation; <span class="alert">elimination matrices group row operations algebraically</span></p></li>
+<li><p><span class="alert">Equations show the details</span><br><span class="alert">Augmented matrices compress the same information</span> for computation<br><span class="alert">Elimination matrices group row operations algebraically</span></p></li>
 <li><p>Reversible row operations preserve the solution set</p></li>
-<li><p><span class="alert">Dot products</span> express individual equations; matrix multiplication collects many dot products and composes actions</p></li>
+<li><p><span class="alert">Dot products</span> express individual equations<br>Matrix multiplication collects many dot products and composes actions</p></li>
 <li><p><span class="alert">Pivots</span> organize elimination and reveal whether a system has <span class="alert">zero, one, or infinitely many solutions</span></p></li>
 <li><p>Compute only what the problem requires</p>
 <ul>

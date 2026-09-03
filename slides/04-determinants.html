@@ -713,7 +713,8 @@ In this deck
 <section id="a-determinant-is-a-signed-scale-factor" class="slide level2">
 <h2>A determinant is a signed scale factor</h2>
 <p>Let <span class="math inline">\(\mat{A}\in\reals^{n\times n}\)</span> and <span class="math inline">\(T_{\mat{A}}(\vct{x})=\mat{A}\vct{x}\)</span></p>
-<p>Let <span class="math inline">\(\mathcal S\subseteq\reals^n\)</span> be a measurable region: a set of column-vector points, not a matrix. Its image under the transformation is</p>
+<p>Let <span class="math inline">\(\mathcal S\subseteq\reals^n\)</span> be a measurable region: a set of column-vector points, not a matrix</p>
+<p>Its image under the transformation is</p>
 <p><span class="math display">\[
 T_{\mat{A}}(\mathcal S)
 =\{\mat{A}\vct{x}:\vct{x}\in\mathcal S\}
@@ -1005,7 +1006,8 @@ u_{11}&amp;u_{12}&amp;\cdots&amp;u_{1n}\\
 \qquad \vct{v}\ne\vct{0}
 \]</span></p>
 <p>The scale factor <span class="math inline">\(\lambda\)</span> is the corresponding <span class="alert">eigenvalue</span></p>
-<p><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a> will develop this idea. Counting repeated eigenvalues and allowing complex values,</p>
+<p><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a> will develop this idea</p>
+<p>Counting repeated eigenvalues and allowing complex values,</p>
 <p><span class="math display">\[
 \det(\mat{A})=\lambda_1\lambda_2\cdots\lambda_n
 \]</span></p>
@@ -1037,9 +1039,11 @@ u_{11}&amp;u_{12}&amp;\cdots&amp;u_{1n}\\
 <li>the product of eigenvalues</li>
 </ul>
 <p>Use elimination or PLU—not determinant formulas—to solve <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span></p>
-<p>In floating-point computation, a small determinant depends strongly on scale and is not, by itself, a reliable test for a nearly singular matrix</p>
+<p>In floating-point computation, a small determinant depends strongly on scale</p>
+<p>By itself, it is not a reliable test for a nearly singular matrix</p>
 <div class="key-point">
-<p>A determinant <span class="alert">summarizes structure</span>; it does not replace the factorization that computed it</p>
+<p>A determinant <span class="alert">summarizes structure</span></p>
+<p>It does not replace the factorization that computed it</p>
 </div>
 </section></section>
 <section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
@@ -1050,7 +1054,7 @@ u_{11}&amp;u_{12}&amp;\cdots&amp;u_{1n}\\
 <li>Compute determinants by <span class="alert">eliminating to triangular form</span> and tracking swaps and scalings</li>
 <li>PLU stores the needed information in the row permutation and the diagonal of <span class="math inline">\(\mat{U}\)</span></li>
 <li><span class="math inline">\(\det(\mat{A})\ne0\)</span> exactly when <span class="math inline">\(\mat{A}\)</span> is invertible</li>
-<li>Products multiply determinants; later, eigenvalues will also multiply to the determinant</li>
+<li>Products multiply determinants<br>Later, eigenvalues will also multiply to the determinant</li>
 </ul>
 </section>
 
