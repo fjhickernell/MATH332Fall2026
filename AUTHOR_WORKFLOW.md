@@ -125,6 +125,11 @@ finalized or materially revised:
   proper nouns, acronyms, and mathematical notation.
 - In the Course Map's **In this deck** list, repeat each linked `#` section
   heading exactly, including its title capitalization and punctuation.
+- Follow the [shared Course Map theme convention](classlib/docs/slide-style.md#course-map-themes).
+  MATH 332 uses 38% for Course decks, a 4% empty gutter, and 58% for In this
+  deck throughout the course. Placeholder decks use the same map and link
+  only their existing section headings. Center phrase-only themes at
+  `1.5em`; Deck 00 uses a 🎬 clapperboard beside `[Teaser Trailer]{.alert}`.
 - Every instructional `#` section slide must link to all of its child `##`
   slides in presentation order; `###` subheadings do not belong in this list.
   When the section slide also contains content, place brief framing or

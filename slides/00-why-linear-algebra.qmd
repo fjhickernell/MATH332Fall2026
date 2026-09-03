@@ -27,7 +27,7 @@ include-after-body:
 # Course Map
 
 ::: {.columns}
-::: {.column width="45%"}
+::: {.column width="38%"}
 <h3>Course decks</h3>
 
 - [Why Linear Algebra?]({{< meta decks.d00.file >}}) — [current]{.alert}
@@ -41,8 +41,15 @@ include-after-body:
 - [Inner Products]({{< meta decks.d08.file >}})
 :::
 
-::: {.column width="55%"}
+::: {.column width="4%"}
+:::
+
+::: {.column width="58%"}
 <h3>In this deck</h3>
+
+::: {style="text-align: center; font-size: 1.5em;"}
+<span role="img" aria-label="Clapperboard">🎬</span> [Teaser Trailer]{.alert}
+:::
 
 - [A Common Language for Representation and Action](#a-common-language-for-representation-and-action)
 - [Represent](#represent)

@@ -22,7 +22,7 @@ include-after-body:
 # Course Map
 
 ::: {.columns}
-::: {.column width="45%"}
+::: {.column width="38%"}
 <h3>Course decks</h3>
 
 - [Why Linear Algebra?]({{< meta decks.d00.file >}})
@@ -36,8 +36,27 @@ include-after-body:
 - [Inner Products]({{< meta decks.d08.file >}})
 :::
 
-::: {.column width="55%"}
+::: {.column width="4%"}
+:::
+
+::: {.column width="58%"}
 <h3>In this deck</h3>
+
+::: {style="text-align: center; font-size: 1.25em;"}
+[Rotate · Reflect · Project · Stretch]{.alert}
+:::
+
+\begin{gather*}
+\mat{A}\vct{x}=\vct{b}
+\;\xrightarrow{\mat{A}=\mat{P}\mat{L}\mat{U}}\;
+\underbrace{\mat{L}\vct{y}=\mat{P}^{\mathsf T}\vct{b}}_{\text{forward solve}}
+\;\longrightarrow\;
+\underbrace{\mat{U}\vct{x}=\vct{y}}_{\text{back solve}}
+\\
+\mat{A}\vct{e}_j=\vct{A}_j
+\quad\implies\quad
+\mat{A}\vct{x}=\textstyle\sum_{j=1}^n x_j\vct{A}_j
+\end{gather*}
 
 - [Matrix Patterns](#matrix-patterns)
 - [Elimination Becomes a Factorization](#elimination-becomes-a-factorization)

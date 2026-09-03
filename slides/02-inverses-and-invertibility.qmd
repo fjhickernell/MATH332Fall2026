@@ -22,7 +22,7 @@ include-after-body:
 # Course Map
 
 ::: {.columns}
-::: {.column width="45%"}
+::: {.column width="38%"}
 <h3>Course decks</h3>
 
 - [Why Linear Algebra?]({{< meta decks.d00.file >}})
@@ -36,8 +36,18 @@ include-after-body:
 - [Inner Products]({{< meta decks.d08.file >}})
 :::
 
-::: {.column width="55%"}
+::: {.column width="4%"}
+:::
+
+::: {.column width="58%"}
 <h3>In this deck</h3>
+
+$$
+\mat{A}\vct{x}=\vct{b}
+\;\implies\;
+\vct{x}=\mat{A}^{-1}\vct{b}
+\qquad\text{if }\mat{A}^{-1}\text{ exists}
+$$
 
 - [From Row Operations to Inverses](#from-row-operations-to-inverses)
 - [Inverse Algebra](#inverse-algebra)

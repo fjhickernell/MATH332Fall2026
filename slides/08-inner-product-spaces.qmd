@@ -13,6 +13,33 @@ include-after-body:
       </script>
 ---
 
+# Course Map
+
+::: {.columns}
+::: {.column width="38%"}
+<h3>Course decks</h3>
+
+- [Why Linear Algebra?]({{< meta decks.d00.file >}})
+- [Systems and Matrices]({{< meta decks.d01.file >}})
+- [Inverses]({{< meta decks.d02.file >}})
+- [Matrix Transformations]({{< meta decks.d03.file >}})
+- [Determinants]({{< meta decks.d04.file >}})
+- [Euclidean Spaces]({{< meta decks.d05.file >}})
+- [Vector Spaces]({{< meta decks.d06.file >}})
+- [Eigenvalues]({{< meta decks.d07.file >}})
+- [Inner Products]({{< meta decks.d08.file >}}) — [current]{.alert}
+:::
+
+::: {.column width="4%"}
+:::
+
+::: {.column width="58%"}
+<h3>In this deck</h3>
+
+- [Inner Product Spaces](#inner-product-spaces)
+:::
+:::
+
 # Inner Product Spaces
 
 Chapter 6 content will be developed in this deck.

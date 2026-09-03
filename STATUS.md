@@ -34,6 +34,13 @@ Mathematical content should be maintained only in the slides.
 
 ## Later course construction
 
+- [x] Give every deck, including placeholders, a Course Map with consistent
+  38% course-deck, 4% gutter, and 58% deck-content proportions.
+- [x] Add the Teaser Trailer theme to Deck 00 and the explicit equations,
+  augmented-matrix, triangular-matrix, and solution sequence to Deck 01.
+- [x] Add the inverse-solution equation as the Course Map theme for Deck 02.
+- [x] Add geometric actions, PLU triangular solves, and basis images to the
+  Deck 03 Course Map theme, and a volume-scaling theme to Deck 04.
 - [ ] Develop the authoritative Decks 05–08 for Anton Chapters 3–6.
 - [x] Create the initial Notebooks page for demonstrations and exercises.
 - [x] Create and locally validate companion notebooks for Decks 02 and 03.
