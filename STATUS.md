@@ -56,13 +56,17 @@ Mathematical content should be maintained only in the slides.
   assignment when the original textbook exercises proved unavailable; and
   add its course-page, schedule, and Deck 01 title-slide notice.
 - [x] Publish the Assignment 1 website updates.
-- [x] Replace the Canvas description with links to the authoritative course
-  website pages and post the Canvas announcement.
+- [x] Reconcile the Canvas description and announcement with the individual
+  WileyPLUS workflow.
+- [x] Document the minimal-input assignment workflow, the textbook-to-WileyPLUS
+  crosswalk, the Canvas/LTI publication sequence, and end-to-end verification.
 - [x] Make the required WileyPLUS access, course-wide individual-assignment
   policy, and included online textbook explicit on the course homepage,
   Resources page, and Assignments page.
 - [x] Save and publish the matching required-resource statement on the live
   Canvas Welcome page.
+- [x] Add a public-safe Math Tutoring Center notice to the Resources page and
+  link the coordinator-maintained live schedule from the Canvas Welcome page.
 - [x] Schedule Quiz 1 for the last 15 minutes of class on September 10,
   covering Decks 01--02; create the combined Quizzes and Tests page, add the
   schedule and Deck 02 notices, and save the unpublished 20-point Canvas

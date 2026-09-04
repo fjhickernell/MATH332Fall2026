@@ -14,7 +14,9 @@ through **WileyPLUS**. WileyPLUS access is therefore a
 - Homework scores are passed automatically from WileyPLUS to the Canvas
   gradebook.
 - Unless a homework assignment states otherwise, it is due by **11:59 PM
-  Chicago Time** on the due date. Canvas displays due dates in your time zone.
+  Chicago Time** on the due date. The deadline shown in WileyPLUS is
+  authoritative; Canvas is the launch point and may intentionally show no due
+  date for WileyPLUS homework.
 
 ## List of assignments
 

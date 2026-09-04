@@ -69,3 +69,18 @@ details here when they are durable but too specific for `AGENTS.md`.
   revised Decks 00–02 course maps, Deck 01 elimination and Big Ideas slides,
   and Deck 02 framing, applications, and Big Ideas slides were visually
   checked at the standard RevealJS viewport.
+
+### WileyPLUS integration — 2026-09-04
+
+- Use Illinois Tech's admin-installed, course-paired `Wiley LTI 1.3`
+  integration and the `Wiley Assignments` External Tool in Canvas. Do not
+  install the legacy App Center `WileyPLUS (new)` entry or use its Consumer
+  Key/Shared Secret form.
+- Do not store integration codes, keys, secrets, or transient LTI launch and
+  deep-link URLs in the repository. The durable Canvas assignment URL may be
+  recorded in `course-metadata.yml` for linking and duplicate prevention.
+- WileyPLUS stores and enforces the instructor-approved question selection,
+  deadline, and attempt/scoring settings. Canvas provides the persistent course
+  launch, publication state, and grade destination. The Canvas point total must
+  match the WileyPLUS question-set total, and its **Due** and **Until** fields
+  remain blank for WileyPLUS assignments.

@@ -6,6 +6,24 @@ would benefit from understanding why a choice was made.
 
 ## Decision log
 
+### 2026-09-04 — Route the mutable tutoring schedule through Canvas
+
+- **Decision:** The public course website tells enrolled students that Fall
+  2026 Math Tutoring Center support is available in RE 129 and online, then
+  routes them to Canvas. The Canvas Welcome page links directly to the faculty
+  coordinator's original Google Drive PDF; do not upload or copy the PDF into
+  Canvas or the course repository.
+- **Rationale:** The coordinator may revise the schedule in place, and the PDF
+  contains an online-tutoring Zoom link with its passcode. Referencing the
+  original file preserves updates, while keeping its URL off the public course
+  website reduces public discovery.
+- **Consequences:** Do not add the Google Drive or Zoom URL to public course
+  sources or metadata. Canvas authentication limits casual public exposure but
+  cannot prevent students from forwarding an anyone-with-the-link file. The
+  coordinator should restrict the Drive file to the intended Illinois Tech
+  audience, and the Zoom meeting should use appropriate authentication or a
+  waiting room, when feasible.
+
 ### 2026-09-02 — Keep WileyPLUS deadlines out of Canvas
 
 - **Decision:** For WileyPLUS External Tool assignments, set and revise the
@@ -42,9 +60,9 @@ would benefit from understanding why a choice was made.
 ### 2026-08-25 — Make every assignment individual
 
 - **Decision:** Require individual work and submission for every MATH 332
-  assignment. Do not create Canvas assignment groups or offer a pair-submission
-  option. This supersedes the earlier plan to retain pairs for file-upload
-  assignments.
+  assignment. Do not configure a Canvas group assignment or create a student
+  group set, and do not offer a pair-submission option. This supersedes the
+  earlier plan to retain pairs for file-upload assignments.
 - **Rationale:** The instructor pivoted to one simple, consistent submission
   policy for the course. All planned homework is delivered through WileyPLUS,
   which grades and records work separately for each student.
@@ -67,7 +85,10 @@ would benefit from understanding why a choice was made.
   Gaussian elimination, matrix dimensions, matrix multiplication by columns,
   and a matrix-product equation. It is individual, worth 20 points, and retains
   its original Canvas URL. Its original September 4 deadline was extended on
-  September 2 to Monday, September 7, 2026, at 11:59 PM Chicago Time.
+  September 2 to Monday, September 7, 2026, at 11:59 PM Chicago Time. For each
+  future assignment, preview the live WileyPLUS questions, keep print exercise
+  references distinct from WileyPLUS identifiers, and give the instructor a
+  concise crosswalk for approval before substituting a question.
 
 ### 2026-08-24 — Index elimination matrices by pivot-column stage
 

@@ -91,6 +91,39 @@ active repositories, `MATH332Fall2026` and `MATH565Fall2026`. Interpret
 files each time rather than relying on conversation memory. Reporting a next
 task does not authorize beginning it.
 
+### Assignment request shorthand
+
+When the user asks to create, set up, or materially revise an assignment,
+including a minimal “here is an assignment” request, treat it as authorization
+to carry out the complete
+[`AUTHOR_WORKFLOW.md`](AUTHOR_WORKFLOW.md#adding-or-updating-an-assignment)
+assignment workflow unless the user explicitly limits its scope. A minimal
+request may identify textbook exercises, but do not assume those identifiers
+refer to the same questions in WileyPLUS. Inspect and preview the live paired
+WileyPLUS bank, keep the textbook references and WileyPLUS identifiers distinct,
+and prepare a concise crosswalk when anything is unavailable or materially
+different. Never make a substitution without the instructor's approval.
+
+Apply the MATH 332 standing defaults: individual WileyPLUS External Tool work,
+not configured as a Canvas group assignment, an 11:59 PM America/Chicago
+deadline stored only in WileyPLUS, and blank Canvas **Due** and **Until**
+fields. Do not infer points, question
+weights, randomization, or attempt and scoring policies from an earlier
+assignment; verify them for the current WileyPLUS set.
+
+Complete all authorized discovery, local work, validation, duplicate checks,
+and draft preparation before pausing. If a question mismatch remains, present
+one completed comparison and ask one bundled content question. Remind the user
+when the exact `Checkpoint` command is needed to deploy the website. After the
+public links are verified, summarize the prepared WileyPLUS set, Canvas launch,
+and announcement and request one combined publication confirmation. Once
+confirmed, finish the sequence without asking again unless Canvas or WileyPLUS
+reveals a material conflict. Resume interrupted work from the latest verified
+repository, Canvas, and WileyPLUS state and do not create duplicates. After
+final external verification and tracked handoff updates, request one closeout
+`Checkpoint` when needed to preserve the completed state; do not treat it as
+another publication confirmation.
+
 ### Dashboard reconciliation at Checkpoint
 
 As part of every Checkpoint, read `notes/NEXT.md` from both active teaching

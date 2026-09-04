@@ -45,6 +45,7 @@ initial setup and the Notebooks page for validated demonstrations.
 |:---|:---|
 | Canvas | [MATH 332 course]({{< meta canvas.course >}}) |
 | WileyPLUS | Launch homework assignments through [Canvas]({{< meta canvas.course >}}) |
+| Math Tutoring Center | Fall 2026 tutoring is available in **RE 129** and online. Enrolled students can find the current tutoring schedule and Zoom link in [Canvas]({{< meta canvas.course >}}) after signing in. |
 | Course repository | [MATH332Fall2026 on GitHub](https://github.com/fjhickernell/MATH332Fall2026) |
 | Repository setup | [Accessing the Course Repository](../classlib/classlib/quarto/pages/git-clone-update-with-submodules.qmd) |
 | Notebooks | [Demonstrations and exercises](notebooks.qmd) |

@@ -19,57 +19,150 @@ content is maintained only once.
 
 ## Adding or updating an assignment
 
-Use the following workflow whenever an assignment is finalized or materially
-revised:
+Use this workflow whenever the instructor asks to create, set up, or materially
+revise an assignment, including a minimal “here is an assignment” request. A
+minimal request normally needs only the assignment number, desired coverage or
+textbook exercises, and due date. A textbook exercise reference is an intake
+source, not a final WileyPLUS selection until the corresponding live question
+has been found and previewed.
 
-1. Confirm the assignment content, coverage, due date and time, point value,
-   submission requirements, and Canvas settings. Do not invent unresolved
-   details.
-2. If course sources need a stable Canvas assignment URL, create only an
-   unpublished Canvas draft at this stage and record its URL as
-   `canvas.assignment_N` in `course-metadata.yml`. Do not publish the Canvas
-   assignment or announce it while its course-website links are unavailable.
-3. Create or update `assignments/assignment_N.qmd` when the assignment needs a
-   course-hosted detail page. State the due date, assignment, and submission
-   requirements, and link back to the ground rules in
-   `pages/assignments.qmd`.
-4. Add or update the assignment in the table in `pages/assignments.qmd`, with
+Unless the instructor says otherwise, ordinary MATH 332 homework uses these
+standing defaults:
+
+- `Assignment N` as the Canvas title and
+  `Assignment N: WileyPLUS — Topic` as the descriptive course-page title;
+- individual, automatically graded work in a WileyPLUS External Tool launched
+  from Canvas, with no student group set and not configured as a Canvas group
+  assignment;
+- a deadline of 11:59 PM America/Chicago on the stated date, set only in
+  WileyPLUS while the Canvas **Due** and **Until** fields remain blank;
+- a course-hosted detail page as the authoritative assignment description, with
+  a short Canvas launch instruction linking to that page and the course
+  Assignments page; and
+- a course-wide Canvas announcement after publication that links to the live
+  course pages and does not repeat details that could later diverge.
+
+The WileyPLUS question selection, total and per-question points, randomization,
+attempt policy, score reduction, and best-score behavior are not standing
+defaults. Establish them from the live WileyPLUS assignment and the
+instructor's intent each time; do not silently reuse Assignment 1's 20 points
+or three-attempt policy.
+
+At intake, give the instructor one compact checklist covering the textbook-to-
+WileyPLUS crosswalk, WileyPLUS question set and policies, Canvas External Tool
+launch, assignment page, Assignments table, Schedule, deck reminder, rendering
+and deployment, announcement, and final verification. Identify supplied facts,
+standing defaults, and only the unresolved decisions that materially change
+the result. Complete discovery and every safe local or draft step first. Ask at
+most one bundled question after discovery when a content mismatch or another
+decision cannot be resolved safely.
+
+### Reconciling textbook and WileyPLUS questions
+
+Use the Illinois Tech paired `Wiley LTI 1.3` integration through Canvas and its
+`Wiley Assignments` tool. Do not install the legacy App Center
+`WileyPLUS (new)` entry or use a Consumer Key/Shared Secret form.
+
+1. Record the instructor's textbook edition, exercise number or requested
+   coverage, and the mathematical purpose of each requested problem.
+2. Search the paired WileyPLUS question bank and preview the complete candidate
+   question, including every subpart. Treat a printed exercise number and a
+   WileyPLUS question identifier as different identifiers until the preview
+   confirms that their statements and purpose match.
+3. If a requested exercise is missing or materially different, prepare one
+   compact crosswalk showing the source reference and intended concept, the
+   available WileyPLUS identifier and concept, the relevant difference, and a
+   proposed substitute and point allocation. The standing course decision
+   favors a comparable WileyPLUS question that preserves the learning objective
+   and automatic grading, but never substitute it without instructor approval.
+   If the printed statement is not otherwise available, preview the WileyPLUS
+   candidates first and include any request for a photo or short description of
+   the printed problem in the same bundled content question.
+4. Finalize the student-facing assignment only from the approved, previewed
+   WileyPLUS questions. List the actual WileyPLUS identifiers and coverage on
+   the course detail page; do not label a substituted question with the print
+   exercise number it replaced or copy full proprietary question text.
+
+If every requested exercise is an exact usable match, continue without a
+content-decision pause. If there is a mismatch, present the completed crosswalk
+and request one instructor decision before finalizing the question set.
+
+### Publication sequence
+
+The workflow has two publication gates after any required content decision:
+
+1. After local validation, request the exact `Checkpoint` command if the
+   instructor has not already issued it. The public website must be deployed
+   and verified before Canvas publication.
+2. After the public links are live and the WileyPLUS and Canvas changes are
+   completely prepared, present one combined summary of the WileyPLUS question
+   set and policies, Canvas launch shell, and announcement, then request one
+   final publication confirmation. Once confirmed, finish the sequence without
+   another pause unless WileyPLUS or Canvas exposes a material conflict.
+
+After WileyPLUS and Canvas publication and verification, update the tracked
+handoff and status files and request one closeout `Checkpoint` if those
+completion updates are uncommitted. This preserves the finished external state
+and is not another Canvas confirmation.
+
+Then carry out the following steps:
+
+1. Audit the repository, Canvas, and WileyPLUS for an existing assignment page,
+   WileyPLUS question set, Canvas item, or announcement. Resume and verify valid
+   existing work rather than creating duplicates.
+2. Complete the textbook-to-WileyPLUS reconciliation above. In WileyPLUS,
+   create or verify the approved question set, its total and per-question
+   points, randomization, attempt and scoring policies, and 11:59 PM
+   America/Chicago deadline.
+3. Create or reuse an unpublished Canvas assignment shell. Configure it as an
+   individual **External Tool** assignment in the **Assignments** group, display
+   the grade as points, use the approved WileyPLUS deep link, set its points to
+   the WileyPLUS total, and leave Canvas **Due** and **Until** blank. Record
+   every Canvas assignment URL as
+   `canvas.assignment_N` in `course-metadata.yml`. When converting an already
+   published assignment, first inspect the complete submission roster. If any
+   submission exists, stop and obtain explicit instructor direction before
+   changing the assignment. If none exists, preserve its Canvas URL and point
+   total unless the instructor explicitly changes the points, and make the
+   WileyPLUS question weights sum to that total.
+4. Create or update `assignments/assignment_N.qmd`. State the WileyPLUS
+   deadline, actual selected question identifiers and coverage, point and
+   attempt policies, and the individual Canvas-launch workflow. Link back to
+   the ground rules in `pages/assignments.qmd`.
+5. Add or update the assignment in the table in `pages/assignments.qmd`, with
    its descriptive title, coverage, and due date. Link to the course-hosted
-   detail page when one exists; otherwise link directly to Canvas.
-5. Add or update the due-date entry in `pages/schedule.qmd`, linking to the
-   same authoritative assignment details.
-6. Determine from the assignment coverage which RevealJS deck contains the
+   detail page.
+6. Add or update the due-date entry in `pages/schedule.qmd`, linking to the same
+   authoritative assignment details.
+7. Determine from the assignment coverage which RevealJS deck contains the
    relevant notes. Put the assignment name and due date on exactly one deck's
    title slide. If the appropriate deck is ambiguous, choose one suitable deck
    rather than duplicating the reminder. When useful, add a brief linked
-   logistics slide describing the assignment and individual-submission
-   expectations. Remove or replace stale notices as the course advances.
-7. Render the root website and the independent slide project, assemble the
-   complete site, and verify the assignment page, assignments table, schedule,
+   logistics slide describing the individual WileyPLUS workflow. Retain past
+   assignment reminders on their original decks as a chronological record; do
+   not remove or replace them merely because their due dates have passed.
+8. Render the root website and the independent slide project, assemble the
+   complete site, and verify the assignment page, Assignments table, Schedule,
    Canvas links, deck notice, and internal links. Inspect the visible assignment
-   page and affected deck at the standard RevealJS viewport. Checkpoint and
-   push the website changes, then verify that the public assignment and
-   Assignments-page URLs are live. This publication check is a hard gate before
-   publishing the Canvas assignment.
-8. Finish and publish the Canvas assignment only after the website is live.
-   Configure every assignment for individual submission; do not create Canvas
-   assignment groups. Keep the assignment-specific details authoritative on
-   the course-hosted detail page; the Canvas description should link to that
-   page and to the course Assignments page rather than repeat instructions
-   that could later diverge. Verify the published assignment, then announce it
-   in Canvas by linking to the live course pages and providing only the
-   operational information students need. Do not repeat the assignment content
-   or due date in the announcement.
-
-   For WileyPLUS or another automatically graded LTI assignment, verify the
-   complete submission roster before converting an existing published
-   assignment and preserve its Canvas URL and points. Set and revise the
-   deadline only in WileyPLUS; leave the Canvas **Due** and **Until** fields
-   blank so that Canvas does not conflict with WileyPLUS's own deadline.
-   Confirm the WileyPLUS deadline, selected question set, attempt policy,
-   grade passback, and student-visible launch. Reconcile the course-hosted
-   detail page, assignments table, schedule, Canvas description, and
-   announcement with the individual external-tool workflow.
+   page and affected deck at the standard RevealJS viewport. After the
+   instructor issues the exact `Checkpoint` command, checkpoint and push the
+   changes, then verify that the public assignment and Assignments-page URLs are
+   live.
+9. After the final publication confirmation, publish the Canvas assignment and
+   then its course-wide announcement. The Canvas description should give a
+   concise launch instruction and link to the two live course pages without
+   repeating the selected questions, deadline, points, or attempt policy.
+10. Re-open the published Canvas item and verify its title, points, assignment
+    group, individual External Tool submission type, intended WileyPLUS deep
+    link, blank Canvas **Due** and **Until** fields, publication state, and
+    course audience. In WileyPLUS, verify the approved question set and points,
+    deadline and time zone, randomization, attempts and scoring, grade passback,
+    and a student-visible Canvas launch. Verify the announcement links and
+    audience, then update the appropriate handoff and status files. If the
+    workflow is interrupted, preserve drafts and resume from the latest verified
+    repository, Canvas, and WileyPLUS state rather than conversational memory.
+    Request the exact `Checkpoint` command to publish any post-publication
+    completion updates still uncommitted in the repository.
 
 ## Adding or updating a quiz or test
 
@@ -114,10 +207,11 @@ finalized or materially revised:
 - Whenever an assessed item is finalized or updated on its course website
   page, also put its name and date on exactly one relevant deck title slide,
   following the assessment-specific workflow above. Choose one suitable
-  covered deck for an assignment when the placement is ambiguous, and use the
-  latest covered deck for a quiz or test. Do not add quiz or test coverage or
-  duration to the deck title, and remove or replace stale notices as the
-  course advances.
+  covered deck for an assignment when the placement is ambiguous, and retain
+  past assignment reminders there as a chronological record. Use the latest
+  covered deck for a quiz or test; do not add its coverage or duration to the
+  deck title, and remove or replace stale quiz and test notices as the course
+  advances.
 - Write `#` section headings in title case: capitalize principal words while
   leaving articles, coordinating conjunctions, and short prepositions
   lowercase unless they begin or end the heading. Write `##` slide headings
