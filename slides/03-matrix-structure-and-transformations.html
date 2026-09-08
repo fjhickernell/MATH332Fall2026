@@ -1714,6 +1714,9 @@ T(\vct{x})=\mat{A}\vct{x}
 <div class="key-point">
 <p>Householder reflections can zero several vector entries in one step, a key idea behind QR factorization</p>
 </div>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> For the Householder matrix <span class="math inline">\(\mat{H}\)</span> defined above, show that <span class="math inline">\(\mat{H}^2=\mat{I}\)</span> <span class="exsub">Use <span class="math inline">\(\vct{u}^{\mathsf T}\vct{u}=1\)</span></span> </span></p>
+</div>
 </section>
 <section id="projections-discard-information" class="slide level2">
 <h2>Nonidentity projections discard information</h2>
@@ -1732,6 +1735,26 @@ T(\vct{x})=\mat{A}\vct{x}
 <div class="key-point">
 <p>This projection is singular: it collapses a direction and cannot be undone</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="projection-onto-a-plane">Orthogonal projection onto a plane</h3>
+<p>A plane in <span class="math inline">\(\reals^3\)</span> with <span class="alert">nonzero normal</span> <span class="math inline">\(\vct{u}\)</span>: <span class="math inline">\(\vct{u}^{\mathsf T}\vct{x}=0\)</span></p>
+<p>Remove the normal component to reach the plane:</p>
+<p><span class="math display">\[\begin{align*}
+\vct{y}&amp;=\vct{x}-\alpha\vct{u},
+&amp;0=\vct{u}^{\mathsf T}\vct{y}
+&amp;=\vct{u}^{\mathsf T}\vct{x}-\alpha\vct{u}^{\mathsf T}\vct{u},
+&amp;\alpha&amp;=\frac{\vct{u}^{\mathsf T}\vct{x}}{\vct{u}^{\mathsf T}\vct{u}}
+\end{align*}\]</span></p>
+<p>Thus <span class="math inline">\(\vct{y}=\mat{Q}\vct{x}\)</span> with <span class="alert">projection matrix</span></p>
+<p><span class="math display">\[
+\mat{Q}=\mat{I}-\frac{\vct{u}\vct{u}^{\mathsf T}}{\vct{u}^{\mathsf T}\vct{u}}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\mat{Q}\vct{u}=\vct{0}\)</span>, while vectors in the plane stay fixed</li>
+<li>For <span class="alert">unit</span> <span class="math inline">\(\vct{u}\)</span>, <span class="math inline">\(\mat{Q}=\mat{I}-\vct{u}\vct{u}^{\mathsf T}=\tfrac12(\mat{I}+\mat{H})\)</span>,<br> where <span class="math inline">\(\mat{H}\)</span> is the Householder reflection matrix</li>
+</ul>
 </section>
 <section id="rotation-matrix-from-rotated-basis-vectors" class="slide level2">
 <h2>A rotation matrix is determined by the rotated basis vectors</h2>
