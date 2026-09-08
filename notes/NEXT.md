@@ -19,6 +19,10 @@ scope and placement discussion.
 - Decks 00--04 are substantive; Decks 01--03 are instructor-reviewed, and
   Deck 04 has been developed and audited. Decks 05--08 remain placeholders for
   Anton Chapters 3--6.
+- Deck 03 includes a starred Householder involution exercise and the
+  construction of orthogonal projection onto a plane. Keep the general
+  column-space projector for the later least-squares treatment recorded in
+  `notes/TODO-LATER.md`.
 - The instructor reports successful end-to-end clean-Colab validation of all
   four published Deck 00--03 companion notebooks using the recorded
   `classlib` commit, without downgrading QMCPy. All four also execute locally

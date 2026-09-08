@@ -41,6 +41,8 @@ Mathematical content should be maintained only in the slides.
 - [x] Add the inverse-solution equation as the Course Map theme for Deck 02.
 - [x] Add geometric actions, PLU triangular solves, and basis images to the
   Deck 03 Course Map theme, and a volume-scaling theme to Deck 04.
+- [x] Add a starred Householder involution exercise and derive the plane
+  projection matrix in Deck 03, including its connection to Householder reflection.
 - [ ] Develop the authoritative Decks 05–08 for Anton Chapters 3–6.
 - [x] Create the initial Notebooks page for demonstrations and exercises.
 - [x] Create and locally validate companion notebooks for Decks 02 and 03.

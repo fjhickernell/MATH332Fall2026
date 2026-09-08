@@ -6,6 +6,20 @@ state why the work was deferred when that context will matter later.
 
 ## Deferred work
 
+- Save the general orthogonal-projection formula for the treatment of column
+  spaces, orthogonal complements, and least-squares regression rather than
+  expanding Deck 03's concrete transformation examples. For a real matrix
+  $\mat{A}$ with linearly independent columns,
+  $\mat{P}=\mat{A}(\mat{A}^{\mathsf T}\mat{A})^{-1}\mat{A}^{\mathsf T}$
+  projects onto $\operatorname{col}(\mat{A})$, and $\mat{I}-\mat{P}$ projects
+  onto $\operatorname{col}(\mat{A})^\perp=\ker(\mat{A}^{\mathsf T})$, the
+  vectors perpendicular to every column of $\mat{A}$. Derive this from the
+  normal equations and identify $\mat{P}\vct{b}$ as the fitted vector and
+  $(\mat{I}-\mat{P})\vct{b}$ as the residual. Reconnect to Deck 03's plane
+  projection as the one-column case $\mat{A}=\vct{u}$ of $\mat{I}-\mat{P}$.
+  The inverse formula requires full column rank. For arbitrary rank, the
+  projector is $\mat{A}\mat{A}^{\dagger}$ using the Moore--Penrose
+  pseudoinverse, once that concept is introduced.
 - When developing Deck 06, introduce Strang's
   $\mat{A}=\mat{C}\mat{R}$ rank factorization after students have learned
   vector spaces, subspaces, span, linear independence, basis and coordinates,

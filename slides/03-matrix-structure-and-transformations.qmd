@@ -1238,6 +1238,14 @@ Householder reflections can zero several vector entries in one step, a key
 idea behind QR factorization
 :::
 
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>
+For the Householder matrix $\mat{H}$ defined above, show that $\mat{H}^2=\mat{I}$
+<span class="exsub">Use $\vct{u}^{\mathsf T}\vct{u}=1$</span>
+</span>
+:::
+
 ## Nonidentity projections discard information {#projections-discard-information}
 
 Projection onto the $x$-axis keeps the first coordinate and removes the second:
@@ -1256,6 +1264,32 @@ $$
 ::: {.key-point}
 This projection is singular: it collapses a direction and cannot be undone
 :::
+
+---
+
+### Orthogonal projection onto a plane {#projection-onto-a-plane}
+
+A plane in $\reals^3$ with [nonzero normal]{.alert} $\vct{u}$:
+$\vct{u}^{\mathsf T}\vct{x}=0$
+
+Remove the normal component to reach the plane:
+
+\begin{align*}
+\vct{y}&=\vct{x}-\alpha\vct{u},
+&0=\vct{u}^{\mathsf T}\vct{y}
+&=\vct{u}^{\mathsf T}\vct{x}-\alpha\vct{u}^{\mathsf T}\vct{u},
+&\alpha&=\frac{\vct{u}^{\mathsf T}\vct{x}}{\vct{u}^{\mathsf T}\vct{u}}
+\end{align*}
+
+Thus $\vct{y}=\mat{Q}\vct{x}$ with [projection matrix]{.alert}
+
+$$
+\mat{Q}=\mat{I}-\frac{\vct{u}\vct{u}^{\mathsf T}}{\vct{u}^{\mathsf T}\vct{u}}
+$$
+
+- $\mat{Q}\vct{u}=\vct{0}$, while vectors in the plane stay fixed
+- For [unit]{.alert} $\vct{u}$, $\mat{Q}=\mat{I}-\vct{u}\vct{u}^{\mathsf T}=\tfrac12(\mat{I}+\mat{H})$,<br>
+  where $\mat{H}$ is the Householder reflection matrix
 
 ## A rotation matrix is determined by the rotated basis vectors {#rotation-matrix-from-rotated-basis-vectors}
 
