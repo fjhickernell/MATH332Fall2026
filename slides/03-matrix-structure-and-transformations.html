@@ -1593,9 +1593,9 @@ T(\vct{x})=\mat{A}\vct{x}
 <ul>
 <li><a href="#/one-vector-reveals-four-different-actions">One vector reveals four different actions</a></li>
 <li><a href="#/diagonal-actions-stretch-and-flip-coordinate-directions">Diagonal actions stretch and flip coordinate directions</a></li>
-<li><a href="#/reflections-preserve-information">Reflections preserve information</a></li>
+<li><a href="#/reflections-reverse-one-direction-and-preserve-lengths">Reflections reverse one direction while preserving lengths</a></li>
 <li><a href="#/projections-discard-information">Nonidentity projections discard information</a></li>
-<li><a href="#/rotation-follows-the-basis-directions">Rotation follows the basis directions</a></li>
+<li><a href="#/rotation-matrix-from-rotated-basis-vectors">A rotation matrix is determined by the rotated basis vectors</a></li>
 <li><a href="#/orthogonal-matrices-have-orthonormal-rows-and-columns">Orthogonal matrices have orthonormal rows and columns</a></li>
 </ul>
 </section>
@@ -1671,8 +1671,8 @@ T(\vct{x})=\mat{A}\vct{x}
 <p>Diagonal structure — independent actions on the coordinate directions</p>
 </div>
 </section>
-<section id="reflections-preserve-information" class="slide level2">
-<h2>Reflections preserve information</h2>
+<section id="reflections-reverse-one-direction-and-preserve-lengths" class="slide level2">
+<h2>Reflections reverse one direction while preserving lengths</h2>
 <p>Reflection across the line <span class="math inline">\(y=x\)</span> exchanges the coordinates:</p>
 <p><span class="math display">\[
 \mat{H}=\begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix},
@@ -1696,6 +1696,25 @@ T(\vct{x})=\mat{A}\vct{x}
 <p>A reflection changes geometry without losing information</p>
 </div>
 </section>
+<section class="slide level2">
+
+<h3 id="householder-reflections">Householder reflections work in any dimension</h3>
+<p>For a <span class="alert">unit</span> vector <span class="math inline">\(\vct{u}\)</span>, the <span class="alert">Householder reflection</span> across <span class="math inline">\(\vct{u}^{\mathsf T}\vct{x}=0\)</span> is</p>
+<p><span class="math display">\[
+\mat{H}=\mat{I}-2\vct{u}\vct{u}^{\mathsf T},
+\qquad
+\mat{H}\vct{x}=\vct{x}-2\vct{u}
+\bigl(\vct{u}^{\mathsf T}\vct{x}\bigr)
+\]</span></p>
+<ul>
+<li>the component along <span class="math inline">\(\vct{u}\)</span> reverses</li>
+<li>every component perpendicular to <span class="math inline">\(\vct{u}\)</span> stays fixed</li>
+<li><span class="math inline">\(\mat{H}^{\mathsf T}=\mat{H}\)</span> and <span class="math inline">\(\mat{H}^{-1}=\mat{H}\)</span></li>
+</ul>
+<div class="key-point">
+<p>Householder reflections can zero several vector entries in one step, a key idea behind QR factorization</p>
+</div>
+</section>
 <section id="projections-discard-information" class="slide level2">
 <h2>Nonidentity projections discard information</h2>
 <p>Projection onto the <span class="math inline">\(x\)</span>-axis keeps the first coordinate and removes the second:</p>
@@ -1714,8 +1733,8 @@ T(\vct{x})=\mat{A}\vct{x}
 <p>This projection is singular: it collapses a direction and cannot be undone</p>
 </div>
 </section>
-<section id="rotation-follows-the-basis-directions" class="slide level2">
-<h2>Rotation follows the basis directions</h2>
+<section id="rotation-matrix-from-rotated-basis-vectors" class="slide level2">
+<h2>A rotation matrix is determined by the rotated basis vectors</h2>
 <p>A counterclockwise rotation through angle <span class="math inline">\(\theta\)</span> sends</p>
 <p><span class="math display">\[
 \vct{e}_1\longmapsto
@@ -1756,6 +1775,34 @@ T(\vct{x})=\mat{A}\vct{x}
 <div class="key-point">
 <p>This is the purple arrow in the comparison picture</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="givens-rotations">Givens rotations act in one coordinate plane</h3>
+<p>A <span class="alert">Givens rotation</span> changes only coordinates <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> and can make one selected component zero:</p>
+<p><span class="math display">\[
+\mat{G}(i,j,\theta)
+=
+\begin{bmatrix}
+1&amp;0&amp;\cdots&amp;0&amp;\cdots&amp;\cdots&amp;0\\
+0&amp;\ddots&amp;&amp;\vdots&amp;&amp;&amp;\vdots\\
+\vdots&amp;&amp;c&amp;\cdots&amp;-s&amp;&amp;\vdots\\
+0&amp;\cdots&amp;\vdots&amp;\ddots&amp;\vdots&amp;\cdots&amp;0\\
+\vdots&amp;&amp;s&amp;\cdots&amp;c&amp;&amp;\vdots\\
+\vdots&amp;&amp;&amp;\vdots&amp;&amp;\ddots&amp;0\\
+0&amp;\cdots&amp;\cdots&amp;0&amp;\cdots&amp;0&amp;1
+\end{bmatrix}
+\in\reals^{n\times n}
+\qquad
+\begin{matrix}
+c=\cos\theta\\
+s=\sin\theta
+\end{matrix}
+\]</span></p>
+<ul>
+<li>looks like <span class="math inline">\(\mat{I}_n\)</span> except for rows and columns <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span></li>
+<li>sequences of Givens rotations are used in algorithms for QR factorizations and SVDs</li>
+</ul>
 </section>
 <section id="orthogonal-matrices-have-orthonormal-rows-and-columns" class="slide level2">
 <h2>Orthogonal matrices have orthonormal rows and columns</h2>
