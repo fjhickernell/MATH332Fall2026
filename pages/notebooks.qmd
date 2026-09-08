@@ -24,6 +24,9 @@ algebraic calculations with geometric interpretation.
 - [Matrix Structure and Transformations](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/03-matrix-structure-and-transformations.ipynb)
   — a draft companion to Lecture 03 exploring matrix patterns, SciPy PLU
   factorization, basis images, geometric transformations, and composition
+- [Determinants](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/04-determinants.ipynb)
+  — a locally validated draft companion to Lecture 04 exploring signed area,
+  row operations, PLU determinants, eigenvalue products, and numerical scaling
 
 ## Exercises
 

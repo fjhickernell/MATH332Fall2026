@@ -2,12 +2,20 @@
 
 ## Current task
 
-Explore tensors and decide whether a concise tensor treatment belongs in the
-current MATH 332 sequence, where it would fit, and what mathematical and
-computational purpose it would serve.
+Review the new Deck 04 determinants companion with the instructor and validate
+it in clean Google Colab before adding its Colab badge. Then resume the tensor
+scope and placement discussion.
 
 ## Current state
 
+- `notebooks/demonstrations/04-determinants.ipynb` runs end to end with the
+  `qmcpy` kernel on Mini (about eight seconds), with saved outputs and inspected
+  geometric plots. It covers signed area, exact row operations, PLU and packed
+  LU swap parity, determinant identities, eigenvalue products, conditioning,
+  and `slogdet`. Deck 04 and the notebook page link to the draft. Clean-Colab
+  validation and its badge remain pending; no Colab validation is claimed.
+- Deck 04's Big Ideas now explicitly distinguishes the nonnegative magnitude
+  from the sign of the determinant; zero determinant has its own collapse bullet.
 - Decks 00--04 are substantive; Decks 01--03 are instructor-reviewed, and
   Deck 04 has been developed and audited. Decks 05--08 remain placeholders for
   Anton Chapters 3--6.
@@ -58,6 +66,8 @@ computational purpose it would serve.
 
 ## Done when
 
+- The instructor has reviewed the determinants companion, it runs in clean
+  Colab using the recorded `classlib` commit, and its tested badge is added.
 - The instructor has decided the intended scope, purpose, and placement of
   tensors in MATH 332.
 - The decision is recorded in the appropriate durable project file; any

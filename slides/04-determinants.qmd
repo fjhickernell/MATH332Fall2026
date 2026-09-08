@@ -51,7 +51,7 @@ $$
 $$
 
 ::: {.small style="text-align: center;"}
-Magnitude scales volume; sign records orientation
+Determinant magnitude scales volume; determinant sign records orientation
 :::
 
 - [What a Determinant Measures](#what-a-determinant-measures)
@@ -375,6 +375,9 @@ In floating-point computation, a small determinant depends strongly on scale
 
 By itself, it is not a reliable test for a nearly singular matrix
 
+The [Determinants companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/04-determinants.ipynb)
+explores these computations and geometric effects
+
 ::: {.key-point}
 A determinant [summarizes structure]{.alert}
 
@@ -384,7 +387,8 @@ It does not replace the factorization that computed it
 # Big Ideas {data-state="goldborder"}
 
 - $\det(\mat{A})$ is the [signed volume scale factor]{.alert} of a square matrix transformation
-- $\abs{\det(\mat{A})}$ measures scale, its sign records orientation, and zero means dimension collapse
+- $\abs{\det(\mat{A})}$ scales volume; the sign of $\det(\mat{A})$ records orientation
+- $\det(\mat{A})=0$ means dimension collapse
 - Compute determinants by [eliminating to triangular form]{.alert} and tracking swaps and scalings
 - PLU stores the needed information in the row permutation and the diagonal of $\mat{U}$
 - $\det(\mat{A})\ne0$ exactly when $\mat{A}$ is invertible

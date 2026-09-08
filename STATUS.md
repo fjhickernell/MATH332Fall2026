@@ -44,6 +44,11 @@ Mathematical content should be maintained only in the slides.
 - [ ] Develop the authoritative Decks 05–08 for Anton Chapters 3–6.
 - [x] Create the initial Notebooks page for demonstrations and exercises.
 - [x] Create and locally validate companion notebooks for Decks 02 and 03.
+- [x] Create and locally validate the Deck 04 determinants companion, including
+  signed-area plots, exact row operations, PLU, eigenvalue products, and
+  determinant scaling and logarithmic computation; add deck and notebook-page links.
+- [ ] Review the Deck 04 companion with the instructor and validate it in
+  clean Google Colab before adding its Colab badge.
 - [x] Validate all four published Deck 00--03 companion notebooks end to end
   in clean Google Colab runtimes using the recorded `classlib` commit without
   downgrading QMCPy.
