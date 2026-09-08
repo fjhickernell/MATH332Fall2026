@@ -771,6 +771,8 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 
 ::: {.column width="50%"}
 - [Gauss–Jordan reduction]({{< meta decks.d02.file >}}#reduce-beside-the-identity)
+- [Givens rotation]({{< meta decks.d03.file >}}#rotation-matrix-from-rotated-basis-vectors)
+- [Householder reflection]({{< meta decks.d03.file >}}#reflections-reverse-one-direction-and-preserve-lengths)
 - [Hyperplane]({{< meta decks.d01.file >}}#a-linear-equation-describes-a-hyperplane)
 - [Identity matrix]({{< meta decks.d01.file >}}#undoing-restores-the-original-system)
 - [Ill-conditioned problem](#almost-parallel-almost-unknowable)
@@ -808,9 +810,9 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 - [Precision matrix]({{< meta decks.d02.file >}}#precision-describes-conditional-structure)
 - [Projection]({{< meta decks.d03.file >}}#projections-discard-information)
 - [Redundant constraint](#what-does-the-system-tell-us)
-- [Reflection]({{< meta decks.d03.file >}}#reflections-preserve-information)
+- [Reflection]({{< meta decks.d03.file >}}#reflections-reverse-one-direction-and-preserve-lengths)
 - [Reversible transformation]({{< meta decks.d01.file >}}#three-reversible-moves)
-- [Rotation]({{< meta decks.d03.file >}}#rotation-follows-the-basis-directions)
+- [Rotation]({{< meta decks.d03.file >}}#rotation-matrix-from-rotated-basis-vectors)
 - [Row echelon form]({{< meta decks.d01.file >}}#pivots-organize-elimination)
 :::
 :::

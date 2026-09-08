@@ -1096,9 +1096,9 @@ The images of the coordinate directions reveal the geometry
 
 - [One vector reveals four different actions](#one-vector-reveals-four-different-actions)
 - [Diagonal actions stretch and flip coordinate directions](#diagonal-actions-stretch-and-flip-coordinate-directions)
-- [Reflections preserve information](#reflections-preserve-information)
+- [Reflections reverse one direction while preserving lengths](#reflections-reverse-one-direction-and-preserve-lengths)
 - [Nonidentity projections discard information](#projections-discard-information)
-- [Rotation follows the basis directions](#rotation-follows-the-basis-directions)
+- [A rotation matrix is determined by the rotated basis vectors](#rotation-matrix-from-rotated-basis-vectors)
 - [Orthogonal matrices have orthonormal rows and columns](#orthogonal-matrices-have-orthonormal-rows-and-columns)
 
 ## One vector reveals four different actions {#one-vector-reveals-four-different-actions}
@@ -1184,7 +1184,7 @@ $$
 Diagonal structure — independent actions on the coordinate directions
 :::
 
-## Reflections preserve information
+## Reflections reverse one direction while preserving lengths {#reflections-reverse-one-direction-and-preserve-lengths}
 
 Reflection across the line $y=x$ exchanges the coordinates:
 
@@ -1215,6 +1215,29 @@ $$
 A reflection changes geometry without losing information
 :::
 
+---
+
+### Householder reflections work in any dimension {#householder-reflections}
+
+For a [unit]{.alert} vector $\vct{u}$, the [Householder reflection]{.alert} across
+$\vct{u}^{\mathsf T}\vct{x}=0$ is
+
+$$
+\mat{H}=\mat{I}-2\vct{u}\vct{u}^{\mathsf T},
+\qquad
+\mat{H}\vct{x}=\vct{x}-2\vct{u}
+\bigl(\vct{u}^{\mathsf T}\vct{x}\bigr)
+$$
+
+- the component along $\vct{u}$ reverses
+- every component perpendicular to $\vct{u}$ stays fixed
+- $\mat{H}^{\mathsf T}=\mat{H}$ and $\mat{H}^{-1}=\mat{H}$
+
+::: {.key-point}
+Householder reflections can zero several vector entries in one step, a key
+idea behind QR factorization
+:::
+
 ## Nonidentity projections discard information {#projections-discard-information}
 
 Projection onto the $x$-axis keeps the first coordinate and removes the second:
@@ -1234,7 +1257,7 @@ $$
 This projection is singular: it collapses a direction and cannot be undone
 :::
 
-## Rotation follows the basis directions
+## A rotation matrix is determined by the rotated basis vectors {#rotation-matrix-from-rotated-basis-vectors}
 
 A counterclockwise rotation through angle $\theta$ sends
 
@@ -1285,6 +1308,36 @@ $$
 ::: {.key-point}
 This is the purple arrow in the comparison picture
 :::
+
+---
+
+### Givens rotations act in one coordinate plane {#givens-rotations}
+
+A [Givens rotation]{.alert} changes only coordinates $i$ and $j$ and can make
+one selected component zero:
+
+$$
+\mat{G}(i,j,\theta)
+=
+\begin{bmatrix}
+1&0&\cdots&0&\cdots&\cdots&0\\
+0&\ddots&&\vdots&&&\vdots\\
+\vdots&&c&\cdots&-s&&\vdots\\
+0&\cdots&\vdots&\ddots&\vdots&\cdots&0\\
+\vdots&&s&\cdots&c&&\vdots\\
+\vdots&&&\vdots&&\ddots&0\\
+0&\cdots&\cdots&0&\cdots&0&1
+\end{bmatrix}
+\in\reals^{n\times n}
+\qquad
+\begin{matrix}
+c=\cos\theta\\
+s=\sin\theta
+\end{matrix}
+$$
+
+- looks like $\mat{I}_n$ except for rows and columns $i$ and $j$
+- sequences of Givens rotations are used in algorithms for QR factorizations and SVDs
 
 ## Orthogonal matrices have orthonormal rows and columns
 
