@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-09-04">
+  <meta name="dcterms.date" content="2026-09-08">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -650,7 +650,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">September 4, 2026</p>
+  <p class="date">September 8, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 center">
 <h1>Course Map</h1>
@@ -688,7 +688,7 @@ In this deck
 =\abs{\det(\mat{A})}\operatorname{vol}_n(\mathcal S)
 \]</span></p>
 <div class="small" style="text-align: center;">
-<p>Magnitude scales volume; sign records orientation</p>
+<p>Determinant magnitude scales volume; determinant sign records orientation</p>
 </div>
 <ul>
 <li><a href="#/what-a-determinant-measures">What a Determinant Measures</a></li>
@@ -1041,6 +1041,7 @@ u_{11}&amp;u_{12}&amp;\cdots&amp;u_{1n}\\
 <p>Use elimination or PLU—not determinant formulas—to solve <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span></p>
 <p>In floating-point computation, a small determinant depends strongly on scale</p>
 <p>By itself, it is not a reliable test for a nearly singular matrix</p>
+<p>The <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/04-determinants.ipynb">Determinants companion notebook</a> explores these computations and geometric effects</p>
 <div class="key-point">
 <p>A determinant <span class="alert">summarizes structure</span></p>
 <p>It does not replace the factorization that computed it</p>
@@ -1050,7 +1051,8 @@ u_{11}&amp;u_{12}&amp;\cdots&amp;u_{1n}\\
 <h1>Big Ideas</h1>
 <ul>
 <li><span class="math inline">\(\det(\mat{A})\)</span> is the <span class="alert">signed volume scale factor</span> of a square matrix transformation</li>
-<li><span class="math inline">\(\abs{\det(\mat{A})}\)</span> measures scale, its sign records orientation, and zero means dimension collapse</li>
+<li><span class="math inline">\(\abs{\det(\mat{A})}\)</span> scales volume; the sign of <span class="math inline">\(\det(\mat{A})\)</span> records orientation</li>
+<li><span class="math inline">\(\det(\mat{A})=0\)</span> means dimension collapse</li>
 <li>Compute determinants by <span class="alert">eliminating to triangular form</span> and tracking swaps and scalings</li>
 <li>PLU stores the needed information in the row permutation and the diagonal of <span class="math inline">\(\mat{U}\)</span></li>
 <li><span class="math inline">\(\det(\mat{A})\ne0\)</span> exactly when <span class="math inline">\(\mat{A}\)</span> is invertible</li>
