@@ -919,10 +919,16 @@ h1::before,
    </span>
    :::
 
+   Add one optional modifier to number the sub-lines automatically:
+   - .lettered  -> a., b., c., ...
+   - .numbered  -> 1., 2., 3., ...
+   - .roman     -> i., ii., iii., ...
+
    Notes:
    - Do NOT use Markdown lists inside .exitem
    - Use <p> for multiple paragraphs
    - Use .exsub for indented follow-up lines
+   - Do not type labels into .exsub when using a numbering modifier
    - First span = bullet, second span = content container
    ============================================================ */
 
@@ -968,6 +974,39 @@ h1::before,
   content: "–";      /* en-dash */
   position: absolute;
   left: -0.8em;      /* same as margin-left */
+}
+
+.reveal .exitem.lettered,
+.reveal .exitem.numbered,
+.reveal .exitem.roman {
+  counter-reset: exsub;
+}
+
+.reveal .exitem.lettered .exsub,
+.reveal .exitem.numbered .exsub,
+.reveal .exitem.roman .exsub {
+  counter-increment: exsub;
+  margin-left: 1.8em;
+}
+
+.reveal .exitem.lettered .exsub::before,
+.reveal .exitem.numbered .exsub::before,
+.reveal .exitem.roman .exsub::before {
+  left: -1.8em;
+  width: 1.45em;
+  text-align: right;
+}
+
+.reveal .exitem.lettered .exsub::before {
+  content: counter(exsub, lower-alpha) ".";
+}
+
+.reveal .exitem.numbered .exsub::before {
+  content: counter(exsub, decimal) ".";
+}
+
+.reveal .exitem.roman .exsub::before {
+  content: counter(exsub, lower-roman) ".";
 }
 
 .small {
