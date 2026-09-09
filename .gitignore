@@ -22,3 +22,9 @@ venv/
 **/.jupyter/
 
 /.quarto/
+
+# HTML rendered beside course Quarto sources
+/index.html
+/assignments/*.html
+/pages/*.html
+/slides/*.html
