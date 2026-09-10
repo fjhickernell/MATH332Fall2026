@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-09-09">
+  <meta name="dcterms.date" content="2026-09-10">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -650,7 +650,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">September 9, 2026</p>
+  <p class="date">September 10, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 center">
 <h1>Course Map</h1>
@@ -822,6 +822,8 @@ T_{\mat{A}}(\mathcal S)
 <li><a href="#/three-row-operations-control-the-determinant">Three row operations control the determinant</a></li>
 <li><a href="#/triangular-matrices-end-the-computation">Triangular matrices end the computation</a></li>
 <li><a href="#/the-plu-example-already-contains-the-determinant">The PLU example already contains the determinant</a></li>
+<li><a href="#/read-the-determinant-from-plu">Read the determinant from PLU</a></li>
+<li><a href="#/read-the-sign-directly-from-a-permutation">Read the sign directly from a permutation</a></li>
 <li><a href="#/try-it-by-elimination">Try it by elimination</a></li>
 </ul>
 <aside class="notes">
@@ -911,13 +913,38 @@ u_{11}&amp;u_{12}&amp;\cdots&amp;u_{1n}\\
 <p><span class="math display">\[
 \det(\mat{A})=(-1)^2(2)(2)(1)=4
 \]</span></p>
-<p>More generally, the factorization <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span> gives</p>
+</section>
+<section id="read-the-determinant-from-plu" class="slide level2">
+<h2>Read the determinant from PLU</h2>
+<p>For square matrices of the same size, <span class="math inline">\(\det(\mat{B}\mat{C})=\det(\mat{B})\det(\mat{C})\)</span></p>
+<p>Apply this product rule to <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span>:</p>
 <p><span class="math display">\[
 \det(\mat{A})
 =\det(\mat{P})\det(\mat{L})\det(\mat{U})
 =(-1)^s\prod_{j=1}^n u_{jj}
 \]</span></p>
-<p>because <span class="math inline">\(\mat{L}\)</span> is unit lower triangular</p>
+<ul>
+<li><span class="math inline">\(s\)</span>: number of row swaps in the factorization</li>
+<li><span class="math inline">\(\det(\mat{P})=(-1)^s\)</span>: each row swap reverses the sign</li>
+<li><span class="math inline">\(\det(\mat{L})=1\)</span>: unit lower triangular</li>
+</ul>
+</section>
+<section id="read-the-sign-directly-from-a-permutation" class="slide level2">
+<h2>Read the sign directly from a permutation</h2>
+<p>Read column <span class="math inline">\(j\)</span>: its <span class="math inline">\(1\)</span> in row <span class="math inline">\(i\)</span> means <span class="math inline">\(\mat{P}\vct{e}_j=\vct{e}_i\)</span></p>
+<p><span class="math display">\[
+\mat{P}=\begin{bmatrix}0&amp;0&amp;1\\1&amp;0&amp;0\\0&amp;1&amp;0\end{bmatrix}
+\qquad 1\longmapsto2\longmapsto3\longmapsto1
+\]</span></p>
+<ul>
+<li>A cycle of length <span class="math inline">\(k\)</span> takes <span class="math inline">\(k-1\)</span> swaps: sign <span class="math inline">\((-1)^{k-1}\)</span></li>
+<li>Here: one cycle of length <span class="math inline">\(3\)</span>, so <span class="math inline">\(\det(\mat{P})=(-1)^2=1\)</span></li>
+<li>Count fixed indices as cycles of length <span class="math inline">\(1\)</span></li>
+</ul>
+<div class="key-point">
+<p>For <span class="math inline">\(c\)</span> disjoint cycles on <span class="math inline">\(n\)</span> indices: <span class="math inline">\(\det(\mat{P})=(-1)^{n-c}\)</span></p>
+<p>No need to carry out row swaps back to <span class="math inline">\(\mat{I}\)</span></p>
+</div>
 </section>
 <section id="try-it-by-elimination" class="slide level2">
 <h2>Try it by elimination</h2>
