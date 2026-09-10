@@ -49,6 +49,9 @@ Mathematical content should be maintained only in the slides.
 - [x] Create and locally validate the Deck 04 determinants companion, including
   signed-area plots, exact row operations, PLU, eigenvalue products, and
   determinant scaling and logarithmic computation; add deck and notebook-page links.
+- [x] Clarify PLU determinant signs, swap counts, and permutation cycles in
+  Deck 04 and its companion; split the worked example from the general formula
+  to keep the slides readable.
 - [ ] Review the Deck 04 companion with the instructor and validate it in
   clean Google Colab before adding its Colab badge.
 - [x] Validate all four published Deck 00--03 companion notebooks end to end

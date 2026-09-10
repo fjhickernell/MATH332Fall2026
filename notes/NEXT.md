@@ -14,6 +14,11 @@ scope and placement discussion.
   LU swap parity, determinant identities, eigenvalue products, conditioning,
   and `slogdet`. Deck 04 and the notebook page link to the draft. Clean-Colab
   validation and its badge remain pending; no Colab validation is claimed.
+- Deck 04 now separates the worked PLU example, general determinant formula,
+  and permutation-cycle sign into three slides. The deck and companion define
+  the row-swap count, explain the product rule, and give the direct cycle
+  formula for the sign of a permutation. The revised slides fit in the local
+  browser preview; instructor review and clean-Colab validation remain pending.
 - Deck 04's Big Ideas now explicitly distinguishes the nonnegative magnitude
   from the sign of the determinant; zero determinant has its own collapse bullet.
 - Decks 00--04 are substantive; Decks 01--03 are instructor-reviewed, and

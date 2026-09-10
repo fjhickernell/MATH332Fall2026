@@ -154,6 +154,8 @@ inverses, and PLU
 - [Three row operations control the determinant](#three-row-operations-control-the-determinant)
 - [Triangular matrices end the computation](#triangular-matrices-end-the-computation)
 - [The PLU example already contains the determinant](#the-plu-example-already-contains-the-determinant)
+- [Read the determinant from PLU](#read-the-determinant-from-plu)
+- [Read the sign directly from a permutation](#read-the-sign-directly-from-a-permutation)
 - [Try it by elimination](#try-it-by-elimination)
 
 ::: {.notes}
@@ -229,8 +231,11 @@ $$
 \det(\mat{A})=(-1)^2(2)(2)(1)=4
 $$
 
-More generally, the factorization
-$\mat{A}=\mat{P}\mat{L}\mat{U}$ gives
+## Read the determinant from PLU
+
+For square matrices of the same size, $\det(\mat{B}\mat{C})=\det(\mat{B})\det(\mat{C})$
+
+Apply this product rule to $\mat{A}=\mat{P}\mat{L}\mat{U}$:
 
 $$
 \det(\mat{A})
@@ -238,7 +243,28 @@ $$
 =(-1)^s\prod_{j=1}^n u_{jj}
 $$
 
-because $\mat{L}$ is unit lower triangular
+- $s$: number of row swaps in the factorization
+- $\det(\mat{P})=(-1)^s$: each row swap reverses the sign
+- $\det(\mat{L})=1$: unit lower triangular
+
+## Read the sign directly from a permutation
+
+Read column $j$: its $1$ in row $i$ means $\mat{P}\vct{e}_j=\vct{e}_i$
+
+$$
+\mat{P}=\begin{bmatrix}0&0&1\\1&0&0\\0&1&0\end{bmatrix}
+\qquad 1\longmapsto2\longmapsto3\longmapsto1
+$$
+
+- A cycle of length $k$ takes $k-1$ swaps: sign $(-1)^{k-1}$
+- Here: one cycle of length $3$, so $\det(\mat{P})=(-1)^2=1$
+- Count fixed indices as cycles of length $1$
+
+::: {.key-point}
+For $c$ disjoint cycles on $n$ indices: $\det(\mat{P})=(-1)^{n-c}$
+
+No need to carry out row swaps back to $\mat{I}$
+:::
 
 ## Try it by elimination
 
