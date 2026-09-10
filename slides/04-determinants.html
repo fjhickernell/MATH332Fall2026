@@ -708,6 +708,7 @@ In this deck
 <li><a href="#/a-determinant-is-a-signed-scale-factor">A determinant is a signed scale factor</a></li>
 <li><a href="#/familiar-transformations-tell-the-story">Familiar transformations tell the story</a></li>
 <li><a href="#/in-two-dimensions-ad-bc-is-signed-area">In two dimensions, <span class="math inline">\(ad-bc\)</span> is signed area</a></li>
+<li><a href="#/area-proof">Why the area is <span class="math inline">\(\abs{ad-bc}\)</span></a></li>
 </ul>
 </section>
 <section id="a-determinant-is-a-signed-scale-factor" class="slide level2">
@@ -810,9 +811,53 @@ T_{\mat{A}}(\mathcal S)
 <li>swapping the two columns reverses orientation and changes the sign</li>
 <li>dependent columns collapse the parallelogram and give determinant zero</li>
 </ul>
+</section>
+<section id="area-proof" class="slide level2">
+<h2>Why the area is <span class="math inline">\(\abs{ad-bc}\)</span></h2>
+<p>Use <span class="math inline">\(\vct{A}_1=(a,c)^{\mathsf T}\)</span> as the base and <span class="math inline">\(\vct{A}_2=(b,d)^{\mathsf T}\)</span> as the other edge</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Base length and a perpendicular unit vector</p>
+<p><span class="math display">\[\begin{gather*}
+L=\sqrt{a^2+c^2}&gt;0,
+\qquad \vct{n}=\frac1L\begin{bmatrix}-c\\a\end{bmatrix}\\
+\vct{A}_1^{\mathsf T}\vct{n}=0,
+\qquad \vct{n}^{\mathsf T}\vct{n}=1
+\end{gather*}\]</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>Height = magnitude of the perpendicular component</p>
+<p><span class="math display">\[\begin{align*}
+h&amp;=\abs{\vct{A}_2^{\mathsf T}\vct{n}}\\
+&amp;=\frac{\abs{-bc+ad}}{L}
+\end{align*}\]</span></p>
+</div></div>
 <div class="key-point">
-<p>For larger matrices, <span class="alert">elimination is our computational route</span></p>
+<p><span class="math display">\[
+\text{Area}=\text{base}\times\text{height}
+=L\frac{\abs{ad-bc}}{L}=\abs{\det(\mat{A})}
+\]</span></p>
 </div>
+<ul>
+<li><span class="math inline">\(L=0\)</span>: the first edge is zero, so both area and determinant are zero</li>
+<li><span class="math inline">\(\vct{n}\)</span> points left of the directed base: <span class="math inline">\(ad-bc&gt;0\)</span> for the other edge on the left, <span class="math inline">\(ad-bc&lt;0\)</span> on the right</li>
+</ul>
+<aside class="notes">
+<p>The dot product with a unit vector gives the signed component in that direction: <span class="math inline">\(\vct{A}_2^{\mathsf T}\vct{n}
+=\lVert\vct{A}_2\rVert\cos\theta\)</span>, where <span class="math inline">\(\theta\)</span> is the angle between the second edge and the normal. Its absolute value is the perpendicular distance between the parallel sides. This uses elementary projection geometry, independently of any determinant-area formula. If the edges are collinear, the height and determinant are both zero.</p>
+<p>For larger matrices, elimination is our computational route.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="compute-by-elimination" class="title-slide slide level1 center">
