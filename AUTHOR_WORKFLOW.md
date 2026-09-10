@@ -324,8 +324,10 @@ python -m ipykernel install --user --name qmcpy --display-name "qmcpy"
 
 ### Colab notebooks
 
-A student-facing Colab badge must open the notebook in this repository and be
-tested end to end before publication. Keep the setup cell a no-op outside
+A student-facing Colab badge must open the notebook in this repository. Rely
+on the established Colab setup and address problems when reported; separate
+clean-Colab execution is not required for every notebook. Keep local execution
+validation and instructor content review. Keep the setup cell a no-op outside
 Colab. In Colab, clone the current course repository, initialize the recorded
 `classlib` submodule using its public HTTPS URL, and install that checkout.
 This preserves the course's validated shared-library version instead of
@@ -343,7 +345,7 @@ Colab detection and setup, and keep a final code cell with the ID
 `notebook-runtime` that reports `Total execution time for this notebook is …
 min … sec.` The runtime cell must remain the notebook's last cell. Validate the
 complete run and its timing output with the `qmcpy` kernel before publication;
-clean-Colab validation remains a separate publication requirement.
+separate clean-Colab validation is not a publication requirement.
 
 ## Preview and render
 

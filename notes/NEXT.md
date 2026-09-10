@@ -2,9 +2,9 @@
 
 ## Current task
 
-Review the new Deck 04 determinants companion with the instructor and validate
-it in clean Google Colab before adding its Colab badge. Then resume the tensor
-scope and placement discussion.
+Review the new Deck 04 determinants companion with the instructor. Its Colab
+badge has been added; rely on the established setup and address reported
+Colab problems. Then resume the tensor scope and placement discussion.
 
 ## Current state
 
@@ -12,15 +12,20 @@ scope and placement discussion.
   `qmcpy` kernel on Mini (about eight seconds), with saved outputs and inspected
   geometric plots. It covers signed area, exact row operations, PLU and packed
   LU swap parity, determinant identities, eigenvalue products, conditioning,
-  and `slogdet`. Deck 04 and the notebook page link to the draft. Clean-Colab
-  validation and its badge remain pending; no Colab validation is claimed.
+  and `slogdet`. Deck 04 and the notebook page link to the draft. Its Colab
+  badge is added; separate clean-Colab validation is not required by the
+  instructor’s current policy.
 - Deck 04 now separates the worked PLU example, general determinant formula,
   and permutation-cycle sign into three slides. The deck and companion define
   the row-swap count, explain the product rule, and give the direct cycle
   formula for the sign of a permutation. The revised slides fit in the local
-  browser preview; instructor review and clean-Colab validation remain pending.
+  browser preview; instructor review remains pending.
 - Deck 04's Big Ideas now explicitly distinguishes the nonnegative magnitude
   from the sign of the determinant; zero determinant has its own collapse bullet.
+- Deck 04 now proves the parallelogram-area formula immediately after its
+  signed-area statement, using base times perpendicular height; the proof
+  includes the zero-edge case and explains the sign. Rendering, visible layout,
+  and the section-outline link are validated.
 - Decks 00--04 are substantive; Decks 01--03 are instructor-reviewed, and
   Deck 04 has been developed and audited. Decks 05--08 remain placeholders for
   Anton Chapters 3--6.
@@ -75,8 +80,8 @@ scope and placement discussion.
 
 ## Done when
 
-- The instructor has reviewed the determinants companion, it runs in clean
-  Colab using the recorded `classlib` commit, and its tested badge is added.
+- The instructor has reviewed the determinants companion; local validation
+  and its Colab badge are complete. Address Colab problems if reported.
 - The instructor has decided the intended scope, purpose, and placement of
   tensors in MATH 332.
 - The decision is recorded in the appropriate durable project file; any

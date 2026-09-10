@@ -52,8 +52,11 @@ Mathematical content should be maintained only in the slides.
 - [x] Clarify PLU determinant signs, swap counts, and permutation cycles in
   Deck 04 and its companion; split the worked example from the general formula
   to keep the slides readable.
-- [ ] Review the Deck 04 companion with the instructor and validate it in
-  clean Google Colab before adding its Colab badge.
+- [x] Prove the two-dimensional determinant-area formula in Deck 04 using
+  base times perpendicular height, including the zero-edge case and orientation.
+- [x] Add the Deck 04 companion’s Colab badge using the established setup;
+  separate clean-Colab validation is not required by instructor policy.
+- [ ] Review the Deck 04 companion with the instructor.
 - [x] Validate all four published Deck 00--03 companion notebooks end to end
   in clean Google Colab runtimes using the recorded `classlib` commit without
   downgrading QMCPy.

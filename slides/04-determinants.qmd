@@ -69,6 +69,7 @@ One scalar answers three questions about a square matrix transformation
 - [A determinant is a signed scale factor](#a-determinant-is-a-signed-scale-factor)
 - [Familiar transformations tell the story](#familiar-transformations-tell-the-story)
 - [In two dimensions, $ad-bc$ is signed area](#in-two-dimensions-ad-bc-is-signed-area)
+- [Why the area is $\abs{ad-bc}$](#area-proof)
 
 ## A determinant is a signed scale factor
 
@@ -142,8 +143,55 @@ $$
 - swapping the two columns reverses orientation and changes the sign
 - dependent columns collapse the parallelogram and give determinant zero
 
+## Why the area is $\abs{ad-bc}$ {#area-proof}
+
+Use $\vct{A}_1=(a,c)^{\mathsf T}$ as the base and
+$\vct{A}_2=(b,d)^{\mathsf T}$ as the other edge
+
+::: {.columns}
+::: {.column width="47%"}
+Base length and a perpendicular unit vector
+
+\begin{gather*}
+L=\sqrt{a^2+c^2}>0,
+\qquad \vct{n}=\frac1L\begin{bmatrix}-c\\a\end{bmatrix}\\
+\vct{A}_1^{\mathsf T}\vct{n}=0,
+\qquad \vct{n}^{\mathsf T}\vct{n}=1
+\end{gather*}
+:::
+::: {.column width="6%"}
+:::
+::: {.column width="47%"}
+Height = magnitude of the perpendicular component
+
+\begin{align*}
+h&=\abs{\vct{A}_2^{\mathsf T}\vct{n}}\\
+&=\frac{\abs{-bc+ad}}{L}
+\end{align*}
+:::
+:::
+
 ::: {.key-point}
-For larger matrices, [elimination is our computational route]{.alert}
+$$
+\text{Area}=\text{base}\times\text{height}
+=L\frac{\abs{ad-bc}}{L}=\abs{\det(\mat{A})}
+$$
+:::
+
+- $L=0$: the first edge is zero, so both area and determinant are zero
+- $\vct{n}$ points left of the directed base: $ad-bc>0$ for the other edge
+  on the left, $ad-bc<0$ on the right
+
+::: {.notes}
+The dot product with a unit vector gives the signed component in that
+direction: $\vct{A}_2^{\mathsf T}\vct{n}
+=\lVert\vct{A}_2\rVert\cos\theta$, where $\theta$ is the angle between
+the second edge and the normal. Its absolute value is the perpendicular
+distance between the parallel sides. This uses elementary projection
+geometry, independently of any determinant-area formula. If the edges are
+collinear, the height and determinant are both zero.
+
+For larger matrices, elimination is our computational route.
 :::
 
 # Compute by Elimination
