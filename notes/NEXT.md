@@ -6,6 +6,16 @@ Review the new Deck 04 determinants companion with the instructor. Its Colab
 badge has been added; rely on the established setup and address reported
 Colab problems. Then resume the tensor scope and placement discussion.
 
+## Other active and deferred work
+
+- Prepare and print Test 1 for September 17: the full 75-minute class,
+  covering Decks 01--03. This dated Dashboard task remains active alongside
+  the determinants review.
+- Optional matrices-of-functions enrichment (Wronskians and Jacobians), later
+  projection/rank-factorization material, and next-offering Deck 00 revisions
+  remain deferred in `notes/TODO-LATER.md`. The enrichment is distinct from
+  the active tensor scope decision; no slides are authorized by these notes.
+
 ## Current state
 
 - `notebooks/demonstrations/04-determinants.ipynb` runs end to end with the
