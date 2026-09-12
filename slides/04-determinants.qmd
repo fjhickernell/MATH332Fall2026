@@ -514,37 +514,44 @@ $$
 If $c_1\cos t+c_2\sin t=0$ for every $t$, differentiating gives a
 homogeneous system with this invertible coefficient matrix
 
-Hence $c_1=c_2=0$: the functions are linearly independent
+Hence $c_1=c_2=0$ is the only constant-coefficient relation
+
+In Deck 06, we will call this property [linear independence]{.alert}
 
 ::: {.notes}
-A nonzero Wronskian at one point proves linear independence. A zero
-Wronskian does not generally prove dependence without additional hypotheses.
-The coefficients in the linear relation are constants, not functions of $t$.
+This previews linear independence, which will be defined in Deck 06. A
+nonzero Wronskian at one point proves linear independence. A zero Wronskian
+does not generally prove dependence without additional hypotheses. The
+coefficients in the linear relation are constants, not functions of $t$.
 :::
 
 ## A Jacobian is the local linear map
 
-Let $F:\reals^n\to\reals^n$ be differentiable near $\vct{p}$
+Let $\vct{x}=F(\vct{u})\in\reals^n$, where $\vct{u}\in\reals^n$ and $F$ may
+be [nonlinear]{.alert}
 
-Its Jacobian has the partial-derivative vectors as columns:
+Where its partial derivatives exist, the Jacobian has those vectors as
+columns:
 
 $$
-\mat{J}_F(\vct{p})
+\mat{J}_F(\vct{u})
 =\begin{bmatrix}
-\dfrac{\partial F_1}{\partial x_1}&\cdots&\dfrac{\partial F_1}{\partial x_n}\\
+\dfrac{\partial F_1}{\partial u_1}&\cdots&\dfrac{\partial F_1}{\partial u_n}\\
 \vdots&\ddots&\vdots\\
-\dfrac{\partial F_n}{\partial x_1}&\cdots&\dfrac{\partial F_n}{\partial x_n}
+\dfrac{\partial F_n}{\partial u_1}&\cdots&\dfrac{\partial F_n}{\partial u_n}
 \end{bmatrix}
 $$
 
-For a small displacement $\vct{h}$,
+If $F$ is differentiable at $\vct{u}_0$, then for a small displacement
+$\vct{h}$ its Jacobian gives the first-order linear approximation
 
 $$
-F(\vct{p}+\vct{h})\approx F(\vct{p})+\mat{J}_F(\vct{p})\vct{h}
+F(\vct{u}_0+\vct{h})
+\approx F(\vct{u}_0)+\mat{J}_F(\vct{u}_0)\vct{h}
 $$
 
 ::: {.key-point}
-$\abs{\det\bigl(\mat{J}_F(\vct{p})\bigr)}$ gives local volume scale;
+$\abs{\det\bigl(\mat{J}_F(\vct{u}_0)\bigr)}$ gives local volume scale;
 the sign records orientation, and zero signals first-order collapse
 :::
 
@@ -592,16 +599,30 @@ $$
 <text x="315" y="58" font-size="22" font-style="italic">y</text>
 </svg>
 
-The Jacobian turns the two coordinate directions into the two edge vectors of
-the local parallelogram
+The Jacobian columns form the local edge vectors
 :::
+:::
+
+::: {.vspace}
+The Jacobian determinant converts volume elements under a general coordinate
+change $\vct{x}=F(\vct{u})$:
+
+\begin{align*}
+\dif x_1\cdots\dif x_n
+&=\abs{\det\bigl(\mat{J}_F(\vct{u})\bigr)}\,
+  \dif u_1\cdots\dif u_n,
+&\qquad
+\text{polar:}\quad \dif x\,\dif y
+&=r\,\dif r\,\dif\theta
+\end{align*}
 :::
 
 ::: {.notes}
 At $r=0$, polar coordinates collapse every angle to the origin and the
 Jacobian is singular. The exact image is a curved annular-sector patch; its
 first-order approximation is the parallelogram spanned by the two Jacobian
-columns.
+columns. The same absolute-determinant factor converts volume elements for
+general differentiable coordinate changes in $n$ dimensions.
 :::
 
 ## Similar formulas answer different questions

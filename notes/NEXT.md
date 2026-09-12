@@ -38,8 +38,12 @@ and then resume the broader tensor scope and placement discussion.
 - Deck 04 now includes a five-slide matrices-of-functions enrichment covering
   a parameter-dependent determinant, the Wronskian of cosine and sine,
   Jacobians as local linear maps, the polar-coordinate area factor, and a
-  brief surface-area and tensor outlook. The Wronskian and Jacobian slides
-  explicitly distinguish what their columns mean.
+  brief surface-area and tensor outlook. The Wronskian slide describes the
+  constant-coefficient relation concretely and calls forward to the formal
+  definition of linear independence in Deck 06. The Jacobian slides emphasize
+  that the underlying function may be nonlinear, present its first-order
+  linear approximation, and give the general $n$-dimensional coordinate-change
+  formula for volume elements alongside the polar special case.
 - Decks 00--04 are substantive; Decks 01--03 are instructor-reviewed, and
   Deck 04 has been developed and audited. Decks 05--08 remain placeholders for
   Anton Chapters 3--6.
