@@ -376,3 +376,12 @@ Reuse `classlib` for shared website and RevealJS infrastructure. A reusable
 change belongs in HickernellAcademicLib only after it is validated, committed,
 and pushed upstream; then update the recorded submodule pointer intentionally.
 Keep all MATH 332 content in this repository.
+
+## Released quiz and test answer keys
+
+Keep released answer-key PDFs in `assets/tests/current/` and link them from
+`pages/quizzes-and-tests.qmd`. Include the anonymous score summary in the PDF
+when available; keep student names and the private LaTeX source out of the
+public repository. Copy the same released PDF into the `332/` folder of the
+canonical `HickernellTestArchive` checkout. Publish archive changes separately;
+do not update another course's pinned archive merely to add a MATH 332 file.
