@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-09-11">
+  <meta name="dcterms.date" content="2026-09-12">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="04-determinants_files/libs/revealjs/dist/theme/quarto-94fb2b88d849659077044483aef9e9de.css">
+  <link rel="stylesheet" href="04-determinants_files/libs/revealjs/dist/theme/quarto-f0779c89f7544803a7a6ea4af11e4e6f.css">
   <link href="04-determinants_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="04-determinants_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="04-determinants_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -650,9 +650,9 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">September 11, 2026</p>
+  <p class="date">September 12, 2026</p>
 </section>
-<section id="course-map" class="title-slide slide level1 center">
+<section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
 <div class="columns">
 <div class="column" style="width:38%;">
@@ -664,7 +664,7 @@ Course decks
 <li><a href="01-systems-and-matrices.html">Systems and Matrices</a></li>
 <li><a href="02-inverses-and-invertibility.html">Inverses</a></li>
 <li><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a></li>
-<li><a href="04-determinants.html">Determinants</a> — <span class="alert">current</span></li>
+<li><a href="04-determinants.html" class="current-deck" aria-current="page">Determinants</a></li>
 <li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
 <li><a href="06-general-vector-spaces.html">Vector Spaces</a></li>
 <li><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
@@ -694,6 +694,7 @@ In this deck
 <li><a href="#/what-a-determinant-measures">What a Determinant Measures</a></li>
 <li><a href="#/compute-by-elimination">Compute by Elimination</a></li>
 <li><a href="#/what-the-determinant-reveals">What the Determinant Reveals</a></li>
+<li><a href="#/matrices-of-functions">Matrices of Functions</a></li>
 <li><a href="#/big-ideas">Big Ideas</a></li>
 <li><a href="#/what-comes-next">What Comes Next</a></li>
 </ul>
@@ -1119,16 +1120,188 @@ u_{11}&amp;u_{12}&amp;\cdots&amp;u_{1n}\\
 <p>It does not replace the factorization that computed it</p>
 </div>
 </section></section>
+<section>
+<section id="matrices-of-functions" class="title-slide slide level1 center">
+<h1>Matrices of Functions</h1>
+<p>The entries may vary while the determinant keeps its familiar meaning</p>
+<ul>
+<li><a href="#/a-determinant-can-depend-on-a-parameter">A determinant can depend on a parameter</a></li>
+<li><a href="#/a-wronskian-tests-relations-among-functions">A Wronskian tests relations among functions</a></li>
+<li><a href="#/a-jacobian-is-the-local-linear-map">A Jacobian is the local linear map</a></li>
+<li><a href="#/polar-coordinates-explain-the-factor-r">Polar coordinates explain the factor <span class="math inline">\(r\)</span></a></li>
+<li><a href="#/similar-formulas-answer-different-questions">Similar formulas answer different questions</a></li>
+</ul>
+</section>
+<section id="a-determinant-can-depend-on-a-parameter" class="slide level2">
+<h2>A determinant can depend on a parameter</h2>
+<p>At each fixed <span class="math inline">\(t\)</span>, this is an ordinary numerical matrix:</p>
+<p><span class="math display">\[
+\mat{A}(t)=
+\begin{bmatrix}
+1&amp;t\\
+t&amp;1
+\end{bmatrix},
+\qquad
+\det\bigl(\mat{A}(t)\bigr)=1-t^2
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[\begin{align*}
+t\ne\pm1
+&amp;\implies \mat{A}(t)\text{ is invertible},\\
+t=\pm1
+&amp;\implies \mat{A}(t)\text{ collapses a direction}
+\end{align*}\]</span></p>
+<div class="key-point">
+<p>The determinant identifies the <span class="alert">exceptional parameter values</span></p>
+</div>
+</section>
+<section id="a-wronskian-tests-relations-among-functions" class="slide level2">
+<h2>A Wronskian tests relations among functions</h2>
+<p>For two differentiable functions,</p>
+<p><span class="math display">\[
+W(f_1,f_2)(t)
+=\det\begin{bmatrix}f_1(t)&amp;f_2(t)\\f_1'(t)&amp;f_2'(t)\end{bmatrix}
+\]</span></p>
+<p>For <span class="math inline">\(f_1(t)=\cos t\)</span> and <span class="math inline">\(f_2(t)=\sin t\)</span>,</p>
+<p><span class="math display">\[
+\det\begin{bmatrix}\cos t&amp;\sin t\\-\sin t&amp;\cos t\end{bmatrix}=1
+\]</span></p>
+<p>If <span class="math inline">\(c_1\cos t+c_2\sin t=0\)</span> for every <span class="math inline">\(t\)</span>, differentiating gives a homogeneous system with this invertible coefficient matrix</p>
+<p>Hence <span class="math inline">\(c_1=c_2=0\)</span>: the functions are linearly independent</p>
+<aside class="notes">
+<p>A nonzero Wronskian at one point proves linear independence. A zero Wronskian does not generally prove dependence without additional hypotheses. The coefficients in the linear relation are constants, not functions of <span class="math inline">\(t\)</span>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-jacobian-is-the-local-linear-map" class="slide level2">
+<h2>A Jacobian is the local linear map</h2>
+<p>Let <span class="math inline">\(F:\reals^n\to\reals^n\)</span> be differentiable near <span class="math inline">\(\vct{p}\)</span></p>
+<p>Its Jacobian has the partial-derivative vectors as columns:</p>
+<p><span class="math display">\[
+\mat{J}_F(\vct{p})
+=\begin{bmatrix}
+\dfrac{\partial F_1}{\partial x_1}&amp;\cdots&amp;\dfrac{\partial F_1}{\partial x_n}\\
+\vdots&amp;\ddots&amp;\vdots\\
+\dfrac{\partial F_n}{\partial x_1}&amp;\cdots&amp;\dfrac{\partial F_n}{\partial x_n}
+\end{bmatrix}
+\]</span></p>
+<p>For a small displacement <span class="math inline">\(\vct{h}\)</span>,</p>
+<p><span class="math display">\[
+F(\vct{p}+\vct{h})\approx F(\vct{p})+\mat{J}_F(\vct{p})\vct{h}
+\]</span></p>
+<div class="key-point">
+<p><span class="math inline">\(\abs{\det\bigl(\mat{J}_F(\vct{p})\bigr)}\)</span> gives local volume scale; the sign records orientation, and zero signals first-order collapse</p>
+</div>
+</section>
+<section id="polar-coordinates-explain-the-factor-r" class="slide level2">
+<h2>Polar coordinates explain the factor <span class="math inline">\(r\)</span></h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><span class="math display">\[
+F(r,\theta)=
+\begin{bmatrix}r\cos\theta\\r\sin\theta\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\mat{J}_F(r,\theta)=
+\begin{bmatrix}
+\cos\theta&amp;-r\sin\theta\\
+\sin\theta&amp;r\cos\theta
+\end{bmatrix},
+\qquad
+\det\bigl(\mat{J}_F\bigr)=r
+\]</span></p>
+<p>For <span class="math inline">\(r&gt;0\)</span>, a small coordinate rectangle has image area</p>
+<p><span class="math display">\[
+\text{area}\approx r\,\Delta r\,\Delta\theta
+\]</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<svg viewbox="0 0 520 310" width="100%" role="img" aria-label="A small rectangle in radius-angle coordinates maps to a curved annular-sector patch in the plane.">
+<defs><marker id="d04-polar-arrow" markerwidth="10" markerheight="8" refx="9" refy="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#444"></path></marker></defs> <line x1="35" y1="245" x2="190" y2="245" stroke="#444" stroke-width="2"></line> <line x1="35" y1="245" x2="35" y2="55" stroke="#444" stroke-width="2"></line> <rect x="85" y="105" width="70" height="75" fill="#d9effb" stroke="#007acc" stroke-width="3"></rect> <text x="184" y="267" font-size="22" font-style="italic" text-anchor="end">r</text> <text x="22" y="64" font-size="22" font-style="italic">θ</text> <path d="M205 150H275" fill="none" stroke="#444" stroke-width="3" marker-end="url(#d04-polar-arrow)"></path> <text x="240" y="133" font-size="24" font-style="italic" text-anchor="middle">F</text> <line x1="330" y1="245" x2="500" y2="245" stroke="#444" stroke-width="2"></line> <line x1="330" y1="245" x2="330" y2="45" stroke="#444" stroke-width="2"></line> <path d="M381.7 226.2 L438.1 205.7 A115 115 0 0 0 387.5 145.4 L357.5 197.4 A55 55 0 0 1 381.7 226.2 Z" fill="#fde9cb" stroke="#b46b00" stroke-width="3"></path> <text x="490" y="267" font-size="22" font-style="italic">x</text> <text x="315" y="58" font-size="22" font-style="italic">y</text>
+</svg>
+<p>The Jacobian turns the two coordinate directions into the two edge vectors of the local parallelogram</p>
+</div></div>
+<aside class="notes">
+<p>At <span class="math inline">\(r=0\)</span>, polar coordinates collapse every angle to the origin and the Jacobian is singular. The exact image is a curved annular-sector patch; its first-order approximation is the parallelogram spanned by the two Jacobian columns.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="similar-formulas-answer-different-questions" class="slide level2">
+<h2>Similar formulas answer different questions</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Matrix of derivatives</th>
+<th style="text-align: left;">What its columns represent</th>
+<th style="text-align: left;">What the determinant tells us</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Wronskian</td>
+<td style="text-align: left;">functions and successive derivatives</td>
+<td style="text-align: left;">rules out a constant-coefficient relation</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Jacobian</td>
+<td style="text-align: left;">responses to coordinate displacements</td>
+<td style="text-align: left;">local scale, orientation, or collapse</td>
+</tr>
+</tbody>
+</table>
+<p>Both use derivatives, but their columns have <span class="alert">different meanings</span></p>
+<p>For a surface <span class="math inline">\(G(u,v)\in\reals^3\)</span>, the two Jacobian columns <span class="math inline">\(G_u\)</span> and <span class="math inline">\(G_v\)</span> are tangent vectors; their spanned area is</p>
+<p><span class="math display">\[
+\left\lVert G_u\mathbin{\times}G_v\right\rVert
+=\sqrt{\det\bigl(\mat{J}_G^{\mathsf T}\mat{J}_G\bigr)}
+\]</span></p>
+<aside class="notes">
+<p>This is only an outlook. Manifolds and tensor calculus are beyond the present scope. Higher-order derivative information may be organized as tensors, but the first-order local map here is still represented by a matrix.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
 <section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Big Ideas</h1>
 <ul>
-<li><span class="math inline">\(\det(\mat{A})\)</span> is the <span class="alert">signed volume scale factor</span> of a square matrix transformation</li>
-<li><span class="math inline">\(\abs{\det(\mat{A})}\)</span> scales volume; the sign of <span class="math inline">\(\det(\mat{A})\)</span> records orientation</li>
-<li><span class="math inline">\(\det(\mat{A})=0\)</span> means dimension collapse</li>
+<li><span class="math inline">\(\det(\mat{A})\)</span> is a <span class="alert">signed volume scale factor</span>: magnitude scales volume, sign records orientation, and zero means dimension collapse</li>
 <li>Compute determinants by <span class="alert">eliminating to triangular form</span> and tracking swaps and scalings</li>
 <li>PLU stores the needed information in the row permutation and the diagonal of <span class="math inline">\(\mat{U}\)</span></li>
 <li><span class="math inline">\(\det(\mat{A})\ne0\)</span> exactly when <span class="math inline">\(\mat{A}\)</span> is invertible</li>
 <li>Products multiply determinants<br>Later, eigenvalues will also multiply to the determinant</li>
+<li>For matrices of functions, determinants can reveal exceptional parameter values, function independence, and local geometric scaling</li>
 </ul>
 </section>
 
