@@ -20,14 +20,14 @@ include-after-body:
       </script>
 ---
 
-# Course Map
+# Course Map {.deck-course-map}
 
 ::: {.columns}
 ::: {.column width="38%"}
 <h3>Course decks</h3>
 
 - [Why Linear Algebra?]({{< meta decks.d00.file >}})
-- [Systems and Matrices]({{< meta decks.d01.file >}}) — [current]{.alert}
+- [Systems and Matrices]({{< meta decks.d01.file >}}){.current-deck aria-current="page"}
 - [Inverses]({{< meta decks.d02.file >}})
 - [Matrix Transformations]({{< meta decks.d03.file >}})
 - [Determinants]({{< meta decks.d04.file >}})

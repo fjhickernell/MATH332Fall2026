@@ -6,49 +6,9 @@ state why the work was deferred when that context will matter later.
 
 ## Deferred work
 
-- Develop optional enrichment on matrices involving functions, prompted by a
-  student's question (September 10, 2026). The instructor requested that the
-  ideas be preserved for later; slides have not yet been authorized or drafted.
-  Ask the student for an example of what he encountered to distinguish
-  Wronskians, Jacobians, and possible differential-geometry interests.
-  Proposed scope: four or five optional slides at the end of Deck 04, then
-  revisit Wronskians with function spaces in Deck 06. Keep the sequence tied
-  to familiar determinants, homogeneous systems, and geometric scaling:
-  - Begin with a matrix-valued function
-    $A(t)=\begin{bmatrix}1&t\\t&1\end{bmatrix}$, whose determinant is
-    $1-t^2$. At each fixed parameter this is an ordinary numerical matrix;
-    invertibility fails precisely at $t=\pm1$.
-  - Introduce the Wronskian using $\cos t$ and $\sin t$: the matrix of
-    their values and first derivatives has determinant $1$. Explain the
-    independence argument: a constant-coefficient relation holding for every
-    $t$, together with its derivative, gives a homogeneous system; an
-    invertible matrix at one point forces both constants to vanish.
-    Emphasize constant coefficients and distinguish independence of functions
-    on an interval from independence of numerical columns at a point.
-    A nonzero Wronskian at one point proves function independence; a zero
-    Wronskian does not generally prove dependence without extra hypotheses.
-    Reference: https://onlinehw.math.ksu.edu/math340book/chap2/theoryrev.php
-  - Introduce the Jacobian through
-    $F(p+h)\approx F(p)+J_F(p)h$: its columns describe transformed small
-    displacement vectors, and its determinant gives local signed volume
-    scaling. Reconnect explicitly to Deck 04's scale, orientation, and
-    collapse interpretation.
-  - Use polar coordinates $F(r,\theta)=(r\cos\theta,r\sin\theta)$:
-    $J_F=\begin{bmatrix}\cos\theta&-r\sin\theta\\
-    \sin\theta&r\cos\theta\end{bmatrix}$ and $\det J_F=r$.
-    Illustrate a small coordinate rectangle mapping approximately to a
-    parallelogram of area $r\,\Delta r\,\Delta\theta$ for $r>0$;
-    connect this to the polar integration factor. Include a geometric picture.
-    Reference: https://math.mit.edu/~poonen/notes02.pdf
-  - Explicitly distinguish the purposes: Wronskians test constant-coefficient
-    relations among functions; Jacobians describe how a map transforms nearby
-    displacements. Both involve derivatives, but their columns mean different
-    things.
-  - Offer a brief differential-geometry outlook: derivatives of a surface
-    parametrization give tangent vectors; linear algebra measures their
-    lengths, angles, and spanned area. Keep manifolds and tensors as an
-    outlook unless the student's example and instructor's scope decision
-    justify more depth.
+- When developing Deck 06, revisit Wronskians after function spaces and linear
+  independence have been established. Deck 04 now contains the introductory
+  determinant example and the distinction between Wronskians and Jacobians.
 - Save the general orthogonal-projection formula for the treatment of column
   spaces, orthogonal complements, and least-squares regression rather than
   expanding Deck 03's concrete transformation examples. For a real matrix

@@ -2,6 +2,12 @@
 
 /* Course-wide diagram primitives shared by multiple MATH 332 decks. */
 
+.reveal .deck-course-map a.current-deck {
+  color: var(--header-blue);
+  font-weight: 800;
+  font-size: 1.1em;
+}
+
 .reveal .diagram-label {
   color: var(--header-blue);
   font-size: 0.78em;

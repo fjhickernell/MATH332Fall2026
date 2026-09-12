@@ -35,7 +35,8 @@ Mathematical content should be maintained only in the slides.
 ## Later course construction
 
 - [x] Give every deck, including placeholders, a Course Map with consistent
-  38% course-deck, 4% gutter, and 58% deck-content proportions.
+  38% course-deck, 4% gutter, and 58% deck-content proportions, and emphasize
+  the current deck with the established larger-link treatment.
 - [x] Add the Teaser Trailer theme to Deck 00 and the explicit equations,
   augmented-matrix, triangular-matrix, and solution sequence to Deck 01.
 - [x] Add the inverse-solution equation as the Course Map theme for Deck 02.
@@ -54,6 +55,9 @@ Mathematical content should be maintained only in the slides.
   to keep the slides readable.
 - [x] Prove the two-dimensional determinant-area formula in Deck 04 using
   base times perpendicular height, including the zero-edge case and orientation.
+- [x] Add the optional Deck 04 matrices-of-functions enrichment: a
+  parameter-dependent determinant, Wronskians, Jacobians, polar-coordinate
+  area scaling, and a brief differential-geometry outlook.
 - [x] Add the Deck 04 companion’s Colab badge using the established setup;
   separate clean-Colab validation is not required by instructor policy.
 - [ ] Review the Deck 04 companion with the instructor.

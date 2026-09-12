@@ -2,19 +2,18 @@
 
 ## Current task
 
-Review the new Deck 04 determinants companion with the instructor. Its Colab
-badge has been added; rely on the established setup and address reported
-Colab problems. Then resume the tensor scope and placement discussion.
+Review the expanded Deck 04 determinants materials with the instructor. The
+companion's Colab badge has been added; rely on the established setup and
+address reported Colab problems. Review the new matrices-of-functions slides
+and then resume the broader tensor scope and placement discussion.
 
 ## Other active and deferred work
 
 - Prepare and print Test 1 for September 17: the full 75-minute class,
   covering Decks 01--03. This dated Dashboard task remains active alongside
   the determinants review.
-- Optional matrices-of-functions enrichment (Wronskians and Jacobians), later
-  projection/rank-factorization material, and next-offering Deck 00 revisions
-  remain deferred in `notes/TODO-LATER.md`. The enrichment is distinct from
-  the active tensor scope decision; no slides are authorized by these notes.
+- Later projection/rank-factorization material and next-offering Deck 00
+  revisions remain deferred in `notes/TODO-LATER.md`.
 
 ## Current state
 
@@ -36,6 +35,11 @@ Colab problems. Then resume the tensor scope and placement discussion.
   signed-area statement, using base times perpendicular height; the proof
   includes the zero-edge case and explains the sign. Rendering, visible layout,
   and the section-outline link are validated.
+- Deck 04 now includes a five-slide matrices-of-functions enrichment covering
+  a parameter-dependent determinant, the Wronskian of cosine and sine,
+  Jacobians as local linear maps, the polar-coordinate area factor, and a
+  brief surface-area and tensor outlook. The Wronskian and Jacobian slides
+  explicitly distinguish what their columns mean.
 - Decks 00--04 are substantive; Decks 01--03 are instructor-reviewed, and
   Deck 04 has been developed and audited. Decks 05--08 remain placeholders for
   Anton Chapters 3--6.
@@ -66,8 +70,9 @@ Colab problems. Then resume the tensor scope and placement discussion.
 
 ## Questions to resolve
 
-- What tensor concepts should MATH 332 introduce, and should they appear in a
-  current deck, a companion notebook, a later deck, or a future-course note?
+- Beyond Deck 04's brief outlook, what tensor concepts should MATH 332
+  introduce, and should they appear in a companion notebook, a later deck, or
+  a future-course note?
 - Should Deck 03 briefly signpost Strang's later
   $\mat{A}=\mat{C}\mat{R}$ rank factorization, or should that remain deferred
   until vector spaces, bases, row and column spaces, RREF pivot columns, and
@@ -90,8 +95,9 @@ Colab problems. Then resume the tensor scope and placement discussion.
 
 ## Done when
 
-- The instructor has reviewed the determinants companion; local validation
-  and its Colab badge are complete. Address Colab problems if reported.
+- The instructor has reviewed the determinants companion and new
+  matrices-of-functions slides; local validation and the companion's Colab
+  badge are complete. Address Colab problems if reported.
 - The instructor has decided the intended scope, purpose, and placement of
   tensors in MATH 332.
 - The decision is recorded in the appropriate durable project file; any

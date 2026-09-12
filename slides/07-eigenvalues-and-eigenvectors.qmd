@@ -13,7 +13,7 @@ include-after-body:
       </script>
 ---
 
-# Course Map
+# Course Map {.deck-course-map}
 
 ::: {.columns}
 ::: {.column width="38%"}
@@ -26,7 +26,7 @@ include-after-body:
 - [Determinants]({{< meta decks.d04.file >}})
 - [Euclidean Spaces]({{< meta decks.d05.file >}})
 - [Vector Spaces]({{< meta decks.d06.file >}})
-- [Eigenvalues]({{< meta decks.d07.file >}}) — [current]{.alert}
+- [Eigenvalues]({{< meta decks.d07.file >}}){.current-deck aria-current="page"}
 - [Inner Products]({{< meta decks.d08.file >}})
 :::
 

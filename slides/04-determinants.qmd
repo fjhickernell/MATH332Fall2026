@@ -13,7 +13,7 @@ include-after-body:
       </script>
 ---
 
-# Course Map
+# Course Map {.deck-course-map}
 
 ::: {.columns}
 ::: {.column width="38%"}
@@ -23,7 +23,7 @@ include-after-body:
 - [Systems and Matrices]({{< meta decks.d01.file >}})
 - [Inverses]({{< meta decks.d02.file >}})
 - [Matrix Transformations]({{< meta decks.d03.file >}})
-- [Determinants]({{< meta decks.d04.file >}}) — [current]{.alert}
+- [Determinants]({{< meta decks.d04.file >}}){.current-deck aria-current="page"}
 - [Euclidean Spaces]({{< meta decks.d05.file >}})
 - [Vector Spaces]({{< meta decks.d06.file >}})
 - [Eigenvalues]({{< meta decks.d07.file >}})
@@ -57,6 +57,7 @@ Determinant magnitude scales volume; determinant sign records orientation
 - [What a Determinant Measures](#what-a-determinant-measures)
 - [Compute by Elimination](#compute-by-elimination)
 - [What the Determinant Reveals](#what-the-determinant-reveals)
+- [Matrices of Functions](#matrices-of-functions)
 - [Big Ideas](#big-ideas)
 - [What Comes Next](#what-comes-next)
 :::
@@ -458,16 +459,185 @@ A determinant [summarizes structure]{.alert}
 It does not replace the factorization that computed it
 :::
 
+# Matrices of Functions
+
+The entries may vary while the determinant keeps its familiar meaning
+
+- [A determinant can depend on a parameter](#a-determinant-can-depend-on-a-parameter)
+- [A Wronskian tests relations among functions](#a-wronskian-tests-relations-among-functions)
+- [A Jacobian is the local linear map](#a-jacobian-is-the-local-linear-map)
+- [Polar coordinates explain the factor $r$](#polar-coordinates-explain-the-factor-r)
+- [Similar formulas answer different questions](#similar-formulas-answer-different-questions)
+
+## A determinant can depend on a parameter
+
+At each fixed $t$, this is an ordinary numerical matrix:
+
+$$
+\mat{A}(t)=
+\begin{bmatrix}
+1&t\\
+t&1
+\end{bmatrix},
+\qquad
+\det\bigl(\mat{A}(t)\bigr)=1-t^2
+$$
+
+Therefore
+
+\begin{align*}
+t\ne\pm1
+&\implies \mat{A}(t)\text{ is invertible},\\
+t=\pm1
+&\implies \mat{A}(t)\text{ collapses a direction}
+\end{align*}
+
+::: {.key-point}
+The determinant identifies the [exceptional parameter values]{.alert}
+:::
+
+## A Wronskian tests relations among functions
+
+For two differentiable functions,
+
+$$
+W(f_1,f_2)(t)
+=\det\begin{bmatrix}f_1(t)&f_2(t)\\f_1'(t)&f_2'(t)\end{bmatrix}
+$$
+
+For $f_1(t)=\cos t$ and $f_2(t)=\sin t$,
+
+$$
+\det\begin{bmatrix}\cos t&\sin t\\-\sin t&\cos t\end{bmatrix}=1
+$$
+
+If $c_1\cos t+c_2\sin t=0$ for every $t$, differentiating gives a
+homogeneous system with this invertible coefficient matrix
+
+Hence $c_1=c_2=0$: the functions are linearly independent
+
+::: {.notes}
+A nonzero Wronskian at one point proves linear independence. A zero
+Wronskian does not generally prove dependence without additional hypotheses.
+The coefficients in the linear relation are constants, not functions of $t$.
+:::
+
+## A Jacobian is the local linear map
+
+Let $F:\reals^n\to\reals^n$ be differentiable near $\vct{p}$
+
+Its Jacobian has the partial-derivative vectors as columns:
+
+$$
+\mat{J}_F(\vct{p})
+=\begin{bmatrix}
+\dfrac{\partial F_1}{\partial x_1}&\cdots&\dfrac{\partial F_1}{\partial x_n}\\
+\vdots&\ddots&\vdots\\
+\dfrac{\partial F_n}{\partial x_1}&\cdots&\dfrac{\partial F_n}{\partial x_n}
+\end{bmatrix}
+$$
+
+For a small displacement $\vct{h}$,
+
+$$
+F(\vct{p}+\vct{h})\approx F(\vct{p})+\mat{J}_F(\vct{p})\vct{h}
+$$
+
+::: {.key-point}
+$\abs{\det\bigl(\mat{J}_F(\vct{p})\bigr)}$ gives local volume scale;
+the sign records orientation, and zero signals first-order collapse
+:::
+
+## Polar coordinates explain the factor $r$
+
+::: {.columns}
+::: {.column width="47%"}
+$$
+F(r,\theta)=
+\begin{bmatrix}r\cos\theta\\r\sin\theta\end{bmatrix}
+$$
+
+$$
+\mat{J}_F(r,\theta)=
+\begin{bmatrix}
+\cos\theta&-r\sin\theta\\
+\sin\theta&r\cos\theta
+\end{bmatrix},
+\qquad
+\det\bigl(\mat{J}_F\bigr)=r
+$$
+
+For $r>0$, a small coordinate rectangle has image area
+
+$$
+\text{area}\approx r\,\Delta r\,\Delta\theta
+$$
+:::
+::: {.column width="6%"}
+:::
+::: {.column width="47%"}
+<svg viewBox="0 0 520 310" width="100%" role="img" aria-label="A small rectangle in radius-angle coordinates maps to a curved annular-sector patch in the plane.">
+<defs><marker id="d04-polar-arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#444"/></marker></defs>
+<line x1="35" y1="245" x2="190" y2="245" stroke="#444" stroke-width="2"/>
+<line x1="35" y1="245" x2="35" y2="55" stroke="#444" stroke-width="2"/>
+<rect x="85" y="105" width="70" height="75" fill="#d9effb" stroke="#007acc" stroke-width="3"/>
+<text x="184" y="267" font-size="22" font-style="italic" text-anchor="end">r</text>
+<text x="22" y="64" font-size="22" font-style="italic">θ</text>
+<path d="M205 150H275" fill="none" stroke="#444" stroke-width="3" marker-end="url(#d04-polar-arrow)"/>
+<text x="240" y="133" font-size="24" font-style="italic" text-anchor="middle">F</text>
+<line x1="330" y1="245" x2="500" y2="245" stroke="#444" stroke-width="2"/>
+<line x1="330" y1="245" x2="330" y2="45" stroke="#444" stroke-width="2"/>
+<path d="M381.7 226.2 L438.1 205.7 A115 115 0 0 0 387.5 145.4 L357.5 197.4 A55 55 0 0 1 381.7 226.2 Z" fill="#fde9cb" stroke="#b46b00" stroke-width="3"/>
+<text x="490" y="267" font-size="22" font-style="italic">x</text>
+<text x="315" y="58" font-size="22" font-style="italic">y</text>
+</svg>
+
+The Jacobian turns the two coordinate directions into the two edge vectors of
+the local parallelogram
+:::
+:::
+
+::: {.notes}
+At $r=0$, polar coordinates collapse every angle to the origin and the
+Jacobian is singular. The exact image is a curved annular-sector patch; its
+first-order approximation is the parallelogram spanned by the two Jacobian
+columns.
+:::
+
+## Similar formulas answer different questions
+
+| Matrix of derivatives | What its columns represent | What the determinant tells us |
+|:---|:---|:---|
+| Wronskian | functions and successive derivatives | rules out a constant-coefficient relation |
+| Jacobian | responses to coordinate displacements | local scale, orientation, or collapse |
+
+Both use derivatives, but their columns have [different meanings]{.alert}
+
+For a surface $G(u,v)\in\reals^3$, the two Jacobian columns
+$G_u$ and $G_v$ are tangent vectors; their spanned area is
+
+$$
+\left\lVert G_u\mathbin{\times}G_v\right\rVert
+=\sqrt{\det\bigl(\mat{J}_G^{\mathsf T}\mat{J}_G\bigr)}
+$$
+
+::: {.notes}
+This is only an outlook. Manifolds and tensor calculus are beyond the present
+scope. Higher-order derivative information may be organized as tensors, but
+the first-order local map here is still represented by a matrix.
+:::
+
 # Big Ideas {data-state="goldborder"}
 
-- $\det(\mat{A})$ is the [signed volume scale factor]{.alert} of a square matrix transformation
-- $\abs{\det(\mat{A})}$ scales volume; the sign of $\det(\mat{A})$ records orientation
-- $\det(\mat{A})=0$ means dimension collapse
+- $\det(\mat{A})$ is a [signed volume scale factor]{.alert}: magnitude scales
+  volume, sign records orientation, and zero means dimension collapse
 - Compute determinants by [eliminating to triangular form]{.alert} and tracking swaps and scalings
 - PLU stores the needed information in the row permutation and the diagonal of $\mat{U}$
 - $\det(\mat{A})\ne0$ exactly when $\mat{A}$ is invertible
 - Products multiply determinants<br>Later, eigenvalues will also multiply to the
   determinant
+- For matrices of functions, determinants can reveal exceptional parameter
+  values, function independence, and local geometric scaling
 
 # What Comes Next
 

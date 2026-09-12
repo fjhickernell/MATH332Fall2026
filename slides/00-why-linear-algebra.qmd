@@ -24,13 +24,13 @@ include-after-body:
 
 {{< include ../classlib/classlib/quarto/slides/shared/general/illinois-tech-academic-transformation.qmd >}}
 
-# Course Map
+# Course Map {.deck-course-map}
 
 ::: {.columns}
 ::: {.column width="38%"}
 <h3>Course decks</h3>
 
-- [Why Linear Algebra?]({{< meta decks.d00.file >}}) — [current]{.alert}
+- [Why Linear Algebra?]({{< meta decks.d00.file >}}){.current-deck aria-current="page"}
 - [Systems and Matrices]({{< meta decks.d01.file >}})
 - [Inverses]({{< meta decks.d02.file >}})
 - [Matrix Transformations]({{< meta decks.d03.file >}})

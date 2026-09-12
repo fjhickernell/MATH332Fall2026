@@ -19,7 +19,7 @@ include-after-body:
       </script>
 ---
 
-# Course Map
+# Course Map {.deck-course-map}
 
 ::: {.columns}
 ::: {.column width="38%"}
@@ -28,7 +28,7 @@ include-after-body:
 - [Why Linear Algebra?]({{< meta decks.d00.file >}})
 - [Systems and Matrices]({{< meta decks.d01.file >}})
 - [Inverses]({{< meta decks.d02.file >}})
-- [Matrix Transformations]({{< meta decks.d03.file >}}) — [current]{.alert}
+- [Matrix Transformations]({{< meta decks.d03.file >}}){.current-deck aria-current="page"}
 - [Determinants]({{< meta decks.d04.file >}})
 - [Euclidean Spaces]({{< meta decks.d05.file >}})
 - [Vector Spaces]({{< meta decks.d06.file >}})
