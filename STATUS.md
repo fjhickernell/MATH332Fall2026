@@ -45,6 +45,11 @@ Mathematical content should be maintained only in the slides.
 - [x] Add a starred Householder involution exercise and derive the plane
   projection matrix in Deck 03, including its connection to Householder reflection.
 - [ ] Develop the authoritative Decks 05–08 for Anton Chapters 3–6.
+  - [x] Draft Deck 05: Euclidean Vector Spaces, covering Anton §§3.1–3.5
+    through vectors in $\mathbb R^n$, Euclidean measurements, projection,
+    solution-set geometry, and cross products.
+  - [ ] Complete instructor-led content and visible-layout review of Deck 05.
+  - [ ] Develop Decks 06–08.
 - [x] Create the initial Notebooks page for demonstrations and exercises.
 - [x] Create and locally validate companion notebooks for Decks 02 and 03.
 - [x] Create and locally validate the Deck 04 determinants companion, including

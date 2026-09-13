@@ -668,7 +668,9 @@ Determinants measure how a matrix transformation changes volume and orientation
 
 - length and distance
 - angle and orthogonality
-- projections and least-squares approximation
+- projections and nearest-point geometry
+- lines, planes, and solution sets
+- cross products and orientation in $\reals^3$
 
 ::: {.key-point}
 [Next:]{.alert} [measure vectors and compare directions]({{< meta decks.d05.file >}})

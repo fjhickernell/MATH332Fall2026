@@ -2,10 +2,17 @@
 
 ## Current task
 
-Review the expanded Deck 04 determinants materials with the instructor. The
-companion's Colab badge has been added; rely on the established setup and
-address reported Colab problems. Review the new matrices-of-functions slides
-and then resume the broader tensor scope and placement discussion.
+Review the new 43-slide Deck 05 Euclidean Vector Spaces draft with the
+instructor. It now follows Anton §§3.1–3.5 through vectors in $\mathbb R^n$;
+length, distance, and angle; orthogonality and projection; the geometry of
+linear systems; and cross products and orientation. Decide what to expand,
+condense, reorder, or move to speaker notes before scheduling the deck.
+
+The expanded Deck 04 determinants materials and companion still await
+instructor review. The companion's Colab badge has been added; rely on the
+established setup and address reported Colab problems. Review the new
+matrices-of-functions slides and then resume the broader tensor scope and
+placement discussion.
 
 ## Other active and deferred work
 
@@ -17,6 +24,16 @@ and then resume the broader tensor scope and placement discussion.
 
 ## Current state
 
+- `slides/05-euclidean-vector-spaces.qmd` is now a complete first draft rather
+  than a placeholder. Its five instructional sections match Anton §§3.1–3.5
+  and connect coordinate vectors to Euclidean measurements, orthogonal
+  decomposition, line and plane descriptions, the geometry of consistent
+  systems, and cross-product applications. It includes six in-class exercises,
+  a Course Map theme, Big Ideas, and the transition to general vector
+  spaces. Deck 00's cumulative Terms to Know index links the new terminology.
+  Decks 00, 04, and 05 render cleanly; Deck 05 has 43 slides, no broken
+  internal links, no vertical overflow, and no browser-console warnings in the
+  local visual audit. Instructor content review remains pending.
 - `notebooks/demonstrations/04-determinants.ipynb` runs end to end with the
   `qmcpy` kernel on Mini (about eight seconds), with saved outputs and inspected
   geometric plots. It covers signed area, exact row operations, PLU and packed
@@ -45,7 +62,8 @@ and then resume the broader tensor scope and placement discussion.
   linear approximation, and give the general $n$-dimensional coordinate-change
   formula for volume elements alongside the polar special case.
 - Decks 00--04 are substantive; Decks 01--03 are instructor-reviewed, and
-  Deck 04 has been developed and audited. Decks 05--08 remain placeholders for
+  Deck 04 has been developed and audited.
+  Deck 05 is a complete draft; Decks 06--08 remain placeholders for
   Anton Chapters 3--6.
 - Deck 03 includes a starred Householder involution exercise and the
   construction of orthogonal projection onto a plane. Keep the general

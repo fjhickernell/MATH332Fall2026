@@ -736,10 +736,12 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 
 ::: {.columns}
 ::: {.column width="50%"}
+- [Angle between vectors]({{< meta decks.d05.file >}}#the-dot-product-determines-angle)
 - [Associativity]({{< meta decks.d01.file >}}#by-rows)
 - [Augmented matrix]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system)
 - [Back substitution]({{< meta decks.d01.file >}}#back-substitution)
 - [Catastrophic cancellation](#equivalent-mathematics-unequal-computations)
+- [Cauchy–Schwarz inequality]({{< meta decks.d05.file >}}#cauchy-schwarz-controls-every-dot-product)
 - [Commutativity]({{< meta decks.d01.file >}}#by-rows)
 - [Composition of transformations]({{< meta decks.d03.file >}}#composition-is-matrix-multiplication)
 :::
@@ -748,8 +750,10 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 - [Computational cost](#a-correct-computation-can-still-cost-too-much)
 - [Consistent / inconsistent system]({{< meta decks.d01.file >}}#read-the-solution-set)
 - [Covariance matrix]({{< meta decks.d02.file >}}#covariance-describes-joint-variation)
+- [Cross product]({{< meta decks.d05.file >}}#the-cross-product-produces-a-perpendicular-vector)
 - [Determinant]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor)
 - [Diagonal matrix]({{< meta decks.d03.file >}}#diagonal-matrices-act-one-coordinate-at-a-time)
+- [Distance]({{< meta decks.d05.file >}}#distance-is-the-length-of-a-difference)
 - [Dot product]({{< meta decks.d01.file >}}#combines-coefficients-and-unknowns)
 :::
 :::
@@ -802,6 +806,7 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 
 ::: {.column width="50%"}
 - [Orthogonal matrix]({{< meta decks.d03.file >}}#orthogonal-matrices-have-orthonormal-rows-and-columns)
+- [Orthogonal decomposition]({{< meta decks.d05.file >}}#projection-produces-an-orthogonal-decomposition)
 - [Orthogonal vectors]({{< meta decks.d01.file >}}#measures-alignment)
 - [Parallel vectors]({{< meta decks.d01.file >}}#parallel-vectors-point-along-one-line)
 - [Permutation matrix]({{< meta decks.d03.file >}}#a-permutation-matrix-records-row-order)
@@ -824,6 +829,7 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 ::: {.columns}
 ::: {.column width="50%"}
 - [Scalar](#represent-objects-numerically)
+- [Scalar triple product]({{< meta decks.d05.file >}}#the-scalar-triple-product-is-signed-volume)
 - [Singular value decomposition (SVD)](#images-contain-important-patterns)
 - [Solution / solution set]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
 - [Standard basis]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column)
@@ -838,6 +844,7 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 - [Triangular matrix]({{< meta decks.d03.file >}}#triangular-matrices-expose-pivots)
 - [Tridiagonal matrix]({{< meta decks.d03.file >}}#tridiagonal-matrices-couple-neighboring-grid-values)
 - [Vector](#represent-objects-numerically)
+- [Vector equation of a line]({{< meta decks.d05.file >}}#a-line-is-a-point-plus-one-direction)
 :::
 :::
 
