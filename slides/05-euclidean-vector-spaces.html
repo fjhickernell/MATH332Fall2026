@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-09-12">
+  <meta name="dcterms.date" content="2026-09-13">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -640,7 +640,7 @@
 
 <section id="title-slide" data-background-color="#f5f7fb" data-background-image="https://fjhickernell.github.io/MATH332Fall2026/classlib/classlib/quarto/assets/images/normal-scatter.png" data-background-position="top left" data-background-size="55%" class="quarto-title-block center">
   <h1 class="title">MATH 332 — Fall 2026</h1>
-  <p class="subtitle"><span class="deck-title">Euclidean Vector Spaces</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul Ch. 3</span></p>
+  <p class="subtitle"><span class="deck-title">Euclidean Vector Spaces</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul §§3.1–3.5</span></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -650,7 +650,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">September 12, 2026</p>
+  <p class="date">September 13, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -676,15 +676,931 @@ Course decks
 <h3>
 In this deck
 </h3>
+<div style="text-align: center; font-size: 1.08em;">
+<p><span class="alert">Coordinates become geometry</span></p>
+</div>
+<p><span class="math display">\[\begin{gather*}
+\vct{u}^{\mathsf T}\vct{v}
+=\norm{\vct{u}}\norm{\vct{v}}\cos\theta,
+\qquad
+\vct{u}=\operatorname{proj}_{\vct{v}}\vct{u}+\vct{r},
+\quad \vct{r}\perp\vct{v}
+\\
+\vct{x}=\vct{x}_0+t\vct{v},
+\qquad
+\norm{\vct{u}\mathbin{\times}\vct{v}}
+=\text{parallelogram area}
+\end{gather*}\]</span></p>
 <ul>
-<li><a href="#/euclidean-vector-spaces">Euclidean Vector Spaces</a></li>
+<li><a href="#/vectors-in-rn">Vectors in <span class="math inline">\(\reals^n\)</span></a></li>
+<li><a href="#/length-distance-and-angle">Length, Distance, and Angle</a></li>
+<li><a href="#/orthogonality-and-projection">Orthogonality and Projection</a></li>
+<li><a href="#/geometry-of-linear-systems">Geometry of Linear Systems</a></li>
+<li><a href="#/cross-products-and-orientation">Cross Products and Orientation</a></li>
+<li><a href="#/big-ideas">Big Ideas</a></li>
+<li><a href="#/what-comes-next">What Comes Next</a></li>
 </ul>
 </div></div>
 </section>
 
-<section id="euclidean-vector-spaces" class="title-slide slide level1 center">
-<h1>Euclidean Vector Spaces</h1>
-<p>Chapter 3 content will be developed in this deck.</p>
+<section>
+<section id="vectors-in-rn" class="title-slide slide level1 center">
+<h1>Vectors in <span class="math inline">\(\reals^n\)</span></h1>
+<p>Coordinates turn magnitude and direction into algebra</p>
+<ul>
+<li><a href="#/one-vector-has-geometric-and-coordinate-descriptions">One vector has geometric and coordinate descriptions</a></li>
+<li><a href="#/vector-operations-match-geometric-actions">Vector operations match geometric actions</a></li>
+<li><a href="#/the-standard-basis-separates-coordinate-directions">The standard basis separates coordinate directions</a></li>
+<li><a href="#/linear-combinations-build-new-directions">Linear combinations build new directions</a></li>
+<li><a href="#/vectors-combine-physical-effects">Vectors combine physical effects</a></li>
+<li><a href="#/read-geometry-from-coordinates">Read geometry from coordinates</a></li>
+</ul>
+</section>
+<section id="one-vector-has-geometric-and-coordinate-descriptions" class="slide level2">
+<h2>One vector has geometric and coordinate descriptions</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="geometric-vector">Geometric vector</h3>
+<ul>
+<li>directed line segment</li>
+<li><span class="alert">magnitude</span>: how much</li>
+<li><span class="alert">direction</span>: which way</li>
+<li>unchanged when translated without rotating or stretching</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="coordinate-vector">Coordinate vector</h3>
+<p><span class="math display">\[
+\vct{v}=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}
+\in\reals^n
+\]</span></p>
+<ul>
+<li>ordered list of components</li>
+<li>represented as a column unless stated otherwise</li>
+</ul>
+</div></div>
+<p>If <span class="math inline">\(P=(p_1,\ldots,p_n)\)</span> and <span class="math inline">\(Q=(q_1,\ldots,q_n)\)</span>, then</p>
+<p><span class="math display">\[
+\overrightarrow{PQ}=\vct{q}-\vct{p}
+=\begin{bmatrix}q_1-p_1\\\vdots\\q_n-p_n\end{bmatrix}
+\]</span></p>
+</section>
+<section id="vector-operations-match-geometric-actions" class="slide level2">
+<h2>Vector operations match geometric actions</h2>
+<p>For <span class="math inline">\(\vct{u},\vct{v}\in\reals^n\)</span> and <span class="math inline">\(c\in\reals\)</span></p>
+<p><span class="math display">\[
+\vct{u}+\vct{v}
+=\begin{bmatrix}u_1+v_1\\\vdots\\u_n+v_n\end{bmatrix},
+\qquad
+c\vct{v}
+=\begin{bmatrix}cv_1\\\vdots\\cv_n\end{bmatrix}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="addition">Addition</h3>
+<ul>
+<li>place vectors head to tail</li>
+<li>parallelogram diagonal</li>
+<li>combine displacements or effects</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="scalar-multiplication">Scalar multiplication</h3>
+<ul>
+<li><span class="math inline">\(c&gt;0\)</span>: same direction, scaled length</li>
+<li><span class="math inline">\(c&lt;0\)</span>: reversed direction, scaled length</li>
+<li><span class="math inline">\(c=0\)</span>: zero vector</li>
+</ul>
+</div></div>
+<div class="key-point">
+<p>Coordinate rules preserve the geometric meaning</p>
+</div>
+</section>
+<section id="the-standard-basis-separates-coordinate-directions" class="slide level2">
+<h2>The standard basis separates coordinate directions</h2>
+<p>The <span class="math inline">\(j\)</span>th <span class="alert">standard basis vector</span></p>
+<p><span class="math display">\[
+\vct{e}_j
+=\begin{bmatrix}0&amp;\cdots&amp;0&amp;1&amp;0&amp;\cdots&amp;0\end{bmatrix}^{\mathsf T}
+\]</span></p>
+<p>Every coordinate vector decomposes uniquely:</p>
+<p><span class="math display">\[
+\vct{x}=x_1\vct{e}_1+\cdots+x_n\vct{e}_n
+\]</span></p>
+<p>Example in <span class="math inline">\(\reals^3\)</span></p>
+<p><span class="math display">\[
+\begin{bmatrix}2\\-1\\4\end{bmatrix}
+=2\vct{e}_1-\vct{e}_2+4\vct{e}_3
+\]</span></p>
+<div class="key-point">
+<p>Coordinates are the weights of the standard directions</p>
+</div>
+</section>
+<section id="linear-combinations-build-new-directions" class="slide level2">
+<h2>Linear combinations build new directions</h2>
+<p>A <span class="alert">linear combination</span> of <span class="math inline">\(\vct{v}_1,\ldots,\vct{v}_k\)</span> has the form</p>
+<p><span class="math display">\[
+c_1\vct{v}_1+\cdots+c_k\vct{v}_k
+\]</span></p>
+<p>Two nonparallel vectors in <span class="math inline">\(\reals^2\)</span> can build every vector in the plane</p>
+<p>Two parallel vectors can build only vectors along one line</p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> Can <span class="math inline">\(\vct{b}=\begin{bmatrix}5\\1\end{bmatrix}\)</span> be built from <span class="math inline">\(\vct{v}_1=\begin{bmatrix}1\\1\end{bmatrix}\)</span> and <span class="math inline">\(\vct{v}_2=\begin{bmatrix}2\\-1\end{bmatrix}\)</span>?</span></p>
+<p><span class="exsub">Translate the question into one matrix equation</span> <span class="exsub">Interpret the solution coefficients geometrically</span> </p>
+</div>
+<aside class="notes">
+<p>This revisits the column view of matrix multiplication. Formal span, linear independence, basis, and dimension belong to Deck 06.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="vectors-combine-physical-effects" class="slide level2">
+<h2>Vectors combine physical effects</h2>
+<p>Two forces act on one object:</p>
+<p><span class="math display">\[
+\vct{F}_1=\begin{bmatrix}3\\4\end{bmatrix}\text{ N},
+\qquad
+\vct{F}_2=\begin{bmatrix}-1\\2\end{bmatrix}\text{ N}
+\]</span></p>
+<p>Resultant force</p>
+<p><span class="math display">\[
+\vct{F}=\vct{F}_1+\vct{F}_2
+=\begin{bmatrix}2\\6\end{bmatrix}\text{ N}
+\]</span></p>
+<p>The components answer algebraic questions; length and direction answer geometric questions</p>
+<p><span class="math display">\[
+\norm{\vct{F}}=\sqrt{40}=2\sqrt{10}\text{ N},
+\qquad
+\theta=\operatorname{atan2}(6,2)
+\]</span></p>
+<div class="key-point">
+<p>The same vector can be interpreted as displacement, velocity, force, data, or coefficients</p>
+</div>
+</section>
+<section id="read-geometry-from-coordinates" class="slide level2">
+<h2>Read geometry from coordinates</h2>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> Let <span class="math inline">\(P=(1,-2,3)\)</span>, <span class="math inline">\(Q=(4,0,-1)\)</span>, and <span class="math inline">\(\vct{w}=\begin{bmatrix}2\\1\\-2\end{bmatrix}\)</span></span></p>
+<p><span class="exsub">Find <span class="math inline">\(\overrightarrow{PQ}\)</span> and <span class="math inline">\(\overrightarrow{QP}\)</span></span> <span class="exsub">Find the endpoint of <span class="math inline">\(\vct{w}\)</span> when its initial point is <span class="math inline">\(P\)</span></span> <span class="exsub">Express <span class="math inline">\(\overrightarrow{PQ}\)</span> using <span class="math inline">\(\vct{e}_1,\vct{e}_2,\vct{e}_3\)</span></span> <span class="exsub">Decide whether <span class="math inline">\(\overrightarrow{PQ}\)</span> and <span class="math inline">\(\vct{w}\)</span> are parallel</span> </p>
+</div>
+</section></section>
+<section>
+<section id="length-distance-and-angle" class="title-slide slide level1 center">
+<h1>Length, Distance, and Angle</h1>
+<p>The dot product converts two vectors into geometric information</p>
+<ul>
+<li><a href="#/the-dot-product-measures-alignment">The dot product measures alignment</a></li>
+<li><a href="#/the-norm-measures-vector-length">The norm measures vector length</a></li>
+<li><a href="#/distance-is-the-length-of-a-difference">Distance is the length of a difference</a></li>
+<li><a href="#/cauchy-schwarz-controls-every-dot-product">Cauchy–Schwarz controls every dot product</a></li>
+<li><a href="#/the-dot-product-determines-angle">The dot product determines angle</a></li>
+<li><a href="#/cosine-similarity-ignores-overall-scale">Cosine similarity ignores overall scale</a></li>
+<li><a href="#/compare-lengths-distances-and-angles">Compare lengths, distances, and angles</a></li>
+</ul>
+</section>
+<section id="the-dot-product-measures-alignment" class="slide level2">
+<h2>The dot product measures alignment</h2>
+<p>Recall the standard dot product on <span class="math inline">\(\reals^n\)</span>:</p>
+<p><span class="math display">\[
+\vct{u}^{\mathsf T}\vct{v}
+=u_1v_1+\cdots+u_nv_n
+\]</span></p>
+<p>It is</p>
+<ul>
+<li>symmetric: <span class="math inline">\(\vct{u}^{\mathsf T}\vct{v}=\vct{v}^{\mathsf T}\vct{u}\)</span></li>
+<li>linear in each input</li>
+<li>positive: <span class="math inline">\(\vct{v}^{\mathsf T}\vct{v}\ge0\)</span></li>
+<li>definite: <span class="math inline">\(\vct{v}^{\mathsf T}\vct{v}=0\)</span> only when <span class="math inline">\(\vct{v}=\vct{0}\)</span></li>
+</ul>
+<p>For <span class="math inline">\(\vct{u}=\begin{bmatrix}1\\2\\-1\end{bmatrix}\)</span> and <span class="math inline">\(\vct{v}=\begin{bmatrix}3\\0\\2\end{bmatrix}\)</span>,</p>
+<p><span class="math display">\[
+\vct{u}^{\mathsf T}\vct{v}=3+0-2=1
+\]</span></p>
+<div class="key-point">
+<p>Positive dot product — net alignment; negative — net opposition; zero — orthogonality</p>
+</div>
+</section>
+<section id="the-norm-measures-vector-length" class="slide level2">
+<h2>The norm measures vector length</h2>
+<p>The <span class="alert">Euclidean norm</span></p>
+<p><span class="math display">\[
+\norm{\vct{v}}
+=\sqrt{\vct{v}^{\mathsf T}\vct{v}}
+=\sqrt{v_1^2+\cdots+v_n^2}
+\]</span></p>
+<p>A <span class="alert">unit vector</span> has norm <span class="math inline">\(1\)</span></p>
+<p>For <span class="math inline">\(\vct{v}\ne\vct{0}\)</span>, normalize without changing direction:</p>
+<p><span class="math display">\[
+\widehat{\vct{v}}=\frac{\vct{v}}{\norm{\vct{v}}},
+\qquad
+\norm{\widehat{\vct{v}}}=1
+\]</span></p>
+<p>Norm properties</p>
+<p><span class="math display">\[
+\norm{\vct{v}}\ge0,
+\qquad
+\norm{c\vct{v}}=\abs{c}\norm{\vct{v}},
+\qquad
+\norm{\vct{u}+\vct{v}}\le\norm{\vct{u}}+\norm{\vct{v}}
+\]</span></p>
+</section>
+<section id="distance-is-the-length-of-a-difference" class="slide level2">
+<h2>Distance is the length of a difference</h2>
+<p>For points represented by <span class="math inline">\(\vct{p},\vct{q}\in\reals^n\)</span></p>
+<p><span class="math display">\[
+\operatorname{dist}(\vct{p},\vct{q})
+=\norm{\vct{q}-\vct{p}}
+=\sqrt{\sum_{j=1}^n(q_j-p_j)^2}
+\]</span></p>
+<p>Distance properties</p>
+<p><span class="math display">\[\begin{align*}
+\operatorname{dist}(\vct{p},\vct{q})&amp;\ge0
+&amp;\text{and equals zero exactly when }\vct{p}=\vct{q}
+\\
+\operatorname{dist}(\vct{p},\vct{q})&amp;=\operatorname{dist}(\vct{q},\vct{p})
+&amp;\text{symmetry}
+\\
+\operatorname{dist}(\vct{p},\vct{r})
+&amp;\le \operatorname{dist}(\vct{p},\vct{q})
++\operatorname{dist}(\vct{q},\vct{r})
+&amp;\text{triangle inequality}
+\end{align*}\]</span></p>
+<div class="key-point">
+<p>Subtract points to obtain a displacement vector; measure its norm to obtain distance</p>
+</div>
+</section>
+<section id="cauchy-schwarz-controls-every-dot-product" class="slide level2">
+<h2>Cauchy–Schwarz controls every dot product</h2>
+<p>For all <span class="math inline">\(\vct{u},\vct{v}\in\reals^n\)</span>,</p>
+<p><span class="math display">\[
+\abs{\vct{u}^{\mathsf T}\vct{v}}
+\le \norm{\vct{u}}\norm{\vct{v}}
+\]</span></p>
+<p>Equality holds exactly when <span class="math inline">\(\vct{u}\)</span> and <span class="math inline">\(\vct{v}\)</span> are linearly dependent</p>
+<p>Why the bound matters:</p>
+<p><span class="math display">\[
+-1\le
+\frac{\vct{u}^{\mathsf T}\vct{v}}
+{\norm{\vct{u}}\norm{\vct{v}}}
+\le1
+\qquad
+(\vct{u},\vct{v}\ne\vct{0})
+\]</span></p>
+<div class="key-point">
+<p><span class="alert">Cauchy–Schwarz</span> makes the angle formula possible in every <span class="math inline">\(\reals^n\)</span></p>
+</div>
+<aside class="notes">
+<p>One proof considers the nonnegative quadratic <span class="math inline">\(\norm{\vct{u}-t\vct{v}}^2\)</span> and requires its discriminant to be nonpositive. Develop that proof at the board if time permits.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-dot-product-determines-angle" class="slide level2">
+<h2>The dot product determines angle</h2>
+<p>For nonzero vectors, define <span class="math inline">\(0\le\theta\le\pi\)</span> by</p>
+<p><span class="math display">\[
+\cos\theta
+=\frac{\vct{u}^{\mathsf T}\vct{v}}
+{\norm{\vct{u}}\norm{\vct{v}}}
+\]</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Dot product</th>
+<th style="text-align: center;">Angle</th>
+<th style="text-align: left;">Geometry</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(&gt;0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\le\theta&lt;\pi/2\)</span></td>
+<td style="text-align: left;">acute; aligned</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(=0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\theta=\pi/2\)</span></td>
+<td style="text-align: left;">orthogonal</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(&lt;0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(\pi/2&lt;\theta\le\pi\)</span></td>
+<td style="text-align: left;">obtuse; opposed</td>
+</tr>
+</tbody>
+</table>
+<p>For unit vectors <span class="math inline">\(\widehat{\vct{u}}\)</span> and <span class="math inline">\(\widehat{\vct{v}}\)</span>,</p>
+<p><span class="math display">\[
+\widehat{\vct{u}}^{\mathsf T}\widehat{\vct{v}}=\cos\theta
+\]</span></p>
+</section>
+<section id="cosine-similarity-ignores-overall-scale" class="slide level2">
+<h2>Cosine similarity ignores overall scale</h2>
+<p>For nonzero data vectors</p>
+<p><span class="math display">\[
+\operatorname{cosim}(\vct{x},\vct{y})
+=\frac{\vct{x}^{\mathsf T}\vct{y}}
+{\norm{\vct{x}}\norm{\vct{y}}}
+\]</span></p>
+<ul>
+<li>near <span class="math inline">\(1\)</span>: similar direction</li>
+<li>near <span class="math inline">\(0\)</span>: weak directional relationship</li>
+<li>near <span class="math inline">\(-1\)</span>: opposite direction</li>
+</ul>
+<p>Multiplying either vector by a positive scalar leaves cosine similarity unchanged</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="useful-when">Useful when</h3>
+<ul>
+<li>direction or profile matters</li>
+<li>overall magnitude should be ignored</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="not-enough-when">Not enough when</h3>
+<ul>
+<li>absolute size matters</li>
+<li>offsets or unequal feature scales distort meaning</li>
+</ul>
+</div></div>
+<div class="key-point">
+<p>Geometry supplies a model; the application decides whether it is appropriate</p>
+</div>
+</section>
+<section id="compare-lengths-distances-and-angles" class="slide level2">
+<h2>Compare lengths, distances, and angles</h2>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> Let <span class="math inline">\(\vct{u}=\begin{bmatrix}1\\2\\2\end{bmatrix}\)</span> and <span class="math inline">\(\vct{v}=\begin{bmatrix}2\\-1\\2\end{bmatrix}\)</span></span></p>
+<p><span class="exsub">Find <span class="math inline">\(\norm{\vct{u}}\)</span>, <span class="math inline">\(\norm{\vct{v}}\)</span>, and <span class="math inline">\(\norm{\vct{u}-\vct{v}}\)</span></span> <span class="exsub">Find the angle between <span class="math inline">\(\vct{u}\)</span> and <span class="math inline">\(\vct{v}\)</span></span> <span class="exsub">Verify Cauchy–Schwarz numerically</span> <span class="exsub">Explain which computation measures point separation and which measures directional similarity</span> </p>
+</div>
+</section></section>
+<section>
+<section id="orthogonality-and-projection" class="title-slide slide level1 center">
+<h1>Orthogonality and Projection</h1>
+<p>Split a vector into a chosen direction and a perpendicular residual</p>
+<ul>
+<li><a href="#/orthogonality-makes-lengths-add-by-squares">Orthogonality makes lengths add by squares</a></li>
+<li><a href="#/projection-extracts-one-directional-component">Projection extracts one directional component</a></li>
+<li><a href="#/projection-produces-an-orthogonal-decomposition">Projection produces an orthogonal decomposition</a></li>
+<li><a href="#/the-residual-gives-distance-to-a-line">The residual gives distance to a line</a></li>
+<li><a href="#/a-projection-is-a-matrix-transformation">A projection is a matrix transformation</a></li>
+<li><a href="#/complementary-projections-split-every-vector">Complementary projections split every vector</a></li>
+<li><a href="#/decompose-a-vector">Decompose a vector</a></li>
+</ul>
+</section>
+<section id="orthogonality-makes-lengths-add-by-squares" class="slide level2">
+<h2>Orthogonality makes lengths add by squares</h2>
+<p>Vectors <span class="math inline">\(\vct{u}\)</span> and <span class="math inline">\(\vct{v}\)</span> are <span class="alert">orthogonal</span> when</p>
+<p><span class="math display">\[
+\vct{u}^{\mathsf T}\vct{v}=0
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[\begin{align*}
+\norm{\vct{u}+\vct{v}}^2
+&amp;=(\vct{u}+\vct{v})^{\mathsf T}(\vct{u}+\vct{v})\\
+&amp;=\norm{\vct{u}}^2+2\vct{u}^{\mathsf T}\vct{v}+\norm{\vct{v}}^2\\
+&amp;=\norm{\vct{u}}^2+\norm{\vct{v}}^2
+\end{align*}\]</span></p>
+<div class="key-point">
+<p>The Pythagorean theorem is a dot-product identity</p>
+</div>
+</section>
+<section id="projection-extracts-one-directional-component" class="slide level2">
+<h2>Projection extracts one directional component</h2>
+<p>Let <span class="math inline">\(\vct{v}\ne\vct{0}\)</span></p>
+<p>The <span class="alert">scalar component</span> of <span class="math inline">\(\vct{u}\)</span> along <span class="math inline">\(\vct{v}\)</span> is</p>
+<p><span class="math display">\[
+\operatorname{comp}_{\vct{v}}\vct{u}
+=\frac{\vct{u}^{\mathsf T}\vct{v}}{\norm{\vct{v}}}
+\]</span></p>
+<p>The <span class="alert">vector projection</span> is</p>
+<p><span class="math display">\[
+\operatorname{proj}_{\vct{v}}\vct{u}
+=\frac{\vct{u}^{\mathsf T}\vct{v}}
+{\vct{v}^{\mathsf T}\vct{v}}\vct{v}
+\]</span></p>
+<p>If <span class="math inline">\(\widehat{\vct{v}}=\vct{v}/\norm{\vct{v}}\)</span>, then</p>
+<p><span class="math display">\[
+\operatorname{proj}_{\vct{v}}\vct{u}
+=(\widehat{\vct{v}}^{\mathsf T}\vct{u})\widehat{\vct{v}}
+\]</span></p>
+</section>
+<section id="projection-produces-an-orthogonal-decomposition" class="slide level2">
+<h2>Projection produces an orthogonal decomposition</h2>
+<p>Write</p>
+<p><span class="math display">\[
+\vct{u}=\underbrace{\operatorname{proj}_{\vct{v}}\vct{u}}_{\text{parallel to }\vct{v}}
++\underbrace{\vct{r}}_{\text{orthogonal to }\vct{v}}
+\]</span></p>
+<p>where</p>
+<p><span class="math display">\[
+\vct{r}=\vct{u}-\operatorname{proj}_{\vct{v}}\vct{u}
+\]</span></p>
+<p>Check orthogonality:</p>
+<p><span class="math display">\[\begin{align*}
+\vct{v}^{\mathsf T}\vct{r}
+&amp;=\vct{v}^{\mathsf T}\vct{u}
+-\vct{v}^{\mathsf T}
+\left(\frac{\vct{u}^{\mathsf T}\vct{v}}
+{\vct{v}^{\mathsf T}\vct{v}}\vct{v}\right)\\
+&amp;=0
+\end{align*}\]</span></p>
+<div class="key-point">
+<p>Projection chooses the unique point on the line through <span class="math inline">\(\vct{v}\)</span> with a perpendicular residual</p>
+</div>
+</section>
+<section id="the-residual-gives-distance-to-a-line" class="slide level2">
+<h2>The residual gives distance to a line</h2>
+<p>Line through <span class="math inline">\(\vct{x}_0\)</span> with direction <span class="math inline">\(\vct{v}\ne\vct{0}\)</span>:</p>
+<p><span class="math display">\[
+L=\{\vct{x}_0+t\vct{v}:t\in\reals\}
+\]</span></p>
+<p>From point <span class="math inline">\(\vct{p}\)</span>, first form the displacement <span class="math inline">\(\vct{p}-\vct{x}_0\)</span></p>
+<p>Nearest point on the line</p>
+<p><span class="math display">\[
+\vct{x}_*=\vct{x}_0
++\operatorname{proj}_{\vct{v}}(\vct{p}-\vct{x}_0)
+\]</span></p>
+<p>Distance to the line</p>
+<p><span class="math display">\[
+\operatorname{dist}(\vct{p},L)
+=\norm{\vct{p}-\vct{x}_*}
+\]</span></p>
+<div class="key-point">
+<p>Nearest means <span class="alert">perpendicular residual</span></p>
+</div>
+</section>
+<section id="a-projection-is-a-matrix-transformation" class="slide level2">
+<h2>A projection is a matrix transformation</h2>
+<p>For a unit vector <span class="math inline">\(\vct{q}\)</span>, projection onto its line is</p>
+<p><span class="math display">\[
+\operatorname{proj}_{\vct{q}}\vct{x}
+=(\vct{q}^{\mathsf T}\vct{x})\vct{q}
+=\underbrace{\vct{q}\vct{q}^{\mathsf T}}_{\mat{P}}\vct{x}
+\]</span></p>
+<p>The projection matrix</p>
+<p><span class="math display">\[
+\mat{P}=\vct{q}\vct{q}^{\mathsf T}
+\]</span></p>
+<p>satisfies</p>
+<p><span class="math display">\[
+\mat{P}^{\mathsf T}=\mat{P},
+\qquad
+\mat{P}^2=\mat{P}
+\]</span></p>
+<div class="key-point">
+<p>Symmetric — the geometry is orthogonal<br> Idempotent — projecting twice changes nothing</p>
+</div>
+</section>
+<section id="complementary-projections-split-every-vector" class="slide level2">
+<h2>Complementary projections split every vector</h2>
+<p>Projection onto the line through unit <span class="math inline">\(\vct{q}\)</span>:</p>
+<p><span class="math display">\[
+\mat{P}=\vct{q}\vct{q}^{\mathsf T}
+\]</span></p>
+<p>Projection onto the perpendicular hyperplane:</p>
+<p><span class="math display">\[
+\mat{Q}=\mat{I}-\mat{P}
+\]</span></p>
+<p>Every <span class="math inline">\(\vct{x}\)</span> splits as</p>
+<p><span class="math display">\[
+\vct{x}=\mat{P}\vct{x}+\mat{Q}\vct{x},
+\qquad
+(\mat{P}\vct{x})^{\mathsf T}(\mat{Q}\vct{x})=0
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+\norm{\vct{x}}^2
+=\norm{\mat{P}\vct{x}}^2+\norm{\mat{Q}\vct{x}}^2
+\]</span></p>
+<aside class="notes">
+<p>Deck 03 constructed the plane projection <span class="math inline">\(\mat{Q}=\mat{I}-\vct{q}\vct{q}^{\mathsf T}\)</span> from a unit normal vector. Here it appears as one half of a complementary pair.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="decompose-a-vector" class="slide level2">
+<h2>Decompose a vector</h2>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> Let <span class="math inline">\(\vct{u}=\begin{bmatrix}3\\1\\2\end{bmatrix}\)</span> and <span class="math inline">\(\vct{v}=\begin{bmatrix}1\\1\\0\end{bmatrix}\)</span></span></p>
+<p><span class="exsub">Find the scalar component of <span class="math inline">\(\vct{u}\)</span> along <span class="math inline">\(\vct{v}\)</span></span> <span class="exsub">Find <span class="math inline">\(\operatorname{proj}_{\vct{v}}\vct{u}\)</span></span> <span class="exsub">Find the orthogonal residual <span class="math inline">\(\vct{r}\)</span></span> <span class="exsub">Verify <span class="math inline">\(\vct{v}^{\mathsf T}\vct{r}=0\)</span> and the Pythagorean identity</span> </p>
+</div>
+</section></section>
+<section>
+<section id="geometry-of-linear-systems" class="title-slide slide level1 center">
+<h1>Geometry of Linear Systems</h1>
+<p>Equations, parameters, and vectors describe the same solution set</p>
+<ul>
+<li><a href="#/a-line-is-a-point-plus-one-direction">A line is a point plus one direction</a></li>
+<li><a href="#/a-plane-has-parametric-and-normal-descriptions">A plane has parametric and normal descriptions</a></li>
+<li><a href="#/a-normal-vector-converts-geometry-into-an-equation">A normal vector converts geometry into an equation</a></li>
+<li><a href="#/a-linear-system-intersects-hyperplanes">A linear system intersects hyperplanes</a></li>
+<li><a href="#/every-consistent-solution-set-is-a-translate">Every consistent solution set is a translate</a></li>
+<li><a href="#/pivots-and-free-variables-predict-geometry">Pivots and free variables predict geometry</a></li>
+<li><a href="#/translate-elimination-into-geometry">Translate elimination into geometry</a></li>
+</ul>
+</section>
+<section id="a-line-is-a-point-plus-one-direction" class="slide level2">
+<h2>A line is a point plus one direction</h2>
+<p>A line through <span class="math inline">\(\vct{x}_0\in\reals^n\)</span> parallel to <span class="math inline">\(\vct{v}\ne\vct{0}\)</span>:</p>
+<p><span class="math display">\[
+\vct{x}=\vct{x}_0+t\vct{v},
+\qquad t\in\reals
+\]</span></p>
+<p>In <span class="math inline">\(\reals^3\)</span></p>
+<p><span class="math display">\[
+\begin{bmatrix}x\\y\\z\end{bmatrix}
+=\begin{bmatrix}1\\-2\\3\end{bmatrix}
++t\begin{bmatrix}2\\1\\-1\end{bmatrix}
+\]</span></p>
+<p>is equivalent to</p>
+<p><span class="math display">\[
+x=1+2t,
+\qquad y=-2+t,
+\qquad z=3-t
+\]</span></p>
+<div class="key-point">
+<p>Point <span class="math inline">\(+\)</span> parameter <span class="math inline">\(\times\)</span> direction</p>
+</div>
+</section>
+<section id="a-plane-has-parametric-and-normal-descriptions" class="slide level2">
+<h2>A plane has parametric and normal descriptions</h2>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3 id="two-directions">Two directions</h3>
+<p>For nonparallel <span class="math inline">\(\vct{v},\vct{w}\in\reals^3\)</span></p>
+<p><span class="math display">\[
+\vct{x}=\vct{x}_0+s\vct{v}+t\vct{w}
+\]</span></p>
+<p><span class="math inline">\(s,t\in\reals\)</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3 id="one-normal">One normal</h3>
+<p>For <span class="math inline">\(\vct{n}\ne\vct{0}\)</span> perpendicular to the plane</p>
+<p><span class="math display">\[
+\vct{n}^{\mathsf T}(\vct{x}-\vct{x}_0)=0
+\]</span></p>
+<p>equivalently <span class="math inline">\(\vct{n}^{\mathsf T}\vct{x}=b\)</span></p>
+</div></div>
+<p>The descriptions agree when</p>
+<p><span class="math display">\[
+\vct{n}^{\mathsf T}\vct{v}=0,
+\qquad
+\vct{n}^{\mathsf T}\vct{w}=0,
+\qquad
+b=\vct{n}^{\mathsf T}\vct{x}_0
+\]</span></p>
+</section>
+<section id="a-normal-vector-converts-geometry-into-an-equation" class="slide level2">
+<h2>A normal vector converts geometry into an equation</h2>
+<p>Plane through <span class="math inline">\(\vct{x}_0=(1,0,2)\)</span> with normal <span class="math inline">\(\vct{n}=\begin{bmatrix}2\\-1\\3\end{bmatrix}\)</span></p>
+<p>Point-normal form</p>
+<p><span class="math display">\[
+\begin{bmatrix}2&amp;-1&amp;3\end{bmatrix}
+\left(
+\begin{bmatrix}x\\y\\z\end{bmatrix}
+-\begin{bmatrix}1\\0\\2\end{bmatrix}
+\right)=0
+\]</span></p>
+<p>Coordinate form</p>
+<p><span class="math display">\[
+2(x-1)-y+3(z-2)=0
+\qquad\Longleftrightarrow\qquad
+2x-y+3z=8
+\]</span></p>
+<p>Distance from <span class="math inline">\(\vct{p}\)</span> to the plane</p>
+<p><span class="math display">\[
+\operatorname{dist}(\vct{p},H)
+=\frac{\abs{\vct{n}^{\mathsf T}\vct{p}-b}}{\norm{\vct{n}}}
+\]</span></p>
+</section>
+<section id="a-linear-system-intersects-hyperplanes" class="slide level2">
+<h2>A linear system intersects hyperplanes</h2>
+<p>Write the rows of <span class="math inline">\(\mat{A}\)</span> as <span class="math inline">\(\vct{a}_1^{\mathsf T},\ldots,
+\vct{a}_m^{\mathsf T}\)</span>:</p>
+<p><span class="math display">\[
+\mat{A}\vct{x}=\vct{b}
+\qquad\Longleftrightarrow\qquad
+\vct{a}_i^{\mathsf T}\vct{x}=b_i,
+\quad i=1,\ldots,m
+\]</span></p>
+<p>Each equation describes a hyperplane with normal <span class="math inline">\(\vct{a}_i\)</span></p>
+<p>The solution set is their intersection:</p>
+<ul>
+<li>one point — unique solution</li>
+<li>a line, plane, or higher-dimensional flat — infinitely many solutions</li>
+<li>empty intersection — inconsistent system</li>
+</ul>
+<div class="key-point">
+<p>Elimination finds the intersection; geometry explains its shape</p>
+</div>
+</section>
+<section id="every-consistent-solution-set-is-a-translate" class="slide level2">
+<h2>Every consistent solution set is a translate</h2>
+<p>Suppose <span class="math inline">\(\vct{x}_p\)</span> is one particular solution of <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span></p>
+<p>Every other solution has the form</p>
+<p><span class="math display">\[
+\vct{x}=\vct{x}_p+\vct{z},
+\qquad
+\mat{A}\vct{z}=\vct{0}
+\]</span></p>
+<p>because</p>
+<p><span class="math display">\[
+\mat{A}(\vct{x}_p+\vct{z})
+=\mat{A}\vct{x}_p+\mat{A}\vct{z}
+=\vct{b}
+\]</span></p>
+<p>Conversely, the difference of any two solutions satisfies the homogeneous system</p>
+<div class="key-point">
+<p>Consistent solution set <span class="math inline">\(=\)</span> one particular point <span class="math inline">\(+\)</span> all homogeneous directions</p>
+</div>
+<aside class="notes">
+<p>Deck 06 will name the homogeneous directions the null space and explain why they form a subspace.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="pivots-and-free-variables-predict-geometry" class="slide level2">
+<h2>Pivots and free variables predict geometry</h2>
+<p>For a consistent system with <span class="math inline">\(n\)</span> unknowns</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Free variables</th>
+<th style="text-align: left;">Typical solution geometry in <span class="math inline">\(\reals^n\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: left;">one point</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: left;">line</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: left;">plane</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(k\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(k\)</span>-parameter flat</td>
+</tr>
+</tbody>
+</table>
+<p>If there are <span class="math inline">\(r\)</span> pivot variables, then there are</p>
+<p><span class="math display">\[
+n-r
+\]</span></p>
+<p>free variables</p>
+<div class="key-point">
+<p>The number of free parameters is the dimension of the solution directions</p>
+</div>
+<aside class="notes">
+<p>State this as geometric preview. Rank, nullity, and the fundamental spaces are developed formally in Deck 06.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="translate-elimination-into-geometry" class="slide level2">
+<h2>Translate elimination into geometry</h2>
+<p>Consider</p>
+<p><span class="math display">\[\begin{align*}
+x+y+z&amp;=2\\
+x-y+z&amp;=0
+\end{align*}\]</span></p>
+<p>Elimination gives <span class="math inline">\(y=1\)</span> and <span class="math inline">\(x+z=1\)</span></p>
+<p><span class="math display">\[
+\vct{x}
+=\begin{bmatrix}1\\1\\0\end{bmatrix}
++t\begin{bmatrix}-1\\0\\1\end{bmatrix}
+\]</span></p>
+<p>The direction vector is perpendicular to both row normals:</p>
+<p><span class="math display">\[
+\begin{bmatrix}1\\1\\1\end{bmatrix}^{\mathsf T}
+\begin{bmatrix}-1\\0\\1\end{bmatrix}=0,
+\qquad
+\begin{bmatrix}1\\-1\\1\end{bmatrix}^{\mathsf T}
+\begin{bmatrix}-1\\0\\1\end{bmatrix}=0
+\]</span></p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> Explain why the intersection of the two planes is parallel to this direction </span></p>
+</div>
+</section></section>
+<section>
+<section id="cross-products-and-orientation" class="title-slide slide level1 center">
+<h1>Cross Products and Orientation</h1>
+<p>In <span class="math inline">\(\reals^3\)</span>, two directions determine a perpendicular direction and an area</p>
+<ul>
+<li><a href="#/the-cross-product-produces-a-perpendicular-vector">The cross product produces a perpendicular vector</a></li>
+<li><a href="#/order-determines-orientation">Order determines orientation</a></li>
+<li><a href="#/cross-product-magnitude-is-parallelogram-area">Cross-product magnitude is parallelogram area</a></li>
+<li><a href="#/the-scalar-triple-product-is-signed-volume">The scalar triple product is signed volume</a></li>
+<li><a href="#/cross-products-build-plane-normals">Cross products build plane normals</a></li>
+<li><a href="#/torque-combines-leverage-and-force">Torque combines leverage and force</a></li>
+<li><a href="#/use-the-cross-product-geometrically">Use the cross product geometrically</a></li>
+</ul>
+</section>
+<section id="the-cross-product-produces-a-perpendicular-vector" class="slide level2">
+<h2>The cross product produces a perpendicular vector</h2>
+<p>For <span class="math inline">\(\vct{u},\vct{v}\in\reals^3\)</span></p>
+<p><span class="math display">\[
+\vct{u}\mathbin{\times}\vct{v}
+=\begin{bmatrix}
+u_2v_3-u_3v_2\\
+u_3v_1-u_1v_3\\
+u_1v_2-u_2v_1
+\end{bmatrix}
+\]</span></p>
+<p>Its defining geometry:</p>
+<p><span class="math display">\[
+\vct{u}^{\mathsf T}(\vct{u}\mathbin{\times}\vct{v})=0,
+\qquad
+\vct{v}^{\mathsf T}(\vct{u}\mathbin{\times}\vct{v})=0
+\]</span></p>
+<p>For <span class="math inline">\(\vct{e}_1\)</span> and <span class="math inline">\(\vct{e}_2\)</span>,</p>
+<p><span class="math display">\[
+\vct{e}_1\mathbin{\times}\vct{e}_2=\vct{e}_3
+\]</span></p>
+<div class="key-point">
+<p>Two input vectors in <span class="math inline">\(\reals^3\)</span> produce a vector perpendicular to both</p>
+</div>
+</section>
+<section id="order-determines-orientation" class="slide level2">
+<h2>Order determines orientation</h2>
+<p>The cross product is <span class="alert">not commutative</span>:</p>
+<p><span class="math display">\[
+\vct{v}\mathbin{\times}\vct{u}
+=-(\vct{u}\mathbin{\times}\vct{v})
+\]</span></p>
+<p>Right-hand rule</p>
+<ul>
+<li>curl fingers from <span class="math inline">\(\vct{u}\)</span> toward <span class="math inline">\(\vct{v}\)</span> through the smaller angle</li>
+<li>thumb points along <span class="math inline">\(\vct{u}\mathbin{\times}\vct{v}\)</span></li>
+</ul>
+<p>Cyclic standard-basis products</p>
+<p><span class="math display">\[
+\vct{e}_1\mathbin{\times}\vct{e}_2=\vct{e}_3,
+\qquad
+\vct{e}_2\mathbin{\times}\vct{e}_3=\vct{e}_1,
+\qquad
+\vct{e}_3\mathbin{\times}\vct{e}_1=\vct{e}_2
+\]</span></p>
+<p>Reverse either order to reverse the sign</p>
+</section>
+<section id="cross-product-magnitude-is-parallelogram-area" class="slide level2">
+<h2>Cross-product magnitude is parallelogram area</h2>
+<p>If <span class="math inline">\(\theta\)</span> is the angle between <span class="math inline">\(\vct{u}\)</span> and <span class="math inline">\(\vct{v}\)</span>, then</p>
+<p><span class="math display">\[
+\norm{\vct{u}\mathbin{\times}\vct{v}}
+=\norm{\vct{u}}\norm{\vct{v}}\sin\theta
+\]</span></p>
+<p>Base times perpendicular height</p>
+<p><span class="math display">\[
+\underbrace{\norm{\vct{u}}}_{\text{base}}
+\underbrace{\norm{\vct{v}}\sin\theta}_{\text{height}}
+\]</span></p>
+<p>Triangle area</p>
+<p><span class="math display">\[
+\frac12\norm{\vct{u}\mathbin{\times}\vct{v}}
+\]</span></p>
+<p>The area is zero exactly when the vectors are parallel or one is zero</p>
+<div class="key-point">
+<p>Dot product measures alignment; cross-product magnitude measures perpendicular spread</p>
+</div>
+</section>
+<section id="the-scalar-triple-product-is-signed-volume" class="slide level2">
+<h2>The scalar triple product is signed volume</h2>
+<p>For <span class="math inline">\(\vct{u},\vct{v},\vct{w}\in\reals^3\)</span></p>
+<p><span class="math display">\[
+\vct{u}^{\mathsf T}(\vct{v}\mathbin{\times}\vct{w})
+=\det\begin{bmatrix}\vct{u}&amp;\vct{v}&amp;\vct{w}\end{bmatrix}
+\]</span></p>
+<p>Absolute value — volume of the parallelepiped</p>
+<p>Sign — orientation of the ordered triple</p>
+<p>Zero — the three vectors lie in one plane</p>
+<div class="key-point">
+<p>The cross product reconnects Chapter 3 geometry to the determinant</p>
+</div>
+</section>
+<section id="cross-products-build-plane-normals" class="slide level2">
+<h2>Cross products build plane normals</h2>
+<p>Three noncollinear points <span class="math inline">\(P,Q,R\in\reals^3\)</span> determine a plane</p>
+<p>Two directions in the plane:</p>
+<p><span class="math display">\[
+\vct{u}=\overrightarrow{PQ},
+\qquad
+\vct{v}=\overrightarrow{PR}
+\]</span></p>
+<p>A normal vector:</p>
+<p><span class="math display">\[
+\vct{n}=\vct{u}\mathbin{\times}\vct{v}
+\]</span></p>
+<p>Plane equation:</p>
+<p><span class="math display">\[
+\vct{n}^{\mathsf T}(\vct{x}-\vct{p})=0
+\]</span></p>
+<div class="key-point">
+<p>Two in-plane directions <span class="math inline">\(\longrightarrow\)</span> one perpendicular normal <span class="math inline">\(\longrightarrow\)</span> one plane equation</p>
+</div>
+</section>
+<section id="torque-combines-leverage-and-force" class="slide level2">
+<h2>Torque combines leverage and force</h2>
+<p>Force <span class="math inline">\(\vct{F}\)</span> applied at position <span class="math inline">\(\vct{r}\)</span> relative to a pivot produces torque</p>
+<p><span class="math display">\[
+\vct{\tau}=\vct{r}\mathbin{\times}\vct{F}
+\]</span></p>
+<p>Magnitude</p>
+<p><span class="math display">\[
+\norm{\vct{\tau}}
+=\norm{\vct{r}}\norm{\vct{F}}\sin\theta
+\]</span></p>
+<ul>
+<li>only the component of force perpendicular to the lever arm turns the object</li>
+<li>direction gives the rotation axis by the right-hand rule</li>
+<li>zero torque when force acts along the lever arm</li>
+</ul>
+<div class="key-point">
+<p>Cross products package size and oriented perpendicular direction together</p>
+</div>
+</section>
+<section id="use-the-cross-product-geometrically" class="slide level2">
+<h2>Use the cross product geometrically</h2>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> Let <span class="math inline">\(P=(1,0,0)\)</span>, <span class="math inline">\(Q=(2,1,0)\)</span>, and <span class="math inline">\(R=(0,1,2)\)</span></span></p>
+<p><span class="exsub">Find <span class="math inline">\(\overrightarrow{PQ}\mathbin{\times}\overrightarrow{PR}\)</span></span> <span class="exsub">Find the area of triangle <span class="math inline">\(PQR\)</span></span> <span class="exsub">Find an equation of the plane through <span class="math inline">\(P,Q,R\)</span></span> <span class="exsub">Explain what changes when <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> are interchanged</span> </p>
+</div>
+</section></section>
+<section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
+<h1>Big Ideas</h1>
+<ul>
+<li>A vector in <span class="math inline">\(\reals^n\)</span> is both a <span class="alert">coordinate object and a geometric direction</span></li>
+<li>Dot products create length, distance, angle, and orthogonality</li>
+<li>Cauchy–Schwarz and the triangle inequality guarantee that these measurements behave geometrically</li>
+<li>Projection splits a vector into <span class="alert">parallel and perpendicular components</span>; the residual measures nearest-point error</li>
+<li>A consistent linear system describes one particular point plus all homogeneous directions</li>
+<li>In <span class="math inline">\(\reals^3\)</span>, the cross product supplies an oriented perpendicular direction, area, plane normals, and volume</li>
+</ul>
+</section>
+
+<section id="what-comes-next" class="title-slide slide level1 center">
+<h1>What Comes Next</h1>
+<p>Euclidean geometry gave concrete meaning to vectors in <span class="math inline">\(\reals^n\)</span></p>
+<p><a href="06-general-vector-spaces.html">General Vector Spaces</a> will keep the algebraic rules while allowing new kinds of vectors:</p>
+<ul>
+<li>polynomials</li>
+<li>functions</li>
+<li>matrices</li>
+<li>solution sets of homogeneous systems</li>
+</ul>
+<div class="key-point">
+<p><span class="alert">Next:</span> <a href="06-general-vector-spaces.html">separate the vector-space structure from its coordinates</a></p>
+</div>
 
 </section>
     </div>
