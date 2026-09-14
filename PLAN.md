@@ -98,7 +98,11 @@ Tests page, and use Canvas on-paper assignments for manual grade entry.
 ## 8. Tests
 
 Develop test coverage, review materials, dates, and administration details
-without inventing unresolved information.
+without inventing unresolved information. Publish the pinned, read-only
+`HickernellTestArchive` with the course website so students can inspect
+assessments from MATH 476, MATH 563, and MATH 565 as examples of the
+instructor's question style, while clearly distinguishing them from MATH 332
+practice tests.
 
 ## 9. Reusable classlib opportunities
 

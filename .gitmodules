@@ -1,3 +1,6 @@
 [submodule "classlib"]
 	path = classlib
 	url = git@github.com:fjhickernell/HickernellAcademicLib.git
+[submodule "assets/tests/archive"]
+	path = assets/tests/archive
+	url = git@github.com:fjhickernell/HickernellTestArchive.git

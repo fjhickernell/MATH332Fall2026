@@ -384,4 +384,6 @@ Keep released answer-key PDFs in `assets/tests/current/` and link them from
 when available; keep student names and the private LaTeX source out of the
 public repository. Copy the same released PDF into the `332/` folder of the
 canonical `HickernellTestArchive` checkout. Publish archive changes separately;
-do not update another course's pinned archive merely to add a MATH 332 file.
+then intentionally advance this course's pinned archive to that published
+commit. Do not update another course's pinned archive merely to add a MATH 332
+file.

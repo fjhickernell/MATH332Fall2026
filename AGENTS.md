@@ -27,6 +27,10 @@ explicitly by year (e.g., `565-2025` or `MATH565Fall2025`) to avoid ambiguity.
 - MATH 332 course content stays in this repository.
 - Reusable tooling belongs in HickernellAcademicLib only after validation and
   an upstream commit.
+- `assets/tests/archive` (`HickernellTestArchive`) is a read-only pinned
+  dependency. Advance it only intentionally after the corresponding archive
+  commit has been published; never edit the archive through this consumer
+  checkout.
 - Do not modify reference repositories unless explicitly instructed.
 - Initialize the recorded `classlib` commit recursively; do not update it to a
   moving branch tip during routine setup or validation.

@@ -93,6 +93,10 @@ Mathematical content should be maintained only in the slides.
   covering Decks 01--02; create the combined Quizzes and Tests page, add the
   schedule and Deck 02 notices, and save the unpublished 20-point Canvas
   on-paper assignment for manual grade entry.
+- [x] Add the read-only `HickernellTestArchive` submodule and expose archived
+  MATH 476, MATH 563, and MATH 565 assessments as examples of the
+  instructor's question style, with a warning that they are not MATH 332
+  practice tests.
 - [ ] Create assignments, quizzes, tests, and review materials.
 - [ ] Validate navigation, links, notation, accessibility, and visible layout
   as content is added.
