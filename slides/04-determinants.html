@@ -815,31 +815,31 @@ T_{\mat{A}}(\mathcal S)
 </section>
 <section id="area-proof" class="slide level2">
 <h2>Why the area is <span class="math inline">\(\abs{ad-bc}\)</span></h2>
-<p>Use <span class="math inline">\(\vct{A}_1=(a,c)^{\mathsf T}\)</span> as the base and <span class="math inline">\(\vct{A}_2=(b,d)^{\mathsf T}\)</span> as the other edge</p>
+<p>Use <span class="math inline">\(\vct{A}_1=(a,c)^{\mathsf T}\)</span> as the base edge and <span class="math inline">\(\vct{A}_2=(b,d)^{\mathsf T}\)</span> as the other edge</p>
 <div class="columns">
-<div class="column" style="width:47%;">
-<p>Base length and a perpendicular unit vector</p>
-<p><span class="math display">\[\begin{gather*}
-L=\sqrt{a^2+c^2}&gt;0,
-\qquad \vct{n}=\frac1L\begin{bmatrix}-c\\a\end{bmatrix}\\
-\vct{A}_1^{\mathsf T}\vct{n}=0,
-\qquad \vct{n}^{\mathsf T}\vct{n}=1
-\end{gather*}\]</span></p>
-</div><div class="column" style="width:6%;">
+<div class="column" style="width:43%;">
+<svg class="diagram-image" viewbox="0 0 500 390" width="100%" role="img" aria-label="A parallelogram is spanned by the base edge vector A one and the other edge vector A two. The base edge has length L. A dashed perpendicular from the tip of A two to the base edge is the height h, and a small arrow shows the perpendicular unit vector n.">
+<defs> <marker id="d04-area-arrow-blue" markerwidth="18" markerheight="14" refx="17" refy="7" orient="auto" markerunits="userSpaceOnUse"><polygon points="0 0,18 7,0 14" fill="#007acc"></polygon></marker> <marker id="d04-area-arrow-orange" markerwidth="18" markerheight="14" refx="17" refy="7" orient="auto" markerunits="userSpaceOnUse"><polygon points="0 0,18 7,0 14" fill="#d97904"></polygon></marker> <marker id="d04-area-arrow-purple" markerwidth="16" markerheight="12" refx="15" refy="6" orient="auto" markerunits="userSpaceOnUse"><polygon points="0 0,16 6,0 12" fill="#7651a8"></polygon></marker> </defs> <polygon points="65,340 350,286 450,88 165,142" fill="#dceef7" fill-opacity="0.72" stroke="#7895a8" stroke-width="4"></polygon> <path d="M65 340L350 286" fill="none" stroke="#007acc" stroke-width="7" marker-end="url(#d04-area-arrow-blue)"></path> <path d="M65 340L165 142" fill="none" stroke="#d97904" stroke-width="7" marker-end="url(#d04-area-arrow-orange)"></path> <path d="M198 315L165 142" fill="none" stroke="#7651a8" stroke-width="4" stroke-dasharray="10 8"></path> <path d="M198 315L188 263" fill="none" stroke="#7651a8" stroke-width="6" marker-end="url(#d04-area-arrow-purple)"></path> <path d="M198 315L180 318L177 301L195 297" fill="none" stroke="#333" stroke-width="4"></path> <circle cx="65" cy="340" r="6" fill="#333"></circle> <g font-family="Times New Roman, Times, serif" font-size="30" font-style="italic" font-weight="600"> <text x="235" y="357" text-anchor="middle" style="fill:#007acc;">L</text> <text x="298" y="254" style="fill:#007acc;">A<tspan baseline-shift="sub" font-size="70%">1</tspan></text> <text x="124" y="185" text-anchor="end" style="fill:#d97904;">A<tspan baseline-shift="sub" font-size="70%">2</tspan></text> <text x="154" y="220" text-anchor="middle" style="fill:#7651a8;">h</text> <text x="214" y="274" style="fill:#7651a8;">n</text> </g>
+</svg>
+</div><div class="column" style="width:4%;">
 
-</div><div class="column" style="width:47%;">
-<p>Height = magnitude of the perpendicular component</p>
+</div><div class="column" style="width:53%;">
+<p>For base length <span class="math inline">\(L&gt;0\)</span>, choose a perpendicular unit vector</p>
 <p><span class="math display">\[\begin{align*}
-h&amp;=\abs{\vct{A}_2^{\mathsf T}\vct{n}}\\
-&amp;=\frac{\abs{-bc+ad}}{L}
+L&amp;=\sqrt{a^2+c^2},
+&amp;\vct{n}&amp;=\frac1L\begin{bmatrix}-c\\a\end{bmatrix},\\
+\vct{A}_1^{\mathsf T}\vct{n}&amp;=0,
+&amp;\lVert\vct{n}\rVert&amp;=1,\\[2mm]
+h\;\text{(height)}&amp;=\abs{\vct{A}_2^{\mathsf T}\vct{n}}
+=\frac{\abs{-bc+ad}}{L}
 \end{align*}\]</span></p>
-</div></div>
 <div class="key-point">
-<p><span class="math display">\[
-\text{Area}=\text{base}\times\text{height}
-=L\frac{\abs{ad-bc}}{L}=\abs{\det(\mat{A})}
-\]</span></p>
+<p><span class="math display">\[\begin{align*}
+\text{Area}&amp;=(\text{base length})(\text{height})=Lh\\
+&amp;=L\frac{\abs{ad-bc}}{L}=\abs{\det(\mat{A})}
+\end{align*}\]</span></p>
 </div>
+</div></div>
 <ul>
 <li><span class="math inline">\(L=0\)</span>: the first edge is zero, so both area and determinant are zero</li>
 <li><span class="math inline">\(\vct{n}\)</span> points left of the directed base: <span class="math inline">\(ad-bc&gt;0\)</span> for the other edge on the left, <span class="math inline">\(ad-bc&lt;0\)</span> on the right</li>
@@ -1007,6 +1007,53 @@ u_{11}&amp;u_{12}&amp;\cdots&amp;u_{1n}\\
 </div>
 <aside class="notes">
 <p>Use <span class="math inline">\(R_2\leftarrow R_2-2R_1\)</span>, then <span class="math inline">\(R_3\leftarrow R_3-R_1\)</span>, then <span class="math inline">\(R_3\leftarrow R_3-R_2\)</span>. The resulting upper- triangular matrix has diagonal entries <span class="math inline">\(2,1,2\)</span>. No operation changes the determinant, so <span class="math inline">\(\det(\mat{B})=4\ne0\)</span> and <span class="math inline">\(\mat{B}\)</span> is invertible.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="two-more-elimination-examples">Two more elimination examples</h3>
+<p>Compute each determinant by elimination without pivot-row scaling</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><span class="math display">\[
+\mat{C}=
+\begin{bmatrix}
+0&amp;1&amp;2\\
+1&amp;1&amp;0\\
+2&amp;3&amp;1
+\end{bmatrix}
+\]</span></p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Compute <span class="math inline">\(\det(\mat{C})\)</span> and decide whether <span class="math inline">\(\mat{C}\)</span> is invertible.</span></p>
+</div>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><span class="math display">\[
+\mat{D}=
+\begin{bmatrix}
+1&amp;2&amp;1\\
+2&amp;5&amp;3\\
+3&amp;7&amp;4
+\end{bmatrix}
+\]</span></p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Compute <span class="math inline">\(\det(\mat{D})\)</span> and decide whether <span class="math inline">\(\mat{D}\)</span> is invertible.</span></p>
+</div>
+</div></div>
+<aside class="notes">
+<p>For <span class="math inline">\(\mat{C}\)</span>, swap <span class="math inline">\(R_1\)</span> and <span class="math inline">\(R_2\)</span>, then use <span class="math inline">\(R_3\leftarrow R_3-2R_1\)</span> and <span class="math inline">\(R_3\leftarrow R_3-R_2\)</span>. The resulting upper- triangular matrix has diagonal entries <span class="math inline">\(1,1,-1\)</span>, so its determinant is <span class="math inline">\(-1\)</span>. The one row swap reverses the sign, giving <span class="math inline">\(\det(\mat{C})=1\)</span>; thus <span class="math inline">\(\mat{C}\)</span> is invertible.</p>
+<p>For <span class="math inline">\(\mat{D}\)</span>, use <span class="math inline">\(R_2\leftarrow R_2-2R_1\)</span>, then <span class="math inline">\(R_3\leftarrow R_3-3R_1\)</span>, then <span class="math inline">\(R_3\leftarrow R_3-R_2\)</span>. The third row becomes zero, so <span class="math inline">\(\det(\mat{D})=0\)</span>. Indeed, the original third row is the sum of the first two rows. The matrix is singular, and its transformation collapses three-dimensional volume.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
