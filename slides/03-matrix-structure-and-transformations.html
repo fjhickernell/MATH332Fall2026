@@ -1718,6 +1718,30 @@ T(\vct{x})=\mat{A}\vct{x}
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> For the Householder matrix <span class="math inline">\(\mat{H}\)</span> defined above, show that <span class="math inline">\(\mat{H}^2=\mat{I}\)</span> <span class="exsub">Use <span class="math inline">\(\vct{u}^{\mathsf T}\vct{u}=1\)</span></span> </span></p>
 </div>
 </section>
+<section class="slide level2">
+
+<h3 id="how-to-certify-a-reflection">How to certify a reflection</h3>
+<p>Every reflection satisfies <span class="math inline">\(\mat{H}^2=\mat{I}\)</span>, but this condition is only <span class="alert">necessary</span>:</p>
+<p><span class="math display">\[
+(-\mat{I}_2)^2=\mat{I}_2,
+\qquad
+-\mat{I}_2\text{ is rotation through }180^\circ
+\]</span></p>
+<p>To prove that <span class="math inline">\(\mat{A}\)</span> is a reflection, find a <span class="alert">unit</span> vector <span class="math inline">\(\vct{u}\)</span> such that</p>
+<p><span class="math display">\[
+\mat{A}=\mat{I}-2\vct{u}\vct{u}^{\mathsf T}
+\]</span></p>
+<p>For reflection across <span class="math inline">\(y=x\)</span>, a unit normal is</p>
+<p><span class="math display">\[
+\vct{u}=\frac{1}{\sqrt{2}}\begin{bmatrix}1\\-1\end{bmatrix},
+\qquad
+\mat{I}-2\vct{u}\vct{u}^{\mathsf T}
+=\begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<p><span class="math inline">\(\mat{A}^2=\mat{I}\)</span> is necessary; a Householder representation is sufficient</p>
+</div>
+</section>
 <section id="projections-discard-information" class="slide level2">
 <h2>Nonidentity projections discard information</h2>
 <p>Projection onto the <span class="math inline">\(x\)</span>-axis keeps the first coordinate and removes the second:</p>
