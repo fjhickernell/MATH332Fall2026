@@ -7,8 +7,15 @@ state why the work was deferred when that context will matter later.
 ## Deferred work
 
 - When developing Deck 06, revisit Wronskians after function spaces and linear
-  independence have been established. Deck 04 now contains the introductory
-  determinant example and the distinction between Wronskians and Jacobians.
+  independence have been established. Define the general $n\times n$
+  Wronskian using derivatives through order $n-1$; distinguish the always-valid
+  implication “nonzero at one point implies linear independence” from the
+  converse, which fails for arbitrary differentiable functions but holds for
+  solutions of the same homogeneous $n$th-order linear ODE under the usual
+  continuity hypotheses. Deck 04 contains the introductory $2\times2$ example
+  and the distinction between Wronskians and Jacobians. Once the Deck 06
+  Wronskian slide exists, update Deck 04's metadata-based deck link to its
+  specific slide anchor.
 - Save the general orthogonal-projection formula for the treatment of column
   spaces, orthogonal complements, and least-squares regression rather than
   expanding Deck 03's concrete transformation examples. For a real matrix

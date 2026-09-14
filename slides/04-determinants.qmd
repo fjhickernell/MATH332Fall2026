@@ -516,12 +516,17 @@ homogeneous system with this invertible coefficient matrix
 
 Hence $c_1=c_2=0$ is the only constant-coefficient relation
 
-In Deck 06, we will call this property [linear independence]{.alert}
+[General Vector Spaces]({{< meta decks.d06.file >}}) will call this property
+[linear independence]{.alert} and return to the general $n\times n$ Wronskian
 
 ::: {.notes}
-This previews linear independence, which will be defined in Deck 06. A
-nonzero Wronskian at one point proves linear independence. A zero Wronskian
-does not generally prove dependence without additional hypotheses. The
+This previews linear independence, which will be defined in General Vector
+Spaces. For $n$ functions, the Wronskian is an $n\times n$ determinant whose
+rows use derivatives of orders $0,\ldots,n-1$. A nonzero Wronskian at one
+point proves linear independence. The converse fails for arbitrary
+differentiable functions. For $n$ solutions of the same homogeneous
+$n$th-order linear ODE with continuous coefficients, linear independence is
+equivalent to a nonzero Wronskian at one—and hence every—point. The
 coefficients in the linear relation are constants, not functions of $t$.
 :::
 
