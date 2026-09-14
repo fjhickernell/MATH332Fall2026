@@ -40,3 +40,33 @@ If you use AI tools, software, or other external resources in a way that signifi
 ### Consequences
 
 Violations will be handled according to Illinois Tech’s Code of Academic Honesty.
+
+### How I Use AI in Preparing This Course
+
+I use ChatGPT and Codex as assistants in developing and maintaining this
+course. They help me explore alternative explanations, critique the
+organization and clarity of material, prepare initial drafts, write and test
+code, and maintain the course webpages, slides, notebooks, and supporting
+infrastructure. I also use them to look for inconsistencies, broken links,
+computational errors, and places where an explanation may be incomplete or
+confusing.
+
+AI-generated work is a proposal to inspect, not an authority. These systems
+can make mathematical mistakes, produce faulty code, invent references, or
+misunderstand the intended learning objective. I therefore review and revise
+their contributions, verify important mathematics and computations, consult
+original sources, and inspect the resulting course materials. I determine the
+course objectives, mathematical content, assignments, assessment standards,
+and final presentation.
+
+I may use AI to assist with routine preparation and organization, but I do not
+delegate responsibility for teaching or grading decisions to it. Any course
+material produced with AI assistance remains my responsibility, just as if I
+had prepared it using other software or consulted a human colleague. The
+acknowledgments on the course materials indicate assistance, not authorship or
+authority.
+
+My use of these tools also informs the expectations I set for students: AI can
+be a valuable tutor, critic, collaborator, or implementation assistant, but
+understanding, verification, judgment, and honest acknowledgment must remain
+with the person using it.
