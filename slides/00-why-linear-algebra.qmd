@@ -24,6 +24,21 @@ include-after-body:
 
 {{< include ../classlib/classlib/quarto/slides/shared/general/illinois-tech-academic-transformation.qmd >}}
 
+## How I use AI to support this course
+
+- ChatGPT and Codex help me explore explanations, critique drafts, write and
+  test code, and maintain course materials
+- I choose the learning objectives, mathematical content, assessments, and
+  grading standards
+- I review and revise AI output and verify the mathematics, code, sources, and
+  published materials
+
+::: {.key-point}
+[AI assists; responsibility remains mine]{.alert}
+
+[Full statement and course AI policy](../classlib/classlib/quarto/pages/policies.html#academic-integrity-technology-and-ai-usage)
+:::
+
 # Course Map {.deck-course-map}
 
 ::: {.columns}
