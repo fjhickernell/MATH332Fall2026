@@ -66,7 +66,12 @@ placement discussion.
   Deck 05 is a complete draft; Decks 06--08 remain placeholders for
   Anton Chapters 3--6.
 - Deck 03 includes a starred Householder involution exercise and the
-  construction of orthogonal projection onto a plane. Keep the general
+  construction of orthogonal projection onto a plane. It now explicitly
+  distinguishes the necessary condition $\mat{A}^2=\mat{I}$ from the
+  sufficient Householder certificate
+  $\mat{A}=\mat{I}-2\vct{u}\vct{u}^{\mathsf T}$ for a unit normal
+  $\vct{u}$, using $-\mat{I}_2$ as a counterexample to sufficiency and the
+  reflection across $y=x$ as the positive example. Keep the general
   column-space projector for the later least-squares treatment recorded in
   `notes/TODO-LATER.md`.
 - The instructor reports successful end-to-end clean-Colab validation of all
@@ -89,6 +94,9 @@ placement discussion.
 - Assignment 1 is the individual 20-point WileyPLUS assignment, due September
   7 at 11:59 PM Chicago Time. Quiz 1 is scheduled for September 10 and covers
   Decks 01--02. Test 1 is scheduled for September 17 and covers Decks 01--03.
+- Private Test 1 materials are maintained outside this public repository. The
+  draft is complete and has been checked for the 75-minute class period;
+  complete the final printing review and print the test.
 
 ## Questions to resolve
 

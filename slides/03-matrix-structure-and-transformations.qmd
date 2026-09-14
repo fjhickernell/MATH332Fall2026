@@ -1246,6 +1246,39 @@ For the Householder matrix $\mat{H}$ defined above, show that $\mat{H}^2=\mat{I}
 </span>
 :::
 
+---
+
+### How to certify a reflection
+
+Every reflection satisfies $\mat{H}^2=\mat{I}$, but this condition is only
+[necessary]{.alert}:
+
+$$
+(-\mat{I}_2)^2=\mat{I}_2,
+\qquad
+-\mat{I}_2\text{ is rotation through }180^\circ
+$$
+
+To prove that $\mat{A}$ is a reflection, find a [unit]{.alert} vector
+$\vct{u}$ such that
+
+$$
+\mat{A}=\mat{I}-2\vct{u}\vct{u}^{\mathsf T}
+$$
+
+For reflection across $y=x$, a unit normal is
+
+$$
+\vct{u}=\frac{1}{\sqrt{2}}\begin{bmatrix}1\\-1\end{bmatrix},
+\qquad
+\mat{I}-2\vct{u}\vct{u}^{\mathsf T}
+=\begin{bmatrix}0&1\\1&0\end{bmatrix}
+$$
+
+::: {.key-point}
+$\mat{A}^2=\mat{I}$ is necessary; a Householder representation is sufficient
+:::
+
 ## Nonidentity projections discard information {#projections-discard-information}
 
 Projection onto the $x$-axis keeps the first coordinate and removes the second:
