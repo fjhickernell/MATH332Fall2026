@@ -146,37 +146,54 @@ $$
 
 ## Why the area is $\abs{ad-bc}$ {#area-proof}
 
-Use $\vct{A}_1=(a,c)^{\mathsf T}$ as the base and
+Use $\vct{A}_1=(a,c)^{\mathsf T}$ as the base edge and
 $\vct{A}_2=(b,d)^{\mathsf T}$ as the other edge
 
 ::: {.columns}
-::: {.column width="47%"}
-Base length and a perpendicular unit vector
-
-\begin{gather*}
-L=\sqrt{a^2+c^2}>0,
-\qquad \vct{n}=\frac1L\begin{bmatrix}-c\\a\end{bmatrix}\\
-\vct{A}_1^{\mathsf T}\vct{n}=0,
-\qquad \vct{n}^{\mathsf T}\vct{n}=1
-\end{gather*}
+::: {.column width="43%"}
+<svg class="diagram-image" viewBox="0 0 500 390" width="100%" role="img" aria-label="A parallelogram is spanned by the base edge vector A one and the other edge vector A two. The base edge has length L. A dashed perpendicular from the tip of A two to the base edge is the height h, and a small arrow shows the perpendicular unit vector n.">
+  <defs>
+    <marker id="d04-area-arrow-blue" markerWidth="18" markerHeight="14" refX="17" refY="7" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,18 7,0 14" fill="#007acc"/></marker>
+    <marker id="d04-area-arrow-orange" markerWidth="18" markerHeight="14" refX="17" refY="7" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,18 7,0 14" fill="#d97904"/></marker>
+    <marker id="d04-area-arrow-purple" markerWidth="16" markerHeight="12" refX="15" refY="6" orient="auto" markerUnits="userSpaceOnUse"><polygon points="0 0,16 6,0 12" fill="#7651a8"/></marker>
+  </defs>
+  <polygon points="65,340 350,286 450,88 165,142" fill="#dceef7" fill-opacity="0.72" stroke="#7895a8" stroke-width="4"/>
+  <path d="M65 340L350 286" fill="none" stroke="#007acc" stroke-width="7" marker-end="url(#d04-area-arrow-blue)"/>
+  <path d="M65 340L165 142" fill="none" stroke="#d97904" stroke-width="7" marker-end="url(#d04-area-arrow-orange)"/>
+  <path d="M198 315L165 142" fill="none" stroke="#7651a8" stroke-width="4" stroke-dasharray="10 8"/>
+  <path d="M198 315L188 263" fill="none" stroke="#7651a8" stroke-width="6" marker-end="url(#d04-area-arrow-purple)"/>
+  <path d="M198 315L180 318L177 301L195 297" fill="none" stroke="#333" stroke-width="4"/>
+  <circle cx="65" cy="340" r="6" fill="#333"/>
+  <g font-family="Times New Roman, Times, serif" font-size="30" font-style="italic" font-weight="600">
+    <text x="235" y="357" text-anchor="middle" style="fill:#007acc;">L</text>
+    <text x="298" y="254" style="fill:#007acc;">A<tspan baseline-shift="sub" font-size="70%">1</tspan></text>
+    <text x="124" y="185" text-anchor="end" style="fill:#d97904;">A<tspan baseline-shift="sub" font-size="70%">2</tspan></text>
+    <text x="154" y="220" text-anchor="middle" style="fill:#7651a8;">h</text>
+    <text x="214" y="274" style="fill:#7651a8;">n</text>
+  </g>
+</svg>
 :::
-::: {.column width="6%"}
+::: {.column width="4%"}
 :::
-::: {.column width="47%"}
-Height = magnitude of the perpendicular component
+::: {.column width="53%"}
+For base length $L>0$, choose a perpendicular unit vector
 
 \begin{align*}
-h&=\abs{\vct{A}_2^{\mathsf T}\vct{n}}\\
-&=\frac{\abs{-bc+ad}}{L}
+L&=\sqrt{a^2+c^2},
+&\vct{n}&=\frac1L\begin{bmatrix}-c\\a\end{bmatrix},\\
+\vct{A}_1^{\mathsf T}\vct{n}&=0,
+&\lVert\vct{n}\rVert&=1,\\[2mm]
+h\;\text{(height)}&=\abs{\vct{A}_2^{\mathsf T}\vct{n}}
+=\frac{\abs{-bc+ad}}{L}
+\end{align*}
+
+::: {.key-point}
+\begin{align*}
+\text{Area}&=(\text{base length})(\text{height})=Lh\\
+&=L\frac{\abs{ad-bc}}{L}=\abs{\det(\mat{A})}
 \end{align*}
 :::
 :::
-
-::: {.key-point}
-$$
-\text{Area}=\text{base}\times\text{height}
-=L\frac{\abs{ad-bc}}{L}=\abs{\det(\mat{A})}
-$$
 :::
 
 - $L=0$: the first edge is zero, so both area and determinant are zero
@@ -339,6 +356,61 @@ Use $R_2\leftarrow R_2-2R_1$, then
 $R_3\leftarrow R_3-R_1$, then $R_3\leftarrow R_3-R_2$. The resulting upper-
 triangular matrix has diagonal entries $2,1,2$. No operation changes the
 determinant, so $\det(\mat{B})=4\ne0$ and $\mat{B}$ is invertible.
+:::
+
+---
+
+### Two more elimination examples
+
+Compute each determinant by elimination without pivot-row scaling
+
+::: {.columns}
+::: {.column width="47%"}
+$$
+\mat{C}=
+\begin{bmatrix}
+0&1&2\\
+1&1&0\\
+2&3&1
+\end{bmatrix}
+$$
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Compute $\det(\mat{C})$ and decide whether $\mat{C}$ is invertible.</span>
+:::
+:::
+::: {.column width="6%"}
+:::
+::: {.column width="47%"}
+$$
+\mat{D}=
+\begin{bmatrix}
+1&2&1\\
+2&5&3\\
+3&7&4
+\end{bmatrix}
+$$
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Compute $\det(\mat{D})$ and decide whether $\mat{D}$ is invertible.</span>
+:::
+:::
+:::
+
+::: {.notes}
+For $\mat{C}$, swap $R_1$ and $R_2$, then use
+$R_3\leftarrow R_3-2R_1$ and $R_3\leftarrow R_3-R_2$. The resulting upper-
+triangular matrix has diagonal entries $1,1,-1$, so its determinant is $-1$.
+The one row swap reverses the sign, giving $\det(\mat{C})=1$; thus $\mat{C}$
+is invertible.
+
+For $\mat{D}$, use $R_2\leftarrow R_2-2R_1$, then
+$R_3\leftarrow R_3-3R_1$, then $R_3\leftarrow R_3-R_2$. The third row becomes
+zero, so $\det(\mat{D})=0$. Indeed, the original third row is the sum of the
+first two rows. The matrix is singular, and its transformation collapses
+three-dimensional volume.
 :::
 
 # What the Determinant Reveals

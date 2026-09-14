@@ -95,6 +95,42 @@ active repositories, `MATH332Fall2026` and `MATH565Fall2026`. Interpret
 files each time rather than relying on conversation memory. Reporting a next
 task does not authorize beginning it.
 
+### Lecture-update shorthand
+
+Interpret the exact command `Lecture update` as authorization to perform the
+complete post-lecture pacing reconciliation workflow in
+[`AUTHOR_WORKFLOW.md`](AUTHOR_WORKFLOW.md#post-lecture-pacing-reconciliation)
+for MATH 332. Interpret `Lecture update 332` the same way from either active
+course repository, and interpret `Lecture update 565` as routing the request
+to the active MATH 565 repository. The command authorizes the required
+read-only Illinois Tech email check, Panopto inspection, schedule edit, and
+single-occurrence calendar-note edit without another confirmation.
+
+Reconcile the most recent completed instructional meeting that has not already
+been reconciled. Never treat a quiz, test, examination, or other
+assessment-only meeting as the source lecture or as the destination for a
+continuation note. If an assessment intervenes, carry the continuation to the
+next instructional meeting. If no recording is available or there is no
+unreconciled instructional meeting, report that state without guessing or
+changing the schedule or calendar.
+
+At the beginning of every session in either active course repository, after
+the standard startup document checks, read
+`notes/LECTURE-UPDATES.md` and `pages/schedule.qmd`. Compare the current
+America/Chicago date and time with the course meeting time recorded in the
+ledger. If an instructional meeting has ended after the ledger's latest
+reconciled meeting or accepted baseline, alert the instructor before ordinary
+nonurgent work, identify the overdue lecture date, and suggest the exact
+`Lecture update` command. Do not trigger on assessment-only meetings and do
+not run the external workflow merely because it is overdue; the instructor's
+command indicates that they are present.
+
+Every successful lecture update must append or update the course ledger in the
+same working tree, recording the reconciled lecture date, the Panopto
+recording identifier or link, the next instructional event annotated, and the
+check date. A missing recording does not count as reconciliation and must not
+advance the ledger.
+
 ### Assignment request shorthand
 
 When the user asks to create, set up, or materially revise an assignment,
