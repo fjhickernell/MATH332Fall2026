@@ -745,18 +745,20 @@ Distinguish an [ill-posed formulation]{.alert}, an [ill-conditioned problem]{.al
 
 ## Terms to know {#terms-to-know}
 
-Use this cumulative index to revisit the first substantial treatment of each term.
+Use this cumulative alphabetical index to revisit the first substantial treatment of each term.
 
 ### A–D
 
 ::: {.columns}
 ::: {.column width="50%"}
-- [Angle between vectors]({{< meta decks.d05.file >}}#the-dot-product-determines-angle)
+- [Angle between vectors]({{< meta decks.d01.file >}}#measures-alignment)
 - [Associativity]({{< meta decks.d01.file >}}#by-rows)
 - [Augmented matrix]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system)
 - [Back substitution]({{< meta decks.d01.file >}}#back-substitution)
+- [Basis]({{< meta decks.d06.file >}}#a-basis-balances-reach-and-economy)
 - [Catastrophic cancellation](#equivalent-mathematics-unequal-computations)
-- [Cauchy–Schwarz inequality]({{< meta decks.d05.file >}}#cauchy-schwarz-controls-every-dot-product)
+- [Change of basis]({{< meta decks.d06.file >}}#change-of-basis-passes-through-the-vector)
+- [Column space]({{< meta decks.d06.file >}}#a-matrix-has-four-fundamental-subspaces)
 - [Commutativity]({{< meta decks.d01.file >}}#by-rows)
 - [Composition of transformations]({{< meta decks.d03.file >}}#composition-is-matrix-multiplication)
 :::
@@ -764,11 +766,13 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 ::: {.column width="50%"}
 - [Computational cost](#a-correct-computation-can-still-cost-too-much)
 - [Consistent / inconsistent system]({{< meta decks.d01.file >}}#read-the-solution-set)
+- [Coordinate vector]({{< meta decks.d06.file >}}#a-basis-gives-every-vector-unique-coordinates)
 - [Covariance matrix]({{< meta decks.d02.file >}}#covariance-describes-joint-variation)
-- [Cross product]({{< meta decks.d05.file >}}#the-cross-product-produces-a-perpendicular-vector)
+- [Cross product]({{< meta decks.d05.file >}}#the-cross-product-combines-two-directions)
 - [Determinant]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor)
 - [Diagonal matrix]({{< meta decks.d03.file >}}#diagonal-matrices-act-one-coordinate-at-a-time)
-- [Distance]({{< meta decks.d05.file >}}#distance-is-the-length-of-a-difference)
+- [Dimension]({{< meta decks.d06.file >}}#dimension-counts-vectors-in-any-basis)
+- [Distance]({{< meta decks.d05.file >}}#recall-what-the-dot-product-already-gives-us)
 - [Dot product]({{< meta decks.d01.file >}}#combines-coefficients-and-unknowns)
 :::
 :::
@@ -779,12 +783,13 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 
 ::: {.columns}
 ::: {.column width="50%"}
+- [Eigenvalue]({{< meta decks.d04.file >}}#eigenvalues-give-another-determinant-formula)
 - [Elementary matrix]({{< meta decks.d01.file >}}#start-with-one-row-replacement)
 - [Elementary row operations]({{< meta decks.d01.file >}}#three-reversible-moves)
 - [Elimination]({{< meta decks.d01.file >}}#elimination)
 - [Elimination matrix]({{< meta decks.d01.file >}}#group-the-first-column-operations)
-- [Eigenvalue]({{< meta decks.d04.file >}}#eigenvalues-give-another-determinant-formula)
 - [Euclidean norm]({{< meta decks.d01.file >}}#measures-alignment)
+- [Field]({{< meta decks.d06.file >}}#the-scalar-field-can-change)
 - [Free variable]({{< meta decks.d01.file >}}#a-free-variable-produces-infinitely-many-solutions)
 :::
 
@@ -803,25 +808,36 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 
 ---
 
-### L–R
+### L–N
 
 ::: {.columns}
 ::: {.column width="50%"}
 - [Least squares](#when-the-constraints-cannot-all-be-satisfied)
 - [Leontief input–output model]({{< meta decks.d02.file >}}#production-creates-internal-demand)
 - [Linear combination]({{< meta decks.d03.file >}}#given-output-solve-column-weights)
+- [Linear independence]({{< meta decks.d06.file >}}#independence-means-the-zero-vector-has-one-construction)
 - [Linear system]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
 - [Linear transformation]({{< meta decks.d03.file >}}#linear-transformations-preserve-combinations)
+:::
+
+::: {.column width="50%"}
 - [Matrix](#represent-objects-numerically)
 - [Matrix–matrix multiplication]({{< meta decks.d01.file >}}#matrix-matrix-multiplication-collects-dot-products)
 - [Matrix–vector multiplication]({{< meta decks.d01.file >}}#each-equation-is-one-dot-product)
 - [Nonsingular / singular matrix]({{< meta decks.d02.file >}}#invertible-or-singular)
+- [Null space]({{< meta decks.d06.file >}}#homogeneous-systems-produce-subspaces)
 - [Numerical instability](#equivalent-mathematics-unequal-computations)
 :::
+:::
 
+---
+
+### O–R
+
+::: {.columns}
 ::: {.column width="50%"}
+- [Orthogonal decomposition]({{< meta decks.d05.file >}}#projection-finds-the-nearest-point-on-an-affine-line)
 - [Orthogonal matrix]({{< meta decks.d03.file >}}#orthogonal-matrices-have-orthonormal-rows-and-columns)
-- [Orthogonal decomposition]({{< meta decks.d05.file >}}#projection-produces-an-orthogonal-decomposition)
 - [Orthogonal vectors]({{< meta decks.d01.file >}}#measures-alignment)
 - [Parallel vectors]({{< meta decks.d01.file >}}#parallel-vectors-point-along-one-line)
 - [Permutation matrix]({{< meta decks.d03.file >}}#a-permutation-matrix-records-row-order)
@@ -829,10 +845,17 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 - [PLU factorization]({{< meta decks.d03.file >}}#a-permutation-matrix-records-row-order)
 - [Precision matrix]({{< meta decks.d02.file >}}#precision-describes-conditional-structure)
 - [Projection]({{< meta decks.d03.file >}}#projections-discard-information)
+:::
+
+::: {.column width="50%"}
+- [Rank]({{< meta decks.d06.file >}}#one-reduction-exposes-the-structure)
+- [Rank factorization]({{< meta decks.d06.file >}}#rank-factorization-keeps-the-independent-columns-and-rows)
+- [Rank–nullity theorem]({{< meta decks.d06.file >}}#rank-nullity-counts-inputs)
 - [Redundant constraint](#what-does-the-system-tell-us)
 - [Reflection]({{< meta decks.d03.file >}}#reflections-reverse-one-direction-and-preserve-lengths)
 - [Reversible transformation]({{< meta decks.d01.file >}}#three-reversible-moves)
 - [Rotation]({{< meta decks.d03.file >}}#rotation-matrix-from-rotated-basis-vectors)
+- [Row space]({{< meta decks.d06.file >}}#a-matrix-has-four-fundamental-subspaces)
 - [Row echelon form]({{< meta decks.d01.file >}}#pivots-organize-elimination)
 :::
 :::
@@ -844,11 +867,13 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 ::: {.columns}
 ::: {.column width="50%"}
 - [Scalar](#represent-objects-numerically)
-- [Scalar triple product]({{< meta decks.d05.file >}}#the-scalar-triple-product-is-signed-volume)
+- [Scalar triple product]({{< meta decks.d05.file >}}#the-triple-product-reconnects-to-determinants)
 - [Singular value decomposition (SVD)](#images-contain-important-patterns)
 - [Solution / solution set]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
+- [Span]({{< meta decks.d06.file >}}#span-is-the-subspace-generated-by-chosen-vectors)
 - [Standard basis]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column)
 - [Standard matrix]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column)
+- [Subspace]({{< meta decks.d06.file >}}#a-subspace-inherits-its-operations)
 - [Symmetric matrix]({{< meta decks.d03.file >}}#symmetric-matrices-mirror-pairwise-relationships)
 - [Tensor](#represent-objects-numerically)
 :::
@@ -859,7 +884,8 @@ Use this cumulative index to revisit the first substantial treatment of each ter
 - [Triangular matrix]({{< meta decks.d03.file >}}#triangular-matrices-expose-pivots)
 - [Tridiagonal matrix]({{< meta decks.d03.file >}}#tridiagonal-matrices-couple-neighboring-grid-values)
 - [Vector](#represent-objects-numerically)
-- [Vector equation of a line]({{< meta decks.d05.file >}}#a-line-is-a-point-plus-one-direction)
+- [Vector equation of a line]({{< meta decks.d05.file >}}#lines-and-planes-combine-points-with-directions)
+- [Vector space]({{< meta decks.d06.file >}}#a-vector-space-starts-with-objects-and-two-operations)
 :::
 :::
 

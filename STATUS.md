@@ -49,10 +49,16 @@ Mathematical content should be maintained only in the slides.
   projection matrix in Deck 03, including its connection to Householder reflection.
 - [ ] Develop the authoritative Decks 05–08 for Anton Chapters 3–6.
   - [x] Draft Deck 05: Euclidean Vector Spaces, covering Anton §§3.1–3.5
-    through vectors in $\mathbb R^n$, Euclidean measurements, projection,
-    solution-set geometry, and cross products.
+    as a focused bridge from points and displacement vectors to homogeneous
+    directions, affine solution sets, and general vector spaces, with compact
+    projection and cross-product connections.
   - [ ] Complete instructor-led content and visible-layout review of Deck 05.
-  - [ ] Develop Decks 06–08.
+  - [x] Draft Deck 06: General Vector Spaces, covering Anton §§4.1–4.9 from
+    vector-space axioms and abstract examples through subspaces, span,
+    independence, bases, coordinates, dimension, change of basis, the four
+    matrix spaces, rank–nullity, and rank factorization.
+  - [ ] Complete instructor-led content and visible-layout review of Deck 06.
+  - [ ] Develop Decks 07–08.
 - [x] Create the initial Notebooks page for demonstrations and exercises.
 - [x] Create and locally validate companion notebooks for Decks 02 and 03.
 - [x] Create and locally validate the Deck 04 determinants companion, including

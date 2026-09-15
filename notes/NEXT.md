@@ -2,17 +2,19 @@
 
 ## Current task
 
-Review the new 43-slide Deck 05 Euclidean Vector Spaces draft with the
-instructor. It now follows Anton §§3.1–3.5 through vectors in $\mathbb R^n$;
-length, distance, and angle; orthogonality and projection; the geometry of
-linear systems; and cross products and orientation. Decide what to expand,
-condense, reorder, or move to speaker notes before scheduling the deck.
+Review the shortened 20-slide Deck 05 Euclidean Vector Spaces bridge and the
+new 52-slide Deck 06 General Vector Spaces draft with the instructor. Deck 05
+now visibly names its homogeneous directions as the null space, while Deck 06
+develops the abstract structure using binary vectors, polynomials, and
+functions before returning to null, column, and row spaces. Decide what to
+refine before scheduling either deck, then turn the four remaining
+chapter-sized decks into an explicit plan for the 20 class meetings after
+Test 1.
 
-The expanded Deck 04 determinants materials and companion still await
-instructor review. The companion's Colab badge has been added; rely on the
-established setup and address reported Colab problems. Review the new
-matrices-of-functions slides and then resume the broader tensor scope and
-placement discussion.
+The Deck 04 determinants slides, including the matrices-of-functions
+enrichment, have been instructor-reviewed and accepted. The companion still
+awaits instructor review. Its Colab badge has been added; rely on the
+established setup and address reported Colab problems.
 
 ## Other active and deferred work
 
@@ -21,19 +23,32 @@ placement discussion.
   the determinants review.
 - Later projection/rank-factorization material and next-offering Deck 00
   revisions remain deferred in `notes/TODO-LATER.md`.
+- The broader tensor scope and placement discussion is deferred until much
+  later in `notes/TODO-LATER.md`.
 
 ## Current state
 
-- `slides/05-euclidean-vector-spaces.qmd` is now a complete first draft rather
-  than a placeholder. Its five instructional sections match Anton §§3.1–3.5
-  and connect coordinate vectors to Euclidean measurements, orthogonal
-  decomposition, line and plane descriptions, the geometry of consistent
-  systems, and cross-product applications. It includes six in-class exercises,
-  a Course Map theme, Big Ideas, and the transition to general vector
-  spaces. Deck 00's cumulative Terms to Know index links the new terminology.
-  Decks 00, 04, and 05 render cleanly; Deck 05 has 43 slides, no broken
-  internal links, no vertical overflow, and no browser-console warnings in the
-  local visual audit. Instructor content review remains pending.
+- `slides/05-euclidean-vector-spaces.qmd` is now a focused 20-slide bridge
+  rather than a broad review of Anton §§3.1–3.5. It distinguishes points from
+  vectors and origin-dependent point coordinates, develops homogeneous
+  directions and nonhomogeneous affine solution sets, and reuses the earlier
+  dot-product geometry only for point differences, projection, and plane
+  normals. Cross products remain as a compact three-dimensional connection to
+  determinants. It now names the homogeneous direction space
+  $\operatorname{Null}(\mat{A})$ and explicitly defers its subspace structure
+  and connections with row and column spaces to Deck 06. The Course Map, Big
+  Ideas, and closing transition make that handoff explicit. Source rendering
+  and the revised closing layout have been visibly checked.
+- `slides/06-general-vector-spaces.qmd` is now a substantive 52-slide draft
+  covering Anton §§4.1–4.9. Its abstract examples include $\mathbb{F}_2^n$,
+  polynomials, and continuous functions; later sections develop subspaces,
+  span, independence, bases, coordinates, dimension, change of basis, the
+  four matrix spaces, rank–nullity, and rank factorization. One matrix example
+  ties the row, column, null, and left-null spaces together. The Course Map
+  theme uses the basis-coordinate equation, exercise containers follow the
+  established style, and representative dense slides have been visibly
+  checked at the standard presentation viewport. Deck 00's cumulative terms
+  index now points to the new definitions.
 - `notebooks/demonstrations/04-determinants.ipynb` runs end to end with the
   `qmcpy` kernel on Mini (about eight seconds), with saved outputs and inspected
   geometric plots. It covers signed area, exact row operations, PLU and packed
@@ -61,10 +76,12 @@ placement discussion.
   that the underlying function may be nonlinear, present its first-order
   linear approximation, and give the general $n$-dimensional coordinate-change
   formula for volume elements alongside the polar special case.
-- Decks 00--04 are substantive; Decks 01--03 are instructor-reviewed, and
-  Deck 04 has been developed and audited.
-  Deck 05 is a complete draft; Decks 06--08 remain placeholders for
-  Anton Chapters 3--6.
+- Decks 00--04 are substantive and instructor-reviewed; Deck 04 has also been
+  developed and audited. Deck 05 is a complete 20-slide draft, Deck 06 is a
+  substantive 52-slide draft, and Decks 07--08 remain placeholders for Anton
+  Chapters 5--6. The post-Test-1 schedule has 20 class meetings, but their
+  allocation among Decks 05--08, Test 2, exercises, companions, and review has
+  not yet been decided.
 - Deck 03 includes a starred Householder involution exercise and the
   construction of orthogonal projection onto a plane. It now explicitly
   distinguishes the necessary condition $\mat{A}^2=\mat{I}$ from the
@@ -100,9 +117,10 @@ placement discussion.
 
 ## Questions to resolve
 
-- Beyond Deck 04's brief outlook, what tensor concepts should MATH 332
-  introduce, and should they appear in a companion notebook, a later deck, or
-  a future-course note?
+- How should the 20 class meetings after Test 1 be allocated among Decks
+  05--08, Test 2, exercises, companion notebooks, synthesis, and review? In
+  particular, should the large Chapter 5 and 6 units remain Decks 07 and 08 or
+  be divided into smaller teaching decks?
 - Should Deck 03 briefly signpost Strang's later
   $\mat{A}=\mat{C}\mat{R}$ rank factorization, or should that remain deferred
   until vector spaces, bases, row and column spaces, RREF pivot columns, and
@@ -125,11 +143,11 @@ placement discussion.
 
 ## Done when
 
-- The instructor has reviewed the determinants companion and new
-  matrices-of-functions slides; local validation and the companion's Colab
-  badge are complete. Address Colab problems if reported.
-- The instructor has decided the intended scope, purpose, and placement of
-  tensors in MATH 332.
-- The decision is recorded in the appropriate durable project file; any
-  approved student-facing addition is implemented, rendered, and inspected,
-  or the idea is explicitly deferred.
+- The instructor has reviewed the determinants companion; local validation
+  and the companion's Colab badge are complete. Address Colab problems if
+  reported.
+- The instructor has reviewed Decks 05 and 06 and identified any revisions
+  needed before they are scheduled.
+- The remaining-semester arc makes the instructional scope hidden inside
+  Decks 05--08 visible and assigns the available meetings without rushing the
+  denser later material.

@@ -5,7 +5,7 @@ deck_title: "{{< meta decks.d06.title >}}"
 deck_short_title: "{{< meta decks.d06.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 4</span>
+  <span class="deck-meta">Structure, bases, and dimension · {{< meta texts.anton.short >}} §§4.1–4.9</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">
@@ -36,10 +36,1110 @@ include-after-body:
 ::: {.column width="58%"}
 <h3>In this deck</h3>
 
-- [General Vector Spaces](#general-vector-spaces)
+::: {style="text-align: center; font-size: 1.03em;"}
+[Choose a basis; reveal coordinates]{.alert}
+:::
+
+$$
+\vct{v}=\sum_{j=1}^n c_j\vct{b}_j
+\quad\Longleftrightarrow\quad
+[\vct{v}]_{\mathcal{B}}
+=\begin{bmatrix}c_1&\cdots&c_n\end{bmatrix}^{\mathsf T}
+$$
+
+::: {.small style="text-align: center;"}
+The vector is intrinsic; its coordinates depend on the chosen basis
+:::
+
+- [From Euclidean Vectors to Vector Spaces](#from-euclidean-vectors-to-vector-spaces)
+- [Subspaces and Span](#subspaces-and-span)
+- [Independence and Bases](#independence-and-bases)
+- [Dimension and Coordinates](#dimension-and-coordinates)
+- [Matrix Spaces and Rank](#matrix-spaces-and-rank)
+- [What the Structure Buys Us](#what-the-structure-buys-us)
 :::
 :::
 
-# General Vector Spaces
+# From Euclidean Vectors to Vector Spaces
 
-Chapter 4 content will be developed in this deck.
+Keep the operations, release the coordinates
+
+- [The previous deck found directions inside solution sets](#the-previous-deck-found-directions-inside-solution-sets)
+- [A vector space starts with objects and two operations](#a-vector-space-starts-with-objects-and-two-operations)
+- [Addition must behave like familiar vector addition](#addition-must-behave-like-familiar-vector-addition)
+- [Scalar multiplication must fit addition](#scalar-multiplication-must-fit-addition)
+- [The axioms force familiar consequences](#the-axioms-force-familiar-consequences)
+- [Vectors need not be coordinate columns](#vectors-need-not-be-coordinate-columns)
+- [The scalar field can change](#the-scalar-field-can-change)
+- [Polynomials form a vector space](#polynomials-form-a-vector-space)
+- [Functions can be vectors](#functions-can-be-vectors)
+- [Affine sets usually fail the zero-vector test](#affine-sets-usually-fail-the-zero-vector-test)
+- [The operations are part of the definition](#the-operations-are-part-of-the-definition)
+
+## The previous deck found directions inside solution sets {#the-previous-deck-found-directions-inside-solution-sets}
+
+For a consistent system $\mat{A}\vct{x}=\vct{b}$,
+
+$$
+\{\text{all solutions}\}
+=\vct{x}_p+\{\vct{z}:\mat{A}\vct{z}=\vct{0}\}
+$$
+
+The homogeneous solutions can be
+
+- added to one another
+- multiplied by scalars
+- kept inside the same solution set
+
+::: {.main-message}
+Deck 06 names the abstract structure shared by every collection with these
+linear operations
+:::
+
+## A vector space starts with objects and two operations {#a-vector-space-starts-with-objects-and-two-operations}
+
+A **real vector space** $V$ consists of
+
+1. a set of objects called vectors
+2. vector addition: $\vct{u}+\vct{v}$
+3. scalar multiplication: $c\vct{v}$ for $c\in\reals$
+
+The operations must produce vectors in $V$ and satisfy the vector-space
+axioms
+
+::: {.key-point}
+The word vector describes algebraic behavior, not the appearance of an object
+:::
+
+## Addition must behave like familiar vector addition {#addition-must-behave-like-familiar-vector-addition}
+
+For all $\vct{u},\vct{v},\vct{w}\in V$,
+
+$$
+\begin{aligned}
+\vct{u}+\vct{v}&\in V &&\text{closure}\\
+\vct{u}+\vct{v}&=\vct{v}+\vct{u} &&\text{commutativity}\\
+(\vct{u}+\vct{v})+\vct{w}&=\vct{u}+(\vct{v}+\vct{w}) &&\text{associativity}\\
+\vct{v}+\vct{0}&=\vct{v} &&\text{zero vector}\\
+\vct{v}+(-\vct{v})&=\vct{0} &&\text{additive inverse}
+\end{aligned}
+$$
+
+The symbol $\vct{0}$ means the zero element of this particular space
+
+## Scalar multiplication must fit addition {#scalar-multiplication-must-fit-addition}
+
+For all $c,d\in\reals$ and $\vct{u},\vct{v}\in V$,
+
+$$
+\begin{aligned}
+c\vct{v}&\in V &&\text{closure}\\
+c(\vct{u}+\vct{v})&=c\vct{u}+c\vct{v}\\
+(c+d)\vct{v}&=c\vct{v}+d\vct{v}\\
+c(d\vct{v})&=(cd)\vct{v}\\
+1\vct{v}&=\vct{v}
+\end{aligned}
+$$
+
+::: {.main-message}
+Linear algebra uses only addition, scalar multiplication, and consequences of
+these rules
+:::
+
+## The axioms force familiar consequences {#the-axioms-force-familiar-consequences}
+
+Every vector space satisfies
+
+$$
+0\vct{v}=\vct{0},
+\qquad
+c\vct{0}=\vct{0},
+\qquad
+(-1)\vct{v}=-\vct{v}
+$$
+
+For example,
+
+$$
+0\vct{v}=(0+0)\vct{v}=0\vct{v}+0\vct{v}
+$$
+
+Adding the inverse of $0\vct{v}$ to both sides gives $0\vct{v}=\vct{0}$
+
+::: {.key-point}
+Once the axioms hold, familiar algebraic manipulations work for every kind of
+vector
+:::
+
+## Vectors need not be coordinate columns {#vectors-need-not-be-coordinate-columns}
+
+::: {.columns}
+::: {.column width="47%"}
+### Familiar examples
+
+- $\reals^n$
+- complex vectors $\mathbb{C}^n$ with complex scalars
+- geometric displacement vectors
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+### New examples
+
+- $m\times n$ matrices
+- polynomials
+- functions on an interval
+- sequences
+:::
+:::
+
+Addition and scalar multiplication are defined object by object
+
+::: {.main-message}
+Different objects can obey the same linear rules
+:::
+
+## The scalar field can change {#the-scalar-field-can-change}
+
+Most of this course uses real scalars, but the same axioms work over any field
+
+In the two-element field
+
+$$
+\mathbb{F}_2=\{0,1\},
+\qquad
+1+1=0
+$$
+
+a vector in $\mathbb{F}_2^n$ is a binary string, and vector operations are
+performed modulo $2$
+
+For example,
+
+$$
+(1,0,1,1)+(1,1,0,1)=(0,1,1,0)
+$$
+
+::: {.key-point}
+Changing the scalar field changes which linear combinations are possible
+:::
+
+::: {.notes}
+This compact extension beyond Anton's real-vector-space treatment provides a
+natural connection to binary linear codes. Return to real scalars for the
+remainder of the deck.
+:::
+
+## Polynomials form a vector space {#polynomials-form-a-vector-space}
+
+Let
+
+$$
+\mathbb{P}_2=\{a_0+a_1t+a_2t^2:a_0,a_1,a_2\in\reals\}
+$$
+
+For $p,q\in\mathbb{P}_2$ and $c\in\reals$, use ordinary polynomial operations:
+
+$$
+(p+q)(t)=p(t)+q(t),
+\qquad
+(cp)(t)=c\,p(t)
+$$
+
+The zero vector is the zero polynomial
+
+$$
+0(t)=0
+$$
+
+::: {.key-point}
+A polynomial is one vector; its coefficients provide one possible coordinate
+description
+:::
+
+## Functions can be vectors {#functions-can-be-vectors}
+
+Let $C[a,b]$ contain all continuous real-valued functions on $[a,b]$
+
+$$
+(f+g)(t)=f(t)+g(t),
+\qquad
+(cf)(t)=c\,f(t)
+$$
+
+The vector-space operations happen pointwise
+
+$$
+(2f-3g)(t)=2f(t)-3g(t)
+$$
+
+Unlike $\reals^n$ and $\mathbb{P}_2$, this space has no finite basis
+
+::: {.main-message}
+Finite-dimensional ideas begin with general vector spaces but require an
+additional finiteness assumption
+:::
+
+## Affine sets usually fail the zero-vector test {#affine-sets-usually-fail-the-zero-vector-test}
+
+Consider the line
+
+$$
+L=\left\{
+\begin{bmatrix}1\\2\end{bmatrix}
+t\begin{bmatrix}3\\1\end{bmatrix}:t\in\reals
+\right\}
+$$
+
+This line does not contain $\vct{0}$, so it cannot be a vector space under the
+usual operations
+
+Its direction set
+
+$$
+W=\left\{t\begin{bmatrix}3\\1\end{bmatrix}:t\in\reals\right\}
+$$
+
+is a vector space
+
+::: {.key-point}
+An affine set is a point plus directions; only the directions form a vector
+space
+:::
+
+## The operations are part of the definition {#the-operations-are-part-of-the-definition}
+
+On $V=\{(x,y):x,y\in\reals\}$, suppose
+
+$$
+(x,y)\mathbin{\boxplus}(u,v)=(x+u-1,y+v-1)
+$$
+
+The usual pair $(0,0)$ is not the zero vector for this addition
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Find the element $\vct{z}$ satisfying $(x,y)\mathbin{\boxplus}\vct{z}=(x,y)$ for every $(x,y)$.
+<span class="exsub">Why must scalar multiplication also be specified before deciding whether these operations define a vector space?</span>
+</span>
+:::
+
+::: {.notes}
+The additive identity is $(1,1)$. The point is not to finish constructing an
+unusual vector space, but to establish that the underlying set alone does not
+determine its vector-space structure.
+:::
+
+# Subspaces and Span
+
+Find smaller vector spaces inside a larger one
+
+- [A subspace inherits its operations](#a-subspace-inherits-its-operations)
+- [One combined test proves the subspace properties](#one-combined-test-proves-the-subspace-properties)
+- [The zero vector is the quickest rejection test](#the-zero-vector-is-the-quickest-rejection-test)
+- [Homogeneous systems produce subspaces](#homogeneous-systems-produce-subspaces)
+- [Span is the subspace generated by chosen vectors](#span-is-the-subspace-generated-by-chosen-vectors)
+- [Spanning polynomials means matching every coefficient](#spanning-polynomials-means-matching-every-coefficient)
+- [A subspace question becomes a closure question](#a-subspace-question-becomes-a-closure-question)
+
+## A subspace inherits its operations {#a-subspace-inherits-its-operations}
+
+A subset $W\subseteq V$ is a **subspace** when $W$ is itself a vector space
+using the addition and scalar multiplication already defined on $V$
+
+Examples in $\reals^3$:
+
+- every line through the origin
+- every plane through the origin
+- $\{\vct{0}\}$ and $\reals^3$
+
+Examples in $\mathbb{P}_3$:
+
+- polynomials of degree at most two
+- polynomials satisfying $p(1)=0$
+
+::: {.key-point}
+A subspace uses the same operations as its ambient space
+:::
+
+## One combined test proves the subspace properties {#one-combined-test-proves-the-subspace-properties}
+
+A nonempty subset $W\subseteq V$ is a subspace if
+
+$$
+c\vct{u}+d\vct{v}\in W
+$$
+
+for every $\vct{u},\vct{v}\in W$ and every $c,d\in\reals$
+
+This one condition gives
+
+- closure under addition by taking $c=d=1$
+- closure under scalar multiplication by taking $d=0$
+- the zero vector by taking $c=d=0$
+- additive inverses by taking $c=-1$ and $d=0$
+
+::: {.main-message}
+Subspaces are exactly the subsets closed under linear combinations
+:::
+
+## The zero vector is the quickest rejection test {#the-zero-vector-is-the-quickest-rejection-test}
+
+For each subset of $\reals^2$, ask first whether $\vct{0}$ belongs
+
+$$
+W_1=\{(x,y):x+2y=0\}
+$$
+
+$$
+W_2=\{(x,y):x+2y=1\}
+$$
+
+$W_1$ passes the zero test and is closed under linear combinations
+
+$W_2$ fails immediately because $(0,0)\notin W_2$
+
+::: {.key-point}
+Homogeneous linear conditions define subspaces; shifted conditions usually
+define affine sets
+:::
+
+## Homogeneous systems produce subspaces {#homogeneous-systems-produce-subspaces}
+
+The **null space** of an $m\times n$ matrix $\mat{A}$ is
+
+$$
+\operatorname{Null}(\mat{A})
+=\{\vct{x}\in\reals^n:\mat{A}\vct{x}=\vct{0}\}
+$$
+
+If $\vct{x},\vct{y}\in\operatorname{Null}(\mat{A})$, then
+
+$$
+\mat{A}(c\vct{x}+d\vct{y})
+=c\mat{A}\vct{x}+d\mat{A}\vct{y}
+=\vct{0}
+$$
+
+By contrast, $\{\vct{x}:\mat{A}\vct{x}=\vct{b}\}$ is generally affine when
+$\vct{b}\ne\vct{0}$
+
+::: {.main-message}
+The null space records every input direction that a matrix sends to zero
+:::
+
+## Span is the subspace generated by chosen vectors {#span-is-the-subspace-generated-by-chosen-vectors}
+
+For vectors $\vct{v}_1,\ldots,\vct{v}_k\in V$,
+
+$$
+\operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}
+=\left\{c_1\vct{v}_1+\cdots+c_k\vct{v}_k:c_i\in\reals\right\}
+$$
+
+The span
+
+- contains the chosen vectors
+- contains every linear combination of them
+- is the smallest subspace containing them
+
+::: {.key-point}
+Span answers a reachability question: which vectors can these generators
+build?
+:::
+
+## Spanning polynomials means matching every coefficient {#spanning-polynomials-means-matching-every-coefficient}
+
+Let
+
+$$
+p_1(t)=1+t,
+\qquad
+p_2(t)=t+t^2,
+\qquad
+p_3(t)=1-t^2
+$$
+
+To decide whether they span $\mathbb{P}_2$, solve
+
+$$
+c_1p_1+c_2p_2+c_3p_3=a_0+a_1t+a_2t^2
+$$
+
+Matching coefficients gives
+
+$$
+\begin{bmatrix}
+1&0&1\\
+1&1&0\\
+0&1&-1
+\end{bmatrix}
+\begin{bmatrix}c_1\\c_2\\c_3\end{bmatrix}
+=
+\begin{bmatrix}a_0\\a_1\\a_2\end{bmatrix}
+$$
+
+The coefficient matrix is singular, so these polynomials do not span
+$\mathbb{P}_2$
+
+## A subspace question becomes a closure question {#a-subspace-question-becomes-a-closure-question}
+
+Let
+
+$$
+W=\{p\in\mathbb{P}_3:p(1)=0\}
+$$
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Show that $W$ is a subspace of $\mathbb{P}_3$.
+<span class="exsub">Start with $p,q\in W$ and $c,d\in\reals$.</span>
+<span class="exsub">Evaluate $(cp+dq)(1)$.</span>
+<span class="exsub">Find three polynomials that span $W$.</span>
+</span>
+:::
+
+::: {.notes}
+Since $p(1)=q(1)=0$, $(cp+dq)(1)=0$. Every polynomial in $W$ factors as
+$(t-1)(a+bt+ct^2)$, so one spanning set is
+$\{t-1,t(t-1),t^2(t-1)\}$.
+:::
+
+# Independence and Bases
+
+Remove redundancy without losing reach
+
+- [Independence means the zero vector has one construction](#independence-means-the-zero-vector-has-one-construction)
+- [A homogeneous coefficient system detects independence](#a-homogeneous-coefficient-system-detects-independence)
+- [Dependence identifies a redundant generator](#dependence-identifies-a-redundant-generator)
+- [A basis balances reach and economy](#a-basis-balances-reach-and-economy)
+- [A basis gives every vector unique coordinates](#a-basis-gives-every-vector-unique-coordinates)
+- [Polynomial coefficients are coordinates in a chosen basis](#polynomial-coefficients-are-coordinates-in-a-chosen-basis)
+- [Elimination extracts a basis from a spanning set](#elimination-extracts-a-basis-from-a-spanning-set)
+- [A basis question combines two tests](#a-basis-question-combines-two-tests)
+
+## Independence means the zero vector has one construction {#independence-means-the-zero-vector-has-one-construction}
+
+Vectors $\vct{v}_1,\ldots,\vct{v}_k$ are **linearly independent** when
+
+$$
+c_1\vct{v}_1+\cdots+c_k\vct{v}_k=\vct{0}
+$$
+
+forces
+
+$$
+c_1=\cdots=c_k=0
+$$
+
+They are **linearly dependent** when some nonzero coefficient vector produces
+the zero vector
+
+::: {.key-point}
+Independence means no generator can be synthesized from the others
+:::
+
+## A homogeneous coefficient system detects independence {#a-homogeneous-coefficient-system-detects-independence}
+
+For coordinate vectors, place the candidates into columns:
+
+$$
+\mat{V}=
+\begin{bmatrix}
+\vct{v}_1&\cdots&\vct{v}_k
+\end{bmatrix}
+$$
+
+Then
+
+$$
+c_1\vct{v}_1+\cdots+c_k\vct{v}_k=\vct{0}
+\quad\Longleftrightarrow\quad
+\mat{V}\vct{c}=\vct{0}
+$$
+
+The columns are independent exactly when every column is a pivot column
+
+::: {.main-message}
+The familiar homogeneous system answers the abstract independence question
+:::
+
+## Dependence identifies a redundant generator {#dependence-identifies-a-redundant-generator}
+
+Suppose
+
+$$
+c_1\vct{v}_1+\cdots+c_k\vct{v}_k=\vct{0}
+$$
+
+and $c_j\ne0$. Then
+
+$$
+\vct{v}_j
+=-\sum_{i\ne j}\frac{c_i}{c_j}\vct{v}_i
+$$
+
+Removing $\vct{v}_j$ does not change the span
+
+::: {.key-point}
+A dependence relation is a certificate of redundancy
+:::
+
+## A basis balances reach and economy {#a-basis-balances-reach-and-economy}
+
+An ordered list
+
+$$
+\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)
+$$
+
+is a **basis** for $V$ when
+
+1. $\mathcal{B}$ spans $V$
+2. $\mathcal{B}$ is linearly independent
+
+Spanning guarantees existence of coefficients
+
+Independence guarantees uniqueness of coefficients
+
+::: {.main-message}
+A basis builds every vector exactly once
+:::
+
+## A basis gives every vector unique coordinates {#a-basis-gives-every-vector-unique-coordinates}
+
+If $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ is a basis, then every
+$\vct{v}\in V$ has a unique representation
+
+$$
+\vct{v}=c_1\vct{b}_1+\cdots+c_n\vct{b}_n
+$$
+
+The **coordinate vector of $\vct{v}$ relative to $\mathcal{B}$** is
+
+$$
+[\vct{v}]_{\mathcal{B}}
+=\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix}
+$$
+
+::: {.key-point}
+Coordinates depend on the basis; the vector does not
+:::
+
+## Polynomial coefficients are coordinates in a chosen basis {#polynomial-coefficients-are-coordinates-in-a-chosen-basis}
+
+For the standard polynomial basis
+
+$$
+\mathcal{E}=(1,t,t^2)
+$$
+
+the polynomial $p(t)=2-3t+5t^2$ has coordinates
+
+$$
+[p]_{\mathcal{E}}
+=\begin{bmatrix}2\\-3\\5\end{bmatrix}
+$$
+
+For another basis, the same polynomial has another coordinate vector
+
+::: {.main-message}
+Choosing a basis converts abstract vectors into coordinate columns
+:::
+
+## Elimination extracts a basis from a spanning set {#elimination-extracts-a-basis-from-a-spanning-set}
+
+For vectors in $\reals^m$:
+
+1. place the spanning vectors into the columns of a matrix
+2. row reduce
+3. identify the pivot columns
+4. keep the corresponding columns of the original matrix
+
+Row operations preserve dependence relations among columns but change the
+columns themselves
+
+::: {.key-point}
+Use the reduced matrix to locate pivots; take the basis vectors from the
+original matrix
+:::
+
+## A basis question combines two tests {#a-basis-question-combines-two-tests}
+
+In $\mathbb{P}_2$, consider
+
+$$
+\mathcal{B}=(1+t,\ t+t^2,\ 1+t^2)
+$$
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Decide whether $\mathcal{B}$ is a basis for $\mathbb{P}_2$.
+<span class="exsub">Form the matrix of coefficients relative to $(1,t,t^2)$.</span>
+<span class="exsub">Test its columns for independence.</span>
+<span class="exsub">If it is a basis, find $[2+4t]_{\mathcal{B}}$.</span>
+</span>
+:::
+
+::: {.notes}
+The coefficient matrix is
+$\begin{bmatrix}1&0&1\\1&1&0\\0&1&1\end{bmatrix}$, whose determinant is
+$2$. Thus the list is a basis. Solving gives coordinates $(3,1,-1)$ for
+$2+4t$.
+:::
+
+# Dimension and Coordinates
+
+Count directions and translate between descriptions
+
+- [Dimension counts vectors in any basis](#dimension-counts-vectors-in-any-basis)
+- [Dimension turns two tests into one](#dimension-turns-two-tests-into-one)
+- [The coordinate map preserves linear combinations](#the-coordinate-map-preserves-linear-combinations)
+- [A basis matrix converts coordinates to standard form](#a-basis-matrix-converts-coordinates-to-standard-form)
+- [Change of basis passes through the vector](#change-of-basis-passes-through-the-vector)
+- [Two coordinate systems describe one vector](#two-coordinate-systems-describe-one-vector)
+
+## Dimension counts vectors in any basis {#dimension-counts-vectors-in-any-basis}
+
+Every basis of a finite-dimensional vector space $V$ contains the same number
+of vectors
+
+That number is the **dimension**:
+
+$$
+\dim(V)=n
+$$
+
+Examples:
+
+$$
+\dim(\reals^n)=n,
+\qquad
+\dim(\mathbb{P}_k)=k+1,
+\qquad
+\dim(M_{m\times n})=mn
+$$
+
+::: {.key-point}
+Dimension counts independent directions, not the number of vectors in the
+space
+:::
+
+## Dimension turns two tests into one {#dimension-turns-two-tests-into-one}
+
+Suppose $\dim(V)=n$ and a list contains exactly $n$ vectors in $V$
+
+Then either one of these facts proves the other:
+
+$$
+\text{linearly independent}
+\quad\Longleftrightarrow\quad
+\text{spans }V
+$$
+
+More generally,
+
+- more than $n$ vectors must be dependent
+- fewer than $n$ vectors cannot span $V$
+- every independent list can be extended to a basis
+- every spanning list can be reduced to a basis
+
+::: {.main-message}
+Knowing the dimension can cut a basis proof in half
+:::
+
+## The coordinate map preserves linear combinations {#the-coordinate-map-preserves-linear-combinations}
+
+For a basis $\mathcal{B}$ of an $n$-dimensional vector space, define
+
+$$
+\vct{v}\longmapsto[\vct{v}]_{\mathcal{B}}\in\reals^n
+$$
+
+Then
+
+$$
+[c\vct{u}+d\vct{v}]_{\mathcal{B}}
+=c[\vct{u}]_{\mathcal{B}}+d[\vct{v}]_{\mathcal{B}}
+$$
+
+The coordinate map is one-to-one and onto
+
+::: {.key-point}
+Every $n$-dimensional real vector space has the same linear structure as
+$\reals^n$
+:::
+
+## A basis matrix converts coordinates to standard form {#a-basis-matrix-converts-coordinates-to-standard-form}
+
+For a basis $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ of $\reals^n$, form
+
+$$
+\mat{P}_{\mathcal{B}}
+=\begin{bmatrix}\vct{b}_1&\cdots&\vct{b}_n\end{bmatrix}
+$$
+
+Then
+
+$$
+\vct{x}=\mat{P}_{\mathcal{B}}[\vct{x}]_{\mathcal{B}},
+\qquad
+[\vct{x}]_{\mathcal{B}}=\mat{P}_{\mathcal{B}}^{-1}\vct{x}
+$$
+
+::: {.main-message}
+The columns of a basis matrix tell what the new coordinate axes mean in
+standard coordinates
+:::
+
+## Change of basis passes through the vector {#change-of-basis-passes-through-the-vector}
+
+Let $\mathcal{B}$ and $\mathcal{C}$ be bases of $\reals^n$
+
+$$
+\vct{x}=\mat{P}_{\mathcal{B}}[\vct{x}]_{\mathcal{B}}
+=\mat{P}_{\mathcal{C}}[\vct{x}]_{\mathcal{C}}
+$$
+
+Therefore
+
+$$
+[\vct{x}]_{\mathcal{C}}
+=\underbrace{\mat{P}_{\mathcal{C}}^{-1}\mat{P}_{\mathcal{B}}}_{
+\text{transition from }\mathcal{B}\text{ to }\mathcal{C}}
+[\vct{x}]_{\mathcal{B}}
+$$
+
+::: {.key-point}
+Changing coordinates changes the description, not the vector
+:::
+
+## Two coordinate systems describe one vector {#two-coordinate-systems-describe-one-vector}
+
+Let
+
+$$
+\mathcal{B}=\left(
+\begin{bmatrix}1\\1\end{bmatrix},
+\begin{bmatrix}1\\-1\end{bmatrix}
+\right),
+\qquad
+\mathcal{E}=\left(
+\begin{bmatrix}1\\0\end{bmatrix},
+\begin{bmatrix}0\\1\end{bmatrix}
+\right)
+$$
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>For $\vct{x}=(5,1)^{\mathsf T}$, find $[\vct{x}]_{\mathcal{B}}$.
+<span class="exsub">Write $\mat{P}_{\mathcal{B}}$.</span>
+<span class="exsub">Verify $\vct{x}=\mat{P}_{\mathcal{B}}[\vct{x}]_{\mathcal{B}}$.</span>
+</span>
+:::
+
+::: {.notes}
+$\mat{P}_{\mathcal{B}}=\begin{bmatrix}1&1\\1&-1\end{bmatrix}$ and
+$[\vct{x}]_{\mathcal{B}}=(3,2)^{\mathsf T}$.
+:::
+
+# Matrix Spaces and Rank
+
+One matrix organizes four related subspaces
+
+- [A matrix has four fundamental subspaces](#a-matrix-has-four-fundamental-subspaces)
+- [One reduction exposes the structure](#one-reduction-exposes-the-structure)
+- [Column and row bases come from different matrices](#column-and-row-bases-come-from-different-matrices)
+- [Free variables build a basis for the null space](#free-variables-build-a-basis-for-the-null-space)
+- [Rank-nullity counts inputs](#rank-nullity-counts-inputs)
+- [The four spaces pair through orthogonality](#the-four-spaces-pair-through-orthogonality)
+- [Rank factorization keeps the independent columns and rows](#rank-factorization-keeps-the-independent-columns-and-rows)
+- [One matrix supports several basis questions](#one-matrix-supports-several-basis-questions)
+
+## A matrix has four fundamental subspaces {#a-matrix-has-four-fundamental-subspaces}
+
+For an $m\times n$ matrix $\mat{A}$:
+
+| Space | Definition | Lives in |
+|---|---|---|
+| $\operatorname{Col}(\mat{A})$ | span of the columns of $\mat{A}$ | $\reals^m$ |
+| $\operatorname{Null}(\mat{A})$ | solutions of $\mat{A}\vct{x}=\vct{0}$ | $\reals^n$ |
+| $\operatorname{Row}(\mat{A})$ | span of the rows of $\mat{A}$ | $\reals^n$ |
+| $\operatorname{Null}(\mat{A}^{\mathsf T})$ | solutions of $\mat{A}^{\mathsf T}\vct{y}=\vct{0}$ | $\reals^m$ |
+
+::: {.key-point}
+Always identify the ambient space before comparing subspaces
+:::
+
+## One reduction exposes the structure {#one-reduction-exposes-the-structure}
+
+Use one example throughout:
+
+$$
+\mat{A}=
+\begin{bmatrix}
+1&2&1&3\\
+2&4&0&4\\
+1&2&2&4
+\end{bmatrix}
+\quad\longrightarrow\quad
+\mat{R}=
+\begin{bmatrix}
+1&2&0&2\\
+0&0&1&1\\
+0&0&0&0
+\end{bmatrix}
+$$
+
+Pivot columns: $1$ and $3$
+
+Free variables: $x_2$ and $x_4$
+
+$$
+\operatorname{rank}(\mat{A})=2
+$$
+
+## Column and row bases come from different matrices {#column-and-row-bases-come-from-different-matrices}
+
+A basis for the column space uses pivot columns of the **original** matrix:
+
+$$
+\left\{
+\begin{bmatrix}1\\2\\1\end{bmatrix},
+\begin{bmatrix}1\\0\\2\end{bmatrix}
+\right\}
+$$
+
+A basis for the row space uses nonzero rows of the **reduced** matrix:
+
+$$
+\left\{
+\begin{bmatrix}1&2&0&2\end{bmatrix},
+\begin{bmatrix}0&0&1&1\end{bmatrix}
+\right\}
+$$
+
+::: {.key-point}
+Row reduction preserves the row space but generally changes the column space
+:::
+
+## Free variables build a basis for the null space {#free-variables-build-a-basis-for-the-null-space}
+
+From $\mat{R}\vct{x}=\vct{0}$,
+
+$$
+x_1=-2x_2-2x_4,
+\qquad
+x_3=-x_4
+$$
+
+Therefore
+
+$$
+\vct{x}
+=x_2\begin{bmatrix}-2\\1\\0\\0\end{bmatrix}
++x_4\begin{bmatrix}-2\\0\\-1\\1\end{bmatrix}
+$$
+
+and
+
+$$
+\dim\operatorname{Null}(\mat{A})=2
+$$
+
+::: {.main-message}
+Each free variable contributes one independent null-space direction
+:::
+
+## Rank-nullity counts inputs {#rank-nullity-counts-inputs}
+
+For an $m\times n$ matrix $\mat{A}$,
+
+$$
+\operatorname{rank}(\mat{A})
++\operatorname{nullity}(\mat{A})=n
+$$
+
+In the example,
+
+$$
+2+2=4
+$$
+
+Interpretation:
+
+- rank counts independent input directions that remain visible
+- nullity counts independent input directions sent to zero
+
+::: {.key-point}
+Rank-nullity accounts for every direction in the input space
+:::
+
+## The four spaces pair through orthogonality {#the-four-spaces-pair-through-orthogonality}
+
+For $\mat{A}\in\reals^{m\times n}$,
+
+$$
+\operatorname{Row}(\mat{A})^\perp
+=\operatorname{Null}(\mat{A})
+\qquad\text{inside }\reals^n
+$$
+
+$$
+\operatorname{Col}(\mat{A})^\perp
+=\operatorname{Null}(\mat{A}^{\mathsf T})
+\qquad\text{inside }\reals^m
+$$
+
+The dimensions balance:
+
+$$
+\dim\operatorname{Row}(\mat{A})=\dim\operatorname{Col}(\mat{A})=r
+$$
+
+$$
+\dim\operatorname{Null}(\mat{A})=n-r,
+\qquad
+\dim\operatorname{Null}(\mat{A}^{\mathsf T})=m-r
+$$
+
+## Rank factorization keeps the independent columns and rows {#rank-factorization-keeps-the-independent-columns-and-rows}
+
+For the example, take the pivot columns of $\mat{A}$ and the nonzero rows of
+$\mat{R}$:
+
+$$
+\mat{C}=
+\begin{bmatrix}
+1&1\\
+2&0\\
+1&2
+\end{bmatrix},
+\qquad
+\mat{R}_r=
+\begin{bmatrix}
+1&2&0&2\\
+0&0&1&1
+\end{bmatrix}
+$$
+
+Then
+
+$$
+\mat{A}=\mat{C}\mat{R}_r
+$$
+
+::: {.key-point}
+Rank factorization separates a basis for the column space from the coefficients
+that rebuild every column
+:::
+
+## One matrix supports several basis questions {#one-matrix-supports-several-basis-questions}
+
+For the example matrix $\mat{A}$:
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Complete the picture of its four fundamental subspaces.
+<span class="exsub">Verify that the two displayed null-space vectors satisfy $\mat{A}\vct{x}=\vct{0}$.</span>
+<span class="exsub">Find a basis for $\operatorname{Null}(\mat{A}^{\mathsf T})$.</span>
+<span class="exsub">Check that this vector is perpendicular to both column-space basis vectors.</span>
+</span>
+:::
+
+::: {.notes}
+A basis for $\operatorname{Null}(\mat{A}^{\mathsf T})$ is
+$\{(-4,1,2)^{\mathsf T}\}$. It is orthogonal to the original pivot columns
+$(1,2,1)^{\mathsf T}$ and $(1,0,2)^{\mathsf T}$.
+:::
+
+# What the Structure Buys Us
+
+Separate vectors from their coordinate descriptions
+
+- [A basis turns an abstract problem into a matrix problem](#a-basis-turns-an-abstract-problem-into-a-matrix-problem)
+- [A well-chosen basis can simplify an operator](#a-well-chosen-basis-can-simplify-an-operator)
+
+## A basis turns an abstract problem into a matrix problem {#a-basis-turns-an-abstract-problem-into-a-matrix-problem}
+
+Suppose $T:V\to W$ preserves linear combinations:
+
+$$
+T(c\vct{u}+d\vct{v})=cT(\vct{u})+dT(\vct{v})
+$$
+
+Choose a basis $\mathcal{B}$ for $V$ and a basis $\mathcal{C}$ for $W$
+
+Then some matrix $\mat{M}$ satisfies
+
+$$
+[T(\vct{v})]_{\mathcal{C}}
+=\mat{M}[\vct{v}]_{\mathcal{B}}
+$$
+
+::: {.main-message}
+Matrices are coordinate representations of linear transformations
+:::
+
+## A well-chosen basis can simplify an operator {#a-well-chosen-basis-can-simplify-an-operator}
+
+Different bases give different matrices for the same linear transformation
+
+The next deck asks whether a basis can make a square matrix diagonal:
+
+$$
+\mat{P}^{-1}\mat{A}\mat{P}
+=
+\begin{bmatrix}
+\lambda_1&&0\\
+&\ddots&\\
+0&&\lambda_n
+\end{bmatrix}
+$$
+
+The basis vectors must be directions whose spans are preserved by $\mat{A}$
+
+::: {.key-point}
+Eigenvectors are basis candidates adapted to the action of a matrix
+:::
+
+# Big Ideas {data-state="goldborder"}
+
+- A vector is any object in a set whose addition and scalar multiplication satisfy the vector-space axioms
+- Subspaces are subsets closed under linear combinations; spans are subspaces generated by chosen vectors
+- Independence removes redundancy, while spanning guarantees reach
+- A basis gives each vector one coordinate description, and dimension counts the vectors in any basis
+- Row reduction reveals bases for the row, column, and null spaces and proves rank-nullity
+- Choosing a basis turns abstract linear operations into matrix computations
+
+# What Comes Next
+
+::: {.columns}
+::: {.column width="47%"}
+<h3>Structure established here</h3>
+
+- vector spaces and subspaces
+- basis and coordinates
+- dimension and rank
+- change of basis
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+<h3>Next questions</h3>
+
+- which directions does a matrix preserve?
+- when do eigenvectors form a basis?
+- when can a matrix be diagonalized?
+- what does the diagonal reveal?
+:::
+:::
+
+::: {.key-point}
+[Next: Eigenvalues and Eigenvectors]({{< meta decks.d07.file >}}) finds bases
+that reveal a matrix's simplest action
+:::

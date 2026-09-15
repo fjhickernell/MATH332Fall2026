@@ -5,7 +5,7 @@ deck_title: "{{< meta decks.d05.title >}}"
 deck_short_title: "{{< meta decks.d05.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} §§3.1–3.5</span>
+  <span class="deck-meta">Points, directions, and affine solution sets · {{< meta texts.anton.short >}} §§3.1–3.5</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">
@@ -36,760 +36,209 @@ include-after-body:
 ::: {.column width="58%"}
 <h3>In this deck</h3>
 
-::: {style="text-align: center; font-size: 1.08em;"}
-[Coordinates become geometry]{.alert}
+::: {style="text-align: center; font-size: 1.03em;"}
+[Separate locations from directions]{.alert}
 :::
 
 \begin{gather*}
-\vct{u}^{\mathsf T}\vct{v}
-=\norm{\vct{u}}\norm{\vct{v}}\cos\theta,
+Q-P=\text{vector},
 \qquad
-\vct{u}=\operatorname{proj}_{\vct{v}}\vct{u}+\vct{r},
-\quad \vct{r}\perp\vct{v}
+P+\vct{v}=\text{point}
 \\
-\vct{x}=\vct{x}_0+t\vct{v},
+\mat{A}\vct{x}=\vct{b}
+\quad\Longrightarrow\quad
+\vct{x}=\vct{x}_p+\vct{z},
 \qquad
-\norm{\vct{u}\mathbin{\times}\vct{v}}
-=\text{parallelogram area}
+\mat{A}\vct{z}=\vct{0}
 \end{gather*}
 
-- [Vectors in $\reals^n$](#vectors-in-rn)
-- [Length, Distance, and Angle](#length-distance-and-angle)
-- [Orthogonality and Projection](#orthogonality-and-projection)
-- [Geometry of Linear Systems](#geometry-of-linear-systems)
-- [Cross Products and Orientation](#cross-products-and-orientation)
+- [Points, Vectors, and Directions](#points-vectors-and-directions)
+- [Solution Sets Have Directions](#solution-sets-have-directions)
+- [Euclidean Tools for Affine Questions](#euclidean-tools-for-affine-questions)
 - [Big Ideas](#big-ideas)
 - [What Comes Next](#what-comes-next)
 :::
 :::
 
-# Vectors in $\reals^n$ {#vectors-in-rn}
+# Points, Vectors, and Directions
 
-Coordinates turn magnitude and direction into algebra
+The same coordinate column can play two different geometric roles
 
-- [One vector has geometric and coordinate descriptions](#one-vector-has-geometric-and-coordinate-descriptions)
-- [Vector operations match geometric actions](#vector-operations-match-geometric-actions)
-- [The standard basis separates coordinate directions](#the-standard-basis-separates-coordinate-directions)
-- [Linear combinations build new directions](#linear-combinations-build-new-directions)
-- [Vectors combine physical effects](#vectors-combine-physical-effects)
-- [Read geometry from coordinates](#read-geometry-from-coordinates)
+- [Why distinguish points from vectors?](#why-distinguish-points-from-vectors)
+- [The operations reveal the roles](#the-operations-reveal-the-roles)
+- [Choosing an origin hides the distinction](#choosing-an-origin-hides-the-distinction)
+- [Lines and planes combine points with directions](#lines-and-planes-combine-points-with-directions)
 
-## One vector has geometric and coordinate descriptions {#one-vector-has-geometric-and-coordinate-descriptions}
+## Why distinguish points from vectors? {#why-distinguish-points-from-vectors}
 
 ::: {.columns}
 ::: {.column width="47%"}
-### Geometric vector
+### Point
 
-- directed line segment
-- [magnitude]{.alert}: how much
-- [direction]{.alert}: which way
-- unchanged when translated without rotating or stretching
+- a [location]{.alert}
+- written $P,Q,\ldots$
+- has no direction or length
+- depends on where the origin is placed when assigned coordinates
 :::
 
 ::: {.column width="6%"}
 :::
 
 ::: {.column width="47%"}
-### Coordinate vector
+### Vector
 
-$$
-\vct{v}=\begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}
-\in\reals^n
-$$
-
-- ordered list of components
-- represented as a column unless stated otherwise
+- a [displacement or direction]{.alert}
+- written $\vct{u},\vct{v},\ldots$
+- can be translated without changing it
+- has length and direction
 :::
 :::
 
-If $P=(p_1,\ldots,p_n)$ and $Q=(q_1,\ldots,q_n)$, then
+$$
+\overrightarrow{PQ}=Q-P
+$$
+
+The distinction separates homogeneous direction spaces from translated
+solution sets
+
+::: {.main-message}
+Points say where; vectors say how to move
+:::
+
+::: {.notes}
+Teaching purpose: coordinate notation makes points and vectors look identical,
+so students may miss why homogeneous solution sets are vector spaces while
+nonhomogeneous solution sets usually are not. Use the physical language first:
+a point is where you are, a vector tells you how to move, and the difference
+between two possible locations is a displacement. Then preview the algebraic
+payoff: differences between solutions of $\mat{A}\vct{x}=\vct{b}$ solve the
+homogeneous system.
+:::
+
+## The operations reveal the roles {#the-operations-reveal-the-roles}
+
+| Operation | Result | Meaning |
+|---|---|---|
+| $Q-P$ | vector | displacement from $P$ to $Q$ |
+| $P+\vct{v}$ | point | move from $P$ by $\vct{v}$ |
+| $\vct{u}+\vct{v}$ | vector | combine displacements |
+| $c\vct{v}$ | vector | scale or reverse a displacement |
+| $P+Q$ | — | no origin-independent geometric meaning |
+
+The expression
+
+$$
+(1-t)P+tQ=P+t(Q-P)
+$$
+
+does have geometric meaning because its coefficients sum to $1$
+
+::: {.key-point}
+Legal operations keep locations and directions from being confused
+:::
+
+## Choosing an origin hides the distinction {#choosing-an-origin-hides-the-distinction}
+
+After choosing an origin $O$, a point $P$ receives the coordinate vector
+
+$$
+\vct{p}=\overrightarrow{OP}
+$$
+
+Then both a point and a vector may be displayed as the same column:
+
+$$
+P\longleftrightarrow
+\vct{p}=\begin{bmatrix}p_1\\\vdots\\p_n\end{bmatrix}
+$$
+
+Moving the origin changes the coordinates of $P$
+
+The displacement between two points does not change:
 
 $$
 \overrightarrow{PQ}=\vct{q}-\vct{p}
-=\begin{bmatrix}q_1-p_1\\\vdots\\q_n-p_n\end{bmatrix}
-$$
-
-## Vector operations match geometric actions {#vector-operations-match-geometric-actions}
-
-For $\vct{u},\vct{v}\in\reals^n$ and $c\in\reals$
-
-$$
-\vct{u}+\vct{v}
-=\begin{bmatrix}u_1+v_1\\\vdots\\u_n+v_n\end{bmatrix},
-\qquad
-c\vct{v}
-=\begin{bmatrix}cv_1\\\vdots\\cv_n\end{bmatrix}
-$$
-
-::: {.columns}
-::: {.column width="47%"}
-### Addition
-
-- place vectors head to tail
-- parallelogram diagonal
-- combine displacements or effects
-:::
-
-::: {.column width="6%"}
-:::
-
-::: {.column width="47%"}
-### Scalar multiplication
-
-- $c>0$: same direction, scaled length
-- $c<0$: reversed direction, scaled length
-- $c=0$: zero vector
-:::
-:::
-
-::: {.key-point}
-Coordinate rules preserve the geometric meaning
-:::
-
-## The standard basis separates coordinate directions {#the-standard-basis-separates-coordinate-directions}
-
-The $j$th [standard basis vector]{.alert}
-
-$$
-\vct{e}_j
-=\begin{bmatrix}0&\cdots&0&1&0&\cdots&0\end{bmatrix}^{\mathsf T}
-$$
-
-Every coordinate vector decomposes uniquely:
-
-$$
-\vct{x}=x_1\vct{e}_1+\cdots+x_n\vct{e}_n
-$$
-
-Example in $\reals^3$
-
-$$
-\begin{bmatrix}2\\-1\\4\end{bmatrix}
-=2\vct{e}_1-\vct{e}_2+4\vct{e}_3
 $$
 
 ::: {.key-point}
-Coordinates are the weights of the standard directions
+Coordinates identify points with vectors only after an origin has been chosen
 :::
 
-## Linear combinations build new directions {#linear-combinations-build-new-directions}
+## Lines and planes combine points with directions {#lines-and-planes-combine-points-with-directions}
 
-A [linear combination]{.alert} of $\vct{v}_1,\ldots,\vct{v}_k$ has the form
+A line needs one point and one nonzero direction:
 
 $$
-c_1\vct{v}_1+\cdots+c_k\vct{v}_k
+L=\{P+t\vct{v}:t\in\reals\}
 $$
 
-Two nonparallel vectors in $\reals^2$ can build every vector in the plane
+A plane needs one point and two independent directions:
 
-Two parallel vectors can build only vectors along one line
+$$
+\Pi=\{P+s\vct{u}+t\vct{v}:s,t\in\reals\}
+$$
 
-::: {.exitem}
-<span class="exbullet">$\exstar$</span>
-<span>
-Can $\vct{b}=\begin{bmatrix}5\\1\end{bmatrix}$ be built from
-$\vct{v}_1=\begin{bmatrix}1\\1\end{bmatrix}$ and
-$\vct{v}_2=\begin{bmatrix}2\\-1\end{bmatrix}$?
+Changing the point on the same line or plane does not change its directions
 
-<span class="exsub">Translate the question into one matrix equation</span>
-<span class="exsub">Interpret the solution coefficients geometrically</span>
-</span>
+Only when the set passes through the origin can its points also be treated as
+a collection of vectors closed under addition and scaling
+
+::: {.key-point}
+Point $+$ directions describes a translated, or [affine]{.alert}, set
+:::
+
+# Solution Sets Have Directions
+
+This is why the point–vector distinction matters in linear algebra
+
+- [Homogeneous systems produce directions](#homogeneous-systems-produce-directions)
+- [Nonhomogeneous systems translate those directions](#nonhomogeneous-systems-translate-those-directions)
+- [Free variables count the directions](#free-variables-count-the-directions)
+- [Read the affine structure from elimination](#read-the-affine-structure-from-elimination)
+
+## Homogeneous systems produce directions {#homogeneous-systems-produce-directions}
+
+The solutions of
+
+$$
+\mat{A}\vct{z}=\vct{0}
+$$
+
+include $\vct{0}$ and are closed under linear combinations:
+
+$$
+\mat{A}\vct{z}_1=\vct{0},
+\quad
+\mat{A}\vct{z}_2=\vct{0}
+\quad\Longrightarrow\quad
+\mat{A}(c_1\vct{z}_1+c_2\vct{z}_2)=\vct{0}
+$$
+
+These solutions are directions that the matrix cannot detect:
+
+$$
+\mat{A}(\vct{x}+\vct{z})=\mat{A}\vct{x}
+$$
+
+::: {.main-message}
+These homogeneous directions form $\operatorname{Null}(\mat{A})$; Deck 06
+develops the null space as a subspace
 :::
 
 ::: {.notes}
-This revisits the column view of matrix multiplication. Formal span, linear
-independence, basis, and dimension belong to Deck 06.
+Deck 06 will verify the vector-space axioms and connect the null space to the
+row and column spaces.
 :::
 
-## Vectors combine physical effects {#vectors-combine-physical-effects}
+## Nonhomogeneous systems translate those directions {#nonhomogeneous-systems-translate-those-directions}
 
-Two forces act on one object:
-
-$$
-\vct{F}_1=\begin{bmatrix}3\\4\end{bmatrix}\text{ N},
-\qquad
-\vct{F}_2=\begin{bmatrix}-1\\2\end{bmatrix}\text{ N}
-$$
-
-Resultant force
-
-$$
-\vct{F}=\vct{F}_1+\vct{F}_2
-=\begin{bmatrix}2\\6\end{bmatrix}\text{ N}
-$$
-
-The components answer algebraic questions; length and direction answer
-geometric questions
-
-$$
-\norm{\vct{F}}=\sqrt{40}=2\sqrt{10}\text{ N},
-\qquad
-\theta=\operatorname{atan2}(6,2)
-$$
-
-::: {.key-point}
-The same vector can be interpreted as displacement, velocity, force, data, or coefficients
-:::
-
-## Read geometry from coordinates {#read-geometry-from-coordinates}
-
-::: {.exitem .lettered}
-<span class="exbullet">$\exstar$</span>
-<span>
-Let $P=(1,-2,3)$, $Q=(4,0,-1)$, and
-$\vct{w}=\begin{bmatrix}2\\1\\-2\end{bmatrix}$
-
-<span class="exsub">Find $\overrightarrow{PQ}$ and $\overrightarrow{QP}$</span>
-<span class="exsub">Find the endpoint of $\vct{w}$ when its initial point is $P$</span>
-<span class="exsub">Express $\overrightarrow{PQ}$ using $\vct{e}_1,\vct{e}_2,\vct{e}_3$</span>
-<span class="exsub">Decide whether $\overrightarrow{PQ}$ and $\vct{w}$ are parallel</span>
-</span>
-:::
-
-# Length, Distance, and Angle
-
-The dot product converts two vectors into geometric information
-
-- [The dot product measures alignment](#the-dot-product-measures-alignment)
-- [The norm measures vector length](#the-norm-measures-vector-length)
-- [Distance is the length of a difference](#distance-is-the-length-of-a-difference)
-- [Cauchy–Schwarz controls every dot product](#cauchy-schwarz-controls-every-dot-product)
-- [The dot product determines angle](#the-dot-product-determines-angle)
-- [Cosine similarity ignores overall scale](#cosine-similarity-ignores-overall-scale)
-- [Compare lengths, distances, and angles](#compare-lengths-distances-and-angles)
-
-## The dot product measures alignment {#the-dot-product-measures-alignment}
-
-Recall the standard dot product on $\reals^n$:
-
-$$
-\vct{u}^{\mathsf T}\vct{v}
-=u_1v_1+\cdots+u_nv_n
-$$
-
-It is
-
-- symmetric: $\vct{u}^{\mathsf T}\vct{v}=\vct{v}^{\mathsf T}\vct{u}$
-- linear in each input
-- positive: $\vct{v}^{\mathsf T}\vct{v}\ge0$
-- definite: $\vct{v}^{\mathsf T}\vct{v}=0$ only when $\vct{v}=\vct{0}$
-
-For $\vct{u}=\begin{bmatrix}1\\2\\-1\end{bmatrix}$ and
-$\vct{v}=\begin{bmatrix}3\\0\\2\end{bmatrix}$,
-
-$$
-\vct{u}^{\mathsf T}\vct{v}=3+0-2=1
-$$
-
-::: {.key-point}
-Positive dot product — net alignment; negative — net opposition; zero — orthogonality
-:::
-
-## The norm measures vector length {#the-norm-measures-vector-length}
-
-The [Euclidean norm]{.alert}
-
-$$
-\norm{\vct{v}}
-=\sqrt{\vct{v}^{\mathsf T}\vct{v}}
-=\sqrt{v_1^2+\cdots+v_n^2}
-$$
-
-A [unit vector]{.alert} has norm $1$
-
-For $\vct{v}\ne\vct{0}$, normalize without changing direction:
-
-$$
-\widehat{\vct{v}}=\frac{\vct{v}}{\norm{\vct{v}}},
-\qquad
-\norm{\widehat{\vct{v}}}=1
-$$
-
-Norm properties
-
-$$
-\norm{\vct{v}}\ge0,
-\qquad
-\norm{c\vct{v}}=\abs{c}\norm{\vct{v}},
-\qquad
-\norm{\vct{u}+\vct{v}}\le\norm{\vct{u}}+\norm{\vct{v}}
-$$
-
-## Distance is the length of a difference {#distance-is-the-length-of-a-difference}
-
-For points represented by $\vct{p},\vct{q}\in\reals^n$
-
-$$
-\operatorname{dist}(\vct{p},\vct{q})
-=\norm{\vct{q}-\vct{p}}
-=\sqrt{\sum_{j=1}^n(q_j-p_j)^2}
-$$
-
-Distance properties
-
-\begin{align*}
-\operatorname{dist}(\vct{p},\vct{q})&\ge0
-&\text{and equals zero exactly when }\vct{p}=\vct{q}
-\\
-\operatorname{dist}(\vct{p},\vct{q})&=\operatorname{dist}(\vct{q},\vct{p})
-&\text{symmetry}
-\\
-\operatorname{dist}(\vct{p},\vct{r})
-&\le \operatorname{dist}(\vct{p},\vct{q})
-+\operatorname{dist}(\vct{q},\vct{r})
-&\text{triangle inequality}
-\end{align*}
-
-::: {.key-point}
-Subtract points to obtain a displacement vector; measure its norm to obtain distance
-:::
-
-## Cauchy–Schwarz controls every dot product {#cauchy-schwarz-controls-every-dot-product}
-
-For all $\vct{u},\vct{v}\in\reals^n$,
-
-$$
-\abs{\vct{u}^{\mathsf T}\vct{v}}
-\le \norm{\vct{u}}\norm{\vct{v}}
-$$
-
-Equality holds exactly when $\vct{u}$ and $\vct{v}$ are linearly dependent
-
-Why the bound matters:
-
-$$
--1\le
-\frac{\vct{u}^{\mathsf T}\vct{v}}
-{\norm{\vct{u}}\norm{\vct{v}}}
-\le1
-\qquad
-(\vct{u},\vct{v}\ne\vct{0})
-$$
-
-::: {.key-point}
-[Cauchy–Schwarz]{.alert} makes the angle formula possible in every $\reals^n$
-:::
-
-::: {.notes}
-One proof considers the nonnegative quadratic
-$\norm{\vct{u}-t\vct{v}}^2$ and requires its discriminant to be nonpositive.
-Develop that proof at the board if time permits.
-:::
-
-## The dot product determines angle {#the-dot-product-determines-angle}
-
-For nonzero vectors, define $0\le\theta\le\pi$ by
-
-$$
-\cos\theta
-=\frac{\vct{u}^{\mathsf T}\vct{v}}
-{\norm{\vct{u}}\norm{\vct{v}}}
-$$
-
-| Dot product | Angle | Geometry |
-|:---:|:---:|:---|
-| $>0$ | $0\le\theta<\pi/2$ | acute; aligned |
-| $=0$ | $\theta=\pi/2$ | orthogonal |
-| $<0$ | $\pi/2<\theta\le\pi$ | obtuse; opposed |
-
-For unit vectors $\widehat{\vct{u}}$ and $\widehat{\vct{v}}$,
-
-$$
-\widehat{\vct{u}}^{\mathsf T}\widehat{\vct{v}}=\cos\theta
-$$
-
-## Cosine similarity ignores overall scale {#cosine-similarity-ignores-overall-scale}
-
-For nonzero data vectors
-
-$$
-\operatorname{cosim}(\vct{x},\vct{y})
-=\frac{\vct{x}^{\mathsf T}\vct{y}}
-{\norm{\vct{x}}\norm{\vct{y}}}
-$$
-
-- near $1$: similar direction
-- near $0$: weak directional relationship
-- near $-1$: opposite direction
-
-Multiplying either vector by a positive scalar leaves cosine similarity unchanged
-
-::: {.columns}
-::: {.column width="47%"}
-### Useful when
-
-- direction or profile matters
-- overall magnitude should be ignored
-:::
-
-::: {.column width="6%"}
-:::
-
-::: {.column width="47%"}
-### Not enough when
-
-- absolute size matters
-- offsets or unequal feature scales distort meaning
-:::
-:::
-
-::: {.key-point}
-Geometry supplies a model; the application decides whether it is appropriate
-:::
-
-## Compare lengths, distances, and angles {#compare-lengths-distances-and-angles}
-
-::: {.exitem .lettered}
-<span class="exbullet">$\exstar$</span>
-<span>
-Let $\vct{u}=\begin{bmatrix}1\\2\\2\end{bmatrix}$ and
-$\vct{v}=\begin{bmatrix}2\\-1\\2\end{bmatrix}$
-
-<span class="exsub">Find $\norm{\vct{u}}$, $\norm{\vct{v}}$, and $\norm{\vct{u}-\vct{v}}$</span>
-<span class="exsub">Find the angle between $\vct{u}$ and $\vct{v}$</span>
-<span class="exsub">Verify Cauchy–Schwarz numerically</span>
-<span class="exsub">Explain which computation measures point separation and which measures directional similarity</span>
-</span>
-:::
-
-# Orthogonality and Projection
-
-Split a vector into a chosen direction and a perpendicular residual
-
-- [Orthogonality makes lengths add by squares](#orthogonality-makes-lengths-add-by-squares)
-- [Projection extracts one directional component](#projection-extracts-one-directional-component)
-- [Projection produces an orthogonal decomposition](#projection-produces-an-orthogonal-decomposition)
-- [The residual gives distance to a line](#the-residual-gives-distance-to-a-line)
-- [A projection is a matrix transformation](#a-projection-is-a-matrix-transformation)
-- [Complementary projections split every vector](#complementary-projections-split-every-vector)
-- [Decompose a vector](#decompose-a-vector)
-
-## Orthogonality makes lengths add by squares {#orthogonality-makes-lengths-add-by-squares}
-
-Vectors $\vct{u}$ and $\vct{v}$ are [orthogonal]{.alert} when
-
-$$
-\vct{u}^{\mathsf T}\vct{v}=0
-$$
-
-Then
-
-\begin{align*}
-\norm{\vct{u}+\vct{v}}^2
-&=(\vct{u}+\vct{v})^{\mathsf T}(\vct{u}+\vct{v})\\
-&=\norm{\vct{u}}^2+2\vct{u}^{\mathsf T}\vct{v}+\norm{\vct{v}}^2\\
-&=\norm{\vct{u}}^2+\norm{\vct{v}}^2
-\end{align*}
-
-::: {.key-point}
-The Pythagorean theorem is a dot-product identity
-:::
-
-## Projection extracts one directional component {#projection-extracts-one-directional-component}
-
-Let $\vct{v}\ne\vct{0}$
-
-The [scalar component]{.alert} of $\vct{u}$ along $\vct{v}$ is
-
-$$
-\operatorname{comp}_{\vct{v}}\vct{u}
-=\frac{\vct{u}^{\mathsf T}\vct{v}}{\norm{\vct{v}}}
-$$
-
-The [vector projection]{.alert} is
-
-$$
-\operatorname{proj}_{\vct{v}}\vct{u}
-=\frac{\vct{u}^{\mathsf T}\vct{v}}
-{\vct{v}^{\mathsf T}\vct{v}}\vct{v}
-$$
-
-If $\widehat{\vct{v}}=\vct{v}/\norm{\vct{v}}$, then
-
-$$
-\operatorname{proj}_{\vct{v}}\vct{u}
-=(\widehat{\vct{v}}^{\mathsf T}\vct{u})\widehat{\vct{v}}
-$$
-
-## Projection produces an orthogonal decomposition {#projection-produces-an-orthogonal-decomposition}
-
-Write
-
-$$
-\vct{u}=\underbrace{\operatorname{proj}_{\vct{v}}\vct{u}}_{\text{parallel to }\vct{v}}
-+\underbrace{\vct{r}}_{\text{orthogonal to }\vct{v}}
-$$
-
-where
-
-$$
-\vct{r}=\vct{u}-\operatorname{proj}_{\vct{v}}\vct{u}
-$$
-
-Check orthogonality:
-
-\begin{align*}
-\vct{v}^{\mathsf T}\vct{r}
-&=\vct{v}^{\mathsf T}\vct{u}
--\vct{v}^{\mathsf T}
-\left(\frac{\vct{u}^{\mathsf T}\vct{v}}
-{\vct{v}^{\mathsf T}\vct{v}}\vct{v}\right)\\
-&=0
-\end{align*}
-
-::: {.key-point}
-Projection chooses the unique point on the line through $\vct{v}$ with a perpendicular residual
-:::
-
-## The residual gives distance to a line {#the-residual-gives-distance-to-a-line}
-
-Line through $\vct{x}_0$ with direction $\vct{v}\ne\vct{0}$:
-
-$$
-L=\{\vct{x}_0+t\vct{v}:t\in\reals\}
-$$
-
-From point $\vct{p}$, first form the displacement $\vct{p}-\vct{x}_0$
-
-Nearest point on the line
-
-$$
-\vct{x}_*=\vct{x}_0
-+\operatorname{proj}_{\vct{v}}(\vct{p}-\vct{x}_0)
-$$
-
-Distance to the line
-
-$$
-\operatorname{dist}(\vct{p},L)
-=\norm{\vct{p}-\vct{x}_*}
-$$
-
-::: {.key-point}
-Nearest means [perpendicular residual]{.alert}
-:::
-
-## A projection is a matrix transformation {#a-projection-is-a-matrix-transformation}
-
-For a unit vector $\vct{q}$, projection onto its line is
-
-$$
-\operatorname{proj}_{\vct{q}}\vct{x}
-=(\vct{q}^{\mathsf T}\vct{x})\vct{q}
-=\underbrace{\vct{q}\vct{q}^{\mathsf T}}_{\mat{P}}\vct{x}
-$$
-
-The projection matrix
-
-$$
-\mat{P}=\vct{q}\vct{q}^{\mathsf T}
-$$
-
-satisfies
-
-$$
-\mat{P}^{\mathsf T}=\mat{P},
-\qquad
-\mat{P}^2=\mat{P}
-$$
-
-::: {.key-point}
-Symmetric — the geometry is orthogonal<br>
-Idempotent — projecting twice changes nothing
-:::
-
-## Complementary projections split every vector {#complementary-projections-split-every-vector}
-
-Projection onto the line through unit $\vct{q}$:
-
-$$
-\mat{P}=\vct{q}\vct{q}^{\mathsf T}
-$$
-
-Projection onto the perpendicular hyperplane:
-
-$$
-\mat{Q}=\mat{I}-\mat{P}
-$$
-
-Every $\vct{x}$ splits as
-
-$$
-\vct{x}=\mat{P}\vct{x}+\mat{Q}\vct{x},
-\qquad
-(\mat{P}\vct{x})^{\mathsf T}(\mat{Q}\vct{x})=0
-$$
-
-and therefore
-
-$$
-\norm{\vct{x}}^2
-=\norm{\mat{P}\vct{x}}^2+\norm{\mat{Q}\vct{x}}^2
-$$
-
-::: {.notes}
-Deck 03 constructed the plane projection $\mat{Q}=\mat{I}-\vct{q}\vct{q}^{\mathsf T}$
-from a unit normal vector. Here it appears as one half of a complementary pair.
-:::
-
-## Decompose a vector {#decompose-a-vector}
-
-::: {.exitem .lettered}
-<span class="exbullet">$\exstar$</span>
-<span>
-Let $\vct{u}=\begin{bmatrix}3\\1\\2\end{bmatrix}$ and
-$\vct{v}=\begin{bmatrix}1\\1\\0\end{bmatrix}$
-
-<span class="exsub">Find the scalar component of $\vct{u}$ along $\vct{v}$</span>
-<span class="exsub">Find $\operatorname{proj}_{\vct{v}}\vct{u}$</span>
-<span class="exsub">Find the orthogonal residual $\vct{r}$</span>
-<span class="exsub">Verify $\vct{v}^{\mathsf T}\vct{r}=0$ and the Pythagorean identity</span>
-</span>
-:::
-
-# Geometry of Linear Systems
-
-Equations, parameters, and vectors describe the same solution set
-
-- [A line is a point plus one direction](#a-line-is-a-point-plus-one-direction)
-- [A plane has parametric and normal descriptions](#a-plane-has-parametric-and-normal-descriptions)
-- [A normal vector converts geometry into an equation](#a-normal-vector-converts-geometry-into-an-equation)
-- [A linear system intersects hyperplanes](#a-linear-system-intersects-hyperplanes)
-- [Every consistent solution set is a translate](#every-consistent-solution-set-is-a-translate)
-- [Pivots and free variables predict geometry](#pivots-and-free-variables-predict-geometry)
-- [Translate elimination into geometry](#translate-elimination-into-geometry)
-
-## A line is a point plus one direction {#a-line-is-a-point-plus-one-direction}
-
-A line through $\vct{x}_0\in\reals^n$ parallel to
-$\vct{v}\ne\vct{0}$:
-
-$$
-\vct{x}=\vct{x}_0+t\vct{v},
-\qquad t\in\reals
-$$
-
-In $\reals^3$
-
-$$
-\begin{bmatrix}x\\y\\z\end{bmatrix}
-=\begin{bmatrix}1\\-2\\3\end{bmatrix}
-+t\begin{bmatrix}2\\1\\-1\end{bmatrix}
-$$
-
-is equivalent to
-
-$$
-x=1+2t,
-\qquad y=-2+t,
-\qquad z=3-t
-$$
-
-::: {.key-point}
-Point $+$ parameter $\times$ direction
-:::
-
-## A plane has parametric and normal descriptions {#a-plane-has-parametric-and-normal-descriptions}
-
-::: {.columns}
-::: {.column width="47%"}
-### Two directions
-
-For nonparallel $\vct{v},\vct{w}\in\reals^3$
-
-$$
-\vct{x}=\vct{x}_0+s\vct{v}+t\vct{w}
-$$
-
-$s,t\in\reals$
-:::
-
-::: {.column width="6%"}
-:::
-
-::: {.column width="47%"}
-### One normal
-
-For $\vct{n}\ne\vct{0}$ perpendicular to the plane
-
-$$
-\vct{n}^{\mathsf T}(\vct{x}-\vct{x}_0)=0
-$$
-
-equivalently $\vct{n}^{\mathsf T}\vct{x}=b$
-:::
-:::
-
-The descriptions agree when
-
-$$
-\vct{n}^{\mathsf T}\vct{v}=0,
-\qquad
-\vct{n}^{\mathsf T}\vct{w}=0,
-\qquad
-b=\vct{n}^{\mathsf T}\vct{x}_0
-$$
-
-## A normal vector converts geometry into an equation {#a-normal-vector-converts-geometry-into-an-equation}
-
-Plane through $\vct{x}_0=(1,0,2)$ with normal
-$\vct{n}=\begin{bmatrix}2\\-1\\3\end{bmatrix}$
-
-Point-normal form
-
-$$
-\begin{bmatrix}2&-1&3\end{bmatrix}
-\left(
-\begin{bmatrix}x\\y\\z\end{bmatrix}
--\begin{bmatrix}1\\0\\2\end{bmatrix}
-\right)=0
-$$
-
-Coordinate form
-
-$$
-2(x-1)-y+3(z-2)=0
-\qquad\Longleftrightarrow\qquad
-2x-y+3z=8
-$$
-
-Distance from $\vct{p}$ to the plane
-
-$$
-\operatorname{dist}(\vct{p},H)
-=\frac{\abs{\vct{n}^{\mathsf T}\vct{p}-b}}{\norm{\vct{n}}}
-$$
-
-## A linear system intersects hyperplanes {#a-linear-system-intersects-hyperplanes}
-
-Write the rows of $\mat{A}$ as $\vct{a}_1^{\mathsf T},\ldots,
-\vct{a}_m^{\mathsf T}$:
+Suppose $\vct{x}_p$ is one particular solution of
 
 $$
 \mat{A}\vct{x}=\vct{b}
-\qquad\Longleftrightarrow\qquad
-\vct{a}_i^{\mathsf T}\vct{x}=b_i,
-\quad i=1,\ldots,m
 $$
 
-Each equation describes a hyperplane with normal $\vct{a}_i$
-
-The solution set is their intersection:
-
-- one point — unique solution
-- a line, plane, or higher-dimensional flat — infinitely many solutions
-- empty intersection — inconsistent system
-
-::: {.key-point}
-Elimination finds the intersection; geometry explains its shape
-:::
-
-## Every consistent solution set is a translate {#every-consistent-solution-set-is-a-translate}
-
-Suppose $\vct{x}_p$ is one particular solution of
-$\mat{A}\vct{x}=\vct{b}$
-
-Every other solution has the form
+Every solution has the form
 
 $$
 \vct{x}=\vct{x}_p+\vct{z},
@@ -797,35 +246,28 @@ $$
 \mat{A}\vct{z}=\vct{0}
 $$
 
-because
+Conversely, the difference between any two solutions is homogeneous:
 
 $$
-\mat{A}(\vct{x}_p+\vct{z})
-=\mat{A}\vct{x}_p+\mat{A}\vct{z}
-=\vct{b}
+\mat{A}\vct{x}_1=\mat{A}\vct{x}_2=\vct{b}
+\quad\Longrightarrow\quad
+\mat{A}(\vct{x}_1-\vct{x}_2)=\vct{0}
 $$
 
-Conversely, the difference of any two solutions satisfies the homogeneous system
-
-::: {.key-point}
-Consistent solution set $=$ one particular point $+$ all homogeneous directions
+::: {.main-message}
+Solution set $=$ one solution point $+$ all homogeneous directions
 :::
 
-::: {.notes}
-Deck 06 will name the homogeneous directions the null space and explain why
-they form a subspace.
-:::
-
-## Pivots and free variables predict geometry {#pivots-and-free-variables-predict-geometry}
+## Free variables count the directions {#free-variables-count-the-directions}
 
 For a consistent system with $n$ unknowns
 
-| Free variables | Typical solution geometry in $\reals^n$ |
+| Free variables | Solution geometry |
 |:---:|:---|
 | $0$ | one point |
-| $1$ | line |
-| $2$ | plane |
-| $k$ | $k$-parameter flat |
+| $1$ | affine line |
+| $2$ | affine plane |
+| $k$ | $k$-parameter affine set |
 
 If there are $r$ pivot variables, then there are
 
@@ -836,15 +278,15 @@ $$
 free variables
 
 ::: {.key-point}
-The number of free parameters is the dimension of the solution directions
+The number of free parameters is the dimension of the homogeneous directions
 :::
 
 ::: {.notes}
-State this as geometric preview. Rank, nullity, and the fundamental spaces are
-developed formally in Deck 06.
+This is a preview. Deck 06 will define basis and dimension; later work will
+name the relationship rank–nullity.
 :::
 
-## Translate elimination into geometry {#translate-elimination-into-geometry}
+## Read the affine structure from elimination {#read-the-affine-structure-from-elimination}
 
 Consider
 
@@ -853,46 +295,95 @@ x+y+z&=2\\
 x-y+z&=0
 \end{align*}
 
-Elimination gives $y=1$ and $x+z=1$
+Elimination gives $y=1$ and $x+z=1$, hence
 
 $$
 \vct{x}
-=\begin{bmatrix}1\\1\\0\end{bmatrix}
-+t\begin{bmatrix}-1\\0\\1\end{bmatrix}
+=\underbrace{\begin{bmatrix}1\\1\\0\end{bmatrix}}_{\text{one solution point}}
++t\underbrace{\begin{bmatrix}-1\\0\\1\end{bmatrix}}_{\text{homogeneous direction}}
 $$
 
-The direction vector is perpendicular to both row normals:
-
-$$
-\begin{bmatrix}1\\1\\1\end{bmatrix}^{\mathsf T}
-\begin{bmatrix}-1\\0\\1\end{bmatrix}=0,
-\qquad
-\begin{bmatrix}1\\-1\\1\end{bmatrix}^{\mathsf T}
-\begin{bmatrix}-1\\0\\1\end{bmatrix}=0
-$$
-
-::: {.exitem}
+::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
-<span>
-Explain why the intersection of the two planes is parallel to this direction
+<span>Interpret this solution set
+<span class="exsub">Verify that the direction satisfies $\mat{A}\vct{z}=\vct{0}$</span>
+<span class="exsub">Explain why adding $t\vct{z}$ leaves both equations unchanged</span>
+<span class="exsub">Decide whether the solution line passes through the origin</span>
 </span>
 :::
 
-# Cross Products and Orientation
+# Euclidean Tools for Affine Questions
 
-In $\reals^3$, two directions determine a perpendicular direction and an area
+Reuse earlier geometry to compare points and construct directions
 
-- [The cross product produces a perpendicular vector](#the-cross-product-produces-a-perpendicular-vector)
-- [Order determines orientation](#order-determines-orientation)
-- [Cross-product magnitude is parallelogram area](#cross-product-magnitude-is-parallelogram-area)
-- [The scalar triple product is signed volume](#the-scalar-triple-product-is-signed-volume)
-- [Cross products build plane normals](#cross-products-build-plane-normals)
-- [Torque combines leverage and force](#torque-combines-leverage-and-force)
-- [Use the cross product geometrically](#use-the-cross-product-geometrically)
+- [Recall what the dot product already gives us](#recall-what-the-dot-product-already-gives-us)
+- [Projection finds the nearest point on an affine line](#projection-finds-the-nearest-point-on-an-affine-line)
+- [A special 3D operation: the cross product](#the-cross-product-combines-two-directions)
+- [Point differences build a plane normal](#point-differences-build-a-plane-normal)
+- [The triple product reconnects to determinants](#the-triple-product-reconnects-to-determinants)
 
-## The cross product produces a perpendicular vector {#the-cross-product-produces-a-perpendicular-vector}
+## Recall what the dot product already gives us {#recall-what-the-dot-product-already-gives-us}
 
-For $\vct{u},\vct{v}\in\reals^3$
+[Deck 01 introduced the dot product]({{< meta decks.d01.file >}}#what-the-dot-product-reveals)
+as the geometry on $\reals^n$
+
+We now use only these consequences:
+
+\begin{align*}
+\vct{u}^{\mathsf T}\vct{v}=0
+&\quad\Longleftrightarrow\quad
+\vct{u}\perp\vct{v}\\
+\norm{\vct{v}}
+&=\sqrt{\vct{v}^{\mathsf T}\vct{v}}\\
+\operatorname{dist}(P,Q)
+&=\norm{\vct{q}-\vct{p}}
+\end{align*}
+
+Notice the roles in the last line:
+
+$$
+\underbrace{Q-P}_{\text{vector}}
+\quad\longrightarrow\quad
+\underbrace{\norm{\vct{q}-\vct{p}}}_{\text{distance between points}}
+$$
+
+::: {.key-point}
+No new dot-product theory—only a tool for studying directions and differences
+:::
+
+## Projection finds the nearest point on an affine line {#projection-finds-the-nearest-point-on-an-affine-line}
+
+Let
+
+$$
+L=\{P+t\vct{v}:t\in\reals\},
+\qquad \vct{v}\ne\vct{0}
+$$
+
+To compare another point $Q$ with $L$, first form the displacement
+
+$$
+\overrightarrow{PQ}=\vct{q}-\vct{p}
+$$
+
+Project that vector onto the line direction:
+
+$$
+\vct{x}_*
+=\vct{p}
++\frac{(\vct{q}-\vct{p})^{\mathsf T}\vct{v}}
+{\vct{v}^{\mathsf T}\vct{v}}\vct{v}
+$$
+
+The result $\vct{x}_*$ represents the point of $L$ nearest to $Q$
+
+::: {.key-point}
+Subtract points, project the resulting vector, then add the displacement back to a point
+:::
+
+## A special 3D operation: the cross product {#the-cross-product-combines-two-directions}
+
+For $\vct{u},\vct{v}\in\reals^3$, define
 
 $$
 \vct{u}\mathbin{\times}\vct{v}
@@ -903,7 +394,7 @@ u_1v_2-u_2v_1
 \end{bmatrix}
 $$
 
-Its defining geometry:
+The result is perpendicular to both inputs:
 
 $$
 \vct{u}^{\mathsf T}(\vct{u}\mathbin{\times}\vct{v})=0,
@@ -911,174 +402,122 @@ $$
 \vct{v}^{\mathsf T}(\vct{u}\mathbin{\times}\vct{v})=0
 $$
 
-For $\vct{e}_1$ and $\vct{e}_2$,
-
-$$
-\vct{e}_1\mathbin{\times}\vct{e}_2=\vct{e}_3
-$$
-
-::: {.key-point}
-Two input vectors in $\reals^3$ produce a vector perpendicular to both
-:::
-
-## Order determines orientation {#order-determines-orientation}
-
-The cross product is [not commutative]{.alert}:
-
-$$
-\vct{v}\mathbin{\times}\vct{u}
-=-(\vct{u}\mathbin{\times}\vct{v})
-$$
-
-Right-hand rule
-
-- curl fingers from $\vct{u}$ toward $\vct{v}$ through the smaller angle
-- thumb points along $\vct{u}\mathbin{\times}\vct{v}$
-
-Cyclic standard-basis products
-
-$$
-\vct{e}_1\mathbin{\times}\vct{e}_2=\vct{e}_3,
-\qquad
-\vct{e}_2\mathbin{\times}\vct{e}_3=\vct{e}_1,
-\qquad
-\vct{e}_3\mathbin{\times}\vct{e}_1=\vct{e}_2
-$$
-
-Reverse either order to reverse the sign
-
-## Cross-product magnitude is parallelogram area {#cross-product-magnitude-is-parallelogram-area}
-
-If $\theta$ is the angle between $\vct{u}$ and $\vct{v}$, then
+Its magnitude is parallelogram area, and reversing the inputs reverses its direction:
 
 $$
 \norm{\vct{u}\mathbin{\times}\vct{v}}
-=\norm{\vct{u}}\norm{\vct{v}}\sin\theta
-$$
-
-Base times perpendicular height
-
-$$
-\underbrace{\norm{\vct{u}}}_{\text{base}}
-\underbrace{\norm{\vct{v}}\sin\theta}_{\text{height}}
-$$
-
-Triangle area
-
-$$
-\frac12\norm{\vct{u}\mathbin{\times}\vct{v}}
-$$
-
-The area is zero exactly when the vectors are parallel or one is zero
-
-::: {.key-point}
-Dot product measures alignment; cross-product magnitude measures perpendicular spread
-:::
-
-## The scalar triple product is signed volume {#the-scalar-triple-product-is-signed-volume}
-
-For $\vct{u},\vct{v},\vct{w}\in\reals^3$
-
-$$
-\vct{u}^{\mathsf T}(\vct{v}\mathbin{\times}\vct{w})
-=\det\begin{bmatrix}\vct{u}&\vct{v}&\vct{w}\end{bmatrix}
-$$
-
-Absolute value — volume of the parallelepiped
-
-Sign — orientation of the ordered triple
-
-Zero — the three vectors lie in one plane
-
-::: {.key-point}
-The cross product reconnects Chapter 3 geometry to the determinant
-:::
-
-## Cross products build plane normals {#cross-products-build-plane-normals}
-
-Three noncollinear points $P,Q,R\in\reals^3$ determine a plane
-
-Two directions in the plane:
-
-$$
-\vct{u}=\overrightarrow{PQ},
+=\norm{\vct{u}}\norm{\vct{v}}\sin\theta,
 \qquad
-\vct{v}=\overrightarrow{PR}
+\vct{v}\mathbin{\times}\vct{u}=-(\vct{u}\mathbin{\times}\vct{v})
 $$
 
-A normal vector:
+::: {.key-point}
+The ordinary cross product is a special operation on two vectors in $\reals^3$
+:::
+
+The wedge product belongs to
+[exterior algebra](https://en.wikipedia.org/wiki/Exterior_algebra), a part of
+multilinear algebra that generalizes oriented areas, volumes, determinants,
+and the three-dimensional cross product.
+
+::: {.notes}
+The natural generalization in other dimensions is the exterior, or wedge,
+product. It records the oriented parallelogram determined by two vectors, but
+its output is a bivector rather than another ordinary vector. In three
+dimensions, perpendicularity identifies that oriented area with the vector
+$\vct{u}\mathbin{\times}\vct{v}$. There is also an exceptional vector cross
+product in dimension seven, but it is outside the scope of this course.
+:::
+
+## Point differences build a plane normal {#point-differences-build-a-plane-normal}
+
+For three noncollinear points $P,Q,R\in\reals^3$, first form two directions:
 
 $$
-\vct{n}=\vct{u}\mathbin{\times}\vct{v}
+\vct{u}=\overrightarrow{PQ}=\vct{q}-\vct{p},
+\qquad
+\vct{v}=\overrightarrow{PR}=\vct{r}-\vct{p}
 $$
 
-Plane equation:
+Their cross product is a normal vector:
+
+$$
+\vct{n}=\vct{u}\mathbin{\times}\vct{v},
+\qquad
+\vct{n}^{\mathsf T}\vct{u}
+=\vct{n}^{\mathsf T}\vct{v}=0
+$$
+
+The plane is therefore
 
 $$
 \vct{n}^{\mathsf T}(\vct{x}-\vct{p})=0
 $$
 
 ::: {.key-point}
-Two in-plane directions $\longrightarrow$ one perpendicular normal $\longrightarrow$ one plane equation
+The cross product is a useful three-dimensional construction, not part of the general vector-space structure
 :::
 
-## Torque combines leverage and force {#torque-combines-leverage-and-force}
+## The triple product reconnects to determinants {#the-triple-product-reconnects-to-determinants}
 
-Force $\vct{F}$ applied at position $\vct{r}$ relative to a pivot produces torque
-
-$$
-\vct{\tau}=\vct{r}\mathbin{\times}\vct{F}
-$$
-
-Magnitude
+For vectors $\vct{u},\vct{v},\vct{w}\in\reals^3$,
 
 $$
-\norm{\vct{\tau}}
-=\norm{\vct{r}}\norm{\vct{F}}\sin\theta
+\vct{u}^{\mathsf T}(\vct{v}\mathbin{\times}\vct{w})
+=\det\begin{bmatrix}\vct{u}&\vct{v}&\vct{w}\end{bmatrix}
 $$
 
-- only the component of force perpendicular to the lever arm turns the object
-- direction gives the rotation axis by the right-hand rule
-- zero torque when force acts along the lever arm
+- absolute value — parallelepiped volume
+- sign — orientation of the ordered directions
+- zero — the directions lie in one plane
+
+Point coordinates enter only through differences such as
+
+$$
+\overrightarrow{PQ},\quad
+\overrightarrow{PR},\quad
+\overrightarrow{PS}
+$$
 
 ::: {.key-point}
-Cross products package size and oriented perpendicular direction together
-:::
-
-## Use the cross product geometrically {#use-the-cross-product-geometrically}
-
-::: {.exitem .lettered}
-<span class="exbullet">$\exstar$</span>
-<span>
-Let $P=(1,0,0)$, $Q=(2,1,0)$, and $R=(0,1,2)$
-
-<span class="exsub">Find $\overrightarrow{PQ}\mathbin{\times}\overrightarrow{PR}$</span>
-<span class="exsub">Find the area of triangle $PQR$</span>
-<span class="exsub">Find an equation of the plane through $P,Q,R$</span>
-<span class="exsub">Explain what changes when $Q$ and $R$ are interchanged</span>
-</span>
+Determinants measure the geometry of displacement vectors, independent of where the points are located
 :::
 
 # Big Ideas {data-state="goldborder"}
 
-- A vector in $\reals^n$ is both a [coordinate object and a geometric direction]{.alert}
-- Dot products create length, distance, angle, and orthogonality
-- Cauchy–Schwarz and the triangle inequality guarantee that these measurements behave geometrically
-- Projection splits a vector into [parallel and perpendicular components]{.alert}; the residual measures nearest-point error
-- A consistent linear system describes one particular point plus all homogeneous directions
-- In $\reals^3$, the cross product supplies an oriented perpendicular direction, area, plane normals, and volume
+- Points are [locations]{.alert}; vectors are displacements or directions
+- Choosing an origin lets both be represented by coordinate columns, but does not erase their different roles
+- Homogeneous solutions form a vector space of directions through the origin
+- A consistent nonhomogeneous solution set is one solution point plus all homogeneous directions
+- The dot product tests orthogonality and measures point differences
+- Cross products provide a special three-dimensional connection among point differences, normals, and determinants
 
 # What Comes Next
 
-Euclidean geometry gave concrete meaning to vectors in $\reals^n$
+::: {.columns}
+::: {.column width="47%"}
+<h3>Concrete picture</h3>
 
-[General Vector Spaces]({{< meta decks.d06.file >}}) will keep the algebraic rules while allowing new kinds of vectors:
+- vectors in $\reals^n$
+- homogeneous directions
+- point plus directions
+- number of free parameters
+:::
 
-- polynomials
-- functions
-- matrices
-- solution sets of homogeneous systems
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+<h3>Next names</h3>
+
+- vector space
+- subspace and null space
+- span and linear independence
+- basis and dimension
+:::
+:::
 
 ::: {.key-point}
-[Next:]{.alert} [separate the vector-space structure from its coordinates]({{< meta decks.d06.file >}})
+[Next: General Vector Spaces]({{< meta decks.d06.file >}}) names the structure
+that belongs to vectors—and distinguishes it from affine sets made from points
 :::
