@@ -117,6 +117,12 @@ established setup and address reported Colab problems.
 
 ## Questions to resolve
 
+- When next reviewing the MATH 332 lectures, revisit the Deck 05--06
+  motivation for bases and coordinates through infinite solution sets. Use
+  the precise affine-subspace formulation recorded in `notes/TODO-LATER.md`:
+  Deck 05 poses the geometric need, and Deck 06 explains that a basis of the
+  null space supplies adapted directions while its coefficients locate a
+  solution relative to a particular solution.
 - How should the 20 class meetings after Test 1 be allocated among Decks
   05--08, Test 2, exercises, companion notebooks, synthesis, and review? In
   particular, should the large Chapter 5 and 6 units remain Decks 07 and 08 or
