@@ -169,6 +169,15 @@ Then carry out the following steps:
 Use the following workflow whenever a quiz, test, or final-exam detail is
 finalized or materially revised:
 
+Keep every assessment PDF out of the public repository and test archive until
+the assessment has been administered and grading is complete. Never publish the
+student/no-answers copy. After grading, publish only the answer-key PDF with an
+anonymous score distribution, following **Released quiz and test answer keys**
+below. The only exception is a take-home component of a final examination: its
+student/no-answers copy may be published when the instructor intentionally
+releases it to students, but its answers and score distribution remain private
+until grading is complete.
+
 1. Confirm the assessment name, date, duration, coverage, point value, and
    Canvas status. Leave unresolved dates and details explicitly marked TBD.
 2. Maintain `pages/quizzes-and-tests.qmd` as the authoritative location for
@@ -421,10 +430,11 @@ Keep all MATH 332 content in this repository.
 
 ## Released quiz and test answer keys
 
-Keep released answer-key PDFs in `assets/tests/current/` and link them from
-`pages/quizzes-and-tests.qmd`. Include the anonymous score summary in the PDF
-when available; keep student names and the private LaTeX source out of the
-public repository. Copy the same released PDF into the `332/` folder of the
+After grading is complete, keep released answer-key PDFs in
+`assets/tests/current/` and link them from `pages/quizzes-and-tests.qmd`.
+Include the anonymous score distribution in the PDF; keep student names and the
+private LaTeX source out of the public repository. Never publish the
+student/no-answers copy. Copy the same released PDF into the `332/` folder of the
 canonical `HickernellTestArchive` checkout. Publish archive changes separately;
 then intentionally advance this course's pinned archive to that published
 commit. Do not update another course's pinned archive merely to add a MATH 332
