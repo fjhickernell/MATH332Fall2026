@@ -72,6 +72,13 @@ details here when they are durable but too specific for `AGENTS.md`.
 
 ### WileyPLUS integration — 2026-09-04
 
+- On September 16, enabled `Wiley Course Resources` in Canvas navigation and
+  verified that it opens the paired Anton course with the eTextbook launch and
+  Practice tab. Its durable Canvas External Tool URL is recorded as
+  `canvas.wiley_resources` in `course-metadata.yml`; use this Canvas route rather
+  than a transient Wiley session URL. The published Welcome page links directly
+  to it, including the first bold required-access statement. The course-wide
+  access announcement is Canvas discussion `105776`.
 - Use Illinois Tech's admin-installed, course-paired `Wiley LTI 1.3`
   integration and the `Wiley Assignments` External Tool in Canvas. Do not
   install the legacy App Center `WileyPLUS (new)` entry or use its Consumer

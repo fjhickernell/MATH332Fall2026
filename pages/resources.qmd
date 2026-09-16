@@ -16,6 +16,15 @@ Purchase single-term access when prompted after launching a WileyPLUS
 assignment in Canvas. WileyPLUS includes the online textbook for the duration
 of the course.
 
+To read the textbook without opening a homework assignment, open
+[Wiley Course Resources in Canvas]({{< meta canvas.wiley_resources >}})
+(also in the Canvas course menu). On the **Course Resources** tab, find **WileyPLUS eTextbook**
+and click **Launch**. You can also expand a chapter and select a section to
+open that part of the textbook. Use the **Practice** tab for additional practice. See
+[Wiley's illustrated access instructions](https://wpsupport.wiley.com/s/article/How-to-Access-the-WileyPLUS-eTextbook-in-Canvas).
+If **Wiley Course Resources** is missing from your course menu, let the
+instructor know.
+
 ### Textbook
 
 Howard Anton, *Elementary Linear Algebra: Applications Version*, 12th
@@ -44,7 +53,7 @@ initial setup and the Notebooks page for validated demonstrations.
 | Resource | Location |
 |:---|:---|
 | Canvas | [MATH 332 course]({{< meta canvas.course >}}) |
-| WileyPLUS | Launch homework assignments through [Canvas]({{< meta canvas.course >}}) |
+| WileyPLUS | [Textbook and study resources]({{< meta canvas.wiley_resources >}}); launch homework assignments through [Canvas]({{< meta canvas.course >}}) |
 | Math Tutoring Center | Fall 2026 tutoring is available in **RE 129** and online. Enrolled students can find the current tutoring schedule and Zoom link in [Canvas]({{< meta canvas.course >}}) after signing in. |
 | Course repository | [MATH332Fall2026 on GitHub](https://github.com/fjhickernell/MATH332Fall2026) |
 | Repository setup | [Accessing the Course Repository](../classlib/classlib/quarto/pages/git-clone-update-with-submodules.qmd) |

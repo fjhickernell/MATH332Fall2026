@@ -31,6 +31,14 @@ numerical computation, symbolic computation, and experimentation.
   textbook for the duration of the course, so a separate printed copy is
   optional. See [Resources](pages/resources.qmd) for details.
 
+To read the online textbook without opening a homework assignment, open
+[Wiley Course Resources in Canvas]({{< meta canvas.wiley_resources >}}),
+select **Course Resources**, and click **Launch** beside
+**WileyPLUS eTextbook**. Use the **Practice** tab for additional practice. See
+[Wiley's illustrated access instructions](https://wpsupport.wiley.com/s/article/How-to-Access-the-WileyPLUS-eTextbook-in-Canvas).
+If **Wiley Course Resources** is missing from your course menu, let the
+instructor know.
+
 <details>
 <summary><strong>Recommended resources</strong></summary>
 

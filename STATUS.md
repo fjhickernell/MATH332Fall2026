@@ -96,6 +96,11 @@ Mathematical content should be maintained only in the slides.
   Resources page, and Assignments page.
 - [x] Save and publish the matching required-resource statement on the live
   Canvas Welcome page.
+- [x] Enable Wiley Course Resources in Canvas navigation, verify the Anton
+  textbook and Practice resources, and add its direct Canvas launch link to
+  the published Canvas Welcome page and the website Welcome and Resources sources.
+- [x] Publish the course-wide Canvas announcement explaining the new WileyPLUS
+  textbook and study-resource link (September 16, 2026).
 - [x] Add a public-safe Math Tutoring Center notice to the Resources page and
   link the coordinator-maintained live schedule from the Canvas Welcome page.
 - [x] Schedule Quiz 1 for the last 15 minutes of class on September 10,
