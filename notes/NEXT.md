@@ -2,6 +2,10 @@
 
 ## Current task
 
+Prepare to finish Deck 04 determinants on September 22. September 15 was
+entirely review for Test 1; Deck 05 begins after the determinants continuation,
+with its date still to be decided.
+
 Review the shortened 20-slide Deck 05 Euclidean Vector Spaces bridge and the
 new 52-slide Deck 06 General Vector Spaces draft with the instructor. Deck 05
 now visibly names its homogeneous directions as the null space, while Deck 06
@@ -18,9 +22,7 @@ established setup and address reported Colab problems.
 
 ## Other active and deferred work
 
-- Prepare and print Test 1 for September 17: the full 75-minute class,
-  covering Decks 01--03. This dated Dashboard task remains active alongside
-  the determinants review.
+- Test 1 for September 17 is printed (instructor confirmed September 16).
 - Later projection/rank-factorization material and next-offering Deck 00
   revisions remain deferred in `notes/TODO-LATER.md`.
 - The broader tensor scope and placement discussion is deferred until much
@@ -113,9 +115,14 @@ established setup and address reported Colab problems.
   Decks 01--02. Test 1 is scheduled for September 17 and covers Decks 01--03.
 - Private Test 1 materials are maintained outside this public repository. The
   draft is complete and has been checked for the 75-minute class period;
-  complete the final printing review and print the test.
+  the instructor confirmed printing complete on September 16, 2026.
 
 ## Questions to resolve
+
+- Revisit how to recognize projection and orthogonal-projection matrices,
+  and whether to introduce null spaces earlier to motivate vector spaces,
+  bases, and coordinates. The placement questions and proposed criteria are
+  recorded in `notes/TODO-LATER.md`; no deck changes are yet decided.
 
 - When next reviewing the MATH 332 lectures, revisit the Deck 05--06
   motivation for bases and coordinates through infinite solution sets. Use

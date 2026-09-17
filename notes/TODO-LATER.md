@@ -6,6 +6,32 @@ state why the work was deferred when that context will matter later.
 
 ## Deferred work
 
+- Revisit the placement and motivation of projections, vector spaces, and
+  coordinates during the Decks 05--06 review; the instructor raised these
+  questions again on September 16, 2026. Keep the placement open rather than
+  treating the existing deferred plan as a final decision. Consider naming
+  $\operatorname{Null}(\mat{A})=\{\vct{x}:\mat{A}\vct{x}=\vct{0}\}$
+  early, using closure under linear combinations to motivate a vector space,
+  then extracting independent directions by elimination. Introduce a basis
+  as enough directions to describe every solution uniquely, and coordinates
+  as the coefficients in that description. Define the vector space through
+  its operations and closure before describing it by a chosen basis;
+  coordinates represent its vectors rather than define the space itself.
+- Revisit what certifies a projection matrix in Deck 03's concrete examples
+  versus the later vector-space treatment. For a real square matrix,
+  $\mat{P}^2=\mat{P}$ characterizes a linear projection onto its image along
+  its kernel; adding $\mat{P}^{\mathsf T}=\mat{P}$ characterizes an
+  orthogonal projection. Explain geometrically that projected vectors stay
+  fixed and discarded components go to zero; idempotence alone allows
+  oblique projections. Consider a short early recognition criterion, with
+  the general column-space formula and proof later, once subspaces and
+  orthogonal complements are established. Use
+  $\mat{P}\mat{A}=\mat{A}$ and
+  $\mat{A}^{\mathsf T}(\mat{I}-\mat{P})=\mat{0}$ to show respectively
+  what is preserved and why the residual is orthogonal. The existing
+  full-column-rank and least-squares plan below remains the starting point
+  for this placement discussion.
+
 - When reviewing Decks 05--06, use infinite solution sets of linear systems to
   motivate why bases and coordinates matter. Deck 05 already establishes the
   geometric picture
