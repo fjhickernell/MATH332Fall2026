@@ -92,8 +92,9 @@ Mathematical content should be maintained only in the slides.
 - [x] Publish the Assignment 1 website updates.
 - [x] Prepare Assignment 2's four-question, 20-point WileyPLUS draft and
   unpublished Canvas launch, with September 25 deadline and course notices.
-- [ ] Deploy Assignment 2's course pages, verify live links, and obtain
-  instructor confirmation to enable WileyPLUS and publish Canvas and the announcement.
+- [x] Deploy Assignment 2's course pages, verify live links, enable WileyPLUS,
+  publish Canvas, and post the all-sections announcement (`105900`); verify
+  the assignment and WileyPLUS launch in Canvas Student View.
 - [x] Reconcile the Canvas description and announcement with the individual
   WileyPLUS workflow.
 - [x] Document the minimal-input assignment workflow, the textbook-to-WileyPLUS

@@ -1,0 +1,6 @@
+/* Keep the course schedule dates on one line. */
+#quarto-document-content table th:nth-child(2),
+#quarto-document-content table td:nth-child(2) {
+  min-width: 7rem;
+  white-space: nowrap;
+}
