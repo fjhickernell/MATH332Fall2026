@@ -12,6 +12,9 @@ Mathematical content should be maintained only in the slides.
      support course preparation, verification, and maintenance, and link to it
      from an abbreviated early slide in Deck 00.
 3. [x] Draft the semester schedule without inventing unresolved dates.
+   - [x] Audit all nine August 18–September 15 instructional recordings,
+     reconcile actual schedule coverage, and save the September 22 continuation
+     after the assessment-only September 17 meeting.
 4. [x] Develop Deck 00: Why Linear Algebra? as the teaser and roadmap.
 5. [x] Develop and revise Deck 01: Systems and Matrices in
    `slides/01-systems-and-matrices.qmd`.
