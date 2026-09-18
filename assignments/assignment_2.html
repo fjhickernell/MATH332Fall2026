@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Schedule – MATH 332 — Fall 2026</title>
+<title>Assignment 2: WileyPLUS — Inverses and Determinants – MATH 332 — Fall 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -73,6 +73,355 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+  // Shared semantic notation for MathJax in Quarto RevealJS slides.
+  // A string defines a zero-argument macro; [replacement, n] defines one
+  // with n arguments. Backslashes are escaped for JavaScript strings.
+  // The companion hickernell-latex-macros.tex is not yet synchronized with
+  // this registry; equivalent definitions should eventually share one source.
+  window.MathJax = {
+    startup: {
+      typeset: false,
+      pageReady: () => {
+        const typesetAndLayout = (() => {
+          let busy = false;
+          let queued = false;
+
+          const run = async () => {
+            if (busy) {
+              queued = true;
+              return;
+            }
+            busy = true;
+            queued = false;
+
+            try {
+              await MathJax.typesetPromise();
+              if (window.Reveal && typeof Reveal.layout === "function") {
+                Reveal.layout();
+              }
+            } finally {
+              busy = false;
+              if (queued) {
+                requestAnimationFrame(run);
+              }
+            }
+          };
+
+          return () => requestAnimationFrame(run);
+        })();
+
+        return MathJax.startup.defaultPageReady().then(() => {
+          if (window.Reveal) {
+            Reveal.on("ready", typesetAndLayout);
+            Reveal.on("slidechanged", typesetAndLayout);
+            Reveal.on("fragmentshown", typesetAndLayout);
+            Reveal.on("fragmenthidden", typesetAndLayout);
+          }
+          typesetAndLayout();
+        });
+      }
+    },
+    
+    svg: {
+      mtextInheritFont: true,
+      fontCache: "global"
+    },
+    
+    tex: {
+      macros: {
+
+        // Presentation helpers
+        mathlink: ["\\href{#1}{\\text{\\color{##0f8b8d}{#2}}}", 2],
+        yamlref: ["{\\text{#1}}", 1],
+        frag: ["{\\class{fragment}{#2}}", 2],
+        alert: ["{\\class{alert}{#1}}", 1],
+        alerttext: ["{\\class{alert}{\\text{#1}}}", 1],
+        alerttextsf: ["{\\class{alert}{\\textsf{#1}}}",1],
+        mat: ["{\\mathsf{#1}}", 1],
+        tens: ["{\\mathcal{#1}}", 1],
+        vct: ["{\\boldsymbol{#1}}", 1],
+        notimplies: "\\ \\mathrel{\\not\\!\\!\\!\\Longrightarrow}",
+        convas: ["\\xrightarrow{\\mathsf{a.s.}}", 0],
+        convp:  ["\\xrightarrow{\\Prob}", 0],
+        convd:  ["\\xrightarrow{\\mathsf{d}}", 0],
+
+        nconvas: ["\\mathrel{\\;\\not\\!\\!\\!\\xrightarrow{\\mathsf{a.s.}}}", 0],
+        nconvp:  ["\\mathrel{\\;\\not\\!\\xrightarrow{\\Prob}}", 0],
+        nconvd:  ["\\mathrel{\\;\\not\\!\\xrightarrow{\\mathsf{d}}}", 0],
+
+        asto: ["\\xrightarrow{\\mathsf{a.s.}}", 0],
+        pto:  ["\\xrightarrow{\\Prob}", 0],
+        dto:  ["\\xrightarrow{\\mathsf{d}}", 0],
+
+        // Common mathematical operators
+        success: "{\\operatorname{succ}}",
+        sinc:    "{\\operatorname{sinc}}",
+        sech:    "{\\operatorname{sech}}",
+        csch:    "{\\operatorname{csch}}",
+
+        // Probability and expectation; exercise notation uses exstar below
+        Prob: "{\\mathbb{P}}",
+        Ex:   "{\\mathbb{E}}", // expectation, not exercise
+
+
+        dist:  "{\\operatorname{dist}}",
+        Dsc:  "{\\operatorname{D}}",
+        ESD:  "{\\operatorname{ESD}}",
+        WESD:  "{\\operatorname{WESD}}",
+        Vtn:   "{\\operatorname{V}}",
+        spn:   "{\\operatorname{span}}",
+        sgn:   "{\\operatorname{sgn}}",
+        releff: "{\\operatorname{rel-eff}}",
+        mse:   "{\\operatorname{mse}}",
+        rmse:  "{\\operatorname{rmse}}",
+        rank:  "{\\operatorname{rank}}",
+        erfc:  "{\\operatorname{erfc}}",
+        erf:   "{\\operatorname{erf}}",
+        cov:   "{\\operatorname{cov}}",
+        cost:  "{\\operatorname{cost}}",
+        comp:  "{\\operatorname{comp}}",
+        corr:  "{\\operatorname{corr}}",
+        diag:  "{\\operatorname{diag}}",
+        power: "{\\operatorname{power}}",
+        var:   "{\\operatorname{var}}",
+        opt:   "{\\operatorname{opt}}",
+        brandnew: "{\\operatorname{new}}",
+        std:   "{\\operatorname{std}}",
+        se:    "{\\operatorname{se}}",
+        kurt:  "{\\operatorname{kurt}}",
+        med:   "{\\operatorname{med}}",
+        vol:   "{\\operatorname{vol}}",
+        bias:  "{\\operatorname{bias}}",
+        RR:   "{\\mathcal{R}}",
+        SS:   "{\\operatorname{SS}}",
+        RSS:  "{\\operatorname{RSS}}",
+        SST:  "{\\operatorname{SST}}",
+        SSR:  "{\\operatorname{SSR}}",
+        SSB:  "{\\operatorname{SSB}}",
+        SSW:  "{\\operatorname{SSW}}",
+        MSB:  "{\\operatorname{MSB}}",
+        MSW:  "{\\operatorname{MSW}}",
+
+        // Probability distributions
+        Bern:  "{\\operatorname{Bern}}",
+        Bin:   "{\\operatorname{Bin}}",
+        Unif:  "{\\operatorname{Unif}}",
+        Norm:  "{\\operatorname{Norm}}",
+        Exp:   "{\\operatorname{Exp}}",
+        Gam:   "{\\operatorname{Gamma}}",
+        Pois:  "{\\operatorname{Pois}}",
+        Geom:  "{\\operatorname{Geom}}",
+        Cauchy:"{\\operatorname{Cauchy}}",
+        Laplace:"{\\operatorname{Laplace}}",
+        Beta:  "{\\operatorname{Beta}}",
+        Weibull:"{\\operatorname{Weibull}}",
+        Lognorm:"{\\operatorname{Lognormal}}",
+        GP:     "{\\operatorname{GP}}",
+
+        argmin: ["\\operatorname*{argmin}", 0],
+        argmax: ["\\operatorname*{argmax}", 0],
+        Argmin: ["\\argmin\\limits_{#1}", 1],
+        Argmax: ["\\argmax\\limits_{#1}", 1],
+
+        sign:  "{\\operatorname{sign}}",
+        spann: "{\\operatorname{span}}",
+        cond:  "{\\operatorname{cond}}",
+        trace: "{\\operatorname{trace}}",
+        det:   "{\\operatorname{det}}",
+        Si:    "{\\operatorname{Si}}",
+        col:   "{\\operatorname{col}}",
+        nullspace: "{\\operatorname{null}}",
+        Order: "{\\mathcal{O}}",
+        logit: "{\\operatorname{logit}}",
+        probit: "{\\operatorname{probit}}",
+
+        IIDsim: "\\mathrel{\\stackrel{\\mathrm{IID}}{\\sim}}",
+        LDsim:  "\\mathrel{\\stackrel{\\mathrm{LD}}{\\sim}}",
+        appxsim: "\\mathrel{\\stackrel{\\cdot}{\\sim}}",
+
+        naturals:  "{\\mathbb{N}}",
+        natzero:   "{\\mathbb{N}_0}",
+        integers:  "{\\mathbb{Z}}",
+        rationals: "{\\mathbb{Q}}",
+        reals:     "{\\mathbb{R}}",
+        complex:   "{\\mathbb{C}}",
+        bbone:     "{\\mathbb{1}}",
+        indic:     "{\\mathop{\\mathchoice{\\large\\mathbb{1}}{\\large\\mathbb{1}}{\\mathbb{1}}{\\mathbb{1}}}}",  // indic: enlarged blackboard-bold indicator (uses mathchoice so subscripts scale)
+
+        abs:  ["{\\left\\lvert #1 \\right\\rvert}", 1],
+        norm: ["{\\left\\lVert #1 \\right\\rVert}", 1],
+        ip:   ["{\\left\\langle #1, #2 \\right\\rangle}", 2],
+        dim:   "{\\operatorname{dim}}",
+        df:   "{\\mathrm{df}}",
+        SE:   "{\\operatorname{SE}}",
+
+
+        bvec: ["{\\boldsymbol{#1}}", 1],
+        avec: ["{\\vec{#1}}", 1],
+        vecsym: ["{\\boldsymbol{#1}}", 1],
+
+        va:  "{\\boldsymbol{a}}",
+        vb:  "{\\boldsymbol{b}}",
+        vc:  "{\\boldsymbol{c}}",
+        vd:  "{\\boldsymbol{d}}",
+        ve:  "{\\boldsymbol{e}}",
+        vf:  "{\\boldsymbol{f}}",
+        vg:  "{\\boldsymbol{g}}",
+        vh:  "{\\boldsymbol{h}}",
+        vi:  "{\\boldsymbol{i}}",
+        vj:  "{\\boldsymbol{j}}",
+        vk:  "{\\boldsymbol{k}}",
+        vl:  "{\\boldsymbol{l}}",
+        vm:  "{\\boldsymbol{m}}",
+        vn:  "{\\boldsymbol{n}}",
+        vo:  "{\\boldsymbol{o}}",
+        vp:  "{\\boldsymbol{p}}",
+        vq:  "{\\boldsymbol{q}}",
+        vr:  "{\\boldsymbol{r}}",
+        vs:  "{\\boldsymbol{s}}",
+        vt:  "{\\boldsymbol{t}}",
+        vu:  "{\\boldsymbol{u}}",
+        vv:  "{\\boldsymbol{v}}",
+        vw:  "{\\boldsymbol{w}}",
+        vx:  "{\\boldsymbol{x}}",
+        vy:  "{\\boldsymbol{y}}",
+        vz:  "{\\boldsymbol{z}}",
+
+        vA:  "{\\boldsymbol{A}}",
+        vB:  "{\\boldsymbol{B}}",
+        vC:  "{\\boldsymbol{C}}",
+        vD:  "{\\boldsymbol{D}}",
+        vE:  "{\\boldsymbol{E}}",
+        vF:  "{\\boldsymbol{F}}",
+        vG:  "{\\boldsymbol{G}}",
+        vH:  "{\\boldsymbol{H}}",
+        vI:  "{\\boldsymbol{I}}",
+        vJ:  "{\\boldsymbol{J}}",
+        vK:  "{\\boldsymbol{K}}",
+        vL:  "{\\boldsymbol{L}}",
+        vM:  "{\\boldsymbol{M}}",
+        vN:  "{\\boldsymbol{N}}",
+        vO:  "{\\boldsymbol{O}}",
+        vP:  "{\\boldsymbol{P}}",
+        vQ:  "{\\boldsymbol{Q}}",
+        vR:  "{\\boldsymbol{R}}",
+        vS:  "{\\boldsymbol{S}}",
+        vT:  "{\\boldsymbol{T}}",
+        vU:  "{\\boldsymbol{U}}",
+        vV:  "{\\boldsymbol{V}}",
+        vW:  "{\\boldsymbol{W}}",
+        vX:  "{\\boldsymbol{X}}",
+        vY:  "{\\boldsymbol{Y}}",
+        vZ:  "{\\boldsymbol{Z}}",
+
+        
+        tvf: "{\\widetilde{\\boldsymbol{f}}}",
+        tvy: "{\\widetilde{\\boldsymbol{y}}}",
+        
+        tg:  "{\\widetilde{g}}",
+        tK:  "{\\widetilde{K}}",
+        tX:  "{\\widetilde{X}}",
+        tY:  "{\\widetilde{Y}}",
+        tZ:  "{\\widetilde{Z}}",
+        tildeh: "{\\widetilde{h}}",
+
+        valpha: "{\\boldsymbol{\\alpha}}",
+        vbeta:  "{\\boldsymbol{\\beta}}",
+        vgamma: "{\\boldsymbol{\\gamma}}",
+        vdelta: "{\\boldsymbol{\\delta}}",
+        vDelta: "{\\boldsymbol{\\Delta}}",
+        vepsilon: "{\\boldsymbol{\\epsilon}}",
+        vveps: "{\\boldsymbol{\\varepsilon}}",
+        vlambda:  "{\\boldsymbol{\\lambda}}",
+        vsigma:   "{\\boldsymbol{\\sigma}}",
+        vtheta:   "{\\boldsymbol{\\theta}}",
+        vTheta:   "{\\boldsymbol{\\Theta}}",
+        vomega:   "{\\boldsymbol{\\omega}}",
+        vpi:      "{\\boldsymbol{\\pi}}",
+        vphi:     "{\\boldsymbol{\\phi}}",
+        vPhi:     "{\\boldsymbol{\\Phi}}",
+        vmu:      "{\\boldsymbol{\\mu}}",
+        vnu:     "{\\boldsymbol{\\nu}}",
+        vzeta:   "{\\boldsymbol{\\zeta}}",
+
+        mA: "{\\mathsf{A}}",
+        mH: "{\\mathsf{H}}",
+        mX: "{\\mathsf{X}}",
+        mY: "{\\mathsf{Y}}",
+        mW: "{\\mathsf{W}}",
+        mP: "{\\mathsf{P}}",
+        mQ: "{\\mathsf{Q}}",
+        mV: "{\\mathsf{V}}",
+        mR: "{\\mathsf{R}}",
+        mI: "{\\mathsf{I}}",
+        mzero: "{\\mathsf{0}}",
+        mone: "{\\mathsf{1}}",
+
+        htheta: "{\\widehat{\\theta}}",
+        hvtheta: "{\\widehat{\\boldsymbol{\\theta}}}",
+        tvtheta: "{\\widetilde{\\boldsymbol{\\theta}}}",
+        hTheta: "{\\widehat{\\Theta}}",
+        hbeta:  "{\\widehat{\\beta}}",
+        hvbeta: "{\\widehat{\\boldsymbol{\\beta}}}",
+        hlambda: "{\\widehat{\\lambda}}",
+        hmu:    "{\\widehat{\\mu}}",
+        hvmu:   "{\\widehat{\\boldsymbol{\\mu}}}",
+        hsigma: "{\\widehat{\\sigma}}",
+        hSigma: "{\\widehat{\\Sigma}}",
+        hp:    "{\\widehat{p}}",
+        hJ:    "{\\widehat{J}}",
+        hf:    "{\\widehat{f}}",
+        hF:    "{\\widehat{F}}",
+        hP:     "{\\widehat{P}}",
+        hX:     "{\\widehat{X}}",
+        hY:     "{\\widehat{Y}}",
+        hvY:    "{\\widehat{\\boldsymbol{Y}}}",
+        hvx:    "{\\widehat{\\boldsymbol{x}}}",
+        hZ:     "{\\widehat{Z}}",
+        hveps:   "{\\widehat{\\varepsilon}}",
+        hvveps: "{\\widehat{\\boldsymbol{\\varepsilon}}}",
+
+        ct: "{\\mathcal{T}}",
+        ch: "{\\mathcal{H}}",
+        ck: "{\\mathcal{K}}",
+        cf: "{\\mathcal{F}}",
+        cc: "{\\mathcal{C}}",
+        cx: "{\\mathcal{X}}",
+
+        vzero: "{\\boldsymbol{0}}",
+        vone:  "{\\boldsymbol{1}}",
+        vinf:  "{\\boldsymbol{\\infty}}",
+        
+        barD: "{\\overline{D}}",
+        barx: "{\\overline{x}}",
+        barX: "{\\overline{X}}",
+        barY: "{\\overline{Y}}",
+        bary: "{\\overline{y}}",
+        barZ: "{\\overline{Z}}",
+
+        me:  "{\\mathrm{e}}",
+        mi:  "{\\mathrm{i}}",
+        mpi: "{\\mathrm{\\pi}}",
+        mK: "{\\mathsf{K}}",
+        tmK: "{\\widetilde{\\mathsf{K}}}",
+        mLambda: "{\\mathsf{\\Lambda}}",
+        mSigma: "{\\mathsf{\\Sigma}}",
+
+        dif: "{\\mathrm{d}}",
+        IID: "{\\mathrm{IID}}",
+        MLE: "{\\mathrm{MLE}}",
+        LRT: "{\\mathrm{LRT}}",
+
+        // Exercise markers and exercise-specific relations
+        exstar: "{\\mathop{\\mathchoice{\\color{gold}{\\Large\\star}}{\\color{gold}{\\Large\\star}}{\\color{gold}{\\large\\star}}{\\color{gold}{\\star}}}}",
+        exeq: "{\\mathrel{\\,\\overset{\\exstar}{=}\\,}}",
+        exsim: "{\\mathrel{\\,\\overset{\\exstar}{\\sim}\\,}}",
+        
+      } 
+    }
+  };
+</script>
 
 
 <link rel="stylesheet" href="../classlib/classlib/quarto/website/hickernell-website.css">
@@ -100,7 +449,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Welcome</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../pages/schedule.html" aria-current="page"> 
+    <a class="nav-link" href="../pages/schedule.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
@@ -190,12 +539,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#august" id="toc-august" class="nav-link active" data-scroll-target="#august">August</a></li>
-  <li><a href="#september" id="toc-september" class="nav-link" data-scroll-target="#september">September</a></li>
-  <li><a href="#october" id="toc-october" class="nav-link" data-scroll-target="#october">October</a></li>
-  <li><a href="#november" id="toc-november" class="nav-link" data-scroll-target="#november">November</a></li>
-  <li><a href="#december" id="toc-december" class="nav-link" data-scroll-target="#december">December</a></li>
-  <li><a href="#final-examinations" id="toc-final-examinations" class="nav-link" data-scroll-target="#final-examinations">Final examinations</a></li>
+  <li><a href="#due-date" id="toc-due-date" class="nav-link active" data-scroll-target="#due-date">Due date</a></li>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
+  <li><a href="#submission-and-grading" id="toc-submission-and-grading" class="nav-link" data-scroll-target="#submission-and-grading">Submission and grading</a></li>
   </ul>
 </nav>
 </nav>
@@ -208,7 +554,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Schedule</h1>
+<h1 class="title">Assignment 2: WileyPLUS — Inverses and Determinants</h1>
 </div>
 
 
@@ -225,309 +571,32 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Classes normally meet Tuesdays and Thursdays at 11:25 AM in <strong>PH 109</strong>.</p>
-<p>This schedule is provisional and will be updated as topics, assignments, quizzes, holidays, and examination details are finalized.</p>
-<section id="august" class="level3">
-<h3 class="anchored" data-anchor-id="august">August</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Week</th>
-<th>Date</th>
-<th>Topic</th>
-<th>Slides / Materials</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td>Tue Aug 18</td>
-<td>Why linear algebra? and course introduction<br>Systems of Equations</td>
-<td><a href="../slides/00-why-linear-algebra.html">Why Linear Algebra?</a><br><a href="../slides/01-systems-and-matrices.html">Systems and Matrices</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"></td>
-<td>Thu Aug 20</td>
-<td>Dot product<br>Augmented matrix shorthand</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td>Tue Aug 25</td>
-<td>Row operations as matrix multiplication</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"></td>
-<td>Thu Aug 27</td>
-<td>Matrix inverses and invertibility</td>
-<td><a href="../slides/02-inverses-and-invertibility.html">Inverses and Invertibility</a></td>
-</tr>
-</tbody>
-</table>
+<section id="due-date" class="level2">
+<h2 class="anchored" data-anchor-id="due-date">Due date</h2>
+<p><strong>Due:</strong> Friday, September 25, 2026, at 11:59 PM Chicago Time</p>
+<p>The deadline in WileyPLUS is authoritative; Canvas’s Due and Until fields are intentionally blank.</p>
 </section>
-<section id="september" class="level3">
-<h3 class="anchored" data-anchor-id="september">September</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Week</th>
-<th>Date</th>
-<th>Topic</th>
-<th>Slides / Materials</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td>Tue Sep 1</td>
-<td>Matrix inverses; Applications of inverses; Matrix patterns</td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"></td>
-<td>Thu Sep 3</td>
-<td>Matrix patterns; Elimination as factorization; Permutation</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"></td>
-<td>Mon Sep 7</td>
-<td><strong>Assignment 1 due</strong></td>
-<td><a href="../assignments/assignment_1.html">WileyPLUS: Systems and Matrix Operations</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td>Tue Sep 8</td>
-<td>Geometry of matrix transformations</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"></td>
-<td>Thu Sep 10</td>
-<td>Matrix transformations companion notebook<br>Determinants: geometry, elimination, and PLU<br><strong>Quiz 1</strong></td>
-<td><a href="../slides/04-determinants.html">Determinants</a> <br>Covers <a href="../slides/01-systems-and-matrices.html">Systems of Linear Equations and Matrices</a><br><a href="../slides/02-inverses-and-invertibility.html">Inverses and Invertibility</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">5</td>
-<td>Tue Sep 15</td>
-<td>Review in preparation for Test 1</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"></td>
-<td>Thu Sep 17</td>
-<td><strong>Test 1</strong></td>
-<td>Covers <a href="../slides/01-systems-and-matrices.html">Systems of Linear Equations and Matrices</a><br><a href="../slides/02-inverses-and-invertibility.html">Inverses and Invertibility</a><br><a href="../slides/03-matrix-structure-and-transformations.html">Matrix Structure and Transformations</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td>Tue Sep 22</td>
-<td>Finish determinants</td>
-<td><a href="../slides/04-determinants.html">Determinants</a><br><a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/04-determinants.ipynb">Determinants notebook</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"></td>
-<td>Thu Sep 24</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"></td>
-<td>Fri Sep 25</td>
-<td><strong>Assignment 2 due</strong></td>
-<td><a href="../assignments/assignment_2.html">WileyPLUS: Inverses and Determinants</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">7</td>
-<td>Tue Sep 29</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<section id="assignment" class="level2">
+<h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
+<p>Complete these four WileyPLUS questions. Each is worth <strong>5 points</strong>, for <strong>20 points</strong> total.</p>
+<ol type="1">
+<li>Chapter 1, Section 1.4, Question 50</li>
+<li>Chapter 1, Section 1.6, Question 16</li>
+<li>Chapter 2, Section 2.2, Question 12</li>
+<li>Chapter 2, Supplementary Exercises, Question 28</li>
+</ol>
+<p>The questions cover algebra with matrix inverses and transposes, consistency of linear systems, determinants by row reduction, and the largest possible determinant under restrictions on matrix entries.</p>
 </section>
-<section id="october" class="level3">
-<h3 class="anchored" data-anchor-id="october">October</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Week</th>
-<th>Date</th>
-<th>Topic</th>
-<th>Slides / Materials</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">7</td>
-<td>Thu Oct 1</td>
-<td><strong>Quiz 2</strong></td>
-<td><a href="../slides/04-determinants.html">Determinants</a><br><a href="../slides/05-euclidean-vector-spaces.html">Euclidean Vector Spaces</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">8</td>
-<td>Tue Oct 6</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"></td>
-<td>Thu Oct 8</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">9</td>
-<td>Tue Oct 13</td>
-<td><strong>No Class — Fall Break</strong></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"></td>
-<td>Thu Oct 15</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">10</td>
-<td>Tue Oct 20</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"></td>
-<td>Thu Oct 22</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">11</td>
-<td>Tue Oct 27</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"></td>
-<td>Thu Oct 29</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="november" class="level3">
-<h3 class="anchored" data-anchor-id="november">November</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Week</th>
-<th>Date</th>
-<th>Topic</th>
-<th>Slides / Materials</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">12</td>
-<td>Tue Nov 3</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"></td>
-<td>Thu Nov 5</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">13</td>
-<td>Tue Nov 10</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"></td>
-<td>Thu Nov 12</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">14</td>
-<td>Tue Nov 17</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"></td>
-<td>Thu Nov 19</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">15</td>
-<td>Tue Nov 24</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"></td>
-<td>Thu Nov 26</td>
-<td><strong>No Class — Thanksgiving holiday</strong></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="december" class="level3">
-<h3 class="anchored" data-anchor-id="december">December</h3>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Week</th>
-<th>Date</th>
-<th>Topic</th>
-<th>Slides / Materials</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">16</td>
-<td>Tue Dec 1</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;"></td>
-<td>Thu Dec 3</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>The official last day of classes is Saturday, December 5. Because the course meets on Tuesdays and Thursdays, Thursday, December 3 is the final regular class meeting.</p>
-</section>
-<section id="final-examinations" class="level3">
-<h3 class="anchored" data-anchor-id="final-examinations">Final examinations</h3>
-<p>Final examinations occur during the following week.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Week</th>
-<th>Date</th>
-<th>Topic</th>
-<th>Slides / Materials</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">17</td>
-<td>TBA</td>
-<td><strong>Final Exam — time and location TBA</strong></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<section id="submission-and-grading" class="level2">
+<h2 class="anchored" data-anchor-id="submission-and-grading">Submission and grading</h2>
+<p>Launch <a href="https://iit.instructure.com/courses/23913/assignments/104698">Assignment 2 in Canvas</a> and complete it <strong>individually</strong> in WileyPLUS. Follow the <a href="../pages/assignments.html#individual-assignments">course assignment ground rules</a>.</p>
+<ul>
+<li>The assignment is automatically graded, with <strong>three attempts per question</strong>, <strong>no score reduction</strong>, and the <strong>best score</strong> retained.</li>
+<li>WileyPLUS randomizes values for each student while keeping that student’s values fixed across attempts. Answer choices are shuffled where applicable.</li>
+<li>Answer feedback is available as answers are submitted. Textbook resources are always available; hints become available after the first attempt, and correct answers and solutions after the last attempt. Assistance carries no score deduction.</li>
+<li>Work is automatically submitted to the Canvas gradebook on the due date. WileyPLUS notes that auto-submission uses one attempt and may take up to ten minutes. Submit your answers before the deadline.</li>
+<li>Late submissions are not enabled. Assignment review becomes available after the deadline.</li>
+</ul>
 
 
 </section>
