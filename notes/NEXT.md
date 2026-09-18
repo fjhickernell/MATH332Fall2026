@@ -22,6 +22,23 @@ established setup and address reported Colab problems.
 
 ## Other active and deferred work
 
+- Quiz 2 is scheduled for October 1, covering Deck 04 Determinants and
+  Deck 05 Euclidean Vector Spaces, during the last 15 minutes of class.
+  Course notices are prepared. Canvas On Paper assignment `104699` is saved
+  and verified unpublished for Everyone, in Quizzes, with an October 1 at
+  12:40 PM deadline matching Quiz 1's class-end time. Confirm the remaining
+  Canvas settings before publication; verify website deployment
+  after the current checkpoint.
+- Assignment 2 is saved in WileyPLUS and as an unpublished Canvas External
+  Tool assignment (`104698`), with four instructor-selected questions,
+  5 points each, three attempts, no deduction, best score, and per-student
+  fixed values. WileyPLUS deadline: September 25, 2026, 11:59 PM CDT; its
+  availability is currently off. Website details and notices are prepared.
+  Local validation is complete. After this checkpoint, verify the deployed links, then
+  obtain one combined publication confirmation before enabling WileyPLUS,
+  publishing Canvas, and posting the prepared announcement. Keep Canvas Due
+  and Until blank. Selection covers inverses, systems, and determinants;
+  reflections and projections were not among the four selected questions.
 - Test 1 for September 17 is printed (instructor confirmed September 16).
 - Later projection/rank-factorization material and next-offering Deck 00
   revisions remain deferred in `notes/TODO-LATER.md`.

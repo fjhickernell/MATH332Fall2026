@@ -5,7 +5,8 @@ deck_title: "{{< meta decks.d04.title >}}"
 deck_short_title: "{{< meta decks.d04.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 2</span>
+  <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 2<br>
+  <a href="../assignments/assignment_2.html">Assignment 2 due 9/25</a></span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">

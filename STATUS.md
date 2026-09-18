@@ -87,6 +87,10 @@ Mathematical content should be maintained only in the slides.
   assignment when the original textbook exercises proved unavailable; and
   add its course-page, schedule, and Deck 01 title-slide notice.
 - [x] Publish the Assignment 1 website updates.
+- [x] Prepare Assignment 2's four-question, 20-point WileyPLUS draft and
+  unpublished Canvas launch, with September 25 deadline and course notices.
+- [ ] Deploy Assignment 2's course pages, verify live links, and obtain
+  instructor confirmation to enable WileyPLUS and publish Canvas and the announcement.
 - [x] Reconcile the Canvas description and announcement with the individual
   WileyPLUS workflow.
 - [x] Document the minimal-input assignment workflow, the textbook-to-WileyPLUS
@@ -112,6 +116,9 @@ Mathematical content should be maintained only in the slides.
   instructor's question style, with a warning that they are not MATH 332
   practice tests.
 - [ ] Create assignments, quizzes, tests, and review materials.
+  - [x] Schedule Quiz 2 for October 1 on Determinants and Euclidean Vector Spaces.
+  - [x] Save and verify Quiz 2's unpublished On Paper Canvas assignment.
+  - [ ] Confirm Quiz 2's remaining Canvas settings before publication.
 - [ ] Validate navigation, links, notation, accessibility, and visible layout
   as content is added.
 - [ ] Promote only validated, genuinely reusable infrastructure to classlib.

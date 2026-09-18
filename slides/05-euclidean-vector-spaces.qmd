@@ -5,7 +5,8 @@ deck_title: "{{< meta decks.d05.title >}}"
 deck_short_title: "{{< meta decks.d05.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
-  <span class="deck-meta">Points, directions, and affine solution sets · {{< meta texts.anton.short >}} §§3.1–3.5</span>
+  <span class="deck-meta">Points, directions, and affine solution sets · {{< meta texts.anton.short >}} §§3.1–3.5<br>
+  Quiz 2 on 10/1</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">

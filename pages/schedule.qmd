@@ -29,13 +29,14 @@ quizzes, holidays, and examination details are finalized.
 | | Thu Sep 17 | **Test 1** | Covers [Systems of Linear Equations and Matrices](../slides/01-systems-and-matrices.html)<br>[Inverses and Invertibility](../slides/02-inverses-and-invertibility.html)<br>[Matrix Structure and Transformations](../slides/03-matrix-structure-and-transformations.html) |
 | 6 | Tue Sep 22 | Finish determinants | [Determinants](../slides/04-determinants.html)<br>[Determinants notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/04-determinants.ipynb) |
 | | Thu Sep 24 | | |
+| | Fri Sep 25 | **Assignment 2 due** | [WileyPLUS: Inverses and Determinants](../assignments/assignment_2.qmd) |
 | 7 | Tue Sep 29 | | |
 
 ### October
 
 | Week | Date | Topic | Slides / Materials |
 |---:|---|---|---|
-| 7 | Thu Oct 1 | | |
+| 7 | Thu Oct 1 | **Quiz 2** | [Determinants](../slides/04-determinants.html)<br>[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html) |
 | 8 | Tue Oct 6 | | |
 | | Thu Oct 8 | | |
 | 9 | Tue Oct 13 | **No Class — Fall Break** | |

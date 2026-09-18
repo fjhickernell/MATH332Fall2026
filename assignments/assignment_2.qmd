@@ -1,0 +1,52 @@
+---
+title: "Assignment 2: WileyPLUS — Inverses and Determinants"
+metadata-files:
+  - ../classlib/classlib/quarto/website/hickernell-website.yml
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    include-in-header:
+      - ../classlib/classlib/quarto/slides/hickernell-latex-macros.js
+---
+
+## Due date
+
+**Due:** Friday, September 25, 2026, at 11:59 PM Chicago Time
+
+The deadline in WileyPLUS is authoritative; Canvas's Due and Until fields
+are intentionally blank.
+
+## Assignment
+
+Complete these four WileyPLUS questions. Each is worth **5 points**, for
+**20 points** total.
+
+1. Chapter 1, Section 1.4, Question 50
+2. Chapter 1, Section 1.6, Question 16
+3. Chapter 2, Section 2.2, Question 12
+4. Chapter 2, Supplementary Exercises, Question 28
+
+The questions cover algebra with matrix inverses and transposes, consistency
+of linear systems, determinants by row reduction, and the largest possible
+determinant under restrictions on matrix entries.
+
+## Submission and grading
+
+Launch [Assignment 2 in Canvas]({{< meta canvas.assignment_2 >}}) and complete
+it **individually** in WileyPLUS. Follow the
+[course assignment ground rules](../pages/assignments.qmd#individual-assignments).
+
+- The assignment is automatically graded, with **three attempts per question**,
+  **no score reduction**, and the **best score** retained.
+- WileyPLUS randomizes values for each student while keeping that student's
+  values fixed across attempts. Answer choices are shuffled where applicable.
+- Answer feedback is available as answers are submitted. Textbook resources
+  are always available; hints become available after the first attempt, and
+  correct answers and solutions after the last attempt. Assistance carries
+  no score deduction.
+- Work is automatically submitted to the Canvas gradebook on the due date.
+  WileyPLUS notes that auto-submission uses one attempt and may take up to
+  ten minutes. Submit your answers before the deadline.
+- Late submissions are not enabled. Assignment review becomes available
+  after the deadline.

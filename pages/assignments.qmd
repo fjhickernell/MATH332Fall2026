@@ -26,3 +26,4 @@ The diagnostic survey and WileyPLUS homework assignments are listed below.
 |:---|:---|:---|
 | [Assignment 0 — Diagnostic Survey]({{< meta canvas.assignment_0 >}}) | MATH 332 profile survey | August 21, 2026 |
 | [Assignment 1 — WileyPLUS: Systems and Matrix Operations](../assignments/assignment_1.qmd) | Anton §§1.2–1.3 | September 7, 2026 |
+| [Assignment 2 — WileyPLUS: Inverses and Determinants](../assignments/assignment_2.qmd) | Anton §§1.4, 1.6, 2.2 and Chapter 2 supplementary exercises | September 25, 2026 |
