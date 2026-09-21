@@ -46,6 +46,7 @@ established setup and address reported Colab problems.
 - Test 1 grading is complete. Canvas grades were posted September 21 under
   manual posting, and the worked answers with an anonymous score distribution
   were released on the course Quizzes and Tests page and in the test archive.
+  All-sections Canvas announcement `106115` is posted.
 - Later projection/rank-factorization material and next-offering Deck 00
   revisions remain deferred in `notes/TODO-LATER.md`.
 - The broader tensor scope and placement discussion is deferred until much
@@ -138,7 +139,8 @@ established setup and address reported Colab problems.
   Decks 01--02. Test 1 is scheduled for September 17 and covers Decks 01--03.
 - Test 1 grading is complete. Canvas grades were posted September 21, 2026,
   and the public answer-version PDF includes the anonymous score distribution.
-  The student copy and private source remain outside this public repository.
+  All-sections Canvas announcement `106115` is posted. The student copy and
+  private source remain outside this public repository.
 
 ## Questions to resolve
 
