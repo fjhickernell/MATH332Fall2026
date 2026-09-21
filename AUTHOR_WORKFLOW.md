@@ -211,6 +211,81 @@ until grading is complete.
    schedule links, assessment notice, internal navigation, and affected deck
    at the standard RevealJS viewport before checkpointing.
 
+## Releasing a graded quiz, test, or examination
+
+Use this workflow after grading is complete. The recommended trigger is
+`Assessment release 332 Quiz 1`; substitute `565` and the exact assessment
+name as needed. The command authorizes the grade release, answer-key
+publication, required repository commits and pushes, live verification, and
+preparation of an unpublished Canvas announcement. Publishing the announcement
+remains a separate final action after the instructor reviews the draft.
+
+1. Reconstruct the current state before changing anything. Inspect the private
+   LaTeX source and trailing private notes, the grading workbook or other
+   authoritative score record, the Canvas assignment and posting policy, the
+   Quizzes and Tests page, the current-assessment directory, the canonical test
+   archive, repository status, submodule status, and relevant recent commits.
+   Confirm that grading is complete and that the assessment name, point total,
+   and Canvas column agree. Stop rather than guessing if scores or identities
+   conflict.
+2. Reconcile every correction between the authoritative score record and
+   Canvas. Before entering any unreviewed scores, set and verify manual grade
+   posting, load the scores while they remain hidden, exclude Test Student, and
+   present the completed Gradebook for instructor review. Treat a zero as a
+   nonparticipant only when Canvas or the grading record establishes that the
+   student did not take the assessment; otherwise retain it as an earned score.
+3. Add an anonymous score distribution to the answer version. Include all and
+   only participating students, omit names and identifiers, and use the
+   course's established exam-style stem-and-leaf and summary statistics. Keep
+   questions and worked solutions in the authoritative private LaTeX source
+   using `Answer` environments. Build with `fh-exam-build.py`, which creates
+   the explicit `_NO_Answers.pdf` and `_Answers.pdf` outputs, and visually
+   inspect the complete answer PDF. Never publish the no-answers copy.
+4. Verify manual posting in Canvas immediately before release. Post the
+   assessment grades and any approved held feedback to the intended graded
+   students, then verify the student-facing posting state. If the course uses
+   a synthetic item such as **Best Test**, confirm its point value, assignment
+   group, no-submission setting, and published state. Leave it ungraded until
+   the underlying scores needed for its calculation exist; when they do,
+   enter and verify the value defined by the syllabus policy.
+5. Copy the verified `_Answers.pdf` into the matching course folder of the
+   canonical `HickernellTestArchive`. Commit and push the archive first. Then
+   copy that identical PDF into `assets/tests/current/`, update the course's
+   pinned archive commit, and link the current copy from
+   `pages/quizzes-and-tests.qmd`. Do not advance another course's archive pin
+   merely because the archive now contains this release.
+6. Update the course handoff files and reconcile the authoritative
+   `GitTracked/Check-In-Dashboard.md`. Remove every completed grading task for
+   the released assessment under the Dashboard completion policy, preserve
+   related work that remains incomplete, ensure the course's current next task
+   is still represented, and update the Dashboard timestamp. Follow the
+   Dashboard repository's own synchronization and commit-scope rules rather
+   than silently bundling it into the course commit. Render the affected page
+   and perform the public-repository confidentiality audit:
+   the diff may contain only the released answer PDF, anonymous distribution,
+   public links, and nonsensitive release status. It must not contain student
+   data, the private source, grading files, the no-answers PDF, or unreleased
+   assessment details.
+7. Commit and push the affected course repository after the archive push.
+   Push or verify every writable submodule involved in the release, while
+   leaving read-only pinned dependencies unchanged. Do not update or push an
+   unrelated course merely as part of a single-course release.
+8. Wait for the course-site deployment because the next step depends on live
+   links. Verify the deployment result, the Quizzes and Tests page, the current
+   answer-PDF URL, and the archive URL. Confirm that both public PDFs return
+   successfully and are byte-identical to the visually inspected release copy.
+9. Draft a concise all-sections Canvas announcement stating that grades are
+   posted and linking to the live Quizzes and Tests page. When applicable,
+   explain how a **Best Test** item will implement the syllabus weighting
+   without exposing any student's result. Keep the announcement unpublished
+   for instructor review; Canvas may provide only a **Publish** button, in
+   which case leave the completed editor open and report that the draft is not
+   durably saved.
+10. Report the Canvas posting result, live links, archive and course commit
+    hashes, deployment result, validation performed, clean repository states,
+    intentionally uncommitted work, and remaining actions. The usual remaining
+    action is `Publish the assessment announcement` after reviewing the draft.
+
 ## Post-lecture pacing reconciliation
 
 After each lecture, reconcile the public schedule and the next lecture plan
