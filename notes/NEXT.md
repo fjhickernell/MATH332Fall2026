@@ -43,7 +43,9 @@ established setup and address reported Colab problems.
   launch. No test answers or scores were submitted. Grade passback is configured
   through the paired LTI assignment; an actual graded submission has not been
   tested. Selection covers inverses, systems and determinants.
-- Test 1 for September 17 is printed (instructor confirmed September 16).
+- Test 1 grading is complete. Canvas grades were posted September 21 under
+  manual posting, and the worked answers with an anonymous score distribution
+  were released on the course Quizzes and Tests page and in the test archive.
 - Later projection/rank-factorization material and next-offering Deck 00
   revisions remain deferred in `notes/TODO-LATER.md`.
 - The broader tensor scope and placement discussion is deferred until much
@@ -134,9 +136,9 @@ established setup and address reported Colab problems.
 - Assignment 1 is the individual 20-point WileyPLUS assignment, due September
   7 at 11:59 PM Chicago Time. Quiz 1 is scheduled for September 10 and covers
   Decks 01--02. Test 1 is scheduled for September 17 and covers Decks 01--03.
-- Private Test 1 materials are maintained outside this public repository. The
-  draft is complete and has been checked for the 75-minute class period;
-  the instructor confirmed printing complete on September 16, 2026.
+- Test 1 grading is complete. Canvas grades were posted September 21, 2026,
+  and the public answer-version PDF includes the anonymous score distribution.
+  The student copy and private source remain outside this public repository.
 
 ## Questions to resolve
 

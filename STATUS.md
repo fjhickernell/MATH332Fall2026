@@ -120,6 +120,8 @@ Mathematical content should be maintained only in the slides.
   instructor's question style, with a warning that they are not MATH 332
   practice tests.
 - [ ] Create assignments, quizzes, tests, and review materials.
+  - [x] Release Test 1 grades and the worked-answer PDF with its anonymous
+    score distribution on Canvas, the course site, and the test archive.
   - [x] Schedule Quiz 2 for October 1 on Determinants and Euclidean Vector Spaces.
   - [x] Save and verify Quiz 2's unpublished On Paper Canvas assignment.
   - [ ] Confirm Quiz 2's remaining Canvas settings before publication.
