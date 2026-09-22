@@ -605,14 +605,14 @@ coefficients in the linear relation are constants, not functions of $t$.
 
 ## A Jacobian is the local linear map
 
-Let $\vct{x}=F(\vct{u})\in\reals^n$, where $\vct{u}\in\reals^n$ and $F$ may
+Let $\vct{x}=\vct{F}(\vct{u})\in\reals^n$, where $\vct{u}\in\reals^n$ and $\vct{F}$ may
 be [nonlinear]{.alert}
 
 Where its partial derivatives exist, the Jacobian has those vectors as
 columns:
 
 $$
-\mat{J}_F(\vct{u})
+\mat{J}_{\vct{F}}(\vct{u})
 =\begin{bmatrix}
 \dfrac{\partial F_1}{\partial u_1}&\cdots&\dfrac{\partial F_1}{\partial u_n}\\
 \vdots&\ddots&\vdots\\
@@ -620,16 +620,16 @@ $$
 \end{bmatrix}
 $$
 
-If $F$ is differentiable at $\vct{u}_0$, then for a small displacement
+If $\vct{F}$ is differentiable at $\vct{u}_0$, then for a small displacement
 $\vct{h}$ its Jacobian gives the first-order linear approximation
 
 $$
-F(\vct{u}_0+\vct{h})
-\approx F(\vct{u}_0)+\mat{J}_F(\vct{u}_0)\vct{h}
+\vct{F}(\vct{u}_0+\vct{h})
+\approx \vct{F}(\vct{u}_0)+\mat{J}_{\vct{F}}(\vct{u}_0)\vct{h}
 $$
 
 ::: {.key-point}
-$\abs{\det\bigl(\mat{J}_F(\vct{u}_0)\bigr)}$ gives local volume scale;
+$\abs{\det\bigl(\mat{J}_{\vct{F}}(\vct{u}_0)\bigr)}$ gives local volume scale;
 the sign records orientation, and zero signals first-order collapse
 :::
 
@@ -638,18 +638,18 @@ the sign records orientation, and zero signals first-order collapse
 ::: {.columns}
 ::: {.column width="47%"}
 $$
-F(r,\theta)=
+\vct{F}(r,\theta)=
 \begin{bmatrix}r\cos\theta\\r\sin\theta\end{bmatrix}
 $$
 
 $$
-\mat{J}_F(r,\theta)=
+\mat{J}_{\vct{F}}(r,\theta)=
 \begin{bmatrix}
 \cos\theta&-r\sin\theta\\
 \sin\theta&r\cos\theta
 \end{bmatrix},
 \qquad
-\det\bigl(\mat{J}_F\bigr)=r
+\det\bigl(\mat{J}_{\vct{F}}\bigr)=r
 $$
 
 For $r>0$, a small coordinate rectangle has image area
@@ -669,7 +669,7 @@ $$
 <text x="184" y="267" font-size="22" font-style="italic" text-anchor="end">r</text>
 <text x="22" y="64" font-size="22" font-style="italic">θ</text>
 <path d="M205 150H275" fill="none" stroke="#444" stroke-width="3" marker-end="url(#d04-polar-arrow)"/>
-<text x="240" y="133" font-size="24" font-style="italic" text-anchor="middle">F</text>
+<text x="240" y="133" font-size="24" font-style="italic" font-weight="bold" text-anchor="middle">F</text>
 <line x1="330" y1="245" x2="500" y2="245" stroke="#444" stroke-width="2"/>
 <line x1="330" y1="245" x2="330" y2="45" stroke="#444" stroke-width="2"/>
 <path d="M381.7 226.2 L438.1 205.7 A115 115 0 0 0 387.5 145.4 L357.5 197.4 A55 55 0 0 1 381.7 226.2 Z" fill="#fde9cb" stroke="#b46b00" stroke-width="3"/>
@@ -683,11 +683,11 @@ The Jacobian columns form the local edge vectors
 
 ::: {.vspace}
 The Jacobian determinant converts volume elements under a general coordinate
-change $\vct{x}=F(\vct{u})$:
+change $\vct{x}=\vct{F}(\vct{u})$:
 
 \begin{align*}
 \dif x_1\cdots\dif x_n
-&=\abs{\det\bigl(\mat{J}_F(\vct{u})\bigr)}\,
+&=\abs{\det\bigl(\mat{J}_{\vct{F}}(\vct{u})\bigr)}\,
   \dif u_1\cdots\dif u_n,
 &\qquad
 \text{polar:}\quad \dif x\,\dif y
@@ -712,12 +712,12 @@ general differentiable coordinate changes in $n$ dimensions.
 
 Both use derivatives, but their columns have [different meanings]{.alert}
 
-For a surface $G(u,v)\in\reals^3$, the two Jacobian columns
-$G_u$ and $G_v$ are tangent vectors; their spanned area is
+For a surface $\vct{G}(u,v)\in\reals^3$, the two Jacobian columns
+$\vct{G}_u$ and $\vct{G}_v$ are tangent vectors; their spanned area is
 
 $$
-\left\lVert G_u\mathbin{\times}G_v\right\rVert
-=\sqrt{\det\bigl(\mat{J}_G^{\mathsf T}\mat{J}_G\bigr)}
+\left\lVert \vct{G}_u\mathbin{\times}\vct{G}_v\right\rVert
+=\sqrt{\det\bigl(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}}\bigr)}
 $$
 
 ::: {.notes}

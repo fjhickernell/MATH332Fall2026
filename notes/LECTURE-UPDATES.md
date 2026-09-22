@@ -2,12 +2,13 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest reconciled instructional meeting: September 15, 2026
+- Latest reconciled instructional meeting: September 22, 2026
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
 | September 10, 2026 | Reconciled | `345a90fa-fbbb-43c5-80a3-b4c101273bb5` | September 15, 2026 | September 14, 2026 |
 | September 15, 2026 | Reconciled | `dfc3f74c-5223-42fd-8c42-b4c601342b33` | September 22, 2026 | September 17, 2026 |
+| September 22, 2026 | Reconciled: determinants companion and remaining Deck 04 topics through Jacobians and the polar area factor; Deck 05 points, vectors, and null-space directions previewed only | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5301d906-75c7-43ec-b187-b4cd01339653) | September 24, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 05 at “Why distinguish points from vectors?” | September 22, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with

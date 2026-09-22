@@ -2,14 +2,12 @@
 
 ## Current task
 
-Resume Deck 04 on September 22 at “What the Determinant Reveals” →
-“Nonzero determinant means invertible,” then use the determinants companion.
-September 15 was Test 1 review with a brief revisit of the determinant area
-proof; September 17 was the assessment-only Test 1 meeting. All nine
-August 18–September 15 recordings have been audited against the schedule,
-and the September 22 Illinois Tech calendar occurrence has the continuation
-note. Deck 05 begins after the determinants continuation, with its date
-still to be decided.
+Prepare the September 24 lecture: begin Deck 05 at “Why distinguish points
+from vectors?” and develop homogeneous directions and affine solution sets.
+September 22 completed the Deck 04 determinants continuation and companion,
+with a brief Deck 05 preview. The September 24 Illinois Tech calendar
+occurrence has the continuation note for PH 109. The August 18–September 15
+recordings were audited, and September 22 was reconciled in the lecture ledger.
 
 Review the shortened 20-slide Deck 05 Euclidean Vector Spaces bridge and the
 new 52-slide Deck 06 General Vector Spaces draft with the instructor. Deck 05
