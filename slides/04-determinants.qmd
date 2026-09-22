@@ -682,7 +682,7 @@ The Jacobian columns form the local edge vectors
 :::
 
 ::: {.vspace}
-The Jacobian determinant converts volume elements under a general coordinate
+The Jacobian determinant converts [volum]{.alert} elements under a general coordinate
 change $\vct{x}=\vct{F}(\vct{u})$:
 
 \begin{align*}
