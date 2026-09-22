@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-09-21">
+  <meta name="dcterms.date" content="2026-09-22">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -650,7 +650,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">September 21, 2026</p>
+  <p class="date">September 22, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -1232,23 +1232,23 @@ W(f_1,f_2)(t)
 </section>
 <section id="a-jacobian-is-the-local-linear-map" class="slide level2">
 <h2>A Jacobian is the local linear map</h2>
-<p>Let <span class="math inline">\(\vct{x}=F(\vct{u})\in\reals^n\)</span>, where <span class="math inline">\(\vct{u}\in\reals^n\)</span> and <span class="math inline">\(F\)</span> may be <span class="alert">nonlinear</span></p>
+<p>Let <span class="math inline">\(\vct{x}=\vct{F}(\vct{u})\in\reals^n\)</span>, where <span class="math inline">\(\vct{u}\in\reals^n\)</span> and <span class="math inline">\(\vct{F}\)</span> may be <span class="alert">nonlinear</span></p>
 <p>Where its partial derivatives exist, the Jacobian has those vectors as columns:</p>
 <p><span class="math display">\[
-\mat{J}_F(\vct{u})
+\mat{J}_{\vct{F}}(\vct{u})
 =\begin{bmatrix}
 \dfrac{\partial F_1}{\partial u_1}&amp;\cdots&amp;\dfrac{\partial F_1}{\partial u_n}\\
 \vdots&amp;\ddots&amp;\vdots\\
 \dfrac{\partial F_n}{\partial u_1}&amp;\cdots&amp;\dfrac{\partial F_n}{\partial u_n}
 \end{bmatrix}
 \]</span></p>
-<p>If <span class="math inline">\(F\)</span> is differentiable at <span class="math inline">\(\vct{u}_0\)</span>, then for a small displacement <span class="math inline">\(\vct{h}\)</span> its Jacobian gives the first-order linear approximation</p>
+<p>If <span class="math inline">\(\vct{F}\)</span> is differentiable at <span class="math inline">\(\vct{u}_0\)</span>, then for a small displacement <span class="math inline">\(\vct{h}\)</span> its Jacobian gives the first-order linear approximation</p>
 <p><span class="math display">\[
-F(\vct{u}_0+\vct{h})
-\approx F(\vct{u}_0)+\mat{J}_F(\vct{u}_0)\vct{h}
+\vct{F}(\vct{u}_0+\vct{h})
+\approx \vct{F}(\vct{u}_0)+\mat{J}_{\vct{F}}(\vct{u}_0)\vct{h}
 \]</span></p>
 <div class="key-point">
-<p><span class="math inline">\(\abs{\det\bigl(\mat{J}_F(\vct{u}_0)\bigr)}\)</span> gives local volume scale; the sign records orientation, and zero signals first-order collapse</p>
+<p><span class="math inline">\(\abs{\det\bigl(\mat{J}_{\vct{F}}(\vct{u}_0)\bigr)}\)</span> gives local volume scale; the sign records orientation, and zero signals first-order collapse</p>
 </div>
 </section>
 <section id="polar-coordinates-explain-the-factor-r" class="slide level2">
@@ -1256,17 +1256,17 @@ F(\vct{u}_0+\vct{h})
 <div class="columns">
 <div class="column" style="width:47%;">
 <p><span class="math display">\[
-F(r,\theta)=
+\vct{F}(r,\theta)=
 \begin{bmatrix}r\cos\theta\\r\sin\theta\end{bmatrix}
 \]</span></p>
 <p><span class="math display">\[
-\mat{J}_F(r,\theta)=
+\mat{J}_{\vct{F}}(r,\theta)=
 \begin{bmatrix}
 \cos\theta&amp;-r\sin\theta\\
 \sin\theta&amp;r\cos\theta
 \end{bmatrix},
 \qquad
-\det\bigl(\mat{J}_F\bigr)=r
+\det\bigl(\mat{J}_{\vct{F}}\bigr)=r
 \]</span></p>
 <p>For <span class="math inline">\(r&gt;0\)</span>, a small coordinate rectangle has image area</p>
 <p><span class="math display">\[
@@ -1276,15 +1276,15 @@ F(r,\theta)=
 
 </div><div class="column" style="width:47%;">
 <svg viewbox="0 0 520 310" width="100%" role="img" aria-label="A small rectangle in radius-angle coordinates maps to a curved annular-sector patch in the plane.">
-<defs><marker id="d04-polar-arrow" markerwidth="10" markerheight="8" refx="9" refy="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#444"></path></marker></defs> <line x1="35" y1="245" x2="190" y2="245" stroke="#444" stroke-width="2"></line> <line x1="35" y1="245" x2="35" y2="55" stroke="#444" stroke-width="2"></line> <rect x="85" y="105" width="70" height="75" fill="#d9effb" stroke="#007acc" stroke-width="3"></rect> <text x="184" y="267" font-size="22" font-style="italic" text-anchor="end">r</text> <text x="22" y="64" font-size="22" font-style="italic">θ</text> <path d="M205 150H275" fill="none" stroke="#444" stroke-width="3" marker-end="url(#d04-polar-arrow)"></path> <text x="240" y="133" font-size="24" font-style="italic" text-anchor="middle">F</text> <line x1="330" y1="245" x2="500" y2="245" stroke="#444" stroke-width="2"></line> <line x1="330" y1="245" x2="330" y2="45" stroke="#444" stroke-width="2"></line> <path d="M381.7 226.2 L438.1 205.7 A115 115 0 0 0 387.5 145.4 L357.5 197.4 A55 55 0 0 1 381.7 226.2 Z" fill="#fde9cb" stroke="#b46b00" stroke-width="3"></path> <text x="490" y="267" font-size="22" font-style="italic">x</text> <text x="315" y="58" font-size="22" font-style="italic">y</text>
+<defs><marker id="d04-polar-arrow" markerwidth="10" markerheight="8" refx="9" refy="4" orient="auto"><path d="M0 0L10 4L0 8Z" fill="#444"></path></marker></defs> <line x1="35" y1="245" x2="190" y2="245" stroke="#444" stroke-width="2"></line> <line x1="35" y1="245" x2="35" y2="55" stroke="#444" stroke-width="2"></line> <rect x="85" y="105" width="70" height="75" fill="#d9effb" stroke="#007acc" stroke-width="3"></rect> <text x="184" y="267" font-size="22" font-style="italic" text-anchor="end">r</text> <text x="22" y="64" font-size="22" font-style="italic">θ</text> <path d="M205 150H275" fill="none" stroke="#444" stroke-width="3" marker-end="url(#d04-polar-arrow)"></path> <text x="240" y="133" font-size="24" font-style="italic" font-weight="bold" text-anchor="middle">F</text> <line x1="330" y1="245" x2="500" y2="245" stroke="#444" stroke-width="2"></line> <line x1="330" y1="245" x2="330" y2="45" stroke="#444" stroke-width="2"></line> <path d="M381.7 226.2 L438.1 205.7 A115 115 0 0 0 387.5 145.4 L357.5 197.4 A55 55 0 0 1 381.7 226.2 Z" fill="#fde9cb" stroke="#b46b00" stroke-width="3"></path> <text x="490" y="267" font-size="22" font-style="italic">x</text> <text x="315" y="58" font-size="22" font-style="italic">y</text>
 </svg>
 <p>The Jacobian columns form the local edge vectors</p>
 </div></div>
 <div class="vspace">
-<p>The Jacobian determinant converts volume elements under a general coordinate change <span class="math inline">\(\vct{x}=F(\vct{u})\)</span>:</p>
+<p>The Jacobian determinant converts volume elements under a general coordinate change <span class="math inline">\(\vct{x}=\vct{F}(\vct{u})\)</span>:</p>
 <p><span class="math display">\[\begin{align*}
 \dif x_1\cdots\dif x_n
-&amp;=\abs{\det\bigl(\mat{J}_F(\vct{u})\bigr)}\,
+&amp;=\abs{\det\bigl(\mat{J}_{\vct{F}}(\vct{u})\bigr)}\,
   \dif u_1\cdots\dif u_n,
 &amp;\qquad
 \text{polar:}\quad \dif x\,\dif y
@@ -1334,10 +1334,10 @@ F(r,\theta)=
 </tbody>
 </table>
 <p>Both use derivatives, but their columns have <span class="alert">different meanings</span></p>
-<p>For a surface <span class="math inline">\(G(u,v)\in\reals^3\)</span>, the two Jacobian columns <span class="math inline">\(G_u\)</span> and <span class="math inline">\(G_v\)</span> are tangent vectors; their spanned area is</p>
+<p>For a surface <span class="math inline">\(\vct{G}(u,v)\in\reals^3\)</span>, the two Jacobian columns <span class="math inline">\(\vct{G}_u\)</span> and <span class="math inline">\(\vct{G}_v\)</span> are tangent vectors; their spanned area is</p>
 <p><span class="math display">\[
-\left\lVert G_u\mathbin{\times}G_v\right\rVert
-=\sqrt{\det\bigl(\mat{J}_G^{\mathsf T}\mat{J}_G\bigr)}
+\left\lVert \vct{G}_u\mathbin{\times}\vct{G}_v\right\rVert
+=\sqrt{\det\bigl(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}}\bigr)}
 \]</span></p>
 <aside class="notes">
 <p>This is only an outlook. Manifolds and tensor calculus are beyond the present scope. Higher-order derivative information may be organized as tensors, but the first-order local map here is still represented by a matrix.</p>
