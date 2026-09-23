@@ -169,6 +169,12 @@ Then carry out the following steps:
 Use the following workflow whenever a quiz, test, or final-exam detail is
 finalized or materially revised:
 
+When dates are established before coverage or other details are final, first
+follow the shared
+[`Save-the-date announcements`](classlib/docs/assessment-save-the-date.md)
+workflow. Then apply the MATH 332 rules below as the remaining details are
+finalized.
+
 Keep every assessment PDF out of the public repository and test archive until
 the assessment has been administered and grading is complete. Never publish the
 student/no-answers copy. After grading, publish only the answer-key PDF with an

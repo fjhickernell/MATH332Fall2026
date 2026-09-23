@@ -32,6 +32,10 @@ established setup and address reported Colab problems.
   12:40 PM deadline matching Quiz 1's class-end time. Confirm the remaining
   Canvas settings before publication; the course notices were deployed in
   the earlier checkpoint.
+- All-sections Canvas announcement `106298` posts the remaining quiz dates:
+  Quiz 3 on October 15, Quiz 4 on November 12, and Quiz 5 on December 1. The
+  same dates are recorded in the Schedule and Quizzes and Tests page; coverage
+  for each remains TBD.
 - Assignment 2 is published in Canvas (`104698`) and available in WileyPLUS,
   with four instructor-selected questions, five points each, three attempts,
   no deduction, best score, and per-student fixed values. Deadline:
@@ -45,6 +49,13 @@ established setup and address reported Colab problems.
   manual posting, and the worked answers with an anonymous score distribution
   were released on the course Quizzes and Tests page and in the test archive.
   All-sections Canvas announcement `106115` is posted.
+- Test 2 is scheduled for Thursday, October 29, 2026, in PH 109. Published
+  Canvas On Paper assignment `105162` is due at the 12:45 PM class end for
+  Everyone in the Tests group; coverage remains TBD. All-sections announcement
+  `106297` is posted. The announcement and Quizzes and Tests page state that
+  the final-examination date will be posted when scheduled by the Registrar
+  and that the cumulative examination will emphasize material not covered by
+  Test 1 or Test 2.
 - Later projection/rank-factorization material and next-offering Deck 00
   revisions remain deferred in `notes/TODO-LATER.md`.
 - The broader tensor scope and placement discussion is deferred until much

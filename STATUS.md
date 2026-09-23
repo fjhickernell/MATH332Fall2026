@@ -126,6 +126,16 @@ Mathematical content should be maintained only in the slides.
   - [x] Schedule Quiz 2 for October 1 on Determinants and Euclidean Vector Spaces.
   - [x] Save and verify Quiz 2's unpublished On Paper Canvas assignment.
   - [ ] Confirm Quiz 2's remaining Canvas settings before publication.
+  - [x] Schedule Test 2 for October 29 in PH 109; create and publish its
+    On Paper Canvas assignment for 12:45 PM; add the date to the
+    course website sources; and post the all-sections announcement. Coverage
+    remains TBD.
+  - [x] State that the final-examination date will be posted when scheduled by
+    the Registrar and that the cumulative examination will emphasize material
+    not covered by Test 1 or Test 2.
+  - [x] Announce and add to the course website the remaining quiz dates—Quiz 3
+    on October 15, Quiz 4 on November 12, and Quiz 5 on December 1—with
+    coverage TBD.
 - [ ] Validate navigation, links, notation, accessibility, and visible layout
   as content is added.
 - [ ] Promote only validated, genuinely reusable infrastructure to classlib.

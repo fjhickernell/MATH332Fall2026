@@ -42,11 +42,11 @@ assignments, quizzes, holidays, and examination details are finalized.
 | 8 | Tue Oct 6 | | |
 | | Thu Oct 8 | | |
 | 9 | Tue Oct 13 | **No Class — Fall Break** | |
-| | Thu Oct 15 | | |
+| | Thu Oct 15 | **Quiz 3** | Coverage TBD |
 | 10 | Tue Oct 20 | | |
 | | Thu Oct 22 | | |
 | 11 | Tue Oct 27 | | |
-| | Thu Oct 29 | | |
+| | Thu Oct 29 | **Test 2** | Coverage TBD |
 
 ### November
 
@@ -55,7 +55,7 @@ assignments, quizzes, holidays, and examination details are finalized.
 | 12 | Tue Nov 3 | | |
 | | Thu Nov 5 | | |
 | 13 | Tue Nov 10 | | |
-| | Thu Nov 12 | | |
+| | Thu Nov 12 | **Quiz 4** | Coverage TBD |
 | 14 | Tue Nov 17 | | |
 | | Thu Nov 19 | | |
 | 15 | Tue Nov 24 | | |
@@ -65,7 +65,7 @@ assignments, quizzes, holidays, and examination details are finalized.
 
 | Week | Date | Topic | Slides / Materials |
 |---:|---|---|---|
-| 16 | Tue Dec 1 | | |
+| 16 | Tue Dec 1 | **Quiz 5** | Coverage TBD |
 | | Thu Dec 3 | | |
 
 The official last day of classes is Saturday, December 5. Because the course
@@ -78,4 +78,4 @@ Final examinations occur during the following week.
 
 | Week | Date | Topic | Slides / Materials |
 |---:|---|---|---|
-| 17 | TBA | **Final Exam — time and location TBA** | |
+| 17 | TBA | **Final Exam — time and location TBA** | Whole course; greater emphasis on material not covered by Test 1 or Test 2 |

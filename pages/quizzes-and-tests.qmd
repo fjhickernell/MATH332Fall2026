@@ -46,8 +46,11 @@ be added as each quiz or test is finalized.
 | Thu Sep 10 | Quiz 1 | [Systems of Linear Equations and Matrices](../slides/01-systems-and-matrices.html)<br>[Inverses and Invertibility](../slides/02-inverses-and-invertibility.html) | [Quiz 1 PDF with scores](../assets/tests/current/MATH332Quiz1Fall2026_Answers.pdf) |
 | Thu Sep 17 | Test 1 | [Systems of Linear Equations and Matrices](../slides/01-systems-and-matrices.html)<br>[Inverses and Invertibility](../slides/02-inverses-and-invertibility.html)<br>[Matrix Structure and Transformations](../slides/03-matrix-structure-and-transformations.html) | [Test 1 PDF with scores](../assets/tests/current/MATH332Test1Fall2026_Answers.pdf) |
 | Thu Oct 1 | Quiz 2 | [Determinants](../slides/04-determinants.html)<br>[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html) | |
-| TBD | Test 2 | TBD | |
-| TBD | Final examination | Date, time, location, format, and coverage TBD | |
+| Thu Oct 15 | Quiz 3 | Coverage TBD | |
+| Thu Oct 29 | Test 2 | Coverage TBD | |
+| Thu Nov 12 | Quiz 4 | Coverage TBD | |
+| Tue Dec 1 | Quiz 5 | Coverage TBD | |
+| TBD | Final examination | Date, time, and location will be posted when scheduled by the Registrar.<br>Cumulative, with greater emphasis on material not covered by Test 1 or Test 2. | |
 
 ## Examples of question style from other courses
 
