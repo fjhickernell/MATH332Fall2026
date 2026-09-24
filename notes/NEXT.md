@@ -120,10 +120,11 @@ address reported Colab problems.
   signed-area statement, using base times perpendicular height; the proof
   includes the zero-edge case and explains the sign. Rendering, visible layout,
   and the section-outline link are validated.
-- Deck 04 now includes a five-slide matrices-of-functions enrichment covering
+- Deck 04 now includes an eight-slide matrices-of-functions enrichment covering
   a parameter-dependent determinant, the Wronskian of cosine and sine,
-  Jacobians as local linear maps, the polar-coordinate area factor, and a
-  brief surface-area and tensor outlook. The Wronskian slide describes the
+  Jacobians as local linear maps, the polar-coordinate area factor, the
+  spherical-coordinate volume factor and its determinant by row operations,
+  and a brief surface-area and tensor outlook. The Wronskian slide describes the
   constant-coefficient relation concretely and calls forward to the formal
   definition of linear independence in Deck 06. The Jacobian slides emphasize
   that the underlying function may be nonlinear, present its first-order

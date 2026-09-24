@@ -539,6 +539,8 @@ The entries may vary while the determinant keeps its familiar meaning
 - [A Wronskian tests relations among functions](#a-wronskian-tests-relations-among-functions)
 - [A Jacobian is the local linear map](#a-jacobian-is-the-local-linear-map)
 - [Polar coordinates explain the factor $r$](#polar-coordinates-explain-the-factor-r)
+- [Spherical coordinates explain the volume factor](#spherical-coordinates-explain-the-volume-factor)
+- [Row operations recover the spherical determinant](#row-operations-recover-the-spherical-determinant)
 - [Similar formulas answer different questions](#similar-formulas-answer-different-questions)
 - [Two parameters trace a surface](#two-parameters-trace-a-surface)
 
@@ -701,6 +703,102 @@ Jacobian is singular. The exact image is a curved annular-sector patch; its
 first-order approximation is the parallelogram spanned by the two Jacobian
 columns. The same absolute-determinant factor converts volume elements for
 general differentiable coordinate changes in $n$ dimensions.
+:::
+
+## Spherical coordinates explain the volume factor
+
+Let $\rho>0$, $0<\phi<\pi$ be the angle from the positive $z$-axis, and
+$\theta$ the azimuthal angle in the $xy$-plane
+
+$$
+\vct{F}(\rho,\phi,\theta)=
+\begin{bmatrix}
+\rho\sin\phi\cos\theta\\
+\rho\sin\phi\sin\theta\\
+\rho\cos\phi
+\end{bmatrix}
+$$
+
+The Jacobian columns give the local directions of increasing $\rho$, $\phi$,
+and $\theta$:
+
+$$
+\mat{J}_{\vct{F}}=
+\begin{bmatrix}
+\sin\phi\cos\theta&\rho\cos\phi\cos\theta&-\rho\sin\phi\sin\theta\\
+\sin\phi\sin\theta&\rho\cos\phi\sin\theta&\rho\sin\phi\cos\theta\\
+\cos\phi&-\rho\sin\phi&0
+\end{bmatrix}
+$$
+
+These columns are perpendicular, with lengths $1$, $\rho$, and $\rho\sin\phi$
+
+::: {.key-point}
+$\det\bigl(\mat{J}_{\vct{F}}\bigr)=\rho^2\sin\phi$, so
+$\dif x\,\dif y\,\dif z=\rho^2\sin\phi\,\dif\rho\,\dif\phi\,\dif\theta$
+:::
+
+::: {.notes}
+The columns are positively oriented in the displayed coordinate order
+$(\rho,\phi,\theta)$, so their determinant is the product of their lengths.
+At $\rho=0$ or $\phi=0,\pi$, an angular direction collapses and the Jacobian
+is singular. The formula uses the absolute determinant for volume; the
+stated coordinate range makes this determinant nonnegative.
+:::
+
+## Row operations recover the spherical determinant
+
+If we are clever about the row operations, the Jacobian becomes diagonal
+without dividing by any trigonometric functions
+
+Write $a=\sin\phi$, $b=\cos\phi$, $c=\cos\theta$, and $s=\sin\theta$
+
+First rotate rows 1 and 2 by left multiplication:
+
+$$
+\mat{Q}_\theta\mat{J}_{\vct{F}}
+=\begin{bmatrix}
+c&s&0\\-s&c&0\\0&0&1
+\end{bmatrix}
+\begin{bmatrix}
+ac&\rho bc&-\rho as\\
+as&\rho bs&\rho ac\\
+b&-\rho a&0
+\end{bmatrix}
+=
+\begin{bmatrix}
+a&\rho b&0\\0&0&\rho a\\b&-\rho a&0
+\end{bmatrix}
+$$
+
+Then mix rows 1 and 3 and swap the last two rows:
+
+$$
+\mat{M}_\phi\mat{Q}_\theta\mat{J}_{\vct{F}}
+=\begin{bmatrix}
+a&0&b\\b&0&-a\\0&1&0
+\end{bmatrix}
+\begin{bmatrix}
+a&\rho b&0\\0&0&\rho a\\b&-\rho a&0
+\end{bmatrix}
+=\begin{bmatrix}
+1&0&0\\0&\rho&0\\0&0&\rho a
+\end{bmatrix}
+$$
+
+$\det(\mat{Q}_\theta)=c^2+s^2=1$ and
+$\det(\mat{M}_\phi)=a^2+b^2=1$
+
+::: {.key-point}
+$\det\bigl(\mat{J}_{\vct{F}}\bigr)=1\cdot\rho\cdot\rho a=\rho^2\sin\phi$
+:::
+
+::: {.notes}
+Left multiplication makes each row combination explicit. The second matrix
+combines a row mixing with determinant $-1$ and a row swap with determinant
+$-1$. Both left factors therefore have determinant $1$, so
+the diagonal matrix and the original Jacobian have the same determinant.
+These row transformations avoid dividing by a trigonometric function.
 :::
 
 ## Similar formulas answer different questions

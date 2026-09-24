@@ -74,7 +74,8 @@ Mathematical content should be maintained only in the slides.
   base times perpendicular height, including the zero-edge case and orientation.
 - [x] Add the optional Deck 04 matrices-of-functions enrichment: a
   parameter-dependent determinant, Wronskians, Jacobians, polar-coordinate
-  area scaling, and a brief differential-geometry outlook.
+  area scaling, spherical-coordinate volume scaling with a determinant
+  derivation, and a brief differential-geometry outlook.
 - [x] Clarify the surface parameterization and area factor without assuming
   cross products have been introduced; render the revised deck.
 - [x] Add cumulative "How Far We Have Come" slides to developed Decks 02–06

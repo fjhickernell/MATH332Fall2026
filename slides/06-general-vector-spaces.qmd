@@ -290,7 +290,7 @@ Consider the line
 $$
 L=\left\{
 \begin{bmatrix}1\\2\end{bmatrix}
-t\begin{bmatrix}3\\1\end{bmatrix}:t\in\reals
++t\begin{bmatrix}3\\1\end{bmatrix}:t\in\reals
 \right\}
 $$
 

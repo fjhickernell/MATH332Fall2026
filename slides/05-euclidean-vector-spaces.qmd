@@ -77,8 +77,8 @@ The same coordinate column can play two different geometric roles
 
 - a [location]{.alert}
 - written $P,Q,\ldots$
-- has no direction or length
-- depends on where the origin is placed when assigned coordinates
+- with chosen coordinates $P=(p_1,p_2,\ldots)$
+- has no intrinsic direction or length
 :::
 
 ::: {.column width="6%"}
@@ -89,17 +89,14 @@ The same coordinate column can play two different geometric roles
 
 - a [displacement or direction]{.alert}
 - written $\vct{u},\vct{v},\ldots$
-- can be translated without changing it
-- has length and direction
+- from origin $O$, $\vct{p}=\overrightarrow{OP}=[p_1,p_2,\ldots]^{\mathsf T}$
+- has length and direction; translation leaves it unchanged
 :::
 :::
 
 $$
 \overrightarrow{PQ}=Q-P
 $$
-
-The distinction separates homogeneous direction spaces from translated
-solution sets
 
 ::: {.main-message}
 Points say where; vectors say how to move
@@ -113,6 +110,9 @@ a point is where you are, a vector tells you how to move, and the difference
 between two possible locations is a displacement. Then preview the algebraic
 payoff: differences between solutions of $\mat{A}\vct{x}=\vct{b}$ solve the
 homogeneous system.
+The coordinate notation is an example after choosing an origin and axes;
+parentheses versus column brackets are not what makes an object a point or a
+vector.
 :::
 
 ## The operations reveal the roles {#the-operations-reveal-the-roles}
@@ -133,35 +133,33 @@ $$
 
 does have geometric meaning because its coefficients sum to $1$
 
-::: {.key-point}
-Legal operations keep locations and directions from being confused
-:::
-
 ## Choosing an origin hides the distinction {#choosing-an-origin-hides-the-distinction}
 
-After choosing an origin $O$, a point $P$ receives the coordinate vector
+After choosing an origin $O$ and axes in $\reals^3$:
 
 $$
+P=(p_1,p_2,p_3)
+\quad\longleftrightarrow\quad
 \vct{p}=\overrightarrow{OP}
+=\begin{bmatrix}p_1\\p_2\\p_3\end{bmatrix}
 $$
 
-Then both a point and a vector may be displayed as the same column:
+Here $P,Q$ are [points]{.alert}; $\vct{p},\vct{q}$ are their position vectors;
+$\vct{u},\vct{v}$ are directions. Other symbols can play the same roles
 
-$$
-P\longleftrightarrow
-\vct{p}=\begin{bmatrix}p_1\\\vdots\\p_n\end{bmatrix}
-$$
-
-Moving the origin changes the coordinates of $P$
-
-The displacement between two points does not change:
+Moving the origin changes $\vct{p}$ and $\vct{q}$, but not the displacement
 
 $$
 \overrightarrow{PQ}=\vct{q}-\vct{p}
 $$
 
-::: {.key-point}
-Coordinates identify points with vectors only after an origin has been chosen
+Parentheses versus column brackets do not determine the role; the geometry does
+
+::: {.notes}
+The tuple and column forms help display the distinction in this deck; their
+shapes alone do not determine whether an object is a point or a vector.
+The role and the chosen origin determine the meaning. The same construction
+works in $\reals^n$ with $n$ coordinates.
 :::
 
 ## Lines and planes combine points with directions {#lines-and-planes-combine-points-with-directions}
@@ -232,7 +230,7 @@ row and column spaces.
 
 ## Nonhomogeneous systems translate those directions {#nonhomogeneous-systems-translate-those-directions}
 
-Suppose $\vct{x}_p$ is one particular solution of
+Suppose $\vct{x}_p$ is the coordinate column of one solution point of
 
 $$
 \mat{A}\vct{x}=\vct{b}
@@ -299,7 +297,7 @@ Elimination gives $y=1$ and $x+z=1$, hence
 
 $$
 \vct{x}
-=\underbrace{\begin{bmatrix}1\\1\\0\end{bmatrix}}_{\text{one solution point}}
+=\underbrace{\begin{bmatrix}1\\1\\0\end{bmatrix}}_{\text{coordinates of one solution point}}
 +t\underbrace{\begin{bmatrix}-1\\0\\1\end{bmatrix}}_{\text{homogeneous direction}}
 $$
 
@@ -350,10 +348,6 @@ $$
 \underbrace{\norm{\vct{q}-\vct{p}}}_{\text{distance between points}}
 $$
 
-::: {.key-point}
-No new dot-product theory—only a tool for studying directions and differences
-:::
-
 ## Projection finds the nearest point on an affine line {#projection-finds-the-nearest-point-on-an-affine-line}
 
 Let
@@ -379,10 +373,6 @@ $$
 $$
 
 The result $\vct{p}_*$ gives coordinates of the point on $L$ nearest to $Q$
-
-::: {.key-point}
-Subtract points, project the resulting vector, then add the displacement back to a point
-:::
 
 ## A special 3D operation: the cross product {#the-cross-product-combines-two-directions}
 
@@ -414,14 +404,7 @@ $$
 \vct{v}\mathbin{\times}\vct{u}=-(\vct{u}\mathbin{\times}\vct{v})
 $$
 
-::: {.key-point}
-The ordinary cross product is a special operation on two vectors in $\reals^3$
-:::
-
-The wedge product belongs to
-[exterior algebra](https://en.wikipedia.org/wiki/Exterior_algebra), a part of
-multilinear algebra that generalizes oriented areas, volumes, determinants,
-and the three-dimensional cross product.
+The ordinary cross product is special to three-dimensional vectors
 
 ::: {.notes}
 The natural generalization in other dimensions is the exterior, or wedge,
@@ -430,6 +413,8 @@ its output is a bivector rather than another ordinary vector. In three
 dimensions, perpendicularity identifies that oriented area with the vector
 $\vct{u}\mathbin{\times}\vct{v}$. There is also an exceptional vector cross
 product in dimension seven, but it is outside the scope of this course.
+The wedge product belongs to exterior algebra, which generalizes oriented
+areas, volumes, determinants, and the three-dimensional cross product.
 :::
 
 ## Point differences build a plane normal {#point-differences-build-a-plane-normal}
@@ -456,10 +441,6 @@ The plane is therefore
 $$
 \vct{n}^{\mathsf T}(\vct{x}-\vct{p})=0
 $$
-
-::: {.key-point}
-The cross product is a useful three-dimensional construction, not part of the general vector-space structure
-:::
 
 ## The triple product reconnects to determinants {#the-triple-product-reconnects-to-determinants}
 
