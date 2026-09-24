@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-09-23">
+  <meta name="dcterms.date" content="2026-09-24">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -494,22 +494,15 @@
           script.src = configuredUrl || defaultMathJax3Url;
           script.async = true;
 
-          return new Promise((resolve, reject) => {
-            script.addEventListener(
-              "load",
-              () => {
-                const startup = window.MathJax?.startup?.promise;
-                if (startup && typeof startup.then === "function") {
-                  startup.then(resolve, reject);
-                } else {
-                  resolve();
-                }
-              },
-              { once: true }
-            );
-            script.addEventListener("error", reject, { once: true });
-            document.head.appendChild(script);
-          });
+          // Reveal must remain usable while the remote math script is loading.
+          // The shared MathJax configuration typesets and relayouts the deck
+          // after MathJax starts, even if Reveal is already ready by then.
+          script.addEventListener(
+            "error",
+            () => console.warn("MathJax did not load; equations remain untypeset."),
+            { once: true }
+          );
+          document.head.appendChild(script);
         }
       };
 
@@ -650,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">September 23, 2026</p>
+  <p class="date">September 24, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>

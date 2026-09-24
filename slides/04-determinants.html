@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-09-23">
+  <meta name="dcterms.date" content="2026-09-24">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -494,22 +494,15 @@
           script.src = configuredUrl || defaultMathJax3Url;
           script.async = true;
 
-          return new Promise((resolve, reject) => {
-            script.addEventListener(
-              "load",
-              () => {
-                const startup = window.MathJax?.startup?.promise;
-                if (startup && typeof startup.then === "function") {
-                  startup.then(resolve, reject);
-                } else {
-                  resolve();
-                }
-              },
-              { once: true }
-            );
-            script.addEventListener("error", reject, { once: true });
-            document.head.appendChild(script);
-          });
+          // Reveal must remain usable while the remote math script is loading.
+          // The shared MathJax configuration typesets and relayouts the deck
+          // after MathJax starts, even if Reveal is already ready by then.
+          script.addEventListener(
+            "error",
+            () => console.warn("MathJax did not load; equations remain untypeset."),
+            { once: true }
+          );
+          document.head.appendChild(script);
         }
       };
 
@@ -650,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">September 23, 2026</p>
+  <p class="date">September 24, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -1177,6 +1170,7 @@ u_{11}&amp;u_{12}&amp;\cdots&amp;u_{1n}\\
 <li><a href="#/a-jacobian-is-the-local-linear-map">A Jacobian is the local linear map</a></li>
 <li><a href="#/polar-coordinates-explain-the-factor-r">Polar coordinates explain the factor <span class="math inline">\(r\)</span></a></li>
 <li><a href="#/similar-formulas-answer-different-questions">Similar formulas answer different questions</a></li>
+<li><a href="#/two-parameters-trace-a-surface">Two parameters trace a surface</a></li>
 </ul>
 </section>
 <section id="a-determinant-can-depend-on-a-parameter" class="slide level2">
@@ -1334,13 +1328,22 @@ W(f_1,f_2)(t)
 </tbody>
 </table>
 <p>Both use derivatives, but their columns have <span class="alert">different meanings</span></p>
-<p>For a surface <span class="math inline">\(\vct{G}(u,v)\in\reals^3\)</span>, the two Jacobian columns <span class="math inline">\(\vct{G}_u\)</span> and <span class="math inline">\(\vct{G}_v\)</span> are tangent vectors; their spanned area is</p>
+</section>
+<section id="two-parameters-trace-a-surface" class="slide level2">
+<h2>Two parameters trace a surface</h2>
+<p>The parameters <span class="math inline">\((u,v)\)</span> label points in a plane. We could call them <span class="math inline">\((x,y)\)</span>; the different letters simply distinguish the <span class="alert">two inputs</span> from the <span class="alert">three output coordinates</span> <span class="math inline">\((x,y,z)\)</span>.</p>
+<p>A map <span class="math inline">\(\vct{G}:D\subseteq\reals^2\to\reals^3\)</span> assigns each pair the point <span class="math inline">\(\vct{G}(u,v)=(x(u,v),y(u,v),z(u,v))\)</span>. If its two tangent directions are independent, these points form a surface patch locally.</p>
+<p>For example, <span class="math inline">\(\vct{G}(u,v)=(u,v,u^2+v^2)\)</span> traces the graph <span class="math inline">\(z=x^2+y^2\)</span> as <span class="math inline">\((u,v)\)</span> varies over <span class="math inline">\(\reals^2\)</span>.</p>
+<p>The Jacobian columns <span class="math inline">\(\vct{G}_u\)</span> and <span class="math inline">\(\vct{G}_v\)</span> give tangent directions. They approximate the edges of the image of a small parameter rectangle, whose area is approximately</p>
 <p><span class="math display">\[
-\left\lVert \vct{G}_u\mathbin{\times}\vct{G}_v\right\rVert
-=\sqrt{\det\bigl(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}}\bigr)}
+\sqrt{\det\bigl(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}}\bigr)}
+\,\Delta u\,\Delta v
 \]</span></p>
+<p>Here <span class="math inline">\(\mat{J}_{\vct{G}}\)</span> is <span class="math inline">\(3\times2\)</span>; the <span class="math inline">\(2\times2\)</span> matrix <span class="math inline">\(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}}\)</span> has determinant equal to the squared area scale.</p>
 <aside class="notes">
-<p>This is only an outlook. Manifolds and tensor calculus are beyond the present scope. Higher-order derivative information may be organized as tensors, but the first-order local map here is still represented by a matrix.</p>
+<p>This is only an outlook. When the tangent directions are independent, the image is locally a surface patch. The area factor is the area of the parallelogram spanned by <span class="math inline">\(\vct{G}_u\)</span> and <span class="math inline">\(\vct{G}_v\)</span>; by base times height, its square is <span class="math inline">\(\lVert\vct{G}_u\rVert^2\lVert\vct{G}_v\rVert^2
+-(\vct{G}_u\cdot\vct{G}_v)^2
+=\det(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}})\)</span>. Manifolds and tensor calculus are beyond the present scope. Higher-order derivative information may be organized as tensors, but the first-order local map here is still represented by a matrix.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

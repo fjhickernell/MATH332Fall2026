@@ -15,22 +15,15 @@
         script.src = configuredUrl || defaultMathJax3Url;
         script.async = true;
 
-        return new Promise((resolve, reject) => {
-          script.addEventListener(
-            "load",
-            () => {
-              const startup = window.MathJax?.startup?.promise;
-              if (startup && typeof startup.then === "function") {
-                startup.then(resolve, reject);
-              } else {
-                resolve();
-              }
-            },
-            { once: true }
-          );
-          script.addEventListener("error", reject, { once: true });
-          document.head.appendChild(script);
-        });
+        // Reveal must remain usable while the remote math script is loading.
+        // The shared MathJax configuration typesets and relayouts the deck
+        // after MathJax starts, even if Reveal is already ready by then.
+        script.addEventListener(
+          "error",
+          () => console.warn("MathJax did not load; equations remain untypeset."),
+          { once: true }
+        );
+        document.head.appendChild(script);
       }
     };
 
