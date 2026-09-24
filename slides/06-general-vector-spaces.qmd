@@ -79,7 +79,7 @@ Keep the operations, release the coordinates
 
 ## The previous deck found directions inside solution sets {#the-previous-deck-found-directions-inside-solution-sets}
 
-For a consistent system $\mat{A}\vct{x}=\vct{b}$,
+As [Deck 05 showed]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions), for a consistent system $\mat{A}\vct{x}=\vct{b}$,
 
 $$
 \{\text{all solutions}\}
@@ -93,7 +93,7 @@ The homogeneous solutions can be
 - kept inside the same solution set
 
 ::: {.key-point}
-Deck 06 names the abstract structure shared by every collection with these
+[This deck](#a-vector-space-starts-with-objects-and-two-operations) names the abstract structure shared by every collection with these
 linear operations
 :::
 
@@ -1088,7 +1088,7 @@ Matrices are coordinate representations of linear transformations
 
 Different bases give different matrices for the same linear transformation
 
-The next deck asks whether a basis can make a square matrix diagonal:
+The [next deck]({{< meta decks.d07.file >}}) asks whether a basis can make a square matrix diagonal:
 
 $$
 \mat{P}^{-1}\mat{A}\mat{P}
@@ -1119,11 +1119,11 @@ Eigenvectors are basis candidates adapted to the action of a matrix
 
 [One path from equations to abstract structure]{.alert}
 
-- [Solve]{.alert} — elimination exposes consistency, pivots, and free directions in $\mat{A}\vct{x}=\vct{b}$
-- [Interpret]{.alert} — $\vct{x}_p+\operatorname{Null}(\mat{A})$ describes every consistent solution set
-- [Generalize]{.alert} — vector spaces and subspaces capture directions beyond coordinate columns
-- [Coordinate]{.alert} — a basis gives each vector a unique column and each linear map a matrix
-- [Count]{.alert} — rank–nullity divides input directions into visible and null directions
+- [Solve]({{< meta decks.d01.file >}}#read-the-solution-set) — elimination exposes consistency, pivots, and free directions in $\mat{A}\vct{x}=\vct{b}$
+- [Interpret]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions) — $\vct{x}_p+\operatorname{Null}(\mat{A})$ describes every consistent solution set
+- [Generalize]({{< meta decks.d06.file >}}#a-vector-space-starts-with-objects-and-two-operations) — vector spaces and subspaces capture directions beyond coordinate columns
+- [Coordinate]({{< meta decks.d06.file >}}#a-basis-turns-an-abstract-problem-into-a-matrix-problem) — a basis gives each vector a unique column and each linear map a matrix
+- [Count]({{< meta decks.d06.file >}}#rank-nullity-counts-inputs) — rank–nullity divides input directions into visible and null directions
 
 ::: {.key-point}
 A basis connects abstract vectors to computation; dimension records

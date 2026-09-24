@@ -1574,10 +1574,10 @@ Multiplication composes them
 
 [One matrix, computational and geometric views]{.alert}
 
-- [Systems]{.alert} — $\mat{A}\vct{x}=\vct{b}$; elimination reveals contradictions and free variables
-- [Reusable solves]{.alert} — $\mat{A}=\mat{P}\mat{L}\mat{U}$ stores row order and triangular work
-- [Transformations]{.alert} — columns are basis images; matrix products compose actions
-- [Reversibility]{.alert} — inverses undo actions; projections show how information can be lost
+- [Systems]({{< meta decks.d01.file >}}#read-the-solution-set) — $\mat{A}\vct{x}=\vct{b}$; elimination reveals contradictions and free variables
+- [Reusable solves]({{< meta decks.d03.file >}}#triangular-factors-organize-repeated-solves) — $\mat{A}=\mat{P}\mat{L}\mat{U}$ stores row order and triangular work
+- [Transformations]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column) — columns are basis images; matrix products compose actions
+- [Reversibility]({{< meta decks.d02.file >}}#reversible-versus-information-losing) — inverses undo actions; projections show how information can be lost
 
 ::: {.key-point}
 Matrix structure tells us both [how to compute]{.alert} and

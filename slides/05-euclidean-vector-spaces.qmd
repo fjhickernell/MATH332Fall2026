@@ -125,6 +125,8 @@ vector.
 | $c\vct{v}$ | vector | scale or reverse a displacement |
 | $P+Q$ | — | no origin-independent geometric meaning |
 
+$a\vct{u}+b\vct{v}$ — a [linear combination]({{< meta decks.d03.file >}}#given-output-solve-column-weights), with scalar weights $a,b$
+
 The expression
 
 $$
@@ -176,6 +178,8 @@ $$
 \Pi=\{P+s\vct{u}+t\vct{v}:s,t\in\reals\}
 $$
 
+$s\vct{u}+t\vct{v}$ — a [linear combination]{.alert} of the direction vectors
+
 Changing the point on the same line or plane does not change its directions
 
 Only when the set passes through the origin can its points also be treated as
@@ -202,7 +206,8 @@ $$
 \mat{A}\vct{z}=\vct{0}
 $$
 
-include $\vct{0}$ and are closed under linear combinations:
+include $\vct{0}$ and are [closed under linear combinations]{.alert}:
+every linear combination of homogeneous solutions is another homogeneous solution
 
 $$
 \mat{A}\vct{z}_1=\vct{0},
@@ -212,20 +217,20 @@ $$
 \mat{A}(c_1\vct{z}_1+c_2\vct{z}_2)=\vct{0}
 $$
 
-These solutions are directions that the matrix cannot detect:
+These solutions are [directions]{.alert} that the matrix cannot detect:
 
 $$
 \mat{A}(\vct{x}+\vct{z})=\mat{A}\vct{x}
 $$
 
 ::: {.key-point}
-These homogeneous directions form $\operatorname{Null}(\mat{A})$; Deck 06
+These homogeneous directions form $\operatorname{Null}(\mat{A})$; [Deck 06]({{< meta decks.d06.file >}}#homogeneous-systems-produce-subspaces)
 develops the null space as a subspace
 :::
 
 ::: {.notes}
-Deck 06 will verify the vector-space axioms and connect the null space to the
-row and column spaces.
+[Deck 06]({{< meta decks.d06.file >}}#a-vector-space-starts-with-objects-and-two-operations) will verify the vector-space axioms and connect the null space to the
+[row and column spaces]({{< meta decks.d06.file >}}#a-matrix-has-four-fundamental-subspaces).
 :::
 
 ## Nonhomogeneous systems translate those directions {#nonhomogeneous-systems-translate-those-directions}
@@ -253,6 +258,7 @@ $$
 $$
 
 ::: {.key-point}
+For a consistent system, the solution set is an [affine set]{.alert}:<br>
 Solution set $=$ one solution point $+$ all homogeneous directions
 :::
 
@@ -276,12 +282,15 @@ $$
 free variables
 
 ::: {.key-point}
-The number of free parameters is the dimension of the homogeneous directions
+The [dimension of the affine solution set]{.alert} is $n-r$, the number of free parameters<br>
+It equals the dimension of the homogeneous direction space $\operatorname{Null}(\mat{A})$
 :::
 
 ::: {.notes}
-This is a preview. Deck 06 will define basis and dimension; later work will
-name the relationship rank–nullity.
+This is a preview. Deck 06 will define
+[basis]({{< meta decks.d06.file >}}#a-basis-balances-reach-and-economy) and
+[dimension]({{< meta decks.d06.file >}}#dimension-counts-vectors-in-any-basis) and name the relationship
+[rank–nullity]({{< meta decks.d06.file >}}#rank-nullity-counts-inputs).
 :::
 
 ## Read the affine structure from elimination {#read-the-affine-structure-from-elimination}
@@ -374,6 +383,105 @@ $$
 
 The result $\vct{p}_*$ gives coordinates of the point on $L$ nearest to $Q$
 
+---
+
+### Find the nearest point: a worked example {#nearest-point-worked-example}
+
+$$
+P=(1,1,0),\qquad \vct{v}=[1,0,1]^{\mathsf T},
+\qquad Q=(4,2,1),\qquad L=\{P+t\vct{v}:t\in\reals\}
+$$
+
+::: {.columns}
+::: {.column width="47%"}
+Use the [projection formula](#projection-finds-the-nearest-point-on-an-affine-line):
+
+\begin{align*}
+t_*&=\frac{(\vct{q}-\vct{p})^{\mathsf T}\vct{v}}{\vct{v}^{\mathsf T}\vct{v}}
+=\frac{4}{2}=2\\
+\vct{p}_*&=\vct{p}+2\vct{v}=[3,1,2]^{\mathsf T}\\
+\vct{q}-\vct{p}_*&=[1,1,-1]^{\mathsf T}
+\end{align*}
+
+Check: $(\vct{q}-\vct{p}_*)^{\mathsf T}\vct{v}=1-1=0$
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+```{=html}
+<svg class="diagram-image affine-projection-geometry" viewBox="0 0 580 450" width="100%" role="img" aria-label="View in the plane containing the affine line L and Q. P equals (1,1,0) and P star equals (3,1,2) lie on L. Q equals (4,2,1) is directly above P star. The diagonal is labeled vector PQ, the displacement q minus p; its horizontal projection is 2v. The perpendicular residual from P star to Q has length square root of 3.">
+<defs>
+<marker id="affine-projection-arrow" markerWidth="26" markerHeight="26" refX="24" refY="12" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L24,12 L0,24 L6,12 Z" fill="#007acc"/></marker>
+<marker id="affine-displacement-arrow" markerWidth="26" markerHeight="26" refX="24" refY="12" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,0 L24,12 L0,24 L6,12 Z" fill="#666"/></marker>
+</defs>
+<text x="290" y="30" text-anchor="middle" font-size="23" fill="#555">View in the plane containing <tspan class="math-label" font-style="italic">L</tspan> and <tspan class="math-label" font-style="italic">Q</tspan></text>
+<line x1="35" y1="330" x2="540" y2="330" stroke="#777" stroke-width="3"/>
+<text class="math-label" x="548" y="338" font-size="26" font-style="italic">L</text>
+<line x1="90" y1="330" x2="370" y2="158.536" stroke="#666" stroke-width="8" marker-end="url(#affine-displacement-arrow)"/>
+<g aria-label="displacement vector P Q">
+<text class="math-label" x="180" y="225" font-size="27" font-style="italic" text-anchor="middle">PQ</text>
+<line x1="161" y1="195" x2="193" y2="195" stroke="#333" stroke-width="2"/>
+<path d="M191,191 L200,195 L191,199 Z" fill="#333"/>
+</g>
+<line x1="90" y1="330" x2="370" y2="330" stroke="#007acc" stroke-width="9" marker-end="url(#affine-projection-arrow)"/>
+<text class="math-label" x="230" y="304" font-size="26" fill="#007acc" text-anchor="middle"><tspan font-style="italic">t</tspan><tspan baseline-shift="sub" font-size="18">*</tspan><tspan font-weight="bold" font-style="italic">v</tspan> = 2<tspan font-weight="bold" font-style="italic">v</tspan></text>
+<line x1="370" y1="330" x2="370" y2="158.536" stroke="#c56b00" stroke-width="6" stroke-dasharray="9 7"/>
+<path d="M348,330 L348,308 L370,308" fill="none" stroke="#333" stroke-width="2.5"/>
+<text class="math-label" x="391" y="225" font-size="26" fill="#a65700"><tspan font-weight="bold" font-style="italic">q</tspan> − <tspan font-weight="bold" font-style="italic">p</tspan><tspan baseline-shift="sub" font-size="18">*</tspan></text>
+<circle cx="90" cy="330" r="6" fill="#333"/>
+<circle cx="370" cy="330" r="7" fill="#007acc"/>
+<circle cx="370" cy="158.536" r="7" fill="#c56b00"/>
+<text class="math-label" x="90" y="368" text-anchor="middle" font-size="25"><tspan font-style="italic">P</tspan> = (1,1,0)</text>
+<text class="math-label" x="370" y="368" text-anchor="middle" font-size="25" fill="#007acc"><tspan font-style="italic">P</tspan><tspan baseline-shift="sub" font-size="18">*</tspan> = (3,1,2)</text>
+<text class="math-label" x="370" y="132" text-anchor="middle" font-size="25" fill="#a65700"><tspan font-style="italic">Q</tspan> = (4,2,1)</text>
+<text x="290" y="425" text-anchor="middle" font-size="24">Along the line + perpendicular to the line</text>
+</svg>
+```
+:::
+:::
+
+::: {.key-point}
+Nearest point $P_*=(3,1,2)$; distance $\operatorname{dist}(Q,L)=\sqrt{3}$
+:::
+
+::: {.notes}
+The residual is perpendicular to the line direction. For every $t$,
+$\norm{\vct{q}-(\vct{p}+t\vct{v})}^2=3+2(t-2)^2$, so the minimum
+occurs at $t=2$. Projecting $\vct{q}$ without first subtracting $\vct{p}$
+would instead use the line through the origin and give the wrong answer.
+:::
+
+---
+
+### Find the nearest point and distance {#nearest-point-exercise}
+
+$$
+P=(1,-1,0),\qquad \vct{v}=\begin{bmatrix}1\\2\\0\end{bmatrix},
+\qquad Q=(4,0,2),\qquad L=\{P+t\vct{v}:t\in\reals\}
+$$
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>Project a displacement to find the nearest point
+<span class="exsub">Form $\vct{q}-\vct{p}$ and compute the minimizing parameter $t_*$</span>
+<span class="exsub">Find the nearest point $P_*$ and the distance from $Q$ to $L$</span>
+<span class="exsub">Verify that $\vct{q}-\vct{p}_*$ is perpendicular to $\vct{v}$</span>
+<span class="exsub">Explain why projecting $\vct{q}$ onto $\vct{v}$ alone does not solve this problem</span>
+</span>
+:::
+
+::: {.notes}
+The displacement is $(3,1,2)^{\mathsf T}$, so $t_*=5/5=1$.
+The nearest point is $P_*=(2,1,0)$; the residual is $(2,-1,2)^{\mathsf T}$,
+which has dot product zero with $(1,2,0)^{\mathsf T}$ and norm $3$.
+The squared distance at parameter $t$ is $9+5(t-1)^2$.
+Projecting $\vct{q}$ alone finds the nearest point on the parallel line through
+the origin, not on the given affine line. Subtract the anchor point first,
+project the displacement, then add the anchor point back.
+:::
+
 ## A special 3D operation: the cross product {#the-cross-product-combines-two-directions}
 
 For $\vct{u},\vct{v}\in\reals^3$, define
@@ -417,6 +525,104 @@ The wedge product belongs to exterior algebra, which generalizes oriented
 areas, volumes, determinants, and the three-dimensional cross product.
 :::
 
+---
+
+### A determinant pattern remembers the cross product {#a-determinant-pattern-remembers-the-cross-product}
+
+Using the [standard basis vectors]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column), remember
+
+$$
+\vct{u}\mathbin{\times}\vct{v}
+=\begin{vmatrix}
+\vct{e}_1&\vct{e}_2&\vct{e}_3\\
+u_1&u_2&u_3\\
+v_1&v_2&v_3
+\end{vmatrix}
+$$
+
+Expand across the first row with signs $+,-,+$:
+
+\begin{align*}
+\vct{u}\mathbin{\times}\vct{v}
+&=\vct{e}_1\begin{vmatrix}u_2&u_3\\v_2&v_3\end{vmatrix}
+-\vct{e}_2\begin{vmatrix}u_1&u_3\\v_1&v_3\end{vmatrix}
++\vct{e}_3\begin{vmatrix}u_1&u_2\\v_1&v_2\end{vmatrix}
+\end{align*}
+
+Each $2\times2$ determinant uses $ad-bc$
+
+::: {.key-point}
+A [mnemonic, or memory aid]{.alert}, not a real determinant: the first row contains vectors
+:::
+
+---
+
+### Why the cross-product norm is area {#why-the-cross-product-norm-is-area}
+
+Squaring the [component formula](#the-cross-product-combines-two-directions) and collecting terms gives
+
+\begin{align*}
+\norm{\vct{u}\mathbin{\times}\vct{v}}^2
+&=(u_2v_3-u_3v_2)^2+(u_3v_1-u_1v_3)^2+(u_1v_2-u_2v_1)^2\\
+&=(u_1^2+u_2^2+u_3^2)(v_1^2+v_2^2+v_3^2)
+  -(u_1v_1+u_2v_2+u_3v_3)^2\\
+&=\norm{\vct{u}}^2\norm{\vct{v}}^2-(\vct{u}^{\mathsf T}\vct{v})^2
+\end{align*}
+
+For nonzero inputs, use the [dot-product cosine formula]({{< meta decks.d01.file >}}#what-the-dot-product-reveals):
+
+$$
+\norm{\vct{u}\mathbin{\times}\vct{v}}^2
+=\norm{\vct{u}}^2\norm{\vct{v}}^2(1-\cos^2\theta)
+=\norm{\vct{u}}^2\norm{\vct{v}}^2\sin^2\theta
+$$
+
+::: {.key-point}
+Parallelogram area $=$ base $\times$ perpendicular height
+$=\norm{\vct{u}}\bigl(\norm{\vct{v}}\sin\theta\bigr)
+=\norm{\vct{u}\mathbin{\times}\vct{v}}$
+:::
+
+If either vector is zero, both the area and the cross product are zero
+
+::: {.notes}
+The angle between nonzero vectors lies in $[0,\pi]$, so $\sin\theta\ge0$;
+taking the nonnegative square root gives the stated norm. Parallel and
+antiparallel inputs have zero height and area. In the algebraic identity,
+the terms $u_i^2v_i^2$ cancel between the product of sums and the squared dot
+product; the remaining square and mixed terms are exactly those obtained
+by expanding the three cross-product components.
+:::
+
+---
+
+### Compute a normal and an area {#compute-a-normal-and-an-area}
+
+$$
+\vct{u}=\begin{bmatrix}1\\2\\0\end{bmatrix},
+\qquad
+\vct{v}=\begin{bmatrix}0\\1\\3\end{bmatrix}
+$$
+
+$$
+\vct{u}\mathbin{\times}\vct{v}
+=\begin{bmatrix}2\cdot3-0\cdot1\\0\cdot0-1\cdot3\\1\cdot1-2\cdot0\end{bmatrix}
+=\begin{bmatrix}6\\-3\\1\end{bmatrix}
+=\vct{n}
+$$
+
+Check perpendicularity:
+
+$$
+\vct{u}^{\mathsf T}\vct{n}=6-6=0,
+\qquad
+\vct{v}^{\mathsf T}\vct{n}=-3+3=0
+$$
+
+::: {.key-point}
+[Parallelogram area](#why-the-cross-product-norm-is-area) $=\norm{\vct{n}}=\sqrt{46}$; triangle area $=\sqrt{46}/2$
+:::
+
 ## Point differences build a plane normal {#point-differences-build-a-plane-normal}
 
 For three noncollinear points $P,Q,R\in\reals^3$, first form two directions:
@@ -441,6 +647,32 @@ The plane is therefore
 $$
 \vct{n}^{\mathsf T}(\vct{x}-\vct{p})=0
 $$
+
+---
+
+### Find a plane and its triangle area {#find-a-plane-and-its-triangle-area}
+
+$$
+P=(1,0,1),\qquad Q=(2,1,1),\qquad R=(1,2,3)
+$$
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>Use point differences and a cross product
+<span class="exsub">Find $\vct{u}=\overrightarrow{PQ}$ and $\vct{v}=\overrightarrow{PR}$</span>
+<span class="exsub">Compute $\vct{n}=\vct{u}\mathbin{\times}\vct{v}$ and verify that it is perpendicular to both directions</span>
+<span class="exsub">Find an equation for the affine plane through $P,Q,R$</span>
+<span class="exsub">Find the area of triangle $PQR$; explain what changes if $Q$ and $R$ are exchanged</span>
+</span>
+:::
+
+::: {.notes}
+The directions are $(1,1,0)^{\mathsf T}$ and $(0,2,2)^{\mathsf T}$;
+the cross product is $(2,-2,2)^{\mathsf T}$. Both dot products are zero.
+The plane equation is $2(x-1)-2y+2(z-1)=0$, or $x-y+z=2$.
+The triangle area is $\sqrt{3}$. Exchanging $Q$ and $R$ reverses the normal
+but preserves the plane and the area.
+:::
 
 ## The triple product reconnects to determinants {#the-triple-product-reconnects-to-determinants}
 
@@ -480,10 +712,10 @@ Determinants measure the geometry of displacement vectors, independent of where 
 
 [From matrix equations to the geometry of their solutions]{.alert}
 
-- [Systems]{.alert} — elimination finds whether $\mat{A}\vct{x}=\vct{b}$ is consistent and where free directions remain
-- [Matrix actions]{.alert} — inverses undo reversible maps; determinants detect scale, orientation, and collapse
-- [Points and directions]{.alert} — subtract points to get vectors; add vectors to move points
-- [Solution geometry]{.alert} — every consistent solution set is $\vct{x}_p+\operatorname{Null}(\mat{A})$
+- [Systems]({{< meta decks.d01.file >}}#read-the-solution-set) — elimination finds whether $\mat{A}\vct{x}=\vct{b}$ is consistent and where free directions remain
+- [Matrix actions]({{< meta decks.d03.file >}}#geometry-of-matrix-transformations) — inverses undo reversible maps; determinants detect scale, orientation, and collapse
+- [Points and directions]({{< meta decks.d05.file >}}#the-operations-reveal-the-roles) — subtract points to get vectors; add vectors to move points
+- [Solution geometry]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions) — every consistent solution set is $\vct{x}_p+\operatorname{Null}(\mat{A})$
 
 ::: {.key-point}
 Solving now means describing [all solutions]{.alert}, not only finding one
@@ -507,10 +739,10 @@ Solving now means describing [all solutions]{.alert}, not only finding one
 ::: {.column width="47%"}
 <h3>Next names</h3>
 
-- vector space
-- subspace and null space
-- span and linear independence
-- basis and dimension
+- [vector space]({{< meta decks.d06.file >}}#a-vector-space-starts-with-objects-and-two-operations)
+- [subspace and null space]({{< meta decks.d06.file >}}#homogeneous-systems-produce-subspaces)
+- [span]({{< meta decks.d06.file >}}#span-is-the-subspace-generated-by-chosen-vectors) and [linear independence]({{< meta decks.d06.file >}}#independence-means-the-zero-vector-has-one-construction)
+- [basis]({{< meta decks.d06.file >}}#a-basis-balances-reach-and-economy) and [dimension]({{< meta decks.d06.file >}}#dimension-counts-vectors-in-any-basis)
 :::
 :::
 

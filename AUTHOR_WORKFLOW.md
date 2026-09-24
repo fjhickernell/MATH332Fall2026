@@ -416,6 +416,11 @@ calendar unchanged and check again later.
 - RevealJS hierarchy exception: inside a `#` section slide, use an HTML `<h3>`
   for a visible tertiary heading because Quarto `###` does not render there as
   intended. Inside a `##` slide, ordinary Quarto `###` headings work normally.
+- For MATH 332 topic sequences, supporting derivations, worked examples, and
+  exercises may use `---` followed by a `###` continuation heading under the
+  preceding `##` topic. Retain explicit anchors for direct links, and list only
+  the main `##` topics in the section outline. Deck 05's Euclidean Tools
+  section demonstrates this course-specific continuation-slide convention.
 - Follow the shared slide-writing guidance in `classlib/AGENTS.md`.
 - Typeset matrix symbols in sans serif. In RevealJS slides, use `\mat{A}` from
   the JavaScript-provided MathJax macros. JupyterLab does not load those
@@ -486,6 +491,10 @@ complete run and its timing output with the `qmcpy` kernel before publication;
 separate clean-Colab validation is not a publication requirement.
 
 ## Preview and render
+
+For the Deck 05 equation-and-geometry figure pattern, including serif vector
+labels, raw SVG blocks, and arrow sizing, see
+[the projection-figure implementation notes](notes/TECHNICAL-NOTES.md#deck-05-projection-figure-implementation-and-validation).
 
 Preview the website:
 

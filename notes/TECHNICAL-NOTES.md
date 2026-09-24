@@ -6,6 +6,49 @@ details here when they are durable but too specific for `AGENTS.md`.
 
 ## Repository notes
 
+### Deck 05 projection figure: implementation and validation
+
+The worked nearest-point example in
+`slides/05-euclidean-vector-spaces.qmd#nearest-point-worked-example` is the
+course reference for an equation-and-geometry slide. Follow the shared
+`classlib/docs/revealjs-diagram-construction.md` guide; these notes describe
+this figure's implementation.
+
+- Keep the inline SVG inside a fenced `{=html}` block. This preserves SVG
+  text and `tspan` subscripts without Markdown interpreting the asterisks as
+  emphasis and breaking the figure's element nesting.
+- The course stylesheet defaults SVG text to Arial. The scoped
+  `.affine-projection-geometry .math-label` rule in
+  `slides/math332-slides.scss` selects Times New Roman/Times/serif for
+  mathematical labels, including mathematical spans within prose captions.
+  A `font-family` SVG attribute alone does not override the stylesheet.
+- Use bold italic lowercase symbols for vectors, regular-weight italic
+  uppercase symbols for points, and regular-weight italic scalars. Keep
+  coordinates upright. Use `tspan` with `baseline-shift="sub"` for the
+  nearest-point and minimizing-parameter subscripts. Plain SVG text does not
+  automatically inherit the LaTeX vector macros or MathJax typography.
+  Keep square roots and similar constructions in the adjacent MathJax
+  calculation unless the SVG explicitly draws the full mathematical glyph;
+  a plain Unicode radical does not extend its bar over the radicand.
+- At this figure's 580-by-450 viewBox, the displacement and projection stems
+  use widths 8 and 9; arrowheads use 26-by-26 markers with a 24-by-24 path,
+  `markerUnits="userSpaceOnUse"`, and the reference point at the arrow tip.
+  The dashed perpendicular uses width 6. Keep the underlying affine line
+  thinner, and retain the right-angle marker and labeled points.
+- The drawing is a view in the plane containing the line and the external
+  point, not a plot of the first two coordinates. Preserve perpendicularity
+  and relative segment lengths when changing the example. Update the
+  equations, diagram labels, geometry, accessibility description, and speaker
+  notes together.
+- Keep the 47% / 6% / 47% equation-and-figure layout. Compact transposed-row
+  coordinate displays leave room for the concluding key point above the footer.
+- Render Deck 05, refresh the assembled `_site/slides/` output, and inspect
+  the complete slide in the browser at ordinary presentation size. Check
+  serif/bold styling, arrowheads, labels, and footer clearance. Inspect the
+  rendered HTML to confirm that every label remains inside the SVG; a valid
+  source SVG or successful render alone cannot establish this. A standalone
+  SVG preview is useful but does not include the course stylesheet.
+
 ### Lecture 00 handoff — 2026-08-07
 
 - `slides/00-why-linear-algebra.qmd` is largely complete. Its opening now

@@ -9,14 +9,15 @@ with a brief Deck 05 preview. The September 24 Illinois Tech calendar
 occurrence has the continuation note for PH 109. The August 18–September 15
 recordings were audited, and September 22 was reconciled in the lecture ledger.
 
-Before the September 24 lecture, investigate the instructor-reported slide
-style regression after `quarto-slides-live all`. A screenshot showed Deck 00
-displaying again, but the instructor says the style is still all off. Check
-Decks 04 and 05 visually, identify which CSS or asset failed to load, and
-confirm MathJax typesetting; do not treat the successful render as visual
-validation.
+Continue the instructor-led Deck 05 review, especially the new cross-product
+area derivation and continuation-slide layouts. The instructor's September 24
+screenshots confirmed that the projection example fits above the footer and
+that its serif mathematical labels are correct. The final example now uses
+$t_*=2$ and labels its diagonal $\overrightarrow{PQ}$; inspect that final
+revision in the preview. The earlier broader style-regression report still
+requires a Deck 04 visual check; successful rendering alone does not close it.
 
-Review the shortened 20-slide Deck 05 Euclidean Vector Spaces bridge and the
+Continue reviewing the expanded Deck 05 Euclidean Vector Spaces bridge and the
 new 52-slide Deck 06 General Vector Spaces draft with the instructor. Deck 05
 now visibly names its homogeneous directions as the null space, while Deck 06
 develops the abstract structure using binary vectors, polynomials, and
@@ -72,7 +73,7 @@ address reported Colab problems.
 
 ## Current state
 
-- `slides/05-euclidean-vector-spaces.qmd` is now a focused 20-slide bridge
+- `slides/05-euclidean-vector-spaces.qmd` is now a 27-slide bridge (including its title slide)
   rather than a broad review of Anton §§3.1–3.5. It distinguishes points from
   vectors and origin-dependent point coordinates, develops homogeneous
   directions and nonhomogeneous affine solution sets, and reuses the earlier
@@ -83,6 +84,15 @@ address reported Colab problems.
   and connections with row and column spaces to Deck 06. The Course Map, Big
   Ideas, and closing transition make that handoff explicit. Source rendering
   and the revised closing layout have been visibly checked.
+- Deck 05 now explicitly connects linear combinations, affine solution sets,
+  and their dimension. Projection and cross products have worked examples and
+  starred exercises with speaker-note answers. The projection figure uses
+  $t_*=2$, serif vector/point notation, and thick arrows; the cross-product
+  sequence includes the determinant mnemonic and a component-to-area proof.
+  Euclidean Tools retains five main topics, with six supporting continuation
+  slides. Decks 01–06 now link callbacks, previews, and cumulative reviews to
+  their targets. Diagram implementation is documented in
+  `notes/TECHNICAL-NOTES.md`, with author-workflow links and continuation rules.
 - `slides/06-general-vector-spaces.qmd` is now a substantive 52-slide draft
   covering Anton §§4.1–4.9. Its abstract examples include $\mathbb{F}_2^n$,
   polynomials, and continuous functions; later sections develop subspaces,
@@ -136,10 +146,11 @@ address reported Colab problems.
   $\det(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}})$ without assuming
   prior knowledge of cross products. All slides rendered in the instructor's
   `quarto-slides-live all` run. A shared MathJax loader fix allows slides to
-  display before the remote script loads; visible equation typesetting in
-  Safari and Decks 04--05 still need checking.
+  display before the remote script loads; Deck 05 projection screenshots now confirm visible equation typesetting
+  and corrected layout; Deck 04 and the latest continuation slides still need
+  visible checking.
 - Decks 00--04 are substantive and instructor-reviewed; Deck 04 has also been
-  developed and audited. Deck 05 is a complete 20-slide draft, Deck 06 is a
+  developed and audited. Deck 05 is an expanded 27-slide draft (including its title), Deck 06 is a
   substantive 52-slide draft, and Decks 07--08 remain placeholders for Anton
   Chapters 5--6. The post-Test-1 schedule has 20 class meetings, but their
   allocation among Decks 05--08, Test 2, exercises, companions, and review has

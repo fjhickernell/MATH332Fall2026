@@ -214,8 +214,10 @@ For larger matrices, elimination is our computational route.
 
 # Compute by Elimination
 
-The determinant follows the same row operations already used for systems,
-inverses, and PLU
+The determinant follows the same row operations already used for
+[systems]({{< meta decks.d01.file >}}#three-reversible-moves),
+[inverses]({{< meta decks.d02.file >}}#reduce-beside-the-identity), and
+[PLU]({{< meta decks.d03.file >}}#elimination-becomes-a-factorization)
 
 - [Three row operations control the determinant](#three-row-operations-control-the-determinant)
 - [Triangular matrices end the computation](#triangular-matrices-end-the-computation)
@@ -503,7 +505,7 @@ $$
 For a real matrix, nonreal eigenvalues occur in conjugate pairs, so their
 product is real. Diagonalizability is not needed. The formula counts roots of
 the characteristic polynomial with algebraic multiplicity. Emphasize this as
-a forward preview, not as the Deck 07 development.
+a forward preview, not as the [Deck 07]({{< meta decks.d07.file >}}) development.
 :::
 
 ## Compute only what the problem requires
@@ -591,12 +593,11 @@ homogeneous system with this invertible coefficient matrix
 
 Hence $c_1=c_2=0$ is the only constant-coefficient relation
 
-[General Vector Spaces]({{< meta decks.d06.file >}}) will define this property as
+[General Vector Spaces]({{< meta decks.d06.file >}}#independence-means-the-zero-vector-has-one-construction) will define this property as
 [linear independence]{.alert}
 
 ::: {.notes}
-This previews linear independence, which will be defined in General Vector
-Spaces. For $n$ functions, the Wronskian is an $n\times n$ determinant whose
+This previews linear independence, which will be defined in [General Vector Spaces]({{< meta decks.d06.file >}}#independence-means-the-zero-vector-has-one-construction). For $n$ functions, the Wronskian is an $n\times n$ determinant whose
 rows use derivatives of orders $0,\ldots,n-1$. A nonzero Wronskian at one
 point proves linear independence. The converse fails for arbitrary
 differentiable functions. For $n$ solutions of the same homogeneous
@@ -854,7 +855,7 @@ map here is still represented by a matrix.
 - Compute determinants by [eliminating to triangular form]{.alert} and tracking swaps and scalings
 - PLU stores the needed information in the row permutation and the diagonal of $\mat{U}$
 - $\det(\mat{A})\ne0$ exactly when $\mat{A}$ is invertible
-- Products multiply determinants<br>Later, eigenvalues will also multiply to the
+- Products multiply determinants<br>Later, [eigenvalues]({{< meta decks.d07.file >}}) will also multiply to the
   determinant
 - For matrices of functions, determinants can reveal exceptional parameter
   values, function independence, and local geometric scaling
@@ -863,10 +864,10 @@ map here is still represented by a matrix.
 
 [One matrix, four connected views]{.alert}
 
-- [Representation]{.alert} — $\mat{A}\vct{x}=\vct{b}$ expresses systems and applications
-- [Elimination]{.alert} — row reduction exposes contradictions or free variables; PLU reuses the work for new right-hand sides
-- [Transformation]{.alert} — columns show basis images; products compose actions, inverses undo them
-- [Geometry]{.alert} — $\det(\mat{A})$ gives signed volume scale and detects collapse
+- [Representation]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system) — $\mat{A}\vct{x}=\vct{b}$ expresses systems and applications
+- [Elimination]({{< meta decks.d03.file >}}#elimination-becomes-a-factorization) — row reduction exposes contradictions or free variables; PLU reuses the work for new right-hand sides
+- [Transformation]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column) — columns show basis images; products compose actions, inverses undo them
+- [Geometry]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor) — $\det(\mat{A})$ gives signed volume scale and detects collapse
 
 ::: {.key-point}
 For square $\mat{A}$: $\det(\mat{A})\ne0$ $\iff$ $n$ pivots $\iff$

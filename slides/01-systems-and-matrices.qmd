@@ -893,7 +893,7 @@ Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible oper
 
 # Eliminate on Matrices
 
-[Compute with rows first]{.alert}; reinterpret the same steps as reversible matrix actions later
+[Compute with rows first]{.alert}; reinterpret the same steps as [reversible matrix actions](#row-operations-are-reversible-matrix-actions) later
 
 - [Translate equations into matrix rows](#translate-equations-into-matrix-rows)
 - [One algorithm, many valid paths](#one-algorithm-many-valid-paths)
@@ -1775,10 +1775,10 @@ $$
 
 It also opens structural questions:
 
-- Which right-hand sides $\vct{b}$ are attainable?
-- When does $\mat{A}\vct{x}=\vct{b}$ have a unique solution for every $\vct{b}$?
-- What do pivots tell us about the rows and columns of $\mat{A}$?
-- How does algebra reveal the geometry of the solution set?
+- [Which right-hand sides $\vct{b}$ are attainable?]({{< meta decks.d06.file >}}#a-matrix-has-four-fundamental-subspaces)
+- [When does $\mat{A}\vct{x}=\vct{b}$ have a unique solution for every $\vct{b}$?]({{< meta decks.d02.file >}}#one-theorem-many-viewpoints)
+- [What do pivots tell us about the rows and columns of $\mat{A}$?]({{< meta decks.d06.file >}}#column-and-row-bases-come-from-different-matrices)
+- [How does algebra reveal the geometry of the solution set?]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions)
 
 ::: {.key-point}
 [Next:]{.alert} [when is $\mat{A}$ itself a reversible matrix action?]({{< meta decks.d02.file >}})

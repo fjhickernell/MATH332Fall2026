@@ -55,6 +55,11 @@ Mathematical content should be maintained only in the slides.
     as a focused bridge from points and displacement vectors to homogeneous
     directions, affine solution sets, and general vector spaces, with compact
     projection and cross-product connections.
+  - [x] Clarify linear combinations, affine solution sets, and affine dimension;
+    add projection and cross-product examples, starred exercises, an illustrated
+    projection with nonunit parameter, and the cross-product area derivation.
+  - [x] Link callbacks and previews across Decks 01–06 and organize Deck 05's
+    supporting examples and derivations as continuation slides.
   - [ ] Complete instructor-led content and visible-layout review of Deck 05.
   - [x] Draft Deck 06: General Vector Spaces, covering Anton §§4.1–4.9 from
     vector-space axioms and abstract examples through subspaces, span,

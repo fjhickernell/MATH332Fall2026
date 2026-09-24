@@ -215,7 +215,7 @@ $\mat{A}^{-1}$ does not exist
 
 ::: {.key-point}
 - Pivot test — row-reduce $\mat{A}$ and inspect its pivots
-- Determinants — [deferred]{.alert}; elimination shows pivots directly
+- [Determinants]({{< meta decks.d04.file >}}) — [deferred]{.alert}; elimination shows pivots directly
 - Near singularity — computed determinants may be unreliable
 :::
 
@@ -871,10 +871,10 @@ $2$. Covariance and precision zeros encode different relationships.
 
 [From equations to reversible actions]{.alert}
 
-- [Represent]{.alert} — $\mat{A}\vct{x}=\vct{b}$ gathers equations and applications in one form
-- [Eliminate]{.alert} — reversible row operations expose contradictions and free variables
-- [Invert]{.alert} — a square matrix with a pivot in every column has one solution for every $\vct{b}$
-- [Compute wisely]{.alert} — solve for one right-hand side; build a reusable response map only when needed
+- [Represent]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system) — $\mat{A}\vct{x}=\vct{b}$ gathers equations and applications in one form
+- [Eliminate]({{< meta decks.d01.file >}}#read-the-solution-set) — reversible row operations expose contradictions and free variables
+- [Invert]({{< meta decks.d02.file >}}#one-theorem-many-viewpoints) — a square matrix with a pivot in every column has one solution for every $\vct{b}$
+- [Compute wisely]({{< meta decks.d02.file >}}#choose-the-least-computation) — solve for one right-hand side; build a reusable response map only when needed
 
 ::: {.key-point}
 For square $\mat{A}$: full pivots $\iff$ $\mat{A}^{-1}$ exists $\iff$
