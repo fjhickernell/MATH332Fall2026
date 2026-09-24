@@ -98,7 +98,7 @@ $$
 \overrightarrow{PQ}=Q-P
 $$
 
-::: {.main-message}
+::: {.key-point}
 Points say where; vectors say how to move
 :::
 
@@ -218,7 +218,7 @@ $$
 \mat{A}(\vct{x}+\vct{z})=\mat{A}\vct{x}
 $$
 
-::: {.main-message}
+::: {.key-point}
 These homogeneous directions form $\operatorname{Null}(\mat{A})$; Deck 06
 develops the null space as a subspace
 :::
@@ -252,7 +252,7 @@ $$
 \mat{A}(\vct{x}_1-\vct{x}_2)=\vct{0}
 $$
 
-::: {.main-message}
+::: {.key-point}
 Solution set $=$ one solution point $+$ all homogeneous directions
 :::
 

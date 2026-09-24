@@ -92,7 +92,7 @@ The homogeneous solutions can be
 - multiplied by scalars
 - kept inside the same solution set
 
-::: {.main-message}
+::: {.key-point}
 Deck 06 names the abstract structure shared by every collection with these
 linear operations
 :::
@@ -142,7 +142,7 @@ c(d\vct{v})&=(cd)\vct{v}\\
 \end{aligned}
 $$
 
-::: {.main-message}
+::: {.key-point}
 Linear algebra uses only addition, scalar multiplication, and consequences of
 these rules
 :::
@@ -198,7 +198,7 @@ vector
 
 Addition and scalar multiplication are defined object by object
 
-::: {.main-message}
+::: {.key-point}
 Different objects can obey the same linear rules
 :::
 
@@ -278,7 +278,7 @@ $$
 
 Unlike $\reals^n$ and $\mathbb{P}_2$, this space has no finite basis
 
-::: {.main-message}
+::: {.key-point}
 Finite-dimensional ideas begin with general vector spaces but require an
 additional finiteness assumption
 :::
@@ -382,7 +382,7 @@ This one condition gives
 - the zero vector by taking $c=d=0$
 - additive inverses by taking $c=-1$ and $d=0$
 
-::: {.main-message}
+::: {.key-point}
 Subspaces are exactly the subsets closed under linear combinations
 :::
 
@@ -427,7 +427,7 @@ $$
 By contrast, $\{\vct{x}:\mat{A}\vct{x}=\vct{b}\}$ is generally affine when
 $\vct{b}\ne\vct{0}$
 
-::: {.main-message}
+::: {.key-point}
 The null space records every input direction that a matrix sends to zero
 :::
 
@@ -563,7 +563,7 @@ $$
 
 The columns are independent exactly when every column is a pivot column
 
-::: {.main-message}
+::: {.key-point}
 The familiar homogeneous system answers the abstract independence question
 :::
 
@@ -605,7 +605,7 @@ Spanning guarantees existence of coefficients
 
 Independence guarantees uniqueness of coefficients
 
-::: {.main-message}
+::: {.key-point}
 A basis builds every vector exactly once
 :::
 
@@ -646,7 +646,7 @@ $$
 
 For another basis, the same polynomial has another coordinate vector
 
-::: {.main-message}
+::: {.key-point}
 Choosing a basis converts abstract vectors into coordinate columns
 :::
 
@@ -747,7 +747,7 @@ More generally,
 - every independent list can be extended to a basis
 - every spanning list can be reduced to a basis
 
-::: {.main-message}
+::: {.key-point}
 Knowing the dimension can cut a basis proof in half
 :::
 
@@ -790,7 +790,7 @@ $$
 [\vct{x}]_{\mathcal{B}}=\mat{P}_{\mathcal{B}}^{-1}\vct{x}
 $$
 
-::: {.main-message}
+::: {.key-point}
 The columns of a basis matrix tell what the new coordinate axes mean in
 standard coordinates
 :::
@@ -950,7 +950,7 @@ $$
 \dim\operatorname{Null}(\mat{A})=2
 $$
 
-::: {.main-message}
+::: {.key-point}
 Each free variable contributes one independent null-space direction
 :::
 
@@ -1080,7 +1080,7 @@ $$
 =\mat{M}[\vct{v}]_{\mathcal{B}}
 $$
 
-::: {.main-message}
+::: {.key-point}
 Matrices are coordinate representations of linear transformations
 :::
 
