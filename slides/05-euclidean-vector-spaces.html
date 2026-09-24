@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="05-euclidean-vector-spaces_files/libs/revealjs/dist/theme/quarto-f0779c89f7544803a7a6ea4af11e4e6f.css">
+  <link rel="stylesheet" href="05-euclidean-vector-spaces_files/libs/revealjs/dist/theme/quarto-58840370c589e1153509a06720630224.css">
   <link href="05-euclidean-vector-spaces_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="05-euclidean-vector-spaces_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="05-euclidean-vector-spaces_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -783,6 +783,7 @@ P+\vct{v}=\text{point}
 </tr>
 </tbody>
 </table>
+<p><span class="math inline">\(a\vct{u}+b\vct{v}\)</span> — a <a href="03-matrix-structure-and-transformations.html#given-output-solve-column-weights">linear combination</a>, with scalar weights <span class="math inline">\(a,b\)</span></p>
 <p>The expression</p>
 <p><span class="math display">\[
 (1-t)P+tQ=P+t(Q-P)
@@ -828,6 +829,7 @@ L=\{P+t\vct{v}:t\in\reals\}
 <p><span class="math display">\[
 \Pi=\{P+s\vct{u}+t\vct{v}:s,t\in\reals\}
 \]</span></p>
+<p><span class="math inline">\(s\vct{u}+t\vct{v}\)</span> — a <span class="alert">linear combination</span> of the direction vectors</p>
 <p>Changing the point on the same line or plane does not change its directions</p>
 <p>Only when the set passes through the origin can its points also be treated as a collection of vectors closed under addition and scaling</p>
 <div class="key-point">
@@ -851,7 +853,7 @@ L=\{P+t\vct{v}:t\in\reals\}
 <p><span class="math display">\[
 \mat{A}\vct{z}=\vct{0}
 \]</span></p>
-<p>include <span class="math inline">\(\vct{0}\)</span> and are closed under linear combinations:</p>
+<p>include <span class="math inline">\(\vct{0}\)</span> and are <span class="alert">closed under linear combinations</span>: every linear combination of homogeneous solutions is another homogeneous solution</p>
 <p><span class="math display">\[
 \mat{A}\vct{z}_1=\vct{0},
 \quad
@@ -859,15 +861,15 @@ L=\{P+t\vct{v}:t\in\reals\}
 \quad\Longrightarrow\quad
 \mat{A}(c_1\vct{z}_1+c_2\vct{z}_2)=\vct{0}
 \]</span></p>
-<p>These solutions are directions that the matrix cannot detect:</p>
+<p>These solutions are <span class="alert">directions</span> that the matrix cannot detect:</p>
 <p><span class="math display">\[
 \mat{A}(\vct{x}+\vct{z})=\mat{A}\vct{x}
 \]</span></p>
 <div class="key-point">
-<p>These homogeneous directions form <span class="math inline">\(\operatorname{Null}(\mat{A})\)</span>; Deck 06 develops the null space as a subspace</p>
+<p>These homogeneous directions form <span class="math inline">\(\operatorname{Null}(\mat{A})\)</span>; <a href="06-general-vector-spaces.html#homogeneous-systems-produce-subspaces">Deck 06</a> develops the null space as a subspace</p>
 </div>
 <aside class="notes">
-<p>Deck 06 will verify the vector-space axioms and connect the null space to the row and column spaces.</p>
+<p><a href="06-general-vector-spaces.html#a-vector-space-starts-with-objects-and-two-operations">Deck 06</a> will verify the vector-space axioms and connect the null space to the <a href="06-general-vector-spaces.html#a-matrix-has-four-fundamental-subspaces">row and column spaces</a>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -899,7 +901,7 @@ L=\{P+t\vct{v}:t\in\reals\}
 \mat{A}(\vct{x}_1-\vct{x}_2)=\vct{0}
 \]</span></p>
 <div class="key-point">
-<p>Solution set <span class="math inline">\(=\)</span> one solution point <span class="math inline">\(+\)</span> all homogeneous directions</p>
+<p>For a consistent system, the solution set is an <span class="alert">affine set</span>:<br> Solution set <span class="math inline">\(=\)</span> one solution point <span class="math inline">\(+\)</span> all homogeneous directions</p>
 </div>
 </section>
 <section id="free-variables-count-the-directions" class="slide level2">
@@ -937,10 +939,10 @@ n-r
 \]</span></p>
 <p>free variables</p>
 <div class="key-point">
-<p>The number of free parameters is the dimension of the homogeneous directions</p>
+<p>The <span class="alert">dimension of the affine solution set</span> is <span class="math inline">\(n-r\)</span>, the number of free parameters<br> It equals the dimension of the homogeneous direction space <span class="math inline">\(\operatorname{Null}(\mat{A})\)</span></p>
 </div>
 <aside class="notes">
-<p>This is a preview. Deck 06 will define basis and dimension; later work will name the relationship rank–nullity.</p>
+<p>This is a preview. Deck 06 will define <a href="06-general-vector-spaces.html#a-basis-balances-reach-and-economy">basis</a> and <a href="06-general-vector-spaces.html#dimension-counts-vectors-in-any-basis">dimension</a> and name the relationship <a href="06-general-vector-spaces.html#rank-nullity-counts-inputs">rank–nullity</a>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1023,6 +1025,95 @@ L=\{P+t\vct{v}:t\in\reals\},
 \]</span></p>
 <p>The result <span class="math inline">\(\vct{p}_*\)</span> gives coordinates of the point on <span class="math inline">\(L\)</span> nearest to <span class="math inline">\(Q\)</span></p>
 </section>
+<section class="slide level2">
+
+<h3 id="nearest-point-worked-example">Find the nearest point: a worked example</h3>
+<p><span class="math display">\[
+P=(1,1,0),\qquad \vct{v}=[1,0,1]^{\mathsf T},
+\qquad Q=(4,2,1),\qquad L=\{P+t\vct{v}:t\in\reals\}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>Use the <a href="#/projection-finds-the-nearest-point-on-an-affine-line">projection formula</a>:</p>
+<p><span class="math display">\[\begin{align*}
+t_*&amp;=\frac{(\vct{q}-\vct{p})^{\mathsf T}\vct{v}}{\vct{v}^{\mathsf T}\vct{v}}
+=\frac{4}{2}=2\\
+\vct{p}_*&amp;=\vct{p}+2\vct{v}=[3,1,2]^{\mathsf T}\\
+\vct{q}-\vct{p}_*&amp;=[1,1,-1]^{\mathsf T}
+\end{align*}\]</span></p>
+<p>Check: <span class="math inline">\((\vct{q}-\vct{p}_*)^{\mathsf T}\vct{v}=1-1=0\)</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<svg class="diagram-image affine-projection-geometry" viewbox="0 0 580 450" width="100%" role="img" aria-label="View in the plane containing the affine line L and Q. P equals (1,1,0) and P star equals (3,1,2) lie on L. Q equals (4,2,1) is directly above P star. The diagonal is labeled vector PQ, the displacement q minus p; its horizontal projection is 2v. The perpendicular residual from P star to Q has length square root of 3.">
+<defs>
+<marker id="affine-projection-arrow" markerwidth="26" markerheight="26" refx="24" refy="12" orient="auto" markerunits="userSpaceOnUse"><path d="M0,0 L24,12 L0,24 L6,12 Z" fill="#007acc"></path></marker>
+<marker id="affine-displacement-arrow" markerwidth="26" markerheight="26" refx="24" refy="12" orient="auto" markerunits="userSpaceOnUse"><path d="M0,0 L24,12 L0,24 L6,12 Z" fill="#666"></path></marker>
+</defs>
+<text x="290" y="30" text-anchor="middle" font-size="23" fill="#555">View in the plane containing <tspan class="math-label" font-style="italic">L</tspan> and <tspan class="math-label" font-style="italic">Q</tspan></text>
+<line x1="35" y1="330" x2="540" y2="330" stroke="#777" stroke-width="3"></line>
+<text class="math-label" x="548" y="338" font-size="26" font-style="italic">L</text>
+<line x1="90" y1="330" x2="370" y2="158.536" stroke="#666" stroke-width="8" marker-end="url(#affine-displacement-arrow)"></line>
+<g aria-label="displacement vector P Q">
+<text class="math-label" x="180" y="225" font-size="27" font-style="italic" text-anchor="middle">PQ</text>
+<line x1="161" y1="195" x2="193" y2="195" stroke="#333" stroke-width="2"></line>
+<path d="M191,191 L200,195 L191,199 Z" fill="#333"></path>
+</g>
+<line x1="90" y1="330" x2="370" y2="330" stroke="#007acc" stroke-width="9" marker-end="url(#affine-projection-arrow)"></line>
+<text class="math-label" x="230" y="304" font-size="26" fill="#007acc" text-anchor="middle"><tspan font-style="italic">t</tspan><tspan baseline-shift="sub" font-size="18">*</tspan><tspan font-weight="bold" font-style="italic">v</tspan> = 2<tspan font-weight="bold" font-style="italic">v</tspan></text>
+<line x1="370" y1="330" x2="370" y2="158.536" stroke="#c56b00" stroke-width="6" stroke-dasharray="9 7"></line>
+<path d="M348,330 L348,308 L370,308" fill="none" stroke="#333" stroke-width="2.5"></path>
+<text class="math-label" x="391" y="225" font-size="26" fill="#a65700"><tspan font-weight="bold" font-style="italic">q</tspan> − <tspan font-weight="bold" font-style="italic">p</tspan><tspan baseline-shift="sub" font-size="18">*</tspan></text>
+<circle cx="90" cy="330" r="6" fill="#333"></circle>
+<circle cx="370" cy="330" r="7" fill="#007acc"></circle>
+<circle cx="370" cy="158.536" r="7" fill="#c56b00"></circle>
+<text class="math-label" x="90" y="368" text-anchor="middle" font-size="25"><tspan font-style="italic">P</tspan> = (1,1,0)</text>
+<text class="math-label" x="370" y="368" text-anchor="middle" font-size="25" fill="#007acc"><tspan font-style="italic">P</tspan><tspan baseline-shift="sub" font-size="18">*</tspan> = (3,1,2)</text>
+<text class="math-label" x="370" y="132" text-anchor="middle" font-size="25" fill="#a65700"><tspan font-style="italic">Q</tspan> = (4,2,1)</text>
+<text x="290" y="425" text-anchor="middle" font-size="24">Along the line + perpendicular to the line</text>
+</svg>
+</div></div>
+<div class="key-point">
+<p>Nearest point <span class="math inline">\(P_*=(3,1,2)\)</span>; distance <span class="math inline">\(\operatorname{dist}(Q,L)=\sqrt{3}\)</span></p>
+</div>
+<aside class="notes">
+<p>The residual is perpendicular to the line direction. For every <span class="math inline">\(t\)</span>, <span class="math inline">\(\norm{\vct{q}-(\vct{p}+t\vct{v})}^2=3+2(t-2)^2\)</span>, so the minimum occurs at <span class="math inline">\(t=2\)</span>. Projecting <span class="math inline">\(\vct{q}\)</span> without first subtracting <span class="math inline">\(\vct{p}\)</span> would instead use the line through the origin and give the wrong answer.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="nearest-point-exercise">Find the nearest point and distance</h3>
+<p><span class="math display">\[
+P=(1,-1,0),\qquad \vct{v}=\begin{bmatrix}1\\2\\0\end{bmatrix},
+\qquad Q=(4,0,2),\qquad L=\{P+t\vct{v}:t\in\reals\}
+\]</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Project a displacement to find the nearest point <span class="exsub">Form <span class="math inline">\(\vct{q}-\vct{p}\)</span> and compute the minimizing parameter <span class="math inline">\(t_*\)</span></span> <span class="exsub">Find the nearest point <span class="math inline">\(P_*\)</span> and the distance from <span class="math inline">\(Q\)</span> to <span class="math inline">\(L\)</span></span> <span class="exsub">Verify that <span class="math inline">\(\vct{q}-\vct{p}_*\)</span> is perpendicular to <span class="math inline">\(\vct{v}\)</span></span> <span class="exsub">Explain why projecting <span class="math inline">\(\vct{q}\)</span> onto <span class="math inline">\(\vct{v}\)</span> alone does not solve this problem</span> </span></p>
+</div>
+<aside class="notes">
+<p>The displacement is <span class="math inline">\((3,1,2)^{\mathsf T}\)</span>, so <span class="math inline">\(t_*=5/5=1\)</span>. The nearest point is <span class="math inline">\(P_*=(2,1,0)\)</span>; the residual is <span class="math inline">\((2,-1,2)^{\mathsf T}\)</span>, which has dot product zero with <span class="math inline">\((1,2,0)^{\mathsf T}\)</span> and norm <span class="math inline">\(3\)</span>. The squared distance at parameter <span class="math inline">\(t\)</span> is <span class="math inline">\(9+5(t-1)^2\)</span>. Projecting <span class="math inline">\(\vct{q}\)</span> alone finds the nearest point on the parallel line through the origin, not on the given affine line. Subtract the anchor point first, project the displacement, then add the anchor point back.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="the-cross-product-combines-two-directions" class="slide level2">
 <h2>A special 3D operation: the cross product</h2>
 <p>For <span class="math inline">\(\vct{u},\vct{v}\in\reals^3\)</span>, define</p>
@@ -1062,6 +1153,90 @@ u_1v_2-u_2v_1
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
+
+<h3 id="a-determinant-pattern-remembers-the-cross-product">A determinant pattern remembers the cross product</h3>
+<p>Using the <a href="03-matrix-structure-and-transformations.html#standard-basis-vectors-reveal-every-column">standard basis vectors</a>, remember</p>
+<p><span class="math display">\[
+\vct{u}\mathbin{\times}\vct{v}
+=\begin{vmatrix}
+\vct{e}_1&amp;\vct{e}_2&amp;\vct{e}_3\\
+u_1&amp;u_2&amp;u_3\\
+v_1&amp;v_2&amp;v_3
+\end{vmatrix}
+\]</span></p>
+<p>Expand across the first row with signs <span class="math inline">\(+,-,+\)</span>:</p>
+<p><span class="math display">\[\begin{align*}
+\vct{u}\mathbin{\times}\vct{v}
+&amp;=\vct{e}_1\begin{vmatrix}u_2&amp;u_3\\v_2&amp;v_3\end{vmatrix}
+-\vct{e}_2\begin{vmatrix}u_1&amp;u_3\\v_1&amp;v_3\end{vmatrix}
++\vct{e}_3\begin{vmatrix}u_1&amp;u_2\\v_1&amp;v_2\end{vmatrix}
+\end{align*}\]</span></p>
+<p>Each <span class="math inline">\(2\times2\)</span> determinant uses <span class="math inline">\(ad-bc\)</span></p>
+<div class="key-point">
+<p>A <span class="alert">mnemonic, or memory aid</span>, not a real determinant: the first row contains vectors</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="why-the-cross-product-norm-is-area">Why the cross-product norm is area</h3>
+<p>Squaring the <a href="#/the-cross-product-combines-two-directions">component formula</a> and collecting terms gives</p>
+<p><span class="math display">\[\begin{align*}
+\norm{\vct{u}\mathbin{\times}\vct{v}}^2
+&amp;=(u_2v_3-u_3v_2)^2+(u_3v_1-u_1v_3)^2+(u_1v_2-u_2v_1)^2\\
+&amp;=(u_1^2+u_2^2+u_3^2)(v_1^2+v_2^2+v_3^2)
+  -(u_1v_1+u_2v_2+u_3v_3)^2\\
+&amp;=\norm{\vct{u}}^2\norm{\vct{v}}^2-(\vct{u}^{\mathsf T}\vct{v})^2
+\end{align*}\]</span></p>
+<p>For nonzero inputs, use the <a href="01-systems-and-matrices.html#what-the-dot-product-reveals">dot-product cosine formula</a>:</p>
+<p><span class="math display">\[
+\norm{\vct{u}\mathbin{\times}\vct{v}}^2
+=\norm{\vct{u}}^2\norm{\vct{v}}^2(1-\cos^2\theta)
+=\norm{\vct{u}}^2\norm{\vct{v}}^2\sin^2\theta
+\]</span></p>
+<div class="key-point">
+<p>Parallelogram area <span class="math inline">\(=\)</span> base <span class="math inline">\(\times\)</span> perpendicular height <span class="math inline">\(=\norm{\vct{u}}\bigl(\norm{\vct{v}}\sin\theta\bigr)
+=\norm{\vct{u}\mathbin{\times}\vct{v}}\)</span></p>
+</div>
+<p>If either vector is zero, both the area and the cross product are zero</p>
+<aside class="notes">
+<p>The angle between nonzero vectors lies in <span class="math inline">\([0,\pi]\)</span>, so <span class="math inline">\(\sin\theta\ge0\)</span>; taking the nonnegative square root gives the stated norm. Parallel and antiparallel inputs have zero height and area. In the algebraic identity, the terms <span class="math inline">\(u_i^2v_i^2\)</span> cancel between the product of sums and the squared dot product; the remaining square and mixed terms are exactly those obtained by expanding the three cross-product components.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="compute-a-normal-and-an-area">Compute a normal and an area</h3>
+<p><span class="math display">\[
+\vct{u}=\begin{bmatrix}1\\2\\0\end{bmatrix},
+\qquad
+\vct{v}=\begin{bmatrix}0\\1\\3\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\vct{u}\mathbin{\times}\vct{v}
+=\begin{bmatrix}2\cdot3-0\cdot1\\0\cdot0-1\cdot3\\1\cdot1-2\cdot0\end{bmatrix}
+=\begin{bmatrix}6\\-3\\1\end{bmatrix}
+=\vct{n}
+\]</span></p>
+<p>Check perpendicularity:</p>
+<p><span class="math display">\[
+\vct{u}^{\mathsf T}\vct{n}=6-6=0,
+\qquad
+\vct{v}^{\mathsf T}\vct{n}=-3+3=0
+\]</span></p>
+<div class="key-point">
+<p><a href="#/why-the-cross-product-norm-is-area">Parallelogram area</a> <span class="math inline">\(=\norm{\vct{n}}=\sqrt{46}\)</span>; triangle area <span class="math inline">\(=\sqrt{46}/2\)</span></p>
+</div>
+</section>
 <section id="point-differences-build-a-plane-normal" class="slide level2">
 <h2>Point differences build a plane normal</h2>
 <p>For three noncollinear points <span class="math inline">\(P,Q,R\in\reals^3\)</span>, first form two directions:</p>
@@ -1081,6 +1256,29 @@ u_1v_2-u_2v_1
 <p><span class="math display">\[
 \vct{n}^{\mathsf T}(\vct{x}-\vct{p})=0
 \]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="find-a-plane-and-its-triangle-area">Find a plane and its triangle area</h3>
+<p><span class="math display">\[
+P=(1,0,1),\qquad Q=(2,1,1),\qquad R=(1,2,3)
+\]</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use point differences and a cross product <span class="exsub">Find <span class="math inline">\(\vct{u}=\overrightarrow{PQ}\)</span> and <span class="math inline">\(\vct{v}=\overrightarrow{PR}\)</span></span> <span class="exsub">Compute <span class="math inline">\(\vct{n}=\vct{u}\mathbin{\times}\vct{v}\)</span> and verify that it is perpendicular to both directions</span> <span class="exsub">Find an equation for the affine plane through <span class="math inline">\(P,Q,R\)</span></span> <span class="exsub">Find the area of triangle <span class="math inline">\(PQR\)</span>; explain what changes if <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> are exchanged</span> </span></p>
+</div>
+<aside class="notes">
+<p>The directions are <span class="math inline">\((1,1,0)^{\mathsf T}\)</span> and <span class="math inline">\((0,2,2)^{\mathsf T}\)</span>; the cross product is <span class="math inline">\((2,-2,2)^{\mathsf T}\)</span>. Both dot products are zero. The plane equation is <span class="math inline">\(2(x-1)-2y+2(z-1)=0\)</span>, or <span class="math inline">\(x-y+z=2\)</span>. The triangle area is <span class="math inline">\(\sqrt{3}\)</span>. Exchanging <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> reverses the normal but preserves the plane and the area.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="the-triple-product-reconnects-to-determinants" class="slide level2">
 <h2>The triple product reconnects to determinants</h2>
@@ -1120,10 +1318,10 @@ u_1v_2-u_2v_1
 <h1>How Far We Have Come</h1>
 <p><span class="alert">From matrix equations to the geometry of their solutions</span></p>
 <ul>
-<li><span class="alert">Systems</span> — elimination finds whether <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> is consistent and where free directions remain</li>
-<li><span class="alert">Matrix actions</span> — inverses undo reversible maps; determinants detect scale, orientation, and collapse</li>
-<li><span class="alert">Points and directions</span> — subtract points to get vectors; add vectors to move points</li>
-<li><span class="alert">Solution geometry</span> — every consistent solution set is <span class="math inline">\(\vct{x}_p+\operatorname{Null}(\mat{A})\)</span></li>
+<li><a href="01-systems-and-matrices.html#read-the-solution-set">Systems</a> — elimination finds whether <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> is consistent and where free directions remain</li>
+<li><a href="03-matrix-structure-and-transformations.html#geometry-of-matrix-transformations">Matrix actions</a> — inverses undo reversible maps; determinants detect scale, orientation, and collapse</li>
+<li><a href="05-euclidean-vector-spaces.html#the-operations-reveal-the-roles">Points and directions</a> — subtract points to get vectors; add vectors to move points</li>
+<li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Solution geometry</a> — every consistent solution set is <span class="math inline">\(\vct{x}_p+\operatorname{Null}(\mat{A})\)</span></li>
 </ul>
 <div class="key-point">
 <p>Solving now means describing <span class="alert">all solutions</span>, not only finding one</p>
@@ -1150,10 +1348,10 @@ Concrete picture
 Next names
 </h3>
 <ul>
-<li>vector space</li>
-<li>subspace and null space</li>
-<li>span and linear independence</li>
-<li>basis and dimension</li>
+<li><a href="06-general-vector-spaces.html#a-vector-space-starts-with-objects-and-two-operations">vector space</a></li>
+<li><a href="06-general-vector-spaces.html#homogeneous-systems-produce-subspaces">subspace and null space</a></li>
+<li><a href="06-general-vector-spaces.html#span-is-the-subspace-generated-by-chosen-vectors">span</a> and <a href="06-general-vector-spaces.html#independence-means-the-zero-vector-has-one-construction">linear independence</a></li>
+<li><a href="06-general-vector-spaces.html#a-basis-balances-reach-and-economy">basis</a> and <a href="06-general-vector-spaces.html#dimension-counts-vectors-in-any-basis">dimension</a></li>
 </ul>
 </div></div>
 <div class="key-point">

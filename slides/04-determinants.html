@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="04-determinants_files/libs/revealjs/dist/theme/quarto-f0779c89f7544803a7a6ea4af11e4e6f.css">
+  <link rel="stylesheet" href="04-determinants_files/libs/revealjs/dist/theme/quarto-58840370c589e1153509a06720630224.css">
   <link href="04-determinants_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="04-determinants_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="04-determinants_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -855,7 +855,7 @@ h\;\text{(height)}&amp;=\abs{\vct{A}_2^{\mathsf T}\vct{n}}
 <section>
 <section id="compute-by-elimination" class="title-slide slide level1 center">
 <h1>Compute by Elimination</h1>
-<p>The determinant follows the same row operations already used for systems, inverses, and PLU</p>
+<p>The determinant follows the same row operations already used for <a href="01-systems-and-matrices.html#three-reversible-moves">systems</a>, <a href="02-inverses-and-invertibility.html#reduce-beside-the-identity">inverses</a>, and <a href="03-matrix-structure-and-transformations.html#elimination-becomes-a-factorization">PLU</a></p>
 <ul>
 <li><a href="#/three-row-operations-control-the-determinant">Three row operations control the determinant</a></li>
 <li><a href="#/triangular-matrices-end-the-computation">Triangular matrices end the computation</a></li>
@@ -1128,7 +1128,7 @@ u_{11}&amp;u_{12}&amp;\cdots&amp;u_{1n}\\
 <li>for triangular <span class="math inline">\(\mat{U}\)</span>, the eigenvalues are <span class="math inline">\(u_{11},\ldots,u_{nn}\)</span>, matching the elimination formula</li>
 </ul>
 <aside class="notes">
-<p>For a real matrix, nonreal eigenvalues occur in conjugate pairs, so their product is real. Diagonalizability is not needed. The formula counts roots of the characteristic polynomial with algebraic multiplicity. Emphasize this as a forward preview, not as the Deck 07 development.</p>
+<p>For a real matrix, nonreal eigenvalues occur in conjugate pairs, so their product is real. Diagonalizability is not needed. The formula counts roots of the characteristic polynomial with algebraic multiplicity. Emphasize this as a forward preview, not as the <a href="07-eigenvalues-and-eigenvectors.html">Deck 07</a> development.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1210,9 +1210,9 @@ W(f_1,f_2)(t)
 \]</span></p>
 <p>If <span class="math inline">\(c_1\cos t+c_2\sin t=0\)</span> for every <span class="math inline">\(t\)</span>, differentiating gives a homogeneous system with this invertible coefficient matrix</p>
 <p>Hence <span class="math inline">\(c_1=c_2=0\)</span> is the only constant-coefficient relation</p>
-<p><a href="06-general-vector-spaces.html">General Vector Spaces</a> will define this property as <span class="alert">linear independence</span></p>
+<p><a href="06-general-vector-spaces.html#independence-means-the-zero-vector-has-one-construction">General Vector Spaces</a> will define this property as <span class="alert">linear independence</span></p>
 <aside class="notes">
-<p>This previews linear independence, which will be defined in General Vector Spaces. For <span class="math inline">\(n\)</span> functions, the Wronskian is an <span class="math inline">\(n\times n\)</span> determinant whose rows use derivatives of orders <span class="math inline">\(0,\ldots,n-1\)</span>. A nonzero Wronskian at one point proves linear independence. The converse fails for arbitrary differentiable functions. For <span class="math inline">\(n\)</span> solutions of the same homogeneous <span class="math inline">\(n\)</span>th-order linear ODE with continuous coefficients, linear independence is equivalent to a nonzero Wronskian at one—and hence every—point. The coefficients in the linear relation are constants, not functions of <span class="math inline">\(t\)</span>.</p>
+<p>This previews linear independence, which will be defined in <a href="06-general-vector-spaces.html#independence-means-the-zero-vector-has-one-construction">General Vector Spaces</a>. For <span class="math inline">\(n\)</span> functions, the Wronskian is an <span class="math inline">\(n\times n\)</span> determinant whose rows use derivatives of orders <span class="math inline">\(0,\ldots,n-1\)</span>. A nonzero Wronskian at one point proves linear independence. The converse fails for arbitrary differentiable functions. For <span class="math inline">\(n\)</span> solutions of the same homogeneous <span class="math inline">\(n\)</span>th-order linear ODE with continuous coefficients, linear independence is equivalent to a nonzero Wronskian at one—and hence every—point. The coefficients in the linear relation are constants, not functions of <span class="math inline">\(t\)</span>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1455,7 +1455,7 @@ a&amp;\rho b&amp;0\\0&amp;0&amp;\rho a\\b&amp;-\rho a&amp;0
 <li>Compute determinants by <span class="alert">eliminating to triangular form</span> and tracking swaps and scalings</li>
 <li>PLU stores the needed information in the row permutation and the diagonal of <span class="math inline">\(\mat{U}\)</span></li>
 <li><span class="math inline">\(\det(\mat{A})\ne0\)</span> exactly when <span class="math inline">\(\mat{A}\)</span> is invertible</li>
-<li>Products multiply determinants<br>Later, eigenvalues will also multiply to the determinant</li>
+<li>Products multiply determinants<br>Later, <a href="07-eigenvalues-and-eigenvectors.html">eigenvalues</a> will also multiply to the determinant</li>
 <li>For matrices of functions, determinants can reveal exceptional parameter values, function independence, and local geometric scaling</li>
 </ul>
 </section>
@@ -1464,10 +1464,10 @@ a&amp;\rho b&amp;0\\0&amp;0&amp;\rho a\\b&amp;-\rho a&amp;0
 <h1>How Far We Have Come</h1>
 <p><span class="alert">One matrix, four connected views</span></p>
 <ul>
-<li><span class="alert">Representation</span> — <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> expresses systems and applications</li>
-<li><span class="alert">Elimination</span> — row reduction exposes contradictions or free variables; PLU reuses the work for new right-hand sides</li>
-<li><span class="alert">Transformation</span> — columns show basis images; products compose actions, inverses undo them</li>
-<li><span class="alert">Geometry</span> — <span class="math inline">\(\det(\mat{A})\)</span> gives signed volume scale and detects collapse</li>
+<li><a href="01-systems-and-matrices.html#the-augmented-matrix-stores-the-system">Representation</a> — <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> expresses systems and applications</li>
+<li><a href="03-matrix-structure-and-transformations.html#elimination-becomes-a-factorization">Elimination</a> — row reduction exposes contradictions or free variables; PLU reuses the work for new right-hand sides</li>
+<li><a href="03-matrix-structure-and-transformations.html#standard-basis-vectors-reveal-every-column">Transformation</a> — columns show basis images; products compose actions, inverses undo them</li>
+<li><a href="04-determinants.html#a-determinant-is-a-signed-scale-factor">Geometry</a> — <span class="math inline">\(\det(\mat{A})\)</span> gives signed volume scale and detects collapse</li>
 </ul>
 <div class="key-point">
 <p>For square <span class="math inline">\(\mat{A}\)</span>: <span class="math inline">\(\det(\mat{A})\ne0\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(n\)</span> pivots <span class="math inline">\(\iff\)</span> <span class="math inline">\(\mat{A}^{-1}\)</span> exists <span class="math inline">\(\iff\)</span> one solution for every <span class="math inline">\(\vct{b}\)</span></p>

@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="06-general-vector-spaces_files/libs/revealjs/dist/theme/quarto-f0779c89f7544803a7a6ea4af11e4e6f.css">
+  <link rel="stylesheet" href="06-general-vector-spaces_files/libs/revealjs/dist/theme/quarto-58840370c589e1153509a06720630224.css">
   <link href="06-general-vector-spaces_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="06-general-vector-spaces_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="06-general-vector-spaces_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -713,7 +713,7 @@ In this deck
 </section>
 <section id="the-previous-deck-found-directions-inside-solution-sets" class="slide level2">
 <h2>The previous deck found directions inside solution sets</h2>
-<p>For a consistent system <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>,</p>
+<p>As <a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Deck 05 showed</a>, for a consistent system <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>,</p>
 <p><span class="math display">\[
 \{\text{all solutions}\}
 =\vct{x}_p+\{\vct{z}:\mat{A}\vct{z}=\vct{0}\}
@@ -725,7 +725,7 @@ In this deck
 <li>kept inside the same solution set</li>
 </ul>
 <div class="key-point">
-<p>Deck 06 names the abstract structure shared by every collection with these linear operations</p>
+<p><a href="#/a-vector-space-starts-with-objects-and-two-operations">This deck</a> names the abstract structure shared by every collection with these linear operations</p>
 </div>
 </section>
 <section id="a-vector-space-starts-with-objects-and-two-operations" class="slide level2">
@@ -1602,7 +1602,7 @@ T(c\vct{u}+d\vct{v})=cT(\vct{u})+dT(\vct{v})
 <section id="a-well-chosen-basis-can-simplify-an-operator" class="slide level2">
 <h2>A well-chosen basis can simplify an operator</h2>
 <p>Different bases give different matrices for the same linear transformation</p>
-<p>The next deck asks whether a basis can make a square matrix diagonal:</p>
+<p>The <a href="07-eigenvalues-and-eigenvectors.html">next deck</a> asks whether a basis can make a square matrix diagonal:</p>
 <p><span class="math display">\[
 \mat{P}^{-1}\mat{A}\mat{P}
 =
@@ -1633,11 +1633,11 @@ T(c\vct{u}+d\vct{v})=cT(\vct{u})+dT(\vct{v})
 <h1>How Far We Have Come</h1>
 <p><span class="alert">One path from equations to abstract structure</span></p>
 <ul>
-<li><span class="alert">Solve</span> — elimination exposes consistency, pivots, and free directions in <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span></li>
-<li><span class="alert">Interpret</span> — <span class="math inline">\(\vct{x}_p+\operatorname{Null}(\mat{A})\)</span> describes every consistent solution set</li>
-<li><span class="alert">Generalize</span> — vector spaces and subspaces capture directions beyond coordinate columns</li>
-<li><span class="alert">Coordinate</span> — a basis gives each vector a unique column and each linear map a matrix</li>
-<li><span class="alert">Count</span> — rank–nullity divides input directions into visible and null directions</li>
+<li><a href="01-systems-and-matrices.html#read-the-solution-set">Solve</a> — elimination exposes consistency, pivots, and free directions in <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span></li>
+<li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Interpret</a> — <span class="math inline">\(\vct{x}_p+\operatorname{Null}(\mat{A})\)</span> describes every consistent solution set</li>
+<li><a href="06-general-vector-spaces.html#a-vector-space-starts-with-objects-and-two-operations">Generalize</a> — vector spaces and subspaces capture directions beyond coordinate columns</li>
+<li><a href="06-general-vector-spaces.html#a-basis-turns-an-abstract-problem-into-a-matrix-problem">Coordinate</a> — a basis gives each vector a unique column and each linear map a matrix</li>
+<li><a href="06-general-vector-spaces.html#rank-nullity-counts-inputs">Count</a> — rank–nullity divides input directions into visible and null directions</li>
 </ul>
 <div class="key-point">
 <p>A basis connects abstract vectors to computation; dimension records the structure that coordinates reveal</p>
