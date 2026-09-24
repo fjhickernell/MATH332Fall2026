@@ -9,6 +9,13 @@ with a brief Deck 05 preview. The September 24 Illinois Tech calendar
 occurrence has the continuation note for PH 109. The August 18–September 15
 recordings were audited, and September 22 was reconciled in the lecture ledger.
 
+Before the September 24 lecture, investigate the instructor-reported slide
+style regression after `quarto-slides-live all`. A screenshot showed Deck 00
+displaying again, but the instructor says the style is still all off. Check
+Decks 04 and 05 visually, identify which CSS or asset failed to load, and
+confirm MathJax typesetting; do not treat the successful render as visual
+validation.
+
 Review the shortened 20-slide Deck 05 Euclidean Vector Spaces bridge and the
 new 52-slide Deck 06 General Vector Spaces draft with the instructor. Deck 05
 now visibly names its homogeneous directions as the null space, while Deck 06
