@@ -541,6 +541,7 @@ The entries may vary while the determinant keeps its familiar meaning
 - [A Jacobian is the local linear map](#a-jacobian-is-the-local-linear-map)
 - [Polar coordinates explain the factor $r$](#polar-coordinates-explain-the-factor-r)
 - [Similar formulas answer different questions](#similar-formulas-answer-different-questions)
+- [Two parameters trace a surface](#two-parameters-trace-a-surface)
 
 ## A determinant can depend on a parameter
 
@@ -712,18 +713,43 @@ general differentiable coordinate changes in $n$ dimensions.
 
 Both use derivatives, but their columns have [different meanings]{.alert}
 
-For a surface $\vct{G}(u,v)\in\reals^3$, the two Jacobian columns
-$\vct{G}_u$ and $\vct{G}_v$ are tangent vectors; their spanned area is
+## Two parameters trace a surface
+
+The parameters $(u,v)$ label points in a plane. We could call them $(x,y)$;
+the different letters simply distinguish the [two inputs]{.alert} from the
+[three output coordinates]{.alert} $(x,y,z)$.
+
+A map $\vct{G}:D\subseteq\reals^2\to\reals^3$ assigns each pair the point
+$\vct{G}(u,v)=(x(u,v),y(u,v),z(u,v))$. If its two tangent directions are
+independent, these points form a surface patch locally.
+
+For example, $\vct{G}(u,v)=(u,v,u^2+v^2)$ traces the graph
+$z=x^2+y^2$ as $(u,v)$ varies over $\reals^2$.
+
+The Jacobian columns $\vct{G}_u$ and $\vct{G}_v$ give tangent directions.
+They approximate the edges of the image of a small parameter rectangle,
+whose area is approximately
 
 $$
-\left\lVert \vct{G}_u\mathbin{\times}\vct{G}_v\right\rVert
-=\sqrt{\det\bigl(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}}\bigr)}
+\sqrt{\det\bigl(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}}\bigr)}
+\,\Delta u\,\Delta v
 $$
+
+Here $\mat{J}_{\vct{G}}$ is $3\times2$; the $2\times2$ matrix
+$\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}}$ has determinant equal to
+the squared area scale.
 
 ::: {.notes}
-This is only an outlook. Manifolds and tensor calculus are beyond the present
-scope. Higher-order derivative information may be organized as tensors, but
-the first-order local map here is still represented by a matrix.
+This is only an outlook. When the tangent directions are independent, the
+image is locally a surface patch. The area factor is the area of the
+parallelogram spanned by $\vct{G}_u$ and $\vct{G}_v$; by base times height,
+its square is
+$\lVert\vct{G}_u\rVert^2\lVert\vct{G}_v\rVert^2
+-(\vct{G}_u\cdot\vct{G}_v)^2
+=\det(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}})$.
+Manifolds and tensor calculus are beyond the present scope. Higher-order
+derivative information may be organized as tensors, but the first-order local
+map here is still represented by a matrix.
 :::
 
 # Big Ideas {data-state="goldborder"}

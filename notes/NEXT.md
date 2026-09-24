@@ -18,10 +18,12 @@ refine before scheduling either deck, then turn the four remaining
 chapter-sized decks into an explicit plan for the 20 class meetings after
 Test 1.
 
-The Deck 04 determinants slides, including the matrices-of-functions
-enrichment, have been instructor-reviewed and accepted. The companion still
-awaits instructor review. Its Colab badge has been added; rely on the
-established setup and address reported Colab problems.
+The Deck 04 determinants slides were previously instructor-reviewed. The
+surface outlook was revised after the instructor flagged the premature cross
+product and unclear meaning of $\vct{G}(u,v)$; the new explanation and local
+area formula await visible review. The companion still awaits instructor
+review. Its Colab badge has been added; rely on the established setup and
+address reported Colab problems.
 
 ## Other active and deferred work
 
@@ -111,6 +113,14 @@ established setup and address reported Colab problems.
   that the underlying function may be nonlinear, present its first-order
   linear approximation, and give the general $n$-dimensional coordinate-change
   formula for volume elements alongside the polar special case.
+- The surface outlook now explicitly defines $\vct{G}:D\subseteq\reals^2\to
+  \reals^3$, explains that $(u,v)$ are optional input labels distinct from
+  output $(x,y,z)$, and uses a graph example. It gives local area through
+  $\det(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}})$ without assuming
+  prior knowledge of cross products. All slides rendered in the instructor's
+  `quarto-slides-live all` run. A shared MathJax loader fix allows slides to
+  display before the remote script loads; visible equation typesetting in
+  Safari and Decks 04--05 still need checking.
 - Decks 00--04 are substantive and instructor-reviewed; Deck 04 has also been
   developed and audited. Deck 05 is a complete 20-slide draft, Deck 06 is a
   substantive 52-slide draft, and Decks 07--08 remain placeholders for Anton

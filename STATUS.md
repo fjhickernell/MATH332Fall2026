@@ -75,6 +75,9 @@ Mathematical content should be maintained only in the slides.
 - [x] Add the optional Deck 04 matrices-of-functions enrichment: a
   parameter-dependent determinant, Wronskians, Jacobians, polar-coordinate
   area scaling, and a brief differential-geometry outlook.
+- [x] Clarify the surface parameterization and area factor without assuming
+  cross products have been introduced; render the revised deck.
+- [ ] Verify the revised surface slide layout and MathJax typesetting in Safari.
 - [x] Add the Deck 04 companion’s Colab badge using the established setup;
   separate clean-Colab validation is not required by instructor policy.
 - [ ] Review the Deck 04 companion with the instructor.
