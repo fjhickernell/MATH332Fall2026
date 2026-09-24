@@ -5,7 +5,7 @@ css: schedule.css
 
 Classes normally meet Tuesdays and Thursdays at 11:25 AM in **PH 109**.
 
-Completed lecture topics through September 15 have been checked against the
+Completed lecture topics through September 24 have been checked against the
 Panopto recordings. Future topics are provisional and will be updated as
 assignments, quizzes, holidays, and examination details are finalized.
 
@@ -30,9 +30,9 @@ assignments, quizzes, holidays, and examination details are finalized.
 | 5 | Tue Sep 15 | Test 1 review: permutations/PLU, rotations, reflections, projections and inverses; revisit the determinant area proof | [Matrix Structure and Transformations](../slides/03-matrix-structure-and-transformations.html)<br>[Determinants](../slides/04-determinants.html) |
 | | Thu Sep 17 | **Test 1** | Covers [Systems of Linear Equations and Matrices](../slides/01-systems-and-matrices.html)<br>[Inverses and Invertibility](../slides/02-inverses-and-invertibility.html)<br>[Matrix Structure and Transformations](../slides/03-matrix-structure-and-transformations.html) |
 | 6 | Tue Sep 22 | Determinants companion notebook; invertibility, products, eigenvalues, and computation; parameter-dependent determinants, Wronskians, Jacobians, and polar area factor; Euclidean vector-space preview | [Determinants](../slides/04-determinants.html)<br>[Determinants notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/04-determinants.ipynb)<br>[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html) |
-| | Thu Sep 24 | Points versus vectors; homogeneous directions and affine solution sets | [Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html#why-distinguish-points-from-vectors) |
+| | Thu Sep 24 | Points versus vectors and linear combinations; homogeneous directions and affine solution sets; elimination examples; nearest-point projection and worked distance example | [Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html) |
 | | Fri Sep 25 | **Assignment 2 due** | [WileyPLUS: Inverses and Determinants](../assignments/assignment_2.qmd) |
-| 7 | Tue Sep 29 | | |
+| 7 | Tue Sep 29 | Nearest-point practice; cross products, plane normals, and area | [Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html#nearest-point-exercise) |
 
 ### October
 

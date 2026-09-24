@@ -2,12 +2,18 @@
 
 ## Current task
 
-Prepare the September 24 lecture: begin Deck 05 at “Why distinguish points
-from vectors?” and develop homogeneous directions and affine solution sets.
-September 22 completed the Deck 04 determinants continuation and companion,
-with a brief Deck 05 preview. The September 24 Illinois Tech calendar
-occurrence has the continuation note for PH 109. The August 18–September 15
-recordings were audited, and September 22 was reconciled in the lecture ledger.
+Prepare the September 29 lecture: resume Deck 05 with “Find the nearest point
+and distance” as brief practice, then “A special 3D operation: the cross
+product.” September 24 completed affine solution sets and the worked
+nearest-point projection example. The September 29 Illinois Tech calendar
+occurrence has the verified continuation note for PH 109. The lecture ledger
+and schedule are reconciled through September 24; local rendering passed.
+
+Quiz 2 website coverage is updated to Determinants and Euclidean Vector
+Spaces through projections (excluding cross products), as confirmed by the
+instructor on September 24. All-sections Canvas announcement `106481`,
+“Quiz 2 on October 1: coverage through projections,” is posted and verified.
+The updated coverage passed the full local website and slide renders.
 
 Continue the instructor-led Deck 05 review, especially the new cross-product
 area derivation and continuation-slide layouts. The instructor's September 24
@@ -36,7 +42,8 @@ address reported Colab problems.
 ## Other active and deferred work
 
 - Quiz 2 is scheduled for October 1, covering Deck 04 Determinants and
-  Deck 05 Euclidean Vector Spaces, during the last 15 minutes of class.
+  Deck 05 Euclidean Vector Spaces through projections (excluding cross products),
+  during the last 15 minutes of class.
   Course notices are prepared. Canvas On Paper assignment `104699` is saved
   and verified unpublished for Everyone, in Quizzes, with an October 1 at
   12:40 PM deadline matching Quiz 1's class-end time. Confirm the remaining
