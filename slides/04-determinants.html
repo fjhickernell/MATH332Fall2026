@@ -689,7 +689,6 @@ In this deck
 <li><a href="#/what-the-determinant-reveals">What the Determinant Reveals</a></li>
 <li><a href="#/matrices-of-functions">Matrices of Functions</a></li>
 <li><a href="#/big-ideas">Big Ideas</a></li>
-<li><a href="#/what-comes-next">What Comes Next</a></li>
 </ul>
 </div></div>
 </section>
@@ -1209,7 +1208,7 @@ W(f_1,f_2)(t)
 \]</span></p>
 <p>If <span class="math inline">\(c_1\cos t+c_2\sin t=0\)</span> for every <span class="math inline">\(t\)</span>, differentiating gives a homogeneous system with this invertible coefficient matrix</p>
 <p>Hence <span class="math inline">\(c_1=c_2=0\)</span> is the only constant-coefficient relation</p>
-<p><a href="06-general-vector-spaces.html">General Vector Spaces</a> will call this property <span class="alert">linear independence</span> and return to the general <span class="math inline">\(n\times n\)</span> Wronskian</p>
+<p><a href="06-general-vector-spaces.html">General Vector Spaces</a> will define this property as <span class="alert">linear independence</span></p>
 <aside class="notes">
 <p>This previews linear independence, which will be defined in General Vector Spaces. For <span class="math inline">\(n\)</span> functions, the Wronskian is an <span class="math inline">\(n\times n\)</span> determinant whose rows use derivatives of orders <span class="math inline">\(0,\ldots,n-1\)</span>. A nonzero Wronskian at one point proves linear independence. The converse fails for arbitrary differentiable functions. For <span class="math inline">\(n\)</span> solutions of the same homogeneous <span class="math inline">\(n\)</span>th-order linear ODE with continuous coefficients, linear independence is equivalent to a nonzero Wronskian at one—and hence every—point. The coefficients in the linear relation are constants, not functions of <span class="math inline">\(t\)</span>.</p>
 <style type="text/css">
@@ -1275,7 +1274,7 @@ W(f_1,f_2)(t)
 <p>The Jacobian columns form the local edge vectors</p>
 </div></div>
 <div class="vspace">
-<p>The Jacobian determinant converts <span class="alert">volum</span> elements under a general coordinate change <span class="math inline">\(\vct{x}=\vct{F}(\vct{u})\)</span>:</p>
+<p>The Jacobian determinant converts <span class="alert">volume</span> elements under a general coordinate change <span class="math inline">\(\vct{x}=\vct{F}(\vct{u})\)</span>:</p>
 <p><span class="math display">\[\begin{align*}
 \dif x_1\cdots\dif x_n
 &amp;=\abs{\det\bigl(\mat{J}_{\vct{F}}(\vct{u})\bigr)}\,
@@ -1331,15 +1330,17 @@ W(f_1,f_2)(t)
 </section>
 <section id="two-parameters-trace-a-surface" class="slide level2">
 <h2>Two parameters trace a surface</h2>
-<p>The parameters <span class="math inline">\((u,v)\)</span> label points in a plane. We could call them <span class="math inline">\((x,y)\)</span>; the different letters simply distinguish the <span class="alert">two inputs</span> from the <span class="alert">three output coordinates</span> <span class="math inline">\((x,y,z)\)</span>.</p>
-<p>A map <span class="math inline">\(\vct{G}:D\subseteq\reals^2\to\reals^3\)</span> assigns each pair the point <span class="math inline">\(\vct{G}(u,v)=(x(u,v),y(u,v),z(u,v))\)</span>. If its two tangent directions are independent, these points form a surface patch locally.</p>
-<p>For example, <span class="math inline">\(\vct{G}(u,v)=(u,v,u^2+v^2)\)</span> traces the graph <span class="math inline">\(z=x^2+y^2\)</span> as <span class="math inline">\((u,v)\)</span> varies over <span class="math inline">\(\reals^2\)</span>.</p>
+<p>A map <span class="math inline">\(\vct{G}:D\subseteq\reals^2\to\reals^3\)</span> assigns each pair <span class="math inline">\((u,v)\in D\)</span> the point <span class="math display">\[\vct{G}(u,v)=(x(u,v),y(u,v),z(u,v))\]</span></p>
+<ul>
+<li><p>If its two tangent directions are independent, these points form a surface patch locally</p></li>
+<li><p>For example, <span class="math inline">\(\vct{G}(u,v)=(u,v,u^2+v^2)\)</span> traces the graph <span class="math inline">\(z=x^2+y^2\)</span> as <span class="math inline">\((u,v)\)</span> varies over <span class="math inline">\(\reals^2\)</span></p></li>
+</ul>
 <p>The Jacobian columns <span class="math inline">\(\vct{G}_u\)</span> and <span class="math inline">\(\vct{G}_v\)</span> give tangent directions. They approximate the edges of the image of a small parameter rectangle, whose area is approximately</p>
 <p><span class="math display">\[
 \sqrt{\det\bigl(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}}\bigr)}
 \,\Delta u\,\Delta v
 \]</span></p>
-<p>Here <span class="math inline">\(\mat{J}_{\vct{G}}\)</span> is <span class="math inline">\(3\times2\)</span>; the <span class="math inline">\(2\times2\)</span> matrix <span class="math inline">\(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}}\)</span> has determinant equal to the squared area scale.</p>
+<p>Here <span class="math inline">\(\mat{J}_{\vct{G}}\)</span> is <span class="math inline">\(3\times2\)</span>; the <span class="math inline">\(2\times2\)</span> matrix <span class="math inline">\(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}}\)</span> has determinant equal to the squared area scale</p>
 <aside class="notes">
 <p>This is only an outlook. When the tangent directions are independent, the image is locally a surface patch. The area factor is the area of the parallelogram spanned by <span class="math inline">\(\vct{G}_u\)</span> and <span class="math inline">\(\vct{G}_v\)</span>; by base times height, its square is <span class="math inline">\(\lVert\vct{G}_u\rVert^2\lVert\vct{G}_v\rVert^2
 -(\vct{G}_u\cdot\vct{G}_v)^2
@@ -1368,6 +1369,20 @@ W(f_1,f_2)(t)
 </ul>
 </section>
 
+<section id="how-far-we-have-come" class="title-slide slide level1 center">
+<h1>How Far We Have Come</h1>
+<p><span class="alert">One matrix, four connected views</span></p>
+<ul>
+<li><span class="alert">Representation</span> — <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> expresses systems and applications</li>
+<li><span class="alert">Elimination</span> — row reduction exposes contradictions or free variables; PLU reuses the work for new right-hand sides</li>
+<li><span class="alert">Transformation</span> — columns show basis images; products compose actions, inverses undo them</li>
+<li><span class="alert">Geometry</span> — <span class="math inline">\(\det(\mat{A})\)</span> gives signed volume scale and detects collapse</li>
+</ul>
+<div class="key-point">
+<p>For square <span class="math inline">\(\mat{A}\)</span>: <span class="math inline">\(\det(\mat{A})\ne0\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(n\)</span> pivots <span class="math inline">\(\iff\)</span> <span class="math inline">\(\mat{A}^{-1}\)</span> exists <span class="math inline">\(\iff\)</span> one solution for every <span class="math inline">\(\vct{b}\)</span></p>
+</div>
+</section>
+
 <section id="what-comes-next" class="title-slide slide level1 center">
 <h1>What Comes Next</h1>
 <p>Determinants measure how a matrix transformation changes volume and orientation</p>
@@ -1380,7 +1395,7 @@ W(f_1,f_2)(t)
 <li>cross products and orientation in <span class="math inline">\(\reals^3\)</span></li>
 </ul>
 <div class="key-point">
-<p><span class="alert">Next:</span> <a href="05-euclidean-vector-spaces.html">measure vectors and compare directions</a></p>
+<p><span class="alert">Next:</span> <a href="05-euclidean-vector-spaces.html">separate points from directions</a></p>
 </div>
 
 </section>

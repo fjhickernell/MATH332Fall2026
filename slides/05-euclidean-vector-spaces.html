@@ -688,7 +688,6 @@ P+\vct{v}=\text{point}
 <li><a href="#/solution-sets-have-directions">Solution Sets Have Directions</a></li>
 <li><a href="#/euclidean-tools-for-affine-questions">Euclidean Tools for Affine Questions</a></li>
 <li><a href="#/big-ideas">Big Ideas</a></li>
-<li><a href="#/what-comes-next">What Comes Next</a></li>
 </ul>
 </div></div>
 </section>
@@ -977,6 +976,7 @@ x-y+z&amp;=0
 <li><a href="#/point-differences-build-a-plane-normal">Point differences build a plane normal</a></li>
 <li><a href="#/the-triple-product-reconnects-to-determinants">The triple product reconnects to determinants</a></li>
 </ul>
+<p>The <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/05-euclidean-vector-spaces.ipynb">companion notebook</a> explores affine solutions, projection, and displacement geometry</p>
 </section>
 <section id="recall-what-the-dot-product-already-gives-us" class="slide level2">
 <h2>Recall what the dot product already gives us</h2>
@@ -1014,12 +1014,12 @@ L=\{P+t\vct{v}:t\in\reals\},
 \]</span></p>
 <p>Project that vector onto the line direction:</p>
 <p><span class="math display">\[
-\vct{x}_*
+\vct{p}_*
 =\vct{p}
 +\frac{(\vct{q}-\vct{p})^{\mathsf T}\vct{v}}
 {\vct{v}^{\mathsf T}\vct{v}}\vct{v}
 \]</span></p>
-<p>The result <span class="math inline">\(\vct{x}_*\)</span> represents the point of <span class="math inline">\(L\)</span> nearest to <span class="math inline">\(Q\)</span></p>
+<p>The result <span class="math inline">\(\vct{p}_*\)</span> gives coordinates of the point on <span class="math inline">\(L\)</span> nearest to <span class="math inline">\(Q\)</span></p>
 <div class="key-point">
 <p>Subtract points, project the resulting vector, then add the displacement back to a point</p>
 </div>
@@ -1121,6 +1121,20 @@ u_1v_2-u_2v_1
 <li>The dot product tests orthogonality and measures point differences</li>
 <li>Cross products provide a special three-dimensional connection among point differences, normals, and determinants</li>
 </ul>
+</section>
+
+<section id="how-far-we-have-come" class="title-slide slide level1 center">
+<h1>How Far We Have Come</h1>
+<p><span class="alert">From matrix equations to the geometry of their solutions</span></p>
+<ul>
+<li><span class="alert">Systems</span> — elimination finds whether <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> is consistent and where free directions remain</li>
+<li><span class="alert">Matrix actions</span> — inverses undo reversible maps; determinants detect scale, orientation, and collapse</li>
+<li><span class="alert">Points and directions</span> — subtract points to get vectors; add vectors to move points</li>
+<li><span class="alert">Solution geometry</span> — every consistent solution set is <span class="math inline">\(\vct{x}_p+\operatorname{Null}(\mat{A})\)</span></li>
+</ul>
+<div class="key-point">
+<p>Solving now means describing <span class="alert">all solutions</span>, not only finding one</p>
+</div>
 </section>
 
 <section id="what-comes-next" class="title-slide slide level1 center">
