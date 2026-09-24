@@ -1168,6 +1168,8 @@ u_{11}&amp;u_{12}&amp;\cdots&amp;u_{1n}\\
 <li><a href="#/a-wronskian-tests-relations-among-functions">A Wronskian tests relations among functions</a></li>
 <li><a href="#/a-jacobian-is-the-local-linear-map">A Jacobian is the local linear map</a></li>
 <li><a href="#/polar-coordinates-explain-the-factor-r">Polar coordinates explain the factor <span class="math inline">\(r\)</span></a></li>
+<li><a href="#/spherical-coordinates-explain-the-volume-factor">Spherical coordinates explain the volume factor</a></li>
+<li><a href="#/row-operations-recover-the-spherical-determinant">Row operations recover the spherical determinant</a></li>
 <li><a href="#/similar-formulas-answer-different-questions">Similar formulas answer different questions</a></li>
 <li><a href="#/two-parameters-trace-a-surface">Two parameters trace a surface</a></li>
 </ul>
@@ -1286,6 +1288,95 @@ W(f_1,f_2)(t)
 </div>
 <aside class="notes">
 <p>At <span class="math inline">\(r=0\)</span>, polar coordinates collapse every angle to the origin and the Jacobian is singular. The exact image is a curved annular-sector patch; its first-order approximation is the parallelogram spanned by the two Jacobian columns. The same absolute-determinant factor converts volume elements for general differentiable coordinate changes in <span class="math inline">\(n\)</span> dimensions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="spherical-coordinates-explain-the-volume-factor" class="slide level2">
+<h2>Spherical coordinates explain the volume factor</h2>
+<p>Let <span class="math inline">\(\rho&gt;0\)</span>, <span class="math inline">\(0&lt;\phi&lt;\pi\)</span> be the angle from the positive <span class="math inline">\(z\)</span>-axis, and <span class="math inline">\(\theta\)</span> the azimuthal angle in the <span class="math inline">\(xy\)</span>-plane</p>
+<p><span class="math display">\[
+\vct{F}(\rho,\phi,\theta)=
+\begin{bmatrix}
+\rho\sin\phi\cos\theta\\
+\rho\sin\phi\sin\theta\\
+\rho\cos\phi
+\end{bmatrix}
+\]</span></p>
+<p>The Jacobian columns give the local directions of increasing <span class="math inline">\(\rho\)</span>, <span class="math inline">\(\phi\)</span>, and <span class="math inline">\(\theta\)</span>:</p>
+<p><span class="math display">\[
+\mat{J}_{\vct{F}}=
+\begin{bmatrix}
+\sin\phi\cos\theta&amp;\rho\cos\phi\cos\theta&amp;-\rho\sin\phi\sin\theta\\
+\sin\phi\sin\theta&amp;\rho\cos\phi\sin\theta&amp;\rho\sin\phi\cos\theta\\
+\cos\phi&amp;-\rho\sin\phi&amp;0
+\end{bmatrix}
+\]</span></p>
+<p>These columns are perpendicular, with lengths <span class="math inline">\(1\)</span>, <span class="math inline">\(\rho\)</span>, and <span class="math inline">\(\rho\sin\phi\)</span></p>
+<div class="key-point">
+<p><span class="math inline">\(\det\bigl(\mat{J}_{\vct{F}}\bigr)=\rho^2\sin\phi\)</span>, so <span class="math inline">\(\dif x\,\dif y\,\dif z=\rho^2\sin\phi\,\dif\rho\,\dif\phi\,\dif\theta\)</span></p>
+</div>
+<aside class="notes">
+<p>The columns are positively oriented in the displayed coordinate order <span class="math inline">\((\rho,\phi,\theta)\)</span>, so their determinant is the product of their lengths. At <span class="math inline">\(\rho=0\)</span> or <span class="math inline">\(\phi=0,\pi\)</span>, an angular direction collapses and the Jacobian is singular. The formula uses the absolute determinant for volume; the stated coordinate range makes this determinant nonnegative.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="row-operations-recover-the-spherical-determinant" class="slide level2">
+<h2>Row operations recover the spherical determinant</h2>
+<p>If we are clever about the row operations, the Jacobian becomes diagonal without dividing by any trigonometric functions</p>
+<p>Write <span class="math inline">\(a=\sin\phi\)</span>, <span class="math inline">\(b=\cos\phi\)</span>, <span class="math inline">\(c=\cos\theta\)</span>, and <span class="math inline">\(s=\sin\theta\)</span></p>
+<p>First rotate rows 1 and 2 by left multiplication:</p>
+<p><span class="math display">\[
+\mat{Q}_\theta\mat{J}_{\vct{F}}
+=\begin{bmatrix}
+c&amp;s&amp;0\\-s&amp;c&amp;0\\0&amp;0&amp;1
+\end{bmatrix}
+\begin{bmatrix}
+ac&amp;\rho bc&amp;-\rho as\\
+as&amp;\rho bs&amp;\rho ac\\
+b&amp;-\rho a&amp;0
+\end{bmatrix}
+=
+\begin{bmatrix}
+a&amp;\rho b&amp;0\\0&amp;0&amp;\rho a\\b&amp;-\rho a&amp;0
+\end{bmatrix}
+\]</span></p>
+<p>Then mix rows 1 and 3 and swap the last two rows:</p>
+<p><span class="math display">\[
+\mat{M}_\phi\mat{Q}_\theta\mat{J}_{\vct{F}}
+=\begin{bmatrix}
+a&amp;0&amp;b\\b&amp;0&amp;-a\\0&amp;1&amp;0
+\end{bmatrix}
+\begin{bmatrix}
+a&amp;\rho b&amp;0\\0&amp;0&amp;\rho a\\b&amp;-\rho a&amp;0
+\end{bmatrix}
+=\begin{bmatrix}
+1&amp;0&amp;0\\0&amp;\rho&amp;0\\0&amp;0&amp;\rho a
+\end{bmatrix}
+\]</span></p>
+<p><span class="math inline">\(\det(\mat{Q}_\theta)=c^2+s^2=1\)</span> and <span class="math inline">\(\det(\mat{M}_\phi)=a^2+b^2=1\)</span></p>
+<div class="key-point">
+<p><span class="math inline">\(\det\bigl(\mat{J}_{\vct{F}}\bigr)=1\cdot\rho\cdot\rho a=\rho^2\sin\phi\)</span></p>
+</div>
+<aside class="notes">
+<p>Left multiplication makes each row combination explicit. The second matrix combines a row mixing with determinant <span class="math inline">\(-1\)</span> and a row swap with determinant <span class="math inline">\(-1\)</span>. Both left factors therefore have determinant <span class="math inline">\(1\)</span>, so the diagonal matrix and the original Jacobian have the same determinant. These row transformations avoid dividing by a trigonometric function.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

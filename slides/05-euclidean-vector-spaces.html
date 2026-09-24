@@ -711,8 +711,8 @@ P+\vct{v}=\text{point}
 <ul>
 <li>a <span class="alert">location</span></li>
 <li>written <span class="math inline">\(P,Q,\ldots\)</span></li>
-<li>has no direction or length</li>
-<li>depends on where the origin is placed when assigned coordinates</li>
+<li>with chosen coordinates <span class="math inline">\(P=(p_1,p_2,\ldots)\)</span></li>
+<li>has no intrinsic direction or length</li>
 </ul>
 </div><div class="column" style="width:6%;">
 
@@ -721,19 +721,18 @@ P+\vct{v}=\text{point}
 <ul>
 <li>a <span class="alert">displacement or direction</span></li>
 <li>written <span class="math inline">\(\vct{u},\vct{v},\ldots\)</span></li>
-<li>can be translated without changing it</li>
-<li>has length and direction</li>
+<li>from origin <span class="math inline">\(O\)</span>, <span class="math inline">\(\vct{p}=\overrightarrow{OP}=[p_1,p_2,\ldots]^{\mathsf T}\)</span></li>
+<li>has length and direction; translation leaves it unchanged</li>
 </ul>
 </div></div>
 <p><span class="math display">\[
 \overrightarrow{PQ}=Q-P
 \]</span></p>
-<p>The distinction separates homogeneous direction spaces from translated solution sets</p>
 <div class="main-message">
 <p>Points say where; vectors say how to move</p>
 </div>
 <aside class="notes">
-<p>Teaching purpose: coordinate notation makes points and vectors look identical, so students may miss why homogeneous solution sets are vector spaces while nonhomogeneous solution sets usually are not. Use the physical language first: a point is where you are, a vector tells you how to move, and the difference between two possible locations is a displacement. Then preview the algebraic payoff: differences between solutions of <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> solve the homogeneous system.</p>
+<p>Teaching purpose: coordinate notation makes points and vectors look identical, so students may miss why homogeneous solution sets are vector spaces while nonhomogeneous solution sets usually are not. Use the physical language first: a point is where you are, a vector tells you how to move, and the difference between two possible locations is a displacement. Then preview the algebraic payoff: differences between solutions of <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> solve the homogeneous system. The coordinate notation is an example after choosing an origin and axes; parentheses versus column brackets are not what makes an object a point or a vector.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -789,29 +788,35 @@ P+\vct{v}=\text{point}
 (1-t)P+tQ=P+t(Q-P)
 \]</span></p>
 <p>does have geometric meaning because its coefficients sum to <span class="math inline">\(1\)</span></p>
-<div class="key-point">
-<p>Legal operations keep locations and directions from being confused</p>
-</div>
 </section>
 <section id="choosing-an-origin-hides-the-distinction" class="slide level2">
 <h2>Choosing an origin hides the distinction</h2>
-<p>After choosing an origin <span class="math inline">\(O\)</span>, a point <span class="math inline">\(P\)</span> receives the coordinate vector</p>
+<p>After choosing an origin <span class="math inline">\(O\)</span> and axes in <span class="math inline">\(\reals^3\)</span>:</p>
 <p><span class="math display">\[
+P=(p_1,p_2,p_3)
+\quad\longleftrightarrow\quad
 \vct{p}=\overrightarrow{OP}
+=\begin{bmatrix}p_1\\p_2\\p_3\end{bmatrix}
 \]</span></p>
-<p>Then both a point and a vector may be displayed as the same column:</p>
-<p><span class="math display">\[
-P\longleftrightarrow
-\vct{p}=\begin{bmatrix}p_1\\\vdots\\p_n\end{bmatrix}
-\]</span></p>
-<p>Moving the origin changes the coordinates of <span class="math inline">\(P\)</span></p>
-<p>The displacement between two points does not change:</p>
+<p>Here <span class="math inline">\(P,Q\)</span> are <span class="alert">points</span>; <span class="math inline">\(\vct{p},\vct{q}\)</span> are their position vectors; <span class="math inline">\(\vct{u},\vct{v}\)</span> are directions. Other symbols can play the same roles</p>
+<p>Moving the origin changes <span class="math inline">\(\vct{p}\)</span> and <span class="math inline">\(\vct{q}\)</span>, but not the displacement</p>
 <p><span class="math display">\[
 \overrightarrow{PQ}=\vct{q}-\vct{p}
 \]</span></p>
-<div class="key-point">
-<p>Coordinates identify points with vectors only after an origin has been chosen</p>
-</div>
+<p>Parentheses versus column brackets do not determine the role; the geometry does</p>
+<aside class="notes">
+<p>The tuple and column forms help display the distinction in this deck; their shapes alone do not determine whether an object is a point or a vector. The role and the chosen origin determine the meaning. The same construction works in <span class="math inline">\(\reals^n\)</span> with <span class="math inline">\(n\)</span> coordinates.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="lines-and-planes-combine-points-with-directions" class="slide level2">
 <h2>Lines and planes combine points with directions</h2>
@@ -877,7 +882,7 @@ L=\{P+t\vct{v}:t\in\reals\}
 </section>
 <section id="nonhomogeneous-systems-translate-those-directions" class="slide level2">
 <h2>Nonhomogeneous systems translate those directions</h2>
-<p>Suppose <span class="math inline">\(\vct{x}_p\)</span> is one particular solution of</p>
+<p>Suppose <span class="math inline">\(\vct{x}_p\)</span> is the coordinate column of one solution point of</p>
 <p><span class="math display">\[
 \mat{A}\vct{x}=\vct{b}
 \]</span></p>
@@ -958,7 +963,7 @@ x-y+z&amp;=0
 <p>Elimination gives <span class="math inline">\(y=1\)</span> and <span class="math inline">\(x+z=1\)</span>, hence</p>
 <p><span class="math display">\[
 \vct{x}
-=\underbrace{\begin{bmatrix}1\\1\\0\end{bmatrix}}_{\text{one solution point}}
+=\underbrace{\begin{bmatrix}1\\1\\0\end{bmatrix}}_{\text{coordinates of one solution point}}
 +t\underbrace{\begin{bmatrix}-1\\0\\1\end{bmatrix}}_{\text{homogeneous direction}}
 \]</span></p>
 <div class="exitem lettered">
@@ -997,9 +1002,6 @@ x-y+z&amp;=0
 \quad\longrightarrow\quad
 \underbrace{\norm{\vct{q}-\vct{p}}}_{\text{distance between points}}
 \]</span></p>
-<div class="key-point">
-<p>No new dot-product theory—only a tool for studying directions and differences</p>
-</div>
 </section>
 <section id="projection-finds-the-nearest-point-on-an-affine-line" class="slide level2">
 <h2>Projection finds the nearest point on an affine line</h2>
@@ -1020,9 +1022,6 @@ L=\{P+t\vct{v}:t\in\reals\},
 {\vct{v}^{\mathsf T}\vct{v}}\vct{v}
 \]</span></p>
 <p>The result <span class="math inline">\(\vct{p}_*\)</span> gives coordinates of the point on <span class="math inline">\(L\)</span> nearest to <span class="math inline">\(Q\)</span></p>
-<div class="key-point">
-<p>Subtract points, project the resulting vector, then add the displacement back to a point</p>
-</div>
 </section>
 <section id="the-cross-product-combines-two-directions" class="slide level2">
 <h2>A special 3D operation: the cross product</h2>
@@ -1048,12 +1047,9 @@ u_1v_2-u_2v_1
 \qquad
 \vct{v}\mathbin{\times}\vct{u}=-(\vct{u}\mathbin{\times}\vct{v})
 \]</span></p>
-<div class="key-point">
-<p>The ordinary cross product is a special operation on two vectors in <span class="math inline">\(\reals^3\)</span></p>
-</div>
-<p>The wedge product belongs to <a href="https://en.wikipedia.org/wiki/Exterior_algebra">exterior algebra</a>, a part of multilinear algebra that generalizes oriented areas, volumes, determinants, and the three-dimensional cross product.</p>
+<p>The ordinary cross product is special to three-dimensional vectors</p>
 <aside class="notes">
-<p>The natural generalization in other dimensions is the exterior, or wedge, product. It records the oriented parallelogram determined by two vectors, but its output is a bivector rather than another ordinary vector. In three dimensions, perpendicularity identifies that oriented area with the vector <span class="math inline">\(\vct{u}\mathbin{\times}\vct{v}\)</span>. There is also an exceptional vector cross product in dimension seven, but it is outside the scope of this course.</p>
+<p>The natural generalization in other dimensions is the exterior, or wedge, product. It records the oriented parallelogram determined by two vectors, but its output is a bivector rather than another ordinary vector. In three dimensions, perpendicularity identifies that oriented area with the vector <span class="math inline">\(\vct{u}\mathbin{\times}\vct{v}\)</span>. There is also an exceptional vector cross product in dimension seven, but it is outside the scope of this course. The wedge product belongs to exterior algebra, which generalizes oriented areas, volumes, determinants, and the three-dimensional cross product.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1085,9 +1081,6 @@ u_1v_2-u_2v_1
 <p><span class="math display">\[
 \vct{n}^{\mathsf T}(\vct{x}-\vct{p})=0
 \]</span></p>
-<div class="key-point">
-<p>The cross product is a useful three-dimensional construction, not part of the general vector-space structure</p>
-</div>
 </section>
 <section id="the-triple-product-reconnects-to-determinants" class="slide level2">
 <h2>The triple product reconnects to determinants</h2>
