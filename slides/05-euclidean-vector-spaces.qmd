@@ -57,7 +57,6 @@ P+\vct{v}=\text{point}
 - [Solution Sets Have Directions](#solution-sets-have-directions)
 - [Euclidean Tools for Affine Questions](#euclidean-tools-for-affine-questions)
 - [Big Ideas](#big-ideas)
-- [What Comes Next](#what-comes-next)
 :::
 :::
 
@@ -323,6 +322,9 @@ Reuse earlier geometry to compare points and construct directions
 - [Point differences build a plane normal](#point-differences-build-a-plane-normal)
 - [The triple product reconnects to determinants](#the-triple-product-reconnects-to-determinants)
 
+The [companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/05-euclidean-vector-spaces.ipynb)
+explores affine solutions, projection, and displacement geometry
+
 ## Recall what the dot product already gives us {#recall-what-the-dot-product-already-gives-us}
 
 [Deck 01 introduced the dot product]({{< meta decks.d01.file >}}#what-the-dot-product-reveals)
@@ -370,13 +372,13 @@ $$
 Project that vector onto the line direction:
 
 $$
-\vct{x}_*
+\vct{p}_*
 =\vct{p}
 +\frac{(\vct{q}-\vct{p})^{\mathsf T}\vct{v}}
 {\vct{v}^{\mathsf T}\vct{v}}\vct{v}
 $$
 
-The result $\vct{x}_*$ represents the point of $L$ nearest to $Q$
+The result $\vct{p}_*$ gives coordinates of the point on $L$ nearest to $Q$
 
 ::: {.key-point}
 Subtract points, project the resulting vector, then add the displacement back to a point
@@ -492,6 +494,19 @@ Determinants measure the geometry of displacement vectors, independent of where 
 - A consistent nonhomogeneous solution set is one solution point plus all homogeneous directions
 - The dot product tests orthogonality and measures point differences
 - Cross products provide a special three-dimensional connection among point differences, normals, and determinants
+
+# How Far We Have Come
+
+[From matrix equations to the geometry of their solutions]{.alert}
+
+- [Systems]{.alert} — elimination finds whether $\mat{A}\vct{x}=\vct{b}$ is consistent and where free directions remain
+- [Matrix actions]{.alert} — inverses undo reversible maps; determinants detect scale, orientation, and collapse
+- [Points and directions]{.alert} — subtract points to get vectors; add vectors to move points
+- [Solution geometry]{.alert} — every consistent solution set is $\vct{x}_p+\operatorname{Null}(\mat{A})$
+
+::: {.key-point}
+Solving now means describing [all solutions]{.alert}, not only finding one
+:::
 
 # What Comes Next
 

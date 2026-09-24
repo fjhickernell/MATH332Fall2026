@@ -100,6 +100,11 @@ address reported Colab problems.
   and `slogdet`. Deck 04 and the notebook page link to the draft. Its Colab
   badge is added; separate clean-Colab validation is not required by the
   instructor’s current policy.
+- `notebooks/demonstrations/05-euclidean-vector-spaces.ipynb` now runs end to
+  end with the `qmcpy` kernel and has saved outputs. It explores point
+  coordinates, homogeneous directions, affine solution sets, nearest-point
+  projection, and cross products and determinants of displacements. Deck 05
+  and the Notebooks page link to this instructor-review draft.
 - Deck 04 now separates the worked PLU example, general determinant formula,
   and permutation-cycle sign into three slides. The deck and companion define
   the row-swap count, explain the product rule, and give the direct cycle
@@ -107,6 +112,10 @@ address reported Colab problems.
   browser preview; instructor review remains pending.
 - Deck 04's Big Ideas now explicitly distinguishes the nonnegative magnitude
   from the sign of the determinant; zero determinant has its own collapse bullet.
+- Developed Decks 02–06 now close with Big Ideas, a cumulative "How Far We
+  Have Come" slide, and What Comes Next. Each Course Map links once to Big
+  Ideas for the closing sequence. Decks 07–08 remain placeholders and should
+  gain this sequence when their content is developed.
 - Deck 04 now proves the parallelogram-area formula immediately after its
   signed-area statement, using base times perpendicular height; the proof
   includes the zero-edge case and explains the sign. Rendering, visible layout,

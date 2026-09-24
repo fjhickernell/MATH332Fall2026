@@ -56,7 +56,6 @@ $$
 - [Leontief Input–Output Models](#leontief-inputoutput-models)
 - [Gaussian Covariance and Precision](#gaussian-covariance-and-precision)
 - [Big Ideas](#big-ideas)
-- [What Comes Next](#what-comes-next)
 :::
 :::
 
@@ -867,6 +866,20 @@ $2$. Covariance and precision zeros encode different relationships.
   factors or response maps for many
 - Applications — Leontief maps demand to production<br>Gaussian precision
   captures conditional structure
+
+# How Far We Have Come
+
+[From equations to reversible actions]{.alert}
+
+- [Represent]{.alert} — $\mat{A}\vct{x}=\vct{b}$ gathers equations and applications in one form
+- [Eliminate]{.alert} — reversible row operations expose contradictions and free variables
+- [Invert]{.alert} — a square matrix with a pivot in every column has one solution for every $\vct{b}$
+- [Compute wisely]{.alert} — solve for one right-hand side; build a reusable response map only when needed
+
+::: {.key-point}
+For square $\mat{A}$: full pivots $\iff$ $\mat{A}^{-1}$ exists $\iff$
+every $\vct{b}$ has exactly one solution
+:::
 
 # What Comes Next
 

@@ -60,7 +60,6 @@ Determinant magnitude scales volume; determinant sign records orientation
 - [What the Determinant Reveals](#what-the-determinant-reveals)
 - [Matrices of Functions](#matrices-of-functions)
 - [Big Ideas](#big-ideas)
-- [What Comes Next](#what-comes-next)
 :::
 :::
 
@@ -590,8 +589,8 @@ homogeneous system with this invertible coefficient matrix
 
 Hence $c_1=c_2=0$ is the only constant-coefficient relation
 
-[General Vector Spaces]({{< meta decks.d06.file >}}) will call this property
-[linear independence]{.alert} and return to the general $n\times n$ Wronskian
+[General Vector Spaces]({{< meta decks.d06.file >}}) will define this property as
+[linear independence]{.alert}
 
 ::: {.notes}
 This previews linear independence, which will be defined in General Vector
@@ -683,7 +682,7 @@ The Jacobian columns form the local edge vectors
 :::
 
 ::: {.vspace}
-The Jacobian determinant converts [volum]{.alert} elements under a general coordinate
+The Jacobian determinant converts [volume]{.alert} elements under a general coordinate
 change $\vct{x}=\vct{F}(\vct{u})$:
 
 \begin{align*}
@@ -715,16 +714,14 @@ Both use derivatives, but their columns have [different meanings]{.alert}
 
 ## Two parameters trace a surface
 
-The parameters $(u,v)$ label points in a plane. We could call them $(x,y)$;
-the different letters simply distinguish the [two inputs]{.alert} from the
-[three output coordinates]{.alert} $(x,y,z)$.
+A map $\vct{G}:D\subseteq\reals^2\to\reals^3$ assigns each pair $(u,v)\in D$ the point
+$$\vct{G}(u,v)=(x(u,v),y(u,v),z(u,v))$$
 
-A map $\vct{G}:D\subseteq\reals^2\to\reals^3$ assigns each pair the point
-$\vct{G}(u,v)=(x(u,v),y(u,v),z(u,v))$. If its two tangent directions are
-independent, these points form a surface patch locally.
+- If its two tangent directions are
+independent, these points form a surface patch locally
 
-For example, $\vct{G}(u,v)=(u,v,u^2+v^2)$ traces the graph
-$z=x^2+y^2$ as $(u,v)$ varies over $\reals^2$.
+- For example, $\vct{G}(u,v)=(u,v,u^2+v^2)$ traces the graph
+$z=x^2+y^2$ as $(u,v)$ varies over $\reals^2$
 
 The Jacobian columns $\vct{G}_u$ and $\vct{G}_v$ give tangent directions.
 They approximate the edges of the image of a small parameter rectangle,
@@ -737,7 +734,7 @@ $$
 
 Here $\mat{J}_{\vct{G}}$ is $3\times2$; the $2\times2$ matrix
 $\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}}$ has determinant equal to
-the squared area scale.
+the squared area scale
 
 ::: {.notes}
 This is only an outlook. When the tangent directions are independent, the
@@ -764,6 +761,20 @@ map here is still represented by a matrix.
 - For matrices of functions, determinants can reveal exceptional parameter
   values, function independence, and local geometric scaling
 
+# How Far We Have Come
+
+[One matrix, four connected views]{.alert}
+
+- [Representation]{.alert} — $\mat{A}\vct{x}=\vct{b}$ expresses systems and applications
+- [Elimination]{.alert} — row reduction exposes contradictions or free variables; PLU reuses the work for new right-hand sides
+- [Transformation]{.alert} — columns show basis images; products compose actions, inverses undo them
+- [Geometry]{.alert} — $\det(\mat{A})$ gives signed volume scale and detects collapse
+
+::: {.key-point}
+For square $\mat{A}$: $\det(\mat{A})\ne0$ $\iff$ $n$ pivots $\iff$
+$\mat{A}^{-1}$ exists $\iff$ one solution for every $\vct{b}$
+:::
+
 # What Comes Next
 
 Determinants measure how a matrix transformation changes volume and orientation
@@ -777,5 +788,5 @@ Determinants measure how a matrix transformation changes volume and orientation
 - cross products and orientation in $\reals^3$
 
 ::: {.key-point}
-[Next:]{.alert} [measure vectors and compare directions]({{< meta decks.d05.file >}})
+[Next:]{.alert} [separate points from directions]({{< meta decks.d05.file >}})
 :::

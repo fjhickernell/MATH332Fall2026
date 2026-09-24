@@ -57,6 +57,7 @@ The vector is intrinsic; its coordinates depend on the chosen basis
 - [Dimension and Coordinates](#dimension-and-coordinates)
 - [Matrix Spaces and Rank](#matrix-spaces-and-rank)
 - [What the Structure Buys Us](#what-the-structure-buys-us)
+- [Big Ideas](#big-ideas)
 :::
 :::
 
@@ -1113,6 +1114,21 @@ Eigenvectors are basis candidates adapted to the action of a matrix
 - A basis gives each vector one coordinate description, and dimension counts the vectors in any basis
 - Row reduction reveals bases for the row, column, and null spaces and proves rank-nullity
 - Choosing a basis turns abstract linear operations into matrix computations
+
+# How Far We Have Come
+
+[One path from equations to abstract structure]{.alert}
+
+- [Solve]{.alert} — elimination exposes consistency, pivots, and free directions in $\mat{A}\vct{x}=\vct{b}$
+- [Interpret]{.alert} — $\vct{x}_p+\operatorname{Null}(\mat{A})$ describes every consistent solution set
+- [Generalize]{.alert} — vector spaces and subspaces capture directions beyond coordinate columns
+- [Coordinate]{.alert} — a basis gives each vector a unique column and each linear map a matrix
+- [Count]{.alert} — rank–nullity divides input directions into visible and null directions
+
+::: {.key-point}
+A basis connects abstract vectors to computation; dimension records
+the structure that coordinates reveal
+:::
 
 # What Comes Next
 

@@ -77,10 +77,17 @@ Mathematical content should be maintained only in the slides.
   area scaling, and a brief differential-geometry outlook.
 - [x] Clarify the surface parameterization and area factor without assuming
   cross products have been introduced; render the revised deck.
+- [x] Add cumulative "How Far We Have Come" slides to developed Decks 02–06
+  between Big Ideas and What Comes Next, with one Course Map link for each
+  closing sequence; defer Decks 07–08 until their content is developed.
 - [ ] Verify the revised surface slide layout and MathJax typesetting in Safari.
 - [x] Add the Deck 04 companion’s Colab badge using the established setup;
   separate clean-Colab validation is not required by instructor policy.
 - [ ] Review the Deck 04 companion with the instructor.
+- [x] Create and locally execute the Deck 05 companion on point coordinates,
+  homogeneous and affine solutions, projection, and displacement geometry;
+  link it from the deck and Notebooks page.
+- [ ] Review the Deck 05 companion with the instructor.
 - [x] Validate all four published Deck 00--03 companion notebooks end to end
   in clean Google Colab runtimes using the recorded `classlib` commit without
   downgrading QMCPy.

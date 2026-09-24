@@ -64,7 +64,6 @@ include-after-body:
 - [Geometry of Matrix Transformations](#geometry-of-matrix-transformations)
 - [Compose and Undo Transformations](#compose-and-undo-transformations)
 - [Big Ideas](#big-ideas)
-- [What Comes Next](#what-comes-next)
 :::
 :::
 
@@ -1570,6 +1569,20 @@ Multiplication composes them
 - Nonidentity projections [discard information]{.alert} and cannot be inverted
 - In a product, the [rightmost transformation acts first]{.alert}
 - Inverses undo compositions in reverse order
+
+# How Far We Have Come
+
+[One matrix, computational and geometric views]{.alert}
+
+- [Systems]{.alert} — $\mat{A}\vct{x}=\vct{b}$; elimination reveals contradictions and free variables
+- [Reusable solves]{.alert} — $\mat{A}=\mat{P}\mat{L}\mat{U}$ stores row order and triangular work
+- [Transformations]{.alert} — columns are basis images; matrix products compose actions
+- [Reversibility]{.alert} — inverses undo actions; projections show how information can be lost
+
+::: {.key-point}
+Matrix structure tells us both [how to compute]{.alert} and
+[what the action does]{.alert}
+:::
 
 # What Comes Next
 

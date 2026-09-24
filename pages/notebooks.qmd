@@ -27,6 +27,10 @@ algebraic calculations with geometric interpretation.
 - [Determinants](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/04-determinants.ipynb)
   — a locally validated draft companion to Lecture 04 exploring signed area,
   row operations, PLU determinants, eigenvalue products, and numerical scaling
+- [Euclidean Vector Spaces](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/05-euclidean-vector-spaces.ipynb)
+  — a locally validated draft companion to Lecture 05 exploring point
+  coordinates, homogeneous directions, affine solution sets, projection onto
+  a line, and three-dimensional displacement geometry
 
 ## Exercises
 

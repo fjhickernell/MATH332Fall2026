@@ -407,6 +407,12 @@ calendar unchanged and check again later.
   summarize only ideas earned by that deck, using concise statements and
   selective `{.alert}` highlighting. Add the slide when a deck is developed;
   do not invent summaries for placeholders.
+- Beginning with Deck 02, follow Big Ideas with `# How Far We Have Come` and
+  then `# What Comes Next`. The middle slide should synthesize ideas actually
+  developed from the start of the course through that deck, not repeat its Big
+  Ideas slide. In the Course Map, one `Big Ideas` link points to the start of
+  this three-slide closing sequence. Add the sequence to placeholder decks
+  only when their instructional content has been developed.
 - RevealJS hierarchy exception: inside a `#` section slide, use an HTML `<h3>`
   for a visible tertiary heading because Quarto `###` does not render there as
   intended. Inside a `##` slide, ordinary Quarto `###` headings work normally.
