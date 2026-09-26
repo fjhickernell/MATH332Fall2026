@@ -1,6 +1,27 @@
-/* Keep the course schedule dates on one line. */
+/* Keep the same column proportions in sparse and full months. */
+#quarto-document-content table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+#quarto-document-content table th:nth-child(1),
+#quarto-document-content table td:nth-child(1) {
+  width: 5%;
+}
+
 #quarto-document-content table th:nth-child(2),
 #quarto-document-content table td:nth-child(2) {
+  width: 12%;
   min-width: 7rem;
   white-space: nowrap;
+}
+
+#quarto-document-content table th:nth-child(3),
+#quarto-document-content table td:nth-child(3) {
+  width: 53%;
+}
+
+#quarto-document-content table th:nth-child(4),
+#quarto-document-content table td:nth-child(4) {
+  width: 30%;
 }
