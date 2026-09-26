@@ -19,6 +19,19 @@ content is maintained only once.
 
 ## Adding or updating an assignment
 
+### Dates before assignment details
+
+When due dates are set before assignment content, add numbered, unlinked
+`Details TBD` entries to the course Schedule. The schedule entry reserves the
+date; it does not create or publish an assignment. Plan to publish the complete
+course website and Canvas/WileyPLUS assignment one week before each due date,
+adapting the dates each semester. Track that publication date on the Check-In
+Dashboard under this course, and move its reminder to Urgent one calendar day
+before publication while keeping the source task. Announce each assignment to
+all sections when its details and live links are published. Do not post
+separate announcements merely to announce tentative due dates. Replace each
+placeholder with the assignment-detail link during the full workflow below.
+
 Use this workflow whenever the instructor asks to create, set up, or materially
 revise an assignment, including a minimal “here is an assignment” request. A
 minimal request normally needs only the assignment number, desired coverage or
@@ -516,6 +529,12 @@ After rendering, inspect warnings, open representative website pages and all
 nine decks, verify previous/next deck navigation, and confirm that internal
 links and shared `classlib` assets resolve. Do not commit `_site/`, `.quarto/`,
 or other generated output.
+
+For Schedule changes, follow the shared
+[webpage style guide](classlib/docs/webpage-style.md)
+guidance. Inspect every monthly table, including sparse future rows; keep Week
+and Date compact, leave Topic useful space, and check assessment line breaks
+and indentation.
 
 ## Shared infrastructure
 

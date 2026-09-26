@@ -26,9 +26,9 @@ assignments, quizzes, holidays, and examination details are finalized.
 | | Thu Sep 3 | Diagonal, triangular, tridiagonal and symmetric matrices; permutations and PLU; companion notebook on reusable factors and solve cost | [Matrix Structure and Transformations](../slides/03-matrix-structure-and-transformations.html)<br>[Companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/03-matrix-structure-and-transformations.ipynb) |
 | | Mon Sep 7 | **Assignment 1 due** | [WileyPLUS: Systems and Matrix Operations](../assignments/assignment_1.qmd) |
 | 4 | Tue Sep 8 | Linear transformations and basis images; diagonal actions, Householder reflections, projections and rotations; Givens introduction | [Matrix Structure and Transformations](../slides/03-matrix-structure-and-transformations.html) |
-| | Thu Sep 10 | Invertibility review; matrix transformations companion notebook; determinants: signed scale, elimination, PLU and swap parity<br>**Quiz 1** | [Matrix Structure and Transformations](../slides/03-matrix-structure-and-transformations.html)<br>[Determinants](../slides/04-determinants.html)<br>Quiz covers [Systems and Matrices](../slides/01-systems-and-matrices.html) and [Inverses and Invertibility](../slides/02-inverses-and-invertibility.html) |
+| | Thu Sep 10 | Invertibility review; matrix transformations companion notebook; determinants: signed scale, elimination, PLU and swap parity<br>**Quiz 1** | [Matrix Structure and Transformations](../slides/03-matrix-structure-and-transformations.html)<br>[Determinants](../slides/04-determinants.html)<br>Covers<br>&nbsp;&nbsp;&nbsp;&nbsp;[Systems and Matrices](../slides/01-systems-and-matrices.html)<br>&nbsp;&nbsp;&nbsp;&nbsp;[Inverses and Invertibility](../slides/02-inverses-and-invertibility.html) |
 | 5 | Tue Sep 15 | Test 1 review: permutations/PLU, rotations, reflections, projections and inverses; revisit the determinant area proof | [Matrix Structure and Transformations](../slides/03-matrix-structure-and-transformations.html)<br>[Determinants](../slides/04-determinants.html) |
-| | Thu Sep 17 | **Test 1** | Covers [Systems of Linear Equations and Matrices](../slides/01-systems-and-matrices.html)<br>[Inverses and Invertibility](../slides/02-inverses-and-invertibility.html)<br>[Matrix Structure and Transformations](../slides/03-matrix-structure-and-transformations.html) |
+| | Thu Sep 17 | **Test 1** | Covers<br>&nbsp;&nbsp;&nbsp;&nbsp;[Systems of Linear Equations and Matrices](../slides/01-systems-and-matrices.html)<br>&nbsp;&nbsp;&nbsp;&nbsp;[Inverses and Invertibility](../slides/02-inverses-and-invertibility.html)<br>&nbsp;&nbsp;&nbsp;&nbsp;[Matrix Structure and Transformations](../slides/03-matrix-structure-and-transformations.html) |
 | 6 | Tue Sep 22 | Determinants companion notebook; invertibility, products, eigenvalues, and computation; parameter-dependent determinants, Wronskians, Jacobians, and polar area factor; Euclidean vector-space preview | [Determinants](../slides/04-determinants.html)<br>[Determinants notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/04-determinants.ipynb)<br>[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html) |
 | | Thu Sep 24 | Points versus vectors and linear combinations; homogeneous directions and affine solution sets; elimination examples; nearest-point projection and worked distance example | [Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html) |
 | | Fri Sep 25 | **Assignment 2 due** | [WileyPLUS: Inverses and Determinants](../assignments/assignment_2.qmd) |
@@ -38,13 +38,15 @@ assignments, quizzes, holidays, and examination details are finalized.
 
 | Week | Date | Topic | Slides / Materials |
 |---:|---|---|---|
-| 7 | Thu Oct 1 | **Quiz 2** | [Determinants](../slides/04-determinants.html)<br>[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html) |
+| 7 | Thu Oct 1 | **Quiz 2** | Covers<br>&nbsp;&nbsp;&nbsp;&nbsp;[Determinants](../slides/04-determinants.html)<br>&nbsp;&nbsp;&nbsp;&nbsp;[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html)<br>&nbsp;&nbsp;&nbsp;&nbsp;through projection onto an affine line<br>&nbsp;&nbsp;&nbsp;&nbsp;Cross products excluded |
 | 8 | Tue Oct 6 | | |
 | | Thu Oct 8 | | |
+| | Fri Oct 9 | **Assignment 3 due** | Details TBD |
 | 9 | Tue Oct 13 | **No Class — Fall Break** | |
 | | Thu Oct 15 | **Quiz 3** | Coverage TBD |
 | 10 | Tue Oct 20 | | |
 | | Thu Oct 22 | | |
+| | Fri Oct 23 | **Assignment 4 due** | Details TBD |
 | 11 | Tue Oct 27 | | |
 | | Thu Oct 29 | **Test 2** | Coverage TBD |
 
@@ -54,10 +56,12 @@ assignments, quizzes, holidays, and examination details are finalized.
 |---:|---|---|---|
 | 12 | Tue Nov 3 | | |
 | | Thu Nov 5 | | |
+| | Fri Nov 6 | **Assignment 5 due** | Details TBD |
 | 13 | Tue Nov 10 | | |
 | | Thu Nov 12 | **Quiz 4** | Coverage TBD |
 | 14 | Tue Nov 17 | | |
 | | Thu Nov 19 | | |
+| | Fri Nov 20 | **Assignment 6 due** | Details TBD |
 | 15 | Tue Nov 24 | | |
 | | Thu Nov 26 | **No Class — Thanksgiving holiday** | |
 

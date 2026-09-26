@@ -136,6 +136,8 @@ Mathematical content should be maintained only in the slides.
   instructor's question style, with a warning that they are not MATH 332
   practice tests.
 - [ ] Create assignments, quizzes, tests, and review materials.
+  - [x] Reserve Assignment 3–6 due dates on October 9, October 23,
+    November 6, and November 20 with details pending.
   - [x] Release Test 1 grades, post the all-sections Canvas announcement, and
     publish the worked-answer PDF with its anonymous score distribution on the
     course site and in the test archive.
