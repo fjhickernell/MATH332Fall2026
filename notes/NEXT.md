@@ -20,8 +20,10 @@ area derivation and continuation-slide layouts. The instructor's September 24
 screenshots confirmed that the projection example fits above the footer and
 that its serif mathematical labels are correct. The final example now uses
 $t_*=2$ and labels its diagonal $\overrightarrow{PQ}$; inspect that final
-revision in the preview. The earlier broader style-regression report still
-requires a Deck 04 visual check; successful rendering alone does not close it.
+revision in the preview. On September 28, the instructor confirmed that the
+Deck 05 title slide and Deck 04 look fine. Finish checking Decks 05 and 06
+for content. Deck 05 has a locally executed companion notebook awaiting
+instructor review; Deck 06 has no companion notebook yet.
 
 Continue reviewing the expanded Deck 05 Euclidean Vector Spaces bridge and the
 new 52-slide Deck 06 General Vector Spaces draft with the instructor. Deck 05
@@ -153,9 +155,10 @@ address reported Colab problems.
   $\det(\mat{J}_{\vct{G}}^{\mathsf T}\mat{J}_{\vct{G}})$ without assuming
   prior knowledge of cross products. All slides rendered in the instructor's
   `quarto-slides-live all` run. A shared MathJax loader fix allows slides to
-  display before the remote script loads; Deck 05 projection screenshots now confirm visible equation typesetting
-  and corrected layout; Deck 04 and the latest continuation slides still need
-  visible checking.
+  display before the remote script loads; Deck 05 projection screenshots now
+  confirm visible equation typesetting and corrected layout. The instructor
+  confirmed Deck 04 and the Deck 05 title slide visually on September 28;
+  review of the latest Deck 05 continuation slides remains open.
 - Decks 00--04 are substantive and instructor-reviewed; Deck 04 has also been
   developed and audited. Deck 05 is an expanded 27-slide draft (including its title), Deck 06 is a
   substantive 52-slide draft, and Decks 07--08 remain placeholders for Anton
