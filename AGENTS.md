@@ -87,6 +87,9 @@ At every checkpoint, update `notes/NEXT.md` with the single most likely next
 task, its current state, unresolved decisions, constraints, and completion
 criteria. Keep longer-term and non-immediate work in `notes/TODO-LATER.md`.
 
+When a deck is finished in class, reconcile its hours and outline structure on the
+welcome page using the [Course Outline workflow](AUTHOR_WORKFLOW.md#maintaining-the-course-outline).
+
 ### Next-task shorthand
 
 Interpret `Next?` as a request to read and summarize `notes/NEXT.md` from both

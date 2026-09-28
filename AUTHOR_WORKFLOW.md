@@ -17,6 +17,23 @@ website and the independent slide project, stages the slide output under
 Put mathematical exposition in the corresponding RevealJS deck so that course
 content is maintained only once.
 
+## Maintaining the Course Outline
+
+After finishing a deck in class, update its entry in the welcome page's
+Course Outline (`index.qmd`). Compare the deck with the course schedule and
+lecture-update ledger, estimate the instructional time attributable to it,
+and round to the nearest whole 50-minute classroom hour. Divide mixed-deck
+meetings according to the material taught and exclude assessment-only time.
+Use the schedule to estimate hours when exact transitions are unavailable,
+and revise the estimate if later pacing changes it.
+
+Reconcile the outline's headings, order, and topic bullets with the taught
+decks. Split the current broad chapter groupings where needed to represent
+the sequential Deck 00–08 architecture; combine or rename entries when the
+actual teaching sequence requires it. Keep undeveloped coverage provisional
+rather than assigning it unsupported hours. Render and inspect the welcome
+page after editing.
+
 ## Adding or updating an assignment
 
 ### Dates before assignment details
