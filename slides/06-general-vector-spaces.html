@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-09-28">
+  <meta name="dcterms.date" content="2026-09-29">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">September 28, 2026</p>
+  <p class="date">September 29, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -700,13 +700,7 @@ In this deck
 <ul>
 <li><a href="#/the-previous-deck-found-directions-inside-solution-sets">The previous deck found directions inside solution sets</a></li>
 <li><a href="#/a-vector-space-starts-with-objects-and-two-operations">A vector space starts with objects and two operations</a></li>
-<li><a href="#/addition-must-behave-like-familiar-vector-addition">Addition must behave like familiar vector addition</a></li>
-<li><a href="#/scalar-multiplication-must-fit-addition">Scalar multiplication must fit addition</a></li>
-<li><a href="#/the-axioms-force-familiar-consequences">The axioms force familiar consequences</a></li>
 <li><a href="#/vectors-need-not-be-coordinate-columns">Vectors need not be coordinate columns</a></li>
-<li><a href="#/the-scalar-field-can-change">The scalar field can change</a></li>
-<li><a href="#/polynomials-form-a-vector-space">Polynomials form a vector space</a></li>
-<li><a href="#/functions-can-be-vectors">Functions can be vectors</a></li>
 <li><a href="#/affine-sets-usually-fail-the-zero-vector-test">Affine sets usually fail the zero-vector test</a></li>
 <li><a href="#/the-operations-are-part-of-the-definition">The operations are part of the definition</a></li>
 </ul>
@@ -725,24 +719,25 @@ In this deck
 <li>kept inside the same solution set</li>
 </ul>
 <div class="key-point">
-<p><a href="#/a-vector-space-starts-with-objects-and-two-operations">This deck</a> names the abstract structure shared by every collection with these linear operations</p>
+<p>This deck names the abstract structure shared by collections with these linear operations</p>
 </div>
 </section>
 <section id="a-vector-space-starts-with-objects-and-two-operations" class="slide level2">
 <h2>A vector space starts with objects and two operations</h2>
-<p>A <strong>real vector space</strong> <span class="math inline">\(V\)</span> consists of</p>
-<ol type="1">
-<li>a set of objects called vectors</li>
-<li>vector addition: <span class="math inline">\(\vct{u}+\vct{v}\)</span></li>
-<li>scalar multiplication: <span class="math inline">\(c\vct{v}\)</span> for <span class="math inline">\(c\in\reals\)</span></li>
-</ol>
-<p>The operations must produce vectors in <span class="math inline">\(V\)</span> and satisfy the vector-space axioms</p>
+<p>A <span class="alert">real vector space</span> <span class="math inline">\(V\)</span> is a set with two operations, for all <span class="math inline">\(\vct{u},\vct{v}\in V\)</span> and <span class="math inline">\(c\in\reals\)</span>:</p>
+<p><span class="math display">\[
+\vct{u}+\vct{v}\in V,
+\qquad
+c\vct{v}\in V
+\]</span></p>
+<p>Addition and scaling obey the vector-space axioms</p>
 <div class="key-point">
-<p>The word vector describes algebraic behavior, not the appearance of an object</p>
+<p>Vector describes algebraic behavior, not appearance</p>
 </div>
 </section>
-<section id="addition-must-behave-like-familiar-vector-addition" class="slide level2">
-<h2>Addition must behave like familiar vector addition</h2>
+<section class="slide level2">
+
+<h3 id="addition-must-behave-like-familiar-vector-addition">Addition must behave like familiar vector addition</h3>
 <p>For all <span class="math inline">\(\vct{u},\vct{v},\vct{w}\in V\)</span>,</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -755,8 +750,9 @@ In this deck
 \]</span></p>
 <p>The symbol <span class="math inline">\(\vct{0}\)</span> means the zero element of this particular space</p>
 </section>
-<section id="scalar-multiplication-must-fit-addition" class="slide level2">
-<h2>Scalar multiplication must fit addition</h2>
+<section class="slide level2">
+
+<h3 id="scalar-multiplication-must-fit-addition">Scalar multiplication must fit addition</h3>
 <p>For all <span class="math inline">\(c,d\in\reals\)</span> and <span class="math inline">\(\vct{u},\vct{v}\in V\)</span>,</p>
 <p><span class="math display">\[
 \begin{aligned}
@@ -771,8 +767,9 @@ c(d\vct{v})&amp;=(cd)\vct{v}\\
 <p>Linear algebra uses only addition, scalar multiplication, and consequences of these rules</p>
 </div>
 </section>
-<section id="the-axioms-force-familiar-consequences" class="slide level2">
-<h2>The axioms force familiar consequences</h2>
+<section class="slide level2">
+
+<h3 id="the-axioms-force-familiar-consequences">The axioms force familiar consequences</h3>
 <p>Every vector space satisfies</p>
 <p><span class="math display">\[
 0\vct{v}=\vct{0},
@@ -794,7 +791,9 @@ c\vct{0}=\vct{0},
 <h2>Vectors need not be coordinate columns</h2>
 <div class="columns">
 <div class="column" style="width:47%;">
-<h3 id="familiar-examples">Familiar examples</h3>
+<h3>
+Familiar examples
+</h3>
 <ul>
 <li><span class="math inline">\(\reals^n\)</span></li>
 <li>complex vectors <span class="math inline">\(\mathbb{C}^n\)</span> with complex scalars</li>
@@ -803,7 +802,9 @@ c\vct{0}=\vct{0},
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<h3 id="new-examples">New examples</h3>
+<h3>
+New examples
+</h3>
 <ul>
 <li><span class="math inline">\(m\times n\)</span> matrices</li>
 <li>polynomials</li>
@@ -816,8 +817,9 @@ c\vct{0}=\vct{0},
 <p>Different objects can obey the same linear rules</p>
 </div>
 </section>
-<section id="the-scalar-field-can-change" class="slide level2">
-<h2>The scalar field can change</h2>
+<section class="slide level2">
+
+<h3 id="the-scalar-field-can-change">The scalar field can change</h3>
 <p>Most of this course uses real scalars, but the same axioms work over any field</p>
 <p>In the two-element field</p>
 <p><span class="math display">\[
@@ -847,8 +849,9 @@ c\vct{0}=\vct{0},
           display:block!important;
       }</style></aside>
 </section>
-<section id="polynomials-form-a-vector-space" class="slide level2">
-<h2>Polynomials form a vector space</h2>
+<section class="slide level2">
+
+<h3 id="polynomials-form-a-vector-space">Polynomials form a vector space</h3>
 <p>Let</p>
 <p><span class="math display">\[
 \mathbb{P}_2=\{a_0+a_1t+a_2t^2:a_0,a_1,a_2\in\reals\}
@@ -867,8 +870,9 @@ c\vct{0}=\vct{0},
 <p>A polynomial is one vector; its coefficients provide one possible coordinate description</p>
 </div>
 </section>
-<section id="functions-can-be-vectors" class="slide level2">
-<h2>Functions can be vectors</h2>
+<section class="slide level2">
+
+<h3 id="functions-can-be-vectors">Functions can be vectors</h3>
 <p>Let <span class="math inline">\(C[a,b]\)</span> contain all continuous real-valued functions on <span class="math inline">\([a,b]\)</span></p>
 <p><span class="math display">\[
 (f+g)(t)=f(t)+g(t),
