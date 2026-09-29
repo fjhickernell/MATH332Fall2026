@@ -6,7 +6,7 @@
 
 #quarto-document-content table th:nth-child(1),
 #quarto-document-content table td:nth-child(1) {
-  width: 5%;
+  width: 7%;
 }
 
 #quarto-document-content table th:nth-child(2),
@@ -18,10 +18,36 @@
 
 #quarto-document-content table th:nth-child(3),
 #quarto-document-content table td:nth-child(3) {
-  width: 53%;
+  width: 51%;
+  overflow-wrap: anywhere;
 }
 
 #quarto-document-content table th:nth-child(4),
 #quarto-document-content table td:nth-child(4) {
   width: 30%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+  #quarto-document-content table th:nth-child(1),
+  #quarto-document-content table td:nth-child(1) {
+    width: 10%;
+  }
+
+  #quarto-document-content table th:nth-child(2),
+  #quarto-document-content table td:nth-child(2) {
+    width: 20%;
+    min-width: 0;
+  }
+
+  #quarto-document-content table th:nth-child(3),
+  #quarto-document-content table td:nth-child(3) {
+    width: 33%;
+  }
+
+  #quarto-document-content table th:nth-child(4),
+  #quarto-document-content table td:nth-child(4) {
+    width: 37%;
+  }
 }
