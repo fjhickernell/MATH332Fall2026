@@ -15,8 +15,12 @@ instructor on September 24. All-sections Canvas announcement `106481`,
 “Quiz 2 on October 1: coverage through projections,” is posted and verified.
 The updated coverage passed the full local website and slide renders.
 
-Continue the instructor-led Deck 05 review, especially the new cross-product
-area derivation and continuation-slide layouts. The instructor's September 24
+Continue the instructor-led Deck 05 review of the area derivation, worked
+plane-and-triangle-area example and practice variants, dot/cross-product
+comparison, and remaining continuation layouts. The cross-product introduction
+now combines the definition, 3D diagram, area, and order on one slide; the
+instructor reviewed its diagram and visible layout on September 29. A starred
+triple-product zero-case exercise follows. The instructor's September 24
 screenshots confirmed that the projection example fits above the footer and
 that its serif mathematical labels are correct. The final example now uses
 $t_*=2$ and labels its diagonal $\overrightarrow{PQ}$; inspect that final

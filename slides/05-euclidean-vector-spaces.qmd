@@ -350,6 +350,7 @@ Reuse earlier geometry to compare points and construct directions
 - [A special 3D operation: the cross product](#the-cross-product-combines-two-directions)
 - [Point differences build a plane normal](#point-differences-build-a-plane-normal)
 - [The triple product reconnects to determinants](#the-triple-product-reconnects-to-determinants)
+- [Dot product and cross product side by side](#dot-product-and-cross-product-side-by-side)
 
 The [companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/05-euclidean-vector-spaces.ipynb)
 explores affine solutions, projection, and displacement geometry
@@ -508,6 +509,9 @@ project the displacement, then add the anchor point back.
 
 For $\vct{u},\vct{v}\in\reals^3$, define
 
+::: {.columns}
+::: {.column width="62%"}
+
 $$
 \vct{u}\mathbin{\times}\vct{v}
 =\begin{bmatrix}
@@ -519,13 +523,45 @@ $$
 
 The result is perpendicular to both inputs:
 
-$$
+\begin{gather*}
 \vct{u}^{\mathsf T}(\vct{u}\mathbin{\times}\vct{v})=0,
-\qquad
+\\
 \vct{v}^{\mathsf T}(\vct{u}\mathbin{\times}\vct{v})=0
-$$
+\end{gather*}
 
-Its magnitude is parallelogram area, and reversing the inputs reverses its direction:
+:::
+
+::: {.column width="3%"}
+:::
+
+::: {.column width="35%"}
+```{=html}
+<svg class="diagram-image cross-product-geometry" viewBox="0 0 520 360" width="100%" role="img" aria-label="Three-dimensional view of two vectors u and v starting at one point and spanning a tilted parallelogram. Their cross product points upward, perpendicular to the parallelogram.">
+<defs>
+<marker id="cross-u-tip" markerWidth="30" markerHeight="30" refX="0" refY="15" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,2 L26,15 L0,28 Z" fill="#007acc"/></marker>
+<marker id="cross-v-tip" markerWidth="30" markerHeight="30" refX="0" refY="15" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,2 L26,15 L0,28 Z" fill="#2e8b57"/></marker>
+<marker id="cross-normal-tip" markerWidth="30" markerHeight="30" refX="0" refY="15" orient="auto" markerUnits="userSpaceOnUse"><path d="M0,2 L26,15 L0,28 Z" fill="#c56b00"/></marker>
+</defs>
+<ellipse cx="290" cy="319" rx="210" ry="19" fill="#d7dce4" opacity="0.55"/>
+<polygon points="110,235 340,285 505,205 275,155" fill="#dceef7" fill-opacity="0.85" stroke="#7e9ab0" stroke-width="3"/>
+<line x1="340" y1="285" x2="505" y2="205" stroke="#617d91" stroke-width="3" stroke-dasharray="9 7"/>
+<line x1="275" y1="155" x2="505" y2="205" stroke="#617d91" stroke-width="3" stroke-dasharray="9 7"/>
+<line x1="110" y1="235" x2="314.6" y2="279.5" stroke="#007acc" stroke-width="8" marker-end="url(#cross-u-tip)"/>
+<line x1="110" y1="235" x2="251.6" y2="166.3" stroke="#2e8b57" stroke-width="8" marker-end="url(#cross-v-tip)"/>
+<line x1="110" y1="235" x2="70.5" y2="52.4" stroke="#fff" stroke-width="14"/>
+<line x1="110" y1="235" x2="70.5" y2="52.4" stroke="#c56b00" stroke-width="8" marker-end="url(#cross-normal-tip)"/>
+<circle cx="110" cy="235" r="8" fill="#333"/>
+<text x="348" y="318" font-size="38" font-weight="bold" font-style="italic" style="font-family:'Times New Roman',Times,serif;fill:#007acc">u</text>
+<text x="290" y="153" font-size="38" font-weight="bold" font-style="italic" style="font-family:'Times New Roman',Times,serif;fill:#2e8b57">v</text>
+<text x="92" y="45" font-size="34" style="font-family:'Times New Roman',Times,serif;fill:#a65700"><tspan font-weight="bold" font-style="italic">u</tspan> × <tspan font-weight="bold" font-style="italic">v</tspan></text>
+</svg>
+```
+:::
+:::
+
+::: {.key-point}
+A normal whose length is parallelogram area; the right-hand rule chooses its direction
+:::
 
 $$
 \norm{\vct{u}\mathbin{\times}\vct{v}}
@@ -534,7 +570,7 @@ $$
 \vct{v}\mathbin{\times}\vct{u}=-(\vct{u}\mathbin{\times}\vct{v})
 $$
 
-The ordinary cross product is special to three-dimensional vectors
+Reversing the inputs reverses the normal direction; this vector-valued operation is special to 3D
 
 ::: {.notes}
 The natural generalization in other dimensions is the exterior, or wedge,
@@ -647,7 +683,7 @@ $$
 
 ## Point differences build a plane normal {#point-differences-build-a-plane-normal}
 
-For three noncollinear points $P,Q,R\in\reals^3$, first form two directions:
+For three [noncollinear]{.alert} points $P,Q,R\in\reals^3$, first form two directions:
 
 $$
 \vct{u}=\overrightarrow{PQ}=\vct{q}-\vct{p},
@@ -672,10 +708,60 @@ $$
 
 ---
 
-### Find a plane and its triangle area {#find-a-plane-and-its-triangle-area}
+### Worked example: a normal from three points {#worked-example-a-normal-from-three-points}
 
 $$
 P=(1,0,1),\qquad Q=(2,1,1),\qquad R=(1,2,3)
+$$
+
+First form directions from the same point:
+
+$$
+\vct{u}=\overrightarrow{PQ}=(1,1,0)^{\mathsf T},
+\qquad
+\vct{v}=\overrightarrow{PR}=(0,2,2)^{\mathsf T}
+$$
+
+Their cross product is
+
+$$
+\vct{n}=\vct{u}\mathbin{\times}\vct{v}=(2,-2,2)^{\mathsf T}
+$$
+
+Check: $\vct{n}^{\mathsf T}\vct{u}=2-2=0$ and
+$\vct{n}^{\mathsf T}\vct{v}=-4+4=0$
+
+---
+
+### Worked example: the plane and its area {#worked-example-the-plane-and-its-area}
+
+Keep $P=(1,0,1)$ and $\vct{n}=(2,-2,2)^{\mathsf T}$
+
+The plane through $P,Q,R$ is
+
+$$
+\vct{n}^{\mathsf T}(\vct{x}-\vct{p})=0
+\quad\Longleftrightarrow\quad
+2(x-1)-2y+2(z-1)=0
+$$
+
+Equivalently, $x-y+z=2$
+
+The triangle has half the parallelogram area:
+
+$$
+\operatorname{area}(PQR)=\tfrac12\norm{\vct{n}}
+=\tfrac12\sqrt{2^2+(-2)^2+2^2}=\sqrt3
+$$
+
+Exchanging $Q$ and $R$ reverses $\vct{n}$ but leaves the plane and area unchanged
+
+---
+
+### Find a plane and its triangle area {#find-a-plane-and-its-triangle-area}
+
+$$
+P=(0,1,0),\qquad Q=(2,1,0),\qquad R=(0,2,2)
 $$
 
 ::: {.exitem .lettered}
@@ -684,16 +770,39 @@ $$
 <span class="exsub">Find $\vct{u}=\overrightarrow{PQ}$ and $\vct{v}=\overrightarrow{PR}$</span>
 <span class="exsub">Compute $\vct{n}=\vct{u}\mathbin{\times}\vct{v}$ and verify that it is perpendicular to both directions</span>
 <span class="exsub">Find an equation for the affine plane through $P,Q,R$</span>
-<span class="exsub">Find the area of triangle $PQR$; explain what changes if $Q$ and $R$ are exchanged</span>
+<span class="exsub">Find the area of triangle $PQR$ using the original cross product</span>
 </span>
 :::
 
 ::: {.notes}
-The directions are $(1,1,0)^{\mathsf T}$ and $(0,2,2)^{\mathsf T}$;
-the cross product is $(2,-2,2)^{\mathsf T}$. Both dot products are zero.
-The plane equation is $2(x-1)-2y+2(z-1)=0$, or $x-y+z=2$.
-The triangle area is $\sqrt{3}$. Exchanging $Q$ and $R$ reverses the normal
-but preserves the plane and the area.
+The directions are $(2,0,0)^{\mathsf T}$ and $(0,1,2)^{\mathsf T}$;
+the cross product is $(0,-4,2)^{\mathsf T}$. Both dot products are zero.
+The plane equation is $-4(y-1)+2z=0$, or $2y-z=2$.
+The triangle area is $\sqrt5$. A scaled normal gives the same plane but its
+norm does not give the original parallelogram area.
+:::
+
+---
+
+### Another plane and triangle area {#another-plane-and-triangle-area}
+
+$$
+P=(1,1,0),\qquad Q=(2,1,1),\qquad R=(1,3,0)
+$$
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Find a normal, the plane equation, and the triangle area
+<span class="exsub">Check your normal against both point-difference vectors</span>
+<span class="exsub">Explain what changes if $Q$ and $R$ are exchanged</span>
+</span>
+:::
+
+::: {.notes}
+The directions are $(1,0,1)^{\mathsf T}$ and $(0,2,0)^{\mathsf T}$.
+Their cross product is $(-2,0,2)^{\mathsf T}$, perpendicular to both.
+The plane is $-2(x-1)+2z=0$, or $x-z=1$, and the triangle area is $\sqrt2$.
+Exchanging $Q$ and $R$ negates the normal and leaves the plane and area unchanged.
 :::
 
 ## The triple product reconnects to determinants {#the-triple-product-reconnects-to-determinants}
@@ -719,6 +828,60 @@ $$
 
 ::: {.key-point}
 Determinants measure the geometry of displacement vectors, independent of where the points are located
+:::
+
+---
+
+### Why can the triple product vanish? {#why-can-the-triple-product-vanish}
+
+$$
+\vct{u}^{\mathsf T}(\vct{v}\mathbin{\times}\vct{w})
+=\det\begin{bmatrix}\vct{u}&\vct{v}&\vct{w}\end{bmatrix}
+$$
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>Explain each zero case without calculating coordinates
+<span class="exsub">If $\vct{v}$ and $\vct{w}$ are nonparallel and $\vct{u}$ lies in the plane they span, why is the triple product zero?</span>
+<span class="exsub">If $\vct{v}$ and $\vct{w}$ are parallel, why is the triple product zero for every $\vct{u}$?</span>
+<span class="exsub">Connect both explanations to zero parallelepiped volume and dependent determinant columns</span>
+</span>
+:::
+
+::: {.notes}
+In the first case, $\vct{u}=a\vct{v}+b\vct{w}$, while
+$\vct{v}\mathbin{\times}\vct{w}$ is perpendicular to both spanning
+directions; their dot product is zero. In the second case,
+$\vct{v}\mathbin{\times}\vct{w}=\vct{0}$. In either case the three
+columns are linearly dependent and the parallelepiped has zero volume.
+:::
+
+## Dot product and cross product side by side {#dot-product-and-cross-product-side-by-side}
+
+For nonzero vectors $\vct{u}$ and $\vct{v}$:
+
+| | Dot product $\vct{u}^{\mathsf T}\vct{v}$ | Cross product $\vct{u}\mathbin{\times}\vct{v}$ |
+|---|---|---|
+| Inputs | Vectors in $\reals^n$ | Vectors in $\reals^3$ for the standard cross product |
+| Output | A scalar | A vector perpendicular to both inputs |
+| Angle and size | $\norm{\vct{u}}\norm{\vct{v}}\cos\theta$ measures alignment | $\norm{\vct{u}\mathbin{\times}\vct{v}}=\norm{\vct{u}}\norm{\vct{v}}\sin\theta$ gives parallelogram area |
+| Zero when | The inputs are perpendicular | The inputs are parallel or antiparallel |
+| Reverse order | $\vct{u}^{\mathsf T}\vct{v}=\vct{v}^{\mathsf T}\vct{u}$ | $\vct{u}\mathbin{\times}\vct{v}=-(\vct{v}\mathbin{\times}\vct{u})$ |
+
+::: {.key-point}
+When the cross product is nonzero, the right-hand rule gives its direction;
+its length is area
+:::
+
+::: {.notes}
+Both products give zero if either input is zero; the angle and the zero tests
+in the table assume nonzero vectors. The standard vector-valued cross product
+used in this course is defined on $\reals^3$. The right-hand rule distinguishes
+the two possible normal directions: curl the fingers of the right hand from
+$\vct{u}$ toward $\vct{v}$; the thumb points along
+$\vct{u}\mathbin{\times}\vct{v}$. The dot product extends to every
+$\reals^n$ and gives a signed scalar, while the cross-product norm is
+nonnegative.
 :::
 
 # Big Ideas {data-state="goldborder"}
