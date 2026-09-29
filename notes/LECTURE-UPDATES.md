@@ -2,7 +2,7 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest reconciled instructional meeting: September 24, 2026
+- Latest reconciled instructional meeting: September 29, 2026
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -10,6 +10,7 @@
 | September 15, 2026 | Reconciled | `dfc3f74c-5223-42fd-8c42-b4c601342b33` | September 22, 2026 | September 17, 2026 |
 | September 22, 2026 | Reconciled: determinants companion and remaining Deck 04 topics through Jacobians and the polar area factor; Deck 05 points, vectors, and null-space directions previewed only | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5301d906-75c7-43ec-b187-b4cd01339653) | September 24, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 05 at “Why distinguish points from vectors?” | September 22, 2026 |
 | September 24, 2026 | Reconciled through the worked nearest-point projection example; nearest-point exercise left for practice and cross products previewed only | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5510df24-5c1f-4771-a918-b4cf01302e9a) | September 29, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 05 at “Find the nearest point and distance,” then “A special 3D operation: the cross product” | September 24, 2026 |
+| September 29, 2026 | Reconciled: nearest-point practice; cross product, determinant pattern, area and plane-normal examples; scalar triple product; general vector spaces previewed only | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6cce5357-9159-4422-91f7-b4d4012f8b82) | October 1, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 06 at “The previous deck found directions inside solution sets,” before Quiz 2 | September 29, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -61,3 +62,12 @@ Both September 24 Panopto readiness notices were visible in the Illinois Tech
 Fred inbox. The September 29 note was saved for only that occurrence and
 reopened in Illinois Tech Fred → Calendar to verify the note, PH 109, and
 the existing Central Daylight Time meeting hours.
+
+## September 29 recording evidence
+
+Cross-product norm as area began around 14:18; plane normals and triangle
+area followed at 29:39–52:33, with the scalar triple product at 1:03:18.
+The closing “How Far We Have Come” slide appeared at 1:10:48. Broader vector
+spaces were previewed verbally but not developed. The October 1 single
+occurrence was reopened and verified on Illinois Tech Fred → Calendar with
+the continuation note, PH 109, and its existing Central Daylight Time hours.

@@ -2,12 +2,13 @@
 
 ## Current task
 
-Prepare the September 29 lecture: resume Deck 05 with “Find the nearest point
-and distance” as brief practice, then “A special 3D operation: the cross
-product.” September 24 completed affine solution sets and the worked
-nearest-point projection example. The September 29 Illinois Tech calendar
-occurrence has the verified continuation note for PH 109. The lecture ledger
-and schedule are reconciled through September 24; local rendering passed.
+Prepare the October 1 lecture: resume Deck 06 at “The previous deck found
+directions inside solution sets” and introduce general vector spaces before
+Quiz 2. September 29 completed Deck 05 cross products, area and plane-normal
+examples, and the scalar triple product; broader vector spaces were previewed
+only. The October 1 Illinois Tech calendar occurrence has the verified
+continuation note for PH 109. The lecture ledger and schedule are reconciled
+through September 29.
 
 Quiz 2 website coverage is updated to Determinants and Euclidean Vector
 Spaces through projections (excluding cross products), as confirmed by the
