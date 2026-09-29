@@ -996,6 +996,7 @@ x-y+z&amp;=0
 <li><a href="#/the-cross-product-combines-two-directions">A special 3D operation: the cross product</a></li>
 <li><a href="#/point-differences-build-a-plane-normal">Point differences build a plane normal</a></li>
 <li><a href="#/the-triple-product-reconnects-to-determinants">The triple product reconnects to determinants</a></li>
+<li><a href="#/dot-product-and-cross-product-side-by-side">Dot product and cross product side by side</a></li>
 </ul>
 <p>The <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/05-euclidean-vector-spaces.ipynb">companion notebook</a> explores affine solutions, projection, and displacement geometry</p>
 </section>
@@ -1131,6 +1132,8 @@ P=(1,-1,0),\qquad \vct{v}=\begin{bmatrix}1\\2\\0\end{bmatrix},
 <section id="the-cross-product-combines-two-directions" class="slide level2">
 <h2>A special 3D operation: the cross product</h2>
 <p>For <span class="math inline">\(\vct{u},\vct{v}\in\reals^3\)</span>, define</p>
+<div class="columns">
+<div class="column" style="width:62%;">
 <p><span class="math display">\[
 \vct{u}\mathbin{\times}\vct{v}
 =\begin{bmatrix}
@@ -1140,19 +1143,44 @@ u_1v_2-u_2v_1
 \end{bmatrix}
 \]</span></p>
 <p>The result is perpendicular to both inputs:</p>
-<p><span class="math display">\[
+<p><span class="math display">\[\begin{gather*}
 \vct{u}^{\mathsf T}(\vct{u}\mathbin{\times}\vct{v})=0,
-\qquad
+\\
 \vct{v}^{\mathsf T}(\vct{u}\mathbin{\times}\vct{v})=0
-\]</span></p>
-<p>Its magnitude is parallelogram area, and reversing the inputs reverses its direction:</p>
+\end{gather*}\]</span></p>
+</div><div class="column" style="width:3%;">
+
+</div><div class="column" style="width:35%;">
+<svg class="diagram-image cross-product-geometry" viewbox="0 0 520 360" width="100%" role="img" aria-label="Three-dimensional view of two vectors u and v starting at one point and spanning a tilted parallelogram. Their cross product points upward, perpendicular to the parallelogram.">
+<defs>
+<marker id="cross-u-tip" markerwidth="30" markerheight="30" refx="0" refy="15" orient="auto" markerunits="userSpaceOnUse"><path d="M0,2 L26,15 L0,28 Z" fill="#007acc"></path></marker>
+<marker id="cross-v-tip" markerwidth="30" markerheight="30" refx="0" refy="15" orient="auto" markerunits="userSpaceOnUse"><path d="M0,2 L26,15 L0,28 Z" fill="#2e8b57"></path></marker>
+<marker id="cross-normal-tip" markerwidth="30" markerheight="30" refx="0" refy="15" orient="auto" markerunits="userSpaceOnUse"><path d="M0,2 L26,15 L0,28 Z" fill="#c56b00"></path></marker>
+</defs>
+<ellipse cx="290" cy="319" rx="210" ry="19" fill="#d7dce4" opacity="0.55"></ellipse>
+<polygon points="110,235 340,285 505,205 275,155" fill="#dceef7" fill-opacity="0.85" stroke="#7e9ab0" stroke-width="3"></polygon>
+<line x1="340" y1="285" x2="505" y2="205" stroke="#617d91" stroke-width="3" stroke-dasharray="9 7"></line>
+<line x1="275" y1="155" x2="505" y2="205" stroke="#617d91" stroke-width="3" stroke-dasharray="9 7"></line>
+<line x1="110" y1="235" x2="314.6" y2="279.5" stroke="#007acc" stroke-width="8" marker-end="url(#cross-u-tip)"></line>
+<line x1="110" y1="235" x2="251.6" y2="166.3" stroke="#2e8b57" stroke-width="8" marker-end="url(#cross-v-tip)"></line>
+<line x1="110" y1="235" x2="70.5" y2="52.4" stroke="#fff" stroke-width="14"></line>
+<line x1="110" y1="235" x2="70.5" y2="52.4" stroke="#c56b00" stroke-width="8" marker-end="url(#cross-normal-tip)"></line>
+<circle cx="110" cy="235" r="8" fill="#333"></circle>
+<text x="348" y="318" font-size="38" font-weight="bold" font-style="italic" style="font-family:'Times New Roman',Times,serif;fill:#007acc">u</text>
+<text x="290" y="153" font-size="38" font-weight="bold" font-style="italic" style="font-family:'Times New Roman',Times,serif;fill:#2e8b57">v</text>
+<text x="92" y="45" font-size="34" style="font-family:'Times New Roman',Times,serif;fill:#a65700"><tspan font-weight="bold" font-style="italic">u</tspan> × <tspan font-weight="bold" font-style="italic">v</tspan></text>
+</svg>
+</div></div>
+<div class="key-point">
+<p>A normal whose length is parallelogram area; the right-hand rule chooses its direction</p>
+</div>
 <p><span class="math display">\[
 \norm{\vct{u}\mathbin{\times}\vct{v}}
 =\norm{\vct{u}}\norm{\vct{v}}\sin\theta,
 \qquad
 \vct{v}\mathbin{\times}\vct{u}=-(\vct{u}\mathbin{\times}\vct{v})
 \]</span></p>
-<p>The ordinary cross product is special to three-dimensional vectors</p>
+<p>Reversing the inputs reverses the normal direction; this vector-valued operation is special to 3D</p>
 <aside class="notes">
 <p>The natural generalization in other dimensions is the exterior, or wedge, product. It records the oriented parallelogram determined by two vectors, but its output is a bivector rather than another ordinary vector. In three dimensions, perpendicularity identifies that oriented area with the vector <span class="math inline">\(\vct{u}\mathbin{\times}\vct{v}\)</span>. There is also an exceptional vector cross product in dimension seven, but it is outside the scope of this course. The wedge product belongs to exterior algebra, which generalizes oriented areas, volumes, determinants, and the three-dimensional cross product.</p>
 <style type="text/css">
@@ -1253,7 +1281,7 @@ v_1&amp;v_2&amp;v_3
 </section>
 <section id="point-differences-build-a-plane-normal" class="slide level2">
 <h2>Point differences build a plane normal</h2>
-<p>For three noncollinear points <span class="math inline">\(P,Q,R\in\reals^3\)</span>, first form two directions:</p>
+<p>For three <span class="alert">noncollinear</span> points <span class="math inline">\(P,Q,R\in\reals^3\)</span>, first form two directions:</p>
 <p><span class="math display">\[
 \vct{u}=\overrightarrow{PQ}=\vct{q}-\vct{p},
 \qquad
@@ -1273,15 +1301,74 @@ v_1&amp;v_2&amp;v_3
 </section>
 <section class="slide level2">
 
-<h3 id="find-a-plane-and-its-triangle-area">Find a plane and its triangle area</h3>
+<h3 id="worked-example-a-normal-from-three-points">Worked example: a normal from three points</h3>
 <p><span class="math display">\[
 P=(1,0,1),\qquad Q=(2,1,1),\qquad R=(1,2,3)
 \]</span></p>
+<p>First form directions from the same point:</p>
+<p><span class="math display">\[
+\vct{u}=\overrightarrow{PQ}=(1,1,0)^{\mathsf T},
+\qquad
+\vct{v}=\overrightarrow{PR}=(0,2,2)^{\mathsf T}
+\]</span></p>
+<p>Their cross product is</p>
+<p><span class="math display">\[
+\vct{n}=\vct{u}\mathbin{\times}\vct{v}=(2,-2,2)^{\mathsf T}
+\]</span></p>
+<p>Check: <span class="math inline">\(\vct{n}^{\mathsf T}\vct{u}=2-2=0\)</span> and <span class="math inline">\(\vct{n}^{\mathsf T}\vct{v}=-4+4=0\)</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="worked-example-the-plane-and-its-area">Worked example: the plane and its area</h3>
+<p>Keep <span class="math inline">\(P=(1,0,1)\)</span> and <span class="math inline">\(\vct{n}=(2,-2,2)^{\mathsf T}\)</span></p>
+<p>The plane through <span class="math inline">\(P,Q,R\)</span> is</p>
+<p><span class="math display">\[
+\vct{n}^{\mathsf T}(\vct{x}-\vct{p})=0
+\quad\Longleftrightarrow\quad
+2(x-1)-2y+2(z-1)=0
+\]</span></p>
+<p>Equivalently, <span class="math inline">\(x-y+z=2\)</span></p>
+<p>The triangle has half the parallelogram area:</p>
+<p><span class="math display">\[
+\operatorname{area}(PQR)=\tfrac12\norm{\vct{n}}
+=\tfrac12\sqrt{2^2+(-2)^2+2^2}=\sqrt3
+\]</span></p>
+<p>Exchanging <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> reverses <span class="math inline">\(\vct{n}\)</span> but leaves the plane and area unchanged</p>
+</section>
+<section class="slide level2">
+
+<h3 id="find-a-plane-and-its-triangle-area">Find a plane and its triangle area</h3>
+<p><span class="math display">\[
+P=(0,1,0),\qquad Q=(2,1,0),\qquad R=(0,2,2)
+\]</span></p>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use point differences and a cross product <span class="exsub">Find <span class="math inline">\(\vct{u}=\overrightarrow{PQ}\)</span> and <span class="math inline">\(\vct{v}=\overrightarrow{PR}\)</span></span> <span class="exsub">Compute <span class="math inline">\(\vct{n}=\vct{u}\mathbin{\times}\vct{v}\)</span> and verify that it is perpendicular to both directions</span> <span class="exsub">Find an equation for the affine plane through <span class="math inline">\(P,Q,R\)</span></span> <span class="exsub">Find the area of triangle <span class="math inline">\(PQR\)</span>; explain what changes if <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> are exchanged</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use point differences and a cross product <span class="exsub">Find <span class="math inline">\(\vct{u}=\overrightarrow{PQ}\)</span> and <span class="math inline">\(\vct{v}=\overrightarrow{PR}\)</span></span> <span class="exsub">Compute <span class="math inline">\(\vct{n}=\vct{u}\mathbin{\times}\vct{v}\)</span> and verify that it is perpendicular to both directions</span> <span class="exsub">Find an equation for the affine plane through <span class="math inline">\(P,Q,R\)</span></span> <span class="exsub">Find the area of triangle <span class="math inline">\(PQR\)</span> using the original cross product</span> </span></p>
 </div>
 <aside class="notes">
-<p>The directions are <span class="math inline">\((1,1,0)^{\mathsf T}\)</span> and <span class="math inline">\((0,2,2)^{\mathsf T}\)</span>; the cross product is <span class="math inline">\((2,-2,2)^{\mathsf T}\)</span>. Both dot products are zero. The plane equation is <span class="math inline">\(2(x-1)-2y+2(z-1)=0\)</span>, or <span class="math inline">\(x-y+z=2\)</span>. The triangle area is <span class="math inline">\(\sqrt{3}\)</span>. Exchanging <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> reverses the normal but preserves the plane and the area.</p>
+<p>The directions are <span class="math inline">\((2,0,0)^{\mathsf T}\)</span> and <span class="math inline">\((0,1,2)^{\mathsf T}\)</span>; the cross product is <span class="math inline">\((0,-4,2)^{\mathsf T}\)</span>. Both dot products are zero. The plane equation is <span class="math inline">\(-4(y-1)+2z=0\)</span>, or <span class="math inline">\(2y-z=2\)</span>. The triangle area is <span class="math inline">\(\sqrt5\)</span>. A scaled normal gives the same plane but its norm does not give the original parallelogram area.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="another-plane-and-triangle-area">Another plane and triangle area</h3>
+<p><span class="math display">\[
+P=(1,1,0),\qquad Q=(2,1,1),\qquad R=(1,3,0)
+\]</span></p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find a normal, the plane equation, and the triangle area <span class="exsub">Check your normal against both point-difference vectors</span> <span class="exsub">Explain what changes if <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> are exchanged</span> </span></p>
+</div>
+<aside class="notes">
+<p>The directions are <span class="math inline">\((1,0,1)^{\mathsf T}\)</span> and <span class="math inline">\((0,2,0)^{\mathsf T}\)</span>. Their cross product is <span class="math inline">\((-2,0,2)^{\mathsf T}\)</span>, perpendicular to both. The plane is <span class="math inline">\(-2(x-1)+2z=0\)</span>, or <span class="math inline">\(x-z=1\)</span>, and the triangle area is <span class="math inline">\(\sqrt2\)</span>. Exchanging <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> negates the normal and leaves the plane and area unchanged.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1315,6 +1402,91 @@ P=(1,0,1),\qquad Q=(2,1,1),\qquad R=(1,2,3)
 <div class="key-point">
 <p>Determinants measure the geometry of displacement vectors, independent of where the points are located</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="why-can-the-triple-product-vanish">Why can the triple product vanish?</h3>
+<p><span class="math display">\[
+\vct{u}^{\mathsf T}(\vct{v}\mathbin{\times}\vct{w})
+=\det\begin{bmatrix}\vct{u}&amp;\vct{v}&amp;\vct{w}\end{bmatrix}
+\]</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Explain each zero case without calculating coordinates <span class="exsub">If <span class="math inline">\(\vct{v}\)</span> and <span class="math inline">\(\vct{w}\)</span> are nonparallel and <span class="math inline">\(\vct{u}\)</span> lies in the plane they span, why is the triple product zero?</span> <span class="exsub">If <span class="math inline">\(\vct{v}\)</span> and <span class="math inline">\(\vct{w}\)</span> are parallel, why is the triple product zero for every <span class="math inline">\(\vct{u}\)</span>?</span> <span class="exsub">Connect both explanations to zero parallelepiped volume and dependent determinant columns</span> </span></p>
+</div>
+<aside class="notes">
+<p>In the first case, <span class="math inline">\(\vct{u}=a\vct{v}+b\vct{w}\)</span>, while <span class="math inline">\(\vct{v}\mathbin{\times}\vct{w}\)</span> is perpendicular to both spanning directions; their dot product is zero. In the second case, <span class="math inline">\(\vct{v}\mathbin{\times}\vct{w}=\vct{0}\)</span>. In either case the three columns are linearly dependent and the parallelepiped has zero volume.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="dot-product-and-cross-product-side-by-side" class="slide level2">
+<h2>Dot product and cross product side by side</h2>
+<p>For nonzero vectors <span class="math inline">\(\vct{u}\)</span> and <span class="math inline">\(\vct{v}\)</span>:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Dot product <span class="math inline">\(\vct{u}^{\mathsf T}\vct{v}\)</span></th>
+<th>Cross product <span class="math inline">\(\vct{u}\mathbin{\times}\vct{v}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Inputs</td>
+<td>Vectors in <span class="math inline">\(\reals^n\)</span></td>
+<td>Vectors in <span class="math inline">\(\reals^3\)</span> for the standard cross product</td>
+</tr>
+<tr class="even">
+<td>Output</td>
+<td>A scalar</td>
+<td>A vector perpendicular to both inputs</td>
+</tr>
+<tr class="odd">
+<td>Angle and size</td>
+<td><span class="math inline">\(\norm{\vct{u}}\norm{\vct{v}}\cos\theta\)</span> measures alignment</td>
+<td><span class="math inline">\(\norm{\vct{u}\mathbin{\times}\vct{v}}=\norm{\vct{u}}\norm{\vct{v}}\sin\theta\)</span> gives parallelogram area</td>
+</tr>
+<tr class="even">
+<td>Zero when</td>
+<td>The inputs are perpendicular</td>
+<td>The inputs are parallel or antiparallel</td>
+</tr>
+<tr class="odd">
+<td>Reverse order</td>
+<td><span class="math inline">\(\vct{u}^{\mathsf T}\vct{v}=\vct{v}^{\mathsf T}\vct{u}\)</span></td>
+<td><span class="math inline">\(\vct{u}\mathbin{\times}\vct{v}=-(\vct{v}\mathbin{\times}\vct{u})\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="key-point">
+<p>When the cross product is nonzero, the right-hand rule gives its direction; its length is area</p>
+</div>
+<aside class="notes">
+<p>Both products give zero if either input is zero; the angle and the zero tests in the table assume nonzero vectors. The standard vector-valued cross product used in this course is defined on <span class="math inline">\(\reals^3\)</span>. The right-hand rule distinguishes the two possible normal directions: curl the fingers of the right hand from <span class="math inline">\(\vct{u}\)</span> toward <span class="math inline">\(\vct{v}\)</span>; the thumb points along <span class="math inline">\(\vct{u}\mathbin{\times}\vct{v}\)</span>. The dot product extends to every <span class="math inline">\(\reals^n\)</span> and gives a signed scalar, while the cross-product norm is nonnegative.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Big Ideas</h1>
