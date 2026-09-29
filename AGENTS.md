@@ -44,15 +44,16 @@ This repository uses `classlib` as a shared submodule. The authority chain is:
    `classlib/AGENTS.md`
 3. MATH 332 additions and exceptions in this repository
 
-Before creating or substantially revising slides, webpages, reusable
-components, shared styling, or notebook presentation, read
+Before any slide edit, or before creating or substantially revising webpages,
+reusable components, shared styling, or notebook presentation, read
 `classlib/AGENTS.md`. Local documentation should record only course-specific
 policies, terminology, notation, navigation, validation requirements, and
 intentional exceptions. Do not duplicate universal style guidance locally.
 
-Before substantial slide work, also read
-`classlib/docs/slide-style.md`; before substantial webpage work, read
-`classlib/docs/webpage-style.md`. MATH 332 currently has no separate local
+Before any slide edit, also read `classlib/docs/slide-style.md` and audit the
+edited deck for prose bold and unnecessary terminal periods in visible slide
+text and exercise prompts before finishing. Before substantial webpage work,
+read `classlib/docs/webpage-style.md`. MATH 332 currently has no separate local
 style guides, so record a new local guide only when the course develops a
 genuine addition or explicit exception.
 

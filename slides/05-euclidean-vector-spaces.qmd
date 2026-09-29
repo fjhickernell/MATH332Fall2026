@@ -149,11 +149,12 @@ c\vct{u}=(cu_i)_{i=1}^n
 $$
 
 The standard dot product $\vct{u}^{\mathsf T}\vct{v}=\sum_{i=1}^n u_iv_i$
-adds lengths and angles
+lets us define lengths and angles
 
 ::: {.key-point}
-This familiar example is a [Euclidean vector space]{.alert}; Deck 06 states
-the vector-space axioms and extends them beyond coordinate vectors
+This familiar example is a [Euclidean vector space]{.alert};
+[Deck 06]({{< meta decks.d06.file >}}#addition-must-behave-like-familiar-vector-addition)
+states the vector-space axioms and extends them beyond coordinate vectors
 :::
 
 ## Choosing an origin hides the distinction {#choosing-an-origin-hides-the-distinction}

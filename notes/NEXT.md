@@ -26,11 +26,13 @@ for content. Deck 05 has a locally executed companion notebook awaiting
 instructor review; Deck 06 has no companion notebook yet.
 
 Continue reviewing the expanded Deck 05 Euclidean Vector Spaces bridge and the
-52-slide Deck 06 General Vector Spaces draft with the instructor. Deck 05
+substantive Deck 06 General Vector Spaces draft with the instructor. Deck 05
 now visibly names its homogeneous directions as the null space, while Deck 06
-develops the abstract structure using binary vectors, polynomials, and
-functions before returning to null, column, and row spaces. Decide what to
-refine before scheduling either deck, then turn the four remaining
+develops the abstract structure using binary vectors, polynomials, functions,
+homogeneous linear differential-equation solution spaces, and finite Fourier
+sums, then gives a brief countable/uncountable basis outlook
+before returning to null, column, and row spaces. Decide what to refine before
+scheduling either deck, then turn the four remaining
 chapter-sized decks into an explicit plan for the 20 class meetings after
 Test 1.
 
@@ -38,6 +40,19 @@ The September 29 review added a concrete $\reals^n$ continuation to Deck 05,
 made six introductory Deck 06 topics separate continuation slides, and
 confirmed `.key-point` as the course's takeaway style. Both revised decks
 rendered successfully on Intel; their new layouts still need visible review.
+Deck 06 now has fifteen starred exercise blocks, including paired worked
+examples and student-practice variants for homogeneous and nonhomogeneous
+differential equations, polynomial spans, subspaces and bases, Fourier
+independence, dimension, coordinates, rank--nullity, and
+$\mat{A}=\mat{C}\mat{R}_r$. The factorization uses one running matrix to
+show the pivot-column and row-basis factors and verify the product column by
+column, then offers two practice matrices. Contextual links recall Deck 01's
+elimination, free variables, matrix products, and column combinations. The
+same running matrix models the
+left null space before a second matrix asks students to find all four spaces.
+It renders locally on M3; the newly added worked-example layouts still need
+visible review. The Independence and Bases section has four main slides with
+supporting examples as continuation slides.
 
 The Deck 04 determinants slides were previously instructor-reviewed. The
 surface outlook was revised after the instructor flagged the premature cross
@@ -107,12 +122,14 @@ address reported Colab problems.
   slides. Decks 01–06 now link callbacks, previews, and cumulative reviews to
   their targets. Diagram implementation is documented in
   `notes/TECHNICAL-NOTES.md`, with author-workflow links and continuation rules.
-- `slides/06-general-vector-spaces.qmd` is now a substantive 52-slide draft
+- `slides/06-general-vector-spaces.qmd` is now a substantive draft
   covering Anton §§4.1–4.9. Its abstract examples include $\mathbb{F}_2^n$,
-  polynomials, and continuous functions; later sections develop subspaces,
-  span, independence, bases, coordinates, dimension, change of basis, the
-  four matrix spaces, rank–nullity, and rank factorization. One matrix example
-  ties the row, column, null, and left-null spaces together. The Course Map
+  polynomials, continuous functions, homogeneous linear differential-equation
+  solution spaces, and finite Fourier sums; later sections
+  develop subspaces, span, independence, bases, coordinates, dimension, change of basis, the
+  four matrix spaces, rank–nullity, and rank factorization, with a brief look
+  at countable and uncountable algebraic bases. One matrix example ties the
+  row, column, null, and left-null spaces together. The Course Map
   theme uses the basis-coordinate equation, exercise containers follow the
   established style, and representative dense slides have been visibly
   checked at the standard presentation viewport. Deck 00's cumulative terms
@@ -165,8 +182,8 @@ address reported Colab problems.
   confirmed Deck 04 and the Deck 05 title slide visually on September 28;
   review of the latest Deck 05 continuation slides remains open.
 - Decks 00--04 are substantive and instructor-reviewed; Deck 04 has also been
-  developed and audited. Deck 05 is an expanded 28-slide draft (including its title), Deck 06 is a
-  substantive 52-slide draft, and Decks 07--08 remain placeholders for Anton
+  developed and audited. Deck 05 is an expanded 28-slide draft (including its
+  title), Deck 06 is a substantive draft, and Decks 07--08 remain placeholders for Anton
   Chapters 5--6. The post-Test-1 schedule has 20 class meetings, but their
   allocation among Decks 05--08, Test 2, exercises, companions, and review has
   not yet been decided.
