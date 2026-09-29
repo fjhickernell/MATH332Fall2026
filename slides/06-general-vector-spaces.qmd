@@ -67,13 +67,7 @@ Keep the operations, release the coordinates
 
 - [The previous deck found directions inside solution sets](#the-previous-deck-found-directions-inside-solution-sets)
 - [A vector space starts with objects and two operations](#a-vector-space-starts-with-objects-and-two-operations)
-- [Addition must behave like familiar vector addition](#addition-must-behave-like-familiar-vector-addition)
-- [Scalar multiplication must fit addition](#scalar-multiplication-must-fit-addition)
-- [The axioms force familiar consequences](#the-axioms-force-familiar-consequences)
 - [Vectors need not be coordinate columns](#vectors-need-not-be-coordinate-columns)
-- [The scalar field can change](#the-scalar-field-can-change)
-- [Polynomials form a vector space](#polynomials-form-a-vector-space)
-- [Functions can be vectors](#functions-can-be-vectors)
 - [Affine sets usually fail the zero-vector test](#affine-sets-usually-fail-the-zero-vector-test)
 - [The operations are part of the definition](#the-operations-are-part-of-the-definition)
 
@@ -93,26 +87,30 @@ The homogeneous solutions can be
 - kept inside the same solution set
 
 ::: {.key-point}
-[This deck](#a-vector-space-starts-with-objects-and-two-operations) names the abstract structure shared by every collection with these
-linear operations
+This deck names the abstract structure shared by collections with these linear
+operations
 :::
 
 ## A vector space starts with objects and two operations {#a-vector-space-starts-with-objects-and-two-operations}
 
-A **real vector space** $V$ consists of
+A [real vector space]{.alert} $V$ is a set with two operations, for all
+$\vct{u},\vct{v}\in V$ and $c\in\reals$:
 
-1. a set of objects called vectors
-2. vector addition: $\vct{u}+\vct{v}$
-3. scalar multiplication: $c\vct{v}$ for $c\in\reals$
+$$
+\vct{u}+\vct{v}\in V,
+\qquad
+c\vct{v}\in V
+$$
 
-The operations must produce vectors in $V$ and satisfy the vector-space
-axioms
+Addition and scaling obey the vector-space axioms
 
 ::: {.key-point}
-The word vector describes algebraic behavior, not the appearance of an object
+Vector describes algebraic behavior, not appearance
 :::
 
-## Addition must behave like familiar vector addition {#addition-must-behave-like-familiar-vector-addition}
+---
+
+### Addition must behave like familiar vector addition {#addition-must-behave-like-familiar-vector-addition}
 
 For all $\vct{u},\vct{v},\vct{w}\in V$,
 
@@ -128,7 +126,9 @@ $$
 
 The symbol $\vct{0}$ means the zero element of this particular space
 
-## Scalar multiplication must fit addition {#scalar-multiplication-must-fit-addition}
+---
+
+### Scalar multiplication must fit addition {#scalar-multiplication-must-fit-addition}
 
 For all $c,d\in\reals$ and $\vct{u},\vct{v}\in V$,
 
@@ -147,7 +147,9 @@ Linear algebra uses only addition, scalar multiplication, and consequences of
 these rules
 :::
 
-## The axioms force familiar consequences {#the-axioms-force-familiar-consequences}
+---
+
+### The axioms force familiar consequences {#the-axioms-force-familiar-consequences}
 
 Every vector space satisfies
 
@@ -176,7 +178,7 @@ vector
 
 ::: {.columns}
 ::: {.column width="47%"}
-### Familiar examples
+<h3>Familiar examples</h3>
 
 - $\reals^n$
 - complex vectors $\mathbb{C}^n$ with complex scalars
@@ -187,7 +189,7 @@ vector
 :::
 
 ::: {.column width="47%"}
-### New examples
+<h3>New examples</h3>
 
 - $m\times n$ matrices
 - polynomials
@@ -202,7 +204,9 @@ Addition and scalar multiplication are defined object by object
 Different objects can obey the same linear rules
 :::
 
-## The scalar field can change {#the-scalar-field-can-change}
+---
+
+### The scalar field can change {#the-scalar-field-can-change}
 
 Most of this course uses real scalars, but the same axioms work over any field
 
@@ -233,7 +237,9 @@ natural connection to binary linear codes. Return to real scalars for the
 remainder of the deck.
 :::
 
-## Polynomials form a vector space {#polynomials-form-a-vector-space}
+---
+
+### Polynomials form a vector space {#polynomials-form-a-vector-space}
 
 Let
 
@@ -260,7 +266,9 @@ A polynomial is one vector; its coefficients provide one possible coordinate
 description
 :::
 
-## Functions can be vectors {#functions-can-be-vectors}
+---
+
+### Functions can be vectors {#functions-can-be-vectors}
 
 Let $C[a,b]$ contain all continuous real-valued functions on $[a,b]$
 

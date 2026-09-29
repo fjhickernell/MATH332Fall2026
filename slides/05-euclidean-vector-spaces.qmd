@@ -135,6 +135,27 @@ $$
 
 does have geometric meaning because its coefficients sum to $1$
 
+---
+
+### The Euclidean vector space $\reals^n$ {#the-euclidean-vector-space-rn}
+
+The vectors in $\reals^n$ have [addition and real scalar multiplication]{.alert}
+that obey the familiar linear rules:
+
+$$
+\vct{u}+\vct{v}=(u_i+v_i)_{i=1}^n,
+\qquad
+c\vct{u}=(cu_i)_{i=1}^n
+$$
+
+The standard dot product $\vct{u}^{\mathsf T}\vct{v}=\sum_{i=1}^n u_iv_i$
+adds lengths and angles
+
+::: {.key-point}
+This familiar example is a [Euclidean vector space]{.alert}; Deck 06 states
+the vector-space axioms and extends them beyond coordinate vectors
+:::
+
 ## Choosing an origin hides the distinction {#choosing-an-origin-hides-the-distinction}
 
 After choosing an origin $O$ and axes in $\reals^3$:
@@ -702,6 +723,7 @@ Determinants measure the geometry of displacement vectors, independent of where 
 # Big Ideas {data-state="goldborder"}
 
 - Points are [locations]{.alert}; vectors are displacements or directions
+- Vectors in $\reals^n$, with ordinary addition and real scalar multiplication, form a [Euclidean vector space]{.alert}
 - Choosing an origin lets both be represented by coordinate columns, but does not erase their different roles
 - Homogeneous solutions form a vector space of directions through the origin
 - A consistent nonhomogeneous solution set is one solution point plus all homogeneous directions
@@ -739,7 +761,7 @@ Solving now means describing [all solutions]{.alert}, not only finding one
 ::: {.column width="47%"}
 <h3>Next names</h3>
 
-- [vector space]({{< meta decks.d06.file >}}#a-vector-space-starts-with-objects-and-two-operations)
+- [formal vector-space axioms]({{< meta decks.d06.file >}}#a-vector-space-starts-with-objects-and-two-operations) and examples beyond $\reals^n$
 - [subspace and null space]({{< meta decks.d06.file >}}#homogeneous-systems-produce-subspaces)
 - [span]({{< meta decks.d06.file >}}#span-is-the-subspace-generated-by-chosen-vectors) and [linear independence]({{< meta decks.d06.file >}}#independence-means-the-zero-vector-has-one-construction)
 - [basis]({{< meta decks.d06.file >}}#a-basis-balances-reach-and-economy) and [dimension]({{< meta decks.d06.file >}}#dimension-counts-vectors-in-any-basis)
@@ -747,6 +769,6 @@ Solving now means describing [all solutions]{.alert}, not only finding one
 :::
 
 ::: {.key-point}
-[Next: General Vector Spaces]({{< meta decks.d06.file >}}) names the structure
-that belongs to vectors—and distinguishes it from affine sets made from points
+[Next: General Vector Spaces]({{< meta decks.d06.file >}}) formalizes the
+structure used here and extends it beyond Euclidean vectors
 :::

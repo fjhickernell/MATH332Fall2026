@@ -26,13 +26,18 @@ for content. Deck 05 has a locally executed companion notebook awaiting
 instructor review; Deck 06 has no companion notebook yet.
 
 Continue reviewing the expanded Deck 05 Euclidean Vector Spaces bridge and the
-new 52-slide Deck 06 General Vector Spaces draft with the instructor. Deck 05
+52-slide Deck 06 General Vector Spaces draft with the instructor. Deck 05
 now visibly names its homogeneous directions as the null space, while Deck 06
 develops the abstract structure using binary vectors, polynomials, and
 functions before returning to null, column, and row spaces. Decide what to
 refine before scheduling either deck, then turn the four remaining
 chapter-sized decks into an explicit plan for the 20 class meetings after
 Test 1.
+
+The September 29 review added a concrete $\reals^n$ continuation to Deck 05,
+made six introductory Deck 06 topics separate continuation slides, and
+confirmed `.key-point` as the course's takeaway style. Both revised decks
+rendered successfully on Intel; their new layouts still need visible review.
 
 The Deck 04 determinants slides were previously instructor-reviewed. The
 surface outlook was revised after the instructor flagged the premature cross
@@ -82,7 +87,7 @@ address reported Colab problems.
 
 ## Current state
 
-- `slides/05-euclidean-vector-spaces.qmd` is now a 27-slide bridge (including its title slide)
+- `slides/05-euclidean-vector-spaces.qmd` is now a 28-slide bridge (including its title slide)
   rather than a broad review of Anton §§3.1–3.5. It distinguishes points from
   vectors and origin-dependent point coordinates, develops homogeneous
   directions and nonhomogeneous affine solution sets, and reuses the earlier
@@ -160,7 +165,7 @@ address reported Colab problems.
   confirmed Deck 04 and the Deck 05 title slide visually on September 28;
   review of the latest Deck 05 continuation slides remains open.
 - Decks 00--04 are substantive and instructor-reviewed; Deck 04 has also been
-  developed and audited. Deck 05 is an expanded 27-slide draft (including its title), Deck 06 is a
+  developed and audited. Deck 05 is an expanded 28-slide draft (including its title), Deck 06 is a
   substantive 52-slide draft, and Decks 07--08 remain placeholders for Anton
   Chapters 5--6. The post-Test-1 schedule has 20 class meetings, but their
   allocation among Decks 05--08, Test 2, exercises, companions, and review has

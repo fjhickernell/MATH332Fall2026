@@ -411,6 +411,9 @@ calendar unchanged and check again later.
 - Prefer readable Quarto Markdown for headings, text, columns, equations, and
   ordinary emphasis. Use raw HTML when a diagram or specialized layout is
   materially easier to construct that way.
+- Use `.key-point` for emphasized slide takeaways in this course. Do not use
+  `.main-message`; its stronger visual treatment is not the instructor's
+  preferred style.
 - When a `.key-point` callout contains two or more distinct takeaways, use a
   standalone `&nbsp;` paragraph between them only when the takeaways are
   substantial enough to need visual separation—for example, when at least one
