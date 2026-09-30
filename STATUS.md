@@ -144,9 +144,11 @@ Mathematical content should be maintained only in the slides.
   - [x] Schedule Quiz 2 for October 1 on Determinants and Euclidean Vector Spaces.
   - [x] Clarify Quiz 2 coverage through projections, excluding cross products,
     and post all-sections Canvas announcement `106481`.
-  - [x] Save and verify Quiz 2's unpublished On Paper Canvas assignment.
+  - [x] Publish and verify Quiz 2's On Paper Canvas assignment on September 30; grades remain for later entry.
   - [x] Complete the private Quiz 2 draft; final printing remains.
-  - [ ] Confirm Quiz 2's remaining Canvas settings before publication.
+  - [x] Publish and verify Quizzes 3–5 for their announced October 15,
+    November 12, and December 1 dates; coverage remains TBD. Both tests are
+    published. Grades remain for later entry.
   - [x] Schedule Test 2 for October 29 in PH 109; create and publish its
     On Paper Canvas assignment for 12:45 PM; add the date to the
     course website sources; and post the all-sections announcement. Coverage

@@ -16,8 +16,9 @@ instructor on September 24. All-sections Canvas announcement `106481`,
 “Quiz 2 on October 1: coverage through projections,” is posted and verified.
 The updated coverage passed the full local website and slide renders.
 
-The private Quiz 2 draft is complete; final printing remains. Confirm the
-remaining Canvas settings and publish the saved draft before the assessment.
+The private Quiz 2 draft is complete and was sent to CDR on September 30.
+The Canvas On Paper assignment is published and verified; grades will be
+entered after grading.
 
 Continue the instructor-led Deck 05 review of the area derivation, worked
 plane-and-triangle-area example and practice variants, dot/cross-product
@@ -74,11 +75,10 @@ address reported Colab problems.
 - Quiz 2 is scheduled for October 1, covering Deck 04 Determinants and
   Deck 05 Euclidean Vector Spaces through projections (excluding cross products),
   during the last 15 minutes of class.
-  Course notices are prepared. Canvas On Paper assignment `104699` is saved
-  and verified unpublished for Everyone, in Quizzes, with an October 1 at
-  12:40 PM deadline matching Quiz 1's class-end time. Confirm the remaining
-  Canvas settings before publication; the course notices were deployed in
-  the earlier checkpoint.
+  Canvas On Paper assignment `104699` is published and verified for Everyone,
+  in Quizzes, with an October 1 at 12:40 PM deadline. Quizzes 3–5 are also
+  published for their announced October 15, November 12, and December 1 dates;
+  coverage remains TBD. Both tests are published. Grades remain for later entry.
 - All-sections Canvas announcement `106298` posts the remaining quiz dates:
   Quiz 3 on October 15, Quiz 4 on November 12, and Quiz 5 on December 1. The
   same dates are recorded in the Schedule and Quizzes and Tests page; coverage
