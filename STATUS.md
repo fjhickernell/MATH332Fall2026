@@ -145,6 +145,7 @@ Mathematical content should be maintained only in the slides.
   - [x] Clarify Quiz 2 coverage through projections, excluding cross products,
     and post all-sections Canvas announcement `106481`.
   - [x] Save and verify Quiz 2's unpublished On Paper Canvas assignment.
+  - [x] Complete the private Quiz 2 draft; final printing remains.
   - [ ] Confirm Quiz 2's remaining Canvas settings before publication.
   - [x] Schedule Test 2 for October 29 in PH 109; create and publish its
     On Paper Canvas assignment for 12:45 PM; add the date to the

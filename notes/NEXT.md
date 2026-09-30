@@ -16,6 +16,9 @@ instructor on September 24. All-sections Canvas announcement `106481`,
 “Quiz 2 on October 1: coverage through projections,” is posted and verified.
 The updated coverage passed the full local website and slide renders.
 
+The private Quiz 2 draft is complete; final printing remains. Confirm the
+remaining Canvas settings and publish the saved draft before the assessment.
+
 Continue the instructor-led Deck 05 review of the area derivation, worked
 plane-and-triangle-area example and practice variants, dot/cross-product
 comparison, and remaining continuation layouts. The cross-product introduction
