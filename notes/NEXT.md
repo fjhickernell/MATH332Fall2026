@@ -72,6 +72,13 @@ address reported Colab problems.
 
 ## Other active and deferred work
 
+- Assignment 3 is prepared: five WileyPLUS Chapter 3 questions, 20 points,
+  due October 9 at 11:59 PM CDT; saved Canvas item `105825` is unpublished and
+  WileyPLUS is unavailable to students. Website sources and announcement are
+  prepared. Instructor authorized publication and announcement once ready;
+  exact Checkpoint is required to deploy the website first. Resume from
+  `notes/ASSIGNMENT-3-PUBLICATION.md`; do not create duplicate items or ask
+  again for publication approval.
 - Quiz 2 is scheduled for October 1, covering Deck 04 Determinants and
   Deck 05 Euclidean Vector Spaces through projections (excluding cross products),
   during the last 15 minutes of class.

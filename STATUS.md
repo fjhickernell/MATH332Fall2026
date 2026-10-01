@@ -111,6 +111,11 @@ Mathematical content should be maintained only in the slides.
 - [x] Deploy Assignment 2's course pages, verify live links, enable WileyPLUS,
   publish Canvas, and post the all-sections announcement (`105900`); verify
   the assignment and WileyPLUS launch in Canvas Student View.
+- [x] Prepare Assignment 3's five-question, 20-point WileyPLUS set, unpublished
+  Canvas launch, October 9 deadline, course pages, and Deck 05 title notice.
+- [ ] Deploy Assignment 3's pages, enable WileyPLUS, publish Canvas item
+  `105825`, and post the all-sections announcement; instructor approval is
+  recorded in `notes/ASSIGNMENT-3-PUBLICATION.md`.
 - [x] Reconcile the Canvas description and announcement with the individual
   WileyPLUS workflow.
 - [x] Document the minimal-input assignment workflow, the textbook-to-WileyPLUS

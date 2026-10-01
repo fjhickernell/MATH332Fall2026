@@ -41,7 +41,7 @@ assignments, quizzes, holidays, and examination details are finalized.
 | 7 | Thu Oct 1 | Introduce general vector spaces; **Quiz 2** | [General Vector Spaces](../slides/06-general-vector-spaces.html#the-previous-deck-found-directions-inside-solution-sets)<br>Covers<br>&nbsp;&nbsp;&nbsp;&nbsp;[Determinants](../slides/04-determinants.html)<br>&nbsp;&nbsp;&nbsp;&nbsp;[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html)<br>&nbsp;&nbsp;&nbsp;&nbsp;through projection onto an affine line<br>&nbsp;&nbsp;&nbsp;&nbsp;Cross products excluded |
 | 8 | Tue Oct 6 | | |
 | | Thu Oct 8 | | |
-| | Fri Oct 9 | **Assignment 3 due** | Details TBD |
+| | Fri Oct 9 | **Assignment 3 due** | [WileyPLUS: Euclidean Vector Spaces](../assignments/assignment_3.qmd) |
 | | Mon Oct 12 | **Midterm course<br>evaluation due** | [Complete in Canvas](https://iit.instructure.com/courses/23913/external_tools/4085)<br>or use your invitation email |
 | 9 | Tue Oct 13 | **No Class — Fall Break** | |
 | | Thu Oct 15 | **Quiz 3** | Coverage TBD |
