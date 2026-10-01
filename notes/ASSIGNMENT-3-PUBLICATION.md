@@ -1,6 +1,6 @@
 # Assignment 3 publication handoff
 
-## Prepared — September 30, 2026
+## Published — September 30, 2026
 
 - Instructor selected five WileyPLUS questions and approved continuing from
   the policies screen; all five complete previews were inspected.
@@ -14,19 +14,26 @@
   after first attempt, correct answers/solutions after last attempt; review
   after deadline. Auto-submit to gradebook on deadline enabled; no late work.
 - Class deadline: October 9, 2026, 11:59 PM CDT (verified in the date editor).
-  WileyPLUS dashboard confirms five questions, 20 points, and Not available
+  WileyPLUS dashboard confirms five questions, 20 points, and Available
   to students. Canvas instructor launch reaches this saved question set.
 - Canvas assignment: <https://iit.instructure.com/courses/23913/assignments/105825>.
-  Saved and reopened: Not Published, 20 points, Assignments group, individual
+  Saved and reopened: Published, 20 points, Assignments group, individual
   External Tool, new-tab launch, Everyone; Due/Until/Available From blank.
 - Website detail, Assignments table, Schedule, metadata, and Deck 05 title
   notice prepared. No textbook substitution was made: these are the live
   WileyPLUS identifiers selected by the instructor.
-- Instructor explicitly authorized publication and the all-sections
-  announcement when ready. Do not request another publication confirmation.
-  Repository rules still require the exact Checkpoint command before pushing
-  and deploying the website. Verify the live course links before enabling
-  WileyPLUS and publishing Canvas/announcement.
+- Website checkpoint `74fef28`, “Prepare Assignment 3 on Euclidean vector
+  spaces,” pushed to `origin/main`. Deployment succeeded; both public course
+  links verified before WileyPLUS/Canvas publication.
+- All-sections announcement published and verified September 30 at 8:42 PM CDT:
+  <https://iit.instructure.com/courses/23913/discussion_topics/106960>.
+- Canvas Student View displays the 20-point assignment, course detail links,
+  and WileyPLUS launch button. No test answers or scores were submitted.
+- Grade passback is configured by the paired External Tool assignment and
+  WileyPLUS auto-submit policy; an actual graded submission is untested.
+- Final WileyPLUS dashboard/policies verification confirms availability,
+  selected question identifiers, weights, deadline, three attempts, best score,
+  feedback/assistance, after-deadline review, and per-student randomization.
 
 ## Validation
 
@@ -38,18 +45,13 @@
 - Existing shared slide title card extends beyond the viewport; the new due
   notice is visible. Shared styling is unchanged; repair is separate work.
 
-## Remaining publication sequence
+## Closeout
 
-1. Checkpoint the course changes and verify the live assignment detail and
-   Assignments page (with Assignment 3 present).
-2. Enable WileyPLUS student availability; publish existing Canvas item 105825.
-3. Post the announcement below to All Sections after a duplicate check.
-4. Verify publication, audience, saved links, WileyPLUS policies/deadline,
-   paired grade passback configuration, and student-visible Canvas launch.
-   Do not submit test scores. Reconcile handoff/status and the Dashboard;
-   request closeout Checkpoint if documentation remains uncommitted.
+Publication and external verification are complete. Handoff/status and the
+Dashboard are reconciled. These post-publication documentation updates are
+included in the instructor-authorized closeout Checkpoint.
 
-## Announcement prepared for All Sections
+## Announcement published to All Sections
 
 Title: Assignment 3 is available in WileyPLUS
 
