@@ -2,14 +2,18 @@
 
 ## Current task
 
-The October 1 lecture is prepared, as confirmed by the instructor on
-September 30. Resume Deck 06 at “The previous deck found directions inside
-solution sets” and introduce general vector spaces before Quiz 2. September
-29 completed Deck 05 cross products, area and plane-normal
-examples, and the scalar triple product; broader vector spaces were previewed
-only. The October 1 Illinois Tech calendar occurrence has the verified
-continuation note for PH 109. The lecture ledger and schedule are reconciled
-through September 29.
+The lecture ledger and schedule are reconciled through October 1. Prepare
+October 6 to resume Deck 06, General Vector Spaces, at “Subspaces and Span”
+→ “A subspace inherits its operations.” October 1 completed the introductory
+vector-space axioms and examples, affine solution spaces, the zero-vector
+test, and the role of the operations; subspaces were displayed but deferred
+before Quiz 2. The October 6 Illinois Tech → Calendar occurrence was saved
+using “Only This Event” and reopened to verify its continuation note and
+PH 109, 11:15 AM–12:45 PM hours. The stale “Notebook for geometry, then
+determinants” note was found on both October 1 and October 6 despite the prior
+verification record; both occurrence notes were corrected and reopened.
+Fantastical independently confirms both corrected notes and Chicago times.
+The underlying cause remains unverified.
 
 Quiz 2 website coverage is updated to Determinants and Euclidean Vector
 Spaces through projections (excluding cross products), as confirmed by the

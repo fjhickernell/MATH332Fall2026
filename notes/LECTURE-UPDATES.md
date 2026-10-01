@@ -2,7 +2,7 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest reconciled instructional meeting: September 29, 2026
+- Latest reconciled instructional meeting: October 1, 2026
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -11,6 +11,7 @@
 | September 22, 2026 | Reconciled: determinants companion and remaining Deck 04 topics through Jacobians and the polar area factor; Deck 05 points, vectors, and null-space directions previewed only | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5301d906-75c7-43ec-b187-b4cd01339653) | September 24, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 05 at “Why distinguish points from vectors?” | September 22, 2026 |
 | September 24, 2026 | Reconciled through the worked nearest-point projection example; nearest-point exercise left for practice and cross products previewed only | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5510df24-5c1f-4771-a918-b4cf01302e9a) | September 29, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 05 at “Find the nearest point and distance,” then “A special 3D operation: the cross product” | September 24, 2026 |
 | September 29, 2026 | Reconciled: nearest-point practice; cross product, determinant pattern, area and plane-normal examples; scalar triple product; general vector spaces previewed only | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6cce5357-9159-4422-91f7-b4d4012f8b82) | October 1, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 06 at “The previous deck found directions inside solution sets,” before Quiz 2 | September 29, 2026 |
+| October 1, 2026 | Reconciled: vector-space axioms and scalar fields; polynomial, function, DE, and Fourier examples; affine solution spaces and zero-vector test; operations example completed; subspaces displayed but deferred | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0ce3ba75-8d71-41df-82b3-b4d601242487) | October 6, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 06 at “Subspaces and Span” → “A subspace inherits its operations” | October 1, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -71,3 +72,28 @@ The closing “How Far We Have Come” slide appeared at 1:10:48. Broader vector
 spaces were previewed verbally but not developed. The October 1 single
 occurrence was reopened and verified on Illinois Tech Fred → Calendar with
 the continuation note, PH 109, and its existing Central Daylight Time hours.
+
+## October 1 recording evidence and calendar correction
+
+The Illinois Tech inbox readiness notice identifies the recording beginning
+at 11:24 AM, lasting approximately 57 minutes. The slide-transition index
+places homogeneous DEs at 31:15, affine DE solutions at 40:30, Fourier sums
+at 45:48, the affine zero-vector test at 48:30, and the operations example
+at 53:30. Closing captions explain why shifted addition with ordinary scalar
+multiplication fails the axioms. At 56:21–56:28 the instructor explicitly
+stops before developing subspaces and prepares the class for Quiz 2; the
+visible slide at 56:24 is “Subspaces and Span.” Resume at its first slide,
+“A subspace inherits its operations.” Playback was paused and muted, and
+the recording tab was closed afterward.
+
+On October 1, live Calendar inspection contradicted the earlier September 29
+verification record: both the October 1 and October 6 occurrences still said
+“Notebook for geometry, then determinants.” The cause is unverified. Corrected
+the October 1 occurrence to the September 29 continuation and October 6 to
+the recording-based continuation above, choosing “Only This Event” for each.
+Reopened both occurrences to verify the saved notes; the October 6 calendar
+selector shows Illinois Tech → Calendar, PH 109, and unchanged 11:15 AM–12:45 PM
+America/Chicago hours. Fantastical independently shows the corrected notes
+for both dates and Chicago 11:15 AM–12:45 PM times. Future verification must
+read the saved note after the recurrence choice, rather than rely on the
+text displayed during editing.

@@ -352,8 +352,12 @@ Panopto, schedule, and single-occurrence calendar actions below.
    section to resume, followed by a short record of what the preceding lecture
    completed. Edit only that occurrence of the recurring course event unless
    the instructor explicitly requests a series-wide change.
-5. Verify the calendar account, occurrence date, event time, location, and
-   saved note, then render or otherwise validate the changed schedule page.
+5. Save using “Only This Event,” close the editor, and reopen that occurrence.
+   Verify the calendar account, occurrence date, event time, location, and
+   actual saved note after the recurrence choice. Confirm the same occurrence
+   and continuation note in Fantastical; text displayed during editing does
+   not establish that it persisted. Then render or otherwise validate the
+   changed schedule page.
 6. Record the successful reconciliation in `notes/LECTURE-UPDATES.md`,
    including the lecture date, Panopto recording identifier or link, next
    instructional event annotated, and check date. Do not advance the ledger
