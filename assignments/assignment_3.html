@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Quizzes and Tests – MATH 332 — Fall 2026</title>
+<title>Assignment 3: WileyPLUS — Euclidean Vector Spaces – MATH 332 — Fall 2026</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,41 +25,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -108,6 +73,355 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script>
+  // Shared semantic notation for MathJax in Quarto RevealJS slides.
+  // A string defines a zero-argument macro; [replacement, n] defines one
+  // with n arguments. Backslashes are escaped for JavaScript strings.
+  // The companion hickernell-latex-macros.tex is not yet synchronized with
+  // this registry; equivalent definitions should eventually share one source.
+  window.MathJax = {
+    startup: {
+      typeset: false,
+      pageReady: () => {
+        const typesetAndLayout = (() => {
+          let busy = false;
+          let queued = false;
+
+          const run = async () => {
+            if (busy) {
+              queued = true;
+              return;
+            }
+            busy = true;
+            queued = false;
+
+            try {
+              await MathJax.typesetPromise();
+              if (window.Reveal && typeof Reveal.layout === "function") {
+                Reveal.layout();
+              }
+            } finally {
+              busy = false;
+              if (queued) {
+                requestAnimationFrame(run);
+              }
+            }
+          };
+
+          return () => requestAnimationFrame(run);
+        })();
+
+        return MathJax.startup.defaultPageReady().then(() => {
+          if (window.Reveal) {
+            Reveal.on("ready", typesetAndLayout);
+            Reveal.on("slidechanged", typesetAndLayout);
+            Reveal.on("fragmentshown", typesetAndLayout);
+            Reveal.on("fragmenthidden", typesetAndLayout);
+          }
+          typesetAndLayout();
+        });
+      }
+    },
+    
+    svg: {
+      mtextInheritFont: true,
+      fontCache: "global"
+    },
+    
+    tex: {
+      macros: {
+
+        // Presentation helpers
+        mathlink: ["\\href{#1}{\\text{\\color{##0f8b8d}{#2}}}", 2],
+        yamlref: ["{\\text{#1}}", 1],
+        frag: ["{\\class{fragment}{#2}}", 2],
+        alert: ["{\\class{alert}{#1}}", 1],
+        alerttext: ["{\\class{alert}{\\text{#1}}}", 1],
+        alerttextsf: ["{\\class{alert}{\\textsf{#1}}}",1],
+        mat: ["{\\mathsf{#1}}", 1],
+        tens: ["{\\mathcal{#1}}", 1],
+        vct: ["{\\boldsymbol{#1}}", 1],
+        notimplies: "\\ \\mathrel{\\not\\!\\!\\!\\Longrightarrow}",
+        convas: ["\\xrightarrow{\\mathsf{a.s.}}", 0],
+        convp:  ["\\xrightarrow{\\Prob}", 0],
+        convd:  ["\\xrightarrow{\\mathsf{d}}", 0],
+
+        nconvas: ["\\mathrel{\\;\\not\\!\\!\\!\\xrightarrow{\\mathsf{a.s.}}}", 0],
+        nconvp:  ["\\mathrel{\\;\\not\\!\\xrightarrow{\\Prob}}", 0],
+        nconvd:  ["\\mathrel{\\;\\not\\!\\xrightarrow{\\mathsf{d}}}", 0],
+
+        asto: ["\\xrightarrow{\\mathsf{a.s.}}", 0],
+        pto:  ["\\xrightarrow{\\Prob}", 0],
+        dto:  ["\\xrightarrow{\\mathsf{d}}", 0],
+
+        // Common mathematical operators
+        success: "{\\operatorname{succ}}",
+        sinc:    "{\\operatorname{sinc}}",
+        sech:    "{\\operatorname{sech}}",
+        csch:    "{\\operatorname{csch}}",
+
+        // Probability and expectation; exercise notation uses exstar below
+        Prob: "{\\mathbb{P}}",
+        Ex:   "{\\mathbb{E}}", // expectation, not exercise
+
+
+        dist:  "{\\operatorname{dist}}",
+        Dsc:  "{\\operatorname{D}}",
+        ESD:  "{\\operatorname{ESD}}",
+        WESD:  "{\\operatorname{WESD}}",
+        Vtn:   "{\\operatorname{V}}",
+        spn:   "{\\operatorname{span}}",
+        sgn:   "{\\operatorname{sgn}}",
+        releff: "{\\operatorname{rel-eff}}",
+        mse:   "{\\operatorname{mse}}",
+        rmse:  "{\\operatorname{rmse}}",
+        rank:  "{\\operatorname{rank}}",
+        erfc:  "{\\operatorname{erfc}}",
+        erf:   "{\\operatorname{erf}}",
+        cov:   "{\\operatorname{cov}}",
+        cost:  "{\\operatorname{cost}}",
+        comp:  "{\\operatorname{comp}}",
+        corr:  "{\\operatorname{corr}}",
+        diag:  "{\\operatorname{diag}}",
+        power: "{\\operatorname{power}}",
+        var:   "{\\operatorname{var}}",
+        opt:   "{\\operatorname{opt}}",
+        brandnew: "{\\operatorname{new}}",
+        std:   "{\\operatorname{std}}",
+        se:    "{\\operatorname{se}}",
+        kurt:  "{\\operatorname{kurt}}",
+        med:   "{\\operatorname{med}}",
+        vol:   "{\\operatorname{vol}}",
+        bias:  "{\\operatorname{bias}}",
+        RR:   "{\\mathcal{R}}",
+        SS:   "{\\operatorname{SS}}",
+        RSS:  "{\\operatorname{RSS}}",
+        SST:  "{\\operatorname{SST}}",
+        SSR:  "{\\operatorname{SSR}}",
+        SSB:  "{\\operatorname{SSB}}",
+        SSW:  "{\\operatorname{SSW}}",
+        MSB:  "{\\operatorname{MSB}}",
+        MSW:  "{\\operatorname{MSW}}",
+
+        // Probability distributions
+        Bern:  "{\\operatorname{Bern}}",
+        Bin:   "{\\operatorname{Bin}}",
+        Unif:  "{\\operatorname{Unif}}",
+        Norm:  "{\\operatorname{Norm}}",
+        Exp:   "{\\operatorname{Exp}}",
+        Gam:   "{\\operatorname{Gamma}}",
+        Pois:  "{\\operatorname{Pois}}",
+        Geom:  "{\\operatorname{Geom}}",
+        Cauchy:"{\\operatorname{Cauchy}}",
+        Laplace:"{\\operatorname{Laplace}}",
+        Beta:  "{\\operatorname{Beta}}",
+        Weibull:"{\\operatorname{Weibull}}",
+        Lognorm:"{\\operatorname{Lognormal}}",
+        GP:     "{\\operatorname{GP}}",
+
+        argmin: ["\\operatorname*{argmin}", 0],
+        argmax: ["\\operatorname*{argmax}", 0],
+        Argmin: ["\\argmin\\limits_{#1}", 1],
+        Argmax: ["\\argmax\\limits_{#1}", 1],
+
+        sign:  "{\\operatorname{sign}}",
+        spann: "{\\operatorname{span}}",
+        cond:  "{\\operatorname{cond}}",
+        trace: "{\\operatorname{trace}}",
+        det:   "{\\operatorname{det}}",
+        Si:    "{\\operatorname{Si}}",
+        col:   "{\\operatorname{col}}",
+        nullspace: "{\\operatorname{null}}",
+        Order: "{\\mathcal{O}}",
+        logit: "{\\operatorname{logit}}",
+        probit: "{\\operatorname{probit}}",
+
+        IIDsim: "\\mathrel{\\stackrel{\\mathrm{IID}}{\\sim}}",
+        LDsim:  "\\mathrel{\\stackrel{\\mathrm{LD}}{\\sim}}",
+        appxsim: "\\mathrel{\\stackrel{\\cdot}{\\sim}}",
+
+        naturals:  "{\\mathbb{N}}",
+        natzero:   "{\\mathbb{N}_0}",
+        integers:  "{\\mathbb{Z}}",
+        rationals: "{\\mathbb{Q}}",
+        reals:     "{\\mathbb{R}}",
+        complex:   "{\\mathbb{C}}",
+        bbone:     "{\\mathbb{1}}",
+        indic:     "{\\mathop{\\mathchoice{\\large\\mathbb{1}}{\\large\\mathbb{1}}{\\mathbb{1}}{\\mathbb{1}}}}",  // indic: enlarged blackboard-bold indicator (uses mathchoice so subscripts scale)
+
+        abs:  ["{\\left\\lvert #1 \\right\\rvert}", 1],
+        norm: ["{\\left\\lVert #1 \\right\\rVert}", 1],
+        ip:   ["{\\left\\langle #1, #2 \\right\\rangle}", 2],
+        dim:   "{\\operatorname{dim}}",
+        df:   "{\\mathrm{df}}",
+        SE:   "{\\operatorname{SE}}",
+
+
+        bvec: ["{\\boldsymbol{#1}}", 1],
+        avec: ["{\\vec{#1}}", 1],
+        vecsym: ["{\\boldsymbol{#1}}", 1],
+
+        va:  "{\\boldsymbol{a}}",
+        vb:  "{\\boldsymbol{b}}",
+        vc:  "{\\boldsymbol{c}}",
+        vd:  "{\\boldsymbol{d}}",
+        ve:  "{\\boldsymbol{e}}",
+        vf:  "{\\boldsymbol{f}}",
+        vg:  "{\\boldsymbol{g}}",
+        vh:  "{\\boldsymbol{h}}",
+        vi:  "{\\boldsymbol{i}}",
+        vj:  "{\\boldsymbol{j}}",
+        vk:  "{\\boldsymbol{k}}",
+        vl:  "{\\boldsymbol{l}}",
+        vm:  "{\\boldsymbol{m}}",
+        vn:  "{\\boldsymbol{n}}",
+        vo:  "{\\boldsymbol{o}}",
+        vp:  "{\\boldsymbol{p}}",
+        vq:  "{\\boldsymbol{q}}",
+        vr:  "{\\boldsymbol{r}}",
+        vs:  "{\\boldsymbol{s}}",
+        vt:  "{\\boldsymbol{t}}",
+        vu:  "{\\boldsymbol{u}}",
+        vv:  "{\\boldsymbol{v}}",
+        vw:  "{\\boldsymbol{w}}",
+        vx:  "{\\boldsymbol{x}}",
+        vy:  "{\\boldsymbol{y}}",
+        vz:  "{\\boldsymbol{z}}",
+
+        vA:  "{\\boldsymbol{A}}",
+        vB:  "{\\boldsymbol{B}}",
+        vC:  "{\\boldsymbol{C}}",
+        vD:  "{\\boldsymbol{D}}",
+        vE:  "{\\boldsymbol{E}}",
+        vF:  "{\\boldsymbol{F}}",
+        vG:  "{\\boldsymbol{G}}",
+        vH:  "{\\boldsymbol{H}}",
+        vI:  "{\\boldsymbol{I}}",
+        vJ:  "{\\boldsymbol{J}}",
+        vK:  "{\\boldsymbol{K}}",
+        vL:  "{\\boldsymbol{L}}",
+        vM:  "{\\boldsymbol{M}}",
+        vN:  "{\\boldsymbol{N}}",
+        vO:  "{\\boldsymbol{O}}",
+        vP:  "{\\boldsymbol{P}}",
+        vQ:  "{\\boldsymbol{Q}}",
+        vR:  "{\\boldsymbol{R}}",
+        vS:  "{\\boldsymbol{S}}",
+        vT:  "{\\boldsymbol{T}}",
+        vU:  "{\\boldsymbol{U}}",
+        vV:  "{\\boldsymbol{V}}",
+        vW:  "{\\boldsymbol{W}}",
+        vX:  "{\\boldsymbol{X}}",
+        vY:  "{\\boldsymbol{Y}}",
+        vZ:  "{\\boldsymbol{Z}}",
+
+        
+        tvf: "{\\widetilde{\\boldsymbol{f}}}",
+        tvy: "{\\widetilde{\\boldsymbol{y}}}",
+        
+        tg:  "{\\widetilde{g}}",
+        tK:  "{\\widetilde{K}}",
+        tX:  "{\\widetilde{X}}",
+        tY:  "{\\widetilde{Y}}",
+        tZ:  "{\\widetilde{Z}}",
+        tildeh: "{\\widetilde{h}}",
+
+        valpha: "{\\boldsymbol{\\alpha}}",
+        vbeta:  "{\\boldsymbol{\\beta}}",
+        vgamma: "{\\boldsymbol{\\gamma}}",
+        vdelta: "{\\boldsymbol{\\delta}}",
+        vDelta: "{\\boldsymbol{\\Delta}}",
+        vepsilon: "{\\boldsymbol{\\epsilon}}",
+        vveps: "{\\boldsymbol{\\varepsilon}}",
+        vlambda:  "{\\boldsymbol{\\lambda}}",
+        vsigma:   "{\\boldsymbol{\\sigma}}",
+        vtheta:   "{\\boldsymbol{\\theta}}",
+        vTheta:   "{\\boldsymbol{\\Theta}}",
+        vomega:   "{\\boldsymbol{\\omega}}",
+        vpi:      "{\\boldsymbol{\\pi}}",
+        vphi:     "{\\boldsymbol{\\phi}}",
+        vPhi:     "{\\boldsymbol{\\Phi}}",
+        vmu:      "{\\boldsymbol{\\mu}}",
+        vnu:     "{\\boldsymbol{\\nu}}",
+        vzeta:   "{\\boldsymbol{\\zeta}}",
+
+        mA: "{\\mathsf{A}}",
+        mH: "{\\mathsf{H}}",
+        mX: "{\\mathsf{X}}",
+        mY: "{\\mathsf{Y}}",
+        mW: "{\\mathsf{W}}",
+        mP: "{\\mathsf{P}}",
+        mQ: "{\\mathsf{Q}}",
+        mV: "{\\mathsf{V}}",
+        mR: "{\\mathsf{R}}",
+        mI: "{\\mathsf{I}}",
+        mzero: "{\\mathsf{0}}",
+        mone: "{\\mathsf{1}}",
+
+        htheta: "{\\widehat{\\theta}}",
+        hvtheta: "{\\widehat{\\boldsymbol{\\theta}}}",
+        tvtheta: "{\\widetilde{\\boldsymbol{\\theta}}}",
+        hTheta: "{\\widehat{\\Theta}}",
+        hbeta:  "{\\widehat{\\beta}}",
+        hvbeta: "{\\widehat{\\boldsymbol{\\beta}}}",
+        hlambda: "{\\widehat{\\lambda}}",
+        hmu:    "{\\widehat{\\mu}}",
+        hvmu:   "{\\widehat{\\boldsymbol{\\mu}}}",
+        hsigma: "{\\widehat{\\sigma}}",
+        hSigma: "{\\widehat{\\Sigma}}",
+        hp:    "{\\widehat{p}}",
+        hJ:    "{\\widehat{J}}",
+        hf:    "{\\widehat{f}}",
+        hF:    "{\\widehat{F}}",
+        hP:     "{\\widehat{P}}",
+        hX:     "{\\widehat{X}}",
+        hY:     "{\\widehat{Y}}",
+        hvY:    "{\\widehat{\\boldsymbol{Y}}}",
+        hvx:    "{\\widehat{\\boldsymbol{x}}}",
+        hZ:     "{\\widehat{Z}}",
+        hveps:   "{\\widehat{\\varepsilon}}",
+        hvveps: "{\\widehat{\\boldsymbol{\\varepsilon}}}",
+
+        ct: "{\\mathcal{T}}",
+        ch: "{\\mathcal{H}}",
+        ck: "{\\mathcal{K}}",
+        cf: "{\\mathcal{F}}",
+        cc: "{\\mathcal{C}}",
+        cx: "{\\mathcal{X}}",
+
+        vzero: "{\\boldsymbol{0}}",
+        vone:  "{\\boldsymbol{1}}",
+        vinf:  "{\\boldsymbol{\\infty}}",
+        
+        barD: "{\\overline{D}}",
+        barx: "{\\overline{x}}",
+        barX: "{\\overline{X}}",
+        barY: "{\\overline{Y}}",
+        bary: "{\\overline{y}}",
+        barZ: "{\\overline{Z}}",
+
+        me:  "{\\mathrm{e}}",
+        mi:  "{\\mathrm{i}}",
+        mpi: "{\\mathrm{\\pi}}",
+        mK: "{\\mathsf{K}}",
+        tmK: "{\\widetilde{\\mathsf{K}}}",
+        mLambda: "{\\mathsf{\\Lambda}}",
+        mSigma: "{\\mathsf{\\Sigma}}",
+
+        dif: "{\\mathrm{d}}",
+        IID: "{\\mathrm{IID}}",
+        MLE: "{\\mathrm{MLE}}",
+        LRT: "{\\mathrm{LRT}}",
+
+        // Exercise markers and exercise-specific relations
+        exstar: "{\\mathop{\\mathchoice{\\color{gold}{\\Large\\star}}{\\color{gold}{\\Large\\star}}{\\color{gold}{\\large\\star}}{\\color{gold}{\\star}}}}",
+        exeq: "{\\mathrel{\\,\\overset{\\exstar}{=}\\,}}",
+        exsim: "{\\mathrel{\\,\\overset{\\exstar}{\\sim}\\,}}",
+        
+      } 
+    }
+  };
+</script>
 
 
 <link rel="stylesheet" href="../classlib/classlib/quarto/website/hickernell-website.css">
@@ -147,7 +461,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../pages/quizzes-and-tests.html" aria-current="page"> 
+    <a class="nav-link" href="../pages/quizzes-and-tests.html"> 
 <span class="menu-text">Quizzes and Tests</span></a>
   </li>  
   <li class="nav-item">
@@ -225,9 +539,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#rules-for-quizzes-and-tests" id="toc-rules-for-quizzes-and-tests" class="nav-link active" data-scroll-target="#rules-for-quizzes-and-tests">Rules for quizzes and tests</a></li>
-  <li><a href="#quiz-and-test-schedule" id="toc-quiz-and-test-schedule" class="nav-link" data-scroll-target="#quiz-and-test-schedule">Quiz and test schedule</a></li>
-  <li><a href="#examples-of-question-style-from-other-courses" id="toc-examples-of-question-style-from-other-courses" class="nav-link" data-scroll-target="#examples-of-question-style-from-other-courses">Examples of question style from other courses</a></li>
+  <li><a href="#due-date" id="toc-due-date" class="nav-link active" data-scroll-target="#due-date">Due date</a></li>
+  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a></li>
+  <li><a href="#submission-and-grading" id="toc-submission-and-grading" class="nav-link" data-scroll-target="#submission-and-grading">Submission and grading</a></li>
   </ul>
 </nav>
 </nav>
@@ -240,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Quizzes and Tests</h1>
+<h1 class="title">Assignment 3: WileyPLUS — Euclidean Vector Spaces</h1>
 </div>
 
 
@@ -257,242 +571,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<ul>
-<li>Quizzes are held during the <strong>last 15 minutes of class</strong>.</li>
-<li>Tests use the <strong>full 75-minute class period</strong>.</li>
-<li>Students with recognized accommodations will receive the testing arrangements specified in their accommodation letters.</li>
-</ul>
-<section id="rules-for-quizzes-and-tests" class="level2">
-<h2 class="anchored" data-anchor-id="rules-for-quizzes-and-tests">Rules for quizzes and tests</h2>
-<p>Unless the instructor explicitly says otherwise:</p>
-<ul>
-<li>Quizzes and tests are completed <strong>individually</strong>.</li>
-<li>For an application problem, you will <strong>not</strong> need to derive the linear system of equations unless the instructor tells you otherwise. When a derivation is not required, the linear system will be provided.</li>
-<li>Quizzes and tests are <strong>closed book</strong>, but you may use up to <strong>four letter-sized sheets of paper</strong> as memory aids. For the final examination, you may use up to <strong>eight letter-sized sheets of paper</strong>.</li>
-<li>Calculators and all other electronic devices—including phones, smartwatches, earbuds, tablets, and computers—are <strong>not allowed</strong>. Silence and place them in a bag under your desk or at the front of the room before the quiz or test begins.</li>
-<li>Use only materials explicitly permitted for that quiz or test. Do not share materials.</li>
-<li>Keep your attention on your own work. Do not communicate with another student, look at or copy another student’s work, make your work available to another student, or give or receive assistance. Direct questions to the instructor.</li>
-</ul>
-<p>Cheating or attempted cheating—including using an unauthorized device, resource, or assistance—will be handled under the course <a href="../classlib/classlib/quarto/pages/policies.html#academic-integrity-technology-and-ai-usage">Academic Integrity, Technology, and AI Usage policy</a>.</p>
+<section id="due-date" class="level2">
+<h2 class="anchored" data-anchor-id="due-date">Due date</h2>
+<p><strong>Due:</strong> Friday, October 9, 2026, at 11:59 PM Chicago Time</p>
+<p>The deadline in WileyPLUS is authoritative; Canvas’s Due and Until fields are intentionally blank.</p>
 </section>
-<section id="quiz-and-test-schedule" class="level2">
-<h2 class="anchored" data-anchor-id="quiz-and-test-schedule">Quiz and test schedule</h2>
-<p>Dates, coverage, time limits, permitted materials, and review resources will be added as each quiz or test is finalized.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Date</th>
-<th style="text-align: left;">Quiz or test</th>
-<th style="text-align: left;">Coverage</th>
-<th style="text-align: left;">Questions and answers</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Thu Sep 10</td>
-<td style="text-align: left;">Quiz 1</td>
-<td style="text-align: left;"><a href="../slides/01-systems-and-matrices.html">Systems of Linear Equations and Matrices</a><br><a href="../slides/02-inverses-and-invertibility.html">Inverses and Invertibility</a></td>
-<td style="text-align: left;"><a href="../assets/tests/current/MATH332Quiz1Fall2026_Answers.pdf">Quiz 1 PDF with scores</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Thu Sep 17</td>
-<td style="text-align: left;">Test 1</td>
-<td style="text-align: left;"><a href="../slides/01-systems-and-matrices.html">Systems of Linear Equations and Matrices</a><br><a href="../slides/02-inverses-and-invertibility.html">Inverses and Invertibility</a><br><a href="../slides/03-matrix-structure-and-transformations.html">Matrix Structure and Transformations</a></td>
-<td style="text-align: left;"><a href="../assets/tests/current/MATH332Test1Fall2026_Answers.pdf">Test 1 PDF with scores</a></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Thu Oct 1</td>
-<td style="text-align: left;">Quiz 2</td>
-<td style="text-align: left;"><a href="../slides/04-determinants.html">Determinants</a><br><a href="../slides/05-euclidean-vector-spaces.html">Euclidean Vector Spaces</a> through projection onto an affine line; cross products are excluded</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Thu Oct 15</td>
-<td style="text-align: left;">Quiz 3</td>
-<td style="text-align: left;">Coverage TBD</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Thu Oct 29</td>
-<td style="text-align: left;">Test 2</td>
-<td style="text-align: left;">Coverage TBD</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Thu Nov 12</td>
-<td style="text-align: left;">Quiz 4</td>
-<td style="text-align: left;">Coverage TBD</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Tue Dec 1</td>
-<td style="text-align: left;">Quiz 5</td>
-<td style="text-align: left;">Coverage TBD</td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">TBD</td>
-<td style="text-align: left;">Final examination</td>
-<td style="text-align: left;">Date, time, and location will be posted when scheduled by the Registrar.<br>Cumulative, with greater emphasis on material not covered by Test 1 or Test 2.</td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+<section id="assignment" class="level2">
+<h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
+<p>Complete these five WileyPLUS questions. Each is worth <strong>4 points</strong>, for <strong>20 points</strong> total.</p>
+<ol type="1">
+<li>Chapter 3, Section 3.1, Question 16a — parallel vectors</li>
+<li>Chapter 3, Section 3.2, Question 13 — dot products from lengths and directions</li>
+<li>Chapter 3, Section 3.3, Question 19 — projection and orthogonal components</li>
+<li>Chapter 3, Section 3.4, Question 25 — homogeneous and nonhomogeneous solution sets</li>
+<li>Chapter 3, Section 3.5, Question 28 — cross products and the sine of an angle</li>
+</ol>
+<p>These are the question identifiers shown in WileyPLUS. The assignment covers Anton §§3.1–3.5, including cross products. Review the <a href="../slides/05-euclidean-vector-spaces.html">Euclidean Vector Spaces slides</a>.</p>
 </section>
-<section id="examples-of-question-style-from-other-courses" class="level2">
-<h2 class="anchored" data-anchor-id="examples-of-question-style-from-other-courses">Examples of question style from other courses</h2>
-<p>The archived assessments below come from MATH 476, MATH 563, and MATH 565 (Monte Carlo Methods in Finance). They are provided so that you can become familiar with the instructor’s style of questions. They are <strong>not</strong> MATH 332 practice tests: the topics, level, permitted materials, and course emphasis differ, and archived files may contain errors.</p>
-<div id="0195caa1" class="cell" data-execution_count="1">
-<section id="math-476-statistics" class="level3 cell-output cell-output-display cell-output-markdown">
-<h3 class="anchored" data-anchor-id="math-476-statistics">MATH 476 — Statistics</h3>
-</section>
-<div class="cell-output cell-output-display cell-output-markdown">
+<section id="submission-and-grading" class="level2">
+<h2 class="anchored" data-anchor-id="submission-and-grading">Submission and grading</h2>
+<p>Launch <a href="https://iit.instructure.com/courses/23913/assignments/105825">Assignment 3 in Canvas</a> and complete it <strong>individually</strong> in WileyPLUS. Follow the <a href="../pages/assignments.html#individual-assignments">course assignment ground rules</a>.</p>
 <ul>
-<li><a href="../assets/tests/archive/476/MATH476FinalExamS10Answers.pdf">MATH476FinalExamS10Answers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476FinalExamSpring2026Answers.pdf">MATH476FinalExamSpring2026Answers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476FinalS11Answers.pdf">MATH476FinalS11Answers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476StatFinalS06Answers.pdf">MATH476StatFinalS06Answers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476StatTestS06Answers.pdf">MATH476StatTestS06Answers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476StatTestTwoS06Answers.pdf">MATH476StatTestTwoS06Answers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476Test1MakeUpSpring2026Answers.pdf">MATH476Test1MakeUpSpring2026Answers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476Test1S10Answers.pdf">MATH476Test1S10Answers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476Test1S11Answers.pdf">MATH476Test1S11Answers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476Test1Spring2026Answers.pdf">MATH476Test1Spring2026Answers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476Test2S10Answers.pdf">MATH476Test2S10Answers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476Test2S11Answers.pdf">MATH476Test2S11Answers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476Test2S11MakeUpAnswers.pdf">MATH476Test2S11MakeUpAnswers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476Test2Spring2026Answers.pdf">MATH476Test2Spring2026Answers</a></li>
-<li><a href="../assets/tests/archive/476/MATH476Test2v2S10Answers.pdf">MATH476Test2v2S10Answers</a></li>
+<li>The assignment is automatically graded, with <strong>three attempts per question</strong>, <strong>no score reduction</strong>, and the <strong>best score</strong> retained.</li>
+<li>WileyPLUS randomizes values for each student while keeping that student’s values fixed across attempts.</li>
+<li>Answer feedback is available as answers are submitted. Textbook resources are always available; hints become available after the first attempt, and correct answers and solutions after the last attempt. Assistance carries no score deduction.</li>
+<li>Work is automatically submitted to the Canvas gradebook on the due date. WileyPLUS notes that auto-submission uses one attempt and may take up to ten minutes. Submit your answers before the deadline.</li>
+<li>Late submissions are not enabled. Assignment review becomes available after the deadline.</li>
 </ul>
-</div>
-<section id="math-563-mathematical-statistics" class="level3 cell-output cell-output-display cell-output-markdown">
-<h3 class="anchored" data-anchor-id="math-563-mathematical-statistics">MATH 563 — Mathematical Statistics</h3>
-</section>
-<div class="cell-output cell-output-display cell-output-markdown">
-<ul>
-<li><a href="../assets/tests/archive/563/MATH476_563FinalS11Answers.pdf">MATH476 563FinalS11Answers</a></li>
-<li><a href="../assets/tests/archive/563/MATH563FinalExamSpring2026Answers.pdf">MATH563FinalExamSpring2026Answers</a></li>
-<li><a href="../assets/tests/archive/563/MATH563Test1MakeUpSpring2026Answers.pdf">MATH563Test1MakeUpSpring2026Answers</a></li>
-<li><a href="../assets/tests/archive/563/MATH563Test1S11Answers.pdf">MATH563Test1S11Answers</a></li>
-<li><a href="../assets/tests/archive/563/MATH563Test1Spring2026Answers.pdf">MATH563Test1Spring2026Answers</a></li>
-<li><a href="../assets/tests/archive/563/MATH563Test2MakeUpSpring2026Answers.pdf">MATH563Test2MakeUpSpring2026Answers</a></li>
-<li><a href="../assets/tests/archive/563/MATH563Test2Spring2026Answers.pdf">MATH563Test2Spring2026Answers</a></li>
-</ul>
-</div>
-<section id="math-565-monte-carlo-methods-in-finance" class="level3 cell-output cell-output-display cell-output-markdown">
-<h3 class="anchored" data-anchor-id="math-565-monte-carlo-methods-in-finance">MATH 565 — Monte Carlo Methods in Finance</h3>
-</section>
-<div class="cell-output cell-output-display cell-output-markdown">
-<ul>
-<li><a href="../assets/tests/archive/565/MATH565FinalExamInClassF25Answers.pdf">MATH565FinalExamInClassF25Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565FinalExamTakeHomeF25.pdf">MATH565FinalExamTakeHomeF25</a></li>
-<li><a href="../assets/tests/archive/565/MATH565FinalInClassF10Answers.pdf">MATH565FinalInClassF10Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565FinalInClassF11Answers.pdf">MATH565FinalInClassF11Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565FinalTakeHomeF10Answers.pdf">MATH565FinalTakeHomeF10Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565FinalTakeHomeF11Answers.pdf">MATH565FinalTakeHomeF11Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565InClassF07Answers.pdf">MATH565InClassF07Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565InClassF08bAnswers.pdf">MATH565InClassF08bAnswers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565InClassF09aAnswers.pdf">MATH565InClassF09aAnswers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565InClassFinalF12Answers.pdf">MATH565InClassFinalF12Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565InClassFinalF13Answers.pdf">MATH565InClassFinalF13Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565InClassFinalF14Answers.pdf">MATH565InClassFinalF14Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565InClassFinalF16Answers.pdf">MATH565InClassFinalF16Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565InClassFinalF17Answers.pdf">MATH565InClassFinalF17Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565InClassFinalF18Answers.pdf">MATH565InClassFinalF18Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565TakeHomeF07Answers.pdf">MATH565TakeHomeF07Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565TakeHomeF08.pdf">MATH565TakeHomeF08</a></li>
-<li><a href="../assets/tests/archive/565/MATH565TakeHomeF09.pdf">MATH565TakeHomeF09</a></li>
-<li><a href="../assets/tests/archive/565/MATH565TakeHomeFinalF12Answers.pdf">MATH565TakeHomeFinalF12Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565TakeHomeFinalF13Answers.pdf">MATH565TakeHomeFinalF13Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565TakeHomeFinalF14Answers.pdf">MATH565TakeHomeFinalF14Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565TakeHomeFinalF15Answers.pdf">MATH565TakeHomeFinalF15Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565TakeHomeFinalF16Answers.pdf">MATH565TakeHomeFinalF16Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565TakeHomeFinalF17Answers.pdf">MATH565TakeHomeFinalF17Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565TakeHomeFinalF18Answers.pdf">MATH565TakeHomeFinalF18Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1F07Answers.pdf">MATH565Test1F07Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1F08Answers.pdf">MATH565Test1F08Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1F09Answers.pdf">MATH565Test1F09Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1F09MakeUpAnswers.pdf">MATH565Test1F09MakeUpAnswers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1F10Answers.pdf">MATH565Test1F10Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1F11Answers.pdf">MATH565Test1F11Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1F12Answers.pdf">MATH565Test1F12Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1F13Answers.pdf">MATH565Test1F13Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1F15Answers.pdf">MATH565Test1F15Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1F16Answers.pdf">MATH565Test1F16Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1F17Answers.pdf">MATH565Test1F17Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1F18Answers.pdf">MATH565Test1F18Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1F25Answers.pdf">MATH565Test1F25Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test1Fall2026_Answers.pdf">MATH565Test1Fall2026 Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F07Answers.pdf">MATH565Test2F07Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F08Answers.pdf">MATH565Test2F08Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F09Answers.pdf">MATH565Test2F09Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F10Answers.pdf">MATH565Test2F10Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F11Answers.pdf">MATH565Test2F11Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F12Answers.pdf">MATH565Test2F12Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F13Answers.pdf">MATH565Test2F13Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F14Answers.pdf">MATH565Test2F14Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F15Answers.pdf">MATH565Test2F15Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F15MakeUpAnswers.pdf">MATH565Test2F15MakeUpAnswers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F16Answers.pdf">MATH565Test2F16Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F16MakeUpAnswers.pdf">MATH565Test2F16MakeUpAnswers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F17Answers.pdf">MATH565Test2F17Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F18Answers.pdf">MATH565Test2F18Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2F25Answers.pdf">MATH565Test2F25Answers</a></li>
-<li><a href="../assets/tests/archive/565/MATH565Test2MakeUpF25Answers.pdf">MATH565Test2MakeUpF25Answers</a></li>
-<li><a href="../assets/tests/archive/565/MCFinanceFinF05Answers.pdf">MCFinanceFinF05Answers</a></li>
-</ul>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>🔎 How to search the archives (PDFs) for keywords
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Goal: find which past exams mention a term (e.g., Brownian, Sobol, CLT) <em>inside</em> PDF test and exam files.</p>
-<p>The folder <code>assets/tests/archive</code> in the course repository contains subfolders for archived tests from past semesters for MATH 476, MATH 563, and MATH 565. The subfolders are the course numbers, e.g., <code>archive/563</code> for MATH 563 tests.</p>
-<section id="mac-homebrew-linux" class="level3">
-<h3 class="anchored" data-anchor-id="mac-homebrew-linux">Mac (Homebrew) / Linux</h3>
-<p><strong>One-time setup (install pdfgrep):</strong></p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install pdfgrep</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p><strong>Each time you want to search the archive:</strong></p>
-<ul>
-<li>Navigate to the root of your local course repository root, then run:</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> assets/tests</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>Use one of the following commands to search the archives:</li>
-</ul>
-<p>Search <em>all archives in this repo</em>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'your term here'</span> archive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Search <em>one specific archive folder</em>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'your term here'</span> archive/563</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Search <em>multiple archives at once</em>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'your term here'</span> archive/476 archive/563</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Examples:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'brownian'</span> archive</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'sobol'</span> archive</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'central limit|CLT'</span> archive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="windows-recommended-wsl" class="level3">
-<h3 class="anchored" data-anchor-id="windows-recommended-wsl">Windows (recommended: WSL)</h3>
-<p>On Windows, the recommended approach is to use <strong>Windows Subsystem for Linux (WSL)</strong>, which lets you run the same commands as Mac/Linux users.</p>
-<p>After installing WSL (e.g., Ubuntu):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> /mnt/c/Users/YourName/path/to/course-repo/assets/tests</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt update</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install pdfgrep</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pdfgrep</span> <span class="at">-rniH</span> <span class="at">-C2</span> <span class="st">'your term here'</span> archive</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If you prefer not to use WSL, note that Windows does not include a native equivalent of <code>pdfgrep</code>; setup and commands vary by third-party tools.</p>
-</section>
-</div>
-</div>
-</div>
 
 
 </section>
