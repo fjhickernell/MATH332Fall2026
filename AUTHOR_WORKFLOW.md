@@ -434,11 +434,15 @@ calendar unchanged and check again later.
   symbols $\vct{A}_j$ and its rows by lowercase transposed vector symbols
   $\vct{a}_i^{\mathsf T}$. Apply the same uppercase-column/lowercase-row
   convention to other matrices.
+- Use lowercase mathematical operators `col`, `row`, and `null` in course
+  slides and notebooks. Represent row-space vectors as columns, so
+  `col(A) = row(A^T)` and `row(A) = col(A^T)` are equalities of subspaces.
 - Chapter 4 uses three named decks: Vector Spaces, Subspaces, and Span;
-  Bases, Dimension, and Coordinates; and Matrix Spaces and Rank. Preserve
-  `06-general-vector-spaces.html` for the first deck and use `06b-`/`06c-`
-  filenames for the others so later deck URLs remain stable. The eleven-deck
-  course-map list uses 0.86em text within its existing column.
+  Bases, Dimension, and Coordinates; and Matrix Spaces and Rank. Number
+  them consecutively as Decks 06, 07, and 08, followed by
+  Eigenvalues and Eigenvectors (09) and Inner Product Spaces (10). Continue
+  sequentially at 11 for future decks; do not introduce letter suffixes.
+  The eleven-deck course-map list uses 0.86em text within its existing column.
 - Follow the shared [deck-reference convention](classlib/docs/slide-style.md#deck-references)
   for named links to other teaching decks.
 - For Fourier modes, write the imaginary unit as `\sqrt{-1}` so `i` remains

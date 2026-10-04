@@ -33,10 +33,10 @@ include-after-body:
 - [Determinants]({{< meta decks.d04.file >}})
 - [Euclidean Spaces]({{< meta decks.d05.file >}})
 - [Vector Spaces and Span]({{< meta decks.d06.file >}})
-- [Bases and Coordinates]({{< meta decks.d06b.file >}})
-- [Matrix Spaces and Rank]({{< meta decks.d06c.file >}})
-- [Eigenvalues]({{< meta decks.d07.file >}})
-- [Inner Products]({{< meta decks.d08.file >}})
+- [Bases and Coordinates]({{< meta decks.d07.file >}})
+- [Matrix Spaces and Rank]({{< meta decks.d08.file >}})
+- [Eigenvalues]({{< meta decks.d09.file >}})
+- [Inner Products]({{< meta decks.d10.file >}})
 :::
 :::
 

@@ -5,11 +5,25 @@
 The General Vector Spaces material is now three instructor-review decks:
 Vector Spaces, Subspaces, and Span (`06-general-vector-spaces.qmd`, Anton
 §§4.1–4.3); Bases, Dimension, and Coordinates
-(`06b-bases-dimension-and-coordinates.qmd`, §§4.4–4.7, with basis extraction
-from §4.8); and Matrix Spaces and Rank (`06c-matrix-spaces-and-rank.qmd`,
+(`07-bases-dimension-and-coordinates.qmd`, §§4.4–4.7, with basis extraction
+from §4.8); and Matrix Spaces and Rank (`08-matrix-spaces-and-rank.qmd`,
 §§4.8–4.9, with a closing preview of §§8.1 and 8.4). Their instructional
 sections number four, six, and five; their slide counts are 47, 47, and 35,
 including titles and closing slides.
+
+The deck sequence is consecutive from 00 through 10: the Chapter 4 decks
+are 06–08, Eigenvalues is 09, and Inner Products is 10. Continue at 11 for
+future decks. Three draft companions now exist under
+`notebooks/demonstrations/`, using the same basenames as Decks 06–08.
+Each runs in a fresh `qmcpy` kernel with exact checks and saved output;
+instructor review remains. They are linked from their decks and the Notebooks
+page. The website and all eleven decks render; the assembled site passes
+562 local-link checks and 183 cross-page anchor checks. New notebook callouts,
+course maps/navigation, and the Notebooks page at desktop and phone widths
+passed browser inspection. The October 4 Checkpoint includes these changes;
+its new remote deployment
+remains unverified. Matrix-space operators are lowercase `col`, `row`, and
+`null`; the rank deck and notebook explicitly explain the transpose identities.
 
 The October 3 audit checked the exact 12th Applications edition, repaired
 missing definitions and assumptions, moved elimination and redundancy removal
@@ -54,11 +68,11 @@ Rank-factorization notation now reserves R for the nonzero-row factor in
 A=C R, writes the full reduced matrix as rref(A), and keeps U for PLU.
 Teal boxes mark the running example's pivot columns in the RREF definition
 and rank deck; matching boxes in R expose I_2 after removing the zero row.
-The notation and boxes are included in this Checkpoint; its new remote
-deployment remains unverified.
+The notation and boxes were published in `1c78f80`; its build and Pages
+deployment succeeded.
 
-Continue instructor-led content review of the three decks and companion-
-notebook planning. Keep exercise answers in presenter notes. Fourier modes
+Continue instructor-led content review of the three decks and their companion
+notebooks. Keep exercise answers in presenter notes. Fourier modes
 use $e^{2\pi\sqrt{-1}\,kt}$ on $[0,1]$. The infinite-basis example uses
 $C(\reals)$ with an uncountable algebraic (Hamel) basis; distinguish finite
 algebraic representations from convergent Hilbert-space expansions.
@@ -88,25 +102,13 @@ The private Quiz 2 draft is complete and was sent to CDR on September 30.
 The Canvas On Paper assignment is published and verified; grades will be
 entered after grading.
 
-Continue the instructor-led Deck 05 review of the area derivation, worked
-plane-and-triangle-area example and practice variants, dot/cross-product
-comparison, and remaining continuation layouts. The cross-product introduction
-now combines the definition, 3D diagram, area, and order on one slide; the
-instructor reviewed its diagram and visible layout on September 29. A starred
-triple-product zero-case exercise follows. The instructor's September 24
-screenshots confirmed that the projection example fits above the footer and
-that its serif mathematical labels are correct. The final example now uses
-$t_*=2$ and labels its diagonal $\overrightarrow{PQ}$; inspect that final
-revision in the preview. On September 28, the instructor confirmed that the
-Deck 05 title slide and Deck 04 look fine. Finish checking Decks 05 and 06
-for content. Deck 05 has a locally executed companion notebook awaiting
-instructor review; Deck 06 has no companion notebook yet.
-
-Continue instructor review of the remaining Euclidean Spaces material and
-of the three Chapter 4 decks. Then plan the Eigenvalues and Inner Products
-units and allocate the 20 post-Test-1 meetings among instruction, exercises,
-companions, Test 2, and review. The Chapter 4 slide audit is complete;
-instructor approval and companion construction are separate outstanding work.
+Deck 05 instructor-led content and layout review is complete, as confirmed
+October 4. Its locally executed companion notebook still awaits instructor
+review. Decks 06–08 and their locally validated draft companions also await
+instructor review. Then plan the Eigenvalues and Inner Products units and
+allocate the 20 post-Test-1 meetings among instruction, exercises, companions,
+Test 2, and review. The Chapter 4 slide audit and companion construction are
+complete; instructor approval remains.
 
 The Deck 04 determinants slides were previously instructor-reviewed. The
 surface outlook was revised after the instructor flagged the premature cross
@@ -189,7 +191,8 @@ address reported Colab problems.
   Redundancy removal precedes coordinates; dimension is defined before use;
   rank, nullity, and orthogonal complement have explicit definitions. The
   abstract linear-transformation closing section is labeled as a Chapter 8
-  preview. Instructor review and companion planning remain open.
+  preview. Instructor review of Decks 06–08 and their completed draft
+  companions remains open.
 - `notebooks/demonstrations/04-determinants.ipynb` runs end to end with the
   `qmcpy` kernel on Mini (about eight seconds), with saved outputs and inspected
   geometric plots. It covers signed area, exact row operations, PLU and packed
@@ -209,9 +212,9 @@ address reported Colab problems.
   browser preview; instructor review remains pending.
 - Deck 04's Big Ideas now explicitly distinguishes the nonnegative magnitude
   from the sign of the determinant; zero determinant has its own collapse bullet.
-- Developed Decks 02–06 now close with Big Ideas, a cumulative "How Far We
+- Developed Decks 02–08 now close with Big Ideas, a cumulative "How Far We
   Have Come" slide, and What Comes Next. Each Course Map links once to Big
-  Ideas for the closing sequence. Decks 07–08 remain placeholders and should
+  Ideas for the closing sequence. Decks 09–10 remain placeholders and should
   gain this sequence when their content is developed.
 - Deck 04 now proves the parallelogram-area formula immediately after its
   signed-area statement, using base times perpendicular height; the proof
@@ -236,12 +239,12 @@ address reported Colab problems.
   display before the remote script loads; Deck 05 projection screenshots now
   confirm visible equation typesetting and corrected layout. The instructor
   confirmed Deck 04 and the Deck 05 title slide visually on September 28;
-  review of the latest Deck 05 continuation slides remains open.
+  Deck 05 content and layout review was completed October 4.
 - Decks 00--04 are substantive and instructor-reviewed; Deck 04 has also been
   developed and audited. Deck 05 is an expanded 33-slide draft (including its
-  title), the three Chapter 4 decks are audited drafts, and Decks 07--08 remain placeholders for Anton
+  title), the three Chapter 4 decks are audited drafts, and Decks 09--10 remain placeholders for Anton
   Chapters 5--6. The post-Test-1 schedule has 20 class meetings, but their
-  allocation among Decks 05--08, Test 2, exercises, companions, and review has
+  allocation among Decks 05--10, Test 2, exercises, companions, and review has
   not yet been decided.
 - Deck 03 includes a starred Householder involution exercise and the
   construction of orthogonal projection onto a plane. It now explicitly
@@ -284,15 +287,15 @@ address reported Colab problems.
   bases, and coordinates. The placement questions and proposed criteria are
   recorded in `notes/TODO-LATER.md`; no deck changes are yet decided.
 
-- When next reviewing the MATH 332 lectures, revisit the Deck 05--06
+- When next reviewing the MATH 332 lectures, revisit Decks 05–08
   motivation for bases and coordinates through infinite solution sets. Use
   the precise affine-subspace formulation recorded in `notes/TODO-LATER.md`:
-  Deck 05 poses the geometric need, and Deck 06 explains that a basis of the
+  Deck 05 poses the geometric need, and Decks 07–08 explain that a basis of the
   null space supplies adapted directions while its coefficients locate a
   solution relative to a particular solution.
 - How should the 20 class meetings after Test 1 be allocated among Decks
-  05--08, Test 2, exercises, companion notebooks, synthesis, and review? In
-  particular, should the large Chapter 5 and 6 units remain Decks 07 and 08 or
+  05--10, Test 2, exercises, companion notebooks, synthesis, and review? In
+  particular, should the large Chapter 5 and 6 units remain Decks 09 and 10 or
   be divided into smaller teaching decks?
 - Should Deck 03 briefly signpost Strang's later
   $\mat{A}=\mat{C}\mat{R}$ rank factorization, or should that remain deferred
@@ -319,8 +322,8 @@ address reported Colab problems.
 - The instructor has reviewed the determinants companion; local validation
   and the companion's Colab badge are complete. Address Colab problems if
   reported.
-- The instructor has reviewed Decks 05 and 06 and identified any revisions
+- The instructor has reviewed Decks 05–08 and their companions and identified any revisions
   needed before they are scheduled.
 - The remaining-semester arc makes the instructional scope hidden inside
-  Decks 05--08 visible and assigns the available meetings without rushing the
+  Decks 05--10 visible and assigns the available meetings without rushing the
   denser later material.

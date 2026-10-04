@@ -1,15 +1,15 @@
 ---
 title: "{{< meta course_title >}}"
-deck_id: d06c
-deck_title: "{{< meta decks.d06c.title >}}"
-deck_short_title: "{{< meta decks.d06c.short_title >}}"
+deck_id: d08
+deck_title: "{{< meta decks.d08.title >}}"
+deck_short_title: "{{< meta decks.d08.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} {{< meta decks.d06c.anton_sections >}}</span>
+  <span class="deck-meta">{{< meta texts.anton.short >}} {{< meta decks.d08.anton_sections >}}</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">
-      {"deck_prev_file":"{{< meta decks.d06b.file >}}","deck_prev_title":"{{< meta decks.d06b.title >}}","deck_next_file":"{{< meta decks.d07.file >}}","deck_next_title":"{{< meta decks.d07.title >}}"}
+      {"deck_prev_file":"{{< meta decks.d07.file >}}","deck_prev_title":"{{< meta decks.d07.title >}}","deck_next_file":"{{< meta decks.d09.file >}}","deck_next_title":"{{< meta decks.d09.title >}}"}
       </script>
 ---
 
@@ -27,10 +27,10 @@ include-after-body:
 - [Determinants]({{< meta decks.d04.file >}})
 - [Euclidean Spaces]({{< meta decks.d05.file >}})
 - [Vector Spaces and Span]({{< meta decks.d06.file >}})
-- [Bases and Coordinates]({{< meta decks.d06b.file >}})
-- [Matrix Spaces and Rank]({{< meta decks.d06c.file >}}){.current-deck aria-current="page"}
-- [Eigenvalues]({{< meta decks.d07.file >}})
-- [Inner Products]({{< meta decks.d08.file >}})
+- [Bases and Coordinates]({{< meta decks.d07.file >}})
+- [Matrix Spaces and Rank]({{< meta decks.d08.file >}}){.current-deck aria-current="page"}
+- [Eigenvalues]({{< meta decks.d09.file >}})
+- [Inner Products]({{< meta decks.d10.file >}})
 :::
 :::
 
@@ -55,13 +55,13 @@ include-after-body:
 <div class="space-heading" style="grid-row:1;grid-column:1;">Input: $\reals^n$</div>
 <div class="space-heading" style="grid-row:1;grid-column:2;">$r=\operatorname{rank}(\mat{A})$</div>
 <div class="space-heading" style="grid-row:1;grid-column:3;">Output: $\reals^m$</div>
-<div class="space-card" style="grid-row:2;grid-column:1;">$\operatorname{Row}(\mat{A})$<br><span class="space-detail">$r$ independent directions</span></div>
+<div class="space-card" style="grid-row:2;grid-column:1;">$\operatorname{row}(\mat{A})$<br><span class="space-detail">$r$ independent directions</span></div>
 <div class="space-action" style="grid-row:2;grid-column:2;">$\xrightarrow{\mat{A}}$</div>
-<div class="space-card" style="grid-row:2;grid-column:3;">$\operatorname{Col}(\mat{A})$<br><span class="space-detail">$r$ independent directions</span></div>
+<div class="space-card" style="grid-row:2;grid-column:3;">$\operatorname{col}(\mat{A})$<br><span class="space-detail">$r$ independent directions</span></div>
 <div class="space-detail" style="grid-row:3;grid-column:1;">$\perp$</div>
 <div class="space-detail" style="grid-row:3;grid-column:3;">$\perp$</div>
-<div class="space-card null-card" style="grid-row:4;grid-column:1;">$\operatorname{Null}(\mat{A})$<br><span class="space-detail">$n-r$ directions<br>$\mat{A}\vct{x}=\vct{0}$</span></div>
-<div class="space-card null-card" style="grid-row:4;grid-column:3;">$\operatorname{Null}(\mat{A}^{\mathsf T})$<br><span class="space-detail">$m-r$ directions<br>$\mat{A}^{\mathsf T}\vct{y}=\vct{0}$</span></div>
+<div class="space-card null-card" style="grid-row:4;grid-column:1;">$\operatorname{null}(\mat{A})$<br><span class="space-detail">$n-r$ directions<br>$\mat{A}\vct{x}=\vct{0}$</span></div>
+<div class="space-card null-card" style="grid-row:4;grid-column:3;">$\operatorname{null}(\mat{A}^{\mathsf T})$<br><span class="space-detail">$m-r$ directions<br>$\mat{A}^{\mathsf T}\vct{y}=\vct{0}$</span></div>
 :::
 
 
@@ -101,27 +101,29 @@ For an $m\times n$ matrix $\mat{A}$:
 
 | Space | Definition | Lives in |
 |---|---|---|
-| $\operatorname{Col}(\mat{A})$ | span of the columns of $\mat{A}$ | $\reals^m$ |
-| $\operatorname{Null}(\mat{A})$ | solutions of $\mat{A}\vct{x}=\vct{0}$ | $\reals^n$ |
-| $\operatorname{Row}(\mat{A})$ | span of the rows of $\mat{A}$ | $\reals^n$ |
-| $\operatorname{Null}(\mat{A}^{\mathsf T})$ | solutions of $\mat{A}^{\mathsf T}\vct{y}=\vct{0}$ | $\reals^m$ |
+| $\operatorname{col}(\mat{A})$ | span of the columns of $\mat{A}$ | $\reals^m$ |
+| $\operatorname{null}(\mat{A})$ | solutions of $\mat{A}\vct{x}=\vct{0}$ | $\reals^n$ |
+| $\operatorname{row}(\mat{A})$ | span of the rows of $\mat{A}$ | $\reals^n$ |
+| $\operatorname{null}(\mat{A}^{\mathsf T})$ | solutions of $\mat{A}^{\mathsf T}\vct{y}=\vct{0}$ | $\reals^m$ |
 
 ::: {.key-point}
 Always identify the ambient space before comparing subspaces
 
-View row-space vectors as columns by transposing the matrix rows
+Transposing exchanges rows and columns; view row-space vectors as columns
+
+$\operatorname{col}(\mat{A})=\operatorname{row}(\mat{A}^{\mathsf T})$, $\quad\operatorname{row}(\mat{A})=\operatorname{col}(\mat{A}^{\mathsf T})$
 :::
 
 ## Rank and nullity measure different parts of a matrix {#rank-and-nullity-measure-different-parts-of-a-matrix}
 
-Recall: [dimension]({{< meta decks.d06b.file >}}#dimension-counts-vectors-in-any-basis) is the number of vectors in a basis
+Recall: [dimension]({{< meta decks.d07.file >}}#dimension-counts-vectors-in-any-basis) is the number of vectors in a basis
 
 For $\mat{A}\in\reals^{m\times n}$, define
 
 $$
-\operatorname{rank}(\mat{A})=\dim(\operatorname{Col}(\mat{A})),
+\operatorname{rank}(\mat{A})=\dim(\operatorname{col}(\mat{A})),
 \qquad
-\operatorname{nullity}(\mat{A})=\dim(\operatorname{Null}(\mat{A}))
+\operatorname{nullity}(\mat{A})=\dim(\operatorname{null}(\mat{A}))
 $$
 
 Row reduction gives
@@ -238,7 +240,7 @@ $$
 and
 
 $$
-\dim(\operatorname{Null}(\mat{A}))=2
+\dim(\operatorname{null}(\mat{A}))=2
 $$
 
 ::: {.key-point}
@@ -284,16 +286,16 @@ For $\mat{A}\in\reals^{m\times n}$ and $\mat{A}\vct{x}=\vct{b}$:
 
 | Question | Condition |
 |---|---|
-| Does this $\vct{b}$ have a solution? | $\vct{b}\in\operatorname{Col}(\mat{A})$ |
-| Is a solution unique, when it exists? | $\operatorname{Null}(\mat{A})=\{\vct{0}\}$, or rank $=n$ |
-| Does every $\vct{b}\in\reals^m$ have a solution? | $\operatorname{Col}(\mat{A})=\reals^m$, or rank $=m$ |
+| Does this $\vct{b}$ have a solution? | $\vct{b}\in\operatorname{col}(\mat{A})$ |
+| Is a solution unique, when it exists? | $\operatorname{null}(\mat{A})=\{\vct{0}\}$, or rank $=n$ |
+| Does every $\vct{b}\in\reals^m$ have a solution? | $\operatorname{col}(\mat{A})=\reals^m$, or rank $=m$ |
 
 Two inputs produce the same output exactly when
 
 $$
 \mat{A}\vct{x}=\mat{A}\vct{x}'
 \quad\Longleftrightarrow\quad
-\vct{x}-\vct{x}'\in\operatorname{Null}(\mat{A})
+\vct{x}-\vct{x}'\in\operatorname{null}(\mat{A})
 $$
 
 ::: {.key-point}
@@ -368,27 +370,27 @@ a vector perpendicular to itself has zero squared length.
 For $\mat{A}\in\reals^{m\times n}$ with $r=\operatorname{rank}(\mat{A})$,
 
 $$
-\operatorname{Row}(\mat{A})^\perp
-=\operatorname{Null}(\mat{A})
+\operatorname{row}(\mat{A})^\perp
+=\operatorname{null}(\mat{A})
 \qquad\text{inside }\reals^n
 $$
 
 $$
-\operatorname{Col}(\mat{A})^\perp
-=\operatorname{Null}(\mat{A}^{\mathsf T})
+\operatorname{col}(\mat{A})^\perp
+=\operatorname{null}(\mat{A}^{\mathsf T})
 \qquad\text{inside }\reals^m
 $$
 
 The dimensions balance:
 
 $$
-\dim(\operatorname{Row}(\mat{A}))=\dim(\operatorname{Col}(\mat{A}))=r
+\dim(\operatorname{row}(\mat{A}))=\dim(\operatorname{col}(\mat{A}))=r
 $$
 
 $$
-\dim(\operatorname{Null}(\mat{A}))=n-r,
+\dim(\operatorname{null}(\mat{A}))=n-r,
 \qquad
-\dim(\operatorname{Null}(\mat{A}^{\mathsf T}))=m-r
+\dim(\operatorname{null}(\mat{A}^{\mathsf T}))=m-r
 $$
 
 ---
@@ -404,9 +406,9 @@ $$
 Inside $\reals^3$:
 
 $$
-\operatorname{Row}(\mat{A})=\operatorname{span}\{(1,2,0)^{\mathsf T}\},
+\operatorname{row}(\mat{A})=\operatorname{span}\{(1,2,0)^{\mathsf T}\},
 \qquad
-\operatorname{Null}(\mat{A})=\{(-2s,s,t)^{\mathsf T}:s,t\in\reals\}
+\operatorname{null}(\mat{A})=\{(-2s,s,t)^{\mathsf T}:s,t\in\reals\}
 $$
 
 Their dot product is $-2s+2s=0$
@@ -414,9 +416,9 @@ Their dot product is $-2s+2s=0$
 Inside $\reals^2$:
 
 $$
-\operatorname{Col}(\mat{A})=\operatorname{span}\{(1,2)^{\mathsf T}\},
+\operatorname{col}(\mat{A})=\operatorname{span}\{(1,2)^{\mathsf T}\},
 \qquad
-\operatorname{Null}(\mat{A}^{\mathsf T})=\operatorname{span}\{(-2,1)^{\mathsf T}\}
+\operatorname{null}(\mat{A}^{\mathsf T})=\operatorname{span}\{(-2,1)^{\mathsf T}\}
 $$
 
 Their dot product is $-2+2=0$
@@ -439,8 +441,8 @@ $$
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
 <span>Find the two orthogonal pairs
-<span class="exsub">Find a basis for $\operatorname{Null}(\mat{B})$; check its dot products with both rows</span>
-<span class="exsub">What are $\operatorname{Col}(\mat{B})$ and $\operatorname{Null}(\mat{B}^{\mathsf T})$?</span>
+<span class="exsub">Find a basis for $\operatorname{null}(\mat{B})$; check its dot products with both rows</span>
+<span class="exsub">What are $\operatorname{col}(\mat{B})$ and $\operatorname{null}(\mat{B}^{\mathsf T})$?</span>
 <span class="exsub">Check the dimension sums in $\reals^3$ and $\reals^2$</span>
 <span class="exsub">Does it make sense to take the dot product of a row-space vector with a column-space vector here?</span>
 </span>
@@ -480,6 +482,9 @@ $$
 
 The [RREF]({{< meta decks.d01.file >}}#reduced-row-echelon-form) has pivot columns $1$ and $3$
 
+The [companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/08-matrix-spaces-and-rank.ipynb)
+computes the four spaces, compatibility tests, and rank factorization
+
 ## Rank factorization keeps the independent columns and rows {#rank-factorization-keeps-the-independent-columns-and-rows}
 
 For the running $3\times4$ matrix, take original columns $1,3$ for $\mat{C}$
@@ -514,9 +519,9 @@ $$
 $$
 
 ::: {.key-point}
-The columns of $\mat{C}$ form a basis for $\operatorname{Col}(\mat{A})$
+The columns of $\mat{C}$ form a basis for $\operatorname{col}(\mat{A})$
 
-The rows of $\mat{R}$ form a basis for $\operatorname{Row}(\mat{A})$
+The rows of $\mat{R}$ form a basis for $\operatorname{row}(\mat{A})$
 :::
 
 ---
@@ -740,7 +745,7 @@ $$
 Taking $y_3=2$ gives $\vct{y}=(-4,1,2)^{\mathsf T}$
 
 $$
-\operatorname{Null}(\mat{A}^{\mathsf T})
+\operatorname{null}(\mat{A}^{\mathsf T})
 =\operatorname{span}\{(-4,1,2)^{\mathsf T}\}
 $$
 
@@ -760,7 +765,7 @@ $$
 A right-hand side is attainable exactly when it is perpendicular to every
 left-null vector
 
-In our example, $\operatorname{Null}(\mat{A}^{\mathsf T})$ has basis
+In our example, $\operatorname{null}(\mat{A}^{\mathsf T})$ has basis
 $\{(-4,1,2)^{\mathsf T}\}$, so consistency is equivalent to
 
 $$
@@ -797,7 +802,7 @@ $$
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
 <span>Complete the picture of its four fundamental subspaces
-<span class="exsub">Find bases for $\operatorname{Null}(\mat{B})$ and $\operatorname{Null}(\mat{B}^{\mathsf T})$</span>
+<span class="exsub">Find bases for $\operatorname{null}(\mat{B})$ and $\operatorname{null}(\mat{B}^{\mathsf T})$</span>
 <span class="exsub">Check that your left-null vector is perpendicular to both columns of $\mat{C}$</span>
 <span class="exsub">Compare the four dimensions with rank–nullity</span>
 </span>
@@ -831,7 +836,7 @@ $$
 Choose ordered bases $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ for the input $V$
 and $\mathcal{C}$ for the output $W$: $\dim(V)=n$, $\dim(W)=m$
 
-Recall [coordinates]({{< meta decks.d06b.file >}}#a-basis-gives-every-vector-unique-coordinates): $[\vct{v}]_{\mathcal{B}}=(c_1,\ldots,c_n)^{\mathsf T}$ means $\vct{v}=\sum_{j=1}^n c_j\vct{b}_j$
+Recall [coordinates]({{< meta decks.d07.file >}}#a-basis-gives-every-vector-unique-coordinates): $[\vct{v}]_{\mathcal{B}}=(c_1,\ldots,c_n)^{\mathsf T}$ means $\vct{v}=\sum_{j=1}^n c_j\vct{b}_j$
 
 The $m\times n$ coordinate matrix $\mat{M}$ has column $j$ equal to $[T(\vct{b}_j)]_{\mathcal{C}}$
 and satisfies
@@ -922,7 +927,7 @@ $$
 
 The matrix in $\mathcal{B}$ coordinates is $\mat{P}^{-1}\mat{A}\mat{P}$
 
-[{{< meta decks.d07.short_title >}}]({{< meta decks.d07.file >}}) asks whether a basis can make it diagonal:
+[{{< meta decks.d09.short_title >}}]({{< meta decks.d09.file >}}) asks whether a basis can make it diagonal:
 
 $$
 \mat{P}^{-1}\mat{A}\mat{P}
@@ -967,15 +972,15 @@ Eigenvectors are basis candidates adapted to the action of a matrix
 <h3>Spaces and coordinates</h3>
 
 - [Vector Spaces and Span]({{< meta decks.d06.file >}}#span-is-the-subspace-generated-by-chosen-vectors) — matrices, polynomials, functions; subspace closure; column spans as $\mat{V}\vct{c}$
-- [Bases and Coordinates]({{< meta decks.d06b.file >}}#a-basis-gives-every-vector-unique-coordinates) — spanning gives existence; independence gives uniqueness; dimension counts basis vectors
+- [Bases and Coordinates]({{< meta decks.d07.file >}}#a-basis-gives-every-vector-unique-coordinates) — spanning gives existence; independence gives uniqueness; dimension counts basis vectors
 - [Matrix Spaces and Rank](#rank-factorization-keeps-the-independent-columns-and-rows) — $\mat{A}=\mat{C}\mat{R}$: column/row bases; $r=\operatorname{rank}(\mat{A})$; four spaces in orthogonal pairs
 :::
 :::
 
 ::: {.key-point}
-$\mat{A}\vct{x}=\vct{b}$ is solvable iff $\vct{b}\in\operatorname{Col}(\mat{A})$, equivalently $\vct{y}^{\mathsf T}\vct{b}=0$ for every $\vct{y}\in\operatorname{Null}(\mat{A}^{\mathsf T})$
+$\mat{A}\vct{x}=\vct{b}$ is solvable iff $\vct{b}\in\operatorname{col}(\mat{A})$, equivalently $\vct{y}^{\mathsf T}\vct{b}=0$ for every $\vct{y}\in\operatorname{null}(\mat{A}^{\mathsf T})$
 
-Choose $\vct{x}_p$ with $\mat{A}\vct{x}_p=\vct{b}$; columns of $\mat{N}$ form a basis of $\operatorname{Null}(\mat{A})$
+Choose $\vct{x}_p$ with $\mat{A}\vct{x}_p=\vct{b}$; columns of $\mat{N}$ form a basis of $\operatorname{null}(\mat{A})$
 
 $$
 \text{All solutions:}\quad
@@ -1002,5 +1007,5 @@ and areas retain the Euclidean geometric tools from the earlier deck.
 Which directions does a matrix preserve, and when can eigenvectors form a basis?
 
 ::: {.key-point}
-[Next: {{< meta decks.d07.title >}}]({{< meta decks.d07.file >}})
+[Next: {{< meta decks.d09.title >}}]({{< meta decks.d09.file >}})
 :::

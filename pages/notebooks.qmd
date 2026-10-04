@@ -31,6 +31,12 @@ algebraic calculations with geometric interpretation.
   — a locally validated draft companion to Lecture 05 exploring point
   coordinates, homogeneous directions, affine solution sets, projection onto
   a line, and three-dimensional displacement geometry
+- [Vector Spaces, Subspaces, and Span](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/06-general-vector-spaces.ipynb)
+  — a locally validated draft companion exploring polynomial and function vectors, symbolic closure tests, span membership, and affine sets
+- [Bases, Dimension, and Coordinates](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/07-bases-dimension-and-coordinates.ipynb)
+  — a locally validated draft companion exploring basis extraction, redundant generators, matrix and polynomial coordinates, and change of basis
+- [Matrix Spaces and Rank](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/08-matrix-spaces-and-rank.ipynb)
+  — a locally validated draft companion exploring the four fundamental spaces, rank factorization, compatibility, all solutions, and matrices of linear maps
 
 ## Exercises
 

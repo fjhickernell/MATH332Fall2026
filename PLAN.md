@@ -59,10 +59,10 @@ The planned sequence is:
 | 04 | Determinants | Chapter 2 |
 | 05 | Euclidean Vector Spaces | Chapter 3 |
 | 06 | Vector Spaces, Subspaces, and Span | Sections 4.1–4.3 |
-| 06b | Bases, Dimension, and Coordinates | Sections 4.4–4.7; basis extraction connects to 4.8 |
-| 06c | Matrix Spaces and Rank | Sections 4.8–4.9; closing preview of 8.1 and 8.4 |
-| 07 | Eigenvalues and Eigenvectors | Chapter 5 |
-| 08 | Inner Product Spaces | Chapter 6 |
+| 07 | Bases, Dimension, and Coordinates | Sections 4.4–4.7; basis extraction connects to 4.8 |
+| 08 | Matrix Spaces and Rank | Sections 4.8–4.9; closing preview of 8.1 and 8.4 |
+| 09 | Eigenvalues and Eigenvectors | Chapter 5 |
+| 10 | Inner Product Spaces | Chapter 6 |
 
 Section numbers follow Anton's 12th Applications edition, which gives
 Spanning Sets its own Section 4.3. Finite fields, frames, multivariable

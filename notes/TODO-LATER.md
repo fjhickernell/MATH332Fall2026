@@ -32,7 +32,7 @@ state why the work was deferred when that context will matter later.
   full-column-rank and least-squares plan below remains the starting point
   for this placement discussion.
 
-- When reviewing Decks 05--06, use infinite solution sets of linear systems to
+- When reviewing Decks 05–08, use infinite solution sets of linear systems to
   motivate why bases and coordinates matter. Deck 05 already establishes the
   geometric picture
   $\{\vct{x}:\mat{A}\vct{x}=\vct{b}\}=\vct{x}_p+\operatorname{Null}(\mat{A})$:
@@ -40,27 +40,27 @@ state why the work was deferred when that context will matter later.
   an affine line, plane, or higher-dimensional affine subspace (reserve
   *hyperplane* for the codimension-one case). After its free-variable or
   elimination example, ask how to name the independent directions and locate
-  a particular solution within this set. Deck 06 can answer by choosing a
+  a particular solution within this set. Decks 07–08 can answer by choosing a
   basis $(\vct{b}_1,\ldots,\vct{b}_k)$ for
   $\operatorname{Null}(\mat{A})$ and writing
   $\vct{x}=\vct{x}_p+c_1\vct{b}_1+\cdots+c_k\vct{b}_k$. The direction vectors
   need not be the standard $\vct{e}_i$; they are adapted to the solution
   geometry, and $(c_1,\ldots,c_k)$ gives affine coordinates relative to the
   chosen base point and direction basis. Consider a brief reprise of the Deck
-  05 example near Deck 06's introduction of bases and coordinates, before the
+  05 example near Deck 07's introduction of bases and coordinates, before the
   polynomial-coordinate example, so the formal definitions answer a question
   students have already encountered geometrically.
 - Much later, decide whether MATH 332 should introduce tensors beyond Deck
   04's brief surface-area outlook and, if so, determine their scope, purpose,
   and placement in a companion notebook, later deck, or future-course note.
-- When revisiting Deck 06, decide whether to add Wronskians now that function
+- When revisiting Deck 07, decide whether to add Wronskians now that function
   spaces and linear independence have been established. Define the general $n\times n$
   Wronskian using derivatives through order $n-1$; distinguish the always-valid
   implication “nonzero at one point implies linear independence” from the
   converse, which fails for arbitrary differentiable functions but holds for
   solutions of the same homogeneous $n$th-order linear ODE under the usual
   continuity hypotheses. Deck 04 contains the introductory $2\times2$ example
-  and the distinction between Wronskians and Jacobians. Once the Deck 06
+  and the distinction between Wronskians and Jacobians. Once the Deck 07
   Wronskian slide exists, update Deck 04's metadata-based deck link to its
   specific slide anchor.
 - Save the general orthogonal-projection formula for the treatment of column

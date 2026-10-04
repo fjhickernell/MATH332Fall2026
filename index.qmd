@@ -144,7 +144,7 @@ real vector spaces, subspaces, and spanning sets. Detailed pacing is **TBD**.
 <details>
 <summary><strong>Bases, Dimension, and Coordinates</strong></summary>
 
-[Lecture slides](slides/06b-bases-dimension-and-coordinates.html). Anton §§4.4–4.7:
+[Lecture slides](slides/07-bases-dimension-and-coordinates.html). Anton §§4.4–4.7:
 linear independence, coordinates and basis, dimension, and change of basis.
 Extracting a basis by elimination also connects to §4.8. Frames and infinite
 algebraic bases are enrichment; complex dimension and coordinate isomorphisms
@@ -155,7 +155,7 @@ preview §§5.3 and 8.3. Detailed pacing is **TBD**.
 <details>
 <summary><strong>Matrix Spaces and Rank</strong></summary>
 
-[Lecture slides](slides/06c-matrix-spaces-and-rank.html). Anton §§4.8–4.9:
+[Lecture slides](slides/08-matrix-spaces-and-rank.html). Anton §§4.8–4.9:
 row, column, and null spaces; rank, nullity, and the fundamental matrix spaces.
 The closing examples of abstract linear transformations and their matrices
 preview §§8.1 and 8.4. Detailed pacing is **TBD**.
@@ -165,14 +165,14 @@ preview §§8.1 and 8.4. Detailed pacing is **TBD**.
 <details>
 <summary><strong>Eigenvalues and Eigenvectors</strong></summary>
 
-[Lecture slides](slides/07-eigenvalues-and-eigenvectors.html). Anton, Chapter 5. Detailed pacing is **TBD**.
+[Lecture slides](slides/09-eigenvalues-and-eigenvectors.html). Anton, Chapter 5. Detailed pacing is **TBD**.
 
 </details>
 
 <details>
 <summary><strong>Inner Product Spaces</strong></summary>
 
-[Lecture slides](slides/08-inner-product-spaces.html). Anton, Chapter 6. Detailed pacing is **TBD**.
+[Lecture slides](slides/10-inner-product-spaces.html). Anton, Chapter 6. Detailed pacing is **TBD**.
 
 </details>
 

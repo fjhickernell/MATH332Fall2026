@@ -50,7 +50,7 @@ Mathematical content should be maintained only in the slides.
   Deck 03 Course Map theme, and a volume-scaling theme to Deck 04.
 - [x] Add a starred Householder involution exercise and derive the plane
   projection matrix in Deck 03, including its connection to Householder reflection.
-- [ ] Develop the authoritative Decks 05–08 for Anton Chapters 3–6.
+- [ ] Develop the authoritative Decks 05–10 for Anton Chapters 3–6.
   - [x] Draft Deck 05: Euclidean Vector Spaces, covering Anton §§3.1–3.5
     as a focused bridge from points and displacement vectors to homogeneous
     directions, affine solution sets, and general vector spaces, with compact
@@ -60,7 +60,8 @@ Mathematical content should be maintained only in the slides.
     projection with nonunit parameter, and the cross-product area derivation.
   - [x] Link callbacks and previews across Decks 01–06 and organize Deck 05's
     supporting examples and derivations as continuation slides.
-  - [ ] Complete instructor-led content and visible-layout review of Deck 05.
+  - [x] Complete instructor-led content and visible-layout review of Deck 05
+    (confirmed by the instructor October 4).
   - [x] Draft Deck 06: General Vector Spaces, covering Anton §§4.1–4.9 from
     vector-space axioms and abstract examples through subspaces, span,
     independence, bases, coordinates, dimension, change of basis, the four
@@ -79,7 +80,13 @@ Mathematical content should be maintained only in the slides.
     pairs for multivariable polynomials, concrete spans, matrix bases,
     dimension, coordinate arithmetic, orthogonality, and matrix representations
     of linear maps; keep exercise solutions in presenter notes.
-  - [ ] Develop Decks 07–08.
+  - [ ] Develop Decks 09–10.
+- [x] Renumber the split Chapter 4 decks as 06–08 and the later placeholders
+  as 09–10; update metadata, course maps, navigation, links, and author guidance.
+- [x] Create and locally validate the three Deck 06–08 companions on spans,
+  bases and coordinates, and matrix spaces and rank; add their deck and
+  Notebooks-page links.
+- [ ] Review the Deck 06–08 companion notebooks with the instructor.
 - [x] Create the initial Notebooks page for demonstrations and exercises.
 - [x] Create and locally validate companion notebooks for Decks 02 and 03.
 - [x] Create and locally validate the Deck 04 determinants companion, including
@@ -96,9 +103,9 @@ Mathematical content should be maintained only in the slides.
   derivation, and a brief differential-geometry outlook.
 - [x] Clarify the surface parameterization and area factor without assuming
   cross products have been introduced; render the revised deck.
-- [x] Add cumulative "How Far We Have Come" slides to developed Decks 02–06
+- [x] Add cumulative "How Far We Have Come" slides to developed Decks 02–08
   between Big Ideas and What Comes Next, with one Course Map link for each
-  closing sequence; defer Decks 07–08 until their content is developed.
+  closing sequence; defer Decks 09–10 until their content is developed.
 - [ ] Verify the revised surface slide layout and MathJax typesetting in Safari.
 - [x] Add the Deck 04 companion’s Colab badge using the established setup;
   separate clean-Colab validation is not required by instructor policy.

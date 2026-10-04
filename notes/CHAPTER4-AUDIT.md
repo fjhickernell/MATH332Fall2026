@@ -3,8 +3,9 @@
 Completed October 3, 2026 on M5. This records editorial decisions and
 verification; the mathematical exposition remains authoritative in the slides.
 The initial audit and reminder/proof revisions passed the October 3 build and
-Pages deployment, through commit `3233d9b`. This Checkpoint includes the
-notation and pivot-column boxes; its new remote deployment remains unverified.
+Pages deployment, through commit `1c78f80`, including the notation and
+pivot-column boxes. The October 4 renumbering and notebook Checkpoint has
+not yet had its remote deployment verified.
 
 ## Anton crosswalk
 
@@ -153,5 +154,7 @@ all entries are unchanged. Both decks render, all six changed slides fit at
 - The welcome page's expanded outline was reviewed at desktop and phone widths;
   it has no horizontal overflow. New cumulative-index entries were checked.
 
-Instructor review, companion notebooks, and later-semester pacing remain open.
+Companion drafts for Decks 06–08 are constructed and locally validated.
+Instructor review of the decks and companions, and later-semester pacing,
+remain open.
 Local validation does not establish a new live deployment.

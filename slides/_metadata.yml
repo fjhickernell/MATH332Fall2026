@@ -38,22 +38,22 @@ decks:
     title: Vector Spaces, Subspaces, and Span
     short_title: Vector Spaces and Span
     anton_sections: "§§4.1–4.3"
-  d06b:
-    file: 06b-bases-dimension-and-coordinates.html
+  d07:
+    file: 07-bases-dimension-and-coordinates.html
     title: Bases, Dimension, and Coordinates
     short_title: Bases and Coordinates
     anton_sections: "§§4.4–4.7"
-  d06c:
-    file: 06c-matrix-spaces-and-rank.html
+  d08:
+    file: 08-matrix-spaces-and-rank.html
     title: Matrix Spaces and Rank
     short_title: Matrix Spaces and Rank
     anton_sections: "§§4.8–4.9"
-  d07:
-    file: 07-eigenvalues-and-eigenvectors.html
+  d09:
+    file: 09-eigenvalues-and-eigenvectors.html
     title: Eigenvalues and Eigenvectors
     short_title: Eigenvalues
-  d08:
-    file: 08-inner-product-spaces.html
+  d10:
+    file: 10-inner-product-spaces.html
     title: Inner Product Spaces
     short_title: Inner Products
 
