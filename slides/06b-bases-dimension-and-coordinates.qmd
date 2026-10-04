@@ -5,7 +5,7 @@ deck_title: "{{< meta decks.d06b.title >}}"
 deck_short_title: "{{< meta decks.d06b.short_title >}}"
 subtitle: |
   <span class="deck-title">Bases, Dimension,<br>and Coordinates</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 4</span>
+  <span class="deck-meta">{{< meta texts.anton.short >}} {{< meta decks.d06b.anton_sections >}}</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">
@@ -40,8 +40,19 @@ include-after-body:
 ::: {.column width="58%"}
 <h3>In this deck</h3>
 
-[Remove redundancy; choose a basis; interpret coordinates]{.alert}
+::: {style="text-align:center;"}
+Ordered basis: $\mathcal{B}=(1,t,t^2)$
 
+::: {.diagram-flow role="group" aria-label="The coordinates 2, minus 3, and 5 in the ordered basis 1, t, t squared determine the polynomial p of t equals 2 minus 3t plus 5t squared. The coordinate column and polynomial are different kinds of objects."}
+<div class="diagram-node"><span class="diagram-label">Coordinates in $\mathcal{B}$</span><br>$[p]_{\mathcal{B}}=\begin{bmatrix}2\\-3\\5\end{bmatrix}$</div>
+<div class="diagram-arrow">$\longrightarrow$</div>
+<div class="diagram-node"><span class="diagram-label">Vector in $\mathbb{P}_2$</span><br>$p(t)=2\cdot1-3\cdot t+5\cdot t^2$</div>
+:::
+
+:::
+
+
+::: {style="font-size: 0.9em;"}
 - [Independence and Bases](#independence-and-bases)
 - [Bases and Unique Representations](#bases-and-unique-representations)
 - [Coordinates in a Chosen Basis](#coordinates-in-a-chosen-basis)
@@ -51,10 +62,22 @@ include-after-body:
 - [Big Ideas](#big-ideas)
 :::
 :::
+:::
+
+::: {.notes}
+The polynomial is the vector in this example; the column contains its
+coordinates in the ordered basis (1,t,t^2). Its first entry multiplies 1,
+its second multiplies t, and its third multiplies t^2. In R^n with the standard
+basis, a vector and its coordinate column look identical. Here the different
+kinds of objects make the distinction visible: coefficients together with the
+chosen basis determine the polynomial.
+:::
 
 # Independence and Bases
 
 - [Independence means the zero vector has one construction](#independence-means-the-zero-vector-has-one-construction)
+- [A homogeneous coefficient system detects independence](#a-homogeneous-coefficient-system-detects-independence)
+- [Dependence identifies a redundant generator](#dependence-identifies-a-redundant-generator)
 
 ## Independence means the zero vector has one construction {#independence-means-the-zero-vector-has-one-construction}
 
@@ -79,7 +102,7 @@ Independence means no generator can be synthesized from the others
 
 ---
 
-### Worked example: independent Fourier modes {#worked-example-independent-fourier-modes}
+### Example: independent Fourier modes {#worked-example-independent-fourier-modes}
 
 Are $1$ and $e^{2\pi\sqrt{-1}\,t}$ independent over $\mathbb{C}$ on $[0,1]$?
 
@@ -118,7 +141,7 @@ $a=b=0$.
 
 ---
 
-### A homogeneous coefficient system detects independence {#a-homogeneous-coefficient-system-detects-independence}
+## A homogeneous coefficient system detects independence {#a-homogeneous-coefficient-system-detects-independence}
 
 For coordinate vectors, place the candidates into columns:
 
@@ -145,7 +168,7 @@ The familiar homogeneous system answers the abstract independence question
 
 ---
 
-### Dependence identifies a redundant generator {#dependence-identifies-a-redundant-generator}
+## Dependence identifies a redundant generator {#dependence-identifies-a-redundant-generator}
 
 Suppose
 
@@ -169,6 +192,8 @@ A dependence relation is a certificate of redundancy
 # Bases and Unique Representations
 
 - [A basis balances reach and economy](#a-basis-balances-reach-and-economy)
+- [Elimination extracts a basis from a spanning set](#elimination-extracts-a-basis-from-a-spanning-set)
+- [Bases need not be finite](#bases-need-not-be-finite)
 
 ## A basis balances reach and economy {#a-basis-balances-reach-and-economy}
 
@@ -188,39 +213,206 @@ Spanning guarantees existence of coefficients
 Independence guarantees uniqueness of coefficients
 
 ::: {.key-point}
-A basis builds every vector exactly once
+Every vector has one coefficient list in a chosen ordered basis
 :::
 
 ---
 
-### Bases need not be finite {#bases-need-not-be-finite}
+### Independence makes coordinates unique {#independence-makes-coordinates-unique}
 
-The same basis idea can extend beyond finite lists:
+Suppose the same vector has two representations in $\mathcal{B}$
+
+$$
+\vct{v}=\sum_{j=1}^n c_j\vct{b}_j
+=\sum_{j=1}^n d_j\vct{b}_j
+$$
+
+Subtract the two representations
+
+$$
+\sum_{j=1}^n(c_j-d_j)\vct{b}_j=\vct{0}
+\quad\implies\quad c_j-d_j=0\quad\text{for every }j
+$$
+
+Linear independence forces the two coefficient lists to agree
+
+::: {.key-point}
+A space can have many bases
+
+Coordinates are unique once the ordered basis is fixed
+:::
+
+---
+
+## Elimination extracts a basis from a spanning set {#elimination-extracts-a-basis-from-a-spanning-set}
+
+For vectors in $\reals^m$:
+
+1. place the spanning vectors into the columns of a matrix
+2. row reduce
+3. identify the pivot columns
+4. keep the corresponding columns of the original matrix
+
+Row operations preserve dependence relations among columns but change the
+columns themselves
+
+::: {.key-point}
+Use the reduced matrix to locate pivots; take the basis vectors from the
+original matrix
+:::
+
+---
+
+### Example: remove redundant generators {#example-remove-redundant-generators}
+
+Let $W$ be the span of the columns of $\mat{V}$
+
+$$
+\mat{V}=[\vct{v}_1\ \vct{v}_2\ \vct{v}_3\ \vct{v}_4]
+=\begin{bmatrix}1&0&1&2\\0&1&1&0\\1&1&2&2\end{bmatrix}
+\;\xrightarrow{R_3\leftarrow R_3-R_1-R_2}\;
+\begin{bmatrix}1&0&1&2\\0&1&1&0\\0&0&0&0\end{bmatrix}
+$$
+
+The first two columns are pivot columns
+
+$$
+\vct{v}_3=\vct{v}_1+\vct{v}_2,
+\qquad \vct{v}_4=2\vct{v}_1
+$$
+
+Remove $\vct{v}_3$ and $\vct{v}_4$ without changing the span
+
+$$
+W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
+=\operatorname{span}\{\vct{v}_1,\vct{v}_2\}
+$$
+
+::: {.key-point}
+$\mathcal{B}=(\vct{v}_1,\vct{v}_2)$ is a basis of the same space $W$
+
+The first two components show that $\vct{v}_1$ and $\vct{v}_2$ are independent
+:::
+
+::: {.notes}
+Subtract the first two rows from the third to obtain the displayed echelon
+form. The nonpivot columns reveal the two dependence relations. The retained
+columns span the original space because both removed vectors can be rebuilt
+from them. They are independent: the first and second components of
+$a\vct{v}_1+b\vct{v}_2=\vct{0}$ force $a=b=0$. Thus four generators become
+a two-vector basis without losing any vector in W. The space is the plane
+$z=x+y$, connecting back to the first deck's Course Map.
+:::
+
+---
+
+### Different bases can describe the same span {#different-bases-can-describe-the-same-span}
+
+Use the preceding generators of the plane $W=\{(x,y,z)^{\mathsf T}:z=x+y\}$
+
+$$
+\vct{v}_1=\begin{bmatrix}1\\0\\1\end{bmatrix},\quad
+\vct{v}_2=\begin{bmatrix}0\\1\\1\end{bmatrix},\quad
+\vct{v}_3=\begin{bmatrix}1\\1\\2\end{bmatrix},\quad
+\vct{v}_4=\begin{bmatrix}2\\0\\2\end{bmatrix}
+$$
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Can we choose a different basis from these four generators?
+<span class="exsub">Show that $(\vct{v}_2,\vct{v}_3)$ is another basis for $W$</span>
+<span class="exsub">Explain why $(\vct{v}_1,\vct{v}_4)$ is not a basis for $W$</span>
+</span>
+:::
+
+::: {.notes}
+The first two components of a v2+b v3=0 force b=0, then a=0, so v2 and
+v3 are independent. Since v1=v3-v2 and v4=2(v3-v2), they span W.
+The pair v1,v4 is dependent because v4=2v1; it spans only a line in W.
+A basis need not be unique. Independence makes a vector's coefficients
+unique after an ordered basis has been chosen.
+:::
+
+---
+
+### A frame can keep redundant generators {#a-frame-can-keep-redundant-generators}
+
+For a subspace of $\reals^n$, a finite spanning list is a [frame]{.alert}
+
+Linear independence is not required
+
+The four-vector list is a redundant frame for $W$
+
+$$
+\vct{v}_3
+=0\vct{v}_1+0\vct{v}_2+1\vct{v}_3+0\vct{v}_4
+=1\vct{v}_1+1\vct{v}_2+0\vct{v}_3+0\vct{v}_4
+$$
+
+A redundant frame admits more than one coefficient list for the same vector
+
+::: {.key-point}
+Here any one of the four vectors can be lost without losing the span
+:::
+
+::: {.notes}
+Keep this as a brief preview, not a development of frame theory. In a
+finite-dimensional inner product space, a finite spanning list satisfies the
+frame bounds and is a frame. In infinite dimensions, spanning alone does not
+suffice. The word frame does not require redundancy: a basis is also a frame.
+For a redundant frame, a reconstruction rule can select one coefficient list
+(for example the minimum-norm list), even though the representation equation
+alone has many solutions. Inner products and norms come later in the course.
+For the displayed example, loss of v1 leaves v2 and v3, loss of v2 leaves v1
+and v3, and loss of v3 or v4 leaves v1 and v2; each remaining list spans W.
+Reference: https://faculty.sites.iastate.edu/esweber/files/inline-files/book_final_0.pdf
+:::
+
+---
+
+## Bases need not be finite {#bases-need-not-be-finite}
+
+An [algebraic (Hamel) basis]{.alert} uses only finite linear combinations
 
 - All polynomials have a [countably infinite]{.alert} basis
   $\{1,t,t^2,\ldots\}$
 - The finite Fourier sums in $\mathcal{T}$ have another countable basis
   $\{e^{2\pi\sqrt{-1}\,kt}:k\in\mathbb{Z}\}$
-- The space $C[a,b]$ of continuous functions, for $a<b$, needs an
-  [uncountable]{.alert} basis
+- $C(\reals)$, all continuous real-valued functions on the real line, has an
+  [uncountable]{.alert} algebraic basis
 
 ::: {.key-point}
-Here each vector still uses a finite combination of basis vectors
+Algebraic bases give exact finite representations
+
+Countable orthonormal bases in $L^2[a,b]$ allow infinite expansions
 :::
 
 ::: {.notes}
 This is only a taste of infinite-dimensional spaces. The basis here is
 algebraic: every vector is a finite combination. The family
 $\{e^{\lambda t}:\lambda\in\reals\}$ is uncountably linearly independent in
-$C[a,b]$, so any algebraic basis there must be uncountable. In Fourier theory,
+$C(\reals)$, so any algebraic basis there must be uncountable. In Fourier theory,
 countably many complex exponentials can also represent functions through
 convergent infinite series; that is a different, analytic sense of basis.
+The orthonormal expansion converges in the L2 norm, not necessarily uniformly
+or pointwise everywhere. L2[a,b] itself also has uncountable algebraic
+dimension. To see the uncountable independent family in C(R) directly, take
+distinct real lambdas and differentiate a finite relation among their
+exponentials zero through k-1 times at t=0. The resulting Vandermonde system
+is invertible. This family is independent, not asserted to be a basis.
+C(R) is not being identified with a subspace of L2(R): its functions need
+not be square integrable. Frames and infinite algebraic bases are enrichment
+beyond Anton Chapter 4; infinite Fourier series preview Section 6.6.
+Reference: https://math.mit.edu/~rbm/18.103-S04/node3.html
 :::
 
 # Coordinates in a Chosen Basis
 
 - [A basis gives every vector unique coordinates](#a-basis-gives-every-vector-unique-coordinates)
-- [Elimination extracts a basis from a spanning set](#elimination-extracts-a-basis-from-a-spanning-set)
+- [Same vector, different coordinate columns](#same-vector-different-coordinate-columns)
+- [Polynomial coefficients are coordinates in a chosen basis](#polynomial-coefficients-are-coordinates-in-a-chosen-basis)
+- [Example: a basis of symmetric matrices](#worked-example-a-basis-of-symmetric-matrices)
+- [Example: test a polynomial basis](#worked-example-test-a-polynomial-basis)
 
 ## A basis gives every vector unique coordinates {#a-basis-gives-every-vector-unique-coordinates}
 
@@ -269,7 +461,7 @@ Our familiar vector column is its coordinate vector in the standard basis
 
 ---
 
-### Same vector, different coordinate columns {#same-vector-different-coordinate-columns}
+## Same vector, different coordinate columns {#same-vector-different-coordinate-columns}
 
 Keep $\vct{x}=(5,1)^{\mathsf T}$, and choose
 
@@ -300,7 +492,7 @@ The vector stays at $(5,1)$; changing the basis changes its description
 
 ---
 
-### Practice: read the basis label before the numbers {#practice-read-the-basis-label-before-the-numbers}
+### Read the basis label before the numbers {#practice-read-the-basis-label-before-the-numbers}
 
 Use $\mathcal{E}=((1,0)^{\mathsf T},(0,1)^{\mathsf T})$ and
 $\mathcal{B}=((1,1)^{\mathsf T},(1,-1)^{\mathsf T})$
@@ -323,7 +515,7 @@ The jth coordinate multiplies the jth basis vector; their order matters.
 
 ---
 
-### Polynomial coefficients are coordinates in a chosen basis {#polynomial-coefficients-are-coordinates-in-a-chosen-basis}
+## Polynomial coefficients are coordinates in a chosen basis {#polynomial-coefficients-are-coordinates-in-a-chosen-basis}
 
 For the standard polynomial basis
 
@@ -346,7 +538,7 @@ Choosing a basis converts abstract vectors into coordinate columns
 
 ---
 
-### Worked example: a basis of symmetric matrices {#worked-example-a-basis-of-symmetric-matrices}
+## Example: a basis of symmetric matrices {#worked-example-a-basis-of-symmetric-matrices}
 
 In the space of symmetric $2\times2$ matrices, use
 
@@ -380,7 +572,7 @@ The vector is a matrix; its coordinate vector is a column of coefficients
 
 ---
 
-### Practice: bases for other matrix spaces {#practice-bases-for-other-matrix-spaces}
+### Bases for other matrix spaces {#practice-bases-for-other-matrix-spaces}
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
@@ -400,26 +592,7 @@ A real skew-symmetric 2x2 matrix is [[0,b],[-b,0]], so the single matrix
 No dimension terminology is needed yet.
 :::
 
-## Elimination extracts a basis from a spanning set {#elimination-extracts-a-basis-from-a-spanning-set}
-
-For vectors in $\reals^m$:
-
-1. place the spanning vectors into the columns of a matrix
-2. row reduce
-3. identify the pivot columns
-4. keep the corresponding columns of the original matrix
-
-Row operations preserve dependence relations among columns but change the
-columns themselves
-
-::: {.key-point}
-Use the reduced matrix to locate pivots; take the basis vectors from the
-original matrix
-:::
-
----
-
-### Worked example: test a polynomial basis {#worked-example-test-a-polynomial-basis}
+## Example: test a polynomial basis {#worked-example-test-a-polynomial-basis}
 
 In $\mathbb{P}_2$, take $\mathcal{E}=(1,t,1+t^2)$
 
@@ -493,13 +666,14 @@ $2+4t=4(1+t)+0(t+t^2)-2(1)$, so the coordinates are $(4,0,-2)$.
 
 - [Dimension counts vectors in any basis](#dimension-counts-vectors-in-any-basis)
 - [Dimension turns two tests into one](#dimension-turns-two-tests-into-one)
+- [Dimension depends on the scalar field](#dimension-depends-on-the-scalar-field)
+- [Example: count monomials to find dimension](#worked-example-count-monomials-to-find-dimension)
 
 ## Dimension counts vectors in any basis {#dimension-counts-vectors-in-any-basis}
 
-Every basis of a finite-dimensional vector space $V$ contains the same number
-of vectors
+A space is [finite-dimensional]{.alert} if it has a finite basis
 
-That number is the [dimension]{.alert}:
+Every basis then has the same number of vectors, the [dimension]{.alert}:
 
 $$
 \dim(V)=n
@@ -512,11 +686,13 @@ $$
 \qquad
 \dim(\mathbb{P}_k)=k+1,
 \qquad
-\dim(M_{m\times n})=mn
+\dim(\reals^{m\times n})=mn
 $$
 
 Our earlier $U=\{p\in\mathbb{P}_3:p(0)=0\}$ has basis $(t,t^2,t^3)$,
 so $\dim(U)=3$
+
+The zero space has the empty basis, so $\dim(\{\vct{0}\})=0$
 
 ::: {.key-point}
 Dimension counts independent directions, not the number of vectors in the
@@ -568,7 +744,34 @@ independent polynomials form a basis and therefore span $\mathbb{P}_3$.
 
 ---
 
-### Worked example: count monomials to find dimension {#worked-example-count-monomials-to-find-dimension}
+## Dimension depends on the scalar field {#dimension-depends-on-the-scalar-field}
+
+The same set $\mathbb{C}$ can be viewed as two different vector spaces
+
+| Scalars | A basis | Dimension |
+|---|---|---|
+| $\mathbb{C}$ | $(1)$ | $\dim_{\mathbb{C}}(\mathbb{C})=1$ |
+| $\reals$ | $(1,\sqrt{-1})$ | $\dim_{\reals}(\mathbb{C})=2$ |
+
+Over $\mathbb{C}$, any $z$ is the scalar multiple $z\cdot1$
+
+Over $\reals$, write $z=a+b\sqrt{-1}$ with two real coefficients
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Find the dimensions of $\mathbb{C}^2$ over $\mathbb{C}$ and over $\reals$</span>
+:::
+
+::: {.notes}
+This extends the earlier scalar-field discussion and previews Anton Section
+5.3 rather than adding a Chapter 4 reading requirement. The dimensions of
+C^2 are 2 over C and 4 over R. A real basis is
+((1,0),(sqrt(-1),0),(0,1),(0,sqrt(-1))). Independence and spanning must always
+refer to the chosen scalar field. When the field is not shown in our later
+real examples, it is R.
+:::
+
+## Example: count monomials to find dimension {#worked-example-count-monomials-to-find-dimension}
 
 For $\mathbb{P}_2(\reals^2)$, group monomials by total degree:
 
@@ -593,7 +796,7 @@ Count freely chosen coefficients after identifying a basis
 
 ---
 
-### Practice: dimension beyond coordinate columns {#practice-dimension-beyond-coordinate-columns}
+### Dimension beyond coordinate columns {#practice-dimension-beyond-coordinate-columns}
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
@@ -618,10 +821,11 @@ space.
 # Arithmetic in Coordinates
 
 - [The coordinate map preserves linear combinations](#the-coordinate-map-preserves-linear-combinations)
+- [Example: combine coordinate vectors](#worked-example-combine-coordinate-vectors)
 
 ## The coordinate map preserves linear combinations {#the-coordinate-map-preserves-linear-combinations}
 
-For a basis $\mathcal{B}$ of an $n$-dimensional vector space, define
+For a basis $\mathcal{B}$ of an $n$-dimensional real vector space, define
 
 $$
 \vct{v}\longmapsto[\vct{v}]_{\mathcal{B}}\in\reals^n
@@ -634,16 +838,28 @@ $$
 =c[\vct{u}]_{\mathcal{B}}+d[\vct{v}]_{\mathcal{B}}
 $$
 
-The coordinate map is one-to-one and onto
+The coordinate map is one-to-one, onto, and preserves linear combinations
+
+Such a map is a [linear isomorphism]{.alert}
+
+It preserves linear combinations; ordinary coordinate lengths may change
 
 ::: {.key-point}
 Every $n$-dimensional real vector space has the same linear structure as
 $\reals^n$
 :::
 
+::: {.notes}
+This is a statement about linear structure. The ordinary Euclidean length of
+a coordinate column need not equal the original vector's length. For the
+basis ((1,1)^T,(1,-1)^T), b1 has length sqrt(2), while its coordinate column
+(1,0)^T has Euclidean length 1. General coordinates preserve algebra;
+geometry requires the inner product in those coordinates.
+:::
+
 ---
 
-### Worked example: combine coordinate vectors {#worked-example-combine-coordinate-vectors}
+## Example: combine coordinate vectors {#worked-example-combine-coordinate-vectors}
 
 Use the polynomial basis $\mathcal{B}=(1,1+t,t^2)$
 
@@ -673,7 +889,7 @@ Coordinate arithmetic uses coefficients in the chosen basis
 
 ---
 
-### Practice: reconstruct after coordinate arithmetic {#practice-reconstruct-after-coordinate-arithmetic}
+### Reconstruct after coordinate arithmetic {#practice-reconstruct-after-coordinate-arithmetic}
 
 Keep $\mathcal{B}=(1,1+t,t^2)$ and suppose
 
@@ -701,7 +917,8 @@ coefficient. Directly, p=3+2t-t^2 and q=-1+t+3t^2, giving the same result.
 
 - [A basis matrix converts coordinates to standard form](#a-basis-matrix-converts-coordinates-to-standard-form)
 - [Change of basis passes through the vector](#change-of-basis-passes-through-the-vector)
-- [Worked example: find coordinates in another basis](#two-coordinate-systems-describe-one-vector)
+- [Transition columns describe the old basis in the new one](#transition-columns-describe-the-old-basis-in-the-new-one)
+- [Example: change between polynomial bases](#two-coordinate-systems-describe-one-vector)
 
 ## A basis matrix converts coordinates to standard form {#a-basis-matrix-converts-coordinates-to-standard-form}
 
@@ -748,29 +965,55 @@ Changing coordinates changes the description, not the vector
 :::
 
 
-## Worked example: find coordinates in another basis {#two-coordinate-systems-describe-one-vector}
+## Transition columns describe the old basis in the new one {#transition-columns-describe-the-old-basis-in-the-new-one}
 
-Let
-
-$$
-\mathcal{B}=\left(
-\begin{bmatrix}1\\1\end{bmatrix},
-\begin{bmatrix}1\\-1\end{bmatrix}
-\right)
-$$
-
-For $\vct{x}=(5,1)^{\mathsf T}$, solve
+Let $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ and $\mathcal{C}$ be ordered
+bases of the same finite-dimensional real vector space
 
 $$
-\underbrace{\begin{bmatrix}1&1\\1&-1\end{bmatrix}}_{\mat{P}_{\mathcal{B}}}
-\begin{bmatrix}c_1\\c_2\end{bmatrix}
-=\begin{bmatrix}5\\1\end{bmatrix}
-\quad\Longrightarrow\quad
-c_1=3,\ c_2=2
+\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}
+=\begin{bmatrix}[\vct{b}_1]_{\mathcal{C}}&\cdots&[\vct{b}_n]_{\mathcal{C}}\end{bmatrix}
 $$
 
-Thus $[\vct{x}]_{\mathcal{B}}=(3,2)^{\mathsf T}$ and
-$3(1,1)^{\mathsf T}+2(1,-1)^{\mathsf T}=\vct{x}$
+Each column says how to rebuild one old basis vector using the new basis
+
+$$
+[\vct{v}]_{\mathcal{C}}
+=\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}[\vct{v}]_{\mathcal{B}}
+$$
+
+For bases of $\reals^n$, this is $\mat{P}_{\mathcal{C}}^{-1}\mat{P}_{\mathcal{B}}$
+
+::: {.key-point}
+The arrow records the direction: input coordinates in $\mathcal{B}$, output coordinates in $\mathcal{C}$
+:::
+
+## Example: change between polynomial bases {#two-coordinate-systems-describe-one-vector}
+
+In $\mathbb{P}_2$, choose
+
+$$
+\mathcal{B}=(1,1+t,t^2),\qquad \mathcal{C}=(1,t,t+t^2)
+$$
+
+Express $1$, $1+t$, and $t^2=(t+t^2)-t$ in $\mathcal{C}$:
+
+$$
+\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}
+=\begin{bmatrix}1&1&0\\0&1&-1\\0&0&1\end{bmatrix}
+$$
+
+For $p=2-3t+5t^2$,
+
+$$
+[p]_{\mathcal{B}}=\begin{bmatrix}5\\-3\\5\end{bmatrix}
+\quad\longmapsto\quad
+[p]_{\mathcal{C}}=\begin{bmatrix}2\\-8\\5\end{bmatrix}
+$$
+
+::: {.key-point}
+$2(1)-8t+5(t+t^2)=p$: new coordinates, same polynomial
+:::
 
 ---
 
@@ -807,7 +1050,8 @@ to $(4,-3)^{\mathsf T}$.
 - Independence means every vector has at most one construction from the generators
 - A basis combines independence and spanning to give unique coordinates
 - Coordinates are coefficients in an ordered basis; the same vector can have different coordinate columns
-- Dimension counts basis vectors; a basis matrix translates coordinate descriptions
+- Dimension counts basis vectors and depends on the scalar field
+- Coordinate maps preserve linear structure; transition matrices change descriptions
 
 # How Far We Have Come
 

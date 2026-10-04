@@ -58,11 +58,17 @@ The planned sequence is:
 | 03 | Matrix Structure and Transformations | Sections 1.7–1.9 |
 | 04 | Determinants | Chapter 2 |
 | 05 | Euclidean Vector Spaces | Chapter 3 |
-| 06 | Vector Spaces, Subspaces, and Span | Chapter 4 |
-| 06b | Bases, Dimension, and Coordinates | Chapter 4 |
-| 06c | Matrix Spaces and Rank | Chapter 4 |
+| 06 | Vector Spaces, Subspaces, and Span | Sections 4.1–4.3 |
+| 06b | Bases, Dimension, and Coordinates | Sections 4.4–4.7; basis extraction connects to 4.8 |
+| 06c | Matrix Spaces and Rank | Sections 4.8–4.9; closing preview of 8.1 and 8.4 |
 | 07 | Eigenvalues and Eigenvectors | Chapter 5 |
 | 08 | Inner Product Spaces | Chapter 6 |
+
+Section numbers follow Anton's 12th Applications edition, which gives
+Spanning Sets its own Section 4.3. Finite fields, frames, multivariable
+polynomials, and infinite algebraic bases supplement the Chapter 4 spine;
+complex scalar examples, infinite Fourier expansions, and coordinate
+isomorphisms preview Sections 5.3, 6.6, and 8.3 respectively.
 
 Applications should be woven into the theory and methodology they motivate or
 illuminate rather than collected as a terminal addendum. In particular, use

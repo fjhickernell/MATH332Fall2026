@@ -753,8 +753,9 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 
 ### A–D
 
-::: {.columns}
+::: {.columns style="font-size: 0.92em;"}
 ::: {.column width="50%"}
+- [Algebraic (Hamel) basis]({{< meta decks.d06b.file >}}#bases-need-not-be-finite)
 - [Angle between vectors]({{< meta decks.d01.file >}}#measures-alignment)
 - [Associativity]({{< meta decks.d01.file >}}#by-rows)
 - [Augmented matrix]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system)
@@ -787,7 +788,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 
 ### E–I
 
-::: {.columns}
+::: {.columns style="font-size: 0.92em;"}
 ::: {.column width="50%"}
 - [Eigenvalue]({{< meta decks.d04.file >}}#eigenvalues-give-another-determinant-formula)
 - [Elementary matrix]({{< meta decks.d01.file >}}#start-with-one-row-replacement)
@@ -796,7 +797,9 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Elimination matrix]({{< meta decks.d01.file >}}#group-the-first-column-operations)
 - [Euclidean norm]({{< meta decks.d01.file >}}#measures-alignment)
 - [Field]({{< meta decks.d06.file >}}#the-scalar-field-can-change)
+- [Finite-dimensional space]({{< meta decks.d06b.file >}}#dimension-counts-vectors-in-any-basis)
 - [Fourier mode]({{< meta decks.d06.file >}}#finite-fourier-sums-are-vectors)
+- [Frame]({{< meta decks.d06b.file >}}#a-frame-can-keep-redundant-generators)
 - [Free variable]({{< meta decks.d01.file >}}#a-free-variable-produces-infinitely-many-solutions)
 :::
 
@@ -817,13 +820,14 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 
 ### L–N
 
-::: {.columns}
+::: {.columns style="font-size: 0.92em;"}
 ::: {.column width="50%"}
 - [Least squares](#when-the-constraints-cannot-all-be-satisfied)
 - [Left null space]({{< meta decks.d06c.file >}}#a-matrix-has-four-fundamental-subspaces)
 - [Leontief input–output model]({{< meta decks.d02.file >}}#production-creates-internal-demand)
 - [Linear combination]({{< meta decks.d03.file >}}#given-output-solve-column-weights)
 - [Linear independence]({{< meta decks.d06b.file >}}#independence-means-the-zero-vector-has-one-construction)
+- [Linear isomorphism]({{< meta decks.d06b.file >}}#the-coordinate-map-preserves-linear-combinations)
 - [Linear system]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
 - [Linear transformation]({{< meta decks.d03.file >}}#linear-transformations-preserve-combinations)
 :::
@@ -836,6 +840,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Monomial]({{< meta decks.d06.file >}}#polynomials-in-several-variables-total-degree)
 - [Nonsingular / singular matrix]({{< meta decks.d02.file >}}#invertible-or-singular)
 - [Null space]({{< meta decks.d06.file >}}#homogeneous-systems-produce-subspaces)
+- [Nullity]({{< meta decks.d06c.file >}}#rank-and-nullity-measure-different-parts-of-a-matrix)
 - [Numerical instability](#equivalent-mathematics-unequal-computations)
 :::
 :::
@@ -844,8 +849,9 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 
 ### O–R
 
-::: {.columns}
+::: {.columns style="font-size: 0.92em;"}
 ::: {.column width="50%"}
+- [Orthogonal complement]({{< meta decks.d06c.file >}}#an-orthogonal-complement-contains-all-perpendicular-directions)
 - [Orthogonal decomposition]({{< meta decks.d05.file >}}#projection-finds-the-nearest-point-on-an-affine-line)
 - [Orthogonal matrix]({{< meta decks.d03.file >}}#orthogonal-matrices-have-orthonormal-rows-and-columns)
 - [Orthogonal vectors]({{< meta decks.d01.file >}}#measures-alignment)
@@ -859,7 +865,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 :::
 
 ::: {.column width="50%"}
-- [Rank]({{< meta decks.d06c.file >}}#one-reduction-exposes-the-structure)
+- [Rank]({{< meta decks.d06c.file >}}#rank-and-nullity-measure-different-parts-of-a-matrix)
 - [Rank factorization]({{< meta decks.d06c.file >}}#rank-factorization-keeps-the-independent-columns-and-rows)
 - [Rank–nullity theorem]({{< meta decks.d06c.file >}}#rank-nullity-counts-inputs)
 - [Redundant constraint](#what-does-the-system-tell-us)
@@ -875,7 +881,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 
 ### S–Z
 
-::: {.columns}
+::: {.columns style="font-size: 0.92em;"}
 ::: {.column width="50%"}
 - [Scalar](#represent-objects-numerically)
 - [Scalar triple product]({{< meta decks.d05.file >}}#the-triple-product-reconnects-to-determinants)

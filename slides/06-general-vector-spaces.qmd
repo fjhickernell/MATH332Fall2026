@@ -5,7 +5,7 @@ deck_title: "{{< meta decks.d06.title >}}"
 deck_short_title: "{{< meta decks.d06.short_title >}}"
 subtitle: |
   <span class="deck-title">Vector Spaces,<br>Subspaces, and Span</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 4</span>
+  <span class="deck-meta">{{< meta texts.anton.short >}} {{< meta decks.d06.anton_sections >}}</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">
@@ -40,7 +40,52 @@ include-after-body:
 ::: {.column width="58%"}
 <h3>In this deck</h3>
 
-[Recognize vector spaces; test closure; build spans]{.alert}
+```{=html}
+<svg class="diagram-image span-plane-preview" viewBox="0 0 520 250" style="width:100%; max-height:220px;" role="img" aria-label="The tilted plane z equals x plus y passes through the origin. Vectors u equals (1,0,1) and v equals (0,1,1) lie along its grid lines and span the plane. Both rise above the xy plane.">
+<style>
+.reveal svg.span-plane-preview text { font-family: "Times New Roman", Times, serif; fill: #064b76; }
+.reveal svg.span-plane-preview .axis-label { fill: #666; }
+.reveal svg.span-plane-preview .plane-caption { font-family: Arial, sans-serif; fill: #168b90; }
+</style>
+<defs>
+<marker id="span-plane-axis-head" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#777"/></marker>
+<marker id="span-plane-vector-head" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#064b76"/></marker>
+</defs>
+<!-- One linear projection for all objects: x=(80,28), y=(-52,42), z=(0,-80).
+     Thus u=(1,0,1) projects to (80,-52), and v=(0,1,1) to (-52,-38).
+     The patch and grid use the same two directions as the vector arrows. -->
+<g stroke="#999" stroke-width="1.5" stroke-dasharray="4 4">
+<path d="M140,68 L260,110 M338,47 L260,110 M260,214 L260,110"/>
+</g>
+<polygon points="229.2,209 405.2,94.6 290.8,11 114.8,125.4" fill="#16979c" fill-opacity="0.18" stroke="#16979c" stroke-width="2"/>
+<g stroke="#16979c" stroke-width="1" stroke-opacity="0.55">
+<path d="M114.8,125.4 L290.8,11 M143.4,146.3 L319.4,31.9 M172,167.2 L348,52.8 M200.6,188.1 L376.6,73.7 M229.2,209 L405.2,94.6"/>
+<path d="M114.8,125.4 L229.2,209 M158.8,96.8 L273.2,180.4 M202.8,68.2 L317.2,151.8 M246.8,39.6 L361.2,123.2 M290.8,11 L405.2,94.6"/>
+</g>
+<g stroke="#777" stroke-width="1.5">
+<path d="M260,110 L412,163.2" marker-end="url(#span-plane-axis-head)"/>
+<path d="M260,110 L145.6,202.4" marker-end="url(#span-plane-axis-head)"/>
+<path d="M260,110 L260,3" stroke-dasharray="4 4" marker-end="url(#span-plane-axis-head)"/>
+</g>
+<g font-size="20" font-style="italic">
+<text class="axis-label" x="419" y="172">x</text><text class="axis-label" x="130" y="214">y</text><text class="axis-label" x="269" y="16">z</text>
+</g>
+<g stroke="#777" stroke-width="1" stroke-dasharray="3 4" stroke-opacity="0.65">
+<path d="M340,58 L340,138 M208,72 L208,152"/>
+</g>
+<g stroke="#064b76" stroke-width="3">
+<path d="M260,110 L340,58" marker-end="url(#span-plane-vector-head)"/>
+<path d="M260,110 L208,72" marker-end="url(#span-plane-vector-head)"/>
+</g>
+<g font-size="24" font-weight="bold" font-style="italic">
+<text x="348" y="59">u</text><text x="183" y="69">v</text>
+</g>
+<circle cx="260" cy="110" r="4" fill="#064b76"/>
+<text x="266" y="133" font-size="20">0</text>
+<text x="366" y="39" font-size="20" font-style="italic">z = x + y</text>
+<text class="plane-caption" x="260" y="241" text-anchor="middle" font-size="20">Two directions in a tilted plane through the origin</text>
+</svg>
+```
 
 - [From Euclidean Vectors to Vector Spaces](#from-euclidean-vectors-to-vector-spaces)
 - [Vectors Beyond Coordinate Columns](#vectors-beyond-coordinate-columns)
@@ -54,6 +99,7 @@ include-after-body:
 
 - [The previous deck found directions inside solution sets](#the-previous-deck-found-directions-inside-solution-sets)
 - [A vector space starts with objects and two operations](#a-vector-space-starts-with-objects-and-two-operations)
+- [The axioms force familiar consequences](#the-axioms-force-familiar-consequences)
 
 ## The previous deck found directions inside solution sets {#the-previous-deck-found-directions-inside-solution-sets}
 
@@ -80,7 +126,7 @@ operations
 
 ## A vector space starts with objects and two operations {#a-vector-space-starts-with-objects-and-two-operations}
 
-A [real vector space]{.alert} is a set $V$ whose elements are called
+A [real vector space]{.alert} is a nonempty set $V$ whose elements are called
 [vectors]{.alert}, with addition and multiplication by elements of $\reals$,
 called [scalars]{.alert}:
 
@@ -140,7 +186,7 @@ these rules
 
 ---
 
-### The axioms force familiar consequences {#the-axioms-force-familiar-consequences}
+## The axioms force familiar consequences {#the-axioms-force-familiar-consequences}
 
 Every vector space satisfies
 
@@ -169,6 +215,9 @@ vector
 # Vectors Beyond Coordinate Columns
 
 - [Vectors need not be coordinate columns](#vectors-need-not-be-coordinate-columns)
+- [The scalar field can change](#the-scalar-field-can-change)
+- [Polynomials form a vector space](#polynomials-form-a-vector-space)
+- [Functions can be vectors](#functions-can-be-vectors)
 - [Affine sets usually fail the zero-vector test](#affine-sets-usually-fail-the-zero-vector-test)
 - [The operations are part of the definition](#the-operations-are-part-of-the-definition)
 
@@ -204,7 +253,7 @@ Different objects can obey the same linear rules
 
 ---
 
-### The scalar field can change {#the-scalar-field-can-change}
+## The scalar field can change {#the-scalar-field-can-change}
 
 Most of this course uses real scalars, but the same axioms work over any field
 
@@ -259,7 +308,7 @@ $\vct{v}\in\mathbb{F}_2^n$.
 
 ---
 
-### Polynomials form a vector space {#polynomials-form-a-vector-space}
+## Polynomials form a vector space {#polynomials-form-a-vector-space}
 
 Write $\mathbb{P}_k$ for real polynomials in one variable $t$ of degree at
 most $k$, including the zero polynomial
@@ -324,7 +373,7 @@ Our one-variable notation is $\mathbb{P}_m=\mathbb{P}_m(\reals)$
 
 ---
 
-### Worked example: combine two-variable polynomials {#worked-example-combine-two-variable-polynomials}
+### Example: combine two-variable polynomials {#worked-example-combine-two-variable-polynomials}
 
 In $\mathbb{P}_2(\reals^2)$, take
 
@@ -350,7 +399,7 @@ new monomials
 
 ---
 
-### Practice: total degree and closure {#practice-total-degree-and-closure}
+### Total degree and closure {#practice-total-degree-and-closure}
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
@@ -370,7 +419,7 @@ is not a vector-space axiom.
 
 ---
 
-### Functions can be vectors {#functions-can-be-vectors}
+## Functions can be vectors {#functions-can-be-vectors}
 
 Let $C[a,b]$ contain all continuous real-valued functions on $[a,b]$
 
@@ -386,11 +435,10 @@ $$
 (2f-3g)(t)=2f(t)-3g(t)
 $$
 
-Unlike $\reals^n$ and $\mathbb{P}_2$, this space has no finite basis
+No finite list of functions spans all of $C[a,b]$, for $a<b$
 
 ::: {.key-point}
-Finite-dimensional ideas begin with general vector spaces but require an
-additional finiteness assumption
+A function is one vector, even though its values vary over an entire interval
 :::
 
 ---
@@ -460,7 +508,7 @@ particular solution plus the homogeneous solution space
 
 ---
 
-### Practice: affine solution spaces {#practice-affine-solution-spaces}
+### Affine solution spaces {#practice-affine-solution-spaces}
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
@@ -538,8 +586,9 @@ $$
 is a vector space
 
 ::: {.key-point}
-An affine set is a point plus directions; only the directions form a vector
-space
+An affine set is a point plus a direction subspace
+
+It is itself a subspace exactly when it contains the origin
 :::
 
 ## The operations are part of the definition {#the-operations-are-part-of-the-definition}
@@ -633,6 +682,37 @@ $W_2$ fails immediately because $(0,0)\notin W_2$
 ::: {.key-point}
 Homogeneous linear conditions define subspaces; shifted conditions usually
 define affine sets
+:::
+
+---
+
+### Containing zero is necessary, not sufficient {#containing-zero-is-necessary-not-sufficient}
+
+The union of the coordinate axes contains the origin
+
+$$
+W=\{(x,y)^{\mathsf T}:xy=0\}
+$$
+
+Every scalar multiple of a vector in $W$ stays on its axis
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Does $W$ form a subspace of $\reals^2$?
+<span class="exsub">Choose one nonzero vector on each axis</span>
+<span class="exsub">Does their sum belong to $W$?</span>
+</span>
+:::
+
+::: {.key-point}
+The zero-vector test can reject a set; closure is still needed to accept it
+:::
+
+::: {.notes}
+Take (1,0)^T and (0,1)^T. Their sum (1,1)^T is off both axes, so W is not
+closed under addition. Containing zero and being closed under scalar
+multiplication together are still insufficient. This is a necessary-versus-
+sufficient-condition example, not a new subspace test.
 :::
 
 ## Upper-triangular matrices form a subspace {#upper-triangular-matrices-form-a-subspace}
@@ -744,8 +824,8 @@ $$
 =\vct{0}
 $$
 
-By contrast, $\{\vct{x}:\mat{A}\vct{x}=\vct{b}\}$ is generally affine when
-$\vct{b}\ne\vct{0}$
+When $\vct{b}\ne\vct{0}$ and the system is consistent, its solution set is
+affine and does not contain the zero vector
 
 This gives a name to the homogeneous solutions found by
 [elimination in {{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#read-the-solution-set)
@@ -757,12 +837,14 @@ The null space records every input direction that a matrix sends to zero
 # Spans and Membership
 
 - [Span is the subspace generated by chosen vectors](#span-is-the-subspace-generated-by-chosen-vectors)
+- [In $\reals^n$, span is matrix–vector multiplication](#in-rn-span-is-matrix-vector-multiplication)
 - [Spanning polynomials means matching every coefficient](#spanning-polynomials-means-matching-every-coefficient)
+- [Example: a polynomial subspace](#worked-example-a-polynomial-subspace)
 - [A subspace question becomes a closure question](#a-subspace-question-becomes-a-closure-question)
 
 ## Span is the subspace generated by chosen vectors {#span-is-the-subspace-generated-by-chosen-vectors}
 
-For vectors $\vct{v}_1,\ldots,\vct{v}_k\in V$,
+For vectors $\vct{v}_1,\ldots,\vct{v}_k$ in a real vector space $V$,
 
 $$
 \operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}
@@ -782,7 +864,7 @@ build?
 
 ---
 
-### In $\reals^n$, span is matrix–vector multiplication {#in-rn-span-is-matrix-vector-multiplication}
+## In $\reals^n$, span is matrix–vector multiplication {#in-rn-span-is-matrix-vector-multiplication}
 
 For $\vct{v}_j\in\reals^n$, collect the chosen vectors as columns:
 
@@ -808,7 +890,7 @@ $\vct{c}$ varies
 
 ---
 
-### Worked example: a span is a plane {#worked-example-a-span-is-a-plane}
+### Example: a span is a plane {#worked-example-a-span-is-a-plane}
 
 Take $\vct{v}_1=(1,0,1)^{\mathsf T}$ and
 $\vct{v}_2=(0,1,1)^{\mathsf T}$
@@ -836,7 +918,7 @@ A spanning description and an equation can describe the same subspace
 
 ---
 
-### Practice: membership and an extra generator {#practice-membership-and-an-extra-generator}
+### Membership and an extra generator {#practice-membership-and-an-extra-generator}
 
 Keep $\vct{v}_1=(1,0,1)^{\mathsf T}$ and
 $\vct{v}_2=(0,1,1)^{\mathsf T}$; let
@@ -921,7 +1003,7 @@ matrix cannot produce every coefficient vector
 
 ---
 
-### Practice: membership in a polynomial span {#practice-membership-in-a-polynomial-span}
+### Membership in a polynomial span {#practice-membership-in-a-polynomial-span}
 
 Keep $p_1=1+t$ and $p_2=t+t^2$, and let
 $W=\operatorname{span}\{p_1,p_2\}$
@@ -944,7 +1026,7 @@ $a_1=a_0+a_2$.
 
 ---
 
-### Worked example: a polynomial subspace {#worked-example-a-polynomial-subspace}
+## Example: a polynomial subspace {#worked-example-a-polynomial-subspace}
 
 Consider $U=\{p\in\mathbb{P}_3:p(0)=0\}$
 
@@ -1017,7 +1099,8 @@ linear combinations. $W_1$ is not: the zero function does not belong to it.
 - A vector space has addition and scalar multiplication satisfying the axioms
 - Polynomials, matrices, and functions can be vectors
 - A subspace inherits the operations and is closed under linear combinations
-- The span contains every linear combination of its generators
+- The span is the smallest subspace containing its generators
+- A subspace can be described by generators or homogeneous linear constraints
 
 # How Far We Have Come
 

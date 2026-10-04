@@ -2,36 +2,38 @@
 
 ## Current task
 
-The Chapter 4 material is now three decks: Vector Spaces, Subspaces, and Span
-(`06-general-vector-spaces.qmd`); Bases, Dimension, and Coordinates
-(`06b-bases-dimension-and-coordinates.qmd`); and Matrix Spaces and Rank
-(`06c-matrix-spaces-and-rank.qmd`). Their topic sections number four, six,
-and five respectively, with 46, 41, and 28 slides including title and closing
-slides. The full site and all eleven decks render; 601 local HTML links and
-all local deck assets passed checks. All three course maps and title cards
-passed visible review. The website consistency audit also reconciled the
-welcome outline with all eleven named decks and added deck links, removed
-stale assessment-date claims from the welcome page, and verified agreement
-among assignment dates and quiz/test coverage pages. All 1,247 local links
-and resources across the 20 course pages/decks passed; the welcome page fits
-desktop and narrow screens.
-All 85 explicit content anchors and 24 starred exercise
-blocks were preserved; moved-topic references, the cumulative terms index,
-previous/next navigation, course maps, website outline, and schedule names
-were updated. Eigenvalues and Inner Products retain their existing filenames.
-The coordinate definition and standard-basis/same-vector/practice sequence
-remain together in the second deck. Left-null-space practice remains after
-rank factorization because it uses the previously constructed factors.
+The General Vector Spaces material is now three instructor-review decks:
+Vector Spaces, Subspaces, and Span (`06-general-vector-spaces.qmd`, Anton
+§§4.1–4.3); Bases, Dimension, and Coordinates
+(`06b-bases-dimension-and-coordinates.qmd`, §§4.4–4.7, with basis extraction
+from §4.8); and Matrix Spaces and Rank (`06c-matrix-spaces-and-rank.qmd`,
+§§4.8–4.9, with a closing preview of §§8.1 and 8.4). Their instructional
+sections number four, six, and five; their slide counts are 47, 47, and 32,
+including titles and closing slides.
 
-Earlier worked examples, coordinate explanations, and presenter solutions
-passed mathematical and visible-layout review. Keep practice answers in
-presenter notes. Fourier modes use $\sqrt{-1}$ and integer frequencies
-$e^{2\pi\sqrt{-1}\,kt}$ on $[0,1]$. Continue instructor-led content review of
-the three decks and companion-notebook planning.
+The October 3 audit checked the exact 12th Applications edition, repaired
+missing definitions and assumptions, moved elimination and redundancy removal
+into the bases section, made the example's row operation explicit, and added
+big-picture connections and exercises. All 85 original explicit anchors
+survive; there are now 96 anchors and 28 starred exercise blocks with answer
+notes. Every instructional section has at least two main topics. The tilted
+plane, polynomial-coordinate diagram, and four-space diagram are in place.
+All 126 slides passed rendered visual review; final layout refinements,
+all eleven deck renders, the assembled-site links/navigation, cumulative
+terms entries, and the welcome page at desktop and phone widths were checked.
+See `notes/CHAPTER4-AUDIT.md` for the crosswalk and verification record.
+The October 3 Checkpoint publishes these audit revisions. The responsive
+footer fix was published first in canonical HickernellAcademicLib at
+`98e0701`; this course intentionally adopts that exact commit. Other
+consumers retain their existing pins.
 
-Named deck references follow the shared rule in
-`classlib/docs/slide-style.md`, published in HickernellAcademicLib commit
-`5becc32`; this course intentionally adopts that guidance commit.
+Continue instructor-led content review of the three decks and companion-
+notebook planning. Keep exercise answers in presenter notes. Fourier modes
+use $e^{2\pi\sqrt{-1}\,kt}$ on $[0,1]$. The infinite-basis example uses
+$C(\reals)$ with an uncountable algebraic (Hamel) basis; distinguish finite
+algebraic representations from convergent Hilbert-space expansions.
+Named deck references follow `classlib/docs/slide-style.md`, intentionally
+adopted in this course at HickernellAcademicLib commit `5becc32`.
 
 The lecture ledger and schedule are reconciled through October 1. Prepare
 October 6 to resume Vector Spaces, Subspaces, and Span, at “Subspaces and Span”
@@ -70,34 +72,11 @@ Deck 05 title slide and Deck 04 look fine. Finish checking Decks 05 and 06
 for content. Deck 05 has a locally executed companion notebook awaiting
 instructor review; Deck 06 has no companion notebook yet.
 
-Continue reviewing the expanded Deck 05 Euclidean Vector Spaces bridge and the
-substantive Deck 06 General Vector Spaces draft with the instructor. Deck 05
-now visibly names its homogeneous directions as the null space, while Deck 06
-develops the abstract structure using binary vectors, polynomials, functions,
-homogeneous linear differential-equation solution spaces, and finite Fourier
-sums, then gives a brief countable/uncountable basis outlook
-before returning to null, column, and row spaces. Decide what to refine before
-scheduling either deck, then turn the four remaining
-chapter-sized decks into an explicit plan for the 20 class meetings after
-Test 1.
-
-The September 29 review added a concrete $\reals^n$ continuation to Deck 05,
-made six introductory Deck 06 topics separate continuation slides, and
-confirmed `.key-point` as the course's takeaway style. Both revised decks
-rendered successfully on Intel; their new layouts still need visible review.
-The three Chapter 4 decks now have 24 starred exercise blocks, including paired worked
-examples and student-practice variants for homogeneous and nonhomogeneous
-differential equations, polynomial spans, subspaces and bases, Fourier
-independence, dimension, coordinates, rank--nullity, and
-$\mat{A}=\mat{C}\mat{R}_r$. The factorization uses one running matrix to
-show the pivot-column and row-basis factors and verify the product column by
-column, then offers two practice matrices. Contextual links recall Deck 01's
-elimination, free variables, matrix products, and column combinations. The
-same running matrix models the
-left null space before a second matrix asks students to find all four spaces.
-It renders locally on M3; the newly added worked-example layouts still need
-visible review. The Independence and Bases section has four main slides with
-supporting examples as continuation slides.
+Continue instructor review of the remaining Euclidean Spaces material and
+of the three Chapter 4 decks. Then plan the Eigenvalues and Inner Products
+units and allocate the 20 post-Test-1 meetings among instruction, exercises,
+companions, Test 2, and review. The Chapter 4 slide audit is complete;
+instructor approval and companion construction are separate outstanding work.
 
 The Deck 04 determinants slides were previously instructor-reviewed. The
 surface outlook was revised after the instructor flagged the premature cross
@@ -172,18 +151,15 @@ address reported Colab problems.
   slides. Decks 01–06 now link callbacks, previews, and cumulative reviews to
   their targets. Diagram implementation is documented in
   `notes/TECHNICAL-NOTES.md`, with author-workflow links and continuation rules.
-- `slides/06-general-vector-spaces.qmd` is now a substantive draft
-  covering Anton §§4.1–4.9. Its abstract examples include $\mathbb{F}_2^n$,
-  polynomials, continuous functions, homogeneous linear differential-equation
-  solution spaces, and finite Fourier sums; later sections
-  develop subspaces, span, independence, bases, coordinates, dimension, change of basis, the
-  four matrix spaces, rank–nullity, and rank factorization, with a brief look
-  at countable and uncountable algebraic bases. One matrix example ties the
-  row, column, null, and left-null spaces together. The Course Map
-  theme uses the basis-coordinate equation, exercise containers follow the
-  established style, and representative dense slides have been visibly
-  checked at the standard presentation viewport. Deck 00's cumulative terms
-  index now points to the new definitions.
+- The former General Vector Spaces draft is split into three audited decks:
+  Vector Spaces and Span (47 slides), Bases and Coordinates (47), and Matrix
+  Spaces and Rank (32). Precise Anton ranges appear in their metadata,
+  subtitles, website outline, and PLAN. Section outlines, previous/next links,
+  course maps, schedule references, and the cumulative terms index agree.
+  Redundancy removal precedes coordinates; dimension is defined before use;
+  rank, nullity, and orthogonal complement have explicit definitions. The
+  abstract linear-transformation closing section is labeled as a Chapter 8
+  preview. Instructor review and companion planning remain open.
 - `notebooks/demonstrations/04-determinants.ipynb` runs end to end with the
   `qmcpy` kernel on Mini (about eight seconds), with saved outputs and inspected
   geometric plots. It covers signed area, exact row operations, PLU and packed
@@ -233,7 +209,7 @@ address reported Colab problems.
   review of the latest Deck 05 continuation slides remains open.
 - Decks 00--04 are substantive and instructor-reviewed; Deck 04 has also been
   developed and audited. Deck 05 is an expanded 28-slide draft (including its
-  title), Deck 06 is a substantive draft, and Decks 07--08 remain placeholders for Anton
+  title), the three Chapter 4 decks are audited drafts, and Decks 07--08 remain placeholders for Anton
   Chapters 5--6. The post-Test-1 schedule has 20 class meetings, but their
   allocation among Decks 05--08, Test 2, exercises, companions, and review has
   not yet been decided.

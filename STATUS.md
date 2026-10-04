@@ -68,6 +68,11 @@ Mathematical content should be maintained only in the slides.
   - [x] Divide the General Vector Spaces draft into Vector Spaces, Subspaces,
     and Span; Bases, Dimension, and Coordinates; and Matrix Spaces and Rank,
     with section outlines, closing summaries, and updated course navigation.
+  - [x] Audit the three decks against Anton's 12th Applications edition;
+    repair definitions and assumptions, balance main headings, make basis
+    extraction explicit, add conceptual examples and starred exercises,
+    and verify every rendered slide and website/navigation consistency.
+    Verification and scope are recorded in `notes/CHAPTER4-AUDIT.md`.
   - [ ] Complete instructor-led content and visible-layout review of these
     three Chapter 4 decks.
   - [x] Expand General Vector Spaces with worked-example and starred-practice

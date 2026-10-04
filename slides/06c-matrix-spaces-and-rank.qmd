@@ -5,7 +5,7 @@ deck_title: "{{< meta decks.d06c.title >}}"
 deck_short_title: "{{< meta decks.d06c.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 4</span>
+  <span class="deck-meta">{{< meta texts.anton.short >}} {{< meta decks.d06c.anton_sections >}}</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">
@@ -40,8 +40,32 @@ include-after-body:
 ::: {.column width="58%"}
 <h3>In this deck</h3>
 
-[Find four spaces; count directions; represent linear maps]{.alert}
+```{=html}
+<style>
+.reveal .four-space-preview { display:grid; grid-template-columns:minmax(0,1fr) 0.6fr minmax(0,1fr); gap:0.16em 0.25em; align-items:center; text-align:center; margin:0.2em 0 0.45em; }
+.reveal .four-space-preview .space-heading { color:var(--header-blue); font-size:0.8em; }
+.reveal .four-space-preview .space-card { padding:0.22em 0.3em; border:3px solid #2e78b7; border-radius:12px; background:#f5fbff; }
+.reveal .four-space-preview .null-card { border-color:#bd8e20; background:#fff9e9; }
+.reveal .four-space-preview .space-detail { font-size:0.72em; }
+.reveal .four-space-preview .space-action { color:#2e78b7; }
+</style>
+```
 
+::: {.four-space-preview role="group" aria-label="The input space R n splits into the row space of dimension r and its orthogonal null space of dimension n minus r. A maps the row space onto the column space, both of dimension r. The output space R m splits into the column space and its orthogonal left null space of dimension m minus r. Null-space vectors are sent to zero."}
+<div class="space-heading" style="grid-row:1;grid-column:1;">Input: $\reals^n$</div>
+<div class="space-heading" style="grid-row:1;grid-column:2;">$r=\operatorname{rank}(\mat{A})$</div>
+<div class="space-heading" style="grid-row:1;grid-column:3;">Output: $\reals^m$</div>
+<div class="space-card" style="grid-row:2;grid-column:1;">$\operatorname{Row}(\mat{A})$<br><span class="space-detail">$r$ independent directions</span></div>
+<div class="space-action" style="grid-row:2;grid-column:2;">$\xrightarrow{\mat{A}}$</div>
+<div class="space-card" style="grid-row:2;grid-column:3;">$\operatorname{Col}(\mat{A})$<br><span class="space-detail">$r$ independent directions</span></div>
+<div class="space-detail" style="grid-row:3;grid-column:1;">$\perp$</div>
+<div class="space-detail" style="grid-row:3;grid-column:3;">$\perp$</div>
+<div class="space-card null-card" style="grid-row:4;grid-column:1;">$\operatorname{Null}(\mat{A})$<br><span class="space-detail">$n-r$ directions<br>$\mat{A}\vct{x}=\vct{0}$</span></div>
+<div class="space-card null-card" style="grid-row:4;grid-column:3;">$\operatorname{Null}(\mat{A}^{\mathsf T})$<br><span class="space-detail">$m-r$ directions<br>$\mat{A}^{\mathsf T}\vct{y}=\vct{0}$</span></div>
+:::
+
+
+::: {style="font-size: 0.9em;"}
 - [Matrix Spaces and Rank](#matrix-spaces-and-rank)
 - [Rank and Solution Sets](#rank-and-solution-sets)
 - [Orthogonal Pairs](#orthogonal-pairs)
@@ -50,10 +74,23 @@ include-after-body:
 - [Big Ideas](#big-ideas)
 :::
 :::
+:::
+
+::: {.notes}
+Preview for a real m-by-n matrix of rank r. The input splits orthogonally
+into Row(A) and Null(A); the output splits into Col(A) and Null(A^T).
+The displayed arrow is A restricted to the row space: it maps that space
+one-to-one onto the column space. Both have dimension r. The n-r null-space
+directions collapse to zero; they are not mapped to the left null space.
+The output's m-r left-null directions are perpendicular to every attainable
+output. Thus n=r+(n-r) and m=r+(m-r). The deck develops these claims after
+computing concrete bases and dimensions.
+:::
 
 # Matrix Spaces and Rank
 
 - [A matrix has four fundamental subspaces](#a-matrix-has-four-fundamental-subspaces)
+- [Rank and nullity measure different parts of a matrix](#rank-and-nullity-measure-different-parts-of-a-matrix)
 - [One reduction exposes the structure](#one-reduction-exposes-the-structure)
 - [Column and row bases come from different matrices](#column-and-row-bases-come-from-different-matrices)
 - [Free variables build a basis for the null space](#free-variables-build-a-basis-for-the-null-space)
@@ -71,6 +108,39 @@ For an $m\times n$ matrix $\mat{A}$:
 
 ::: {.key-point}
 Always identify the ambient space before comparing subspaces
+
+View row-space vectors as columns by transposing the matrix rows
+:::
+
+## Rank and nullity measure different parts of a matrix {#rank-and-nullity-measure-different-parts-of-a-matrix}
+
+For $\mat{A}\in\reals^{m\times n}$, define
+
+$$
+\operatorname{rank}(\mat{A})=\dim(\operatorname{Col}(\mat{A})),
+\qquad
+\operatorname{nullity}(\mat{A})=\dim(\operatorname{Null}(\mat{A}))
+$$
+
+Row reduction gives
+
+- rank = number of pivot columns = dimension of the row space
+- nullity = number of free variables
+
+$$
+0\le\operatorname{rank}(\mat{A})\le\min(m,n)
+$$
+
+::: {.key-point}
+Rank counts independent output directions; nullity counts lost input directions
+:::
+
+::: {.notes}
+Rank is defined here using column-space dimension. The row-rank/column-rank
+theorem says the dimensions agree. Pivot columns of the original matrix are
+a column-space basis; the nonzero RREF rows are a row-space basis with the
+same number of vectors. Each free variable contributes one independent
+null-space vector. We use real matrices throughout this deck.
 :::
 
 ## One reduction exposes the structure {#one-reduction-exposes-the-structure}
@@ -93,6 +163,8 @@ $$
 0&0&0&0
 \end{bmatrix}
 $$
+
+$\mat{R}$ is the [reduced row-echelon form (RREF)]{.alert} of $\mat{A}$
 
 Pivot columns: $1$ and $3$
 
@@ -124,8 +196,8 @@ A basis for the row space uses nonzero rows of the [reduced]{.alert} matrix:
 
 $$
 \left\{
-\begin{bmatrix}1&2&0&2\end{bmatrix},
-\begin{bmatrix}0&0&1&1\end{bmatrix}
+\begin{bmatrix}1\\2\\0\\2\end{bmatrix},
+\begin{bmatrix}0\\0\\1\\1\end{bmatrix}
 \right\}
 $$
 
@@ -164,6 +236,8 @@ Each free variable contributes one independent null-space direction
 # Rank and Solution Sets
 
 - [Rank-nullity counts inputs](#rank-nullity-counts-inputs)
+- [Rank separates existence from uniqueness](#rank-separates-existence-from-uniqueness)
+- [Rank-nullity predicts solution sets](#rank-nullity-predicts-solution-sets)
 
 ## Rank-nullity counts inputs {#rank-nullity-counts-inputs}
 
@@ -191,7 +265,38 @@ Rank-nullity accounts for every direction in the input space
 
 ---
 
-### Rank-nullity predicts solution sets {#rank-nullity-predicts-solution-sets}
+## Rank separates existence from uniqueness {#rank-separates-existence-from-uniqueness}
+
+For $\mat{A}\in\reals^{m\times n}$ and $\mat{A}\vct{x}=\vct{b}$:
+
+| Question | Condition |
+|---|---|
+| Does this $\vct{b}$ have a solution? | $\vct{b}\in\operatorname{Col}(\mat{A})$ |
+| Is a solution unique, when it exists? | $\operatorname{Null}(\mat{A})=\{\vct{0}\}$, or rank $=n$ |
+| Does every $\vct{b}\in\reals^m$ have a solution? | $\operatorname{Col}(\mat{A})=\reals^m$, or rank $=m$ |
+
+Two inputs produce the same output exactly when
+
+$$
+\mat{A}\vct{x}=\mat{A}\vct{x}'
+\quad\Longleftrightarrow\quad
+\vct{x}-\vct{x}'\in\operatorname{Null}(\mat{A})
+$$
+
+::: {.key-point}
+For a square matrix, full rank gives existence and uniqueness for every right-hand side
+:::
+
+::: {.notes}
+Full column rank gives at most one solution; it does not guarantee existence
+for every right-hand side in a taller system. Full row rank guarantees every
+right-hand side is attainable; a wider system can still have many solutions.
+The square case reconnects these statements to the invertible-matrix results
+in Inverses. Whenever a solution x_p exists, all solutions are
+x_p + Null(A); choosing a null-space basis supplies the independent parameters.
+:::
+
+## Rank-nullity predicts solution sets {#rank-nullity-predicts-solution-sets}
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
@@ -212,7 +317,38 @@ solvable for every $\vct{b}\in\reals^3$.
 
 # Orthogonal Pairs
 
+- [An orthogonal complement contains all perpendicular directions](#an-orthogonal-complement-contains-all-perpendicular-directions)
 - [The four spaces pair through orthogonality](#the-four-spaces-pair-through-orthogonality)
+- [Example: see both orthogonal pairs](#worked-example-see-both-orthogonal-pairs)
+
+## An orthogonal complement contains all perpendicular directions {#an-orthogonal-complement-contains-all-perpendicular-directions}
+
+For a subspace $W\subseteq\reals^d$, its [orthogonal complement]{.alert} is
+
+$$
+W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
+\text{ for every }\vct{w}\in W\}
+$$
+
+It is enough to check the dot product with each vector in a basis of $W$
+
+Every $\vct{x}\in\reals^d$ has a unique decomposition
+
+$$
+\vct{x}=\vct{w}+\vct{z},\qquad \vct{w}\in W,\quad \vct{z}\in W^\perp
+$$
+
+::: {.key-point}
+$\dim(W)+\dim(W^\perp)=d$: the two subspaces account for every direction
+:::
+
+::: {.notes}
+This is Euclidean orthogonality using the dot product from Euclidean Spaces.
+If z is perpendicular to the basis vectors, linearity makes it perpendicular
+to every combination. The Euclidean orthogonal-decomposition theorem gives
+existence. Uniqueness follows because W intersects W^perp only in zero:
+a vector perpendicular to itself has zero squared length.
+:::
 
 ## The four spaces pair through orthogonality {#the-four-spaces-pair-through-orthogonality}
 
@@ -244,7 +380,7 @@ $$
 
 ---
 
-### Worked example: see both orthogonal pairs {#worked-example-see-both-orthogonal-pairs}
+## Example: see both orthogonal pairs {#worked-example-see-both-orthogonal-pairs}
 
 Take the rank-one matrix
 
@@ -279,7 +415,7 @@ ambient spaces
 
 ---
 
-### Practice: orthogonality and ambient spaces {#practice-orthogonality-and-ambient-spaces}
+### Orthogonality and ambient spaces {#practice-orthogonality-and-ambient-spaces}
 
 Let
 
@@ -307,12 +443,13 @@ column-space vectors have two, so their dot product is not defined.
 # Rank Factorization and the Left Null Space
 
 - [Rank factorization keeps the independent columns and rows](#rank-factorization-keeps-the-independent-columns-and-rows)
+- [Check the factorization column by column](#check-the-factorization-column-by-column)
 - [Find the left null space](#find-the-left-null-space)
 
 ## Rank factorization keeps the independent columns and rows {#rank-factorization-keeps-the-independent-columns-and-rows}
 
 For the example, take the pivot columns of $\mat{A}$ and the nonzero rows of
-$\mat{R}$:
+its RREF $\mat{R}$:
 
 $$
 \mat{C}=
@@ -342,7 +479,7 @@ form a row-space basis
 
 ---
 
-### Check the factorization column by column {#check-the-factorization-column-by-column}
+## Check the factorization column by column {#check-the-factorization-column-by-column}
 
 Write the columns of $\mat{C}$ as $\vct{c}_1,\vct{c}_2$
 
@@ -367,7 +504,7 @@ $\mat{R}_r$ tells how to combine them
 
 ---
 
-### Practice constructing rank factorizations {#practice-constructing-rank-factorizations}
+### Construct rank factorizations {#practice-constructing-rank-factorizations}
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
@@ -412,6 +549,41 @@ This vector is perpendicular to both columns of $\mat{C}$
 
 ---
 
+### Left-null vectors test compatibility of equations {#left-null-vectors-test-compatibility-of-equations}
+
+If $\mat{A}^{\mathsf T}\vct{y}=\vct{0}$ and $\mat{A}\vct{x}=\vct{b}$, then
+
+$$
+\vct{y}^{\mathsf T}\vct{b}
+=\vct{y}^{\mathsf T}\mat{A}\vct{x}=0
+$$
+
+A right-hand side is attainable exactly when it is perpendicular to every
+left-null vector
+
+In our example, $\operatorname{Null}(\mat{A}^{\mathsf T})$ has basis
+$\{(-4,1,2)^{\mathsf T}\}$, so consistency is equivalent to
+
+$$
+-4b_1+b_2+2b_3=0
+$$
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Use this test for $\vct{b}=(0,1,0)^{\mathsf T}$ and $\vct{b}=(1,2,1)^{\mathsf T}$</span>
+:::
+
+::: {.notes}
+For (0,1,0)^T, y^T b=1, so there is no solution. For (1,2,1)^T, the
+condition holds, and b is the first column of A, so x=(1,0,0,0)^T solves it.
+The sufficiency comes from Col(A)=Null(A^T)^perp. The same y also describes a
+linear dependence among the equations; a consistent right-hand side must
+obey that relation. This is a concrete solvability certificate, not just
+another dimension count.
+:::
+
+---
+
 ### One matrix supports several basis questions {#one-matrix-supports-several-basis-questions}
 
 For $\mat{B}$ on the practice slide:
@@ -434,20 +606,27 @@ null, row, and left null, respectively.
 
 # What the Structure Buys Us
 
+Preview: Anton §§8.1 and 8.4
+
 - [A basis turns an abstract problem into a matrix problem](#a-basis-turns-an-abstract-problem-into-a-matrix-problem)
+- [Example: differentiation is a matrix](#worked-example-differentiation-is-a-matrix)
 - [A well-chosen basis can simplify an operator](#a-well-chosen-basis-can-simplify-an-operator)
 
 ## A basis turns an abstract problem into a matrix problem {#a-basis-turns-an-abstract-problem-into-a-matrix-problem}
 
-Suppose $T:V\to W$ preserves linear combinations:
+Let $V$ and $W$ be finite-dimensional real vector spaces
+
+A [linear transformation]{.alert} $T:V\to W$ preserves linear combinations:
 
 $$
 T(c\vct{u}+d\vct{v})=cT(\vct{u})+dT(\vct{v})
 $$
 
-Choose a basis $\mathcal{B}$ for $V$ and a basis $\mathcal{C}$ for $W$
+Choose ordered bases $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ for $V$
+and $\mathcal{C}$ for $W$, with $\dim(W)=m$
 
-Then some matrix $\mat{M}$ satisfies
+Its $m\times n$ coordinate matrix has column $j$ equal to $[T(\vct{b}_j)]_{\mathcal{C}}$
+and satisfies
 
 $$
 [T(\vct{v})]_{\mathcal{C}}
@@ -455,12 +634,12 @@ $$
 $$
 
 ::: {.key-point}
-Matrices are coordinate representations of linear transformations
+A linear transformation is determined by its action on a basis
 :::
 
 ---
 
-### Worked example: differentiation is a matrix {#worked-example-differentiation-is-a-matrix}
+## Example: differentiation is a matrix {#worked-example-differentiation-is-a-matrix}
 
 Let $D:\mathbb{P}_2\to\mathbb{P}_1$ send $p$ to $p'$
 
@@ -493,7 +672,7 @@ Apply the map to each input basis vector; put its output coordinates in a column
 
 ---
 
-### Practice: evaluate a polynomial with a matrix {#practice-evaluate-a-polynomial-with-a-matrix}
+### Evaluate a polynomial with a matrix {#practice-evaluate-a-polynomial-with-a-matrix}
 
 Let $T:\mathbb{P}_2\to\reals^2$ be
 
@@ -526,7 +705,7 @@ evaluation.
 
 Different bases give different matrices for the same linear transformation
 
-The [next deck]({{< meta decks.d07.file >}}) asks whether a basis can make a square matrix diagonal:
+[{{< meta decks.d07.short_title >}}]({{< meta decks.d07.file >}}) asks whether a basis can make a square matrix diagonal:
 
 $$
 \mat{P}^{-1}\mat{A}\mat{P}
@@ -547,10 +726,11 @@ Eigenvectors are basis candidates adapted to the action of a matrix
 # Big Ideas {data-state="goldborder"}
 
 - Reduction reveals bases for row, column, and null spaces
-- Rank–nullity counts visible and null input directions
+- Rank separates attainable outputs from lost input directions
 - Row/null and column/left-null spaces form orthogonal pairs
 - Rank factorization separates independent columns from their combinations
-- Bases turn abstract linear maps into matrices
+- Left-null vectors give compatibility conditions for the equations
+- Bases turn finite-dimensional linear maps into matrices
 
 # How Far We Have Come
 
