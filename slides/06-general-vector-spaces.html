@@ -738,7 +738,9 @@ In this deck
 </section>
 <section id="the-previous-deck-found-directions-inside-solution-sets" class="slide level2">
 <h2>The previous deck found directions inside solution sets</h2>
-<p>As <a href="01-systems-and-matrices.html#read-the-solution-set">Systems and Matrices</a> showed, elimination reveals free variables in a consistent system <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>. <a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Euclidean Spaces</a> showed that its solutions have the form</p>
+<p>As <a href="01-systems-and-matrices.html#read-the-solution-set">Systems and Matrices</a> showed, elimination reveals free variables in a consistent system <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span></p>
+<p>Choose one particular solution <span class="math inline">\(\vct{x}_p\)</span>, so <span class="math inline">\(\mat{A}\vct{x}_p=\vct{b}\)</span></p>
+<p>As <a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Euclidean Spaces</a> showed, all solutions have the form</p>
 <p><span class="math display">\[
 \{\text{all solutions}\}
 =\vct{x}_p+\{\vct{z}:\mat{A}\vct{z}=\vct{0}\}
@@ -896,6 +898,7 @@ New examples
 <section class="slide level2">
 
 <h3 id="additive-inverses-over-f2">Additive inverses over <span class="math inline">\(\mathbb{F}_2\)</span></h3>
+<p>An additive inverse adds to give <span class="math inline">\(\vct{0}\)</span>; in <span class="math inline">\(\mathbb{F}_2\)</span>, <span class="math inline">\(1+1=0\)</span></p>
 <div class="exitem">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find the additive inverse of <span class="math inline">\(\vct{u}=(1,0,1,1)\)</span> in <span class="math inline">\(\mathbb{F}_2^4\)</span> <span class="exsub">Repeat for <span class="math inline">\(\vct{w}=(0,1,1,0)\)</span></span> <span class="exsub">Does the answer generalize to every vector in <span class="math inline">\(\mathbb{F}_2^n\)</span>? Explain using XOR</span> </span></p>
 </div>
@@ -979,7 +982,7 @@ p(x,y)=1+x+xy,
 
 <h3 id="practice-total-degree-and-closure">Total degree and closure</h3>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Work in <span class="math inline">\(\mathbb{P}_2(\reals^2)\)</span> <span class="exsub">Which belong: <span class="math inline">\(x^2+xy+y^2\)</span>, <span class="math inline">\(x^2y\)</span>, <span class="math inline">\(7\)</span>, and <span class="math inline">\(0\)</span>?</span> <span class="exsub">For <span class="math inline">\(p=1+x+xy\)</span> and <span class="math inline">\(q=2-y+x^2\)</span>, compute <span class="math inline">\(p+3q\)</span></span> <span class="exsub">Must the product of two members stay in this space? Give an example</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Work in <span class="math inline">\(\mathbb{P}_2(\reals^2)\)</span>: each monomial’s exponents sum to at most two <span class="exsub">Which belong: <span class="math inline">\(x^2+xy+y^2\)</span>, <span class="math inline">\(x^2y\)</span>, <span class="math inline">\(7\)</span>, and <span class="math inline">\(0\)</span>?</span> <span class="exsub">For <span class="math inline">\(p=1+x+xy\)</span> and <span class="math inline">\(q=2-y+x^2\)</span>, compute <span class="math inline">\(p+3q\)</span></span> <span class="exsub">Must the product of two members stay in this space? Give an example</span> </span></p>
 </div>
 <aside class="notes">
 <p>The first polynomial, 7, and 0 belong; x^2y has total degree three. p+3q=7+x-3y+3x^2+xy. Multiplication need not preserve the space: x^2 and y^2 belong but x<sup>2y</sup>2 does not. Closure under polynomial multiplication is not a vector-space axiom.</p>
@@ -1007,7 +1010,7 @@ p(x,y)=1+x+xy,
 <p><span class="math display">\[
 (2f-3g)(t)=2f(t)-3g(t)
 \]</span></p>
-<p>No finite list of functions spans all of <span class="math inline">\(C[a,b]\)</span>, for <span class="math inline">\(a&lt;b\)</span></p>
+<p>No finite list of functions can generate all of <span class="math inline">\(C[a,b]\)</span> by linear combinations, for <span class="math inline">\(a&lt;b\)</span></p>
 <div class="key-point">
 <p>A function is one vector, even though its values vary over an entire interval</p>
 </div>
@@ -1020,7 +1023,7 @@ p(x,y)=1+x+xy,
 f(t)=a\cos t+b\sin t,
 \qquad a,b\in\reals
 \]</span></p>
-<p>If <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span> solve the equation, then</p>
+<p>For solutions <span class="math inline">\(f,g\)</span> and real constants <span class="math inline">\(c,d\)</span>,</p>
 <p><span class="math display">\[
 (cf+dg)''+(cf+dg)=c(f''+f)+d(g''+g)=0
 \]</span></p>
@@ -1033,7 +1036,7 @@ f(t)=a\cos t+b\sin t,
 
 <h3 id="try-another-equation-and-a-system">Try another equation and a system</h3>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use the same linear-combination test <span class="exsub">For <span class="math inline">\(h''-h=0\)</span>, verify that <span class="math inline">\(e^t\)</span> and <span class="math inline">\(e^{-t}\)</span> solve it and that every <span class="math inline">\(ae^t+be^{-t}\)</span> does too</span> <span class="exsub">For <span class="math inline">\(\mat{A}=\operatorname{diag}(1,-1)\)</span>, verify that <span class="math inline">\((e^t,0)^{\mathsf T}\)</span> and <span class="math inline">\((0,e^{-t})^{\mathsf T}\)</span> solve <span class="math inline">\(\vct{y}'=\mat{A}\vct{y}\)</span> and so does every linear combination</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Test whether linear combinations of solutions are still solutions <span class="exsub">For <span class="math inline">\(h''-h=0\)</span>, verify that <span class="math inline">\(e^t\)</span> and <span class="math inline">\(e^{-t}\)</span> solve it and that every <span class="math inline">\(ae^t+be^{-t}\)</span> does too</span> <span class="exsub">For <span class="math inline">\(\mat{A}=\operatorname{diag}(1,-1)\)</span>, verify that <span class="math inline">\((e^t,0)^{\mathsf T}\)</span> and <span class="math inline">\((0,e^{-t})^{\mathsf T}\)</span> solve <span class="math inline">\(\vct{y}'=\mat{A}\vct{y}\)</span> and so does every linear combination</span> </span></p>
 </div>
 <aside class="notes">
 <p>Use <span class="math inline">\(f''+f=0\)</span> on the previous slide as the board example. For the first variant, both exponentials satisfy <span class="math inline">\(h''=h\)</span>, and the differential operator is linear. For the system, differentiate each displayed vector and multiply by <span class="math inline">\(\mat{A}\)</span>; both give the same result. Linearity then covers any combination. The zero function solves both homogeneous equations. A nonhomogeneous equation such as <span class="math inline">\(h''-h=1\)</span> does not have the zero function as a solution.</p>
@@ -1066,9 +1069,11 @@ h(t)=-1+ae^t+be^{-t},
 <section class="slide level2">
 
 <h3 id="practice-affine-solution-spaces">Affine solution spaces</h3>
+<p>Use one particular solution plus the homogeneous solutions</p>
 <div class="exitem lettered">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find one particular solution and describe the full solution set <span class="exsub"><span class="math inline">\(g''+g=2\)</span></span> <span class="exsub"><span class="math inline">\(y'-y=3\)</span></span> </span></p>
 </div>
+<p>The corresponding homogeneous solutions are <span class="math inline">\(a\cos t+b\sin t\)</span> and <span class="math inline">\(ce^t\)</span>, respectively</p>
 <p>For each set, explain why it is not a vector space under the usual operations</p>
 <aside class="notes">
 <p>For <span class="math inline">\(g''+g=2\)</span>, use the particular solution <span class="math inline">\(g_p=2\)</span>. All solutions are <span class="math inline">\(g(t)=2+a\cos t+b\sin t\)</span>. For <span class="math inline">\(y'-y=3\)</span>, use <span class="math inline">\(y_p=-3\)</span>. All solutions are <span class="math inline">\(y(t)=-3+ce^t\)</span>. In each case the zero function fails the equation, so the solution set is affine rather than a vector space.</p>
@@ -1120,7 +1125,7 @@ h(t)=-1+ae^t+be^{-t},
 </section>
 <section id="affine-sets-usually-fail-the-zero-vector-test" class="slide level2">
 <h2>Affine sets usually fail the zero-vector test</h2>
-<p>Consider the line</p>
+<p>Under ordinary operations, the zero vector is <span class="math inline">\((0,0)^{\mathsf T}\)</span></p>
 <p><span class="math display">\[
 L=\left\{
 \begin{bmatrix}1\\2\end{bmatrix}
@@ -1299,7 +1304,7 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 <h3 id="which-other-matrix-families-are-subspaces">Which other matrix families are subspaces?</h3>
 <p>Use ordinary addition and real scalar multiplication in <span class="math inline">\(\reals^{n\times n}\)</span>, with fixed <span class="math inline">\(n\ge2\)</span></p>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Decide whether each family is a subspace <span class="exsub">Diagonal matrices</span> <span class="exsub">Lower-triangular matrices</span> <span class="exsub">Symmetric matrices: <span class="math inline">\(\mat{A}^{\mathsf T}=\mat{A}\)</span></span> <span class="exsub">Tridiagonal matrices: <span class="math inline">\(a_{ij}=0\)</span> when <span class="math inline">\(|i-j|&gt;1\)</span></span> <span class="exsub">Invertible matrices</span> <span class="exsub">Orthogonal matrices: <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}=\mat{I}\)</span></span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Decide whether each family is a subspace <span class="exsub">Diagonal matrices: <span class="math inline">\(a_{ij}=0\)</span> when <span class="math inline">\(i\ne j\)</span></span> <span class="exsub">Lower-triangular matrices: <span class="math inline">\(a_{ij}=0\)</span> when <span class="math inline">\(i&lt;j\)</span></span> <span class="exsub">Symmetric matrices: <span class="math inline">\(\mat{A}^{\mathsf T}=\mat{A}\)</span></span> <span class="exsub">Tridiagonal matrices: <span class="math inline">\(a_{ij}=0\)</span> when <span class="math inline">\(|i-j|&gt;1\)</span></span> <span class="exsub">Invertible matrices: a matrix inverse exists</span> <span class="exsub">Orthogonal matrices: <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}=\mat{I}\)</span></span> </span></p>
 </div>
 <p>For each yes, prove closure under linear combinations; for each no, give a failed test or counterexample</p>
 <aside class="notes">
@@ -1329,7 +1334,8 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 =c\mat{A}\vct{x}+d\mat{A}\vct{y}
 =\vct{0}
 \]</span></p>
-<p>When <span class="math inline">\(\vct{b}\ne\vct{0}\)</span> and the system is consistent, its solution set is affine and does not contain the zero vector</p>
+<p>If <span class="math inline">\(\mat{A}\vct{x}_p=\vct{b}\)</span>, the full solution set is <span class="math inline">\(\vct{x}_p+\operatorname{Null}(\mat{A})\)</span></p>
+<p>For <span class="math inline">\(\vct{b}\ne\vct{0}\)</span>, this affine set does not contain the zero vector</p>
 <p>This gives a name to the homogeneous solutions found by <a href="01-systems-and-matrices.html#read-the-solution-set">elimination in Systems and Matrices</a></p>
 <div class="key-point">
 <p>The null space records every input direction that a matrix sends to zero</p>
@@ -1433,7 +1439,7 @@ p_2(t)=t+t^2,
 \qquad
 p_3(t)=1-t^2
 \]</span></p>
-<p>To decide whether they span <span class="math inline">\(\mathbb{P}_2\)</span>, solve</p>
+<p>To span <span class="math inline">\(\mathbb{P}_2\)</span>, the equation must be solvable for every real <span class="math inline">\(a_0,a_1,a_2\)</span></p>
 <p><span class="math display">\[
 c_1p_1+c_2p_2+c_3p_3=a_0+a_1t+a_2t^2
 \]</span></p>
@@ -1452,7 +1458,8 @@ c_1p_1+c_2p_2+c_3p_3=a_0+a_1t+a_2t^2
 <section class="slide level2">
 
 <h3 id="a-singular-coefficient-matrix-cannot-reach-every-polynomial">A singular coefficient matrix cannot reach every polynomial</h3>
-<p>The third column of <span class="math inline">\(\mat{A}\)</span> is the first minus the second:</p>
+<p>Keep <span class="math inline">\(p_1=1+t\)</span>, <span class="math inline">\(p_2=t+t^2\)</span>, and <span class="math inline">\(p_3=1-t^2\)</span></p>
+<p>The columns of <span class="math inline">\(\mat{A}\)</span> collect their coefficients of <span class="math inline">\(1,t,t^2\)</span>, so</p>
 <p><span class="math display">\[
 \vct{A}_3=\vct{A}_1-\vct{A}_2
 \quad\implies\quad
@@ -1463,7 +1470,7 @@ c_1p_1+c_2p_2+c_3p_3=a_0+a_1t+a_2t^2
 <p><span class="math display">\[
 p_3=p_1-p_2
 \]</span></p>
-<p>Every combination satisfies <span class="math inline">\(a_1=a_0+a_2\)</span></p>
+<p>In every resulting <span class="math inline">\(a_0+a_1t+a_2t^2\)</span>, <span class="math inline">\(a_1=a_0+a_2\)</span></p>
 <p>The constant polynomial <span class="math inline">\(1\)</span> has <span class="math inline">\((a_0,a_1,a_2)=(1,0,0)\)</span> and fails this condition</p>
 <div class="key-point">
 <p>These three polynomials do not span <span class="math inline">\(\mathbb{P}_2\)</span>: their singular coefficient matrix cannot produce every coefficient vector</p>
@@ -1474,7 +1481,7 @@ p_3=p_1-p_2
 <h3 id="practice-membership-in-a-polynomial-span">Membership in a polynomial span</h3>
 <p>Keep <span class="math inline">\(p_1=1+t\)</span> and <span class="math inline">\(p_2=t+t^2\)</span>, and let <span class="math inline">\(W=\operatorname{span}\{p_1,p_2\}\)</span></p>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Which polynomials belong to <span class="math inline">\(W\)</span>? <span class="exsub">Write <span class="math inline">\(2+3t+t^2\)</span> as a combination of <span class="math inline">\(p_1,p_2\)</span>, if possible</span> <span class="exsub">Decide whether <span class="math inline">\(1\)</span> belongs to <span class="math inline">\(W\)</span></span> <span class="exsub">Give a coefficient test for <span class="math inline">\(a_0+a_1t+a_2t^2\)</span> to belong to <span class="math inline">\(W\)</span></span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Test membership by solving <span class="math inline">\(c_1p_1+c_2p_2=p\)</span> for real <span class="math inline">\(c_1,c_2\)</span> <span class="exsub">Write <span class="math inline">\(2+3t+t^2\)</span> as a combination of <span class="math inline">\(p_1,p_2\)</span>, if possible</span> <span class="exsub">Decide whether <span class="math inline">\(1\)</span> belongs to <span class="math inline">\(W\)</span></span> <span class="exsub">Give a coefficient test for <span class="math inline">\(a_0+a_1t+a_2t^2\)</span> to belong to <span class="math inline">\(W\)</span></span> </span></p>
 </div>
 <aside class="notes">
 <p><span class="math inline">\(2+3t+t^2=2p_1+p_2\)</span>. The constant polynomial <span class="math inline">\(1\)</span> is not in <span class="math inline">\(W\)</span> because every combination <span class="math inline">\(c_1p_1+c_2p_2\)</span> has coefficients <span class="math inline">\((a_0,a_1,a_2)=(c_1,c_1+c_2,c_2)\)</span>. Thus membership is equivalent to <span class="math inline">\(a_1=a_0+a_2\)</span>.</p>
@@ -1492,8 +1499,8 @@ p_3=p_1-p_2
 </section>
 <section id="worked-example-a-polynomial-subspace" class="slide level2">
 <h2>Example: a polynomial subspace</h2>
-<p>Consider <span class="math inline">\(U=\{p\in\mathbb{P}_3:p(0)=0\}\)</span></p>
-<p>For <span class="math inline">\(p,q\in U\)</span> and <span class="math inline">\(c,d\in\reals\)</span>,</p>
+<p>In <span class="math inline">\(\mathbb{P}_3\)</span> (degree at most three), consider <span class="math inline">\(U=\{p:p(0)=0\}\)</span></p>
+<p>The zero polynomial lies in <span class="math inline">\(U\)</span>; for <span class="math inline">\(p,q\in U\)</span> and <span class="math inline">\(c,d\in\reals\)</span>,</p>
 <p><span class="math display">\[
 (cp+dq)(0)=cp(0)+dq(0)=0
 \]</span></p>
@@ -1531,9 +1538,11 @@ W=\{p\in\mathbb{P}_3:p(1)=0\}
 <section class="slide level2">
 
 <h3 id="more-subspace-tests-with-functions">More subspace tests with functions</h3>
+<p>Use continuous real-valued functions on <span class="math inline">\([0,1]\)</span>, with pointwise addition and real scalar multiplication</p>
 <div class="exitem lettered">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Which sets are subspaces of <span class="math inline">\(C[0,1]\)</span>? <span class="exsub"><span class="math inline">\(W_0=\{f:f(0)=0\}\)</span></span> <span class="exsub"><span class="math inline">\(W_1=\{f:f(0)=1\}\)</span></span> <span class="exsub"><span class="math inline">\(W_2=\{f:f(0)=f(1)\}\)</span></span> </span></p>
 </div>
+<p>Check the zero function and closure under <span class="math inline">\(cf+dg\)</span></p>
 <aside class="notes">
 <p>The polynomial example supplies the board model. <span class="math inline">\(W_0\)</span> and <span class="math inline">\(W_2\)</span> are subspaces because their defining conditions are homogeneous and preserved by linear combinations. <span class="math inline">\(W_1\)</span> is not: the zero function does not belong to it.</p>
 <style type="text/css">
@@ -1561,11 +1570,31 @@ W=\{p\in\mathbb{P}_3:p(1)=0\}
 
 <section id="how-far-we-have-come" class="title-slide slide level1 center">
 <h1>How Far We Have Come</h1>
+<div class="columns">
+<div class="column" style="width:47%;">
+<h3>
+Systems and actions
+</h3>
 <ul>
-<li><a href="01-systems-and-matrices.html">Systems and Matrices</a> established elimination, pivots, and linear combinations</li>
-<li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a> gave geometric meaning to vectors and solution sets</li>
-<li><a href="06-general-vector-spaces.html">Vector Spaces and Span</a> extends those operations to matrices, polynomials, and functions</li>
+<li><a href="01-systems-and-matrices.html#read-the-solution-set">Systems and Matrices</a> — <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>; pivots test consistency and identify free parameters</li>
+<li><a href="03-matrix-structure-and-transformations.html#triangular-factors-organize-repeated-solves">Matrix Transformations</a> — <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span> reuses elimination; products compose actions</li>
+<li><a href="02-inverses-and-invertibility.html#reversible-versus-information-losing">Inverses</a> / <a href="04-determinants.html#a-determinant-is-a-signed-scale-factor">Determinants</a> — square <span class="math inline">\(\mat{A}\)</span>: <span class="math inline">\(\det(\mat{A})\ne0\iff\mat{A}^{-1}\)</span> exists; signed scale and collapse</li>
 </ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<h3>
+Directions and combinations
+</h3>
+<ul>
+<li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Euclidean Spaces</a> — point differences give directions; consistent solutions: <span class="math inline">\(\vct{x}_p+\operatorname{Null}(\mat{A})\)</span></li>
+<li><a href="05-euclidean-vector-spaces.html#projection-finds-the-nearest-point-on-an-affine-line">Euclidean Spaces</a> — dot products test perpendicularity; 3D cross gives normals/areas; projection finds nearest points</li>
+<li><a href="06-general-vector-spaces.html#vectors-need-not-be-coordinate-columns">Vector Spaces and Span</a> — matrix, polynomial, function vectors; subspaces closed under linear combinations</li>
+</ul>
+</div></div>
+<div class="key-point">
+<p><a href="06-general-vector-spaces.html#in-rn-span-is-matrix-vector-multiplication">Span</a> for <span class="math inline">\(\vct{v}_j\in\reals^n\)</span>: <span class="math inline">\(\mat{V}=[\vct{v}_1\ \cdots\ \vct{v}_k]\)</span> gives <span class="math inline">\(\operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}=\{\mat{V}\vct{c}:\vct{c}\in\reals^k\}\)</span></p>
+</div>
 </section>
 
 <section id="what-comes-next" class="title-slide slide level1 center">

@@ -1061,7 +1061,7 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 2 - 1)=-1
   &amp;= \sqrt{\vct{a}^{\top}\vct{a}}
    = \sqrt{a_1^2+\cdots+a_n^2},\\
 \vct{a}^{\top}\vct{x}
-  &amp;= \lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta).
+  &amp;= \lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta)
 \end{align*}\]</span></p>
 <ul>
 <li><span class="math inline">\(\vct{a}^{\top}\vct{x}&gt;0\)</span> — acute angle</li>
@@ -1076,7 +1076,7 @@ x+2y-z &amp; =2 &amp; \implies x &amp; = 2 - (2\times 2 - 1)=-1
 <section class="slide level2">
 
 <h3 id="why-the-cosine-appears">Why the cosine appears</h3>
-<p>The three points <span class="math inline">\(\vct{0},\vct{a},\vct{x}\)</span> lie in a plane or along a line.</p>
+<p>The three points <span class="math inline">\(\vct{0},\vct{a},\vct{x}\)</span> lie in a plane or along a line</p>
 <svg class="diagram-image dot-product-cosine-geometry" viewbox="0 0 700 390" width="68%" role="img" aria-label="A plane contains the triangle with vertices zero, a, and x.  Arrows from zero to a and zero to x form the angle theta.  The arrow from x to a is a minus x.">
 <defs> <marker id="cosine-arrow-blue" markerwidth="20" markerheight="14" refx="19" refy="7" orient="auto" markerunits="userSpaceOnUse"><polygon points="0 0,20 7,0 14" fill="#007acc"></polygon></marker> <marker id="cosine-arrow-orange" markerwidth="20" markerheight="14" refx="19" refy="7" orient="auto" markerunits="userSpaceOnUse"><polygon points="0 0,20 7,0 14" fill="#f39c34"></polygon></marker> <marker id="cosine-arrow-purple" markerwidth="20" markerheight="14" refx="19" refy="7" orient="auto" markerunits="userSpaceOnUse"><polygon points="0 0,20 7,0 14" fill="#7b4ab5"></polygon></marker> </defs> <polygon points="20,335 475,388 695,80 240,25" fill="#eaf5fa" stroke="#9ab9c8" stroke-width="3"></polygon> <text class="plane-label" x="460" y="68" font-size="27" font-weight="650">one plane</text> <polygon points="118,308 492,327 281,82" fill="#fff" fill-opacity="0.72" stroke="#65757e" stroke-width="3"></polygon> <path d="M118 308L492 327" fill="none" stroke="#007acc" stroke-width="7" marker-end="url(#cosine-arrow-blue)"></path> <path d="M118 308L281 82" fill="none" stroke="#f39c34" stroke-width="7" marker-end="url(#cosine-arrow-orange)"></path> <path d="M281 82L492 327" fill="none" stroke="#7b4ab5" stroke-width="7" marker-end="url(#cosine-arrow-purple)"></path> <path d="M184 311A67 67 0 0 0 157 254" fill="none" stroke="#c62828" stroke-width="4"></path> <circle cx="118" cy="308" r="7" fill="#333"></circle> <text x="82" y="350" font-size="34" font-weight="700">0</text> <text x="305" y="355" font-size="38" font-style="italic" font-weight="700" style="fill:#007acc">a</text> <text x="174" y="169" font-size="38" font-style="italic" font-weight="700" style="fill:#a85b00">x</text> <text x="407" y="177" font-size="36" font-style="italic" font-weight="700" style="fill:#684093">a − x</text> <text x="169" y="271" font-size="34" font-style="italic" font-weight="700" style="fill:#c62828">θ</text>
 </svg>
@@ -1510,6 +1510,47 @@ R_i\leftarrow R_i-mR_j
 <div class="small">
 <p>Pivot entries need not equal <span class="math inline">\(1\)</span> in row echelon form</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="reduced-row-echelon-form">Reduced row-echelon form goes one step further</h3>
+<p>An <span class="math inline">\(m\times n\)</span> matrix is in <span class="alert">reduced row-echelon form (RREF)</span> when</p>
+<ul>
+<li>it is in <a href="#/pivots-organize-elimination">row echelon form</a></li>
+<li>every pivot is <span class="math inline">\(1\)</span></li>
+<li>each pivot is the only nonzero entry in its column</li>
+</ul>
+<p><span class="math display">\[
+\begin{bmatrix}
+1&amp;2&amp;1&amp;3\\
+0&amp;0&amp;1&amp;1\\
+0&amp;0&amp;0&amp;0
+\end{bmatrix}
+\xrightarrow{R_1\leftarrow R_1-R_2}
+\begin{bmatrix}
+1&amp;2&amp;0&amp;2\\
+0&amp;0&amp;1&amp;1\\
+0&amp;0&amp;0&amp;0
+\end{bmatrix}
+\]</span></p>
+<p>Here the pivots are in columns <span class="math inline">\(1,3\)</span>; nonpivot columns <span class="math inline">\(2,4\)</span> remain nonzero</p>
+<div class="key-point">
+<p>Gauss–Jordan is the reduction process; RREF is its resulting form</p>
+<p>Scale pivots to <span class="math inline">\(1\)</span>; clear above and below each pivot in its column</p>
+</div>
+<aside class="notes">
+<p>RREF adds two conditions to row echelon form: unit pivots and zeros everywhere else in each pivot column. These conditions apply to square and rectangular matrices, including augmented matrices. The displayed 3-by-4 echelon matrix already has unit pivots, but the entry above the pivot in column 3 must still be cleared. The pivot in position (2,3) is not on the main diagonal; nonzero entries remain in nonpivot columns 2 and 4. Diagonal position is not the criterion. This same matrix will reappear in Matrix Spaces and Rank. Gaussian elimination with back substitution already solves a system; RREF is not required for that method. Gauss–Jordan continues the reduction upward.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -1991,7 +2032,7 @@ q=\min(m-1,n)
 \]</span></p>
 <ul>
 <li><p>This product records the elimination algebraically<br>It <span class="alert">need not be formed</span> to solve the system</p></li>
-<li><p>The <span class="alert">rightmost matrix</span> <span class="math inline">\(\mat{M}_1\)</span> acts first.</p></li>
+<li><p>The <span class="alert">rightmost matrix</span> <span class="math inline">\(\mat{M}_1\)</span> acts first</p></li>
 <li><p>For a square or wide matrix (<span class="math inline">\(m\le n\)</span>), <span class="math inline">\(q=m-1\)</span></p></li>
 <li><p>A tall matrix (<span class="math inline">\(m &gt; n\)</span>) may also need <span class="math inline">\(\mat{M}_n\)</span> because column <span class="math inline">\(n\)</span> can have entries below row <span class="math inline">\(n\)</span></p></li>
 </ul>
