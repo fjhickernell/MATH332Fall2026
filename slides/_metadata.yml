@@ -35,8 +35,16 @@ decks:
     short_title: Euclidean Spaces
   d06:
     file: 06-general-vector-spaces.html
-    title: General Vector Spaces
-    short_title: Vector Spaces
+    title: Vector Spaces, Subspaces, and Span
+    short_title: Vector Spaces and Span
+  d06b:
+    file: 06b-bases-dimension-and-coordinates.html
+    title: Bases, Dimension, and Coordinates
+    short_title: Bases and Coordinates
+  d06c:
+    file: 06c-matrix-spaces-and-rank.html
+    title: Matrix Spaces and Rank
+    short_title: Matrix Spaces and Rank
   d07:
     file: 07-eigenvalues-and-eigenvectors.html
     title: Eigenvalues and Eigenvectors

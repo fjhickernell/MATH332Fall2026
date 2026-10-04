@@ -2,8 +2,39 @@
 
 ## Current task
 
+The Chapter 4 material is now three decks: Vector Spaces, Subspaces, and Span
+(`06-general-vector-spaces.qmd`); Bases, Dimension, and Coordinates
+(`06b-bases-dimension-and-coordinates.qmd`); and Matrix Spaces and Rank
+(`06c-matrix-spaces-and-rank.qmd`). Their topic sections number four, six,
+and five respectively, with 46, 41, and 28 slides including title and closing
+slides. The full site and all eleven decks render; 601 local HTML links and
+all local deck assets passed checks. All three course maps and title cards
+passed visible review. The website consistency audit also reconciled the
+welcome outline with all eleven named decks and added deck links, removed
+stale assessment-date claims from the welcome page, and verified agreement
+among assignment dates and quiz/test coverage pages. All 1,247 local links
+and resources across the 20 course pages/decks passed; the welcome page fits
+desktop and narrow screens.
+All 85 explicit content anchors and 24 starred exercise
+blocks were preserved; moved-topic references, the cumulative terms index,
+previous/next navigation, course maps, website outline, and schedule names
+were updated. Eigenvalues and Inner Products retain their existing filenames.
+The coordinate definition and standard-basis/same-vector/practice sequence
+remain together in the second deck. Left-null-space practice remains after
+rank factorization because it uses the previously constructed factors.
+
+Earlier worked examples, coordinate explanations, and presenter solutions
+passed mathematical and visible-layout review. Keep practice answers in
+presenter notes. Fourier modes use $\sqrt{-1}$ and integer frequencies
+$e^{2\pi\sqrt{-1}\,kt}$ on $[0,1]$. Continue instructor-led content review of
+the three decks and companion-notebook planning.
+
+Named deck references follow the shared rule in
+`classlib/docs/slide-style.md`, published in HickernellAcademicLib commit
+`5becc32`; this course intentionally adopts that guidance commit.
+
 The lecture ledger and schedule are reconciled through October 1. Prepare
-October 6 to resume Deck 06, General Vector Spaces, at “Subspaces and Span”
+October 6 to resume Vector Spaces, Subspaces, and Span, at “Subspaces and Span”
 → “A subspace inherits its operations.” October 1 completed the introductory
 vector-space axioms and examples, affine solution spaces, the zero-vector
 test, and the role of the operations; subspaces were displayed but deferred
@@ -54,7 +85,7 @@ The September 29 review added a concrete $\reals^n$ continuation to Deck 05,
 made six introductory Deck 06 topics separate continuation slides, and
 confirmed `.key-point` as the course's takeaway style. Both revised decks
 rendered successfully on Intel; their new layouts still need visible review.
-Deck 06 now has fifteen starred exercise blocks, including paired worked
+The three Chapter 4 decks now have 24 starred exercise blocks, including paired worked
 examples and student-practice variants for homogeneous and nonhomogeneous
 differential equations, polynomial spans, subspaces and bases, Fourier
 independence, dimension, coordinates, rank--nullity, and

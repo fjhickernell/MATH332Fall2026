@@ -65,7 +65,15 @@ Mathematical content should be maintained only in the slides.
     vector-space axioms and abstract examples through subspaces, span,
     independence, bases, coordinates, dimension, change of basis, the four
     matrix spaces, rank–nullity, and rank factorization.
-  - [ ] Complete instructor-led content and visible-layout review of Deck 06.
+  - [x] Divide the General Vector Spaces draft into Vector Spaces, Subspaces,
+    and Span; Bases, Dimension, and Coordinates; and Matrix Spaces and Rank,
+    with section outlines, closing summaries, and updated course navigation.
+  - [ ] Complete instructor-led content and visible-layout review of these
+    three Chapter 4 decks.
+  - [x] Expand General Vector Spaces with worked-example and starred-practice
+    pairs for multivariable polynomials, concrete spans, matrix bases,
+    dimension, coordinate arithmetic, orthogonality, and matrix representations
+    of linear maps; keep exercise solutions in presenter notes.
   - [ ] Develop Decks 07–08.
 - [x] Create the initial Notebooks page for demonstrations and exercises.
 - [x] Create and locally validate companion notebooks for Decks 02 and 03.

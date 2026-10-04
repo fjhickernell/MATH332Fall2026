@@ -58,7 +58,9 @@ The planned sequence is:
 | 03 | Matrix Structure and Transformations | Sections 1.7–1.9 |
 | 04 | Determinants | Chapter 2 |
 | 05 | Euclidean Vector Spaces | Chapter 3 |
-| 06 | General Vector Spaces | Chapter 4 |
+| 06 | Vector Spaces, Subspaces, and Span | Chapter 4 |
+| 06b | Bases, Dimension, and Coordinates | Chapter 4 |
+| 06c | Matrix Spaces and Rank | Chapter 4 |
 | 07 | Eigenvalues and Eigenvectors | Chapter 5 |
 | 08 | Inner Product Spaces | Chapter 6 |
 

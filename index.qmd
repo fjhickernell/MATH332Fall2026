@@ -94,49 +94,77 @@ grades.
 <details>
 <summary><strong>Why Linear Algebra?</strong></summary>
 
-Course motivation and roadmap.
+[Lecture slides](slides/00-why-linear-algebra.html). Course motivation and roadmap.
 
 </details>
 
 <details>
 <summary><strong>Systems of Linear Equations and Matrices</strong></summary>
 
-Anton, Chapter 1. Detailed pacing is **TBD**.
+[Lecture slides](slides/01-systems-and-matrices.html). Anton, Chapter 1. Detailed pacing is **TBD**.
+
+</details>
+
+<details>
+<summary><strong>Inverses and Invertibility</strong></summary>
+
+[Lecture slides](slides/02-inverses-and-invertibility.html). Anton, Chapter 1. Detailed pacing is **TBD**.
+
+</details>
+
+<details>
+<summary><strong>Matrix Structure and Transformations</strong></summary>
+
+[Lecture slides](slides/03-matrix-structure-and-transformations.html). Anton, Chapter 1. Detailed pacing is **TBD**.
 
 </details>
 
 <details>
 <summary><strong>Determinants</strong></summary>
 
-Anton, Chapter 2. Detailed pacing is **TBD**.
+[Lecture slides](slides/04-determinants.html). Anton, Chapter 2. Detailed pacing is **TBD**.
 
 </details>
 
 <details>
 <summary><strong>Euclidean Vector Spaces</strong></summary>
 
-Anton, Chapter 3. Detailed pacing is **TBD**.
+[Lecture slides](slides/05-euclidean-vector-spaces.html). Anton, Chapter 3. Detailed pacing is **TBD**.
 
 </details>
 
 <details>
-<summary><strong>General Vector Spaces</strong></summary>
+<summary><strong>Vector Spaces, Subspaces, and Span</strong></summary>
 
-Anton, Chapter 4. Detailed pacing is **TBD**.
+[Lecture slides](slides/06-general-vector-spaces.html). Anton, Chapter 4. Detailed pacing is **TBD**.
+
+</details>
+
+<details>
+<summary><strong>Bases, Dimension, and Coordinates</strong></summary>
+
+[Lecture slides](slides/06b-bases-dimension-and-coordinates.html). Anton, Chapter 4. Detailed pacing is **TBD**.
+
+</details>
+
+<details>
+<summary><strong>Matrix Spaces and Rank</strong></summary>
+
+[Lecture slides](slides/06c-matrix-spaces-and-rank.html). Anton, Chapter 4. Detailed pacing is **TBD**.
 
 </details>
 
 <details>
 <summary><strong>Eigenvalues and Eigenvectors</strong></summary>
 
-Anton, Chapter 5. Detailed pacing is **TBD**.
+[Lecture slides](slides/07-eigenvalues-and-eigenvectors.html). Anton, Chapter 5. Detailed pacing is **TBD**.
 
 </details>
 
 <details>
 <summary><strong>Inner Product Spaces</strong></summary>
 
-Anton, Chapter 6. Detailed pacing is **TBD**.
+[Lecture slides](slides/08-inner-product-spaces.html). Anton, Chapter 6. Detailed pacing is **TBD**.
 
 </details>
 
@@ -144,9 +172,10 @@ Anton, Chapter 6. Detailed pacing is **TBD**.
 
 - [**Homework assignments:**](pages/assignments.qmd) 20%; all homework
   assignments are completed individually through WileyPLUS
-- [**Quizzes: 15%**](pages/quizzes-and-tests.qmd); Quiz 1 is September 10;
-  later dates **TBD**
-- [**Tests: 25%**](pages/quizzes-and-tests.qmd); Test 1 is not yet scheduled
+- [**Quizzes: 15%**](pages/quizzes-and-tests.qmd); see the linked quiz and test
+  schedule for dates and coverage
+- [**Tests: 25%**](pages/quizzes-and-tests.qmd); see the linked quiz and test
+  schedule for dates and coverage
 - [**Final Exam: 40%**](pages/quizzes-and-tests.qmd); _on the date assigned by
   the registrar_
 - **Extra Credit:** From August 24 through December 6, you may earn extra

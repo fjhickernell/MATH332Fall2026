@@ -29,7 +29,7 @@ and revise the estimate if later pacing changes it.
 
 Reconcile the outline's headings, order, and topic bullets with the taught
 decks. Split the current broad chapter groupings where needed to represent
-the sequential Deck 00–08 architecture; combine or rename entries when the
+the sequential named-deck architecture; combine or rename entries when the
 actual teaching sequence requires it. Keep undeveloped coverage provisional
 rather than assigning it unsupported hours. Render and inspect the welcome
 page after editing.
@@ -434,10 +434,17 @@ calendar unchanged and check again later.
   symbols $\vct{A}_j$ and its rows by lowercase transposed vector symbols
   $\vct{a}_i^{\mathsf T}$. Apply the same uppercase-column/lowercase-row
   convention to other matrices.
-- When prose refers to another course deck, use the metadata-defined short deck
-  title and link it to that deck or the relevant slide. Avoid bare numeric
-  labels such as `Deck 02` unless the deck number or sequence is itself the
-  point.
+- Chapter 4 uses three named decks: Vector Spaces, Subspaces, and Span;
+  Bases, Dimension, and Coordinates; and Matrix Spaces and Rank. Preserve
+  `06-general-vector-spaces.html` for the first deck and use `06b-`/`06c-`
+  filenames for the others so later deck URLs remain stable. The eleven-deck
+  course-map list uses 0.86em text within its existing column.
+- Follow the shared [deck-reference convention](classlib/docs/slide-style.md#deck-references)
+  for named links to other teaching decks.
+- For Fourier modes, write the imaginary unit as `\sqrt{-1}` so `i` remains
+  available as an index. Use $e^{2\pi\sqrt{-1}\,kt}$ for integer frequencies
+  on $[0,1]$, with 1-periodic extension, and choose example evaluation points
+  in that interval.
 - Beginning with Deck 01, each completed instructional deck should close its
   substantive content with a `# Big Ideas {data-state="goldborder"}` summary
   slide before any next-deck handoff. Include `Big Ideas` in the Course Map and
@@ -453,6 +460,11 @@ calendar unchanged and check again later.
 - RevealJS hierarchy exception: inside a `#` section slide, use an HTML `<h3>`
   for a visible tertiary heading because Quarto `###` does not render there as
   intended. Inside a `##` slide, ordinary Quarto `###` headings work normally.
+- This MATH 332 class responds well to concrete examples and gold-star
+  exercises. Pair new conceptual material with a worked example and related
+  student practice when useful; keep practice solutions in presenter notes.
+  Preserve coherent topic sections rather than splitting a deck solely to
+  meet a slide-count target.
 - For MATH 332 topic sequences, supporting derivations, worked examples, and
   exercises may use `---` followed by a `###` continuation heading under the
   preceding `##` topic. Retain explicit anchors for direct links, and list only
@@ -550,7 +562,7 @@ rsync -a --delete slides/_site/ _site/slides/
 ```
 
 After rendering, inspect warnings, open representative website pages and all
-nine decks, verify previous/next deck navigation, and confirm that internal
+eleven decks, verify previous/next deck navigation, and confirm that internal
 links and shared `classlib` assets resolve. Do not commit `_site/`, `.quarto/`,
 or other generated output.
 

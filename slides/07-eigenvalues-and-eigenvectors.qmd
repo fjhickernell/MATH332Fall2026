@@ -9,7 +9,7 @@ subtitle: |
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">
-      {"deck_prev_file":"{{< meta decks.d06.file >}}","deck_prev_title":"{{< meta decks.d06.title >}}","deck_next_file":"{{< meta decks.d08.file >}}","deck_next_title":"{{< meta decks.d08.title >}}"}
+      {"deck_prev_file":"{{< meta decks.d06c.file >}}","deck_prev_title":"{{< meta decks.d06c.title >}}","deck_next_file":"{{< meta decks.d08.file >}}","deck_next_title":"{{< meta decks.d08.title >}}"}
       </script>
 ---
 
@@ -19,15 +19,19 @@ include-after-body:
 ::: {.column width="38%"}
 <h3>Course decks</h3>
 
+::: {style="font-size: 0.86em;"}
 - [Why Linear Algebra?]({{< meta decks.d00.file >}})
 - [Systems and Matrices]({{< meta decks.d01.file >}})
 - [Inverses]({{< meta decks.d02.file >}})
 - [Matrix Transformations]({{< meta decks.d03.file >}})
 - [Determinants]({{< meta decks.d04.file >}})
 - [Euclidean Spaces]({{< meta decks.d05.file >}})
-- [Vector Spaces]({{< meta decks.d06.file >}})
+- [Vector Spaces and Span]({{< meta decks.d06.file >}})
+- [Bases and Coordinates]({{< meta decks.d06b.file >}})
+- [Matrix Spaces and Rank]({{< meta decks.d06c.file >}})
 - [Eigenvalues]({{< meta decks.d07.file >}}){.current-deck aria-current="page"}
 - [Inner Products]({{< meta decks.d08.file >}})
+:::
 :::
 
 ::: {.column width="4%"}
