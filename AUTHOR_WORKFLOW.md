@@ -457,6 +457,13 @@ calendar unchanged and check again later.
   Ideas slide. In the Course Map, one `Big Ideas` link points to the start of
   this three-slide closing sequence. Add the sequence to placeholder decks
   only when their instructional content has been developed.
+- Keep the MATH 332 cumulative threads visible as they are developed:
+  solving `Ax=b` and describing all solutions; elimination and reusable
+  factors; composition, inverses, and determinants; Euclidean geometry;
+  subspaces and spans; bases, coordinates, and dimension; and rank and
+  compatibility. The How Far synthesis should carry these connections
+  forward with meaningful equations and conditions, rather than only a
+  history of deck titles.
 - RevealJS hierarchy exception: inside a `#` section slide, use an HTML `<h3>`
   for a visible tertiary heading because Quarto `###` does not render there as
   intended. Inside a `##` slide, ordinary Quarto `###` headings work normally.

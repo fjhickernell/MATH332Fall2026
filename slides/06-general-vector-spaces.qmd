@@ -105,8 +105,11 @@ include-after-body:
 
 As [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#read-the-solution-set) showed,
 elimination reveals free variables in a consistent system
-$\mat{A}\vct{x}=\vct{b}$. [{{< meta decks.d05.short_title >}}]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions) showed
-that its solutions have the form
+$\mat{A}\vct{x}=\vct{b}$
+
+Choose one particular solution $\vct{x}_p$, so $\mat{A}\vct{x}_p=\vct{b}$
+
+As [{{< meta decks.d05.short_title >}}]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions) showed, all solutions have the form
 
 $$
 \{\text{all solutions}\}
@@ -291,6 +294,8 @@ remainder of the deck.
 
 ### Additive inverses over $\mathbb{F}_2$ {#additive-inverses-over-f2}
 
+An additive inverse adds to give $\vct{0}$; in $\mathbb{F}_2$, $1+1=0$
+
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
 <span>Find the additive inverse of $\vct{u}=(1,0,1,1)$ in $\mathbb{F}_2^4$
@@ -403,7 +408,7 @@ new monomials
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
-<span>Work in $\mathbb{P}_2(\reals^2)$
+<span>Work in $\mathbb{P}_2(\reals^2)$: each monomial's exponents sum to at most two
 <span class="exsub">Which belong: $x^2+xy+y^2$, $x^2y$, $7$, and $0$?</span>
 <span class="exsub">For $p=1+x+xy$ and $q=2-y+x^2$, compute $p+3q$</span>
 <span class="exsub">Must the product of two members stay in this space? Give an example</span>
@@ -435,7 +440,8 @@ $$
 (2f-3g)(t)=2f(t)-3g(t)
 $$
 
-No finite list of functions spans all of $C[a,b]$, for $a<b$
+No finite list of functions can generate all of $C[a,b]$ by linear
+combinations, for $a<b$
 
 ::: {.key-point}
 A function is one vector, even though its values vary over an entire interval
@@ -452,7 +458,7 @@ f(t)=a\cos t+b\sin t,
 \qquad a,b\in\reals
 $$
 
-If $f$ and $g$ solve the equation, then
+For solutions $f,g$ and real constants $c,d$,
 
 $$
 (cf+dg)''+(cf+dg)=c(f''+f)+d(g''+g)=0
@@ -471,7 +477,7 @@ Solutions of a homogeneous linear DE or system form a vector space of functions
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
-<span>Use the same linear-combination test
+<span>Test whether linear combinations of solutions are still solutions
 <span class="exsub">For $h''-h=0$, verify that $e^t$ and $e^{-t}$ solve it and that every $ae^t+be^{-t}$ does too</span>
 <span class="exsub">For $\mat{A}=\operatorname{diag}(1,-1)$, verify that $(e^t,0)^{\mathsf T}$ and $(0,e^{-t})^{\mathsf T}$ solve $\vct{y}'=\mat{A}\vct{y}$ and so does every linear combination</span>
 </span>
@@ -510,6 +516,8 @@ particular solution plus the homogeneous solution space
 
 ### Affine solution spaces {#practice-affine-solution-spaces}
 
+Use one particular solution plus the homogeneous solutions
+
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
 <span>Find one particular solution and describe the full solution set
@@ -517,6 +525,9 @@ particular solution plus the homogeneous solution space
 <span class="exsub">$y'-y=3$</span>
 </span>
 :::
+
+The corresponding homogeneous solutions are $a\cos t+b\sin t$ and $ce^t$,
+respectively
 
 For each set, explain why it is not a vector space under the usual operations
 
@@ -565,7 +576,7 @@ the finite linear combinations used in this deck.
 
 ## Affine sets usually fail the zero-vector test {#affine-sets-usually-fail-the-zero-vector-test}
 
-Consider the line
+Under ordinary operations, the zero vector is $(0,0)^{\mathsf T}$
 
 $$
 L=\left\{
@@ -785,11 +796,11 @@ with fixed $n\ge2$
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
 <span>Decide whether each family is a subspace
-<span class="exsub">Diagonal matrices</span>
-<span class="exsub">Lower-triangular matrices</span>
+<span class="exsub">Diagonal matrices: $a_{ij}=0$ when $i\ne j$</span>
+<span class="exsub">Lower-triangular matrices: $a_{ij}=0$ when $i<j$</span>
 <span class="exsub">Symmetric matrices: $\mat{A}^{\mathsf T}=\mat{A}$</span>
 <span class="exsub">Tridiagonal matrices: $a_{ij}=0$ when $|i-j|>1$</span>
-<span class="exsub">Invertible matrices</span>
+<span class="exsub">Invertible matrices: a matrix inverse exists</span>
 <span class="exsub">Orthogonal matrices: $\mat{A}^{\mathsf T}\mat{A}=\mat{I}$</span>
 </span>
 :::
@@ -824,8 +835,10 @@ $$
 =\vct{0}
 $$
 
-When $\vct{b}\ne\vct{0}$ and the system is consistent, its solution set is
-affine and does not contain the zero vector
+If $\mat{A}\vct{x}_p=\vct{b}$, the full solution set is
+$\vct{x}_p+\operatorname{Null}(\mat{A})$
+
+For $\vct{b}\ne\vct{0}$, this affine set does not contain the zero vector
 
 This gives a name to the homogeneous solutions found by
 [elimination in {{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#read-the-solution-set)
@@ -952,7 +965,8 @@ p_2(t)=t+t^2,
 p_3(t)=1-t^2
 $$
 
-To decide whether they span $\mathbb{P}_2$, solve
+To span $\mathbb{P}_2$, the equation must be solvable for every real
+$a_0,a_1,a_2$
 
 $$
 c_1p_1+c_2p_2+c_3p_3=a_0+a_1t+a_2t^2
@@ -975,7 +989,9 @@ $$
 
 ### A singular coefficient matrix cannot reach every polynomial {#a-singular-coefficient-matrix-cannot-reach-every-polynomial}
 
-The third column of $\mat{A}$ is the first minus the second:
+Keep $p_1=1+t$, $p_2=t+t^2$, and $p_3=1-t^2$
+
+The columns of $\mat{A}$ collect their coefficients of $1,t,t^2$, so
 
 $$
 \vct{A}_3=\vct{A}_1-\vct{A}_2
@@ -992,7 +1008,7 @@ $$
 p_3=p_1-p_2
 $$
 
-Every combination satisfies $a_1=a_0+a_2$
+In every resulting $a_0+a_1t+a_2t^2$, $a_1=a_0+a_2$
 
 The constant polynomial $1$ has $(a_0,a_1,a_2)=(1,0,0)$ and fails this condition
 
@@ -1010,7 +1026,7 @@ $W=\operatorname{span}\{p_1,p_2\}$
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Which polynomials belong to $W$?
+<span>Test membership by solving $c_1p_1+c_2p_2=p$ for real $c_1,c_2$
 <span class="exsub">Write $2+3t+t^2$ as a combination of $p_1,p_2$, if possible</span>
 <span class="exsub">Decide whether $1$ belongs to $W$</span>
 <span class="exsub">Give a coefficient test for $a_0+a_1t+a_2t^2$ to belong to $W$</span>
@@ -1028,9 +1044,9 @@ $a_1=a_0+a_2$.
 
 ## Example: a polynomial subspace {#worked-example-a-polynomial-subspace}
 
-Consider $U=\{p\in\mathbb{P}_3:p(0)=0\}$
+In $\mathbb{P}_3$ (degree at most three), consider $U=\{p:p(0)=0\}$
 
-For $p,q\in U$ and $c,d\in\reals$,
+The zero polynomial lies in $U$; for $p,q\in U$ and $c,d\in\reals$,
 
 $$
 (cp+dq)(0)=cp(0)+dq(0)=0
@@ -1079,6 +1095,9 @@ than three polynomials spans $W$.
 
 ### More subspace tests with functions {#more-subspace-tests-with-functions}
 
+Use continuous real-valued functions on $[0,1]$, with pointwise addition and
+real scalar multiplication
+
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
 <span>Which sets are subspaces of $C[0,1]$?
@@ -1087,6 +1106,8 @@ than three polynomials spans $W$.
 <span class="exsub">$W_2=\{f:f(0)=f(1)\}$</span>
 </span>
 :::
+
+Check the zero function and closure under $cf+dg$
 
 ::: {.notes}
 The polynomial example supplies the board model. $W_0$ and $W_2$ are
@@ -1104,9 +1125,30 @@ linear combinations. $W_1$ is not: the zero function does not belong to it.
 
 # How Far We Have Come
 
-- [Systems and Matrices]({{< meta decks.d01.file >}}) established elimination, pivots, and linear combinations
-- [Euclidean Spaces]({{< meta decks.d05.file >}}) gave geometric meaning to vectors and solution sets
-- [Vector Spaces and Span]({{< meta decks.d06.file >}}) extends those operations to matrices, polynomials, and functions
+::: {.columns}
+::: {.column width="47%"}
+<h3>Systems and actions</h3>
+
+- [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#read-the-solution-set) — $\mat{A}\vct{x}=\vct{b}$; pivots test consistency and identify free parameters
+- [{{< meta decks.d03.short_title >}}]({{< meta decks.d03.file >}}#triangular-factors-organize-repeated-solves) — $\mat{A}=\mat{P}\mat{L}\mat{U}$ reuses elimination; products compose actions
+- [{{< meta decks.d02.short_title >}}]({{< meta decks.d02.file >}}#reversible-versus-information-losing) / [{{< meta decks.d04.short_title >}}]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor) — square $\mat{A}$: $\det(\mat{A})\ne0\iff\mat{A}^{-1}$ exists; signed scale and collapse
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+<h3>Directions and combinations</h3>
+
+- [{{< meta decks.d05.short_title >}}]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions) — point differences give directions; consistent solutions: $\vct{x}_p+\operatorname{Null}(\mat{A})$
+- [{{< meta decks.d05.short_title >}}]({{< meta decks.d05.file >}}#projection-finds-the-nearest-point-on-an-affine-line) — dot products test perpendicularity; 3D cross gives normals/areas; projection finds nearest points
+- [{{< meta decks.d06.short_title >}}]({{< meta decks.d06.file >}}#vectors-need-not-be-coordinate-columns) — matrix, polynomial, function vectors; subspaces closed under linear combinations
+:::
+:::
+
+::: {.key-point}
+[Span]({{< meta decks.d06.file >}}#in-rn-span-is-matrix-vector-multiplication) for $\vct{v}_j\in\reals^n$: $\mat{V}=[\vct{v}_1\ \cdots\ \vct{v}_k]$ gives $\operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}=\{\mat{V}\vct{c}:\vct{c}\in\reals^k\}$
+:::
 
 # What Comes Next
 

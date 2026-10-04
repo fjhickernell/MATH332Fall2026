@@ -160,7 +160,7 @@ c_1\vct{v}_1+\cdots+c_k\vct{v}_k=\vct{0}
 \mat{V}\vct{c}=\vct{0}
 $$
 
-The columns are independent exactly when every column is a pivot column
+Only $\vct{c}=\vct{0}$ solves this system exactly when every column has a pivot
 
 ::: {.key-point}
 The familiar homogeneous system answers the abstract independence question
@@ -220,7 +220,9 @@ Every vector has one coefficient list in a chosen ordered basis
 
 ### Independence makes coordinates unique {#independence-makes-coordinates-unique}
 
-Suppose the same vector has two representations in $\mathcal{B}$
+Let $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ span $V$ and be independent
+
+Spanning supplies coefficients; suppose one vector has two coefficient lists
 
 $$
 \vct{v}=\sum_{j=1}^n c_j\vct{b}_j
@@ -245,6 +247,8 @@ Coordinates are unique once the ordered basis is fixed
 ---
 
 ## Elimination extracts a basis from a spanning set {#elimination-extracts-a-basis-from-a-spanning-set}
+
+The retained vectors must span the same space and be independent
 
 For vectors in $\reals^m$:
 
@@ -289,9 +293,9 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 $$
 
 ::: {.key-point}
-$\mathcal{B}=(\vct{v}_1,\vct{v}_2)$ is a basis of the same space $W$
+$\mathcal{B}=(\vct{v}_1,\vct{v}_2)$ still spans $W$
 
-The first two components show that $\vct{v}_1$ and $\vct{v}_2$ are independent
+$a\vct{v}_1+b\vct{v}_2=\vct{0}$ forces $a=b=0$: independence completes the basis proof
 :::
 
 ::: {.notes}
@@ -319,7 +323,7 @@ $$
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Can we choose a different basis from these four generators?
+<span>A basis must span $W$ and be independent
 <span class="exsub">Show that $(\vct{v}_2,\vct{v}_3)$ is another basis for $W$</span>
 <span class="exsub">Explain why $(\vct{v}_1,\vct{v}_4)$ is not a basis for $W$</span>
 </span>
@@ -339,9 +343,12 @@ unique after an ordered basis has been chosen.
 
 For a subspace of $\reals^n$, a finite spanning list is a [frame]{.alert}
 
-Linear independence is not required
+Independence is optional; for $W=\{(x,y,z)^{\mathsf T}:z=x+y\}$, use
 
-The four-vector list is a redundant frame for $W$
+$$
+\vct{v}_1=(1,0,1)^{\mathsf T},\quad \vct{v}_2=(0,1,1)^{\mathsf T},
+\quad \vct{v}_3=\vct{v}_1+\vct{v}_2,\quad \vct{v}_4=2\vct{v}_1
+$$
 
 $$
 \vct{v}_3
@@ -376,7 +383,7 @@ An [algebraic (Hamel) basis]{.alert} uses only finite linear combinations
 
 - All polynomials have a [countably infinite]{.alert} basis
   $\{1,t,t^2,\ldots\}$
-- The finite Fourier sums in $\mathcal{T}$ have another countable basis
+- Finite Fourier sums on $[0,1]$, over $\mathbb{C}$, have a countable basis
   $\{e^{2\pi\sqrt{-1}\,kt}:k\in\mathbb{Z}\}$
 - $C(\reals)$, all continuous real-valued functions on the real line, has an
   [uncountable]{.alert} algebraic basis
@@ -416,8 +423,9 @@ Reference: https://math.mit.edu/~rbm/18.103-S04/node3.html
 
 ## A basis gives every vector unique coordinates {#a-basis-gives-every-vector-unique-coordinates}
 
-If $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ is an [ordered basis]{.alert}, then every
-$\vct{v}\in V$ has a unique representation
+An [ordered basis]{.alert} $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ spans $V$ and is independent
+
+For $\vct{v}\in V$, spanning gives existence and independence gives uniqueness:
 
 $$
 \vct{v}=c_1\vct{b}_1+\cdots+c_n\vct{b}_n
@@ -431,7 +439,7 @@ $$
 $$
 
 ::: {.key-point}
-Coordinates are the coefficients in this ordered basis
+Entry $j$ is the coefficient multiplying basis vector $\vct{b}_j$
 :::
 
 ---
@@ -463,7 +471,8 @@ Our familiar vector column is its coordinate vector in the standard basis
 
 ## Same vector, different coordinate columns {#same-vector-different-coordinate-columns}
 
-Keep $\vct{x}=(5,1)^{\mathsf T}$, and choose
+For $\vct{x}=(5,1)^{\mathsf T}$, compare the standard basis
+$\mathcal{E}=((1,0)^{\mathsf T},(0,1)^{\mathsf T})$ with
 
 $$
 \mathcal{B}=\left(\vct{b}_1=\begin{bmatrix}1\\1\end{bmatrix},
@@ -540,7 +549,7 @@ Choosing a basis converts abstract vectors into coordinate columns
 
 ## Example: a basis of symmetric matrices {#worked-example-a-basis-of-symmetric-matrices}
 
-In the space of symmetric $2\times2$ matrices, use
+For real symmetric $2\times2$ matrices ($\mat{A}^{\mathsf T}=\mat{A}$), use
 
 $$
 \mat{B}_1=\begin{bmatrix}1&0\\0&0\end{bmatrix},
@@ -576,7 +585,7 @@ The vector is a matrix; its coordinate vector is a column of coefficients
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
-<span>Build bases by identifying the freely chosen entries
+<span>For real $2\times2$ matrices, build bases from the freely chosen entries
 <span class="exsub">Find an ordered basis for all upper-triangular $2\times2$ matrices</span>
 <span class="exsub">In your basis, find the coordinates of $\begin{bmatrix}2&-1\\0&3\end{bmatrix}$</span>
 <span class="exsub">Find a basis for the skew-symmetric matrices: $\mat{A}^{\mathsf T}=-\mat{A}$</span>
@@ -594,7 +603,8 @@ No dimension terminology is needed yet.
 
 ## Example: test a polynomial basis {#worked-example-test-a-polynomial-basis}
 
-In $\mathbb{P}_2$, take $\mathcal{E}=(1,t,1+t^2)$
+In $\mathbb{P}_2$, the polynomials in $t$ of degree at most two, take
+$\mathcal{E}=(1,t,1+t^2)$
 
 Its coefficient columns relative to $(1,t,t^2)$ form
 
@@ -602,7 +612,8 @@ $$
 \begin{bmatrix}1&0&1\\0&1&0\\0&0&1\end{bmatrix}
 $$
 
-All three columns are pivots, so $\mathcal{E}$ is a basis
+Three pivots: every coefficient vector is reached uniquely, so $\mathcal{E}$
+spans $\mathbb{P}_2$ and is independent
 
 For $p(t)=2+4t+3t^2$,
 
@@ -623,7 +634,7 @@ $$
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Decide whether $\mathcal{B}$ is a basis for $\mathbb{P}_2$
+<span>Does $\mathcal{B}$ span all of $\mathbb{P}_2$ and is it independent?
 <span class="exsub">Form the matrix of coefficients relative to $(1,t,t^2)$</span>
 <span class="exsub">Test its columns for independence</span>
 <span class="exsub">If it is a basis, find $[2+4t]_{\mathcal{B}}$</span>
@@ -651,7 +662,7 @@ $$
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Decide which list is a basis of $\mathbb{P}_2$
+<span>Use spanning and independence to decide which list is a basis of $\mathbb{P}_2$
 <span class="exsub">For the basis, find the coordinates of $2+4t$</span>
 </span>
 :::
@@ -679,7 +690,7 @@ $$
 \dim(V)=n
 $$
 
-Examples:
+Over $\reals$: columns, one-variable polynomials of degree at most $k$, and matrices
 
 $$
 \dim(\reals^n)=n,
@@ -773,7 +784,7 @@ real examples, it is R.
 
 ## Example: count monomials to find dimension {#worked-example-count-monomials-to-find-dimension}
 
-For $\mathbb{P}_2(\reals^2)$, group monomials by total degree:
+In $\mathbb{P}_2(\reals^2)$, total degree is at most two: add the $x$ and $y$ exponents
 
 $$
 \underbrace{1}_{0},
@@ -800,7 +811,7 @@ Count freely chosen coefficients after identifying a basis
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
-<span>Find a basis and use it to determine each dimension
+<span>Find a basis and count its vectors; total degree adds the $x$ and $y$ exponents
 <span class="exsub">$\mathbb{P}_3(\reals^2)$: list monomials by total degree</span>
 <span class="exsub">All upper-triangular $3\times3$ matrices</span>
 <span class="exsub">All symmetric $3\times3$ matrices</span>
@@ -831,7 +842,7 @@ $$
 \vct{v}\longmapsto[\vct{v}]_{\mathcal{B}}\in\reals^n
 $$
 
-Then
+The column $[\vct{v}]_{\mathcal{B}}$ lists coefficients in this ordered basis, so
 
 $$
 [c\vct{u}+d\vct{v}]_{\mathcal{B}}
@@ -900,7 +911,7 @@ $$
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
-<span>Use the coordinate map
+<span>Coordinate entries multiply $1$, $1+t$, and $t^2$ in that order
 <span class="exsub">Find $[p+2q]_{\mathcal{B}}$ without first expanding the polynomials</span>
 <span class="exsub">Reconstruct $p+2q$ as a polynomial in $t$</span>
 <span class="exsub">Why is its constant coefficient different from the first coordinate?</span>
@@ -929,7 +940,9 @@ $$
 =\begin{bmatrix}\vct{b}_1&\cdots&\vct{b}_n\end{bmatrix}
 $$
 
-Then
+The column $[\vct{x}]_{\mathcal{B}}$ lists coefficients multiplying these basis vectors
+
+Independence makes $\mat{P}_{\mathcal{B}}$ invertible:
 
 $$
 \vct{x}=\mat{P}_{\mathcal{B}}[\vct{x}]_{\mathcal{B}},
@@ -944,14 +957,16 @@ standard coordinates
 
 ## Change of basis passes through the vector {#change-of-basis-passes-through-the-vector}
 
-Let $\mathcal{B}$ and $\mathcal{C}$ be bases of $\reals^n$
+Let $\mathcal{B}$ and $\mathcal{C}$ be ordered bases of $\reals^n$
+
+$\mat{P}_{\mathcal{B}}$ and $\mat{P}_{\mathcal{C}}$ contain their basis vectors as columns
 
 $$
 \vct{x}=\mat{P}_{\mathcal{B}}[\vct{x}]_{\mathcal{B}}
 =\mat{P}_{\mathcal{C}}[\vct{x}]_{\mathcal{C}}
 $$
 
-Therefore
+To obtain $\mathcal{C}$-coordinates, multiply by $\mat{P}_{\mathcal{C}}^{-1}$:
 
 $$
 [\vct{x}]_{\mathcal{C}}
@@ -975,7 +990,7 @@ $$
 =\begin{bmatrix}[\vct{b}_1]_{\mathcal{C}}&\cdots&[\vct{b}_n]_{\mathcal{C}}\end{bmatrix}
 $$
 
-Each column says how to rebuild one old basis vector using the new basis
+Column $[\vct{b}_j]_{\mathcal{C}}$ lists the coefficients that rebuild $\vct{b}_j$ from $\mathcal{C}$
 
 $$
 [\vct{v}]_{\mathcal{C}}
@@ -996,7 +1011,7 @@ $$
 \mathcal{B}=(1,1+t,t^2),\qquad \mathcal{C}=(1,t,t+t^2)
 $$
 
-Express $1$, $1+t$, and $t^2=(t+t^2)-t$ in $\mathcal{C}$:
+Columns give $\mathcal{C}$-coefficients of the $\mathcal{B}$ polynomials; use $t^2=(t+t^2)-t$:
 
 $$
 \mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}
@@ -1007,7 +1022,7 @@ For $p=2-3t+5t^2$,
 
 $$
 [p]_{\mathcal{B}}=\begin{bmatrix}5\\-3\\5\end{bmatrix}
-\quad\longmapsto\quad
+\quad\xrightarrow{\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}}\quad
 [p]_{\mathcal{C}}=\begin{bmatrix}2\\-8\\5\end{bmatrix}
 $$
 
@@ -1031,7 +1046,7 @@ $$
 <span class="exbullet">$\exstar$</span>
 <span>Find $[\vct{x}]_{\mathcal{C}}$ and $[\vct{x}]_{\mathcal{D}}$
 <span class="exsub">Reconstruct $\vct{x}$ from each coordinate vector</span>
-<span class="exsub">Find $\mat{P}_{\mathcal{D}}^{-1}\mat{P}_{\mathcal{C}}$ and use it to check the coordinate change</span>
+<span class="exsub">Use basis vectors as columns of $\mat{P}_{\mathcal{C}}$ and $\mat{P}_{\mathcal{D}}$; check the change from $\mathcal{C}$ to $\mathcal{D}$ with $\mat{P}_{\mathcal{D}}^{-1}\mat{P}_{\mathcal{C}}$</span>
 </span>
 :::
 
@@ -1055,10 +1070,32 @@ to $(4,-3)^{\mathsf T}$.
 
 # How Far We Have Come
 
-- [Systems and Matrices]({{< meta decks.d01.file >}}) established elimination, pivots, and linear combinations
-- [Euclidean Spaces]({{< meta decks.d05.file >}}) gave geometric meaning to vectors and solution sets
-- [Vector Spaces and Span]({{< meta decks.d06.file >}}) extends those operations to matrices, polynomials, and functions
-- [Bases and Coordinates]({{< meta decks.d06b.file >}}) makes representations unique and counts independent directions
+::: {.columns}
+::: {.column width="47%"}
+<h3>Systems and actions</h3>
+
+- [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#read-the-solution-set) — $\mat{A}\vct{x}=\vct{b}$; pivots test consistency and identify free parameters
+- [{{< meta decks.d03.short_title >}}]({{< meta decks.d03.file >}}#triangular-factors-organize-repeated-solves) — $\mat{A}=\mat{P}\mat{L}\mat{U}$ reuses elimination; products compose actions
+- [{{< meta decks.d02.short_title >}}]({{< meta decks.d02.file >}}#reversible-versus-information-losing) / [{{< meta decks.d04.short_title >}}]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor) — square $\mat{A}$: $\det(\mat{A})\ne0\iff\mat{A}^{-1}$ exists; signed scale and collapse
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+<h3>Directions and combinations</h3>
+
+- [{{< meta decks.d05.short_title >}}]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions) — point differences give directions; consistent solutions: $\vct{x}_p+\operatorname{Null}(\mat{A})$
+- [{{< meta decks.d05.short_title >}}]({{< meta decks.d05.file >}}#projection-finds-the-nearest-point-on-an-affine-line) — dot products test perpendicularity; 3D cross gives normals/areas; projection finds nearest points
+- [{{< meta decks.d06.short_title >}}]({{< meta decks.d06.file >}}#in-rn-span-is-matrix-vector-multiplication) — matrix, polynomial, function vectors; subspaces closed under combinations; column spans: $\{\mat{V}\vct{c}:\vct{c}\in\reals^k\}$
+:::
+:::
+
+::: {.key-point}
+[Ordered basis $\mathcal{B}$]({{< meta decks.d06b.file >}}#a-basis-gives-every-vector-unique-coordinates) has $\dim(V)$ vectors; spanning gives coordinates, independence makes $[\vct{v}]_{\mathcal{B}}$ unique
+
+[Changing the basis](#change-of-basis-passes-through-the-vector) changes the coordinate column and preserves the vector
+:::
 
 # What Comes Next
 

@@ -491,7 +491,7 @@ The dot product defines the [Euclidean norm]{.alert} and measures alignment:
   &= \sqrt{\vct{a}^{\top}\vct{a}}
    = \sqrt{a_1^2+\cdots+a_n^2},\\
 \vct{a}^{\top}\vct{x}
-  &= \lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta).
+  &= \lVert\vct{a}\rVert\,\lVert\vct{x}\rVert\cos(\theta)
 \end{align*}
 
 - $\vct{a}^{\top}\vct{x}>0$ — acute angle
@@ -508,7 +508,7 @@ Nonzero orthogonal vectors are perpendicular
 
 ### Why the cosine appears
 
-The three points $\vct{0},\vct{a},\vct{x}$ lie in a plane or along a line.
+The three points $\vct{0},\vct{a},\vct{x}$ lie in a plane or along a line
 
 <svg class="diagram-image dot-product-cosine-geometry" viewBox="0 0 700 390" width="68%" role="img" aria-label="A plane contains the triangle with vertices zero, a, and x.  Arrows from zero to a and zero to x form the angle theta.  The arrow from x to a is a minus x.">
   <defs>
@@ -1072,6 +1072,50 @@ independent constraints; each pivot column identifies one
 
 ::: {.small}
 Pivot entries need not equal $1$ in row echelon form
+:::
+
+---
+
+### Reduced row-echelon form goes one step further {#reduced-row-echelon-form}
+
+An $m\times n$ matrix is in [reduced row-echelon form (RREF)]{.alert} when
+
+- it is in [row echelon form](#pivots-organize-elimination)
+- every pivot is $1$
+- each pivot is the only nonzero entry in its column
+
+$$
+\begin{bmatrix}
+1&2&1&3\\
+0&0&1&1\\
+0&0&0&0
+\end{bmatrix}
+\xrightarrow{R_1\leftarrow R_1-R_2}
+\begin{bmatrix}
+1&2&0&2\\
+0&0&1&1\\
+0&0&0&0
+\end{bmatrix}
+$$
+
+Here the pivots are in columns $1,3$; nonpivot columns $2,4$ remain nonzero
+
+::: {.key-point}
+Gauss–Jordan is the reduction process; RREF is its resulting form
+
+Scale pivots to $1$; clear above and below each pivot in its column
+:::
+
+::: {.notes}
+RREF adds two conditions to row echelon form: unit pivots and zeros everywhere
+else in each pivot column. These conditions apply to square and rectangular
+matrices, including augmented matrices. The displayed 3-by-4 echelon matrix
+already has unit pivots, but the entry above the pivot in column 3 must still
+be cleared. The pivot in position (2,3) is not on the main diagonal; nonzero
+entries remain in nonpivot columns 2 and 4. Diagonal position is not the
+criterion. This same matrix will reappear in Matrix Spaces and Rank.
+Gaussian elimination with back substitution already solves a system; RREF is
+not required for that method. Gauss–Jordan continues the reduction upward.
 :::
 
 ---
@@ -1702,7 +1746,7 @@ $$
 - This product records the elimination algebraically<br>It [need not be
   formed]{.alert} to solve the system
 
-- The [rightmost matrix]{.alert} $\mat{M}_1$ acts first.
+- The [rightmost matrix]{.alert} $\mat{M}_1$ acts first
 
 - For a square or wide matrix ($m\le n$), $q=m-1$
 

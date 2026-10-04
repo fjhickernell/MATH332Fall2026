@@ -8,14 +8,14 @@ Vector Spaces, Subspaces, and Span (`06-general-vector-spaces.qmd`, Anton
 (`06b-bases-dimension-and-coordinates.qmd`, §§4.4–4.7, with basis extraction
 from §4.8); and Matrix Spaces and Rank (`06c-matrix-spaces-and-rank.qmd`,
 §§4.8–4.9, with a closing preview of §§8.1 and 8.4). Their instructional
-sections number four, six, and five; their slide counts are 47, 47, and 32,
+sections number four, six, and five; their slide counts are 47, 47, and 35,
 including titles and closing slides.
 
 The October 3 audit checked the exact 12th Applications edition, repaired
 missing definitions and assumptions, moved elimination and redundancy removal
 into the bases section, made the example's row operation explicit, and added
 big-picture connections and exercises. All 85 original explicit anchors
-survive; there are now 96 anchors and 28 starred exercise blocks with answer
+survive; there are now 99 anchors and 28 starred exercise blocks with answer
 notes. Every instructional section has at least two main topics. The tilted
 plane, polynomial-coordinate diagram, and four-space diagram are in place.
 All 126 slides passed rendered visual review; final layout refinements,
@@ -26,6 +26,29 @@ The October 3 Checkpoint publishes these audit revisions. The responsive
 footer fix was published first in canonical HickernellAcademicLib at
 `98e0701`; this course intentionally adopts that exact commit. Other
 consumers retain their existing pins.
+
+The instructor's follow-up review added local reminders of definitions,
+chosen vectors, matrices, and coordinate conventions across all three decks.
+Matrix Spaces and Rank now contrasts echelon form for bases with RREF for
+the direct rank-factorization coefficients. Systems and Matrices supplies an
+explicit rectangular RREF definition and distinguishes it from the
+Gauss–Jordan process. A returning-reader pass replaced fourteen vague
+lead-ins with compact cues about coefficients, membership, coordinate roles,
+and factor/basis dimensions; no slides or recap blocks were added. All eleven
+decks and the website rerender successfully; the changed layouts and local
+links pass. These follow-ups are included in this Checkpoint; its new remote
+deployment remains unverified.
+
+The latest follow-up enriches the cumulative summaries in Euclidean
+Spaces and the three split decks. It carries systems and all solutions,
+geometry, reusable factors, abstract spans, and basis/coordinate connections
+forward. Two new continuation slides prove the A=C R_r extraction recipe;
+C's columns and R_r's rows are explicitly identified as the corresponding
+bases. The numerical check explains that R_r x gives the coordinates of A x
+in C's ordered column-space basis. The rank closing states both compatibility
+tests and x=x_p+N t with n-r free parameters. All four affected decks render;
+the nine changed/new slides pass visible layout review and the assembled-site
+links/anchors pass. Details and current counts are in CHAPTER4-AUDIT.md.
 
 Continue instructor-led content review of the three decks and companion-
 notebook planning. Keep exercise answers in presenter notes. Fourier modes
@@ -131,7 +154,7 @@ address reported Colab problems.
 
 ## Current state
 
-- `slides/05-euclidean-vector-spaces.qmd` is now a 28-slide bridge (including its title slide)
+- `slides/05-euclidean-vector-spaces.qmd` is now a 33-slide bridge (including its title slide)
   rather than a broad review of Anton §§3.1–3.5. It distinguishes points from
   vectors and origin-dependent point coordinates, develops homogeneous
   directions and nonhomogeneous affine solution sets, and reuses the earlier
@@ -153,7 +176,7 @@ address reported Colab problems.
   `notes/TECHNICAL-NOTES.md`, with author-workflow links and continuation rules.
 - The former General Vector Spaces draft is split into three audited decks:
   Vector Spaces and Span (47 slides), Bases and Coordinates (47), and Matrix
-  Spaces and Rank (32). Precise Anton ranges appear in their metadata,
+  Spaces and Rank (35). Precise Anton ranges appear in their metadata,
   subtitles, website outline, and PLAN. Section outlines, previous/next links,
   course maps, schedule references, and the cumulative terms index agree.
   Redundancy removal precedes coordinates; dimension is defined before use;
@@ -208,7 +231,7 @@ address reported Colab problems.
   confirmed Deck 04 and the Deck 05 title slide visually on September 28;
   review of the latest Deck 05 continuation slides remains open.
 - Decks 00--04 are substantive and instructor-reviewed; Deck 04 has also been
-  developed and audited. Deck 05 is an expanded 28-slide draft (including its
+  developed and audited. Deck 05 is an expanded 33-slide draft (including its
   title), the three Chapter 4 decks are audited drafts, and Decks 07--08 remain placeholders for Anton
   Chapters 5--6. The post-Test-1 schedule has 20 class meetings, but their
   allocation among Decks 05--08, Test 2, exercises, companions, and review has

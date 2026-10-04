@@ -712,7 +712,7 @@ $$
 
 ---
 
-### Worked example: a normal from three points {#worked-example-a-normal-from-three-points}
+### Example: a normal from three points {#worked-example-a-normal-from-three-points}
 
 $$
 P=(1,0,1),\qquad Q=(2,1,1),\qquad R=(1,2,3)
@@ -737,7 +737,7 @@ $\vct{n}^{\mathsf T}\vct{v}=-4+4=0$
 
 ---
 
-### Worked example: the plane and its area {#worked-example-the-plane-and-its-area}
+### Example: the plane and its area {#worked-example-the-plane-and-its-area}
 
 Keep $P=(1,0,1)$ and $\vct{n}=(2,-2,2)^{\mathsf T}$
 
@@ -902,10 +902,11 @@ nonnegative.
 
 [From matrix equations to the geometry of their solutions]{.alert}
 
-- [Systems]({{< meta decks.d01.file >}}#read-the-solution-set) — elimination finds whether $\mat{A}\vct{x}=\vct{b}$ is consistent and where free directions remain
-- [Matrix actions]({{< meta decks.d03.file >}}#geometry-of-matrix-transformations) — inverses undo reversible maps; determinants detect scale, orientation, and collapse
+- [Systems]({{< meta decks.d01.file >}}#read-the-solution-set) — $\mat{A}\vct{x}=\vct{b}$; elimination reveals consistency and free directions; [PLU]({{< meta decks.d03.file >}}#triangular-factors-organize-repeated-solves) reuses the work
+- [Matrix actions]({{< meta decks.d03.file >}}#composition-is-matrix-multiplication) — products compose, inverses undo; [determinants]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor) measure signed scale and collapse
 - [Points and directions]({{< meta decks.d05.file >}}#the-operations-reveal-the-roles) — subtract points to get vectors; add vectors to move points
 - [Solution geometry]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions) — every consistent solution set is $\vct{x}_p+\operatorname{Null}(\mat{A})$
+- [Euclidean tools]({{< meta decks.d05.file >}}#projection-finds-the-nearest-point-on-an-affine-line) — projection finds nearest points; [3D cross products]({{< meta decks.d05.file >}}#point-differences-build-a-plane-normal) give normals and areas
 
 ::: {.key-point}
 Solving now means describing [all solutions]{.alert}, not only finding one

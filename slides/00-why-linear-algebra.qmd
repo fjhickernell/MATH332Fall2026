@@ -868,6 +868,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Rank]({{< meta decks.d06c.file >}}#rank-and-nullity-measure-different-parts-of-a-matrix)
 - [Rank factorization]({{< meta decks.d06c.file >}}#rank-factorization-keeps-the-independent-columns-and-rows)
 - [Rank–nullity theorem]({{< meta decks.d06c.file >}}#rank-nullity-counts-inputs)
+- [Reduced row-echelon form (RREF)]({{< meta decks.d01.file >}}#reduced-row-echelon-form)
 - [Redundant constraint](#what-does-the-system-tell-us)
 - [Reflection]({{< meta decks.d03.file >}}#reflections-reverse-one-direction-and-preserve-lengths)
 - [Reversible transformation]({{< meta decks.d01.file >}}#three-reversible-moves)

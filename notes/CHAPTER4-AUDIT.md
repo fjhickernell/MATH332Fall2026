@@ -2,8 +2,9 @@
 
 Completed October 3, 2026 on M5. This records editorial decisions and
 verification; the mathematical exposition remains authoritative in the slides.
-The audit revisions are included in the October 3 Checkpoint; its new remote
-deployment remains unverified.
+The initial audit revisions passed the October 3 build and Pages deployment.
+The subsequent instructor-review follow-ups described below are included in
+this Checkpoint; its new remote deployment remains unverified.
 
 ## Anton crosswalk
 
@@ -34,6 +35,41 @@ metadata/subtitles, the welcome outline, and PLAN.
 - Define finite dimension, the zero-space dimension, rank, nullity, and
   orthogonal complement before they are needed; state scalar and finite-
   dimensional assumptions for coordinate matrices.
+- A follow-up added the missing explicit RREF definition beside echelon form
+  in Systems and Matrices. The definition applies to any rectangular matrix;
+  its 3-by-4 example has pivots in columns 1 and 3 and nonzero entries in
+  nonpivot columns. Gauss–Jordan names the process and RREF the resulting
+  form. Later RREF mentions and the cumulative index link to the definition.
+- A second follow-up audited every slide for backward references that carry
+  needed information. Local reminders repeat particular-solution notation,
+  space definitions, closure tests, chosen polynomials and generators,
+  basis/coordinate meaning, transition direction, and the exact matrices
+  needed in later calculations. Repeated letters no longer leave students
+  guessing which exercise matrix is intended.
+- Echelon form suffices for pivot-column and row bases. A new continuation
+  contrasts it with RREF: normalized identity pivot columns make the nonzero
+  rows the coefficient matrix directly in the chosen factorization A=C R_r.
+  The running A and its full R appear together at the section introduction;
+  subsequent steps restate the factors or column-space basis when needed.
+- The cumulative-summary follow-up audited all seven developed How Far We
+  Have Come slides. The first three already preserve the growing ideas;
+  Euclidean Spaces and all three split decks now retain systems and all
+  solutions, reusable elimination, composition/inverses/determinants,
+  geometry, abstract vectors, spans, bases, and coordinates. The rank closing
+  includes left-null compatibility, orthogonal pairs, and x=x_p+N t with
+  exactly n-r free parameters. Local author guidance records these threads.
+- Two continuation slides prove the rank-factorization recipe: reversible
+  row operations preserve every column relation and its coefficients; RREF
+  pivot columns are unit columns, so its nonzero-row block supplies the
+  coefficients of the original columns in C. State explicitly that C's
+  columns and R_r's rows give column-space and row-space bases. The numeric
+  check also interprets R_r x as the coordinates of A x in C's ordered basis.
+- A returning-reader pass replaced fourteen vague lead-ins with brief
+  reminders across the three decks. Cues identify constant coefficients,
+  the relevant zero vector, membership equations, coordinate entry meanings,
+  transition direction, column notation, factor sizes, and input/output bases.
+  Existing adequate reminders remain in place; no recap blocks or slides
+  were added.
 - Connect rank to existence versus uniqueness and left-null vectors to equation
   compatibility. Distinguish a necessary zero test from sufficient closure.
 - Use continuous real-valued functions on the whole real line for the
@@ -57,14 +93,39 @@ metadata/subtitles, the welcome outline, and PLAN.
 - All 126 slides across the three decks received rendered visual review with
   typeset equations; content clears the footer. The final tight course-map and
   polynomial-transition layouts were rechecked after revision.
-- The three decks have 47, 47, and 32 slides, 15 instructional sections, 57 main
+- The three decks now have 47, 47, and 35 slides, 15 instructional sections, 57 main
   topics, and 28 starred exercise containers, all with answer notes.
-- All 85 original explicit content anchors survive; 96 are now present.
+- All 85 original explicit content anchors survive; 99 are now present.
   Section outlines and Course Maps exactly match the headings.
 - The assembled-site traversal checked 1,415 local links/resources and 514
   anchor references across 23 reachable pages/decks; no failures. All eleven
   deck navigation records resolve. Unused copied library fragments are not
   student-facing pages and were excluded from the traversal.
+- The backward-reference follow-up rendered all four affected decks and
+  visually checked all 51 changed slides, including the new rectangular RREF
+  definition and the new echelon/RREF comparison. All typeset mathematics
+  fits above the footer at 1280 by 720; standard-size checks and the actual
+  cross-deck RREF link also passed. Exact arithmetic reconfirmed the displayed
+  reductions, rank factors, and left-null equations. The refreshed assembled
+  site checks 1,424 local links/resources and 523 anchors with no failures.
+- The cumulative-summary and proof follow-up rendered all four affected
+  decks and visually checked all nine changed/new slides with typeset
+  equations at 1280 by 720. Content clears the footer at normal font; the
+  complete rank summary also passes at 1600 by 1000. Independent review
+  confirmed the proof, basis roles, coordinate interpretation, and solution
+  conditions. The assembled site now checks 1,442 local links/resources and
+  552 anchors across 23 reachable pages/decks, with no failures; all eleven
+  navigation records resolve. Anchor retention, source style, section/topic
+  counts, and git diff --check pass.
+- The returning-reader pass rerendered all eleven decks and the full website
+  in the isolated source copy, without errors or warnings. All fourteen
+  changed slides passed rendered visual review with typeset mathematics at
+  1280 by 720. Headings, anchors, slide breaks, and answer notes are unchanged;
+  source style and git diff --check pass. The assembled site again passes
+  1,442 local links/resources and 552 anchors, with eleven navigation records.
+- The Checkpoint review normalized two remaining Euclidean Spaces headings
+  to “Example:”. That deck rerendered successfully; anchors are unchanged,
+  and the assembled-site traversal still passes.
 - Shared footer text now scales with viewport width and reserves menu-button
   space. All eleven complete footers clear the counter at 1280 by 720;
   additional 1600 by 1000 and 1024 by 768 checks passed. The reusable SCSS and
