@@ -2,9 +2,9 @@
 
 Completed October 3, 2026 on M5. This records editorial decisions and
 verification; the mathematical exposition remains authoritative in the slides.
-The initial audit revisions passed the October 3 build and Pages deployment.
-The subsequent instructor-review follow-ups described below are included in
-this Checkpoint; its new remote deployment remains unverified.
+The initial audit and reminder/proof revisions passed the October 3 build and
+Pages deployment, through commit `3233d9b`. This Checkpoint includes the
+notation and pivot-column boxes; its new remote deployment remains unverified.
 
 ## Anton crosswalk
 
@@ -48,8 +48,9 @@ metadata/subtitles, the welcome outline, and PLAN.
   guessing which exercise matrix is intended.
 - Echelon form suffices for pivot-column and row bases. A new continuation
   contrasts it with RREF: normalized identity pivot columns make the nonzero
-  rows the coefficient matrix directly in the chosen factorization A=C R_r.
-  The running A and its full R appear together at the section introduction;
+  rows the coefficient matrix directly in the chosen factorization A=C R.
+  The running A and its full reduced matrix appear together at the section
+  introduction;
   subsequent steps restate the factors or column-space basis when needed.
 - The cumulative-summary follow-up audited all seven developed How Far We
   Have Come slides. The first three already preserve the growing ideas;
@@ -62,8 +63,8 @@ metadata/subtitles, the welcome outline, and PLAN.
   row operations preserve every column relation and its coefficients; RREF
   pivot columns are unit columns, so its nonzero-row block supplies the
   coefficients of the original columns in C. State explicitly that C's
-  columns and R_r's rows give column-space and row-space bases. The numeric
-  check also interprets R_r x as the coordinates of A x in C's ordered basis.
+  columns and R's rows give column-space and row-space bases. The numeric
+  check also interprets R x as the coordinates of A x in C's ordered basis.
 - A returning-reader pass replaced fourteen vague lead-ins with brief
   reminders across the three decks. Cues identify constant coefficients,
   the relevant zero vector, membership equations, coordinate entry meanings,
@@ -81,6 +82,23 @@ metadata/subtitles, the welcome outline, and PLAN.
 - Keep all objects in the tilted-plane diagram under one linear projection;
   retain polynomial-vector versus coordinate-column and four-space overview
   diagrams.
+
+## Rank-factorization notation
+
+R denotes the r-by-n nonzero-row factor in A=C R; the full reduced matrix is
+written rref(A)=[R;0]. In the proof, B names a row-equivalent matrix and is
+explicitly set to rref(A) when reduction is complete. U remains the upper
+triangular factor in PLU.
+Independent review checked the proof, dimensions, and exercise answers. The
+deck rerendered; all ten changed slides fit at 1280 by 720, and the proof and
+coefficient slides also fit at 1600 by 1000, with no typeset-math errors.
+Headings and anchors are unchanged; the assembled-site link check passes.
+Teal whole-column outlines now mark pivot columns 1 and 3 in the four full
+RREF displays and two matching R displays, including the earlier definition
+in Systems and Matrices. Full reduced columns are e_1,e_2 in three-space;
+the corresponding columns in R form I_2. Independent review confirmed that
+all entries are unchanged. Both decks render, all six changed slides fit at
+1280 by 720 and 1600 by 1000 without typeset-math errors, and links pass.
 
 ## Validation
 

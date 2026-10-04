@@ -159,17 +159,22 @@ $$
 1&2&2&4
 \end{bmatrix}
 \quad\longrightarrow\quad
-\mat{R}=
-\begin{bmatrix}
-1&2&0&2\\
-0&0&1&1\\
-0&0&0&0
-\end{bmatrix}
+\operatorname{rref}(\mat{A})=
+\left[
+\begin{array}{cccc}
+\bbox[3px,border:2px solid teal]{\begin{matrix}1\\0\\0\end{matrix}}
+&\begin{matrix}2\\0\\0\end{matrix}
+&\bbox[3px,border:2px solid teal]{\begin{matrix}0\\1\\0\end{matrix}}
+&\begin{matrix}2\\1\\0\end{matrix}
+\end{array}
+\right]
 $$
 
-$\mat{R}$ is the [RREF]({{< meta decks.d01.file >}}#reduced-row-echelon-form): pivots $1$, zeros elsewhere in each pivot column
+The [RREF]({{< meta decks.d01.file >}}#reduced-row-echelon-form) has pivots $1$ and zeros elsewhere in each pivot column
 
 Pivot columns: $1,3$; free variables: $x_2,x_4$
+
+The boxed columns are $\vct{e}_1,\vct{e}_2$: the first two columns of $\mat{I}_3$
 
 $$
 \operatorname{rank}(\mat{A})=2
@@ -179,7 +184,9 @@ $$
 Subtract twice the first row from the second and the first row from the third
 to get $(0,0,-2,-2)$ and $(0,0,1,1)$. Keep the latter as pivot row, eliminate
 the former, then subtract the pivot row from the first row. This gives the
-displayed reduced matrix.
+displayed reduced matrix. The teal outlines mark whole pivot columns,
+including their trailing zero entries. They are the first two columns of I_3;
+the same selected columns in the nonzero-row factor R form I_2.
 :::
 
 ## Column and row bases come from different matrices {#column-and-row-bases-come-from-different-matrices}
@@ -210,7 +217,7 @@ Row reduction preserves the row space but generally changes the column space
 
 ## Free variables build a basis for the null space {#free-variables-build-a-basis-for-the-null-space}
 
-Row operations preserve solutions: $\mat{A}\vct{x}=\vct{0}\iff\mat{R}\vct{x}=\vct{0}$
+Row operations preserve solutions: $\mat{A}\vct{x}=\vct{0}\iff\operatorname{rref}(\mat{A})\vct{x}=\vct{0}$
 
 For the running $3\times4$ matrix, the free variables are $x_2,x_4$:
 
@@ -461,19 +468,22 @@ $$
 1&2&2&4
 \end{bmatrix}
 \quad\longrightarrow\quad
-\mat{R}=\begin{bmatrix}
-1&2&0&2\\
-0&0&1&1\\
-0&0&0&0
-\end{bmatrix}
+\operatorname{rref}(\mat{A})=\left[
+\begin{array}{cccc}
+\bbox[3px,border:2px solid teal]{\begin{matrix}1\\0\\0\end{matrix}}
+&\begin{matrix}2\\0\\0\end{matrix}
+&\bbox[3px,border:2px solid teal]{\begin{matrix}0\\1\\0\end{matrix}}
+&\begin{matrix}2\\1\\0\end{matrix}
+\end{array}
+\right]
 $$
 
-$\mat{R}$ is the [RREF]({{< meta decks.d01.file >}}#reduced-row-echelon-form) of $\mat{A}$; pivot columns are $1$ and $3$
+The [RREF]({{< meta decks.d01.file >}}#reduced-row-echelon-form) has pivot columns $1$ and $3$
 
 ## Rank factorization keeps the independent columns and rows {#rank-factorization-keeps-the-independent-columns-and-rows}
 
 For the running $3\times4$ matrix, take original columns $1,3$ for $\mat{C}$
-and the two nonzero RREF rows for $\mat{R}_r$:
+and the two nonzero RREF rows for $\mat{R}$:
 
 $$
 \mat{C}=
@@ -483,46 +493,52 @@ $$
 1&2
 \end{bmatrix},
 \qquad
-\mat{R}_r=
-\begin{bmatrix}
-1&2&0&2\\
-0&0&1&1
-\end{bmatrix}
+\mat{R}=
+\left[
+\begin{array}{cccc}
+\bbox[3px,border:2px solid teal]{\begin{matrix}1\\0\end{matrix}}
+&\begin{matrix}2\\0\end{matrix}
+&\bbox[3px,border:2px solid teal]{\begin{matrix}0\\1\end{matrix}}
+&\begin{matrix}2\\1\end{matrix}
+\end{array}
+\right]
 $$
 
-Row operations preserve column relations; the identity pivot columns make
-$\mat{R}_r$ the coefficient matrix:
+Row operations preserve column relations; the boxed columns form $\mat{I}_2$,
+making $\mat{R}$ the coefficient matrix:
 
 $$
-\mat{A}=\mat{C}\mat{R}_r
+\mat{A}=\mat{C}\mat{R},
+\qquad
+\operatorname{rref}(\mat{A})=\begin{bmatrix}\mat{R}\\\mat{0}\end{bmatrix}
 $$
 
 ::: {.key-point}
 The columns of $\mat{C}$ form a basis for $\operatorname{Col}(\mat{A})$
 
-The rows of $\mat{R}_r$ form a basis for $\operatorname{Row}(\mat{A})$
+The rows of $\mat{R}$ form a basis for $\operatorname{Row}(\mat{A})$
 :::
 
 ---
 
 ### Row operations preserve column relations {#row-operations-preserve-column-relations}
 
-Let $\mat{R}$ be obtained from $\mat{A}\in\reals^{m\times n}$ by reversible row operations
+Let $\mat{B}$ be obtained from $\mat{A}\in\reals^{m\times n}$ by reversible row operations
 
 For any coefficient vector $\vct{c}\in\reals^n$, the homogeneous solutions stay the same:
 
 $$
 \mat{A}\vct{c}=\vct{0}
 \quad\Longleftrightarrow\quad
-\mat{R}\vct{c}=\vct{0}
+\mat{B}\vct{c}=\vct{0}
 $$
 
-Write $\vct{A}_j,\vct{R}_j$ for column $j$ of each matrix; matrix–vector multiplication gives
+Write $\vct{A}_j,\vct{B}_j$ for column $j$ of each matrix; matrix–vector multiplication gives
 
 $$
 \sum_{j=1}^n c_j\vct{A}_j=\vct{0}
 \quad\Longleftrightarrow\quad
-\sum_{j=1}^n c_j\vct{R}_j=\vct{0}
+\sum_{j=1}^n c_j\vct{B}_j=\vct{0}
 $$
 
 Move any column relation to one side to apply this zero test
@@ -535,7 +551,7 @@ Every column relation survives elimination with the same coefficients
 Each elementary row operation preserves the entire solution set of a
 homogeneous system, and its inverse gives the reverse implication. Since
 A c is the sum of c_j A_j, the same coefficients c describe exactly the same
-zero relations in A and R. In particular, move A_j minus a proposed
+zero relations in A and B. In particular, move A_j minus a proposed
 combination of selected columns to the left. The corresponding relation is
 zero before reduction if and only if it is zero after reduction. This
 argument applies even when column j is one of the selected columns.
@@ -545,19 +561,19 @@ argument applies even when column j is one of the selected columns.
 
 ### Why the rank-factorization recipe works {#why-the-rank-factorization-recipe-works}
 
-Let $\mat{R}$ be the RREF of $\mat{A}\in\reals^{m\times n}$, of rank $r$
+For $\mat{A}\in\reals^{m\times n}$ of rank $r$, let $\mat{B}=\operatorname{rref}(\mat{A})$
 
 List pivot indices left to right: $p_1<\cdots<p_r$
 
-Use $\mat{C}=[\vct{A}_{p_1}\ \cdots\ \vct{A}_{p_r}]\in\reals^{m\times r}$; collect the nonzero rows in $\mat{R}_r\in\reals^{r\times n}$
+Use $\mat{C}=[\vct{A}_{p_1}\ \cdots\ \vct{A}_{p_r}]\in\reals^{m\times r}$; collect the nonzero rows in $\mat{R}\in\reals^{r\times n}$
 
-Let $\vct{d}_j\in\reals^r$ be column $j$ of $\mat{R}_r$; $\mat{R}$ has $m-r$ trailing zero rows
+Let $\vct{d}_j\in\reals^r$ be column $j$ of $\mat{R}$; $\mat{B}$ has $m-r$ trailing zero rows
 
 RREF pivot columns have a single $1$, so
 
 $$
-\vct{R}_j=\begin{bmatrix}\vct{d}_j\\\vct{0}\end{bmatrix}
-=\sum_{\ell=1}^r (\vct{d}_j)_\ell\vct{R}_{p_\ell}
+\vct{B}_j=\begin{bmatrix}\vct{d}_j\\\vct{0}\end{bmatrix}
+=\sum_{\ell=1}^r (\vct{d}_j)_\ell\vct{B}_{p_\ell}
 $$
 
 Undo the row operations, preserving those coefficients:
@@ -568,27 +584,27 @@ $$
 $$
 
 ::: {.key-point}
-This holds for every column $j$, so $\mat{A}=\mat{C}\mat{R}_r$
+This holds for every column $j$, so $\mat{A}=\mat{C}\mat{R}$
 :::
 
 ::: {.notes}
-The r nonzero rows of R come first, followed by m-r zero rows. Its selected
+B contains the r nonzero rows of R, followed by m-r zero rows. Its selected
 pivot column p_l is [e_l;0], where e_l is the lth standard basis vector in
 R^r. Thus any reduced column is the combination of these pivot columns with
 coefficients given by its top r entries. The preceding slide proves that
 reversing row reduction restores A's columns with those same coefficients.
-Collect d_j as the columns of R_r to obtain A=C R_r.
+Collect d_j as the columns of R to obtain A=C R.
 
 C has r independent columns because their reduced versions are independent
 unit columns and row reduction preserves dependence relations. The r rows
-of R_r are independent because their pivot-column block is I_r. Row
+of R are independent because their pivot-column block is I_r. Row
 operations preserve the row space, so those rows span Row(A). Consequently
-Col(C)=Col(A), Row(R_r)=Row(A), and both factors have rank r.
+Col(C)=Col(A), Row(R)=Row(A), and both factors have rank r.
 
 An equivalent matrix proof uses the invertible row-operation product M:
-M A=R=[R_r;0] and M C=[I_r;0]. Then
-M(C R_r)=[I_r;0] R_r=[R_r;0]=M A. Multiply by M^{-1}.
-For rank zero A is the zero matrix; the empty-column C and empty-row R_r
+M A=B=rref(A)=[R;0] and M C=[I_r;0]. Then
+M(C R)=[I_r;0] R=[R;0]=M A. Multiply by M^{-1}.
+For rank zero A is the zero matrix; the empty-column C and empty-row R
 give the zero product. If m=r, the displayed bottom zero block is empty.
 :::
 
@@ -605,26 +621,29 @@ $$
 0&0&0&0
 \end{bmatrix}
 \xrightarrow{R_1\leftarrow R_1-R_2}
-\mat{R}=\begin{bmatrix}
-1&2&0&2\\
-0&0&1&1\\
-0&0&0&0
-\end{bmatrix}
+\operatorname{rref}(\mat{A})=\left[
+\begin{array}{cccc}
+\bbox[3px,border:2px solid teal]{\begin{matrix}1\\0\\0\end{matrix}}
+&\begin{matrix}2\\0\\0\end{matrix}
+&\bbox[3px,border:2px solid teal]{\begin{matrix}0\\1\\0\end{matrix}}
+&\begin{matrix}2\\1\\0\end{matrix}
+\end{array}
+\right]
 $$
 
 - Either form identifies original columns $1,3$ as a column-space basis
 - The nonzero rows of either form give a row-space basis
-- Pivot columns $1,3$ of the nonzero-row block $\mat{R}_r$ form $\mat{I}_2$: unit coefficients for the selected columns
+- Remove the zero row from the boxed pivot columns to obtain $\mat{I}_2$ in $\mat{R}$
 
 ::: {.key-point}
-For the direct formula $\mat{A}=\mat{C}\mat{R}_r$, use the nonzero RREF rows
+For the direct formula $\mat{A}=\mat{C}\mat{R}$, use the nonzero RREF rows
 :::
 
 ::: {.notes}
 Echelon form is enough for both pivot-column extraction and a nonzero-row
 basis. Back substitution also finds null-space bases. RREF is not necessary
 for the existence of rank factorization. It is necessary for the particular
-shortcut used here: choose C as the original pivot columns and take R_r
+shortcut used here: choose C as the original pivot columns and take R
 directly from the reduced rows. E's pivot columns in its first two rows form
 the matrix [[1,1],[0,1]], whereas R's form I_2. Thus the nonzero rows E_r
 are not the coefficient matrix for these selected original columns. One can
@@ -642,10 +661,17 @@ $$
 \mat{C}=[\vct{C}_1\ \vct{C}_2]
 =\begin{bmatrix}1&1\\2&0\\1&2\end{bmatrix},
 \qquad
-\mat{R}_r=\begin{bmatrix}1&2&0&2\\0&0&1&1\end{bmatrix}
+\mat{R}=\left[
+\begin{array}{cccc}
+\bbox[3px,border:2px solid teal]{\begin{matrix}1\\0\end{matrix}}
+&\begin{matrix}2\\0\end{matrix}
+&\bbox[3px,border:2px solid teal]{\begin{matrix}0\\1\end{matrix}}
+&\begin{matrix}2\\1\end{matrix}
+\end{array}
+\right]
 $$
 
-The columns of $\mat{R}_r$ give the coefficients, just as in
+The columns of $\mat{R}$ give the coefficients, just as in
 [the matrix product by columns in {{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#matrix-matrix-multiplication-collects-dot-products):
 
 $$
@@ -657,16 +683,16 @@ $$
 \end{aligned}
 $$
 
-Thus $\mat{C}\mat{R}_r$ rebuilds all four columns of $\mat{A}$
+Thus $\mat{C}\mat{R}$ rebuilds all four columns of $\mat{A}$
 
 ::: {.key-point}
 For the ordered column-space basis $\mathcal{C}=(\vct{C}_1,\vct{C}_2)$,
 
 $$
-[\mat{A}\vct{x}]_{\mathcal{C}}=\mat{R}_r\vct{x}
+[\mat{A}\vct{x}]_{\mathcal{C}}=\mat{R}\vct{x}
 $$
 
-$\mat{R}_r\vct{x}$ gives the coordinates; $\mat{C}$ rebuilds the output
+$\mat{R}\vct{x}$ gives the coordinates; $\mat{C}$ rebuilds the output
 :::
 
 ---
@@ -675,7 +701,7 @@ $\mat{R}_r\vct{x}$ gives the coordinates; $\mat{C}$ rebuilds the output
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
-<span>For each matrix $\mat{M}$ below, find $\mat{C}$ and $\mat{R}_r$ with $\mat{M}=\mat{C}\mat{R}_r$
+<span>For each matrix $\mat{M}$ below, find $\mat{C}$ and $\mat{R}$ with $\mat{M}=\mat{C}\mat{R}$
 <span class="exsub">$\displaystyle\mat{B}=\begin{bmatrix}1&2&0\\0&0&1\\1&2&1\end{bmatrix}$</span>
 <span class="exsub">$\displaystyle\mat{D}=\begin{bmatrix}1&0&2&3\\2&1&4&7\end{bmatrix}$</span>
 </span>
@@ -686,11 +712,11 @@ For each factorization, identify bases for the row and column spaces
 ::: {.notes}
 For $\mat{B}$, use columns $1$ and $3$:
 $\mat{C}=\begin{bmatrix}1&0\\0&1\\1&1\end{bmatrix}$ and
-$\mat{R}_r=\begin{bmatrix}1&2&0\\0&0&1\end{bmatrix}$.
+$\mat{R}=\begin{bmatrix}1&2&0\\0&0&1\end{bmatrix}$.
 For $\mat{D}$, use columns $1$ and $2$:
 $\mat{C}=\begin{bmatrix}1&0\\2&1\end{bmatrix}$ and
-$\mat{R}_r=\begin{bmatrix}1&0&2&3\\0&1&0&1\end{bmatrix}$.
-The columns of each $\mat{C}$ and rows of each $\mat{R}_r$ give the requested
+$\mat{R}=\begin{bmatrix}1&0&2&3\\0&1&0&1\end{bmatrix}$.
+The columns of each $\mat{C}$ and rows of each $\mat{R}$ give the requested
 bases.
 :::
 
@@ -942,7 +968,7 @@ Eigenvectors are basis candidates adapted to the action of a matrix
 
 - [Vector Spaces and Span]({{< meta decks.d06.file >}}#span-is-the-subspace-generated-by-chosen-vectors) — matrices, polynomials, functions; subspace closure; column spans as $\mat{V}\vct{c}$
 - [Bases and Coordinates]({{< meta decks.d06b.file >}}#a-basis-gives-every-vector-unique-coordinates) — spanning gives existence; independence gives uniqueness; dimension counts basis vectors
-- [Matrix Spaces and Rank](#rank-factorization-keeps-the-independent-columns-and-rows) — $\mat{A}=\mat{C}\mat{R}_r$: column/row bases; $r=\operatorname{rank}(\mat{A})$; four spaces in orthogonal pairs
+- [Matrix Spaces and Rank](#rank-factorization-keeps-the-independent-columns-and-rows) — $\mat{A}=\mat{C}\mat{R}$: column/row bases; $r=\operatorname{rank}(\mat{A})$; four spaces in orthogonal pairs
 :::
 :::
 

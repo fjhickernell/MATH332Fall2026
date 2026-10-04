@@ -464,6 +464,10 @@ calendar unchanged and check again later.
   compatibility. The How Far synthesis should carry these connections
   forward with meaningful equations and conditions, rather than only a
   history of deck titles.
+- In rank factorization, write `A=CR`: `C` contains the original pivot
+  columns and `R` the nonzero RREF rows. Write the full reduced matrix as
+  `rref(A)=[R;0]`; keep `U` for the upper triangular factor in PLU. These
+  are local roles in this topic; existing rotation notation remains valid.
 - RevealJS hierarchy exception: inside a `#` section slide, use an HTML `<h3>`
   for a visible tertiary heading because Quarto `###` does not render there as
   intended. Inside a `##` slide, ordinary Quarto `###` headings work normally.

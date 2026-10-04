@@ -1091,14 +1091,17 @@ $$
 0&0&0&0
 \end{bmatrix}
 \xrightarrow{R_1\leftarrow R_1-R_2}
-\begin{bmatrix}
-1&2&0&2\\
-0&0&1&1\\
-0&0&0&0
-\end{bmatrix}
+\left[
+\begin{array}{cccc}
+\bbox[3px,border:2px solid teal]{\begin{matrix}1\\0\\0\end{matrix}}
+&\begin{matrix}2\\0\\0\end{matrix}
+&\bbox[3px,border:2px solid teal]{\begin{matrix}0\\1\\0\end{matrix}}
+&\begin{matrix}2\\1\\0\end{matrix}
+\end{array}
+\right]
 $$
 
-Here the pivots are in columns $1,3$; nonpivot columns $2,4$ remain nonzero
+Here the boxed pivot columns are $1,3$; nonpivot columns $2,4$ remain nonzero
 
 ::: {.key-point}
 Gauss–Jordan is the reduction process; RREF is its resulting form

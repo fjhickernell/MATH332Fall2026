@@ -36,19 +36,26 @@ Gauss–Jordan process. A returning-reader pass replaced fourteen vague
 lead-ins with compact cues about coefficients, membership, coordinate roles,
 and factor/basis dimensions; no slides or recap blocks were added. All eleven
 decks and the website rerender successfully; the changed layouts and local
-links pass. These follow-ups are included in this Checkpoint; its new remote
-deployment remains unverified.
+links pass. These follow-ups were published in `3233d9b`; its build and Pages
+deployment succeeded.
 
 The latest follow-up enriches the cumulative summaries in Euclidean
 Spaces and the three split decks. It carries systems and all solutions,
 geometry, reusable factors, abstract spans, and basis/coordinate connections
-forward. Two new continuation slides prove the A=C R_r extraction recipe;
-C's columns and R_r's rows are explicitly identified as the corresponding
-bases. The numerical check explains that R_r x gives the coordinates of A x
+forward. Two new continuation slides prove the A=C R extraction recipe;
+C's columns and R's rows are explicitly identified as the corresponding
+bases. The numerical check explains that R x gives the coordinates of A x
 in C's ordered column-space basis. The rank closing states both compatibility
 tests and x=x_p+N t with n-r free parameters. All four affected decks render;
 the nine changed/new slides pass visible layout review and the assembled-site
 links/anchors pass. Details and current counts are in CHAPTER4-AUDIT.md.
+
+Rank-factorization notation now reserves R for the nonzero-row factor in
+A=C R, writes the full reduced matrix as rref(A), and keeps U for PLU.
+Teal boxes mark the running example's pivot columns in the RREF definition
+and rank deck; matching boxes in R expose I_2 after removing the zero row.
+The notation and boxes are included in this Checkpoint; its new remote
+deployment remains unverified.
 
 Continue instructor-led content review of the three decks and companion-
 notebook planning. Keep exercise answers in presenter notes. Fourier modes
