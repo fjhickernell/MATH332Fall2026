@@ -839,20 +839,24 @@ Output: <span class="math inline">\(\reals^m\)</span>
 1&amp;2&amp;2&amp;4
 \end{bmatrix}
 \quad\longrightarrow\quad
-\mat{R}=
-\begin{bmatrix}
-1&amp;2&amp;0&amp;2\\
-0&amp;0&amp;1&amp;1\\
-0&amp;0&amp;0&amp;0
-\end{bmatrix}
+\operatorname{rref}(\mat{A})=
+\left[
+\begin{array}{cccc}
+\bbox[3px,border:2px solid teal]{\begin{matrix}1\\0\\0\end{matrix}}
+&amp;\begin{matrix}2\\0\\0\end{matrix}
+&amp;\bbox[3px,border:2px solid teal]{\begin{matrix}0\\1\\0\end{matrix}}
+&amp;\begin{matrix}2\\1\\0\end{matrix}
+\end{array}
+\right]
 \]</span></p>
-<p><span class="math inline">\(\mat{R}\)</span> is the <a href="01-systems-and-matrices.html#reduced-row-echelon-form">RREF</a>: pivots <span class="math inline">\(1\)</span>, zeros elsewhere in each pivot column</p>
+<p>The <a href="01-systems-and-matrices.html#reduced-row-echelon-form">RREF</a> has pivots <span class="math inline">\(1\)</span> and zeros elsewhere in each pivot column</p>
 <p>Pivot columns: <span class="math inline">\(1,3\)</span>; free variables: <span class="math inline">\(x_2,x_4\)</span></p>
+<p>The boxed columns are <span class="math inline">\(\vct{e}_1,\vct{e}_2\)</span>: the first two columns of <span class="math inline">\(\mat{I}_3\)</span></p>
 <p><span class="math display">\[
 \operatorname{rank}(\mat{A})=2
 \]</span></p>
 <aside class="notes">
-<p>Subtract twice the first row from the second and the first row from the third to get <span class="math inline">\((0,0,-2,-2)\)</span> and <span class="math inline">\((0,0,1,1)\)</span>. Keep the latter as pivot row, eliminate the former, then subtract the pivot row from the first row. This gives the displayed reduced matrix.</p>
+<p>Subtract twice the first row from the second and the first row from the third to get <span class="math inline">\((0,0,-2,-2)\)</span> and <span class="math inline">\((0,0,1,1)\)</span>. Keep the latter as pivot row, eliminate the former, then subtract the pivot row from the first row. This gives the displayed reduced matrix. The teal outlines mark whole pivot columns, including their trailing zero entries. They are the first two columns of I_3; the same selected columns in the nonzero-row factor R form I_2.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -888,7 +892,7 @@ Output: <span class="math inline">\(\reals^m\)</span>
 </section>
 <section id="free-variables-build-a-basis-for-the-null-space" class="slide level2">
 <h2>Free variables build a basis for the null space</h2>
-<p>Row operations preserve solutions: <span class="math inline">\(\mat{A}\vct{x}=\vct{0}\iff\mat{R}\vct{x}=\vct{0}\)</span></p>
+<p>Row operations preserve solutions: <span class="math inline">\(\mat{A}\vct{x}=\vct{0}\iff\operatorname{rref}(\mat{A})\vct{x}=\vct{0}\)</span></p>
 <p>For the running <span class="math inline">\(3\times4\)</span> matrix, the free variables are <span class="math inline">\(x_2,x_4\)</span>:</p>
 <p><span class="math display">\[
 x_1=-2x_2-2x_4,
@@ -1135,17 +1139,20 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 1&amp;2&amp;2&amp;4
 \end{bmatrix}
 \quad\longrightarrow\quad
-\mat{R}=\begin{bmatrix}
-1&amp;2&amp;0&amp;2\\
-0&amp;0&amp;1&amp;1\\
-0&amp;0&amp;0&amp;0
-\end{bmatrix}
+\operatorname{rref}(\mat{A})=\left[
+\begin{array}{cccc}
+\bbox[3px,border:2px solid teal]{\begin{matrix}1\\0\\0\end{matrix}}
+&amp;\begin{matrix}2\\0\\0\end{matrix}
+&amp;\bbox[3px,border:2px solid teal]{\begin{matrix}0\\1\\0\end{matrix}}
+&amp;\begin{matrix}2\\1\\0\end{matrix}
+\end{array}
+\right]
 \]</span></p>
-<p><span class="math inline">\(\mat{R}\)</span> is the <a href="01-systems-and-matrices.html#reduced-row-echelon-form">RREF</a> of <span class="math inline">\(\mat{A}\)</span>; pivot columns are <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span></p>
+<p>The <a href="01-systems-and-matrices.html#reduced-row-echelon-form">RREF</a> has pivot columns <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span></p>
 </section>
 <section id="rank-factorization-keeps-the-independent-columns-and-rows" class="slide level2">
 <h2>Rank factorization keeps the independent columns and rows</h2>
-<p>For the running <span class="math inline">\(3\times4\)</span> matrix, take original columns <span class="math inline">\(1,3\)</span> for <span class="math inline">\(\mat{C}\)</span> and the two nonzero RREF rows for <span class="math inline">\(\mat{R}_r\)</span>:</p>
+<p>For the running <span class="math inline">\(3\times4\)</span> matrix, take original columns <span class="math inline">\(1,3\)</span> for <span class="math inline">\(\mat{C}\)</span> and the two nonzero RREF rows for <span class="math inline">\(\mat{R}\)</span>:</p>
 <p><span class="math display">\[
 \mat{C}=
 \begin{bmatrix}
@@ -1154,43 +1161,49 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 1&amp;2
 \end{bmatrix},
 \qquad
-\mat{R}_r=
-\begin{bmatrix}
-1&amp;2&amp;0&amp;2\\
-0&amp;0&amp;1&amp;1
-\end{bmatrix}
+\mat{R}=
+\left[
+\begin{array}{cccc}
+\bbox[3px,border:2px solid teal]{\begin{matrix}1\\0\end{matrix}}
+&amp;\begin{matrix}2\\0\end{matrix}
+&amp;\bbox[3px,border:2px solid teal]{\begin{matrix}0\\1\end{matrix}}
+&amp;\begin{matrix}2\\1\end{matrix}
+\end{array}
+\right]
 \]</span></p>
-<p>Row operations preserve column relations; the identity pivot columns make <span class="math inline">\(\mat{R}_r\)</span> the coefficient matrix:</p>
+<p>Row operations preserve column relations; the boxed columns form <span class="math inline">\(\mat{I}_2\)</span>, making <span class="math inline">\(\mat{R}\)</span> the coefficient matrix:</p>
 <p><span class="math display">\[
-\mat{A}=\mat{C}\mat{R}_r
+\mat{A}=\mat{C}\mat{R},
+\qquad
+\operatorname{rref}(\mat{A})=\begin{bmatrix}\mat{R}\\\mat{0}\end{bmatrix}
 \]</span></p>
 <div class="key-point">
 <p>The columns of <span class="math inline">\(\mat{C}\)</span> form a basis for <span class="math inline">\(\operatorname{Col}(\mat{A})\)</span></p>
-<p>The rows of <span class="math inline">\(\mat{R}_r\)</span> form a basis for <span class="math inline">\(\operatorname{Row}(\mat{A})\)</span></p>
+<p>The rows of <span class="math inline">\(\mat{R}\)</span> form a basis for <span class="math inline">\(\operatorname{Row}(\mat{A})\)</span></p>
 </div>
 </section>
 <section class="slide level2">
 
 <h3 id="row-operations-preserve-column-relations">Row operations preserve column relations</h3>
-<p>Let <span class="math inline">\(\mat{R}\)</span> be obtained from <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span> by reversible row operations</p>
+<p>Let <span class="math inline">\(\mat{B}\)</span> be obtained from <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span> by reversible row operations</p>
 <p>For any coefficient vector <span class="math inline">\(\vct{c}\in\reals^n\)</span>, the homogeneous solutions stay the same:</p>
 <p><span class="math display">\[
 \mat{A}\vct{c}=\vct{0}
 \quad\Longleftrightarrow\quad
-\mat{R}\vct{c}=\vct{0}
+\mat{B}\vct{c}=\vct{0}
 \]</span></p>
-<p>Write <span class="math inline">\(\vct{A}_j,\vct{R}_j\)</span> for column <span class="math inline">\(j\)</span> of each matrix; matrix–vector multiplication gives</p>
+<p>Write <span class="math inline">\(\vct{A}_j,\vct{B}_j\)</span> for column <span class="math inline">\(j\)</span> of each matrix; matrix–vector multiplication gives</p>
 <p><span class="math display">\[
 \sum_{j=1}^n c_j\vct{A}_j=\vct{0}
 \quad\Longleftrightarrow\quad
-\sum_{j=1}^n c_j\vct{R}_j=\vct{0}
+\sum_{j=1}^n c_j\vct{B}_j=\vct{0}
 \]</span></p>
 <p>Move any column relation to one side to apply this zero test</p>
 <div class="key-point">
 <p>Every column relation survives elimination with the same coefficients</p>
 </div>
 <aside class="notes">
-<p>Each elementary row operation preserves the entire solution set of a homogeneous system, and its inverse gives the reverse implication. Since A c is the sum of c_j A_j, the same coefficients c describe exactly the same zero relations in A and R. In particular, move A_j minus a proposed combination of selected columns to the left. The corresponding relation is zero before reduction if and only if it is zero after reduction. This argument applies even when column j is one of the selected columns.</p>
+<p>Each elementary row operation preserves the entire solution set of a homogeneous system, and its inverse gives the reverse implication. Since A c is the sum of c_j A_j, the same coefficients c describe exactly the same zero relations in A and B. In particular, move A_j minus a proposed combination of selected columns to the left. The corresponding relation is zero before reduction if and only if it is zero after reduction. This argument applies even when column j is one of the selected columns.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1206,14 +1219,14 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 <section class="slide level2">
 
 <h3 id="why-the-rank-factorization-recipe-works">Why the rank-factorization recipe works</h3>
-<p>Let <span class="math inline">\(\mat{R}\)</span> be the RREF of <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, of rank <span class="math inline">\(r\)</span></p>
+<p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span> of rank <span class="math inline">\(r\)</span>, let <span class="math inline">\(\mat{B}=\operatorname{rref}(\mat{A})\)</span></p>
 <p>List pivot indices left to right: <span class="math inline">\(p_1&lt;\cdots&lt;p_r\)</span></p>
-<p>Use <span class="math inline">\(\mat{C}=[\vct{A}_{p_1}\ \cdots\ \vct{A}_{p_r}]\in\reals^{m\times r}\)</span>; collect the nonzero rows in <span class="math inline">\(\mat{R}_r\in\reals^{r\times n}\)</span></p>
-<p>Let <span class="math inline">\(\vct{d}_j\in\reals^r\)</span> be column <span class="math inline">\(j\)</span> of <span class="math inline">\(\mat{R}_r\)</span>; <span class="math inline">\(\mat{R}\)</span> has <span class="math inline">\(m-r\)</span> trailing zero rows</p>
+<p>Use <span class="math inline">\(\mat{C}=[\vct{A}_{p_1}\ \cdots\ \vct{A}_{p_r}]\in\reals^{m\times r}\)</span>; collect the nonzero rows in <span class="math inline">\(\mat{R}\in\reals^{r\times n}\)</span></p>
+<p>Let <span class="math inline">\(\vct{d}_j\in\reals^r\)</span> be column <span class="math inline">\(j\)</span> of <span class="math inline">\(\mat{R}\)</span>; <span class="math inline">\(\mat{B}\)</span> has <span class="math inline">\(m-r\)</span> trailing zero rows</p>
 <p>RREF pivot columns have a single <span class="math inline">\(1\)</span>, so</p>
 <p><span class="math display">\[
-\vct{R}_j=\begin{bmatrix}\vct{d}_j\\\vct{0}\end{bmatrix}
-=\sum_{\ell=1}^r (\vct{d}_j)_\ell\vct{R}_{p_\ell}
+\vct{B}_j=\begin{bmatrix}\vct{d}_j\\\vct{0}\end{bmatrix}
+=\sum_{\ell=1}^r (\vct{d}_j)_\ell\vct{B}_{p_\ell}
 \]</span></p>
 <p>Undo the row operations, preserving those coefficients:</p>
 <p><span class="math display">\[
@@ -1221,12 +1234,12 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 =\mat{C}\vct{d}_j
 \]</span></p>
 <div class="key-point">
-<p>This holds for every column <span class="math inline">\(j\)</span>, so <span class="math inline">\(\mat{A}=\mat{C}\mat{R}_r\)</span></p>
+<p>This holds for every column <span class="math inline">\(j\)</span>, so <span class="math inline">\(\mat{A}=\mat{C}\mat{R}\)</span></p>
 </div>
 <aside class="notes">
-<p>The r nonzero rows of R come first, followed by m-r zero rows. Its selected pivot column p_l is [e_l;0], where e_l is the lth standard basis vector in R^r. Thus any reduced column is the combination of these pivot columns with coefficients given by its top r entries. The preceding slide proves that reversing row reduction restores A’s columns with those same coefficients. Collect d_j as the columns of R_r to obtain A=C R_r.</p>
-<p>C has r independent columns because their reduced versions are independent unit columns and row reduction preserves dependence relations. The r rows of R_r are independent because their pivot-column block is I_r. Row operations preserve the row space, so those rows span Row(A). Consequently Col(C)=Col(A), Row(R_r)=Row(A), and both factors have rank r.</p>
-<p>An equivalent matrix proof uses the invertible row-operation product M: M A=R=[R_r;0] and M C=[I_r;0]. Then M(C R_r)=[I_r;0] R_r=[R_r;0]=M A. Multiply by M^{-1}. For rank zero A is the zero matrix; the empty-column C and empty-row R_r give the zero product. If m=r, the displayed bottom zero block is empty.</p>
+<p>B contains the r nonzero rows of R, followed by m-r zero rows. Its selected pivot column p_l is [e_l;0], where e_l is the lth standard basis vector in R^r. Thus any reduced column is the combination of these pivot columns with coefficients given by its top r entries. The preceding slide proves that reversing row reduction restores A’s columns with those same coefficients. Collect d_j as the columns of R to obtain A=C R.</p>
+<p>C has r independent columns because their reduced versions are independent unit columns and row reduction preserves dependence relations. The r rows of R are independent because their pivot-column block is I_r. Row operations preserve the row space, so those rows span Row(A). Consequently Col(C)=Col(A), Row(R)=Row(A), and both factors have rank r.</p>
+<p>An equivalent matrix proof uses the invertible row-operation product M: M A=B=rref(A)=[R;0] and M C=[I_r;0]. Then M(C R)=[I_r;0] R=[R;0]=M A. Multiply by M^{-1}. For rank zero A is the zero matrix; the empty-column C and empty-row R give the zero product. If m=r, the displayed bottom zero block is empty.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1250,22 +1263,25 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 0&amp;0&amp;0&amp;0
 \end{bmatrix}
 \xrightarrow{R_1\leftarrow R_1-R_2}
-\mat{R}=\begin{bmatrix}
-1&amp;2&amp;0&amp;2\\
-0&amp;0&amp;1&amp;1\\
-0&amp;0&amp;0&amp;0
-\end{bmatrix}
+\operatorname{rref}(\mat{A})=\left[
+\begin{array}{cccc}
+\bbox[3px,border:2px solid teal]{\begin{matrix}1\\0\\0\end{matrix}}
+&amp;\begin{matrix}2\\0\\0\end{matrix}
+&amp;\bbox[3px,border:2px solid teal]{\begin{matrix}0\\1\\0\end{matrix}}
+&amp;\begin{matrix}2\\1\\0\end{matrix}
+\end{array}
+\right]
 \]</span></p>
 <ul>
 <li>Either form identifies original columns <span class="math inline">\(1,3\)</span> as a column-space basis</li>
 <li>The nonzero rows of either form give a row-space basis</li>
-<li>Pivot columns <span class="math inline">\(1,3\)</span> of the nonzero-row block <span class="math inline">\(\mat{R}_r\)</span> form <span class="math inline">\(\mat{I}_2\)</span>: unit coefficients for the selected columns</li>
+<li>Remove the zero row from the boxed pivot columns to obtain <span class="math inline">\(\mat{I}_2\)</span> in <span class="math inline">\(\mat{R}\)</span></li>
 </ul>
 <div class="key-point">
-<p>For the direct formula <span class="math inline">\(\mat{A}=\mat{C}\mat{R}_r\)</span>, use the nonzero RREF rows</p>
+<p>For the direct formula <span class="math inline">\(\mat{A}=\mat{C}\mat{R}\)</span>, use the nonzero RREF rows</p>
 </div>
 <aside class="notes">
-<p>Echelon form is enough for both pivot-column extraction and a nonzero-row basis. Back substitution also finds null-space bases. RREF is not necessary for the existence of rank factorization. It is necessary for the particular shortcut used here: choose C as the original pivot columns and take R_r directly from the reduced rows. E’s pivot columns in its first two rows form the matrix [[1,1],[0,1]], whereas R’s form I_2. Thus the nonzero rows E_r are not the coefficient matrix for these selected original columns. One can instead use E_p^{-1} E_r, where E_p is that invertible pivot-column block; clearing above the pivots performs exactly that normalization here.</p>
+<p>Echelon form is enough for both pivot-column extraction and a nonzero-row basis. Back substitution also finds null-space bases. RREF is not necessary for the existence of rank factorization. It is necessary for the particular shortcut used here: choose C as the original pivot columns and take R directly from the reduced rows. E’s pivot columns in its first two rows form the matrix [[1,1],[0,1]], whereas R’s form I_2. Thus the nonzero rows E_r are not the coefficient matrix for these selected original columns. One can instead use E_p^{-1} E_r, where E_p is that invertible pivot-column block; clearing above the pivots performs exactly that normalization here.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1285,9 +1301,16 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 \mat{C}=[\vct{C}_1\ \vct{C}_2]
 =\begin{bmatrix}1&amp;1\\2&amp;0\\1&amp;2\end{bmatrix},
 \qquad
-\mat{R}_r=\begin{bmatrix}1&amp;2&amp;0&amp;2\\0&amp;0&amp;1&amp;1\end{bmatrix}
+\mat{R}=\left[
+\begin{array}{cccc}
+\bbox[3px,border:2px solid teal]{\begin{matrix}1\\0\end{matrix}}
+&amp;\begin{matrix}2\\0\end{matrix}
+&amp;\bbox[3px,border:2px solid teal]{\begin{matrix}0\\1\end{matrix}}
+&amp;\begin{matrix}2\\1\end{matrix}
+\end{array}
+\right]
 \]</span></p>
-<p>The columns of <span class="math inline">\(\mat{R}_r\)</span> give the coefficients, just as in <a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">the matrix product by columns in Systems and Matrices</a>:</p>
+<p>The columns of <span class="math inline">\(\mat{R}\)</span> give the coefficients, just as in <a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">the matrix product by columns in Systems and Matrices</a>:</p>
 <p><span class="math display">\[
 \begin{aligned}
 \vct{A}_1&amp;=\vct{C}_1 &amp;
@@ -1296,24 +1319,24 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 \vct{A}_4&amp;=2\vct{C}_1+\vct{C}_2
 \end{aligned}
 \]</span></p>
-<p>Thus <span class="math inline">\(\mat{C}\mat{R}_r\)</span> rebuilds all four columns of <span class="math inline">\(\mat{A}\)</span></p>
+<p>Thus <span class="math inline">\(\mat{C}\mat{R}\)</span> rebuilds all four columns of <span class="math inline">\(\mat{A}\)</span></p>
 <div class="key-point">
 <p>For the ordered column-space basis <span class="math inline">\(\mathcal{C}=(\vct{C}_1,\vct{C}_2)\)</span>,</p>
 <p><span class="math display">\[
-[\mat{A}\vct{x}]_{\mathcal{C}}=\mat{R}_r\vct{x}
+[\mat{A}\vct{x}]_{\mathcal{C}}=\mat{R}\vct{x}
 \]</span></p>
-<p><span class="math inline">\(\mat{R}_r\vct{x}\)</span> gives the coordinates; <span class="math inline">\(\mat{C}\)</span> rebuilds the output</p>
+<p><span class="math inline">\(\mat{R}\vct{x}\)</span> gives the coordinates; <span class="math inline">\(\mat{C}\)</span> rebuilds the output</p>
 </div>
 </section>
 <section class="slide level2">
 
 <h3 id="practice-constructing-rank-factorizations">Construct rank factorizations</h3>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>For each matrix <span class="math inline">\(\mat{M}\)</span> below, find <span class="math inline">\(\mat{C}\)</span> and <span class="math inline">\(\mat{R}_r\)</span> with <span class="math inline">\(\mat{M}=\mat{C}\mat{R}_r\)</span> <span class="exsub"><span class="math inline">\(\displaystyle\mat{B}=\begin{bmatrix}1&amp;2&amp;0\\0&amp;0&amp;1\\1&amp;2&amp;1\end{bmatrix}\)</span></span> <span class="exsub"><span class="math inline">\(\displaystyle\mat{D}=\begin{bmatrix}1&amp;0&amp;2&amp;3\\2&amp;1&amp;4&amp;7\end{bmatrix}\)</span></span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>For each matrix <span class="math inline">\(\mat{M}\)</span> below, find <span class="math inline">\(\mat{C}\)</span> and <span class="math inline">\(\mat{R}\)</span> with <span class="math inline">\(\mat{M}=\mat{C}\mat{R}\)</span> <span class="exsub"><span class="math inline">\(\displaystyle\mat{B}=\begin{bmatrix}1&amp;2&amp;0\\0&amp;0&amp;1\\1&amp;2&amp;1\end{bmatrix}\)</span></span> <span class="exsub"><span class="math inline">\(\displaystyle\mat{D}=\begin{bmatrix}1&amp;0&amp;2&amp;3\\2&amp;1&amp;4&amp;7\end{bmatrix}\)</span></span> </span></p>
 </div>
 <p>For each factorization, identify bases for the row and column spaces</p>
 <aside class="notes">
-<p>For <span class="math inline">\(\mat{B}\)</span>, use columns <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span>: <span class="math inline">\(\mat{C}=\begin{bmatrix}1&amp;0\\0&amp;1\\1&amp;1\end{bmatrix}\)</span> and <span class="math inline">\(\mat{R}_r=\begin{bmatrix}1&amp;2&amp;0\\0&amp;0&amp;1\end{bmatrix}\)</span>. For <span class="math inline">\(\mat{D}\)</span>, use columns <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>: <span class="math inline">\(\mat{C}=\begin{bmatrix}1&amp;0\\2&amp;1\end{bmatrix}\)</span> and <span class="math inline">\(\mat{R}_r=\begin{bmatrix}1&amp;0&amp;2&amp;3\\0&amp;1&amp;0&amp;1\end{bmatrix}\)</span>. The columns of each <span class="math inline">\(\mat{C}\)</span> and rows of each <span class="math inline">\(\mat{R}_r\)</span> give the requested bases.</p>
+<p>For <span class="math inline">\(\mat{B}\)</span>, use columns <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span>: <span class="math inline">\(\mat{C}=\begin{bmatrix}1&amp;0\\0&amp;1\\1&amp;1\end{bmatrix}\)</span> and <span class="math inline">\(\mat{R}=\begin{bmatrix}1&amp;2&amp;0\\0&amp;0&amp;1\end{bmatrix}\)</span>. For <span class="math inline">\(\mat{D}\)</span>, use columns <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>: <span class="math inline">\(\mat{C}=\begin{bmatrix}1&amp;0\\2&amp;1\end{bmatrix}\)</span> and <span class="math inline">\(\mat{R}=\begin{bmatrix}1&amp;0&amp;2&amp;3\\0&amp;1&amp;0&amp;1\end{bmatrix}\)</span>. The columns of each <span class="math inline">\(\mat{C}\)</span> and rows of each <span class="math inline">\(\mat{R}\)</span> give the requested bases.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1536,7 +1559,7 @@ Spaces and coordinates
 <ul>
 <li><a href="06-general-vector-spaces.html#span-is-the-subspace-generated-by-chosen-vectors">Vector Spaces and Span</a> — matrices, polynomials, functions; subspace closure; column spans as <span class="math inline">\(\mat{V}\vct{c}\)</span></li>
 <li><a href="06b-bases-dimension-and-coordinates.html#a-basis-gives-every-vector-unique-coordinates">Bases and Coordinates</a> — spanning gives existence; independence gives uniqueness; dimension counts basis vectors</li>
-<li><a href="#/rank-factorization-keeps-the-independent-columns-and-rows">Matrix Spaces and Rank</a> — <span class="math inline">\(\mat{A}=\mat{C}\mat{R}_r\)</span>: column/row bases; <span class="math inline">\(r=\operatorname{rank}(\mat{A})\)</span>; four spaces in orthogonal pairs</li>
+<li><a href="#/rank-factorization-keeps-the-independent-columns-and-rows">Matrix Spaces and Rank</a> — <span class="math inline">\(\mat{A}=\mat{C}\mat{R}\)</span>: column/row bases; <span class="math inline">\(r=\operatorname{rank}(\mat{A})\)</span>; four spaces in orthogonal pairs</li>
 </ul>
 </div></div>
 <div class="key-point">
