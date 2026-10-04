@@ -661,10 +661,10 @@ Course decks
 <li><a href="04-determinants.html">Determinants</a></li>
 <li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
 <li><a href="06-general-vector-spaces.html" class="current-deck" aria-current="page">Vector Spaces and Span</a></li>
-<li><a href="06b-bases-dimension-and-coordinates.html">Bases and Coordinates</a></li>
-<li><a href="06c-matrix-spaces-and-rank.html">Matrix Spaces and Rank</a></li>
-<li><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
-<li><a href="08-inner-product-spaces.html">Inner Products</a></li>
+<li><a href="07-bases-dimension-and-coordinates.html">Bases and Coordinates</a></li>
+<li><a href="08-matrix-spaces-and-rank.html">Matrix Spaces and Rank</a></li>
+<li><a href="09-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
+<li><a href="10-inner-product-spaces.html">Inner Products</a></li>
 </ul>
 </div>
 </div><div class="column" style="width:4%;">
@@ -1177,6 +1177,7 @@ W=\left\{t\begin{bmatrix}3\\1\end{bmatrix}:t\in\reals\right\}
 <li><a href="#/upper-triangular-matrices-form-a-subspace">Upper-triangular matrices form a subspace</a></li>
 <li><a href="#/homogeneous-systems-produce-subspaces">Homogeneous systems produce subspaces</a></li>
 </ul>
+<p>The <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/06-general-vector-spaces.ipynb">companion notebook</a> explores polynomial constraints, closure, and affine sets</p>
 </section>
 <section id="a-subspace-inherits-its-operations" class="slide level2">
 <h2>A subspace inherits its operations</h2>
@@ -1325,16 +1326,16 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 <h2>Homogeneous systems produce subspaces</h2>
 <p>The <span class="alert">null space</span> of an <span class="math inline">\(m\times n\)</span> matrix <span class="math inline">\(\mat{A}\)</span> is</p>
 <p><span class="math display">\[
-\operatorname{Null}(\mat{A})
+\operatorname{null}(\mat{A})
 =\{\vct{x}\in\reals^n:\mat{A}\vct{x}=\vct{0}\}
 \]</span></p>
-<p>If <span class="math inline">\(\vct{x},\vct{y}\in\operatorname{Null}(\mat{A})\)</span>, then</p>
+<p>If <span class="math inline">\(\vct{x},\vct{y}\in\operatorname{null}(\mat{A})\)</span>, then</p>
 <p><span class="math display">\[
 \mat{A}(c\vct{x}+d\vct{y})
 =c\mat{A}\vct{x}+d\mat{A}\vct{y}
 =\vct{0}
 \]</span></p>
-<p>If <span class="math inline">\(\mat{A}\vct{x}_p=\vct{b}\)</span>, the full solution set is <span class="math inline">\(\vct{x}_p+\operatorname{Null}(\mat{A})\)</span></p>
+<p>If <span class="math inline">\(\mat{A}\vct{x}_p=\vct{b}\)</span>, the full solution set is <span class="math inline">\(\vct{x}_p+\operatorname{null}(\mat{A})\)</span></p>
 <p>For <span class="math inline">\(\vct{b}\ne\vct{0}\)</span>, this affine set does not contain the zero vector</p>
 <p>This gives a name to the homogeneous solutions found by <a href="01-systems-and-matrices.html#read-the-solution-set">elimination in Systems and Matrices</a></p>
 <div class="key-point">
@@ -1587,7 +1588,7 @@ Systems and actions
 Directions and combinations
 </h3>
 <ul>
-<li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Euclidean Spaces</a> — point differences give directions; consistent solutions: <span class="math inline">\(\vct{x}_p+\operatorname{Null}(\mat{A})\)</span></li>
+<li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Euclidean Spaces</a> — point differences give directions; consistent solutions: <span class="math inline">\(\vct{x}_p+\operatorname{null}(\mat{A})\)</span></li>
 <li><a href="05-euclidean-vector-spaces.html#projection-finds-the-nearest-point-on-an-affine-line">Euclidean Spaces</a> — dot products test perpendicularity; 3D cross gives normals/areas; projection finds nearest points</li>
 <li><a href="06-general-vector-spaces.html#vectors-need-not-be-coordinate-columns">Vector Spaces and Span</a> — matrix, polynomial, function vectors; subspaces closed under linear combinations</li>
 </ul>
@@ -1601,7 +1602,7 @@ Directions and combinations
 <h1>What Comes Next</h1>
 <p>How can we remove redundant generators and describe each vector uniquely?</p>
 <div class="key-point">
-<p><a href="06b-bases-dimension-and-coordinates.html">Next: Bases, Dimension, and Coordinates</a></p>
+<p><a href="07-bases-dimension-and-coordinates.html">Next: Bases, Dimension, and Coordinates</a></p>
 </div>
 
 </section>
@@ -2163,7 +2164,7 @@ Directions and combinations
       </script>
     <script src="../classlib/classlib/quarto/slides/deck-nav-arrows.js"></script>
     <script id="deck-nav-meta" type="application/json">
-    {"deck_prev_file":"05-euclidean-vector-spaces.html","deck_prev_title":"Euclidean Vector Spaces","deck_next_file":"06b-bases-dimension-and-coordinates.html","deck_next_title":"Bases, Dimension, and Coordinates"}
+    {"deck_prev_file":"05-euclidean-vector-spaces.html","deck_prev_title":"Euclidean Vector Spaces","deck_next_file":"07-bases-dimension-and-coordinates.html","deck_next_title":"Bases, Dimension, and Coordinates"}
     </script>
     
 

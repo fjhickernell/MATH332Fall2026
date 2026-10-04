@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="06c-matrix-spaces-and-rank_files/libs/clipboard/clipboard.min.js"></script>
-<script src="06c-matrix-spaces-and-rank_files/libs/quarto-html/tabby.min.js"></script>
-<script src="06c-matrix-spaces-and-rank_files/libs/quarto-html/popper.min.js"></script>
-<script src="06c-matrix-spaces-and-rank_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="06c-matrix-spaces-and-rank_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="06c-matrix-spaces-and-rank_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="06c-matrix-spaces-and-rank_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="08-matrix-spaces-and-rank_files/libs/clipboard/clipboard.min.js"></script>
+<script src="08-matrix-spaces-and-rank_files/libs/quarto-html/tabby.min.js"></script>
+<script src="08-matrix-spaces-and-rank_files/libs/quarto-html/popper.min.js"></script>
+<script src="08-matrix-spaces-and-rank_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="08-matrix-spaces-and-rank_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="08-matrix-spaces-and-rank_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="08-matrix-spaces-and-rank_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
@@ -15,8 +15,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="06c-matrix-spaces-and-rank_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="06c-matrix-spaces-and-rank_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="08-matrix-spaces-and-rank_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="08-matrix-spaces-and-rank_files/libs/revealjs/dist/reveal.css">
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,11 +36,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="06c-matrix-spaces-and-rank_files/libs/revealjs/dist/theme/quarto-e2c737db624b6b1fda97442e9ed43e9e.css">
-  <link href="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="08-matrix-spaces-and-rank_files/libs/revealjs/dist/theme/quarto-e2c737db624b6b1fda97442e9ed43e9e.css">
+  <link href="08-matrix-spaces-and-rank_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="08-matrix-spaces-and-rank_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="08-matrix-spaces-and-rank_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="08-matrix-spaces-and-rank_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -661,10 +661,10 @@ Course decks
 <li><a href="04-determinants.html">Determinants</a></li>
 <li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
 <li><a href="06-general-vector-spaces.html">Vector Spaces and Span</a></li>
-<li><a href="06b-bases-dimension-and-coordinates.html">Bases and Coordinates</a></li>
-<li><a href="06c-matrix-spaces-and-rank.html" class="current-deck" aria-current="page">Matrix Spaces and Rank</a></li>
-<li><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
-<li><a href="08-inner-product-spaces.html">Inner Products</a></li>
+<li><a href="07-bases-dimension-and-coordinates.html">Bases and Coordinates</a></li>
+<li><a href="08-matrix-spaces-and-rank.html" class="current-deck" aria-current="page">Matrix Spaces and Rank</a></li>
+<li><a href="09-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
+<li><a href="10-inner-product-spaces.html">Inner Products</a></li>
 </ul>
 </div>
 </div><div class="column" style="width:4%;">
@@ -692,13 +692,13 @@ Input: <span class="math inline">\(\reals^n\)</span>
 Output: <span class="math inline">\(\reals^m\)</span>
 </div>
 <div class="space-card" style="grid-row:2;grid-column:1;">
-<span class="math inline">\(\operatorname{Row}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(r\)</span> independent directions</span>
+<span class="math inline">\(\operatorname{row}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(r\)</span> independent directions</span>
 </div>
 <div class="space-action" style="grid-row:2;grid-column:2;">
 <span class="math inline">\(\xrightarrow{\mat{A}}\)</span>
 </div>
 <div class="space-card" style="grid-row:2;grid-column:3;">
-<span class="math inline">\(\operatorname{Col}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(r\)</span> independent directions</span>
+<span class="math inline">\(\operatorname{col}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(r\)</span> independent directions</span>
 </div>
 <div class="space-detail" style="grid-row:3;grid-column:1;">
 <span class="math inline">\(\perp\)</span>
@@ -707,10 +707,10 @@ Output: <span class="math inline">\(\reals^m\)</span>
 <span class="math inline">\(\perp\)</span>
 </div>
 <div class="space-card null-card" style="grid-row:4;grid-column:1;">
-<span class="math inline">\(\operatorname{Null}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(n-r\)</span> directions<br><span class="math inline">\(\mat{A}\vct{x}=\vct{0}\)</span></span>
+<span class="math inline">\(\operatorname{null}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(n-r\)</span> directions<br><span class="math inline">\(\mat{A}\vct{x}=\vct{0}\)</span></span>
 </div>
 <div class="space-card null-card" style="grid-row:4;grid-column:3;">
-<span class="math inline">\(\operatorname{Null}(\mat{A}^{\mathsf T})\)</span><br><span class="space-detail"><span class="math inline">\(m-r\)</span> directions<br><span class="math inline">\(\mat{A}^{\mathsf T}\vct{y}=\vct{0}\)</span></span>
+<span class="math inline">\(\operatorname{null}(\mat{A}^{\mathsf T})\)</span><br><span class="space-detail"><span class="math inline">\(m-r\)</span> directions<br><span class="math inline">\(\mat{A}^{\mathsf T}\vct{y}=\vct{0}\)</span></span>
 </div>
 </div>
 <div style="font-size: 0.9em;">
@@ -768,22 +768,22 @@ Output: <span class="math inline">\(\reals^m\)</span>
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(\operatorname{Col}(\mat{A})\)</span></td>
+<td><span class="math inline">\(\operatorname{col}(\mat{A})\)</span></td>
 <td>span of the columns of <span class="math inline">\(\mat{A}\)</span></td>
 <td><span class="math inline">\(\reals^m\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(\operatorname{Null}(\mat{A})\)</span></td>
+<td><span class="math inline">\(\operatorname{null}(\mat{A})\)</span></td>
 <td>solutions of <span class="math inline">\(\mat{A}\vct{x}=\vct{0}\)</span></td>
 <td><span class="math inline">\(\reals^n\)</span></td>
 </tr>
 <tr class="odd">
-<td><span class="math inline">\(\operatorname{Row}(\mat{A})\)</span></td>
+<td><span class="math inline">\(\operatorname{row}(\mat{A})\)</span></td>
 <td>span of the rows of <span class="math inline">\(\mat{A}\)</span></td>
 <td><span class="math inline">\(\reals^n\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(\operatorname{Null}(\mat{A}^{\mathsf T})\)</span></td>
+<td><span class="math inline">\(\operatorname{null}(\mat{A}^{\mathsf T})\)</span></td>
 <td>solutions of <span class="math inline">\(\mat{A}^{\mathsf T}\vct{y}=\vct{0}\)</span></td>
 <td><span class="math inline">\(\reals^m\)</span></td>
 </tr>
@@ -791,17 +791,18 @@ Output: <span class="math inline">\(\reals^m\)</span>
 </table>
 <div class="key-point">
 <p>Always identify the ambient space before comparing subspaces</p>
-<p>View row-space vectors as columns by transposing the matrix rows</p>
+<p>Transposing exchanges rows and columns; view row-space vectors as columns</p>
+<p><span class="math inline">\(\operatorname{col}(\mat{A})=\operatorname{row}(\mat{A}^{\mathsf T})\)</span>, <span class="math inline">\(\quad\operatorname{row}(\mat{A})=\operatorname{col}(\mat{A}^{\mathsf T})\)</span></p>
 </div>
 </section>
 <section id="rank-and-nullity-measure-different-parts-of-a-matrix" class="slide level2">
 <h2>Rank and nullity measure different parts of a matrix</h2>
-<p>Recall: <a href="06b-bases-dimension-and-coordinates.html#dimension-counts-vectors-in-any-basis">dimension</a> is the number of vectors in a basis</p>
+<p>Recall: <a href="07-bases-dimension-and-coordinates.html#dimension-counts-vectors-in-any-basis">dimension</a> is the number of vectors in a basis</p>
 <p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, define</p>
 <p><span class="math display">\[
-\operatorname{rank}(\mat{A})=\dim(\operatorname{Col}(\mat{A})),
+\operatorname{rank}(\mat{A})=\dim(\operatorname{col}(\mat{A})),
 \qquad
-\operatorname{nullity}(\mat{A})=\dim(\operatorname{Null}(\mat{A}))
+\operatorname{nullity}(\mat{A})=\dim(\operatorname{null}(\mat{A}))
 \]</span></p>
 <p>Row reduction gives</p>
 <ul>
@@ -907,7 +908,7 @@ x_3=-x_4
 \]</span></p>
 <p>and</p>
 <p><span class="math display">\[
-\dim(\operatorname{Null}(\mat{A}))=2
+\dim(\operatorname{null}(\mat{A}))=2
 \]</span></p>
 <div class="key-point">
 <p>Each free variable contributes one independent null-space direction</p>
@@ -960,15 +961,15 @@ x_3=-x_4
 <tbody>
 <tr class="odd">
 <td>Does this <span class="math inline">\(\vct{b}\)</span> have a solution?</td>
-<td><span class="math inline">\(\vct{b}\in\operatorname{Col}(\mat{A})\)</span></td>
+<td><span class="math inline">\(\vct{b}\in\operatorname{col}(\mat{A})\)</span></td>
 </tr>
 <tr class="even">
 <td>Is a solution unique, when it exists?</td>
-<td><span class="math inline">\(\operatorname{Null}(\mat{A})=\{\vct{0}\}\)</span>, or rank <span class="math inline">\(=n\)</span></td>
+<td><span class="math inline">\(\operatorname{null}(\mat{A})=\{\vct{0}\}\)</span>, or rank <span class="math inline">\(=n\)</span></td>
 </tr>
 <tr class="odd">
 <td>Does every <span class="math inline">\(\vct{b}\in\reals^m\)</span> have a solution?</td>
-<td><span class="math inline">\(\operatorname{Col}(\mat{A})=\reals^m\)</span>, or rank <span class="math inline">\(=m\)</span></td>
+<td><span class="math inline">\(\operatorname{col}(\mat{A})=\reals^m\)</span>, or rank <span class="math inline">\(=m\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -976,7 +977,7 @@ x_3=-x_4
 <p><span class="math display">\[
 \mat{A}\vct{x}=\mat{A}\vct{x}'
 \quad\Longleftrightarrow\quad
-\vct{x}-\vct{x}'\in\operatorname{Null}(\mat{A})
+\vct{x}-\vct{x}'\in\operatorname{null}(\mat{A})
 \]</span></p>
 <div class="key-point">
 <p>For a square matrix, full rank gives existence and uniqueness for every right-hand side</p>
@@ -1056,23 +1057,23 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 <h2>The four spaces pair through orthogonality</h2>
 <p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span> with <span class="math inline">\(r=\operatorname{rank}(\mat{A})\)</span>,</p>
 <p><span class="math display">\[
-\operatorname{Row}(\mat{A})^\perp
-=\operatorname{Null}(\mat{A})
+\operatorname{row}(\mat{A})^\perp
+=\operatorname{null}(\mat{A})
 \qquad\text{inside }\reals^n
 \]</span></p>
 <p><span class="math display">\[
-\operatorname{Col}(\mat{A})^\perp
-=\operatorname{Null}(\mat{A}^{\mathsf T})
+\operatorname{col}(\mat{A})^\perp
+=\operatorname{null}(\mat{A}^{\mathsf T})
 \qquad\text{inside }\reals^m
 \]</span></p>
 <p>The dimensions balance:</p>
 <p><span class="math display">\[
-\dim(\operatorname{Row}(\mat{A}))=\dim(\operatorname{Col}(\mat{A}))=r
+\dim(\operatorname{row}(\mat{A}))=\dim(\operatorname{col}(\mat{A}))=r
 \]</span></p>
 <p><span class="math display">\[
-\dim(\operatorname{Null}(\mat{A}))=n-r,
+\dim(\operatorname{null}(\mat{A}))=n-r,
 \qquad
-\dim(\operatorname{Null}(\mat{A}^{\mathsf T}))=m-r
+\dim(\operatorname{null}(\mat{A}^{\mathsf T}))=m-r
 \]</span></p>
 </section>
 <section id="worked-example-see-both-orthogonal-pairs" class="slide level2">
@@ -1083,16 +1084,16 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 \]</span></p>
 <p>Inside <span class="math inline">\(\reals^3\)</span>:</p>
 <p><span class="math display">\[
-\operatorname{Row}(\mat{A})=\operatorname{span}\{(1,2,0)^{\mathsf T}\},
+\operatorname{row}(\mat{A})=\operatorname{span}\{(1,2,0)^{\mathsf T}\},
 \qquad
-\operatorname{Null}(\mat{A})=\{(-2s,s,t)^{\mathsf T}:s,t\in\reals\}
+\operatorname{null}(\mat{A})=\{(-2s,s,t)^{\mathsf T}:s,t\in\reals\}
 \]</span></p>
 <p>Their dot product is <span class="math inline">\(-2s+2s=0\)</span></p>
 <p>Inside <span class="math inline">\(\reals^2\)</span>:</p>
 <p><span class="math display">\[
-\operatorname{Col}(\mat{A})=\operatorname{span}\{(1,2)^{\mathsf T}\},
+\operatorname{col}(\mat{A})=\operatorname{span}\{(1,2)^{\mathsf T}\},
 \qquad
-\operatorname{Null}(\mat{A}^{\mathsf T})=\operatorname{span}\{(-2,1)^{\mathsf T}\}
+\operatorname{null}(\mat{A}^{\mathsf T})=\operatorname{span}\{(-2,1)^{\mathsf T}\}
 \]</span></p>
 <p>Their dot product is <span class="math inline">\(-2+2=0\)</span></p>
 <div class="key-point">
@@ -1107,7 +1108,7 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 \mat{B}=\begin{bmatrix}1&amp;0&amp;1\\0&amp;1&amp;1\end{bmatrix}
 \]</span></p>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find the two orthogonal pairs <span class="exsub">Find a basis for <span class="math inline">\(\operatorname{Null}(\mat{B})\)</span>; check its dot products with both rows</span> <span class="exsub">What are <span class="math inline">\(\operatorname{Col}(\mat{B})\)</span> and <span class="math inline">\(\operatorname{Null}(\mat{B}^{\mathsf T})\)</span>?</span> <span class="exsub">Check the dimension sums in <span class="math inline">\(\reals^3\)</span> and <span class="math inline">\(\reals^2\)</span></span> <span class="exsub">Does it make sense to take the dot product of a row-space vector with a column-space vector here?</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find the two orthogonal pairs <span class="exsub">Find a basis for <span class="math inline">\(\operatorname{null}(\mat{B})\)</span>; check its dot products with both rows</span> <span class="exsub">What are <span class="math inline">\(\operatorname{col}(\mat{B})\)</span> and <span class="math inline">\(\operatorname{null}(\mat{B}^{\mathsf T})\)</span>?</span> <span class="exsub">Check the dimension sums in <span class="math inline">\(\reals^3\)</span> and <span class="math inline">\(\reals^2\)</span></span> <span class="exsub">Does it make sense to take the dot product of a row-space vector with a column-space vector here?</span> </span></p>
 </div>
 <aside class="notes">
 <p>The null space has basis {(-1,-1,1)^T}; its dot product with each row is zero. The column space is R^2 and the left null space is {0}. The dimension sums are 2+1=3 and 2+0=2. Row-space vectors have three coordinates and column-space vectors have two, so their dot product is not defined.</p>
@@ -1149,6 +1150,7 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 \right]
 \]</span></p>
 <p>The <a href="01-systems-and-matrices.html#reduced-row-echelon-form">RREF</a> has pivot columns <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span></p>
+<p>The <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/08-matrix-spaces-and-rank.ipynb">companion notebook</a> computes the four spaces, compatibility tests, and rank factorization</p>
 </section>
 <section id="rank-factorization-keeps-the-independent-columns-and-rows" class="slide level2">
 <h2>Rank factorization keeps the independent columns and rows</h2>
@@ -1178,8 +1180,8 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 \operatorname{rref}(\mat{A})=\begin{bmatrix}\mat{R}\\\mat{0}\end{bmatrix}
 \]</span></p>
 <div class="key-point">
-<p>The columns of <span class="math inline">\(\mat{C}\)</span> form a basis for <span class="math inline">\(\operatorname{Col}(\mat{A})\)</span></p>
-<p>The rows of <span class="math inline">\(\mat{R}\)</span> form a basis for <span class="math inline">\(\operatorname{Row}(\mat{A})\)</span></p>
+<p>The columns of <span class="math inline">\(\mat{C}\)</span> form a basis for <span class="math inline">\(\operatorname{col}(\mat{A})\)</span></p>
+<p>The rows of <span class="math inline">\(\mat{R}\)</span> form a basis for <span class="math inline">\(\operatorname{row}(\mat{A})\)</span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -1363,7 +1365,7 @@ y_1+2y_2+y_3=0,
 \]</span></p>
 <p>Taking <span class="math inline">\(y_3=2\)</span> gives <span class="math inline">\(\vct{y}=(-4,1,2)^{\mathsf T}\)</span></p>
 <p><span class="math display">\[
-\operatorname{Null}(\mat{A}^{\mathsf T})
+\operatorname{null}(\mat{A}^{\mathsf T})
 =\operatorname{span}\{(-4,1,2)^{\mathsf T}\}
 \]</span></p>
 <p>This vector is perpendicular to both columns of <span class="math inline">\(\mat{C}\)</span></p>
@@ -1377,7 +1379,7 @@ y_1+2y_2+y_3=0,
 =\vct{y}^{\mathsf T}\mat{A}\vct{x}=0
 \]</span></p>
 <p>A right-hand side is attainable exactly when it is perpendicular to every left-null vector</p>
-<p>In our example, <span class="math inline">\(\operatorname{Null}(\mat{A}^{\mathsf T})\)</span> has basis <span class="math inline">\(\{(-4,1,2)^{\mathsf T}\}\)</span>, so consistency is equivalent to</p>
+<p>In our example, <span class="math inline">\(\operatorname{null}(\mat{A}^{\mathsf T})\)</span> has basis <span class="math inline">\(\{(-4,1,2)^{\mathsf T}\}\)</span>, so consistency is equivalent to</p>
 <p><span class="math display">\[
 -4b_1+b_2+2b_3=0
 \]</span></p>
@@ -1409,7 +1411,7 @@ y_1+2y_2+y_3=0,
 \quad\text{(original columns $1,3$)}
 \]</span></p>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Complete the picture of its four fundamental subspaces <span class="exsub">Find bases for <span class="math inline">\(\operatorname{Null}(\mat{B})\)</span> and <span class="math inline">\(\operatorname{Null}(\mat{B}^{\mathsf T})\)</span></span> <span class="exsub">Check that your left-null vector is perpendicular to both columns of <span class="math inline">\(\mat{C}\)</span></span> <span class="exsub">Compare the four dimensions with rank–nullity</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Complete the picture of its four fundamental subspaces <span class="exsub">Find bases for <span class="math inline">\(\operatorname{null}(\mat{B})\)</span> and <span class="math inline">\(\operatorname{null}(\mat{B}^{\mathsf T})\)</span></span> <span class="exsub">Check that your left-null vector is perpendicular to both columns of <span class="math inline">\(\mat{C}\)</span></span> <span class="exsub">Compare the four dimensions with rank–nullity</span> </span></p>
 </div>
 <aside class="notes">
 <p>For <span class="math inline">\(\mat{B}\)</span>, a null-space basis is <span class="math inline">\(\{(-2,1,0)^{\mathsf T}\}\)</span>, and a left-null basis is <span class="math inline">\(\{(-1,-1,1)^{\mathsf T}\}\)</span>. Each is orthogonal to the appropriate row or column basis. The dimensions are <span class="math inline">\(2,1,2,1\)</span> for column, null, row, and left null, respectively.</p>
@@ -1443,7 +1445,7 @@ y_1+2y_2+y_3=0,
 T(c\vct{u}+d\vct{v})=cT(\vct{u})+dT(\vct{v})
 \]</span></p>
 <p>Choose ordered bases <span class="math inline">\(\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)\)</span> for the input <span class="math inline">\(V\)</span> and <span class="math inline">\(\mathcal{C}\)</span> for the output <span class="math inline">\(W\)</span>: <span class="math inline">\(\dim(V)=n\)</span>, <span class="math inline">\(\dim(W)=m\)</span></p>
-<p>Recall <a href="06b-bases-dimension-and-coordinates.html#a-basis-gives-every-vector-unique-coordinates">coordinates</a>: <span class="math inline">\([\vct{v}]_{\mathcal{B}}=(c_1,\ldots,c_n)^{\mathsf T}\)</span> means <span class="math inline">\(\vct{v}=\sum_{j=1}^n c_j\vct{b}_j\)</span></p>
+<p>Recall <a href="07-bases-dimension-and-coordinates.html#a-basis-gives-every-vector-unique-coordinates">coordinates</a>: <span class="math inline">\([\vct{v}]_{\mathcal{B}}=(c_1,\ldots,c_n)^{\mathsf T}\)</span> means <span class="math inline">\(\vct{v}=\sum_{j=1}^n c_j\vct{b}_j\)</span></p>
 <p>The <span class="math inline">\(m\times n\)</span> coordinate matrix <span class="math inline">\(\mat{M}\)</span> has column <span class="math inline">\(j\)</span> equal to <span class="math inline">\([T(\vct{b}_j)]_{\mathcal{C}}\)</span> and satisfies</p>
 <p><span class="math display">\[
 [T(\vct{v})]_{\mathcal{C}}
@@ -1511,7 +1513,7 @@ T(p)=\begin{bmatrix}p(0)\\p(1)\end{bmatrix}
 \qquad \vct{x}=\mat{P}[\vct{x}]_{\mathcal{B}}
 \]</span></p>
 <p>The matrix in <span class="math inline">\(\mathcal{B}\)</span> coordinates is <span class="math inline">\(\mat{P}^{-1}\mat{A}\mat{P}\)</span></p>
-<p><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a> asks whether a basis can make it diagonal:</p>
+<p><a href="09-eigenvalues-and-eigenvectors.html">Eigenvalues</a> asks whether a basis can make it diagonal:</p>
 <p><span class="math display">\[
 \mat{P}^{-1}\mat{A}\mat{P}
 =
@@ -1558,13 +1560,13 @@ Spaces and coordinates
 </h3>
 <ul>
 <li><a href="06-general-vector-spaces.html#span-is-the-subspace-generated-by-chosen-vectors">Vector Spaces and Span</a> — matrices, polynomials, functions; subspace closure; column spans as <span class="math inline">\(\mat{V}\vct{c}\)</span></li>
-<li><a href="06b-bases-dimension-and-coordinates.html#a-basis-gives-every-vector-unique-coordinates">Bases and Coordinates</a> — spanning gives existence; independence gives uniqueness; dimension counts basis vectors</li>
+<li><a href="07-bases-dimension-and-coordinates.html#a-basis-gives-every-vector-unique-coordinates">Bases and Coordinates</a> — spanning gives existence; independence gives uniqueness; dimension counts basis vectors</li>
 <li><a href="#/rank-factorization-keeps-the-independent-columns-and-rows">Matrix Spaces and Rank</a> — <span class="math inline">\(\mat{A}=\mat{C}\mat{R}\)</span>: column/row bases; <span class="math inline">\(r=\operatorname{rank}(\mat{A})\)</span>; four spaces in orthogonal pairs</li>
 </ul>
 </div></div>
 <div class="key-point">
-<p><span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> is solvable iff <span class="math inline">\(\vct{b}\in\operatorname{Col}(\mat{A})\)</span>, equivalently <span class="math inline">\(\vct{y}^{\mathsf T}\vct{b}=0\)</span> for every <span class="math inline">\(\vct{y}\in\operatorname{Null}(\mat{A}^{\mathsf T})\)</span></p>
-<p>Choose <span class="math inline">\(\vct{x}_p\)</span> with <span class="math inline">\(\mat{A}\vct{x}_p=\vct{b}\)</span>; columns of <span class="math inline">\(\mat{N}\)</span> form a basis of <span class="math inline">\(\operatorname{Null}(\mat{A})\)</span></p>
+<p><span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> is solvable iff <span class="math inline">\(\vct{b}\in\operatorname{col}(\mat{A})\)</span>, equivalently <span class="math inline">\(\vct{y}^{\mathsf T}\vct{b}=0\)</span> for every <span class="math inline">\(\vct{y}\in\operatorname{null}(\mat{A}^{\mathsf T})\)</span></p>
+<p>Choose <span class="math inline">\(\vct{x}_p\)</span> with <span class="math inline">\(\mat{A}\vct{x}_p=\vct{b}\)</span>; columns of <span class="math inline">\(\mat{N}\)</span> form a basis of <span class="math inline">\(\operatorname{null}(\mat{A})\)</span></p>
 <p><span class="math display">\[
 \text{All solutions:}\quad
 \vct{x}=\vct{x}_p+\mat{N}\vct{t},\qquad \vct{t}\in\reals^{n-r}
@@ -1589,7 +1591,7 @@ Spaces and coordinates
 <h1>What Comes Next</h1>
 <p>Which directions does a matrix preserve, and when can eigenvectors form a basis?</p>
 <div class="key-point">
-<p><a href="07-eigenvalues-and-eigenvectors.html">Next: Eigenvalues and Eigenvectors</a></p>
+<p><a href="09-eigenvalues-and-eigenvectors.html">Next: Eigenvalues and Eigenvectors</a></p>
 </div>
 
 </section>
@@ -1603,19 +1605,19 @@ Spaces and coordinates
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="06c-matrix-spaces-and-rank_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="08-matrix-spaces-and-rank_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="08-matrix-spaces-and-rank_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="08-matrix-spaces-and-rank_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="08-matrix-spaces-and-rank_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="08-matrix-spaces-and-rank_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="08-matrix-spaces-and-rank_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="08-matrix-spaces-and-rank_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="08-matrix-spaces-and-rank_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="08-matrix-spaces-and-rank_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="08-matrix-spaces-and-rank_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -2151,7 +2153,7 @@ Spaces and coordinates
       </script>
     <script src="../classlib/classlib/quarto/slides/deck-nav-arrows.js"></script>
     <script id="deck-nav-meta" type="application/json">
-    {"deck_prev_file":"06b-bases-dimension-and-coordinates.html","deck_prev_title":"Bases, Dimension, and Coordinates","deck_next_file":"07-eigenvalues-and-eigenvectors.html","deck_next_title":"Eigenvalues and Eigenvectors"}
+    {"deck_prev_file":"07-bases-dimension-and-coordinates.html","deck_prev_title":"Bases, Dimension, and Coordinates","deck_next_file":"09-eigenvalues-and-eigenvectors.html","deck_next_title":"Eigenvalues and Eigenvectors"}
     </script>
     
 

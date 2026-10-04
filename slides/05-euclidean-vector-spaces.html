@@ -661,10 +661,10 @@ Course decks
 <li><a href="04-determinants.html">Determinants</a></li>
 <li><a href="05-euclidean-vector-spaces.html" class="current-deck" aria-current="page">Euclidean Spaces</a></li>
 <li><a href="06-general-vector-spaces.html">Vector Spaces and Span</a></li>
-<li><a href="06b-bases-dimension-and-coordinates.html">Bases and Coordinates</a></li>
-<li><a href="06c-matrix-spaces-and-rank.html">Matrix Spaces and Rank</a></li>
-<li><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
-<li><a href="08-inner-product-spaces.html">Inner Products</a></li>
+<li><a href="07-bases-dimension-and-coordinates.html">Bases and Coordinates</a></li>
+<li><a href="08-matrix-spaces-and-rank.html">Matrix Spaces and Rank</a></li>
+<li><a href="09-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
+<li><a href="10-inner-product-spaces.html">Inner Products</a></li>
 </ul>
 </div>
 </div><div class="column" style="width:4%;">
@@ -884,10 +884,10 @@ L=\{P+t\vct{v}:t\in\reals\}
 \mat{A}(\vct{x}+\vct{z})=\mat{A}\vct{x}
 \]</span></p>
 <div class="key-point">
-<p>These homogeneous directions form <span class="math inline">\(\operatorname{Null}(\mat{A})\)</span>; <a href="06-general-vector-spaces.html#homogeneous-systems-produce-subspaces">Vector Spaces and Span</a> develops the null space as a subspace</p>
+<p>These homogeneous directions form <span class="math inline">\(\operatorname{null}(\mat{A})\)</span>; <a href="06-general-vector-spaces.html#homogeneous-systems-produce-subspaces">Vector Spaces and Span</a> develops the null space as a subspace</p>
 </div>
 <aside class="notes">
-<p><a href="06-general-vector-spaces.html#a-vector-space-starts-with-objects-and-two-operations">Vector Spaces and Span</a> will verify the vector-space axioms and connect the null space to the <a href="06c-matrix-spaces-and-rank.html#a-matrix-has-four-fundamental-subspaces">row and column spaces</a>.</p>
+<p><a href="06-general-vector-spaces.html#a-vector-space-starts-with-objects-and-two-operations">Vector Spaces and Span</a> will verify the vector-space axioms and connect the null space to the <a href="08-matrix-spaces-and-rank.html#a-matrix-has-four-fundamental-subspaces">row and column spaces</a>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -957,10 +957,10 @@ n-r
 \]</span></p>
 <p>free variables</p>
 <div class="key-point">
-<p>The <span class="alert">dimension of the affine solution set</span> is <span class="math inline">\(n-r\)</span>, the number of free parameters<br> It equals the dimension of the homogeneous direction space <span class="math inline">\(\operatorname{Null}(\mat{A})\)</span></p>
+<p>The <span class="alert">dimension of the affine solution set</span> is <span class="math inline">\(n-r\)</span>, the number of free parameters<br> It equals the dimension of the homogeneous direction space <span class="math inline">\(\operatorname{null}(\mat{A})\)</span></p>
 </div>
 <aside class="notes">
-<p>This is a preview. Bases and Coordinates will define <a href="06b-bases-dimension-and-coordinates.html#a-basis-balances-reach-and-economy">basis</a> and <a href="06b-bases-dimension-and-coordinates.html#dimension-counts-vectors-in-any-basis">dimension</a> and name the relationship <a href="06c-matrix-spaces-and-rank.html#rank-nullity-counts-inputs">rank–nullity</a>.</p>
+<p>This is a preview. Bases and Coordinates will define <a href="07-bases-dimension-and-coordinates.html#a-basis-balances-reach-and-economy">basis</a> and <a href="07-bases-dimension-and-coordinates.html#dimension-counts-vectors-in-any-basis">dimension</a> and name the relationship <a href="08-matrix-spaces-and-rank.html#rank-nullity-counts-inputs">rank–nullity</a>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1512,7 +1512,7 @@ P=(1,1,0),\qquad Q=(2,1,1),\qquad R=(1,3,0)
 <li><a href="01-systems-and-matrices.html#read-the-solution-set">Systems</a> — <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>; elimination reveals consistency and free directions; <a href="03-matrix-structure-and-transformations.html#triangular-factors-organize-repeated-solves">PLU</a> reuses the work</li>
 <li><a href="03-matrix-structure-and-transformations.html#composition-is-matrix-multiplication">Matrix actions</a> — products compose, inverses undo; <a href="04-determinants.html#a-determinant-is-a-signed-scale-factor">determinants</a> measure signed scale and collapse</li>
 <li><a href="05-euclidean-vector-spaces.html#the-operations-reveal-the-roles">Points and directions</a> — subtract points to get vectors; add vectors to move points</li>
-<li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Solution geometry</a> — every consistent solution set is <span class="math inline">\(\vct{x}_p+\operatorname{Null}(\mat{A})\)</span></li>
+<li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Solution geometry</a> — every consistent solution set is <span class="math inline">\(\vct{x}_p+\operatorname{null}(\mat{A})\)</span></li>
 <li><a href="05-euclidean-vector-spaces.html#projection-finds-the-nearest-point-on-an-affine-line">Euclidean tools</a> — projection finds nearest points; <a href="05-euclidean-vector-spaces.html#point-differences-build-a-plane-normal">3D cross products</a> give normals and areas</li>
 </ul>
 <div class="key-point">
@@ -1542,8 +1542,8 @@ Next names
 <ul>
 <li><a href="06-general-vector-spaces.html#a-vector-space-starts-with-objects-and-two-operations">formal vector-space axioms</a> and examples beyond <span class="math inline">\(\reals^n\)</span></li>
 <li><a href="06-general-vector-spaces.html#homogeneous-systems-produce-subspaces">subspace and null space</a></li>
-<li><a href="06-general-vector-spaces.html#span-is-the-subspace-generated-by-chosen-vectors">span</a> and <a href="06b-bases-dimension-and-coordinates.html#independence-means-the-zero-vector-has-one-construction">linear independence</a></li>
-<li><a href="06b-bases-dimension-and-coordinates.html#a-basis-balances-reach-and-economy">basis</a> and <a href="06b-bases-dimension-and-coordinates.html#dimension-counts-vectors-in-any-basis">dimension</a></li>
+<li><a href="06-general-vector-spaces.html#span-is-the-subspace-generated-by-chosen-vectors">span</a> and <a href="07-bases-dimension-and-coordinates.html#independence-means-the-zero-vector-has-one-construction">linear independence</a></li>
+<li><a href="07-bases-dimension-and-coordinates.html#a-basis-balances-reach-and-economy">basis</a> and <a href="07-bases-dimension-and-coordinates.html#dimension-counts-vectors-in-any-basis">dimension</a></li>
 </ul>
 </div></div>
 <div class="key-point">

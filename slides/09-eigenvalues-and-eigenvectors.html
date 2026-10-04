@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="07-eigenvalues-and-eigenvectors_files/libs/clipboard/clipboard.min.js"></script>
-<script src="07-eigenvalues-and-eigenvectors_files/libs/quarto-html/tabby.min.js"></script>
-<script src="07-eigenvalues-and-eigenvectors_files/libs/quarto-html/popper.min.js"></script>
-<script src="07-eigenvalues-and-eigenvectors_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="07-eigenvalues-and-eigenvectors_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="07-eigenvalues-and-eigenvectors_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="07-eigenvalues-and-eigenvectors_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="09-eigenvalues-and-eigenvectors_files/libs/clipboard/clipboard.min.js"></script>
+<script src="09-eigenvalues-and-eigenvectors_files/libs/quarto-html/tabby.min.js"></script>
+<script src="09-eigenvalues-and-eigenvectors_files/libs/quarto-html/popper.min.js"></script>
+<script src="09-eigenvalues-and-eigenvectors_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="09-eigenvalues-and-eigenvectors_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="09-eigenvalues-and-eigenvectors_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="09-eigenvalues-and-eigenvectors_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
@@ -15,8 +15,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="07-eigenvalues-and-eigenvectors_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="07-eigenvalues-and-eigenvectors_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="09-eigenvalues-and-eigenvectors_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="09-eigenvalues-and-eigenvectors_files/libs/revealjs/dist/reveal.css">
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,11 +36,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="07-eigenvalues-and-eigenvectors_files/libs/revealjs/dist/theme/quarto-e2c737db624b6b1fda97442e9ed43e9e.css">
-  <link href="07-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="07-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="07-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="07-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="09-eigenvalues-and-eigenvectors_files/libs/revealjs/dist/theme/quarto-e2c737db624b6b1fda97442e9ed43e9e.css">
+  <link href="09-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="09-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="09-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="09-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -661,10 +661,10 @@ Course decks
 <li><a href="04-determinants.html">Determinants</a></li>
 <li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
 <li><a href="06-general-vector-spaces.html">Vector Spaces and Span</a></li>
-<li><a href="06b-bases-dimension-and-coordinates.html">Bases and Coordinates</a></li>
-<li><a href="06c-matrix-spaces-and-rank.html">Matrix Spaces and Rank</a></li>
-<li><a href="07-eigenvalues-and-eigenvectors.html" class="current-deck" aria-current="page">Eigenvalues</a></li>
-<li><a href="08-inner-product-spaces.html">Inner Products</a></li>
+<li><a href="07-bases-dimension-and-coordinates.html">Bases and Coordinates</a></li>
+<li><a href="08-matrix-spaces-and-rank.html">Matrix Spaces and Rank</a></li>
+<li><a href="09-eigenvalues-and-eigenvectors.html" class="current-deck" aria-current="page">Eigenvalues</a></li>
+<li><a href="10-inner-product-spaces.html">Inner Products</a></li>
 </ul>
 </div>
 </div><div class="column" style="width:4%;">
@@ -694,19 +694,19 @@ In this deck
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="07-eigenvalues-and-eigenvectors_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="09-eigenvalues-and-eigenvectors_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="07-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="07-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="07-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="07-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="07-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="09-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="09-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="09-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="09-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="09-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="07-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="07-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="07-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="07-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="09-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="09-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="09-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="09-eigenvalues-and-eigenvectors_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -1242,7 +1242,7 @@ In this deck
       </script>
     <script src="../classlib/classlib/quarto/slides/deck-nav-arrows.js"></script>
     <script id="deck-nav-meta" type="application/json">
-    {"deck_prev_file":"06c-matrix-spaces-and-rank.html","deck_prev_title":"Matrix Spaces and Rank","deck_next_file":"08-inner-product-spaces.html","deck_next_title":"Inner Product Spaces"}
+    {"deck_prev_file":"08-matrix-spaces-and-rank.html","deck_prev_title":"Matrix Spaces and Rank","deck_next_file":"10-inner-product-spaces.html","deck_next_title":"Inner Product Spaces"}
     </script>
     
 

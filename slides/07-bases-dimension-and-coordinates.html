@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="06b-bases-dimension-and-coordinates_files/libs/clipboard/clipboard.min.js"></script>
-<script src="06b-bases-dimension-and-coordinates_files/libs/quarto-html/tabby.min.js"></script>
-<script src="06b-bases-dimension-and-coordinates_files/libs/quarto-html/popper.min.js"></script>
-<script src="06b-bases-dimension-and-coordinates_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="06b-bases-dimension-and-coordinates_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="06b-bases-dimension-and-coordinates_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="06b-bases-dimension-and-coordinates_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="07-bases-dimension-and-coordinates_files/libs/clipboard/clipboard.min.js"></script>
+<script src="07-bases-dimension-and-coordinates_files/libs/quarto-html/tabby.min.js"></script>
+<script src="07-bases-dimension-and-coordinates_files/libs/quarto-html/popper.min.js"></script>
+<script src="07-bases-dimension-and-coordinates_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="07-bases-dimension-and-coordinates_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="07-bases-dimension-and-coordinates_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="07-bases-dimension-and-coordinates_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
@@ -15,8 +15,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="06b-bases-dimension-and-coordinates_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="06b-bases-dimension-and-coordinates_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="07-bases-dimension-and-coordinates_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="07-bases-dimension-and-coordinates_files/libs/revealjs/dist/reveal.css">
   <style>
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -36,11 +36,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="06b-bases-dimension-and-coordinates_files/libs/revealjs/dist/theme/quarto-e2c737db624b6b1fda97442e9ed43e9e.css">
-  <link href="06b-bases-dimension-and-coordinates_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="06b-bases-dimension-and-coordinates_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="06b-bases-dimension-and-coordinates_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="06b-bases-dimension-and-coordinates_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="07-bases-dimension-and-coordinates_files/libs/revealjs/dist/theme/quarto-e2c737db624b6b1fda97442e9ed43e9e.css">
+  <link href="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -661,10 +661,10 @@ Course decks
 <li><a href="04-determinants.html">Determinants</a></li>
 <li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
 <li><a href="06-general-vector-spaces.html">Vector Spaces and Span</a></li>
-<li><a href="06b-bases-dimension-and-coordinates.html" class="current-deck" aria-current="page">Bases and Coordinates</a></li>
-<li><a href="06c-matrix-spaces-and-rank.html">Matrix Spaces and Rank</a></li>
-<li><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
-<li><a href="08-inner-product-spaces.html">Inner Products</a></li>
+<li><a href="07-bases-dimension-and-coordinates.html" class="current-deck" aria-current="page">Bases and Coordinates</a></li>
+<li><a href="08-matrix-spaces-and-rank.html">Matrix Spaces and Rank</a></li>
+<li><a href="09-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
+<li><a href="10-inner-product-spaces.html">Inner Products</a></li>
 </ul>
 </div>
 </div><div class="column" style="width:4%;">
@@ -1451,6 +1451,7 @@ q=1-t+2t^2,
 <li><a href="#/transition-columns-describe-the-old-basis-in-the-new-one">Transition columns describe the old basis in the new one</a></li>
 <li><a href="#/two-coordinate-systems-describe-one-vector">Example: change between polynomial bases</a></li>
 </ul>
+<p>The <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/07-bases-dimension-and-coordinates.ipynb">companion notebook</a> explores basis extraction and coordinate changes</p>
 </section>
 <section id="a-basis-matrix-converts-coordinates-to-standard-form" class="slide level2">
 <h2>A basis matrix converts coordinates to standard form</h2>
@@ -1584,13 +1585,13 @@ Systems and actions
 Directions and combinations
 </h3>
 <ul>
-<li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Euclidean Spaces</a> — point differences give directions; consistent solutions: <span class="math inline">\(\vct{x}_p+\operatorname{Null}(\mat{A})\)</span></li>
+<li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Euclidean Spaces</a> — point differences give directions; consistent solutions: <span class="math inline">\(\vct{x}_p+\operatorname{null}(\mat{A})\)</span></li>
 <li><a href="05-euclidean-vector-spaces.html#projection-finds-the-nearest-point-on-an-affine-line">Euclidean Spaces</a> — dot products test perpendicularity; 3D cross gives normals/areas; projection finds nearest points</li>
 <li><a href="06-general-vector-spaces.html#in-rn-span-is-matrix-vector-multiplication">Vector Spaces and Span</a> — matrix, polynomial, function vectors; subspaces closed under combinations; column spans: <span class="math inline">\(\{\mat{V}\vct{c}:\vct{c}\in\reals^k\}\)</span></li>
 </ul>
 </div></div>
 <div class="key-point">
-<p><a href="06b-bases-dimension-and-coordinates.html#a-basis-gives-every-vector-unique-coordinates">Ordered basis <span class="math inline">\(\mathcal{B}\)</span></a> has <span class="math inline">\(\dim(V)\)</span> vectors; spanning gives coordinates, independence makes <span class="math inline">\([\vct{v}]_{\mathcal{B}}\)</span> unique</p>
+<p><a href="07-bases-dimension-and-coordinates.html#a-basis-gives-every-vector-unique-coordinates">Ordered basis <span class="math inline">\(\mathcal{B}\)</span></a> has <span class="math inline">\(\dim(V)\)</span> vectors; spanning gives coordinates, independence makes <span class="math inline">\([\vct{v}]_{\mathcal{B}}\)</span> unique</p>
 <p><a href="#/change-of-basis-passes-through-the-vector">Changing the basis</a> changes the coordinate column and preserves the vector</p>
 </div>
 </section>
@@ -1599,7 +1600,7 @@ Directions and combinations
 <h1>What Comes Next</h1>
 <p>How do bases and dimension expose the structure of a matrix?</p>
 <div class="key-point">
-<p><a href="06c-matrix-spaces-and-rank.html">Next: Matrix Spaces and Rank</a></p>
+<p><a href="08-matrix-spaces-and-rank.html">Next: Matrix Spaces and Rank</a></p>
 </div>
 
 </section>
@@ -1613,19 +1614,19 @@ Directions and combinations
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="06b-bases-dimension-and-coordinates_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="07-bases-dimension-and-coordinates_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="06b-bases-dimension-and-coordinates_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="06b-bases-dimension-and-coordinates_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="06b-bases-dimension-and-coordinates_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="06b-bases-dimension-and-coordinates_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="06b-bases-dimension-and-coordinates_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="06b-bases-dimension-and-coordinates_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="06b-bases-dimension-and-coordinates_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="06b-bases-dimension-and-coordinates_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="06b-bases-dimension-and-coordinates_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -2161,7 +2162,7 @@ Directions and combinations
       </script>
     <script src="../classlib/classlib/quarto/slides/deck-nav-arrows.js"></script>
     <script id="deck-nav-meta" type="application/json">
-    {"deck_prev_file":"06-general-vector-spaces.html","deck_prev_title":"Vector Spaces, Subspaces, and Span","deck_next_file":"06c-matrix-spaces-and-rank.html","deck_next_title":"Matrix Spaces and Rank"}
+    {"deck_prev_file":"06-general-vector-spaces.html","deck_prev_title":"Vector Spaces, Subspaces, and Span","deck_next_file":"08-matrix-spaces-and-rank.html","deck_next_title":"Matrix Spaces and Rank"}
     </script>
     
 
