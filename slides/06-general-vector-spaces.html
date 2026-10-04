@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="06-general-vector-spaces_files/libs/revealjs/dist/theme/quarto-58840370c589e1153509a06720630224.css">
+  <link rel="stylesheet" href="06-general-vector-spaces_files/libs/revealjs/dist/theme/quarto-e2c737db624b6b1fda97442e9ed43e9e.css">
   <link href="06-general-vector-spaces_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="06-general-vector-spaces_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="06-general-vector-spaces_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -633,7 +633,7 @@
 
 <section id="title-slide" data-background-color="#f5f7fb" data-background-image="https://fjhickernell.github.io/MATH332Fall2026/classlib/classlib/quarto/assets/images/normal-scatter.png" data-background-position="top left" data-background-size="55%" class="quarto-title-block center">
   <h1 class="title">MATH 332 — Fall 2026</h1>
-  <p class="subtitle"><span class="deck-title">Vector Spaces,<br>Subspaces, and Span</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul Ch. 4</span></p>
+  <p class="subtitle"><span class="deck-title">Vector Spaces,<br>Subspaces, and Span</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul §§4.1–4.3</span></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -673,7 +673,50 @@ Course decks
 <h3>
 In this deck
 </h3>
-<p><span class="alert">Recognize vector spaces; test closure; build spans</span></p>
+<svg class="diagram-image span-plane-preview" viewbox="0 0 520 250" style="width:100%; max-height:220px;" role="img" aria-label="The tilted plane z equals x plus y passes through the origin. Vectors u equals (1,0,1) and v equals (0,1,1) lie along its grid lines and span the plane. Both rise above the xy plane.">
+<style>
+.reveal svg.span-plane-preview text { font-family: "Times New Roman", Times, serif; fill: #064b76; }
+.reveal svg.span-plane-preview .axis-label { fill: #666; }
+.reveal svg.span-plane-preview .plane-caption { font-family: Arial, sans-serif; fill: #168b90; }
+</style>
+<defs>
+<marker id="span-plane-axis-head" viewbox="0 0 10 10" refx="10" refy="5" markerwidth="6" markerheight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#777"></path></marker>
+<marker id="span-plane-vector-head" viewbox="0 0 10 10" refx="10" refy="5" markerwidth="7" markerheight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#064b76"></path></marker>
+</defs>
+<!-- One linear projection for all objects: x=(80,28), y=(-52,42), z=(0,-80).
+     Thus u=(1,0,1) projects to (80,-52), and v=(0,1,1) to (-52,-38).
+     The patch and grid use the same two directions as the vector arrows. -->
+<g stroke="#999" stroke-width="1.5" stroke-dasharray="4 4">
+<path d="M140,68 L260,110 M338,47 L260,110 M260,214 L260,110"></path>
+</g>
+<polygon points="229.2,209 405.2,94.6 290.8,11 114.8,125.4" fill="#16979c" fill-opacity="0.18" stroke="#16979c" stroke-width="2"></polygon>
+<g stroke="#16979c" stroke-width="1" stroke-opacity="0.55">
+<path d="M114.8,125.4 L290.8,11 M143.4,146.3 L319.4,31.9 M172,167.2 L348,52.8 M200.6,188.1 L376.6,73.7 M229.2,209 L405.2,94.6"></path>
+<path d="M114.8,125.4 L229.2,209 M158.8,96.8 L273.2,180.4 M202.8,68.2 L317.2,151.8 M246.8,39.6 L361.2,123.2 M290.8,11 L405.2,94.6"></path>
+</g>
+<g stroke="#777" stroke-width="1.5">
+<path d="M260,110 L412,163.2" marker-end="url(#span-plane-axis-head)"></path>
+<path d="M260,110 L145.6,202.4" marker-end="url(#span-plane-axis-head)"></path>
+<path d="M260,110 L260,3" stroke-dasharray="4 4" marker-end="url(#span-plane-axis-head)"></path>
+</g>
+<g font-size="20" font-style="italic">
+<text class="axis-label" x="419" y="172">x</text><text class="axis-label" x="130" y="214">y</text><text class="axis-label" x="269" y="16">z</text>
+</g>
+<g stroke="#777" stroke-width="1" stroke-dasharray="3 4" stroke-opacity="0.65">
+<path d="M340,58 L340,138 M208,72 L208,152"></path>
+</g>
+<g stroke="#064b76" stroke-width="3">
+<path d="M260,110 L340,58" marker-end="url(#span-plane-vector-head)"></path>
+<path d="M260,110 L208,72" marker-end="url(#span-plane-vector-head)"></path>
+</g>
+<g font-size="24" font-weight="bold" font-style="italic">
+<text x="348" y="59">u</text><text x="183" y="69">v</text>
+</g>
+<circle cx="260" cy="110" r="4" fill="#064b76"></circle>
+<text x="266" y="133" font-size="20">0</text>
+<text x="366" y="39" font-size="20" font-style="italic">z = x + y</text>
+<text class="plane-caption" x="260" y="241" text-anchor="middle" font-size="20">Two directions in a tilted plane through the origin</text>
+</svg>
 <ul>
 <li><a href="#/from-euclidean-vectors-to-vector-spaces">From Euclidean Vectors to Vector Spaces</a></li>
 <li><a href="#/vectors-beyond-coordinate-columns">Vectors Beyond Coordinate Columns</a></li>
@@ -690,6 +733,7 @@ In this deck
 <ul>
 <li><a href="#/the-previous-deck-found-directions-inside-solution-sets">The previous deck found directions inside solution sets</a></li>
 <li><a href="#/a-vector-space-starts-with-objects-and-two-operations">A vector space starts with objects and two operations</a></li>
+<li><a href="#/the-axioms-force-familiar-consequences">The axioms force familiar consequences</a></li>
 </ul>
 </section>
 <section id="the-previous-deck-found-directions-inside-solution-sets" class="slide level2">
@@ -711,7 +755,7 @@ In this deck
 </section>
 <section id="a-vector-space-starts-with-objects-and-two-operations" class="slide level2">
 <h2>A vector space starts with objects and two operations</h2>
-<p>A <span class="alert">real vector space</span> is a set <span class="math inline">\(V\)</span> whose elements are called <span class="alert">vectors</span>, with addition and multiplication by elements of <span class="math inline">\(\reals\)</span>, called <span class="alert">scalars</span>:</p>
+<p>A <span class="alert">real vector space</span> is a nonempty set <span class="math inline">\(V\)</span> whose elements are called <span class="alert">vectors</span>, with addition and multiplication by elements of <span class="math inline">\(\reals\)</span>, called <span class="alert">scalars</span>:</p>
 <p><span class="math display">\[
 \vct{u}+\vct{v}\in V,
 \qquad
@@ -756,9 +800,8 @@ c(d\vct{v})&amp;=(cd)\vct{v}\\
 <p>Linear algebra uses only addition, scalar multiplication, and consequences of these rules</p>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 id="the-axioms-force-familiar-consequences">The axioms force familiar consequences</h3>
+<section id="the-axioms-force-familiar-consequences" class="slide level2">
+<h2>The axioms force familiar consequences</h2>
 <p>Every vector space satisfies</p>
 <p><span class="math display">\[
 0\vct{v}=\vct{0},
@@ -781,6 +824,9 @@ c\vct{0}=\vct{0},
 <h1>Vectors Beyond Coordinate Columns</h1>
 <ul>
 <li><a href="#/vectors-need-not-be-coordinate-columns">Vectors need not be coordinate columns</a></li>
+<li><a href="#/the-scalar-field-can-change">The scalar field can change</a></li>
+<li><a href="#/polynomials-form-a-vector-space">Polynomials form a vector space</a></li>
+<li><a href="#/functions-can-be-vectors">Functions can be vectors</a></li>
 <li><a href="#/affine-sets-usually-fail-the-zero-vector-test">Affine sets usually fail the zero-vector test</a></li>
 <li><a href="#/the-operations-are-part-of-the-definition">The operations are part of the definition</a></li>
 </ul>
@@ -815,9 +861,8 @@ New examples
 <p>Different objects can obey the same linear rules</p>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 id="the-scalar-field-can-change">The scalar field can change</h3>
+<section id="the-scalar-field-can-change" class="slide level2">
+<h2>The scalar field can change</h2>
 <p>Most of this course uses real scalars, but the same axioms work over any field</p>
 <p>In the two-element field</p>
 <p><span class="math display">\[
@@ -868,9 +913,8 @@ New examples
           display:block!important;
       }</style></aside>
 </section>
-<section class="slide level2">
-
-<h3 id="polynomials-form-a-vector-space">Polynomials form a vector space</h3>
+<section id="polynomials-form-a-vector-space" class="slide level2">
+<h2>Polynomials form a vector space</h2>
 <p>Write <span class="math inline">\(\mathbb{P}_k\)</span> for real polynomials in one variable <span class="math inline">\(t\)</span> of degree at most <span class="math inline">\(k\)</span>, including the zero polynomial</p>
 <p>For example,</p>
 <p><span class="math display">\[
@@ -914,7 +958,7 @@ x_1^{\alpha_1}\cdots x_n^{\alpha_n}
 </section>
 <section class="slide level2">
 
-<h3 id="worked-example-combine-two-variable-polynomials">Worked example: combine two-variable polynomials</h3>
+<h3 id="worked-example-combine-two-variable-polynomials">Example: combine two-variable polynomials</h3>
 <p>In <span class="math inline">\(\mathbb{P}_2(\reals^2)\)</span>, take</p>
 <p><span class="math display">\[
 p(x,y)=1+x+xy,
@@ -933,7 +977,7 @@ p(x,y)=1+x+xy,
 </section>
 <section class="slide level2">
 
-<h3 id="practice-total-degree-and-closure">Practice: total degree and closure</h3>
+<h3 id="practice-total-degree-and-closure">Total degree and closure</h3>
 <div class="exitem lettered">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Work in <span class="math inline">\(\mathbb{P}_2(\reals^2)\)</span> <span class="exsub">Which belong: <span class="math inline">\(x^2+xy+y^2\)</span>, <span class="math inline">\(x^2y\)</span>, <span class="math inline">\(7\)</span>, and <span class="math inline">\(0\)</span>?</span> <span class="exsub">For <span class="math inline">\(p=1+x+xy\)</span> and <span class="math inline">\(q=2-y+x^2\)</span>, compute <span class="math inline">\(p+3q\)</span></span> <span class="exsub">Must the product of two members stay in this space? Give an example</span> </span></p>
 </div>
@@ -951,9 +995,8 @@ p(x,y)=1+x+xy,
           display:block!important;
       }</style></aside>
 </section>
-<section class="slide level2">
-
-<h3 id="functions-can-be-vectors">Functions can be vectors</h3>
+<section id="functions-can-be-vectors" class="slide level2">
+<h2>Functions can be vectors</h2>
 <p>Let <span class="math inline">\(C[a,b]\)</span> contain all continuous real-valued functions on <span class="math inline">\([a,b]\)</span></p>
 <p><span class="math display">\[
 (f+g)(t)=f(t)+g(t),
@@ -964,9 +1007,9 @@ p(x,y)=1+x+xy,
 <p><span class="math display">\[
 (2f-3g)(t)=2f(t)-3g(t)
 \]</span></p>
-<p>Unlike <span class="math inline">\(\reals^n\)</span> and <span class="math inline">\(\mathbb{P}_2\)</span>, this space has no finite basis</p>
+<p>No finite list of functions spans all of <span class="math inline">\(C[a,b]\)</span>, for <span class="math inline">\(a&lt;b\)</span></p>
 <div class="key-point">
-<p>Finite-dimensional ideas begin with general vector spaces but require an additional finiteness assumption</p>
+<p>A function is one vector, even though its values vary over an entire interval</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1022,7 +1065,7 @@ h(t)=-1+ae^t+be^{-t},
 </section>
 <section class="slide level2">
 
-<h3 id="practice-affine-solution-spaces">Practice: affine solution spaces</h3>
+<h3 id="practice-affine-solution-spaces">Affine solution spaces</h3>
 <div class="exitem lettered">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find one particular solution and describe the full solution set <span class="exsub"><span class="math inline">\(g''+g=2\)</span></span> <span class="exsub"><span class="math inline">\(y'-y=3\)</span></span> </span></p>
 </div>
@@ -1091,7 +1134,8 @@ W=\left\{t\begin{bmatrix}3\\1\end{bmatrix}:t\in\reals\right\}
 \]</span></p>
 <p>is a vector space</p>
 <div class="key-point">
-<p>An affine set is a point plus directions; only the directions form a vector space</p>
+<p>An affine set is a point plus a direction subspace</p>
+<p>It is itself a subspace exactly when it contains the origin</p>
 </div>
 </section>
 <section id="the-operations-are-part-of-the-definition" class="slide level2">
@@ -1180,6 +1224,34 @@ W_2=\{(x,y):x+2y=1\}
 <p>Homogeneous linear conditions define subspaces; shifted conditions usually define affine sets</p>
 </div>
 </section>
+<section class="slide level2">
+
+<h3 id="containing-zero-is-necessary-not-sufficient">Containing zero is necessary, not sufficient</h3>
+<p>The union of the coordinate axes contains the origin</p>
+<p><span class="math display">\[
+W=\{(x,y)^{\mathsf T}:xy=0\}
+\]</span></p>
+<p>Every scalar multiple of a vector in <span class="math inline">\(W\)</span> stays on its axis</p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Does <span class="math inline">\(W\)</span> form a subspace of <span class="math inline">\(\reals^2\)</span>? <span class="exsub">Choose one nonzero vector on each axis</span> <span class="exsub">Does their sum belong to <span class="math inline">\(W\)</span>?</span> </span></p>
+</div>
+<div class="key-point">
+<p>The zero-vector test can reject a set; closure is still needed to accept it</p>
+</div>
+<aside class="notes">
+<p>Take (1,0)^T and (0,1)^T. Their sum (1,1)^T is off both axes, so W is not closed under addition. Containing zero and being closed under scalar multiplication together are still insufficient. This is a necessary-versus- sufficient-condition example, not a new subspace test.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="upper-triangular-matrices-form-a-subspace" class="slide level2">
 <h2>Upper-triangular matrices form a subspace</h2>
 <p>Recall the <a href="03-matrix-structure-and-transformations.html#triangular-matrices-expose-pivots">matrix families in Matrix Transformations</a></p>
@@ -1257,7 +1329,7 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 =c\mat{A}\vct{x}+d\mat{A}\vct{y}
 =\vct{0}
 \]</span></p>
-<p>By contrast, <span class="math inline">\(\{\vct{x}:\mat{A}\vct{x}=\vct{b}\}\)</span> is generally affine when <span class="math inline">\(\vct{b}\ne\vct{0}\)</span></p>
+<p>When <span class="math inline">\(\vct{b}\ne\vct{0}\)</span> and the system is consistent, its solution set is affine and does not contain the zero vector</p>
 <p>This gives a name to the homogeneous solutions found by <a href="01-systems-and-matrices.html#read-the-solution-set">elimination in Systems and Matrices</a></p>
 <div class="key-point">
 <p>The null space records every input direction that a matrix sends to zero</p>
@@ -1268,13 +1340,15 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 <h1>Spans and Membership</h1>
 <ul>
 <li><a href="#/span-is-the-subspace-generated-by-chosen-vectors">Span is the subspace generated by chosen vectors</a></li>
+<li><a href="#/in-rn-span-is-matrix-vector-multiplication">In <span class="math inline">\(\reals^n\)</span>, span is matrix–vector multiplication</a></li>
 <li><a href="#/spanning-polynomials-means-matching-every-coefficient">Spanning polynomials means matching every coefficient</a></li>
+<li><a href="#/worked-example-a-polynomial-subspace">Example: a polynomial subspace</a></li>
 <li><a href="#/a-subspace-question-becomes-a-closure-question">A subspace question becomes a closure question</a></li>
 </ul>
 </section>
 <section id="span-is-the-subspace-generated-by-chosen-vectors" class="slide level2">
 <h2>Span is the subspace generated by chosen vectors</h2>
-<p>For vectors <span class="math inline">\(\vct{v}_1,\ldots,\vct{v}_k\in V\)</span>,</p>
+<p>For vectors <span class="math inline">\(\vct{v}_1,\ldots,\vct{v}_k\)</span> in a real vector space <span class="math inline">\(V\)</span>,</p>
 <p><span class="math display">\[
 \operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}
 =\left\{c_1\vct{v}_1+\cdots+c_k\vct{v}_k:c_i\in\reals\right\}
@@ -1289,9 +1363,8 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 <p>Span answers a reachability question: which vectors can these generators build?</p>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 id="in-rn-span-is-matrix-vector-multiplication">In <span class="math inline">\(\reals^n\)</span>, span is matrix–vector multiplication</h3>
+<section id="in-rn-span-is-matrix-vector-multiplication" class="slide level2">
+<h2>In <span class="math inline">\(\reals^n\)</span>, span is matrix–vector multiplication</h2>
 <p>For <span class="math inline">\(\vct{v}_j\in\reals^n\)</span>, collect the chosen vectors as columns:</p>
 <p><span class="math display">\[
 \mat{V}=\begin{bmatrix}\vct{v}_1&amp;\cdots&amp;\vct{v}_k\end{bmatrix}\in\reals^{n\times k},
@@ -1311,7 +1384,7 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 </section>
 <section class="slide level2">
 
-<h3 id="worked-example-a-span-is-a-plane">Worked example: a span is a plane</h3>
+<h3 id="worked-example-a-span-is-a-plane">Example: a span is a plane</h3>
 <p>Take <span class="math inline">\(\vct{v}_1=(1,0,1)^{\mathsf T}\)</span> and <span class="math inline">\(\vct{v}_2=(0,1,1)^{\mathsf T}\)</span></p>
 <p><span class="math display">\[
 \mat{V}\vct{c}
@@ -1331,7 +1404,7 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 </section>
 <section class="slide level2">
 
-<h3 id="practice-membership-and-an-extra-generator">Practice: membership and an extra generator</h3>
+<h3 id="practice-membership-and-an-extra-generator">Membership and an extra generator</h3>
 <p>Keep <span class="math inline">\(\vct{v}_1=(1,0,1)^{\mathsf T}\)</span> and <span class="math inline">\(\vct{v}_2=(0,1,1)^{\mathsf T}\)</span>; let <span class="math inline">\(\vct{v}_3=(1,1,2)^{\mathsf T}\)</span></p>
 <div class="exitem lettered">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use coefficients or the plane equation <span class="math inline">\(z=x+y\)</span> <span class="exsub">Is <span class="math inline">\((3,2,5)^{\mathsf T}\)</span> in the span? Find coefficients</span> <span class="exsub">Is <span class="math inline">\((3,2,4)^{\mathsf T}\)</span> in the span?</span> <span class="exsub">Does adding <span class="math inline">\(\vct{v}_3\)</span> enlarge the span? Explain</span> <span class="exsub">Find two different coefficient vectors representing <span class="math inline">\(\vct{v}_3\)</span> using all three generators</span> </span></p>
@@ -1398,7 +1471,7 @@ p_3=p_1-p_2
 </section>
 <section class="slide level2">
 
-<h3 id="practice-membership-in-a-polynomial-span">Practice: membership in a polynomial span</h3>
+<h3 id="practice-membership-in-a-polynomial-span">Membership in a polynomial span</h3>
 <p>Keep <span class="math inline">\(p_1=1+t\)</span> and <span class="math inline">\(p_2=t+t^2\)</span>, and let <span class="math inline">\(W=\operatorname{span}\{p_1,p_2\}\)</span></p>
 <div class="exitem">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Which polynomials belong to <span class="math inline">\(W\)</span>? <span class="exsub">Write <span class="math inline">\(2+3t+t^2\)</span> as a combination of <span class="math inline">\(p_1,p_2\)</span>, if possible</span> <span class="exsub">Decide whether <span class="math inline">\(1\)</span> belongs to <span class="math inline">\(W\)</span></span> <span class="exsub">Give a coefficient test for <span class="math inline">\(a_0+a_1t+a_2t^2\)</span> to belong to <span class="math inline">\(W\)</span></span> </span></p>
@@ -1417,9 +1490,8 @@ p_3=p_1-p_2
           display:block!important;
       }</style></aside>
 </section>
-<section class="slide level2">
-
-<h3 id="worked-example-a-polynomial-subspace">Worked example: a polynomial subspace</h3>
+<section id="worked-example-a-polynomial-subspace" class="slide level2">
+<h2>Example: a polynomial subspace</h2>
 <p>Consider <span class="math inline">\(U=\{p\in\mathbb{P}_3:p(0)=0\}\)</span></p>
 <p>For <span class="math inline">\(p,q\in U\)</span> and <span class="math inline">\(c,d\in\reals\)</span>,</p>
 <p><span class="math display">\[
@@ -1482,7 +1554,8 @@ W=\{p\in\mathbb{P}_3:p(1)=0\}
 <li>A vector space has addition and scalar multiplication satisfying the axioms</li>
 <li>Polynomials, matrices, and functions can be vectors</li>
 <li>A subspace inherits the operations and is closed under linear combinations</li>
-<li>The span contains every linear combination of its generators</li>
+<li>The span is the smallest subspace containing its generators</li>
+<li>A subspace can be described by generators or homogeneous linear constraints</li>
 </ul>
 </section>
 

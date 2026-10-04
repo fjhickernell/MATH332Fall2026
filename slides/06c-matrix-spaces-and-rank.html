@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="06c-matrix-spaces-and-rank_files/libs/revealjs/dist/theme/quarto-58840370c589e1153509a06720630224.css">
+  <link rel="stylesheet" href="06c-matrix-spaces-and-rank_files/libs/revealjs/dist/theme/quarto-e2c737db624b6b1fda97442e9ed43e9e.css">
   <link href="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="06c-matrix-spaces-and-rank_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -633,7 +633,7 @@
 
 <section id="title-slide" data-background-color="#f5f7fb" data-background-image="https://fjhickernell.github.io/MATH332Fall2026/classlib/classlib/quarto/assets/images/normal-scatter.png" data-background-position="top left" data-background-size="55%" class="quarto-title-block center">
   <h1 class="title">MATH 332 — Fall 2026</h1>
-  <p class="subtitle"><span class="deck-title">Matrix Spaces and Rank</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul Ch. 4</span></p>
+  <p class="subtitle"><span class="deck-title">Matrix Spaces and Rank</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul §§4.8–4.9</span></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -673,7 +673,47 @@ Course decks
 <h3>
 In this deck
 </h3>
-<p><span class="alert">Find four spaces; count directions; represent linear maps</span></p>
+<style>
+.reveal .four-space-preview { display:grid; grid-template-columns:minmax(0,1fr) 0.6fr minmax(0,1fr); gap:0.16em 0.25em; align-items:center; text-align:center; margin:0.2em 0 0.45em; }
+.reveal .four-space-preview .space-heading { color:var(--header-blue); font-size:0.8em; }
+.reveal .four-space-preview .space-card { padding:0.22em 0.3em; border:3px solid #2e78b7; border-radius:12px; background:#f5fbff; }
+.reveal .four-space-preview .null-card { border-color:#bd8e20; background:#fff9e9; }
+.reveal .four-space-preview .space-detail { font-size:0.72em; }
+.reveal .four-space-preview .space-action { color:#2e78b7; }
+</style>
+<div class="four-space-preview" role="group" aria-label="The input space R n splits into the row space of dimension r and its orthogonal null space of dimension n minus r. A maps the row space onto the column space, both of dimension r. The output space R m splits into the column space and its orthogonal left null space of dimension m minus r. Null-space vectors are sent to zero.">
+<div class="space-heading" style="grid-row:1;grid-column:1;">
+Input: <span class="math inline">\(\reals^n\)</span>
+</div>
+<div class="space-heading" style="grid-row:1;grid-column:2;">
+<span class="math inline">\(r=\operatorname{rank}(\mat{A})\)</span>
+</div>
+<div class="space-heading" style="grid-row:1;grid-column:3;">
+Output: <span class="math inline">\(\reals^m\)</span>
+</div>
+<div class="space-card" style="grid-row:2;grid-column:1;">
+<span class="math inline">\(\operatorname{Row}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(r\)</span> independent directions</span>
+</div>
+<div class="space-action" style="grid-row:2;grid-column:2;">
+<span class="math inline">\(\xrightarrow{\mat{A}}\)</span>
+</div>
+<div class="space-card" style="grid-row:2;grid-column:3;">
+<span class="math inline">\(\operatorname{Col}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(r\)</span> independent directions</span>
+</div>
+<div class="space-detail" style="grid-row:3;grid-column:1;">
+<span class="math inline">\(\perp\)</span>
+</div>
+<div class="space-detail" style="grid-row:3;grid-column:3;">
+<span class="math inline">\(\perp\)</span>
+</div>
+<div class="space-card null-card" style="grid-row:4;grid-column:1;">
+<span class="math inline">\(\operatorname{Null}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(n-r\)</span> directions<br><span class="math inline">\(\mat{A}\vct{x}=\vct{0}\)</span></span>
+</div>
+<div class="space-card null-card" style="grid-row:4;grid-column:3;">
+<span class="math inline">\(\operatorname{Null}(\mat{A}^{\mathsf T})\)</span><br><span class="space-detail"><span class="math inline">\(m-r\)</span> directions<br><span class="math inline">\(\mat{A}^{\mathsf T}\vct{y}=\vct{0}\)</span></span>
+</div>
+</div>
+<div style="font-size: 0.9em;">
 <ul>
 <li><a href="#/matrix-spaces-and-rank">Matrix Spaces and Rank</a></li>
 <li><a href="#/rank-and-solution-sets">Rank and Solution Sets</a></li>
@@ -682,7 +722,21 @@ In this deck
 <li><a href="#/what-the-structure-buys-us">What the Structure Buys Us</a></li>
 <li><a href="#/big-ideas">Big Ideas</a></li>
 </ul>
+</div>
 </div></div>
+<aside class="notes">
+<p>Preview for a real m-by-n matrix of rank r. The input splits orthogonally into Row(A) and Null(A); the output splits into Col(A) and Null(A^T). The displayed arrow is A restricted to the row space: it maps that space one-to-one onto the column space. Both have dimension r. The n-r null-space directions collapse to zero; they are not mapped to the left null space. The output’s m-r left-null directions are perpendicular to every attainable output. Thus n=r+(n-r) and m=r+(m-r). The deck develops these claims after computing concrete bases and dimensions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section>
@@ -690,6 +744,7 @@ In this deck
 <h1>Matrix Spaces and Rank</h1>
 <ul>
 <li><a href="#/a-matrix-has-four-fundamental-subspaces">A matrix has four fundamental subspaces</a></li>
+<li><a href="#/rank-and-nullity-measure-different-parts-of-a-matrix">Rank and nullity measure different parts of a matrix</a></li>
 <li><a href="#/one-reduction-exposes-the-structure">One reduction exposes the structure</a></li>
 <li><a href="#/column-and-row-bases-come-from-different-matrices">Column and row bases come from different matrices</a></li>
 <li><a href="#/free-variables-build-a-basis-for-the-null-space">Free variables build a basis for the null space</a></li>
@@ -736,7 +791,41 @@ In this deck
 </table>
 <div class="key-point">
 <p>Always identify the ambient space before comparing subspaces</p>
+<p>View row-space vectors as columns by transposing the matrix rows</p>
 </div>
+</section>
+<section id="rank-and-nullity-measure-different-parts-of-a-matrix" class="slide level2">
+<h2>Rank and nullity measure different parts of a matrix</h2>
+<p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, define</p>
+<p><span class="math display">\[
+\operatorname{rank}(\mat{A})=\dim(\operatorname{Col}(\mat{A})),
+\qquad
+\operatorname{nullity}(\mat{A})=\dim(\operatorname{Null}(\mat{A}))
+\]</span></p>
+<p>Row reduction gives</p>
+<ul>
+<li>rank = number of pivot columns = dimension of the row space</li>
+<li>nullity = number of free variables</li>
+</ul>
+<p><span class="math display">\[
+0\le\operatorname{rank}(\mat{A})\le\min(m,n)
+\]</span></p>
+<div class="key-point">
+<p>Rank counts independent output directions; nullity counts lost input directions</p>
+</div>
+<aside class="notes">
+<p>Rank is defined here using column-space dimension. The row-rank/column-rank theorem says the dimensions agree. Pivot columns of the original matrix are a column-space basis; the nonzero RREF rows are a row-space basis with the same number of vectors. Each free variable contributes one independent null-space vector. We use real matrices throughout this deck.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="one-reduction-exposes-the-structure" class="slide level2">
 <h2>One reduction exposes the structure</h2>
@@ -756,6 +845,7 @@ In this deck
 0&amp;0&amp;0&amp;0
 \end{bmatrix}
 \]</span></p>
+<p><span class="math inline">\(\mat{R}\)</span> is the <span class="alert">reduced row-echelon form (RREF)</span> of <span class="math inline">\(\mat{A}\)</span></p>
 <p>Pivot columns: <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span></p>
 <p>Free variables: <span class="math inline">\(x_2\)</span> and <span class="math inline">\(x_4\)</span></p>
 <p><span class="math display">\[
@@ -787,8 +877,8 @@ In this deck
 <p>A basis for the row space uses nonzero rows of the <span class="alert">reduced</span> matrix:</p>
 <p><span class="math display">\[
 \left\{
-\begin{bmatrix}1&amp;2&amp;0&amp;2\end{bmatrix},
-\begin{bmatrix}0&amp;0&amp;1&amp;1\end{bmatrix}
+\begin{bmatrix}1\\2\\0\\2\end{bmatrix},
+\begin{bmatrix}0\\0\\1\\1\end{bmatrix}
 \right\}
 \]</span></p>
 <div class="key-point">
@@ -822,6 +912,8 @@ x_3=-x_4
 <h1>Rank and Solution Sets</h1>
 <ul>
 <li><a href="#/rank-nullity-counts-inputs">Rank-nullity counts inputs</a></li>
+<li><a href="#/rank-separates-existence-from-uniqueness">Rank separates existence from uniqueness</a></li>
+<li><a href="#/rank-nullity-predicts-solution-sets">Rank-nullity predicts solution sets</a></li>
 </ul>
 </section>
 <section id="rank-nullity-counts-inputs" class="slide level2">
@@ -844,9 +936,60 @@ x_3=-x_4
 <p>Rank-nullity accounts for every direction in the input space</p>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 id="rank-nullity-predicts-solution-sets">Rank-nullity predicts solution sets</h3>
+<section id="rank-separates-existence-from-uniqueness" class="slide level2">
+<h2>Rank separates existence from uniqueness</h2>
+<p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span> and <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Does this <span class="math inline">\(\vct{b}\)</span> have a solution?</td>
+<td><span class="math inline">\(\vct{b}\in\operatorname{Col}(\mat{A})\)</span></td>
+</tr>
+<tr class="even">
+<td>Is a solution unique, when it exists?</td>
+<td><span class="math inline">\(\operatorname{Null}(\mat{A})=\{\vct{0}\}\)</span>, or rank <span class="math inline">\(=n\)</span></td>
+</tr>
+<tr class="odd">
+<td>Does every <span class="math inline">\(\vct{b}\in\reals^m\)</span> have a solution?</td>
+<td><span class="math inline">\(\operatorname{Col}(\mat{A})=\reals^m\)</span>, or rank <span class="math inline">\(=m\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Two inputs produce the same output exactly when</p>
+<p><span class="math display">\[
+\mat{A}\vct{x}=\mat{A}\vct{x}'
+\quad\Longleftrightarrow\quad
+\vct{x}-\vct{x}'\in\operatorname{Null}(\mat{A})
+\]</span></p>
+<div class="key-point">
+<p>For a square matrix, full rank gives existence and uniqueness for every right-hand side</p>
+</div>
+<aside class="notes">
+<p>Full column rank gives at most one solution; it does not guarantee existence for every right-hand side in a taller system. Full row rank guarantees every right-hand side is attainable; a wider system can still have many solutions. The square case reconnects these statements to the invertible-matrix results in Inverses. Whenever a solution x_p exists, all solutions are x_p + Null(A); choosing a null-space basis supplies the independent parameters.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="rank-nullity-predicts-solution-sets" class="slide level2">
+<h2>Rank-nullity predicts solution sets</h2>
 <div class="exitem">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Compare two <span class="math inline">\(3\times5\)</span> matrices: <span class="math inline">\(\operatorname{rank}(\mat{A})=2\)</span> and <span class="math inline">\(\operatorname{rank}(\mat{B})=3\)</span> <span class="exsub">Find each nullity</span> <span class="exsub">Could either system <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> or <span class="math inline">\(\mat{B}\vct{x}=\vct{b}\)</span> have exactly one solution?</span> <span class="exsub">Which system is solvable for every <span class="math inline">\(\vct{b}\in\reals^3\)</span>?</span> </span></p>
 </div>
@@ -868,8 +1011,39 @@ x_3=-x_4
 <section id="orthogonal-pairs" class="title-slide slide level1 center">
 <h1>Orthogonal Pairs</h1>
 <ul>
+<li><a href="#/an-orthogonal-complement-contains-all-perpendicular-directions">An orthogonal complement contains all perpendicular directions</a></li>
 <li><a href="#/the-four-spaces-pair-through-orthogonality">The four spaces pair through orthogonality</a></li>
+<li><a href="#/worked-example-see-both-orthogonal-pairs">Example: see both orthogonal pairs</a></li>
 </ul>
+</section>
+<section id="an-orthogonal-complement-contains-all-perpendicular-directions" class="slide level2">
+<h2>An orthogonal complement contains all perpendicular directions</h2>
+<p>For a subspace <span class="math inline">\(W\subseteq\reals^d\)</span>, its <span class="alert">orthogonal complement</span> is</p>
+<p><span class="math display">\[
+W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
+\text{ for every }\vct{w}\in W\}
+\]</span></p>
+<p>It is enough to check the dot product with each vector in a basis of <span class="math inline">\(W\)</span></p>
+<p>Every <span class="math inline">\(\vct{x}\in\reals^d\)</span> has a unique decomposition</p>
+<p><span class="math display">\[
+\vct{x}=\vct{w}+\vct{z},\qquad \vct{w}\in W,\quad \vct{z}\in W^\perp
+\]</span></p>
+<div class="key-point">
+<p><span class="math inline">\(\dim(W)+\dim(W^\perp)=d\)</span>: the two subspaces account for every direction</p>
+</div>
+<aside class="notes">
+<p>This is Euclidean orthogonality using the dot product from Euclidean Spaces. If z is perpendicular to the basis vectors, linearity makes it perpendicular to every combination. The Euclidean orthogonal-decomposition theorem gives existence. Uniqueness follows because W intersects W^perp only in zero: a vector perpendicular to itself has zero squared length.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="the-four-spaces-pair-through-orthogonality" class="slide level2">
 <h2>The four spaces pair through orthogonality</h2>
@@ -894,9 +1068,8 @@ x_3=-x_4
 \dim(\operatorname{Null}(\mat{A}^{\mathsf T}))=m-r
 \]</span></p>
 </section>
-<section class="slide level2">
-
-<h3 id="worked-example-see-both-orthogonal-pairs">Worked example: see both orthogonal pairs</h3>
+<section id="worked-example-see-both-orthogonal-pairs" class="slide level2">
+<h2>Example: see both orthogonal pairs</h2>
 <p>Take the rank-one matrix</p>
 <p><span class="math display">\[
 \mat{A}=\begin{bmatrix}1&amp;2&amp;0\\2&amp;4&amp;0\end{bmatrix}
@@ -921,7 +1094,7 @@ x_3=-x_4
 </section>
 <section class="slide level2">
 
-<h3 id="practice-orthogonality-and-ambient-spaces">Practice: orthogonality and ambient spaces</h3>
+<h3 id="practice-orthogonality-and-ambient-spaces">Orthogonality and ambient spaces</h3>
 <p>Let</p>
 <p><span class="math display">\[
 \mat{B}=\begin{bmatrix}1&amp;0&amp;1\\0&amp;1&amp;1\end{bmatrix}
@@ -948,12 +1121,13 @@ x_3=-x_4
 <h1>Rank Factorization and the Left Null Space</h1>
 <ul>
 <li><a href="#/rank-factorization-keeps-the-independent-columns-and-rows">Rank factorization keeps the independent columns and rows</a></li>
+<li><a href="#/check-the-factorization-column-by-column">Check the factorization column by column</a></li>
 <li><a href="#/find-the-left-null-space">Find the left null space</a></li>
 </ul>
 </section>
 <section id="rank-factorization-keeps-the-independent-columns-and-rows" class="slide level2">
 <h2>Rank factorization keeps the independent columns and rows</h2>
-<p>For the example, take the pivot columns of <span class="math inline">\(\mat{A}\)</span> and the nonzero rows of <span class="math inline">\(\mat{R}\)</span>:</p>
+<p>For the example, take the pivot columns of <span class="math inline">\(\mat{A}\)</span> and the nonzero rows of its RREF <span class="math inline">\(\mat{R}\)</span>:</p>
 <p><span class="math display">\[
 \mat{C}=
 \begin{bmatrix}
@@ -976,9 +1150,8 @@ x_3=-x_4
 <p>The columns of <span class="math inline">\(\mat{C}\)</span> form a column-space basis; the rows of <span class="math inline">\(\mat{R}_r\)</span> form a row-space basis</p>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 id="check-the-factorization-column-by-column">Check the factorization column by column</h3>
+<section id="check-the-factorization-column-by-column" class="slide level2">
+<h2>Check the factorization column by column</h2>
 <p>Write the columns of <span class="math inline">\(\mat{C}\)</span> as <span class="math inline">\(\vct{c}_1,\vct{c}_2\)</span></p>
 <p>The columns of <span class="math inline">\(\mat{R}_r\)</span> give the coefficients, just as in <a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">the matrix product by columns in Systems and Matrices</a>:</p>
 <p><span class="math display">\[
@@ -996,7 +1169,7 @@ x_3=-x_4
 </section>
 <section class="slide level2">
 
-<h3 id="practice-constructing-rank-factorizations">Practice constructing rank factorizations</h3>
+<h3 id="practice-constructing-rank-factorizations">Construct rank factorizations</h3>
 <div class="exitem lettered">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>For each matrix <span class="math inline">\(\mat{M}\)</span> below, find <span class="math inline">\(\mat{C}\)</span> and <span class="math inline">\(\mat{R}_r\)</span> with <span class="math inline">\(\mat{M}=\mat{C}\mat{R}_r\)</span> <span class="exsub"><span class="math inline">\(\displaystyle\mat{B}=\begin{bmatrix}1&amp;2&amp;0\\0&amp;0&amp;1\\1&amp;2&amp;1\end{bmatrix}\)</span></span> <span class="exsub"><span class="math inline">\(\displaystyle\mat{D}=\begin{bmatrix}1&amp;0&amp;2&amp;3\\2&amp;1&amp;4&amp;7\end{bmatrix}\)</span></span> </span></p>
 </div>
@@ -1032,6 +1205,36 @@ y_1+2y_2+y_3=0,
 </section>
 <section class="slide level2">
 
+<h3 id="left-null-vectors-test-compatibility-of-equations">Left-null vectors test compatibility of equations</h3>
+<p>If <span class="math inline">\(\mat{A}^{\mathsf T}\vct{y}=\vct{0}\)</span> and <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>, then</p>
+<p><span class="math display">\[
+\vct{y}^{\mathsf T}\vct{b}
+=\vct{y}^{\mathsf T}\mat{A}\vct{x}=0
+\]</span></p>
+<p>A right-hand side is attainable exactly when it is perpendicular to every left-null vector</p>
+<p>In our example, <span class="math inline">\(\operatorname{Null}(\mat{A}^{\mathsf T})\)</span> has basis <span class="math inline">\(\{(-4,1,2)^{\mathsf T}\}\)</span>, so consistency is equivalent to</p>
+<p><span class="math display">\[
+-4b_1+b_2+2b_3=0
+\]</span></p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use this test for <span class="math inline">\(\vct{b}=(0,1,0)^{\mathsf T}\)</span> and <span class="math inline">\(\vct{b}=(1,2,1)^{\mathsf T}\)</span></span></p>
+</div>
+<aside class="notes">
+<p>For (0,1,0)^T, y^T b=1, so there is no solution. For (1,2,1)^T, the condition holds, and b is the first column of A, so x=(1,0,0,0)^T solves it. The sufficiency comes from Col(A)=Null(A<sup>T)</sup>perp. The same y also describes a linear dependence among the equations; a consistent right-hand side must obey that relation. This is a concrete solvability certificate, not just another dimension count.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
 <h3 id="one-matrix-supports-several-basis-questions">One matrix supports several basis questions</h3>
 <p>For <span class="math inline">\(\mat{B}\)</span> on the practice slide:</p>
 <div class="exitem">
@@ -1054,30 +1257,32 @@ y_1+2y_2+y_3=0,
 <section>
 <section id="what-the-structure-buys-us" class="title-slide slide level1 center">
 <h1>What the Structure Buys Us</h1>
+<p>Preview: Anton §§8.1 and 8.4</p>
 <ul>
 <li><a href="#/a-basis-turns-an-abstract-problem-into-a-matrix-problem">A basis turns an abstract problem into a matrix problem</a></li>
+<li><a href="#/worked-example-differentiation-is-a-matrix">Example: differentiation is a matrix</a></li>
 <li><a href="#/a-well-chosen-basis-can-simplify-an-operator">A well-chosen basis can simplify an operator</a></li>
 </ul>
 </section>
 <section id="a-basis-turns-an-abstract-problem-into-a-matrix-problem" class="slide level2">
 <h2>A basis turns an abstract problem into a matrix problem</h2>
-<p>Suppose <span class="math inline">\(T:V\to W\)</span> preserves linear combinations:</p>
+<p>Let <span class="math inline">\(V\)</span> and <span class="math inline">\(W\)</span> be finite-dimensional real vector spaces</p>
+<p>A <span class="alert">linear transformation</span> <span class="math inline">\(T:V\to W\)</span> preserves linear combinations:</p>
 <p><span class="math display">\[
 T(c\vct{u}+d\vct{v})=cT(\vct{u})+dT(\vct{v})
 \]</span></p>
-<p>Choose a basis <span class="math inline">\(\mathcal{B}\)</span> for <span class="math inline">\(V\)</span> and a basis <span class="math inline">\(\mathcal{C}\)</span> for <span class="math inline">\(W\)</span></p>
-<p>Then some matrix <span class="math inline">\(\mat{M}\)</span> satisfies</p>
+<p>Choose ordered bases <span class="math inline">\(\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)\)</span> for <span class="math inline">\(V\)</span> and <span class="math inline">\(\mathcal{C}\)</span> for <span class="math inline">\(W\)</span>, with <span class="math inline">\(\dim(W)=m\)</span></p>
+<p>Its <span class="math inline">\(m\times n\)</span> coordinate matrix has column <span class="math inline">\(j\)</span> equal to <span class="math inline">\([T(\vct{b}_j)]_{\mathcal{C}}\)</span> and satisfies</p>
 <p><span class="math display">\[
 [T(\vct{v})]_{\mathcal{C}}
 =\mat{M}[\vct{v}]_{\mathcal{B}}
 \]</span></p>
 <div class="key-point">
-<p>Matrices are coordinate representations of linear transformations</p>
+<p>A linear transformation is determined by its action on a basis</p>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 id="worked-example-differentiation-is-a-matrix">Worked example: differentiation is a matrix</h3>
+<section id="worked-example-differentiation-is-a-matrix" class="slide level2">
+<h2>Example: differentiation is a matrix</h2>
 <p>Let <span class="math inline">\(D:\mathbb{P}_2\to\mathbb{P}_1\)</span> send <span class="math inline">\(p\)</span> to <span class="math inline">\(p'\)</span></p>
 <p>Use <span class="math inline">\(\mathcal{B}=(1,t,t^2)\)</span> for the input and <span class="math inline">\(\mathcal{C}=(1,t)\)</span> for the output</p>
 <p><span class="math display">\[
@@ -1102,7 +1307,7 @@ D(1)=0,
 </section>
 <section class="slide level2">
 
-<h3 id="practice-evaluate-a-polynomial-with-a-matrix">Practice: evaluate a polynomial with a matrix</h3>
+<h3 id="practice-evaluate-a-polynomial-with-a-matrix">Evaluate a polynomial with a matrix</h3>
 <p>Let <span class="math inline">\(T:\mathbb{P}_2\to\reals^2\)</span> be</p>
 <p><span class="math display">\[
 T(p)=\begin{bmatrix}p(0)\\p(1)\end{bmatrix}
@@ -1128,7 +1333,7 @@ T(p)=\begin{bmatrix}p(0)\\p(1)\end{bmatrix}
 <section id="a-well-chosen-basis-can-simplify-an-operator" class="slide level2">
 <h2>A well-chosen basis can simplify an operator</h2>
 <p>Different bases give different matrices for the same linear transformation</p>
-<p>The <a href="07-eigenvalues-and-eigenvectors.html">next deck</a> asks whether a basis can make a square matrix diagonal:</p>
+<p><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a> asks whether a basis can make a square matrix diagonal:</p>
 <p><span class="math display">\[
 \mat{P}^{-1}\mat{A}\mat{P}
 =
@@ -1147,10 +1352,11 @@ T(p)=\begin{bmatrix}p(0)\\p(1)\end{bmatrix}
 <h1>Big Ideas</h1>
 <ul>
 <li>Reduction reveals bases for row, column, and null spaces</li>
-<li>Rank–nullity counts visible and null input directions</li>
+<li>Rank separates attainable outputs from lost input directions</li>
 <li>Row/null and column/left-null spaces form orthogonal pairs</li>
 <li>Rank factorization separates independent columns from their combinations</li>
-<li>Bases turn abstract linear maps into matrices</li>
+<li>Left-null vectors give compatibility conditions for the equations</li>
+<li>Bases turn finite-dimensional linear maps into matrices</li>
 </ul>
 </section>
 

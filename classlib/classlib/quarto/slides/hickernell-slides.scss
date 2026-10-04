@@ -538,7 +538,7 @@ h1::before,
   bottom: 0.6em !important;
   text-align: left !important;
   color: #777777 !important;
-  font-size: 0.6em !important;
+  font-size: min(0.6em, 1.18vw) !important;
   background: none !important;
   margin: 0 !important;
   padding: 0 !important;
@@ -548,7 +548,7 @@ h1::before,
 /* iPad / narrow viewport footer safety */
 .reveal .footer {
   box-sizing: border-box !important;
-  left: 2.2em !important;
+  left: max(2.2em, 44px) !important;
   right: 5.2em !important;
   width: auto !important;
   padding-right: 0.8em !important;
