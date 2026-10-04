@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-01">
+  <meta name="dcterms.date" content="2026-10-04">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 1, 2026</p>
+  <p class="date">October 4, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -652,6 +652,7 @@ Fred J. Hickernell
 <h3>
 Course decks
 </h3>
+<div style="font-size: 0.86em;">
 <ul>
 <li><a href="00-why-linear-algebra.html">Why Linear Algebra?</a></li>
 <li><a href="01-systems-and-matrices.html">Systems and Matrices</a></li>
@@ -659,10 +660,13 @@ Course decks
 <li><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a></li>
 <li><a href="04-determinants.html">Determinants</a></li>
 <li><a href="05-euclidean-vector-spaces.html" class="current-deck" aria-current="page">Euclidean Spaces</a></li>
-<li><a href="06-general-vector-spaces.html">Vector Spaces</a></li>
+<li><a href="06-general-vector-spaces.html">Vector Spaces and Span</a></li>
+<li><a href="06b-bases-dimension-and-coordinates.html">Bases and Coordinates</a></li>
+<li><a href="06c-matrix-spaces-and-rank.html">Matrix Spaces and Rank</a></li>
 <li><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
 <li><a href="08-inner-product-spaces.html">Inner Products</a></li>
 </ul>
+</div>
 </div><div class="column" style="width:4%;">
 
 </div><div class="column" style="width:58%;">
@@ -801,7 +805,7 @@ c\vct{u}=(cu_i)_{i=1}^n
 \]</span></p>
 <p>The standard dot product <span class="math inline">\(\vct{u}^{\mathsf T}\vct{v}=\sum_{i=1}^n u_iv_i\)</span> lets us define lengths and angles</p>
 <div class="key-point">
-<p>This familiar example is a <span class="alert">Euclidean vector space</span>; <a href="06-general-vector-spaces.html#addition-must-behave-like-familiar-vector-addition">Deck 06</a> states the vector-space axioms and extends them beyond coordinate vectors</p>
+<p>This familiar example is a <span class="alert">Euclidean vector space</span>; <a href="06-general-vector-spaces.html#addition-must-behave-like-familiar-vector-addition">Vector Spaces and Span</a> states the vector-space axioms and extends them beyond coordinate vectors</p>
 </div>
 </section>
 <section id="choosing-an-origin-hides-the-distinction" class="slide level2">
@@ -880,10 +884,10 @@ L=\{P+t\vct{v}:t\in\reals\}
 \mat{A}(\vct{x}+\vct{z})=\mat{A}\vct{x}
 \]</span></p>
 <div class="key-point">
-<p>These homogeneous directions form <span class="math inline">\(\operatorname{Null}(\mat{A})\)</span>; <a href="06-general-vector-spaces.html#homogeneous-systems-produce-subspaces">Deck 06</a> develops the null space as a subspace</p>
+<p>These homogeneous directions form <span class="math inline">\(\operatorname{Null}(\mat{A})\)</span>; <a href="06-general-vector-spaces.html#homogeneous-systems-produce-subspaces">Vector Spaces and Span</a> develops the null space as a subspace</p>
 </div>
 <aside class="notes">
-<p><a href="06-general-vector-spaces.html#a-vector-space-starts-with-objects-and-two-operations">Deck 06</a> will verify the vector-space axioms and connect the null space to the <a href="06-general-vector-spaces.html#a-matrix-has-four-fundamental-subspaces">row and column spaces</a>.</p>
+<p><a href="06-general-vector-spaces.html#a-vector-space-starts-with-objects-and-two-operations">Vector Spaces and Span</a> will verify the vector-space axioms and connect the null space to the <a href="06c-matrix-spaces-and-rank.html#a-matrix-has-four-fundamental-subspaces">row and column spaces</a>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -956,7 +960,7 @@ n-r
 <p>The <span class="alert">dimension of the affine solution set</span> is <span class="math inline">\(n-r\)</span>, the number of free parameters<br> It equals the dimension of the homogeneous direction space <span class="math inline">\(\operatorname{Null}(\mat{A})\)</span></p>
 </div>
 <aside class="notes">
-<p>This is a preview. Deck 06 will define <a href="06-general-vector-spaces.html#a-basis-balances-reach-and-economy">basis</a> and <a href="06-general-vector-spaces.html#dimension-counts-vectors-in-any-basis">dimension</a> and name the relationship <a href="06-general-vector-spaces.html#rank-nullity-counts-inputs">rank–nullity</a>.</p>
+<p>This is a preview. Bases and Coordinates will define <a href="06b-bases-dimension-and-coordinates.html#a-basis-balances-reach-and-economy">basis</a> and <a href="06b-bases-dimension-and-coordinates.html#dimension-counts-vectors-in-any-basis">dimension</a> and name the relationship <a href="06c-matrix-spaces-and-rank.html#rank-nullity-counts-inputs">rank–nullity</a>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1002,7 +1006,7 @@ x-y+z&amp;=0
 </section>
 <section id="recall-what-the-dot-product-already-gives-us" class="slide level2">
 <h2>Recall what the dot product already gives us</h2>
-<p><a href="01-systems-and-matrices.html#what-the-dot-product-reveals">Deck 01 introduced the dot product</a> as the geometry on <span class="math inline">\(\reals^n\)</span></p>
+<p><a href="01-systems-and-matrices.html#what-the-dot-product-reveals">Systems and Matrices</a> introduced the dot product as the geometry on <span class="math inline">\(\reals^n\)</span></p>
 <p>We now use only these consequences:</p>
 <p><span class="math display">\[\begin{align*}
 \vct{u}^{\mathsf T}\vct{v}=0
@@ -1537,12 +1541,12 @@ Next names
 <ul>
 <li><a href="06-general-vector-spaces.html#a-vector-space-starts-with-objects-and-two-operations">formal vector-space axioms</a> and examples beyond <span class="math inline">\(\reals^n\)</span></li>
 <li><a href="06-general-vector-spaces.html#homogeneous-systems-produce-subspaces">subspace and null space</a></li>
-<li><a href="06-general-vector-spaces.html#span-is-the-subspace-generated-by-chosen-vectors">span</a> and <a href="06-general-vector-spaces.html#independence-means-the-zero-vector-has-one-construction">linear independence</a></li>
-<li><a href="06-general-vector-spaces.html#a-basis-balances-reach-and-economy">basis</a> and <a href="06-general-vector-spaces.html#dimension-counts-vectors-in-any-basis">dimension</a></li>
+<li><a href="06-general-vector-spaces.html#span-is-the-subspace-generated-by-chosen-vectors">span</a> and <a href="06b-bases-dimension-and-coordinates.html#independence-means-the-zero-vector-has-one-construction">linear independence</a></li>
+<li><a href="06b-bases-dimension-and-coordinates.html#a-basis-balances-reach-and-economy">basis</a> and <a href="06b-bases-dimension-and-coordinates.html#dimension-counts-vectors-in-any-basis">dimension</a></li>
 </ul>
 </div></div>
 <div class="key-point">
-<p><a href="06-general-vector-spaces.html">Next: General Vector Spaces</a> formalizes the structure used here and extends it beyond Euclidean vectors</p>
+<p><a href="06-general-vector-spaces.html">Next: Vector Spaces, Subspaces, and Span</a> formalizes the structure used here and extends it beyond Euclidean vectors</p>
 </div>
 
 </section>
@@ -2104,7 +2108,7 @@ Next names
       </script>
     <script src="../classlib/classlib/quarto/slides/deck-nav-arrows.js"></script>
     <script id="deck-nav-meta" type="application/json">
-    {"deck_prev_file":"04-determinants.html","deck_prev_title":"Determinants","deck_next_file":"06-general-vector-spaces.html","deck_next_title":"General Vector Spaces"}
+    {"deck_prev_file":"04-determinants.html","deck_prev_title":"Determinants","deck_next_file":"06-general-vector-spaces.html","deck_next_title":"Vector Spaces, Subspaces, and Span"}
     </script>
     
 

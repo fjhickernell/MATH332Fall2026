@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-01">
+  <meta name="dcterms.date" content="2026-10-04">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -633,7 +633,7 @@
 
 <section id="title-slide" data-background-color="#f5f7fb" data-background-image="https://fjhickernell.github.io/MATH332Fall2026/classlib/classlib/quarto/assets/images/normal-scatter.png" data-background-position="top left" data-background-size="55%" class="quarto-title-block center">
   <h1 class="title">MATH 332 — Fall 2026</h1>
-  <p class="subtitle"><span class="deck-title">General Vector Spaces</span><br> <span class="deck-meta">Structure, bases, and dimension · Anton, Rorres, &amp; Kaul §§4.1–4.9</span></p>
+  <p class="subtitle"><span class="deck-title">Vector Spaces,<br>Subspaces, and Span</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul Ch. 4</span></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 1, 2026</p>
+  <p class="date">October 4, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -652,6 +652,7 @@ Fred J. Hickernell
 <h3>
 Course decks
 </h3>
+<div style="font-size: 0.86em;">
 <ul>
 <li><a href="00-why-linear-algebra.html">Why Linear Algebra?</a></li>
 <li><a href="01-systems-and-matrices.html">Systems and Matrices</a></li>
@@ -659,35 +660,25 @@ Course decks
 <li><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a></li>
 <li><a href="04-determinants.html">Determinants</a></li>
 <li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
-<li><a href="06-general-vector-spaces.html" class="current-deck" aria-current="page">Vector Spaces</a></li>
+<li><a href="06-general-vector-spaces.html" class="current-deck" aria-current="page">Vector Spaces and Span</a></li>
+<li><a href="06b-bases-dimension-and-coordinates.html">Bases and Coordinates</a></li>
+<li><a href="06c-matrix-spaces-and-rank.html">Matrix Spaces and Rank</a></li>
 <li><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
 <li><a href="08-inner-product-spaces.html">Inner Products</a></li>
 </ul>
+</div>
 </div><div class="column" style="width:4%;">
 
 </div><div class="column" style="width:58%;">
 <h3>
 In this deck
 </h3>
-<div style="text-align: center; font-size: 1.03em;">
-<p><span class="alert">Choose a basis; reveal coordinates</span></p>
-</div>
-<p><span class="math display">\[
-\vct{v}=\sum_{j=1}^n c_j\vct{b}_j
-\quad\Longleftrightarrow\quad
-[\vct{v}]_{\mathcal{B}}
-=\begin{bmatrix}c_1&amp;\cdots&amp;c_n\end{bmatrix}^{\mathsf T}
-\]</span></p>
-<div class="small" style="text-align: center;">
-<p>The vector is intrinsic; its coordinates depend on the chosen basis</p>
-</div>
+<p><span class="alert">Recognize vector spaces; test closure; build spans</span></p>
 <ul>
 <li><a href="#/from-euclidean-vectors-to-vector-spaces">From Euclidean Vectors to Vector Spaces</a></li>
+<li><a href="#/vectors-beyond-coordinate-columns">Vectors Beyond Coordinate Columns</a></li>
 <li><a href="#/subspaces-and-span">Subspaces and Span</a></li>
-<li><a href="#/independence-and-bases">Independence and Bases</a></li>
-<li><a href="#/dimension-and-coordinates">Dimension and Coordinates</a></li>
-<li><a href="#/matrix-spaces-and-rank">Matrix Spaces and Rank</a></li>
-<li><a href="#/what-the-structure-buys-us">What the Structure Buys Us</a></li>
+<li><a href="#/spans-and-membership">Spans and Membership</a></li>
 <li><a href="#/big-ideas">Big Ideas</a></li>
 </ul>
 </div></div>
@@ -696,18 +687,14 @@ In this deck
 <section>
 <section id="from-euclidean-vectors-to-vector-spaces" class="title-slide slide level1 center">
 <h1>From Euclidean Vectors to Vector Spaces</h1>
-<p>Keep the operations, release the coordinates</p>
 <ul>
 <li><a href="#/the-previous-deck-found-directions-inside-solution-sets">The previous deck found directions inside solution sets</a></li>
 <li><a href="#/a-vector-space-starts-with-objects-and-two-operations">A vector space starts with objects and two operations</a></li>
-<li><a href="#/vectors-need-not-be-coordinate-columns">Vectors need not be coordinate columns</a></li>
-<li><a href="#/affine-sets-usually-fail-the-zero-vector-test">Affine sets usually fail the zero-vector test</a></li>
-<li><a href="#/the-operations-are-part-of-the-definition">The operations are part of the definition</a></li>
 </ul>
 </section>
 <section id="the-previous-deck-found-directions-inside-solution-sets" class="slide level2">
 <h2>The previous deck found directions inside solution sets</h2>
-<p>As <a href="01-systems-and-matrices.html#read-the-solution-set">Deck 01 showed</a>, elimination reveals free variables in a consistent system <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>. <a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Deck 05 showed</a> that its solutions have the form</p>
+<p>As <a href="01-systems-and-matrices.html#read-the-solution-set">Systems and Matrices</a> showed, elimination reveals free variables in a consistent system <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>. <a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Euclidean Spaces</a> showed that its solutions have the form</p>
 <p><span class="math display">\[
 \{\text{all solutions}\}
 =\vct{x}_p+\{\vct{z}:\mat{A}\vct{z}=\vct{0}\}
@@ -788,6 +775,15 @@ c\vct{0}=\vct{0},
 <div class="key-point">
 <p>Once the axioms hold, familiar algebraic manipulations work for every kind of vector</p>
 </div>
+</section></section>
+<section>
+<section id="vectors-beyond-coordinate-columns" class="title-slide slide level1 center">
+<h1>Vectors Beyond Coordinate Columns</h1>
+<ul>
+<li><a href="#/vectors-need-not-be-coordinate-columns">Vectors need not be coordinate columns</a></li>
+<li><a href="#/affine-sets-usually-fail-the-zero-vector-test">Affine sets usually fail the zero-vector test</a></li>
+<li><a href="#/the-operations-are-part-of-the-definition">The operations are part of the definition</a></li>
+</ul>
 </section>
 <section id="vectors-need-not-be-coordinate-columns" class="slide level2">
 <h2>Vectors need not be coordinate columns</h2>
@@ -875,7 +871,8 @@ New examples
 <section class="slide level2">
 
 <h3 id="polynomials-form-a-vector-space">Polynomials form a vector space</h3>
-<p>Let</p>
+<p>Write <span class="math inline">\(\mathbb{P}_k\)</span> for real polynomials in one variable <span class="math inline">\(t\)</span> of degree at most <span class="math inline">\(k\)</span>, including the zero polynomial</p>
+<p>For example,</p>
 <p><span class="math display">\[
 \mathbb{P}_2=\{a_0+a_1t+a_2t^2:a_0,a_1,a_2\in\reals\}
 \]</span></p>
@@ -892,6 +889,67 @@ New examples
 <div class="key-point">
 <p>A polynomial is one vector; its coefficients provide one possible coordinate description</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="polynomials-in-several-variables-total-degree">Polynomials in several variables: total degree</h3>
+<p>For integers <span class="math inline">\(m\ge 0\)</span> and <span class="math inline">\(n\ge 1\)</span>, <span class="math inline">\(\mathbb{P}_m(\reals^n)\)</span> contains real polynomials in <span class="math inline">\(x_1,\ldots,x_n\)</span> of <span class="alert">total degree at most <span class="math inline">\(m\)</span></span>, including the zero polynomial</p>
+<p>A monomial’s total degree is the sum of its exponents:</p>
+<p><span class="math display">\[
+x_1^{\alpha_1}\cdots x_n^{\alpha_n}
+\quad\text{has total degree}\quad
+\alpha_1+\cdots+\alpha_n,
+\qquad \alpha_j\in\{0,1,2,\ldots\}
+\]</span></p>
+<p>A nonzero polynomial’s total degree is the largest total degree of its monomials with nonzero coefficients</p>
+<p><span class="math display">\[
+\mathbb{P}_2(\reals^2)
+=\{a+bx+cy+dx^2+exy+fy^2:a,b,c,d,e,f\in\reals\}
+\]</span></p>
+<p><span class="math inline">\(x^2y\in\mathbb{P}_3(\reals^2)\)</span>, but <span class="math inline">\(x^2y^2\notin\mathbb{P}_3(\reals^2)\)</span></p>
+<div class="key-point">
+<p><span class="math inline">\(m\)</span> bounds the total degree; <span class="math inline">\(n\)</span> counts the variables</p>
+<p>Our one-variable notation is <span class="math inline">\(\mathbb{P}_m=\mathbb{P}_m(\reals)\)</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="worked-example-combine-two-variable-polynomials">Worked example: combine two-variable polynomials</h3>
+<p>In <span class="math inline">\(\mathbb{P}_2(\reals^2)\)</span>, take</p>
+<p><span class="math display">\[
+p(x,y)=1+x+xy,
+\qquad q(x,y)=2-y+x^2
+\]</span></p>
+<p>Combine matching monomials:</p>
+<p><span class="math display">\[\begin{align*}
+2p-q
+&amp;=2(1+x+xy)-(2-y+x^2)\\
+&amp;=2x+y-x^2+2xy
+\end{align*}\]</span></p>
+<p>Every remaining monomial has total degree at most two</p>
+<div class="key-point">
+<p>Addition and scalar multiplication change coefficients; they do not introduce new monomials</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="practice-total-degree-and-closure">Practice: total degree and closure</h3>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Work in <span class="math inline">\(\mathbb{P}_2(\reals^2)\)</span> <span class="exsub">Which belong: <span class="math inline">\(x^2+xy+y^2\)</span>, <span class="math inline">\(x^2y\)</span>, <span class="math inline">\(7\)</span>, and <span class="math inline">\(0\)</span>?</span> <span class="exsub">For <span class="math inline">\(p=1+x+xy\)</span> and <span class="math inline">\(q=2-y+x^2\)</span>, compute <span class="math inline">\(p+3q\)</span></span> <span class="exsub">Must the product of two members stay in this space? Give an example</span> </span></p>
+</div>
+<aside class="notes">
+<p>The first polynomial, 7, and 0 belong; x^2y has total degree three. p+3q=7+x-3y+3x^2+xy. Multiplication need not preserve the space: x^2 and y^2 belong but x<sup>2y</sup>2 does not. Closure under polynomial multiplication is not a vector-space axiom.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -986,13 +1044,19 @@ h(t)=-1+ae^t+be^{-t},
 <section class="slide level2">
 
 <h3 id="finite-fourier-sums-are-vectors">Finite Fourier sums are vectors</h3>
-<p>Fourier series use complex exponentials <span class="math inline">\(e^{ikt}\)</span>, where <span class="math inline">\(k\in\mathbb{Z}\)</span></p>
+<p>Use <span class="math inline">\(\sqrt{-1}\)</span> for the imaginary unit, leaving <span class="math inline">\(i\)</span> available as an index</p>
+<p>On <span class="math inline">\([0,1]\)</span>, use the Fourier modes</p>
+<p><span class="math display">\[
+\phi_k(t)=e^{2\pi\sqrt{-1}\,kt},
+\qquad k\in\mathbb{Z},
+\qquad \phi_k(t+1)=\phi_k(t)
+\]</span></p>
 <p>Start with their finite sums over complex scalars:</p>
 <p><span class="math display">\[
 \mathcal{T}
-=\left\{\sum_{k=-N}^{N}c_k e^{ikt}:N=0,1,2,\ldots,\ c_k\in\mathbb{C}\right\}
+=\left\{\sum_{k=-N}^{N}c_k\phi_k:N=0,1,2,\ldots,\ c_k\in\mathbb{C}\right\}
 \]</span></p>
-<p>Each vector in <span class="math inline">\(\mathcal{T}\)</span> is a complex-valued function of <span class="math inline">\(t\)</span></p>
+<p>Each vector in <span class="math inline">\(\mathcal{T}\)</span> is a complex-valued function on <span class="math inline">\([0,1]\)</span> with a 1-periodic extension</p>
 <p>Adding two finite sums or scaling by a complex number stays in <span class="math inline">\(\mathcal{T}\)</span></p>
 <div class="key-point">
 <p>Complex exponentials are vectors; finite Fourier sums form a vector space</p>
@@ -1057,27 +1121,24 @@ W=\left\{t\begin{bmatrix}3\\1\end{bmatrix}:t\in\reals\right\}
 <section>
 <section id="subspaces-and-span" class="title-slide slide level1 center">
 <h1>Subspaces and Span</h1>
-<p>Find smaller vector spaces inside a larger one</p>
 <ul>
 <li><a href="#/a-subspace-inherits-its-operations">A subspace inherits its operations</a></li>
 <li><a href="#/one-combined-test-proves-the-subspace-properties">One combined test proves the subspace properties</a></li>
 <li><a href="#/the-zero-vector-is-the-quickest-rejection-test">The zero vector is the quickest rejection test</a></li>
+<li><a href="#/upper-triangular-matrices-form-a-subspace">Upper-triangular matrices form a subspace</a></li>
 <li><a href="#/homogeneous-systems-produce-subspaces">Homogeneous systems produce subspaces</a></li>
-<li><a href="#/span-is-the-subspace-generated-by-chosen-vectors">Span is the subspace generated by chosen vectors</a></li>
-<li><a href="#/spanning-polynomials-means-matching-every-coefficient">Spanning polynomials means matching every coefficient</a></li>
-<li><a href="#/a-subspace-question-becomes-a-closure-question">A subspace question becomes a closure question</a></li>
 </ul>
 </section>
 <section id="a-subspace-inherits-its-operations" class="slide level2">
 <h2>A subspace inherits its operations</h2>
 <p>A subset <span class="math inline">\(W\subseteq V\)</span> is a <span class="alert">subspace</span> when <span class="math inline">\(W\)</span> is itself a vector space using the addition and scalar multiplication already defined on <span class="math inline">\(V\)</span></p>
-<p>Examples in <span class="math inline">\(\reals^3\)</span>:</p>
+<p>Examples in <span class="math inline">\(\reals^n\)</span> for <span class="math inline">\(n\ge 2\)</span>:</p>
 <ul>
-<li>every line through the origin</li>
-<li>every plane through the origin</li>
-<li><span class="math inline">\(\{\vct{0}\}\)</span> and <span class="math inline">\(\reals^3\)</span></li>
+<li>any line through the origin</li>
+<li>any plane through the origin when <span class="math inline">\(n\ge 3\)</span></li>
+<li><span class="math inline">\(\{\vct{0}\}\)</span> and <span class="math inline">\(\reals^n\)</span></li>
 </ul>
-<p>Examples in <span class="math inline">\(\mathbb{P}_3\)</span>:</p>
+<p>Examples in <span class="math inline">\(\mathbb{P}_3\)</span> (polynomials in <span class="math inline">\(t\)</span> of degree at most three):</p>
 <ul>
 <li>polynomials of degree at most two</li>
 <li>polynomials satisfying <span class="math inline">\(p(1)=0\)</span></li>
@@ -1119,6 +1180,70 @@ W_2=\{(x,y):x+2y=1\}
 <p>Homogeneous linear conditions define subspaces; shifted conditions usually define affine sets</p>
 </div>
 </section>
+<section id="upper-triangular-matrices-form-a-subspace" class="slide level2">
+<h2>Upper-triangular matrices form a subspace</h2>
+<p>Recall the <a href="03-matrix-structure-and-transformations.html#triangular-matrices-expose-pivots">matrix families in Matrix Transformations</a></p>
+<p>Use ordinary matrix addition and real scalar multiplication in <span class="math inline">\(\reals^{n\times n}\)</span></p>
+<p>The upper-triangular matrices satisfy</p>
+<p><span class="math display">\[
+U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
+\]</span></p>
+<p>For <span class="math inline">\(n=3\)</span>, their form is</p>
+<p><span class="math display">\[
+\begin{bmatrix}a&amp;b&amp;c\\0&amp;d&amp;e\\0&amp;0&amp;f\end{bmatrix},
+\qquad a,b,c,d,e,f\in\reals
+\]</span></p>
+<p>The zero matrix belongs to <span class="math inline">\(U\)</span>; for <span class="math inline">\(\mat{A},\mat{B}\in U\)</span> and <span class="math inline">\(r,s\in\reals\)</span>,</p>
+<p><span class="math display">\[
+(r\mat{A}+s\mat{B})_{ij}=ra_{ij}+sb_{ij}=0\qquad(i&gt;j)
+\]</span></p>
+<div class="key-point">
+<p>Upper-triangular matrices form a vector space: linear combinations preserve the zeros below the diagonal</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="permutation-matrices-do-not-form-a-subspace">Permutation matrices do not form a subspace</h3>
+<p>For fixed <span class="math inline">\(n\ge1\)</span>, a permutation matrix has exactly one <span class="math inline">\(1\)</span> in each row and column and <span class="math inline">\(0\)</span> everywhere else</p>
+<p>In <span class="math inline">\(\reals^{2\times2}\)</span>, the only permutation matrices are</p>
+<p><span class="math display">\[
+\mat{I}=\begin{bmatrix}1&amp;0\\0&amp;1\end{bmatrix},
+\qquad
+\mat{P}=\begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix}
+\]</span></p>
+<p>The zero matrix is not a permutation matrix</p>
+<p>Addition and scalar multiplication also fail closure:</p>
+<p><span class="math display">\[
+\mat{I}+\mat{P}=\begin{bmatrix}1&amp;1\\1&amp;1\end{bmatrix},
+\qquad
+2\mat{I}=\begin{bmatrix}2&amp;0\\0&amp;2\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<p>Permutation matrices are closed under matrix multiplication, but fail the vector-space tests for addition and scalar multiplication</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="which-other-matrix-families-are-subspaces">Which other matrix families are subspaces?</h3>
+<p>Use ordinary addition and real scalar multiplication in <span class="math inline">\(\reals^{n\times n}\)</span>, with fixed <span class="math inline">\(n\ge2\)</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Decide whether each family is a subspace <span class="exsub">Diagonal matrices</span> <span class="exsub">Lower-triangular matrices</span> <span class="exsub">Symmetric matrices: <span class="math inline">\(\mat{A}^{\mathsf T}=\mat{A}\)</span></span> <span class="exsub">Tridiagonal matrices: <span class="math inline">\(a_{ij}=0\)</span> when <span class="math inline">\(|i-j|&gt;1\)</span></span> <span class="exsub">Invertible matrices</span> <span class="exsub">Orthogonal matrices: <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}=\mat{I}\)</span></span> </span></p>
+</div>
+<p>For each yes, prove closure under linear combinations; for each no, give a failed test or counterexample</p>
+<aside class="notes">
+<p>Diagonal, lower-triangular, and tridiagonal matrices contain the zero matrix and preserve their required zero entries under linear combinations. Symmetric matrices contain zero and satisfy <span class="math inline">\((rA+sB)^{\mathsf T}=rA+sB\)</span> when A and B are symmetric. Invertible and orthogonal matrices exclude zero; I belongs to each family, while 0I and I+(-I) do not. Matrix multiplication is not a vector-space operation. These are subspaces of a fixed-size matrix space; do not mix matrix sizes.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="homogeneous-systems-produce-subspaces" class="slide level2">
 <h2>Homogeneous systems produce subspaces</h2>
 <p>The <span class="alert">null space</span> of an <span class="math inline">\(m\times n\)</span> matrix <span class="math inline">\(\mat{A}\)</span> is</p>
@@ -1133,10 +1258,19 @@ W_2=\{(x,y):x+2y=1\}
 =\vct{0}
 \]</span></p>
 <p>By contrast, <span class="math inline">\(\{\vct{x}:\mat{A}\vct{x}=\vct{b}\}\)</span> is generally affine when <span class="math inline">\(\vct{b}\ne\vct{0}\)</span></p>
-<p>This gives a name to the homogeneous solutions found by <a href="01-systems-and-matrices.html#read-the-solution-set">elimination in Deck 01</a></p>
+<p>This gives a name to the homogeneous solutions found by <a href="01-systems-and-matrices.html#read-the-solution-set">elimination in Systems and Matrices</a></p>
 <div class="key-point">
 <p>The null space records every input direction that a matrix sends to zero</p>
 </div>
+</section></section>
+<section>
+<section id="spans-and-membership" class="title-slide slide level1 center">
+<h1>Spans and Membership</h1>
+<ul>
+<li><a href="#/span-is-the-subspace-generated-by-chosen-vectors">Span is the subspace generated by chosen vectors</a></li>
+<li><a href="#/spanning-polynomials-means-matching-every-coefficient">Spanning polynomials means matching every coefficient</a></li>
+<li><a href="#/a-subspace-question-becomes-a-closure-question">A subspace question becomes a closure question</a></li>
+</ul>
 </section>
 <section id="span-is-the-subspace-generated-by-chosen-vectors" class="slide level2">
 <h2>Span is the subspace generated by chosen vectors</h2>
@@ -1151,10 +1285,70 @@ W_2=\{(x,y):x+2y=1\}
 <li>contains every linear combination of them</li>
 <li>is the smallest subspace containing them</li>
 </ul>
-<p>For matrix columns, <a href="01-systems-and-matrices.html#what-ax-means-by-columns">Deck 01’s column view</a> already used these linear combinations</p>
 <div class="key-point">
 <p>Span answers a reachability question: which vectors can these generators build?</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="in-rn-span-is-matrix-vector-multiplication">In <span class="math inline">\(\reals^n\)</span>, span is matrix–vector multiplication</h3>
+<p>For <span class="math inline">\(\vct{v}_j\in\reals^n\)</span>, collect the chosen vectors as columns:</p>
+<p><span class="math display">\[
+\mat{V}=\begin{bmatrix}\vct{v}_1&amp;\cdots&amp;\vct{v}_k\end{bmatrix}\in\reals^{n\times k},
+\qquad
+\vct{c}=\begin{bmatrix}c_1&amp;\cdots&amp;c_k\end{bmatrix}^{\mathsf T}\in\reals^k
+\]</span></p>
+<p><span class="math display">\[
+\operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}
+=\{\mat{V}\vct{c}:\vct{c}\in\reals^k\},
+\qquad
+\mat{V}\vct{c}=\sum_{j=1}^k c_j\vct{v}_j
+\]</span></p>
+<p>This is <a href="01-systems-and-matrices.html#what-ax-means-by-columns">matrix–vector multiplication in Systems and Matrices</a></p>
+<div class="key-point">
+<p>The span is the set of all outputs <span class="math inline">\(\mat{V}\vct{c}\)</span> as the coefficient vector <span class="math inline">\(\vct{c}\)</span> varies</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="worked-example-a-span-is-a-plane">Worked example: a span is a plane</h3>
+<p>Take <span class="math inline">\(\vct{v}_1=(1,0,1)^{\mathsf T}\)</span> and <span class="math inline">\(\vct{v}_2=(0,1,1)^{\mathsf T}\)</span></p>
+<p><span class="math display">\[
+\mat{V}\vct{c}
+=\begin{bmatrix}1&amp;0\\0&amp;1\\1&amp;1\end{bmatrix}
+\begin{bmatrix}c_1\\c_2\end{bmatrix}
+=\begin{bmatrix}c_1\\c_2\\c_1+c_2\end{bmatrix}
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\operatorname{span}\{\vct{v}_1,\vct{v}_2\}
+=\{(x,y,z)^{\mathsf T}:z=x+y\}
+\]</span></p>
+<p>For example, <span class="math inline">\((2,-1,1)^{\mathsf T}=2\vct{v}_1-\vct{v}_2\)</span> belongs; <span class="math inline">\((0,0,1)^{\mathsf T}\)</span> does not</p>
+<div class="key-point">
+<p>A spanning description and an equation can describe the same subspace</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="practice-membership-and-an-extra-generator">Practice: membership and an extra generator</h3>
+<p>Keep <span class="math inline">\(\vct{v}_1=(1,0,1)^{\mathsf T}\)</span> and <span class="math inline">\(\vct{v}_2=(0,1,1)^{\mathsf T}\)</span>; let <span class="math inline">\(\vct{v}_3=(1,1,2)^{\mathsf T}\)</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use coefficients or the plane equation <span class="math inline">\(z=x+y\)</span> <span class="exsub">Is <span class="math inline">\((3,2,5)^{\mathsf T}\)</span> in the span? Find coefficients</span> <span class="exsub">Is <span class="math inline">\((3,2,4)^{\mathsf T}\)</span> in the span?</span> <span class="exsub">Does adding <span class="math inline">\(\vct{v}_3\)</span> enlarge the span? Explain</span> <span class="exsub">Find two different coefficient vectors representing <span class="math inline">\(\vct{v}_3\)</span> using all three generators</span> </span></p>
+</div>
+<aside class="notes">
+<p>(3,2,5)^T=3v_1+2v_2; (3,2,4)^T fails z=x+y. Since v_3=v_1+v_2, adding it does not enlarge the span. Coefficients (1,1,0)^T and (0,0,1)^T both represent v_3. More generally (1-s,1-s,s)^T does for every real s.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="spanning-polynomials-means-matching-every-coefficient" class="slide level2">
 <h2>Spanning polynomials means matching every coefficient</h2>
@@ -1170,22 +1364,37 @@ p_3(t)=1-t^2
 <p><span class="math display">\[
 c_1p_1+c_2p_2+c_3p_3=a_0+a_1t+a_2t^2
 \]</span></p>
-<p>Matching coefficients gives</p>
+<p>Matching coefficients gives <span class="math inline">\(\mat{A}\vct{c}=\vct{a}\)</span>:</p>
 <p><span class="math display">\[
-\begin{bmatrix}
+\underbrace{\begin{bmatrix}
 1&amp;0&amp;1\\
 1&amp;1&amp;0\\
 0&amp;1&amp;-1
-\end{bmatrix}
+\end{bmatrix}}_{\mat{A}}
 \begin{bmatrix}c_1\\c_2\\c_3\end{bmatrix}
 =
 \begin{bmatrix}a_0\\a_1\\a_2\end{bmatrix}
 \]</span></p>
-<p>The third column is the first minus the second:</p>
+</section>
+<section class="slide level2">
+
+<h3 id="a-singular-coefficient-matrix-cannot-reach-every-polynomial">A singular coefficient matrix cannot reach every polynomial</h3>
+<p>The third column of <span class="math inline">\(\mat{A}\)</span> is the first minus the second:</p>
+<p><span class="math display">\[
+\vct{A}_3=\vct{A}_1-\vct{A}_2
+\quad\implies\quad
+\det(\mat{A})=0
+\]</span></p>
+<p>Thus <span class="math inline">\(\mat{A}\)</span> is <span class="alert">singular</span>: <span class="math inline">\(\mat{A}\vct{c}=\vct{a}\)</span> cannot be solved for every coefficient vector <span class="math inline">\(\vct{a}\in\reals^3\)</span></p>
+<p>The same relation holds between the polynomials:</p>
 <p><span class="math display">\[
 p_3=p_1-p_2
 \]</span></p>
-<p>Every combination satisfies <span class="math inline">\(a_1=a_0+a_2\)</span>, so <span class="math inline">\(1\)</span> cannot be built and the three polynomials do not span <span class="math inline">\(\mathbb{P}_2\)</span></p>
+<p>Every combination satisfies <span class="math inline">\(a_1=a_0+a_2\)</span></p>
+<p>The constant polynomial <span class="math inline">\(1\)</span> has <span class="math inline">\((a_0,a_1,a_2)=(1,0,0)\)</span> and fails this condition</p>
+<div class="key-point">
+<p>These three polynomials do not span <span class="math inline">\(\mathbb{P}_2\)</span>: their singular coefficient matrix cannot produce every coefficient vector</p>
+</div>
 </section>
 <section class="slide level2">
 
@@ -1218,11 +1427,10 @@ p_3=p_1-p_2
 \]</span></p>
 <p>Also, <span class="math inline">\(p(t)=a_1t+a_2t^2+a_3t^3\)</span>, so</p>
 <p><span class="math display">\[
-U=\operatorname{span}\{t,t^2,t^3\},
-\qquad \dim U=3
+U=\operatorname{span}\{t,t^2,t^3\}
 \]</span></p>
 <div class="key-point">
-<p>Use the defining condition to prove closure, then use coefficients to find a basis</p>
+<p>Use the defining condition to prove closure, then use coefficients to find a spanning set</p>
 </div>
 </section>
 <section id="a-subspace-question-becomes-a-closure-question" class="slide level2">
@@ -1268,826 +1476,30 @@ W=\{p\in\mathbb{P}_3:p(1)=0\}
           display:block!important;
       }</style></aside>
 </section></section>
-<section>
-<section id="independence-and-bases" class="title-slide slide level1 center">
-<h1>Independence and Bases</h1>
-<p>Remove redundancy without losing reach</p>
-<ul>
-<li><a href="#/independence-means-the-zero-vector-has-one-construction">Independence means the zero vector has one construction</a></li>
-<li><a href="#/a-basis-balances-reach-and-economy">A basis balances reach and economy</a></li>
-<li><a href="#/a-basis-gives-every-vector-unique-coordinates">A basis gives every vector unique coordinates</a></li>
-<li><a href="#/elimination-extracts-a-basis-from-a-spanning-set">Elimination extracts a basis from a spanning set</a></li>
-</ul>
-</section>
-<section id="independence-means-the-zero-vector-has-one-construction" class="slide level2">
-<h2>Independence means the zero vector has one construction</h2>
-<p>Vectors <span class="math inline">\(\vct{v}_1,\ldots,\vct{v}_k\)</span> are <span class="alert">linearly independent</span> when</p>
-<p><span class="math display">\[
-c_1\vct{v}_1+\cdots+c_k\vct{v}_k=\vct{0}
-\]</span></p>
-<p>forces</p>
-<p><span class="math display">\[
-c_1=\cdots=c_k=0
-\]</span></p>
-<p>They are <span class="alert">linearly dependent</span> when some nonzero coefficient vector produces the zero vector</p>
-<div class="key-point">
-<p>Independence means no generator can be synthesized from the others</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="worked-example-independent-fourier-modes">Worked example: independent Fourier modes</h3>
-<p>Are <span class="math inline">\(1\)</span> and <span class="math inline">\(e^{it}\)</span> independent over <span class="math inline">\(\mathbb{C}\)</span>?</p>
-<p>Suppose <span class="math inline">\(a+be^{it}=0\)</span> for every <span class="math inline">\(t\)</span></p>
-<p><span class="math display">\[
-\begin{array}{rcl}
-t=0&amp;:&amp;a+b=0\\
-t=\pi&amp;:&amp;a-b=0
-\end{array}
-\quad\Longrightarrow\quad a=b=0
-\]</span></p>
-<p>Only the trivial combination gives the zero function, so the two modes are independent</p>
-</section>
-<section class="slide level2">
-
-<h3 id="are-two-fourier-modes-independent">Are two Fourier modes independent?</h3>
-<div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Are the functions <span class="math inline">\(e^{it}\)</span> and <span class="math inline">\(e^{-it}\)</span> linearly independent over <span class="math inline">\(\mathbb{C}\)</span>? <span class="exsub">Set <span class="math inline">\(a e^{it}+b e^{-it}=0\)</span> for all <span class="math inline">\(t\)</span>, then evaluate at <span class="math inline">\(t=0\)</span> and <span class="math inline">\(t=\pi/2\)</span></span> <span class="exsub">Repeat for <span class="math inline">\(1\)</span> and <span class="math inline">\(e^{2it}\)</span>, choosing two useful values of <span class="math inline">\(t\)</span></span> </span></p>
-</div>
-<aside class="notes">
-<p>For <span class="math inline">\(e^{it},e^{-it}\)</span>: at <span class="math inline">\(t=0\)</span>, <span class="math inline">\(a+b=0\)</span>; at <span class="math inline">\(t=\pi/2\)</span>, <span class="math inline">\(ia-ib=0\)</span>, so <span class="math inline">\(a=b=0\)</span>. For <span class="math inline">\(1,e^{2it}\)</span>: at <span class="math inline">\(t=0\)</span>, <span class="math inline">\(a+b=0\)</span>; at <span class="math inline">\(t=\pi/2\)</span>, <span class="math inline">\(a-b=0\)</span>, so again <span class="math inline">\(a=b=0\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-<h3 id="a-homogeneous-coefficient-system-detects-independence">A homogeneous coefficient system detects independence</h3>
-<p>For coordinate vectors, place the candidates into columns:</p>
-<p><span class="math display">\[
-\mat{V}=
-\begin{bmatrix}
-\vct{v}_1&amp;\cdots&amp;\vct{v}_k
-\end{bmatrix}
-\]</span></p>
-<p>Then</p>
-<p><span class="math display">\[
-c_1\vct{v}_1+\cdots+c_k\vct{v}_k=\vct{0}
-\quad\Longleftrightarrow\quad
-\mat{V}\vct{c}=\vct{0}
-\]</span></p>
-<p>The columns are independent exactly when every column is a pivot column</p>
-<div class="key-point">
-<p>The familiar homogeneous system answers the abstract independence question</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="dependence-identifies-a-redundant-generator">Dependence identifies a redundant generator</h3>
-<p>Suppose</p>
-<p><span class="math display">\[
-c_1\vct{v}_1+\cdots+c_k\vct{v}_k=\vct{0}
-\]</span></p>
-<p>and <span class="math inline">\(c_j\ne0\)</span>. Then</p>
-<p><span class="math display">\[
-\vct{v}_j
-=-\sum_{i\ne j}\frac{c_i}{c_j}\vct{v}_i
-\]</span></p>
-<p>Removing <span class="math inline">\(\vct{v}_j\)</span> does not change the span</p>
-<div class="key-point">
-<p>A dependence relation is a certificate of redundancy</p>
-</div>
-</section>
-<section id="a-basis-balances-reach-and-economy" class="slide level2">
-<h2>A basis balances reach and economy</h2>
-<p>A finite ordered list</p>
-<p><span class="math display">\[
-\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)
-\]</span></p>
-<p>is a <span class="alert">basis</span> for <span class="math inline">\(V\)</span> when</p>
-<ol type="1">
-<li><span class="math inline">\(\mathcal{B}\)</span> spans <span class="math inline">\(V\)</span></li>
-<li><span class="math inline">\(\mathcal{B}\)</span> is linearly independent</li>
-</ol>
-<p>Spanning guarantees existence of coefficients</p>
-<p>Independence guarantees uniqueness of coefficients</p>
-<div class="key-point">
-<p>A basis builds every vector exactly once</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="bases-need-not-be-finite">Bases need not be finite</h3>
-<p>The same basis idea can extend beyond finite lists:</p>
-<ul>
-<li>All polynomials have a <span class="alert">countably infinite</span> basis <span class="math inline">\(\{1,t,t^2,\ldots\}\)</span></li>
-<li>The finite Fourier sums in <span class="math inline">\(\mathcal{T}\)</span> have another countable basis <span class="math inline">\(\{e^{ikt}:k\in\mathbb{Z}\}\)</span></li>
-<li>The space <span class="math inline">\(C[a,b]\)</span> of continuous functions, for <span class="math inline">\(a&lt;b\)</span>, needs an <span class="alert">uncountable</span> basis</li>
-</ul>
-<div class="key-point">
-<p>Here each vector still uses a finite combination of basis vectors</p>
-</div>
-<aside class="notes">
-<p>This is only a taste of infinite-dimensional spaces. The basis here is algebraic: every vector is a finite combination. The family <span class="math inline">\(\{e^{\lambda t}:\lambda\in\reals\}\)</span> is uncountably linearly independent in <span class="math inline">\(C[a,b]\)</span>, so any algebraic basis there must be uncountable. In Fourier theory, countably many complex exponentials can also represent functions through convergent infinite series; that is a different, analytic sense of basis.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="a-basis-gives-every-vector-unique-coordinates" class="slide level2">
-<h2>A basis gives every vector unique coordinates</h2>
-<p>If <span class="math inline">\(\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)\)</span> is a basis, then every <span class="math inline">\(\vct{v}\in V\)</span> has a unique representation</p>
-<p><span class="math display">\[
-\vct{v}=c_1\vct{b}_1+\cdots+c_n\vct{b}_n
-\]</span></p>
-<p>The <span class="alert">coordinate vector</span> of <span class="math inline">\(\vct{v}\)</span> relative to <span class="math inline">\(\mathcal{B}\)</span> is</p>
-<p><span class="math display">\[
-[\vct{v}]_{\mathcal{B}}
-=\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix}
-\]</span></p>
-<div class="key-point">
-<p>Coordinates depend on the basis; the vector does not</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="polynomial-coefficients-are-coordinates-in-a-chosen-basis">Polynomial coefficients are coordinates in a chosen basis</h3>
-<p>For the standard polynomial basis</p>
-<p><span class="math display">\[
-\mathcal{E}=(1,t,t^2)
-\]</span></p>
-<p>the polynomial <span class="math inline">\(p(t)=2-3t+5t^2\)</span> has coordinates</p>
-<p><span class="math display">\[
-[p]_{\mathcal{E}}
-=\begin{bmatrix}2\\-3\\5\end{bmatrix}
-\]</span></p>
-<p>For another basis, the same polynomial has another coordinate vector</p>
-<div class="key-point">
-<p>Choosing a basis converts abstract vectors into coordinate columns</p>
-</div>
-</section>
-<section id="elimination-extracts-a-basis-from-a-spanning-set" class="slide level2">
-<h2>Elimination extracts a basis from a spanning set</h2>
-<p>For vectors in <span class="math inline">\(\reals^m\)</span>:</p>
-<ol type="1">
-<li>place the spanning vectors into the columns of a matrix</li>
-<li>row reduce</li>
-<li>identify the pivot columns</li>
-<li>keep the corresponding columns of the original matrix</li>
-</ol>
-<p>Row operations preserve dependence relations among columns but change the columns themselves</p>
-<div class="key-point">
-<p>Use the reduced matrix to locate pivots; take the basis vectors from the original matrix</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="worked-example-test-a-polynomial-basis">Worked example: test a polynomial basis</h3>
-<p>In <span class="math inline">\(\mathbb{P}_2\)</span>, take <span class="math inline">\(\mathcal{E}=(1,t,1+t^2)\)</span></p>
-<p>Its coefficient columns relative to <span class="math inline">\((1,t,t^2)\)</span> form</p>
-<p><span class="math display">\[
-\begin{bmatrix}1&amp;0&amp;1\\0&amp;1&amp;0\\0&amp;0&amp;1\end{bmatrix}
-\]</span></p>
-<p>All three columns are pivots, so <span class="math inline">\(\mathcal{E}\)</span> is a basis</p>
-<p>For <span class="math inline">\(p(t)=2+4t+3t^2\)</span>,</p>
-<p><span class="math display">\[
-p=-1(1)+4t+3(1+t^2),
-\qquad [p]_{\mathcal{E}}=(-1,4,3)^{\mathsf T}
-\]</span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="a-basis-question-combines-two-tests">A basis question combines two tests</h3>
-<p>In <span class="math inline">\(\mathbb{P}_2\)</span>, consider</p>
-<p><span class="math display">\[
-\mathcal{B}=(1+t,\ t+t^2,\ 1+t^2)
-\]</span></p>
-<div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Decide whether <span class="math inline">\(\mathcal{B}\)</span> is a basis for <span class="math inline">\(\mathbb{P}_2\)</span> <span class="exsub">Form the matrix of coefficients relative to <span class="math inline">\((1,t,t^2)\)</span></span> <span class="exsub">Test its columns for independence</span> <span class="exsub">If it is a basis, find <span class="math inline">\([2+4t]_{\mathcal{B}}\)</span></span> </span></p>
-</div>
-<aside class="notes">
-<p>The coefficient matrix is <span class="math inline">\(\begin{bmatrix}1&amp;0&amp;1\\1&amp;1&amp;0\\0&amp;1&amp;1\end{bmatrix}\)</span>, whose determinant is <span class="math inline">\(2\)</span>. Thus the list is a basis. Solving gives coordinates <span class="math inline">\((3,1,-1)\)</span> for <span class="math inline">\(2+4t\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-<h3 id="two-more-polynomial-basis-tests">Two more polynomial basis tests</h3>
-<p>In <span class="math inline">\(\mathbb{P}_2\)</span>, consider</p>
-<p><span class="math display">\[
-\mathcal{C}=(1+t,\ t+t^2,\ 1+2t+t^2),
-\qquad
-\mathcal{D}=(1+t,\ t+t^2,\ 1)
-\]</span></p>
-<div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Decide which list is a basis of <span class="math inline">\(\mathbb{P}_2\)</span> <span class="exsub">For the basis, find the coordinates of <span class="math inline">\(2+4t\)</span></span> </span></p>
-</div>
-<aside class="notes">
-<p>Use the previous basis slide as the board example. <span class="math inline">\(\mathcal{C}\)</span> is dependent: its third polynomial is the sum of its first two. <span class="math inline">\(\mathcal{D}\)</span> is a basis; <span class="math inline">\(2+4t=4(1+t)+0(t+t^2)-2(1)\)</span>, so the coordinates are <span class="math inline">\((4,0,-2)\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="dimension-and-coordinates" class="title-slide slide level1 center">
-<h1>Dimension and Coordinates</h1>
-<p>Count directions and translate between descriptions</p>
-<ul>
-<li><a href="#/dimension-counts-vectors-in-any-basis">Dimension counts vectors in any basis</a></li>
-<li><a href="#/dimension-turns-two-tests-into-one">Dimension turns two tests into one</a></li>
-<li><a href="#/the-coordinate-map-preserves-linear-combinations">The coordinate map preserves linear combinations</a></li>
-<li><a href="#/a-basis-matrix-converts-coordinates-to-standard-form">A basis matrix converts coordinates to standard form</a></li>
-<li><a href="#/change-of-basis-passes-through-the-vector">Change of basis passes through the vector</a></li>
-<li><a href="#/two-coordinate-systems-describe-one-vector">Worked example: find coordinates in another basis</a></li>
-</ul>
-</section>
-<section id="dimension-counts-vectors-in-any-basis" class="slide level2">
-<h2>Dimension counts vectors in any basis</h2>
-<p>Every basis of a finite-dimensional vector space <span class="math inline">\(V\)</span> contains the same number of vectors</p>
-<p>That number is the <span class="alert">dimension</span>:</p>
-<p><span class="math display">\[
-\dim(V)=n
-\]</span></p>
-<p>Examples:</p>
-<p><span class="math display">\[
-\dim(\reals^n)=n,
-\qquad
-\dim(\mathbb{P}_k)=k+1,
-\qquad
-\dim(M_{m\times n})=mn
-\]</span></p>
-<div class="key-point">
-<p>Dimension counts independent directions, not the number of vectors in the space</p>
-</div>
-</section>
-<section id="dimension-turns-two-tests-into-one" class="slide level2">
-<h2>Dimension turns two tests into one</h2>
-<p>Suppose <span class="math inline">\(\dim(V)=n\)</span> and a list contains exactly <span class="math inline">\(n\)</span> vectors in <span class="math inline">\(V\)</span></p>
-<p>Then either one of these facts proves the other:</p>
-<p><span class="math display">\[
-\text{linearly independent}
-\quad\Longleftrightarrow\quad
-\text{spans }V
-\]</span></p>
-<p>More generally,</p>
-<ul>
-<li>more than <span class="math inline">\(n\)</span> vectors must be dependent</li>
-<li>fewer than <span class="math inline">\(n\)</span> vectors cannot span <span class="math inline">\(V\)</span></li>
-<li>every independent list can be extended to a basis</li>
-<li>every spanning list can be reduced to a basis</li>
-</ul>
-<div class="key-point">
-<p>Knowing the dimension can cut a basis proof in half</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="use-dimension-before-computing">Use dimension before computing</h3>
-<p>Since <span class="math inline">\(\dim(\mathbb{P}_3)=4\)</span>:</p>
-<div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>What can the dimension alone tell you? <span class="exsub">Can three polynomials span <span class="math inline">\(\mathbb{P}_3\)</span>?</span> <span class="exsub">Can five polynomials be linearly independent in <span class="math inline">\(\mathbb{P}_3\)</span>?</span> <span class="exsub">If four polynomials are independent, what else follows?</span> </span></p>
-</div>
-<aside class="notes">
-<p>Three cannot span a four-dimensional space. Five must be dependent. Four independent polynomials form a basis and therefore span <span class="math inline">\(\mathbb{P}_3\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="the-coordinate-map-preserves-linear-combinations" class="slide level2">
-<h2>The coordinate map preserves linear combinations</h2>
-<p>For a basis <span class="math inline">\(\mathcal{B}\)</span> of an <span class="math inline">\(n\)</span>-dimensional vector space, define</p>
-<p><span class="math display">\[
-\vct{v}\longmapsto[\vct{v}]_{\mathcal{B}}\in\reals^n
-\]</span></p>
-<p>Then</p>
-<p><span class="math display">\[
-[c\vct{u}+d\vct{v}]_{\mathcal{B}}
-=c[\vct{u}]_{\mathcal{B}}+d[\vct{v}]_{\mathcal{B}}
-\]</span></p>
-<p>The coordinate map is one-to-one and onto</p>
-<div class="key-point">
-<p>Every <span class="math inline">\(n\)</span>-dimensional real vector space has the same linear structure as <span class="math inline">\(\reals^n\)</span></p>
-</div>
-</section>
-<section id="a-basis-matrix-converts-coordinates-to-standard-form" class="slide level2">
-<h2>A basis matrix converts coordinates to standard form</h2>
-<p>For a basis <span class="math inline">\(\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)\)</span> of <span class="math inline">\(\reals^n\)</span>, form</p>
-<p><span class="math display">\[
-\mat{P}_{\mathcal{B}}
-=\begin{bmatrix}\vct{b}_1&amp;\cdots&amp;\vct{b}_n\end{bmatrix}
-\]</span></p>
-<p>Then</p>
-<p><span class="math display">\[
-\vct{x}=\mat{P}_{\mathcal{B}}[\vct{x}]_{\mathcal{B}},
-\qquad
-[\vct{x}]_{\mathcal{B}}=\mat{P}_{\mathcal{B}}^{-1}\vct{x}
-\]</span></p>
-<div class="key-point">
-<p>The columns of a basis matrix tell what the new coordinate axes mean in standard coordinates</p>
-</div>
-</section>
-<section id="change-of-basis-passes-through-the-vector" class="slide level2">
-<h2>Change of basis passes through the vector</h2>
-<p>Let <span class="math inline">\(\mathcal{B}\)</span> and <span class="math inline">\(\mathcal{C}\)</span> be bases of <span class="math inline">\(\reals^n\)</span></p>
-<p><span class="math display">\[
-\vct{x}=\mat{P}_{\mathcal{B}}[\vct{x}]_{\mathcal{B}}
-=\mat{P}_{\mathcal{C}}[\vct{x}]_{\mathcal{C}}
-\]</span></p>
-<p>Therefore</p>
-<p><span class="math display">\[
-[\vct{x}]_{\mathcal{C}}
-=\underbrace{\mat{P}_{\mathcal{C}}^{-1}\mat{P}_{\mathcal{B}}}_{
-\text{transition from }\mathcal{B}\text{ to }\mathcal{C}}
-[\vct{x}]_{\mathcal{B}}
-\]</span></p>
-<div class="key-point">
-<p>Changing coordinates changes the description, not the vector</p>
-</div>
-</section>
-<section id="two-coordinate-systems-describe-one-vector" class="slide level2">
-<h2>Worked example: find coordinates in another basis</h2>
-<p>Let</p>
-<p><span class="math display">\[
-\mathcal{B}=\left(
-\begin{bmatrix}1\\1\end{bmatrix},
-\begin{bmatrix}1\\-1\end{bmatrix}
-\right)
-\]</span></p>
-<p>For <span class="math inline">\(\vct{x}=(5,1)^{\mathsf T}\)</span>, solve</p>
-<p><span class="math display">\[
-\underbrace{\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}}_{\mat{P}_{\mathcal{B}}}
-\begin{bmatrix}c_1\\c_2\end{bmatrix}
-=\begin{bmatrix}5\\1\end{bmatrix}
-\quad\Longrightarrow\quad
-c_1=3,\ c_2=2
-\]</span></p>
-<p>Thus <span class="math inline">\([\vct{x}]_{\mathcal{B}}=(3,2)^{\mathsf T}\)</span> and <span class="math inline">\(3(1,1)^{\mathsf T}+2(1,-1)^{\mathsf T}=\vct{x}\)</span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="coordinates-change-with-the-basis">Coordinates change with the basis</h3>
-<p>Keep <span class="math inline">\(\vct{x}=(5,1)^{\mathsf T}\)</span> and compare</p>
-<p><span class="math display">\[
-\mathcal{C}=\bigl((1,0)^{\mathsf T},(1,1)^{\mathsf T}\bigr),
-\qquad
-\mathcal{D}=\bigl((2,1)^{\mathsf T},(1,1)^{\mathsf T}\bigr)
-\]</span></p>
-<div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find <span class="math inline">\([\vct{x}]_{\mathcal{C}}\)</span> and <span class="math inline">\([\vct{x}]_{\mathcal{D}}\)</span> <span class="exsub">Reconstruct <span class="math inline">\(\vct{x}\)</span> from each coordinate vector</span> <span class="exsub">Find <span class="math inline">\(\mat{P}_{\mathcal{D}}^{-1}\mat{P}_{\mathcal{C}}\)</span> and use it to check the coordinate change</span> </span></p>
-</div>
-<aside class="notes">
-<p>The preceding slide is the board example. Here <span class="math inline">\([\vct{x}]_{\mathcal{C}}=(4,1)^{\mathsf T}\)</span> and <span class="math inline">\([\vct{x}]_{\mathcal{D}}=(4,-3)^{\mathsf T}\)</span>; both reconstruct <span class="math inline">\(\vct{x}=(5,1)^{\mathsf T}\)</span>. The transition matrix is <span class="math inline">\(\mat{P}_{\mathcal{D}}^{-1}\mat{P}_{\mathcal{C}}
-=\begin{bmatrix}1&amp;0\\-1&amp;1\end{bmatrix}\)</span>, which sends <span class="math inline">\((4,1)^{\mathsf T}\)</span> to <span class="math inline">\((4,-3)^{\mathsf T}\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="matrix-spaces-and-rank" class="title-slide slide level1 center">
-<h1>Matrix Spaces and Rank</h1>
-<p>One matrix organizes four related subspaces</p>
-<ul>
-<li><a href="#/a-matrix-has-four-fundamental-subspaces">A matrix has four fundamental subspaces</a></li>
-<li><a href="#/one-reduction-exposes-the-structure">One reduction exposes the structure</a></li>
-<li><a href="#/column-and-row-bases-come-from-different-matrices">Column and row bases come from different matrices</a></li>
-<li><a href="#/free-variables-build-a-basis-for-the-null-space">Free variables build a basis for the null space</a></li>
-<li><a href="#/rank-nullity-counts-inputs">Rank-nullity counts inputs</a></li>
-<li><a href="#/the-four-spaces-pair-through-orthogonality">The four spaces pair through orthogonality</a></li>
-<li><a href="#/rank-factorization-keeps-the-independent-columns-and-rows">Rank factorization keeps the independent columns and rows</a></li>
-<li><a href="#/find-the-left-null-space">Find the left null space</a></li>
-</ul>
-</section>
-<section id="a-matrix-has-four-fundamental-subspaces" class="slide level2">
-<h2>A matrix has four fundamental subspaces</h2>
-<p>For an <span class="math inline">\(m\times n\)</span> matrix <span class="math inline">\(\mat{A}\)</span>:</p>
-<table class="caption-top">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Space</th>
-<th>Definition</th>
-<th>Lives in</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\operatorname{Col}(\mat{A})\)</span></td>
-<td>span of the columns of <span class="math inline">\(\mat{A}\)</span></td>
-<td><span class="math inline">\(\reals^m\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\operatorname{Null}(\mat{A})\)</span></td>
-<td>solutions of <span class="math inline">\(\mat{A}\vct{x}=\vct{0}\)</span></td>
-<td><span class="math inline">\(\reals^n\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\operatorname{Row}(\mat{A})\)</span></td>
-<td>span of the rows of <span class="math inline">\(\mat{A}\)</span></td>
-<td><span class="math inline">\(\reals^n\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\operatorname{Null}(\mat{A}^{\mathsf T})\)</span></td>
-<td>solutions of <span class="math inline">\(\mat{A}^{\mathsf T}\vct{y}=\vct{0}\)</span></td>
-<td><span class="math inline">\(\reals^m\)</span></td>
-</tr>
-</tbody>
-</table>
-<div class="key-point">
-<p>Always identify the ambient space before comparing subspaces</p>
-</div>
-</section>
-<section id="one-reduction-exposes-the-structure" class="slide level2">
-<h2>One reduction exposes the structure</h2>
-<p>Use one example throughout, recalling <a href="01-systems-and-matrices.html#eliminate-and-organize-with-pivots">pivots and free variables from Deck 01</a>:</p>
-<p><span class="math display">\[
-\mat{A}=
-\begin{bmatrix}
-1&amp;2&amp;1&amp;3\\
-2&amp;4&amp;0&amp;4\\
-1&amp;2&amp;2&amp;4
-\end{bmatrix}
-\quad\longrightarrow\quad
-\mat{R}=
-\begin{bmatrix}
-1&amp;2&amp;0&amp;2\\
-0&amp;0&amp;1&amp;1\\
-0&amp;0&amp;0&amp;0
-\end{bmatrix}
-\]</span></p>
-<p>Pivot columns: <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span></p>
-<p>Free variables: <span class="math inline">\(x_2\)</span> and <span class="math inline">\(x_4\)</span></p>
-<p><span class="math display">\[
-\operatorname{rank}(\mat{A})=2
-\]</span></p>
-<aside class="notes">
-<p>Subtract twice the first row from the second and the first row from the third to get <span class="math inline">\((0,0,-2,-2)\)</span> and <span class="math inline">\((0,0,1,1)\)</span>. Keep the latter as pivot row, eliminate the former, then subtract the pivot row from the first row. This gives the displayed reduced matrix.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="column-and-row-bases-come-from-different-matrices" class="slide level2">
-<h2>Column and row bases come from different matrices</h2>
-<p>A basis for the column space uses pivot columns of the <span class="alert">original</span> matrix:</p>
-<p><span class="math display">\[
-\left\{
-\begin{bmatrix}1\\2\\1\end{bmatrix},
-\begin{bmatrix}1\\0\\2\end{bmatrix}
-\right\}
-\]</span></p>
-<p>A basis for the row space uses nonzero rows of the <span class="alert">reduced</span> matrix:</p>
-<p><span class="math display">\[
-\left\{
-\begin{bmatrix}1&amp;2&amp;0&amp;2\end{bmatrix},
-\begin{bmatrix}0&amp;0&amp;1&amp;1\end{bmatrix}
-\right\}
-\]</span></p>
-<div class="key-point">
-<p>Row reduction preserves the row space but generally changes the column space</p>
-</div>
-</section>
-<section id="free-variables-build-a-basis-for-the-null-space" class="slide level2">
-<h2>Free variables build a basis for the null space</h2>
-<p>From <span class="math inline">\(\mat{R}\vct{x}=\vct{0}\)</span>,</p>
-<p><span class="math display">\[
-x_1=-2x_2-2x_4,
-\qquad
-x_3=-x_4
-\]</span></p>
-<p>Therefore</p>
-<p><span class="math display">\[
-\vct{x}
-=x_2\begin{bmatrix}-2\\1\\0\\0\end{bmatrix}
-+x_4\begin{bmatrix}-2\\0\\-1\\1\end{bmatrix}
-\]</span></p>
-<p>and</p>
-<p><span class="math display">\[
-\dim\operatorname{Null}(\mat{A})=2
-\]</span></p>
-<div class="key-point">
-<p>Each free variable contributes one independent null-space direction</p>
-</div>
-</section>
-<section id="rank-nullity-counts-inputs" class="slide level2">
-<h2>Rank-nullity counts inputs</h2>
-<p>For an <span class="math inline">\(m\times n\)</span> matrix <span class="math inline">\(\mat{A}\)</span>,</p>
-<p><span class="math display">\[
-\operatorname{rank}(\mat{A})
-+\operatorname{nullity}(\mat{A})=n
-\]</span></p>
-<p>In the example,</p>
-<p><span class="math display">\[
-2+2=4
-\]</span></p>
-<p>Interpretation:</p>
-<ul>
-<li>rank counts independent input directions that remain visible</li>
-<li>nullity counts independent input directions sent to zero</li>
-</ul>
-<div class="key-point">
-<p>Rank-nullity accounts for every direction in the input space</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="rank-nullity-predicts-solution-sets">Rank-nullity predicts solution sets</h3>
-<div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Compare two <span class="math inline">\(3\times5\)</span> matrices: <span class="math inline">\(\operatorname{rank}(\mat{A})=2\)</span> and <span class="math inline">\(\operatorname{rank}(\mat{B})=3\)</span> <span class="exsub">Find each nullity</span> <span class="exsub">Could either system <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> or <span class="math inline">\(\mat{B}\vct{x}=\vct{b}\)</span> have exactly one solution?</span> <span class="exsub">Which system is solvable for every <span class="math inline">\(\vct{b}\in\reals^3\)</span>?</span> </span></p>
-</div>
-<aside class="notes">
-<p>Use <span class="math inline">\(\mat{A}\)</span> on the board and leave <span class="math inline">\(\mat{B}\)</span> for students. The nullities are <span class="math inline">\(3\)</span> and <span class="math inline">\(2\)</span>. Neither system can have exactly one solution when consistent, because each null space contains nonzero directions. Only <span class="math inline">\(\mat{B}\)</span> has rank <span class="math inline">\(3\)</span> and hence column space <span class="math inline">\(\reals^3\)</span>, so only <span class="math inline">\(\mat{B}\vct{x}=\vct{b}\)</span> is solvable for every <span class="math inline">\(\vct{b}\in\reals^3\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="the-four-spaces-pair-through-orthogonality" class="slide level2">
-<h2>The four spaces pair through orthogonality</h2>
-<p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>,</p>
-<p><span class="math display">\[
-\operatorname{Row}(\mat{A})^\perp
-=\operatorname{Null}(\mat{A})
-\qquad\text{inside }\reals^n
-\]</span></p>
-<p><span class="math display">\[
-\operatorname{Col}(\mat{A})^\perp
-=\operatorname{Null}(\mat{A}^{\mathsf T})
-\qquad\text{inside }\reals^m
-\]</span></p>
-<p>The dimensions balance:</p>
-<p><span class="math display">\[
-\dim\operatorname{Row}(\mat{A})=\dim\operatorname{Col}(\mat{A})=r
-\]</span></p>
-<p><span class="math display">\[
-\dim\operatorname{Null}(\mat{A})=n-r,
-\qquad
-\dim\operatorname{Null}(\mat{A}^{\mathsf T})=m-r
-\]</span></p>
-</section>
-<section id="rank-factorization-keeps-the-independent-columns-and-rows" class="slide level2">
-<h2>Rank factorization keeps the independent columns and rows</h2>
-<p>For the example, take the pivot columns of <span class="math inline">\(\mat{A}\)</span> and the nonzero rows of <span class="math inline">\(\mat{R}\)</span>:</p>
-<p><span class="math display">\[
-\mat{C}=
-\begin{bmatrix}
-1&amp;1\\
-2&amp;0\\
-1&amp;2
-\end{bmatrix},
-\qquad
-\mat{R}_r=
-\begin{bmatrix}
-1&amp;2&amp;0&amp;2\\
-0&amp;0&amp;1&amp;1
-\end{bmatrix}
-\]</span></p>
-<p>Then</p>
-<p><span class="math display">\[
-\mat{A}=\mat{C}\mat{R}_r
-\]</span></p>
-<div class="key-point">
-<p>The columns of <span class="math inline">\(\mat{C}\)</span> form a column-space basis; the rows of <span class="math inline">\(\mat{R}_r\)</span> form a row-space basis</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="check-the-factorization-column-by-column">Check the factorization column by column</h3>
-<p>Write the columns of <span class="math inline">\(\mat{C}\)</span> as <span class="math inline">\(\vct{c}_1,\vct{c}_2\)</span></p>
-<p>The columns of <span class="math inline">\(\mat{R}_r\)</span> give the coefficients, just as in <a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">Deck 01’s matrix product by columns</a>:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\vct{a}_1&amp;=\vct{c}_1 &amp;
-\vct{a}_2&amp;=2\vct{c}_1\\
-\vct{a}_3&amp;=\vct{c}_2 &amp;
-\vct{a}_4&amp;=2\vct{c}_1+\vct{c}_2
-\end{aligned}
-\]</span></p>
-<p>Thus <span class="math inline">\(\mat{C}\mat{R}_r\)</span> rebuilds all four columns of <span class="math inline">\(\mat{A}\)</span></p>
-<div class="key-point">
-<p>In <span class="math inline">\(\mat{A}=\mat{C}\mat{R}_r\)</span>, <span class="math inline">\(\mat{C}\)</span> stores independent columns and <span class="math inline">\(\mat{R}_r\)</span> tells how to combine them</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="practice-constructing-rank-factorizations">Practice constructing rank factorizations</h3>
-<div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>For each matrix <span class="math inline">\(\mat{M}\)</span> below, find <span class="math inline">\(\mat{C}\)</span> and <span class="math inline">\(\mat{R}_r\)</span> with <span class="math inline">\(\mat{M}=\mat{C}\mat{R}_r\)</span> <span class="exsub"><span class="math inline">\(\displaystyle\mat{B}=\begin{bmatrix}1&amp;2&amp;0\\0&amp;0&amp;1\\1&amp;2&amp;1\end{bmatrix}\)</span></span> <span class="exsub"><span class="math inline">\(\displaystyle\mat{D}=\begin{bmatrix}1&amp;0&amp;2&amp;3\\2&amp;1&amp;4&amp;7\end{bmatrix}\)</span></span> </span></p>
-</div>
-<p>For each factorization, identify bases for the row and column spaces</p>
-<aside class="notes">
-<p>For <span class="math inline">\(\mat{B}\)</span>, use columns <span class="math inline">\(1\)</span> and <span class="math inline">\(3\)</span>: <span class="math inline">\(\mat{C}=\begin{bmatrix}1&amp;0\\0&amp;1\\1&amp;1\end{bmatrix}\)</span> and <span class="math inline">\(\mat{R}_r=\begin{bmatrix}1&amp;2&amp;0\\0&amp;0&amp;1\end{bmatrix}\)</span>. For <span class="math inline">\(\mat{D}\)</span>, use columns <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>: <span class="math inline">\(\mat{C}=\begin{bmatrix}1&amp;0\\2&amp;1\end{bmatrix}\)</span> and <span class="math inline">\(\mat{R}_r=\begin{bmatrix}1&amp;0&amp;2&amp;3\\0&amp;1&amp;0&amp;1\end{bmatrix}\)</span>. The columns of each <span class="math inline">\(\mat{C}\)</span> and rows of each <span class="math inline">\(\mat{R}_r\)</span> give the requested bases.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="find-the-left-null-space" class="slide level2">
-<h2>Find the left null space</h2>
-<p>For the running example, solve <span class="math inline">\(\mat{A}^{\mathsf T}\vct{y}=\vct{0}\)</span></p>
-<p>The independent column equations are</p>
-<p><span class="math display">\[
-y_1+2y_2+y_3=0,
-\qquad y_1+2y_3=0
-\]</span></p>
-<p>Taking <span class="math inline">\(y_3=2\)</span> gives <span class="math inline">\(\vct{y}=(-4,1,2)^{\mathsf T}\)</span></p>
-<p><span class="math display">\[
-\operatorname{Null}(\mat{A}^{\mathsf T})
-=\operatorname{span}\{(-4,1,2)^{\mathsf T}\}
-\]</span></p>
-<p>This vector is perpendicular to both columns of <span class="math inline">\(\mat{C}\)</span></p>
-</section>
-<section class="slide level2">
-
-<h3 id="one-matrix-supports-several-basis-questions">One matrix supports several basis questions</h3>
-<p>For <span class="math inline">\(\mat{B}\)</span> on the practice slide:</p>
-<div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Complete the picture of its four fundamental subspaces <span class="exsub">Find bases for <span class="math inline">\(\operatorname{Null}(\mat{B})\)</span> and <span class="math inline">\(\operatorname{Null}(\mat{B}^{\mathsf T})\)</span></span> <span class="exsub">Check that your left-null vector is perpendicular to both columns of <span class="math inline">\(\mat{C}\)</span></span> <span class="exsub">Compare the four dimensions with rank–nullity</span> </span></p>
-</div>
-<aside class="notes">
-<p>For <span class="math inline">\(\mat{B}\)</span>, a null-space basis is <span class="math inline">\(\{(-2,1,0)^{\mathsf T}\}\)</span>, and a left-null basis is <span class="math inline">\(\{(-1,-1,1)^{\mathsf T}\}\)</span>. Each is orthogonal to the appropriate row or column basis. The dimensions are <span class="math inline">\(2,1,2,1\)</span> for column, null, row, and left null, respectively.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="what-the-structure-buys-us" class="title-slide slide level1 center">
-<h1>What the Structure Buys Us</h1>
-<p>Separate vectors from their coordinate descriptions</p>
-<ul>
-<li><a href="#/a-basis-turns-an-abstract-problem-into-a-matrix-problem">A basis turns an abstract problem into a matrix problem</a></li>
-<li><a href="#/a-well-chosen-basis-can-simplify-an-operator">A well-chosen basis can simplify an operator</a></li>
-</ul>
-</section>
-<section id="a-basis-turns-an-abstract-problem-into-a-matrix-problem" class="slide level2">
-<h2>A basis turns an abstract problem into a matrix problem</h2>
-<p>Suppose <span class="math inline">\(T:V\to W\)</span> preserves linear combinations:</p>
-<p><span class="math display">\[
-T(c\vct{u}+d\vct{v})=cT(\vct{u})+dT(\vct{v})
-\]</span></p>
-<p>Choose a basis <span class="math inline">\(\mathcal{B}\)</span> for <span class="math inline">\(V\)</span> and a basis <span class="math inline">\(\mathcal{C}\)</span> for <span class="math inline">\(W\)</span></p>
-<p>Then some matrix <span class="math inline">\(\mat{M}\)</span> satisfies</p>
-<p><span class="math display">\[
-[T(\vct{v})]_{\mathcal{C}}
-=\mat{M}[\vct{v}]_{\mathcal{B}}
-\]</span></p>
-<div class="key-point">
-<p>Matrices are coordinate representations of linear transformations</p>
-</div>
-</section>
-<section id="a-well-chosen-basis-can-simplify-an-operator" class="slide level2">
-<h2>A well-chosen basis can simplify an operator</h2>
-<p>Different bases give different matrices for the same linear transformation</p>
-<p>The <a href="07-eigenvalues-and-eigenvectors.html">next deck</a> asks whether a basis can make a square matrix diagonal:</p>
-<p><span class="math display">\[
-\mat{P}^{-1}\mat{A}\mat{P}
-=
-\begin{bmatrix}
-\lambda_1&amp;&amp;0\\
-&amp;\ddots&amp;\\
-0&amp;&amp;\lambda_n
-\end{bmatrix}
-\]</span></p>
-<p>The basis vectors must be directions whose spans are preserved by <span class="math inline">\(\mat{A}\)</span></p>
-<div class="key-point">
-<p>Eigenvectors are basis candidates adapted to the action of a matrix</p>
-</div>
-</section></section>
 <section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Big Ideas</h1>
 <ul>
-<li>A vector is any object in a set whose addition and scalar multiplication satisfy the vector-space axioms</li>
-<li>Subspaces are subsets closed under linear combinations; spans are subspaces generated by chosen vectors</li>
-<li>Independence removes redundancy, while spanning guarantees reach</li>
-<li>A basis gives each vector one coordinate description, and dimension counts the vectors in any basis</li>
-<li>Row reduction reveals bases for the row, column, and null spaces and proves rank-nullity</li>
-<li>Choosing a basis turns abstract linear operations into matrix computations</li>
+<li>A vector space has addition and scalar multiplication satisfying the axioms</li>
+<li>Polynomials, matrices, and functions can be vectors</li>
+<li>A subspace inherits the operations and is closed under linear combinations</li>
+<li>The span contains every linear combination of its generators</li>
 </ul>
 </section>
 
 <section id="how-far-we-have-come" class="title-slide slide level1 center">
 <h1>How Far We Have Come</h1>
-<p><span class="alert">One path from equations to abstract structure</span></p>
 <ul>
-<li><a href="01-systems-and-matrices.html#read-the-solution-set">Solve</a> — elimination exposes consistency, pivots, and free directions in <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span></li>
-<li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Interpret</a> — <span class="math inline">\(\vct{x}_p+\operatorname{Null}(\mat{A})\)</span> describes every consistent solution set</li>
-<li><a href="06-general-vector-spaces.html#a-vector-space-starts-with-objects-and-two-operations">Generalize</a> — vector spaces and subspaces capture directions beyond coordinate columns</li>
-<li><a href="06-general-vector-spaces.html#a-basis-turns-an-abstract-problem-into-a-matrix-problem">Coordinate</a> — a basis gives each vector a unique column and each linear map a matrix</li>
-<li><a href="06-general-vector-spaces.html#rank-nullity-counts-inputs">Count</a> — rank–nullity divides input directions into visible and null directions</li>
+<li><a href="01-systems-and-matrices.html">Systems and Matrices</a> established elimination, pivots, and linear combinations</li>
+<li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a> gave geometric meaning to vectors and solution sets</li>
+<li><a href="06-general-vector-spaces.html">Vector Spaces and Span</a> extends those operations to matrices, polynomials, and functions</li>
 </ul>
-<div class="key-point">
-<p>A basis connects abstract vectors to computation; dimension records the structure that coordinates reveal</p>
-</div>
 </section>
 
 <section id="what-comes-next" class="title-slide slide level1 center">
 <h1>What Comes Next</h1>
-<div class="columns">
-<div class="column" style="width:47%;">
-<h3>
-Structure established here
-</h3>
-<ul>
-<li>vector spaces and subspaces</li>
-<li>basis and coordinates</li>
-<li>dimension and rank</li>
-<li>change of basis</li>
-</ul>
-</div><div class="column" style="width:6%;">
-
-</div><div class="column" style="width:47%;">
-<h3>
-Next questions
-</h3>
-<ul>
-<li>which directions does a matrix preserve?</li>
-<li>when do eigenvectors form a basis?</li>
-<li>when can a matrix be diagonalized?</li>
-<li>what does the diagonal reveal?</li>
-</ul>
-</div></div>
+<p>How can we remove redundant generators and describe each vector uniquely?</p>
 <div class="key-point">
-<p><a href="07-eigenvalues-and-eigenvectors.html">Next: Eigenvalues and Eigenvectors</a> finds bases that reveal a matrix’s simplest action</p>
+<p><a href="06b-bases-dimension-and-coordinates.html">Next: Bases, Dimension, and Coordinates</a></p>
 </div>
 
 </section>
@@ -2095,7 +1507,7 @@ Next questions
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
 <div class="fh-footer">
-<p><span class="fh-footer-main"> © 2026 Fred J. Hickernell · Illinois Tech · assisted by ChatGPT and Codex <span class="fh-footer-sep">·</span> <span class="fh-footer-deck"> Vector Spaces </span> <span class="fh-footer-sep">·</span> <a id="fh-course-website" href="#" target="_blank" rel="noopener" onmouseenter="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)" onfocus="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)">MATH 332 — Fall 2026 Website</a> <span class="fh-footer-sep">·</span> <span class="fh-footer-ex"> <span class="math inline">\(\exstar\)</span> = exercise </span> </span></p>
+<p><span class="fh-footer-main"> © 2026 Fred J. Hickernell · Illinois Tech · assisted by ChatGPT and Codex <span class="fh-footer-sep">·</span> <span class="fh-footer-deck"> Vector Spaces and Span </span> <span class="fh-footer-sep">·</span> <a id="fh-course-website" href="#" target="_blank" rel="noopener" onmouseenter="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)" onfocus="(function(a){var el=document.getElementById('course-website-meta'); if(!el) return; var url=(JSON.parse(el.textContent||'{}').course_website||'').trim(); if(url) a.setAttribute('href',url);})(this)">MATH 332 — Fall 2026 Website</a> <span class="fh-footer-sep">·</span> <span class="fh-footer-ex"> <span class="math inline">\(\exstar\)</span> = exercise </span> </span></p>
 </div>
 </div>
 </div></div>
@@ -2649,7 +2061,7 @@ Next questions
       </script>
     <script src="../classlib/classlib/quarto/slides/deck-nav-arrows.js"></script>
     <script id="deck-nav-meta" type="application/json">
-    {"deck_prev_file":"05-euclidean-vector-spaces.html","deck_prev_title":"Euclidean Vector Spaces","deck_next_file":"07-eigenvalues-and-eigenvectors.html","deck_next_title":"Eigenvalues and Eigenvectors"}
+    {"deck_prev_file":"05-euclidean-vector-spaces.html","deck_prev_title":"Euclidean Vector Spaces","deck_next_file":"06b-bases-dimension-and-coordinates.html","deck_next_title":"Bases, Dimension, and Coordinates"}
     </script>
     
 

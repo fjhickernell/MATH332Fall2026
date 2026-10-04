@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-01">
+  <meta name="dcterms.date" content="2026-10-04">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -644,7 +644,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 1, 2026</p>
+  <p class="date">October 4, 2026</p>
 </section>
 <section id="we-begin-this-semester-amid-significant-change" class="slide level2">
 <h2>We begin this semester amid significant change</h2>
@@ -768,6 +768,7 @@ Fred J. Hickernell
 <h3>
 Course decks
 </h3>
+<div style="font-size: 0.86em;">
 <ul>
 <li><a href="00-why-linear-algebra.html" class="current-deck" aria-current="page">Why Linear Algebra?</a></li>
 <li><a href="01-systems-and-matrices.html">Systems and Matrices</a></li>
@@ -775,10 +776,13 @@ Course decks
 <li><a href="03-matrix-structure-and-transformations.html">Matrix Transformations</a></li>
 <li><a href="04-determinants.html">Determinants</a></li>
 <li><a href="05-euclidean-vector-spaces.html">Euclidean Spaces</a></li>
-<li><a href="06-general-vector-spaces.html">Vector Spaces</a></li>
+<li><a href="06-general-vector-spaces.html">Vector Spaces and Span</a></li>
+<li><a href="06b-bases-dimension-and-coordinates.html">Bases and Coordinates</a></li>
+<li><a href="06c-matrix-spaces-and-rank.html">Matrix Spaces and Rank</a></li>
 <li><a href="07-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
 <li><a href="08-inner-product-spaces.html">Inner Products</a></li>
 </ul>
+</div>
 </div><div class="column" style="width:4%;">
 
 </div><div class="column" style="width:58%;">
@@ -884,7 +888,7 @@ In this deck
 </ul>
 </div></div>
 <div class="key-point">
-<p>Numerical representations are models of objects that allow us to compute with them.</p>
+<p>Numerical representations are models of objects that allow us to compute with them</p>
 </div>
 </section>
 <section id="act-on-these-objects-via-transformations-to-obtain-new-objects" class="slide level2">
@@ -997,8 +1001,8 @@ output object(s) or state(s)<br><span class="math inline">\(\vct{y}=\mat{A}\vct{
 </div><div class="column" style="width:55%;">
 <p>Each color channel is a matrix</p>
 <p><span class="math display">\[\mat{M}=(m_{jk})_{j=1,k=1}^{m,n}\]</span></p>
-<p>Once an image has been represented as a matrix, linear algebra can reveal important patterns.</p>
-<p><span class="alert">Singular value decomposition (SVD)</span> decomposes a matrix into patterns ordered by their contribution.</p>
+<p>Once an image has been represented as a matrix, linear algebra can reveal important patterns</p>
+<p><span class="alert">Singular value decomposition (SVD)</span> decomposes a matrix into patterns ordered by their contribution</p>
 </div></div>
 <div class="component-row">
 <div>
@@ -1075,7 +1079,7 @@ c_0+c_1x_n&amp;\approx y_n
 0&amp; 1&amp; 1
 \end{bmatrix}
 \]</span></p>
-<p><span class="math inline">\(\mat{B}\)</span> represents the network structure.</p>
+<p><span class="math inline">\(\mat{B}\)</span> represents the network structure</p>
 <ul>
 <li>one row per node</li>
 <li>one column per edge</li>
@@ -1215,7 +1219,7 @@ x+y&amp;=6 &amp;&amp;\text{sensor 1}\\
 </div>
 </div>
 <div class="key-point">
-<p>Solving means understanding the information in a system—not only finding numbers.</p>
+<p>Solving means understanding the information in a system—not only finding numbers</p>
 </div>
 </section>
 <section id="when-the-constraints-cannot-all-be-satisfied" class="slide level2">
@@ -1254,7 +1258,7 @@ x+y&amp;=6 &amp;&amp;\text{sensor 1}\\
 </svg>
 </div><div class="column" style="width:48%;">
 <p>A page is important if important pages link to it</p>
-<p>A different matrix—built from the network’s links—redistributes the node scores.</p>
+<p>A different matrix—built from the network’s links—redistributes the node scores</p>
 <p><span class="math display">\[
 \vct{p}_{k+1}=\mat{A}\vct{p}_k
 \]</span></p>
@@ -1621,7 +1625,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <p>This is <span class="alert">ill-conditioning</span></p>
 </div></div>
 <div class="key-point">
-<p>A tiny change in the data can cause a large change in the solution.</p>
+<p>A tiny change in the data can cause a large change in the solution</p>
 </div>
 </section>
 <section id="equivalent-mathematics-unequal-computations" class="slide level2">
@@ -1667,7 +1671,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <p>The rationalized form avoids the subtraction</p>
 </div></div>
 <div class="key-point">
-<p>Numerical <span class="alert">instability</span> is avoidable error introduced or amplified by the computational method.</p>
+<p>Numerical <span class="alert">instability</span> is avoidable error introduced or amplified by the computational method</p>
 </div>
 </section>
 <section id="a-correct-computation-can-still-cost-too-much" class="slide level2">
@@ -1717,7 +1721,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <p>Do no unnecessary computation</p>
 <p>For production work, use a tested numerical library</p>
 </div>
-<p>Reliable software cannot fix ill-posedness or remove sensitivity inherent in an ill-conditioned problem.</p>
+<p>Reliable software cannot fix ill-posedness or remove sensitivity inherent in an ill-conditioned problem</p>
 </section>
 <section id="can-we-trust-the-answer" class="slide level2">
 <h2>Can we trust the answer?</h2>
@@ -1739,7 +1743,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 </div>
 </div>
 <div class="key-point">
-<p>Distinguish an <span class="alert">ill-posed formulation</span>, an <span class="alert">ill-conditioned problem</span>, an <span class="alert">unstable algorithm</span>, and <span class="alert">excessive computational cost</span>.</p>
+<p>Distinguish an <span class="alert">ill-posed formulation</span>, an <span class="alert">ill-conditioned problem</span>, an <span class="alert">unstable algorithm</span>, and <span class="alert">excessive computational cost</span></p>
 </div>
 </section></section>
 <section>
@@ -1768,7 +1772,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 </section>
 <section id="terms-to-know" class="slide level2">
 <h2>Terms to know</h2>
-<p>Use this cumulative alphabetical index to revisit the first substantial treatment of each term.</p>
+<p>Use this cumulative alphabetical index to revisit the first substantial treatment of each term</p>
 <h3 id="ad">A–D</h3>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -1777,10 +1781,11 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <li><a href="01-systems-and-matrices.html#by-rows">Associativity</a></li>
 <li><a href="01-systems-and-matrices.html#the-augmented-matrix-stores-the-system">Augmented matrix</a></li>
 <li><a href="01-systems-and-matrices.html#back-substitution">Back substitution</a></li>
-<li><a href="06-general-vector-spaces.html#a-basis-balances-reach-and-economy">Basis</a></li>
+<li><a href="06b-bases-dimension-and-coordinates.html#a-basis-balances-reach-and-economy">Basis</a></li>
+<li><a href="06b-bases-dimension-and-coordinates.html#a-basis-matrix-converts-coordinates-to-standard-form">Basis matrix</a></li>
 <li><a href="#/equivalent-mathematics-unequal-computations">Catastrophic cancellation</a></li>
-<li><a href="06-general-vector-spaces.html#change-of-basis-passes-through-the-vector">Change of basis</a></li>
-<li><a href="06-general-vector-spaces.html#a-matrix-has-four-fundamental-subspaces">Column space</a></li>
+<li><a href="06b-bases-dimension-and-coordinates.html#change-of-basis-passes-through-the-vector">Change of basis</a></li>
+<li><a href="06c-matrix-spaces-and-rank.html#a-matrix-has-four-fundamental-subspaces">Column space</a></li>
 <li><a href="01-systems-and-matrices.html#by-rows">Commutativity</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#composition-is-matrix-multiplication">Composition of transformations</a></li>
 </ul>
@@ -1788,12 +1793,13 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <ul>
 <li><a href="#/a-correct-computation-can-still-cost-too-much">Computational cost</a></li>
 <li><a href="01-systems-and-matrices.html#read-the-solution-set">Consistent / inconsistent system</a></li>
-<li><a href="06-general-vector-spaces.html#a-basis-gives-every-vector-unique-coordinates">Coordinate vector</a></li>
+<li><a href="06b-bases-dimension-and-coordinates.html#the-coordinate-map-preserves-linear-combinations">Coordinate map</a></li>
+<li><a href="06b-bases-dimension-and-coordinates.html#a-basis-gives-every-vector-unique-coordinates">Coordinate vector</a></li>
 <li><a href="02-inverses-and-invertibility.html#covariance-describes-joint-variation">Covariance matrix</a></li>
 <li><a href="05-euclidean-vector-spaces.html#the-cross-product-combines-two-directions">Cross product</a></li>
 <li><a href="04-determinants.html#a-determinant-is-a-signed-scale-factor">Determinant</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#diagonal-matrices-act-one-coordinate-at-a-time">Diagonal matrix</a></li>
-<li><a href="06-general-vector-spaces.html#dimension-counts-vectors-in-any-basis">Dimension</a></li>
+<li><a href="06b-bases-dimension-and-coordinates.html#dimension-counts-vectors-in-any-basis">Dimension</a></li>
 <li><a href="05-euclidean-vector-spaces.html#recall-what-the-dot-product-already-gives-us">Distance</a></li>
 <li><a href="01-systems-and-matrices.html#combines-coefficients-and-unknowns">Dot product</a></li>
 </ul>
@@ -1812,6 +1818,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <li><a href="01-systems-and-matrices.html#group-the-first-column-operations">Elimination matrix</a></li>
 <li><a href="01-systems-and-matrices.html#measures-alignment">Euclidean norm</a></li>
 <li><a href="06-general-vector-spaces.html#the-scalar-field-can-change">Field</a></li>
+<li><a href="06-general-vector-spaces.html#finite-fourier-sums-are-vectors">Fourier mode</a></li>
 <li><a href="01-systems-and-matrices.html#a-free-variable-produces-infinitely-many-solutions">Free variable</a></li>
 </ul>
 </div><div class="column" style="width:50%;">
@@ -1835,9 +1842,10 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <div class="column" style="width:50%;">
 <ul>
 <li><a href="#/when-the-constraints-cannot-all-be-satisfied">Least squares</a></li>
+<li><a href="06c-matrix-spaces-and-rank.html#a-matrix-has-four-fundamental-subspaces">Left null space</a></li>
 <li><a href="02-inverses-and-invertibility.html#production-creates-internal-demand">Leontief input–output model</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#given-output-solve-column-weights">Linear combination</a></li>
-<li><a href="06-general-vector-spaces.html#independence-means-the-zero-vector-has-one-construction">Linear independence</a></li>
+<li><a href="06b-bases-dimension-and-coordinates.html#independence-means-the-zero-vector-has-one-construction">Linear independence</a></li>
 <li><a href="01-systems-and-matrices.html#from-one-equation-to-systems-of-equations">Linear system</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#linear-transformations-preserve-combinations">Linear transformation</a></li>
 </ul>
@@ -1845,7 +1853,9 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <ul>
 <li><a href="#/represent-objects-numerically">Matrix</a></li>
 <li><a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">Matrix–matrix multiplication</a></li>
+<li><a href="06c-matrix-spaces-and-rank.html#a-basis-turns-an-abstract-problem-into-a-matrix-problem">Matrix representation of a linear map</a></li>
 <li><a href="01-systems-and-matrices.html#each-equation-is-one-dot-product">Matrix–vector multiplication</a></li>
+<li><a href="06-general-vector-spaces.html#polynomials-in-several-variables-total-degree">Monomial</a></li>
 <li><a href="02-inverses-and-invertibility.html#invertible-or-singular">Nonsingular / singular matrix</a></li>
 <li><a href="06-general-vector-spaces.html#homogeneous-systems-produce-subspaces">Null space</a></li>
 <li><a href="#/equivalent-mathematics-unequal-computations">Numerical instability</a></li>
@@ -1865,19 +1875,20 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <li><a href="03-matrix-structure-and-transformations.html#a-permutation-matrix-records-row-order">Permutation matrix</a></li>
 <li><a href="01-systems-and-matrices.html#pivots-organize-elimination">Pivot</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#a-permutation-matrix-records-row-order">PLU factorization</a></li>
+<li><a href="06-general-vector-spaces.html#polynomials-form-a-vector-space">Polynomial space</a></li>
 <li><a href="02-inverses-and-invertibility.html#precision-describes-conditional-structure">Precision matrix</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#projections-discard-information">Projection</a></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
-<li><a href="06-general-vector-spaces.html#one-reduction-exposes-the-structure">Rank</a></li>
-<li><a href="06-general-vector-spaces.html#rank-factorization-keeps-the-independent-columns-and-rows">Rank factorization</a></li>
-<li><a href="06-general-vector-spaces.html#rank-nullity-counts-inputs">Rank–nullity theorem</a></li>
+<li><a href="06c-matrix-spaces-and-rank.html#one-reduction-exposes-the-structure">Rank</a></li>
+<li><a href="06c-matrix-spaces-and-rank.html#rank-factorization-keeps-the-independent-columns-and-rows">Rank factorization</a></li>
+<li><a href="06c-matrix-spaces-and-rank.html#rank-nullity-counts-inputs">Rank–nullity theorem</a></li>
 <li><a href="#/what-does-the-system-tell-us">Redundant constraint</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#reflections-reverse-one-direction-and-preserve-lengths">Reflection</a></li>
 <li><a href="01-systems-and-matrices.html#three-reversible-moves">Reversible transformation</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#rotation-matrix-from-rotated-basis-vectors">Rotation</a></li>
-<li><a href="06-general-vector-spaces.html#a-matrix-has-four-fundamental-subspaces">Row space</a></li>
+<li><a href="06c-matrix-spaces-and-rank.html#a-matrix-has-four-fundamental-subspaces">Row space</a></li>
 <li><a href="01-systems-and-matrices.html#pivots-organize-elimination">Row echelon form</a></li>
 </ul>
 </div></div>
@@ -1891,6 +1902,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <li><a href="#/represent-objects-numerically">Scalar</a></li>
 <li><a href="05-euclidean-vector-spaces.html#the-triple-product-reconnects-to-determinants">Scalar triple product</a></li>
 <li><a href="#/images-contain-important-patterns">Singular value decomposition (SVD)</a></li>
+<li><a href="06b-bases-dimension-and-coordinates.html#practice-bases-for-other-matrix-spaces">Skew-symmetric matrix</a></li>
 <li><a href="01-systems-and-matrices.html#from-one-equation-to-systems-of-equations">Solution / solution set</a></li>
 <li><a href="06-general-vector-spaces.html#span-is-the-subspace-generated-by-chosen-vectors">Span</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#standard-basis-vectors-reveal-every-column">Standard basis</a></li>
@@ -1901,6 +1913,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 </ul>
 </div><div class="column" style="width:50%;">
 <ul>
+<li><a href="06-general-vector-spaces.html#polynomials-in-several-variables-total-degree">Total degree</a></li>
 <li><a href="#/act-on-these-objects-via-transformations-to-obtain-new-objects">Transformation</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#transpose-exchanges-rows-and-columns">Transpose</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#triangular-matrices-expose-pivots">Triangular matrix</a></li>
@@ -1914,9 +1927,9 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <section id="complete-the-diagnostic-survey" class="slide level2">
 <h2>Complete the Diagnostic Survey</h2>
 <div class="key-point">
-<p>Complete <a href="https://iit.instructure.com/courses/23913/assignments/98516">Assignment 0 — Diagnostic Survey</a> by <span class="alert">August 21</span>.</p>
+<p>Complete <a href="https://iit.instructure.com/courses/23913/assignments/98516">Assignment 0 — Diagnostic Survey</a> by <span class="alert">August 21</span></p>
 </div>
-<p>Complete and submit this assignment individually, not as a group.</p>
+<p>Complete and submit this assignment individually, not as a group</p>
 </section>
 <section id="how-we-will-learn-linear-algebra" class="slide level2">
 <h2>How we will learn linear algebra</h2>
@@ -1952,11 +1965,11 @@ interpret<br>understand
 <p>Computation supports understanding</p>
 <p>It does not replace mathematical reasoning</p>
 </div>
-<p>Jupyter/Colab notebooks support demonstrations and experiments.</p>
+<p>Jupyter/Colab notebooks support demonstrations and experiments</p>
 </section>
 <section id="navigating-this-course" class="slide level2">
 <h2>Navigating this course</h2>
-<p>Use the slides for course content, the course website and repository for course materials, and Canvas for grades.</p>
+<p>Use the slides for course content, the course website and repository for course materials, and Canvas for grades</p>
 <h3 id="these-slides">These slides</h3>
 <ul>
 <li><p>Each slide deck has a list of decks and major sections after the title page</p></li>
@@ -2118,7 +2131,7 @@ x+2y+z&amp;=4
 </ul>
 </div></div>
 <div class="key-point">
-<p>Everything in this course begins with questions like these.</p>
+<p>Everything in this course begins with questions like these</p>
 </div>
 
 </section></section>
