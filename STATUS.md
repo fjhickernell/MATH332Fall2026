@@ -80,7 +80,8 @@ Mathematical content should be maintained only in the slides.
     pairs for multivariable polynomials, concrete spans, matrix bases,
     dimension, coordinate arithmetic, orthogonality, and matrix representations
     of linear maps; keep exercise solutions in presenter notes.
-  - [ ] Develop Decks 09–10.
+  - [ ] Develop Deck 09.
+  - [x] Draft Deck 10 with QR, regression, and Fourier approximation.
 - [x] Renumber the split Chapter 4 decks as 06–08 and the later placeholders
   as 09–10; update metadata, course maps, navigation, links, and author guidance.
 - [x] Create and locally validate the three Deck 06–08 companions on spans,
@@ -105,7 +106,8 @@ Mathematical content should be maintained only in the slides.
   cross products have been introduced; render the revised deck.
 - [x] Add cumulative "How Far We Have Come" slides to developed Decks 02–08
   between Big Ideas and What Comes Next, with one Course Map link for each
-  closing sequence; defer Decks 09–10 until their content is developed.
+  closing sequence; Decks 10–11 now include it, while Deck 09 remains deferred
+  until its content is developed.
 - [ ] Verify the revised surface slide layout and MathJax typesetting in Safari.
 - [x] Add the Deck 04 companion’s Colab badge using the established setup;
   separate clean-Colab validation is not required by instructor policy.
@@ -187,3 +189,12 @@ Mathematical content should be maintained only in the slides.
 - [ ] Validate navigation, links, notation, accessibility, and visible layout
   as content is added.
 - [ ] Promote only validated, genuinely reusable infrastructure to classlib.
+
+## Special Topics capstone
+
+- [x] Draft Deck 11 with SVD and regression as priorities, quadratic forms,
+  FFT, tensor products, and optional network/eigenvector applications.
+- [ ] Complete instructor content and visible-layout review of Deck 11.
+- [x] Draft QR, least squares, and Fourier prerequisites in Deck 10.
+- [ ] Complete instructor content and visible-layout review of Deck 10.
+- [ ] Build and validate the selected Special Topics demonstrations.

@@ -31,6 +31,7 @@ include-after-body:
 - [Matrix Spaces and Rank]({{< meta decks.d08.file >}})
 - [Eigenvalues]({{< meta decks.d09.file >}})
 - [Inner Products]({{< meta decks.d10.file >}})
+- [Special Topics]({{< meta decks.d11.file >}})
 :::
 :::
 

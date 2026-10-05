@@ -9,7 +9,8 @@ materials. Mathematical content should be maintained only in the slides.
 
 The required textbook is Howard Anton, *Elementary Linear Algebra:
 Applications Version*, 12th edition. Course content will be developed
-incrementally across Chapters 1–6.
+incrementally across Chapters 1–6, followed by a Special Topics capstone
+with selected Chapters 7–10 material and supplementary FFT and tensors.
 
 ## Local setup
 

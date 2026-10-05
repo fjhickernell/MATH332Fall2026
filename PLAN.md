@@ -62,7 +62,8 @@ The planned sequence is:
 | 07 | Bases, Dimension, and Coordinates | Sections 4.4–4.7; basis extraction connects to 4.8 |
 | 08 | Matrix Spaces and Rank | Sections 4.8–4.9; closing preview of 8.1 and 8.4 |
 | 09 | Eigenvalues and Eigenvectors | Chapter 5 |
-| 10 | Inner Product Spaces | Chapter 6 |
+| 10 | Inner Product Spaces | Chapter 6, including QR and least squares |
+| 11 | Special Topics | Selected Chapters 7–10; supplementary FFT and tensors |
 
 Section numbers follow Anton's 12th Applications edition, which gives
 Spanning Sets its own Section 4.3. Finite fields, frames, multivariable
@@ -119,3 +120,14 @@ after it has recurred and been validated locally. Make any such change in
 HickernellAcademicLib, commit and push it upstream first, and only then update
 the course repository's `classlib` pointer. Course-specific content remains
 here.
+
+## Special Topics scope
+
+Deck 11 is a modular capstone draft. Prioritize SVD, low-rank approximation,
+and regression through QR, pseudoinverses, sensitivity, and regularization.
+Other sections cover quadratic forms, DFT/FFT, tensor products and Kronecker
+structure, power iteration/PageRank, and graph Laplacians. QR and least
+squares belong first in Deck 10; its foundation is drafted for instructor
+review.
+FFT and tensors are supplementary enrichment. Select coverage according to
+remaining class time; no meeting dates or assessment coverage are assigned.

@@ -50,9 +50,10 @@ state why the work was deferred when that context will matter later.
   05 example near Deck 07's introduction of bases and coordinates, before the
   polynomial-coordinate example, so the formal definitions answer a question
   students have already encountered geometrically.
-- Much later, decide whether MATH 332 should introduce tensors beyond Deck
-  04's brief surface-area outlook and, if so, determine their scope, purpose,
-  and placement in a companion notebook, later deck, or future-course note.
+- Tensor products are now drafted in Special Topics after Inner Product
+  Spaces, with product bases, outer products, Kronecker maps, and contractions.
+  Instructor review and a companion demonstration remain; retain the
+  distinction between tensors and their coordinate arrays.
 - When revisiting Deck 07, decide whether to add Wronskians now that function
   spaces and linear independence have been established. Define the general $n\times n$
   Wronskian using derivatives through order $n-1$; distinguish the always-valid

@@ -440,9 +440,10 @@ calendar unchanged and check again later.
 - Chapter 4 uses three named decks: Vector Spaces, Subspaces, and Span;
   Bases, Dimension, and Coordinates; and Matrix Spaces and Rank. Number
   them consecutively as Decks 06, 07, and 08, followed by
-  Eigenvalues and Eigenvectors (09) and Inner Product Spaces (10). Continue
-  sequentially at 11 for future decks; do not introduce letter suffixes.
-  The eleven-deck course-map list uses 0.86em text within its existing column.
+  Eigenvalues and Eigenvectors (09), Inner Product Spaces (10), and
+  Special Topics (11). Continue sequentially at 12 for future decks; do not
+  introduce letter suffixes.
+  The twelve-deck course-map list uses 0.86em text within its existing column.
 - Follow the shared [deck-reference convention](classlib/docs/slide-style.md#deck-references)
   for named links to other teaching decks.
 - For Fourier modes, write the imaginary unit as `\sqrt{-1}` so `i` remains
@@ -577,7 +578,7 @@ rsync -a --delete slides/_site/ _site/slides/
 ```
 
 After rendering, inspect warnings, open representative website pages and all
-eleven decks, verify previous/next deck navigation, and confirm that internal
+twelve decks, verify previous/next deck navigation, and confirm that internal
 links and shared `classlib` assets resolve. Do not commit `_site/`, `.quarto/`,
 or other generated output.
 

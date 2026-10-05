@@ -172,7 +172,20 @@ preview §§8.1 and 8.4. Detailed pacing is **TBD**.
 <details>
 <summary><strong>Inner Product Spaces</strong></summary>
 
-[Lecture slides](slides/10-inner-product-spaces.html). Anton, Chapter 6. Detailed pacing is **TBD**.
+[Lecture slides](slides/10-inner-product-spaces.html). Anton, Chapter 6:
+inner products, orthogonal projection, Gram–Schmidt and QR, least squares and
+regression, and function approximation with Fourier coordinates.
+Detailed pacing is **TBD**.
+
+</details>
+
+<details>
+<summary><strong>Special Topics</strong></summary>
+
+[Lecture slides](slides/11-special-topics.html). A draft capstone: SVD and
+regression, quadratic forms, FFT, tensor products, and network applications.
+Selected Anton Chapters 7–10 plus supplementary Fourier and tensor material.
+Topics and pacing will be selected as time permits.
 
 </details>
 

@@ -2,6 +2,22 @@
 
 ## Current task
 
+Inner Product Spaces (`slides/10-inner-product-spaces.qmd`, 46 slides) now
+has an instructor-review draft covering inner products, projections,
+Gram–Schmidt/QR, regression, and function/Fourier approximation. Review this
+foundation before Special Topics (`slides/11-special-topics.qmd`, 55 slides).
+The capstone prioritizes SVD and regression, with quadratic forms, FFT,
+tensor products, power iteration/PageRank, and graph Laplacians as modular
+choices. Its class-preferences slide asks students to rank optional coverage;
+select topics and pacing after review. Companion demonstrations remain to be
+built. The imminent October 6 preparation and Chapter 4 review below remain.
+
+Both new decks and the twelve-deck navigation pass local rendering,
+MathJax/layout inspection, and link/anchor checks. Worked QR, regression,
+DFT, pseudoinverse, and Kronecker examples were checked numerically. The
+unchanged shared biography snippet retains its standalone image-path issue;
+the course homepage image resolves.
+
 The General Vector Spaces material is now three instructor-review decks:
 Vector Spaces, Subspaces, and Span (`06-general-vector-spaces.qmd`, Anton
 §§4.1–4.3); Bases, Dimension, and Coordinates
@@ -11,9 +27,9 @@ from §4.8); and Matrix Spaces and Rank (`08-matrix-spaces-and-rank.qmd`,
 sections number four, six, and five; their slide counts are 47, 47, and 35,
 including titles and closing slides.
 
-The deck sequence is consecutive from 00 through 10: the Chapter 4 decks
-are 06–08, Eigenvalues is 09, and Inner Products is 10. Continue at 11 for
-future decks. Three draft companions now exist under
+The deck sequence is consecutive from 00 through 11: the Chapter 4 decks
+are 06–08, Eigenvalues is 09, Inner Products is 10, and Special Topics is 11.
+Continue at 12 for future decks. Three draft companions now exist under
 `notebooks/demonstrations/`, using the same basenames as Decks 06–08.
 Each runs in a fresh `qmcpy` kernel with exact checks and saved output;
 instructor review remains. They are linked from their decks and the Notebooks
@@ -21,8 +37,8 @@ page. The website and all eleven decks render; the assembled site passes
 562 local-link checks and 183 cross-page anchor checks. New notebook callouts,
 course maps/navigation, and the Notebooks page at desktop and phone widths
 passed browser inspection. The October 4 Checkpoint includes these changes;
-its new remote deployment
-remains unverified. Matrix-space operators are lowercase `col`, `row`, and
+its build/publication and Pages deployment succeeded; live companion
+content has not been rechecked. Matrix-space operators are lowercase `col`, `row`, and
 `null`; the rank deck and notebook explicitly explain the transpose identities.
 
 The October 3 audit checked the exact 12th Applications edition, repaired
@@ -214,8 +230,8 @@ address reported Colab problems.
   from the sign of the determinant; zero determinant has its own collapse bullet.
 - Developed Decks 02–08 now close with Big Ideas, a cumulative "How Far We
   Have Come" slide, and What Comes Next. Each Course Map links once to Big
-  Ideas for the closing sequence. Decks 09–10 remain placeholders and should
-  gain this sequence when their content is developed.
+  Ideas for the closing sequence. Deck 09 remains a placeholder and should
+  gain this sequence when developed; the new Decks 10–11 drafts include it.
 - Deck 04 now proves the parallelogram-area formula immediately after its
   signed-area statement, using base times perpendicular height; the proof
   includes the zero-edge case and explains the sign. Rendering, visible layout,
@@ -242,9 +258,10 @@ address reported Colab problems.
   Deck 05 content and layout review was completed October 4.
 - Decks 00--04 are substantive and instructor-reviewed; Deck 04 has also been
   developed and audited. Deck 05 is an expanded 33-slide draft (including its
-  title), the three Chapter 4 decks are audited drafts, and Decks 09--10 remain placeholders for Anton
-  Chapters 5--6. The post-Test-1 schedule has 20 class meetings, but their
-  allocation among Decks 05--10, Test 2, exercises, companions, and review has
+  title), the three Chapter 4 decks are audited drafts, and Deck 09 remains
+  a placeholder for Anton Chapter 5. Decks 10–11 have instructor-review drafts.
+  The post-Test-1 schedule has 20 class meetings, but their allocation among
+  Decks 05–11, Test 2, exercises, companions, and review has
   not yet been decided.
 - Deck 03 includes a starred Householder involution exercise and the
   construction of orthogonal projection onto a plane. It now explicitly

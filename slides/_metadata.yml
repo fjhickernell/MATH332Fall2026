@@ -57,6 +57,11 @@ decks:
     title: Inner Product Spaces
     short_title: Inner Products
 
+  d11:
+    file: 11-special-topics.html
+    title: Special Topics
+    short_title: Special Topics
+
 format:
   revealjs:
     navigation-mode: grid
