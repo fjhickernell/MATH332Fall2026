@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-04">
+  <meta name="dcterms.date" content="2026-10-05">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 4, 2026</p>
+  <p class="date">October 5, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -665,6 +665,7 @@ Course decks
 <li><a href="08-matrix-spaces-and-rank.html">Matrix Spaces and Rank</a></li>
 <li><a href="09-eigenvalues-and-eigenvectors.html">Eigenvalues</a></li>
 <li><a href="10-inner-product-spaces.html" class="current-deck" aria-current="page">Inner Products</a></li>
+<li><a href="11-special-topics.html">Special Topics</a></li>
 </ul>
 </div>
 </div><div class="column" style="width:4%;">
@@ -673,17 +674,737 @@ Course decks
 <h3>
 In this deck
 </h3>
+<div class="key-point">
+<p>Orthogonal directions separate what we can fit from what remains</p>
+<p><span class="math inline">\(\vct{b}=\widehat{\vct{b}}+\vct{r},\qquad\widehat{\vct{b}}\perp\vct{r}\)</span></p>
+</div>
 <ul>
-<li><a href="#/inner-product-spaces">Inner Product Spaces</a></li>
+<li><a href="#/inner-products-and-geometry">Inner Products and Geometry</a></li>
+<li><a href="#/orthogonality-and-projection">Orthogonality and Projection</a></li>
+<li><a href="#/gram-schmidt-and-qr">Gram–Schmidt and QR</a></li>
+<li><a href="#/least-squares-and-regression">Least Squares and Regression</a></li>
+<li><a href="#/function-approximation-and-fourier-coordinates">Function Approximation and Fourier Coordinates</a></li>
+<li><a href="#/big-ideas">Big Ideas</a></li>
 </ul>
 </div></div>
 </section>
 
-<section id="inner-product-spaces" class="title-slide slide level1 center">
-<h1>Inner Product Spaces</h1>
-<p>Chapter 6 content will be developed in this deck.</p>
-
+<section>
+<section id="inner-products-and-geometry" class="title-slide slide level1 center">
+<h1>Inner Products and Geometry</h1>
+<ul>
+<li><a href="#/what-measures-the-size-of-a-vector">What measures the size of a vector?</a></li>
+<li><a href="#/the-real-inner-product-axioms">The real inner-product axioms</a></li>
+<li><a href="#/weights-change-the-geometry">Weights change the geometry</a></li>
+<li><a href="#/continuous-functions-also-have-geometry">Continuous functions also have geometry</a></li>
+<li><a href="#/norms-distances-and-angles-follow">Norms, distances, and angles follow</a></li>
+<li><a href="#/practice-testing-an-inner-product">Practice testing an inner product</a></li>
+</ul>
 </section>
+<section id="what-measures-the-size-of-a-vector" class="slide level2">
+<h2>What measures the size of a vector?</h2>
+<p>Coordinates describe a vector; an inner product adds geometry</p>
+<ul>
+<li>Dot products in <span class="math inline">\(\reals^n\)</span></li>
+<li>Weighted measurements when coordinates have different scales</li>
+<li>Integrals comparing functions</li>
+</ul>
+<div class="key-point">
+<p>Choose the inner product to match what size and similarity mean in the problem</p>
+</div>
+</section>
+<section id="the-real-inner-product-axioms" class="slide level2">
+<h2>The real inner-product axioms</h2>
+<p>An inner product on a real vector space <span class="math inline">\(V\)</span> assigns <span class="math inline">\(\langle\vct{u},\vct{v}\rangle\in\reals\)</span></p>
+<p>For all vectors and real scalars: <span class="math display">\[\begin{align*}
+\langle\vct{u},\vct{v}\rangle&amp;=\langle\vct{v},\vct{u}\rangle\\
+\langle a\vct{u}+b\vct{v},\vct{w}\rangle
+&amp;=a\langle\vct{u},\vct{w}\rangle+b\langle\vct{v},\vct{w}\rangle\\
+\langle\vct{v},\vct{v}\rangle&amp;\ge0,\qquad
+\langle\vct{v},\vct{v}\rangle=0\iff\vct{v}=\vct{0}
+\end{align*}\]</span></p>
+<p>Symmetry makes linearity hold in both arguments</p>
+</section>
+<section id="weights-change-the-geometry" class="slide level2">
+<h2>Weights change the geometry</h2>
+<p><span class="math display">\[\begin{gather*}
+\langle\vct{u},\vct{v}\rangle_{\mat{W}}=\vct{u}^{\mathsf T}\mat{W}\vct{v},\qquad
+\mat{W}=\mat{W}^{\mathsf T}\text{ positive definite}\\
+\mat{W}=\begin{pmatrix}1&amp;0\\0&amp;4\end{pmatrix},\qquad
+\left\|\begin{pmatrix}x_1\\x_2\end{pmatrix}\right\|_{\mat{W}}^2=x_1^2+4x_2^2
+\end{gather*}\]</span></p>
+<p>The weighted unit circle is an ellipse in standard coordinates</p>
+<p>For <span class="math inline">\(\vct{u}=(1,1)^{\mathsf T}\)</span> and <span class="math inline">\(\vct{v}=(4,-1)^{\mathsf T}\)</span>: <span class="math inline">\(\langle\vct{u},\vct{v}\rangle_{\mat{W}}=0\)</span> but <span class="math inline">\(\vct{u}^{\mathsf T}\vct{v}=3\)</span></p>
+</section>
+<section id="continuous-functions-also-have-geometry" class="slide level2">
+<h2>Continuous functions also have geometry</h2>
+<p>On <span class="math inline">\(C([0,1])\)</span>, define <span class="math display">\[\begin{equation*}
+\langle f,g\rangle=\int_0^1 f(t)g(t)\,\dif t
+\end{equation*}\]</span></p>
+<ul>
+<li>Symmetry and linearity come from the integral</li>
+<li>A nonzero continuous function has positive squared integral</li>
+<li>Similarity compares entire functions, not only their sampled values</li>
+</ul>
+<p>For <span class="math inline">\(f(t)=1\)</span>, <span class="math inline">\(g(t)=t\)</span>: <span class="math inline">\(\langle f,g\rangle=1/2\)</span></p>
+<aside class="notes">
+<p>Continuity guarantees positive definiteness for actual functions. For general square-integrable functions, use equivalence classes modulo equality almost everywhere to obtain an inner-product space. Completeness and Hilbert spaces are later-course context.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="norms-distances-and-angles-follow" class="slide level2">
+<h2>Norms, distances, and angles follow</h2>
+<p><span class="math display">\[\begin{gather*}
+\|\vct{v}\|=\sqrt{\langle\vct{v},\vct{v}\rangle},\qquad
+d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
+\cos\theta=\frac{\langle\vct{u},\vct{v}\rangle}{\|\vct{u}\|\|\vct{v}\|},
+\quad\vct{u},\vct{v}\ne\vct{0}
+\end{gather*}\]</span></p>
+<p>Cauchy–Schwarz: <span class="math inline">\(|\langle\vct{u},\vct{v}\rangle|\le\|\vct{u}\|\|\vct{v}\|\)</span></p>
+<p>Triangle inequality: <span class="math inline">\(\|\vct{u}+\vct{v}\|\le\|\vct{u}\|+\|\vct{v}\|\)</span></p>
+<aside class="notes">
+<p>Cauchy–Schwarz follows by minimizing ||u-tv||^2 over real t when v is nonzero. Equality occurs exactly for linearly dependent vectors. Expand the squared norm and apply the inequality to obtain the triangle inequality.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="practice-testing-an-inner-product" class="slide level2">
+<h2>Practice testing an inner product</h2>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>On <span class="math inline">\(\reals^2\)</span>, which formulas are inner products?<br><span class="math inline">\(u_1v_1+2u_2v_2\)</span>, <span class="math inline">\(\quad u_1v_1-u_2v_2\)</span>, <span class="math inline">\(\quad u_1v_1\)</span><br>Name the failed axiom for each rejected formula</span></p>
+</div>
+<aside class="notes">
+<p>The first is an inner product. The second is negative on (0,1). The third gives zero squared length to the nonzero vector (0,1), so positive definiteness fails.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="orthogonality-and-projection" class="title-slide slide level1 center">
+<h1>Orthogonality and Projection</h1>
+<ul>
+<li><a href="#/perpendicular-vectors-split-squared-length">Perpendicular vectors split squared length</a></li>
+<li><a href="#/projection-onto-one-direction">Projection onto one direction</a></li>
+<li><a href="#/projection-onto-an-orthonormal-basis">Projection onto an orthonormal basis</a></li>
+<li><a href="#/an-orthogonal-projector-has-two-signatures">An orthogonal projector has two signatures</a></li>
+<li><a href="#/practice-projecting-onto-a-plane">Practice projecting onto a plane</a></li>
+</ul>
+</section>
+<section id="perpendicular-vectors-split-squared-length" class="slide level2">
+<h2>Perpendicular vectors split squared length</h2>
+<p><span class="math inline">\(\vct{u}\perp\vct{v}\)</span> means <span class="math inline">\(\langle\vct{u},\vct{v}\rangle=0\)</span> <span class="math display">\[\begin{equation*}
+\|\vct{u}+\vct{v}\|^2=\|\vct{u}\|^2+\|\vct{v}\|^2
+\end{equation*}\]</span></p>
+<p>Nonzero pairwise orthogonal vectors are linearly independent</p>
+<p>An orthonormal list is pairwise orthogonal with each vector of norm one</p>
+<aside class="notes">
+<p>For independence, take the inner product of a zero linear combination with each list vector. Its coefficient times the positive squared norm must vanish. The zero vector is perpendicular to every vector but cannot belong to an orthonormal list.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="projection-onto-one-direction" class="slide level2">
+<h2>Projection onto one direction</h2>
+<p>For <span class="math inline">\(\vct{u}\ne\vct{0}\)</span>: <span class="math display">\[\begin{gather*}
+\vct{p}=\frac{\langle\vct{u},\vct{v}\rangle}{\langle\vct{u},\vct{u}\rangle}\vct{u},\qquad
+\vct{r}=\vct{v}-\vct{p}\\
+\vct{p}\in\operatorname{span}\{\vct{u}\},\qquad \vct{r}\perp\vct{u}
+\end{gather*}\]</span></p>
+<p>For every <span class="math inline">\(\vct{w}\)</span> on that line: <span class="math display">\[\begin{equation*}
+\|\vct{v}-\vct{w}\|^2=\|\vct{r}\|^2+\|\vct{p}-\vct{w}\|^2
+\end{equation*}\]</span></p>
+<p><span class="math inline">\(\vct{p}\)</span> is the unique closest vector on the line</p>
+</section>
+<section id="projection-onto-an-orthonormal-basis" class="slide level2">
+<h2>Projection onto an orthonormal basis</h2>
+<p>Let <span class="math inline">\((\vct{q}_1,\ldots,\vct{q}_k)\)</span> be an orthonormal basis of a subspace <span class="math inline">\(S\)</span> <span class="math display">\[\begin{gather*}
+\operatorname{proj}_S\vct{v}=\sum_{j=1}^k\langle\vct{q}_j,\vct{v}\rangle\vct{q}_j\\
+\vct{v}=\vct{p}+\vct{r},\qquad \vct{p}\in S,\quad \vct{r}\in S^\perp
+\end{gather*}\]</span></p>
+<p>Here <span class="math inline">\(S^\perp=\{\vct{r}:\langle\vct{r},\vct{s}\rangle=0\text{ for every }\vct{s}\in S\}\)</span></p>
+<p>Orthogonal coordinates require inner products instead of solving a new system</p>
+</section>
+<section id="an-orthogonal-projector-has-two-signatures" class="slide level2">
+<h2>An orthogonal projector has two signatures</h2>
+<p>In standard Euclidean coordinates, let <span class="math inline">\(\mat{Q}\)</span> have orthonormal columns spanning <span class="math inline">\(S\)</span> <span class="math display">\[\begin{gather*}
+\mat{P}=\mat{Q}\mat{Q}^{\mathsf T},\qquad
+\mat{P}^{\mathsf T}=\mat{P},\quad\mat{P}^2=\mat{P}\\
+\mat{P}\vct{v}\in S,\qquad (\mat{I}-\mat{P})\vct{v}\in S^\perp
+\end{gather*}\]</span></p>
+<p>Idempotence alone characterizes a projection; symmetry additionally makes it orthogonal</p>
+<p><a href="03-matrix-structure-and-transformations.html">Revisit concrete projections</a></p>
+<aside class="notes">
+<p>The symmetry criterion assumes the standard dot product. In a W inner product, the corresponding criterion is P^T W = W P together with idempotence. Finite-dimensional subspaces admit the orthogonal decomposition used here.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="practice-projecting-onto-a-plane" class="slide level2">
+<h2>Practice projecting onto a plane</h2>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Let <span class="math inline">\(S=\operatorname{span}\{(1,1,0)^{\mathsf T},(0,0,1)^{\mathsf T}\}\)</span><br>Choose an orthonormal basis and project <span class="math inline">\((3,1,2)^{\mathsf T}\)</span> onto <span class="math inline">\(S\)</span><br>Find the distance to <span class="math inline">\(S\)</span></span></p>
+</div>
+<aside class="notes">
+<p>Use q_1=(1,1,0)^T/sqrt(2), q_2=(0,0,1)^T. Projection (2,2,2)^T; residual (1,-1,0)^T; distance sqrt(2).</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="gram-schmidt-and-qr" class="title-slide slide level1 center">
+<h1>Gram–Schmidt and QR</h1>
+<ul>
+<li><a href="#/build-perpendicular-directions-without-changing-the-span">Build perpendicular directions without changing the span</a></li>
+<li><a href="#/a-worked-gram-schmidt-calculation">A worked Gram–Schmidt calculation</a></li>
+<li><a href="#/the-coefficients-form-a-triangular-matrix">The coefficients form a triangular matrix</a></li>
+<li><a href="#/read-qr-from-the-worked-example">Read QR from the worked example</a></li>
+<li><a href="#/exact-construction-and-numerical-computation-differ">Exact construction and numerical computation differ</a></li>
+<li><a href="#/practice-extracting-qr-coordinates">Practice extracting QR coordinates</a></li>
+</ul>
+</section>
+<section id="build-perpendicular-directions-without-changing-the-span" class="slide level2">
+<h2>Build perpendicular directions without changing the span</h2>
+<p>Start with independent <span class="math inline">\(\vct{A}_1,\ldots,\vct{A}_n\)</span> <span class="math display">\[\begin{align*}
+\vct{w}_1&amp;=\vct{A}_1,\qquad\vct{q}_1=\vct{w}_1/\|\vct{w}_1\|\\
+\vct{w}_j&amp;=\vct{A}_j-\sum_{i=1}^{j-1}\langle\vct{q}_i,\vct{A}_j\rangle\vct{q}_i\\
+\vct{q}_j&amp;=\vct{w}_j/\|\vct{w}_j\|
+\end{align*}\]</span></p>
+<p>At each step, remove directions already represented, then normalize</p>
+<p><span class="math inline">\(\operatorname{span}\{\vct{q}_1,\ldots,\vct{q}_j\}=\operatorname{span}\{\vct{A}_1,\ldots,\vct{A}_j\}\)</span></p>
+</section>
+<section id="a-worked-gram-schmidt-calculation" class="slide level2">
+<h2>A worked Gram–Schmidt calculation</h2>
+<p>In <span class="math inline">\(\reals^3\)</span>, take <span class="math inline">\(\vct{A}_1=(1,1,0)^{\mathsf T}\)</span> and <span class="math inline">\(\vct{A}_2=(1,0,1)^{\mathsf T}\)</span> <span class="math display">\[\begin{align*}
+\vct{q}_1&amp;=\frac1{\sqrt2}(1,1,0)^{\mathsf T}\\
+\langle\vct{q}_1,\vct{A}_2\rangle&amp;=1/\sqrt2\\
+\vct{w}_2&amp;=(1/2,-1/2,1)^{\mathsf T}\\
+\vct{q}_2&amp;=\frac1{\sqrt6}(1,-1,2)^{\mathsf T}
+\end{align*}\]</span></p>
+<p>Check <span class="math inline">\(\vct{q}_1^{\mathsf T}\vct{q}_2=0\)</span> and both squared norms equal one</p>
+</section>
+<section id="the-coefficients-form-a-triangular-matrix" class="slide level2">
+<h2>The coefficients form a triangular matrix</h2>
+<p>For a real <span class="math inline">\(m\times n\)</span> matrix with independent columns, <span class="math inline">\(m\ge n\)</span>: <span class="math display">\[\begin{gather*}
+\mat{A}=\mat{Q}\mat{R}_Q,\qquad \mat{Q}^{\mathsf T}\mat{Q}=\mat{I}_n\\
+\mat{Q}=[\vct{q}_1\ \cdots\ \vct{q}_n],\qquad
+(\mat{R}_Q)_{ij}=\begin{cases}\vct{q}_i^{\mathsf T}\vct{A}_j,&amp;i\le j\\0,&amp;i&gt;j\end{cases}
+\end{gather*}\]</span></p>
+<p><span class="math inline">\(\mat{Q}\)</span>: <span class="math inline">\(m\times n\)</span> orthonormal directions</p>
+<p><span class="math inline">\(\mat{R}_Q\)</span>: <span class="math inline">\(n\times n\)</span> upper triangular coordinates, positive diagonal with this construction</p>
+<aside class="notes">
+<p>This is reduced QR. Use R_Q to distinguish the triangular QR factor from R in A=C R. When Q is rectangular, Q^T Q=I but Q Q^T is a projector rather than the identity.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="read-qr-from-the-worked-example" class="slide level2">
+<h2>Read QR from the worked example</h2>
+<p><span class="math display">\[\begin{gather*}
+\mat{A}=\begin{pmatrix}1&amp;1\\1&amp;0\\0&amp;1\end{pmatrix},\qquad
+\mat{Q}=\begin{pmatrix}
+1/\sqrt2&amp;1/\sqrt6\\1/\sqrt2&amp;-1/\sqrt6\\0&amp;2/\sqrt6
+\end{pmatrix}\\
+\mat{R}_Q=\begin{pmatrix}\sqrt2&amp;1/\sqrt2\\0&amp;\sqrt{3/2}\end{pmatrix}
+\end{gather*}\]</span></p>
+<p>Column 1 uses only <span class="math inline">\(\vct{q}_1\)</span>; column 2 uses <span class="math inline">\(\vct{q}_1\)</span> and <span class="math inline">\(\vct{q}_2\)</span></p>
+<p>Verify <span class="math inline">\(\mat{Q}\mat{R}_Q=\mat{A}\)</span></p>
+</section>
+<section id="exact-construction-and-numerical-computation-differ" class="slide level2">
+<h2>Exact construction and numerical computation differ</h2>
+<ul>
+<li>Dependent input: a zero remainder cannot be normalized</li>
+<li>Nearly dependent input: subtraction can lose orthogonality in floating point</li>
+<li>Modified Gram–Schmidt updates the remainder after each projection</li>
+<li>Householder QR uses orthogonal reflections for practical computation</li>
+</ul>
+<p><a href="03-matrix-structure-and-transformations.html">Recall Householder reflections</a></p>
+<div class="key-point">
+<p>Gram–Schmidt explains QR; numerical algorithms must also control round-off error</p>
+</div>
+<aside class="notes">
+<p>Dependence detection in floating point requires a scale-aware tolerance; no universal fixed threshold is prescribed. Householder QR is backward stable; classical Gram–Schmidt may lose orthogonality substantially for ill-conditioned inputs. Reorthogonalization is another option.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="practice-extracting-qr-coordinates" class="slide level2">
+<h2>Practice extracting QR coordinates</h2>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Apply Gram–Schmidt to <span class="math inline">\((1,0,1)^{\mathsf T}\)</span> and <span class="math inline">\((1,1,0)^{\mathsf T}\)</span><br>Write the reduced QR factorization<br>Why is <span class="math inline">\(\mat{Q}\mat{Q}^{\mathsf T}\)</span> not <span class="math inline">\(\mat{I}_3\)</span>?</span></p>
+</div>
+<aside class="notes">
+<p>q_1=(1,0,1)^T/sqrt(2), q_2=(1,2,-1)^T/sqrt(6), R_Q=[[sqrt(2),1/sqrt(2)],[0,sqrt(3/2)]]. Q Q^T has rank two and projects onto the plane spanned by the two columns.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="least-squares-and-regression" class="title-slide slide level1 center">
+<h1>Least Squares and Regression</h1>
+<ul>
+<li><a href="#/inconsistent-systems-still-have-a-best-fit">Inconsistent systems still have a best fit</a></li>
+<li><a href="#/qr-turns-least-squares-into-a-triangular-solve">QR turns least squares into a triangular solve</a></li>
+<li><a href="#/fit-a-line-to-three-observations">Fit a line to three observations</a></li>
+<li><a href="#/inspect-the-fit-and-residual">Inspect the fit and residual</a></li>
+<li><a href="#/regression-residual-figure">A line fit leaves vertical residuals</a></li>
+<li><a href="#/general-features-keep-the-model-linear-in-coefficients">General features keep the model linear in coefficients</a></li>
+<li><a href="#/the-projection-formula-reconnects-earlier-geometry">The projection formula reconnects earlier geometry</a></li>
+<li><a href="#/weights-and-rank-deficiency-change-the-calculation">Weights and rank deficiency change the calculation</a></li>
+<li><a href="#/practice-checking-a-regression-fit">Practice checking a regression fit</a></li>
+</ul>
+</section>
+<section id="inconsistent-systems-still-have-a-best-fit" class="slide level2">
+<h2>Inconsistent systems still have a best fit</h2>
+<p>For <span class="math inline">\(\mat{A}\vct{x}\approx\vct{b}\)</span>, minimize <span class="math inline">\(\|\mat{A}\vct{x}-\vct{b}\|^2\)</span></p>
+<p>The best fitted vector lies in <span class="math inline">\(\operatorname{col}(\mat{A})\)</span> and leaves an orthogonal residual <span class="math display">\[\begin{gather*}
+\mat{A}^{\mathsf T}(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}\\
+\mat{A}^{\mathsf T}\mat{A}\widehat{\vct{x}}=\mat{A}^{\mathsf T}\vct{b}
+\end{gather*}\]</span></p>
+<p>These are the <span class="alert">normal equations</span></p>
+<p>The fitted vector is unique; coefficients are unique exactly when columns are independent</p>
+</section>
+<section id="qr-turns-least-squares-into-a-triangular-solve" class="slide level2">
+<h2>QR turns least squares into a triangular solve</h2>
+<p>With reduced QR and full column rank: <span class="math display">\[\begin{gather*}
+\|\mat{A}\vct{x}-\vct{b}\|^2
+=\|\mat{R}_Q\vct{x}-\mat{Q}^{\mathsf T}\vct{b}\|^2
++\|(\mat{I}-\mat{Q}\mat{Q}^{\mathsf T})\vct{b}\|^2\\
+\mat{R}_Q\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}\\
+\widehat{\vct{b}}=\mat{Q}\mat{Q}^{\mathsf T}\vct{b}
+\end{gather*}\]</span></p>
+<p>Compute coordinates with <span class="math inline">\(\mat{Q}^{\mathsf T}\)</span>, then back substitute</p>
+<p>The perpendicular part cannot be fitted by any coefficient vector</p>
+</section>
+<section id="fit-a-line-to-three-observations" class="slide level2">
+<h2>Fit a line to three observations</h2>
+<p>Data: <span class="math inline">\((t,b)=(-1,1),(0,0),(1,2)\)</span></p>
+<p>Model <span class="math inline">\(b\approx x_1+x_2t\)</span> <span class="math display">\[\begin{gather*}
+\mat{A}=\begin{pmatrix}1&amp;-1\\1&amp;0\\1&amp;1\end{pmatrix},\quad
+\vct{b}=\begin{pmatrix}1\\0\\2\end{pmatrix},\quad
+\mat{A}^{\mathsf T}\mat{A}=\begin{pmatrix}3&amp;0\\0&amp;2\end{pmatrix},\quad
+\mat{A}^{\mathsf T}\vct{b}=\begin{pmatrix}3\\1\end{pmatrix}\\
+\widehat{\vct{x}}=\begin{pmatrix}1\\1/2\end{pmatrix},\qquad
+\widehat b(t)=1+t/2
+\end{gather*}\]</span></p>
+<p>The feature columns happen to be orthogonal</p>
+</section>
+<section id="inspect-the-fit-and-residual" class="slide level2">
+<h2>Inspect the fit and residual</h2>
+<p>For the line fit: <span class="math display">\[\begin{gather*}
+\widehat{\vct{b}}=\begin{pmatrix}1/2\\1\\3/2\end{pmatrix},\quad
+\vct{r}=\vct{b}-\widehat{\vct{b}}=\begin{pmatrix}1/2\\-1\\1/2\end{pmatrix}\\
+\mat{A}^{\mathsf T}\vct{r}=\begin{pmatrix}0\\0\end{pmatrix},\quad \|\vct{r}\|^2=3/2
+\end{gather*}\]</span></p>
+<p>The residual sums to zero because the model includes a column of ones</p>
+<p>Residuals are also perpendicular to the sampled <span class="math inline">\(t\)</span> values</p>
+<aside class="notes">
+<p>Least squares minimizes vertical response errors at fixed predictor values, not perpendicular geometric distances to the plotted line. The zero-sum claim assumes ordinary unweighted least squares with an intercept.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="regression-residual-figure" class="slide level2">
+<h2>A line fit leaves vertical residuals</h2>
+<div style="text-align: center;">
+<p><img data-src="assets/special-topics/regression-residuals.svg" class="" style="width:76.0%" alt="Three observations at t equals minus one, zero, and one, with response values one, zero, and two. The fitted line is one plus t over two. Dashed vertical segments show the residuals."></p>
+</div>
+<p>Least squares minimizes the sum of squared vertical errors</p>
+</section>
+<section id="general-features-keep-the-model-linear-in-coefficients" class="slide level2">
+<h2>General features keep the model linear in coefficients</h2>
+<p>Choose features <span class="math inline">\(\phi_1(t),\ldots,\phi_n(t)\)</span> <span class="math display">\[\begin{gather*}
+\widehat b(t)=\sum_{j=1}^n x_j\phi_j(t),\qquad a_{ij}=\phi_j(t_i)
+\end{gather*}\]</span></p>
+<ul>
+<li>Polynomial regression: <span class="math inline">\(1,t,t^2,\ldots\)</span></li>
+<li>Periodic features: sines and cosines</li>
+<li>Several predictors: one column for each chosen feature</li>
+</ul>
+<div class="key-point">
+<p>Linear regression means linear in the unknown coefficients</p>
+</div>
+<aside class="notes">
+<p>A feature may be nonlinear in t. Least squares alone does not establish causation or predictive performance. More features can improve training fit while worsening generalization; use held-out data when the goal is prediction.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-projection-formula-reconnects-earlier-geometry" class="slide level2">
+<h2>The projection formula reconnects earlier geometry</h2>
+<p>For independent columns: <span class="math display">\[\begin{gather*}
+\mat{P}=\mat{A}(\mat{A}^{\mathsf T}\mat{A})^{-1}\mat{A}^{\mathsf T}
+=\mat{Q}\mat{Q}^{\mathsf T}\\
+\mat{P}^2=\mat{P},\quad\mat{P}^{\mathsf T}=\mat{P},\qquad
+\widehat{\vct{b}}=\mat{P}\vct{b},\quad\vct{r}=(\mat{I}-\mat{P})\vct{b}
+\end{gather*}\]</span></p>
+<p><span class="math inline">\(\mat{P}\)</span> preserves the column space; <span class="math inline">\(\mat{I}-\mat{P}\)</span> preserves its orthogonal complement</p>
+<p>The inverse formula describes the geometry; QR computes the fit without explicitly forming that inverse</p>
+</section>
+<section id="weights-and-rank-deficiency-change-the-calculation" class="slide level2">
+<h2>Weights and rank deficiency change the calculation</h2>
+<p>Positive observation weights <span class="math inline">\(w_i\)</span> give <span class="math display">\[\begin{gather*}
+\min_{\vct{x}}\sum_iw_i((\mat{A}\vct{x})_i-b_i)^2
+=\min_{\vct{x}}\|\mat{W}^{1/2}(\mat{A}\vct{x}-\vct{b})\|^2\\
+\mat{A}^{\mathsf T}\mat{W}(\mat{A}\widehat{\vct{x}}-\vct{b})=\vct{0}
+\end{gather*}\]</span></p>
+<p>Apply QR to the weighted design matrix when it has full column rank</p>
+<p>Dependent or nearly dependent features motivate <a href="11-special-topics.html#regression-through-qr-and-svd">SVD and regularization</a></p>
+</section>
+<section id="practice-checking-a-regression-fit" class="slide level2">
+<h2>Practice checking a regression fit</h2>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Fit <span class="math inline">\(b\approx x_1+x_2t\)</span> to <span class="math inline">\((-1,0),(0,1),(1,1)\)</span><br>Find coefficients, fitted values, and residuals<br>Check both normal equations</span></p>
+</div>
+<aside class="notes">
+<p>Coefficients (2/3,1/2)^T. Fitted values (1/6,2/3,7/6)^T; residuals (-1/6,1/3,-1/6)^T. Sum of residuals and dot product with (-1,0,1)^T are zero. Squared residual norm is 1/6.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="function-approximation-and-fourier-coordinates" class="title-slide slide level1 center">
+<h1>Function Approximation and Fourier Coordinates</h1>
+<ul>
+<li><a href="#/approximate-a-function-in-a-finite-dimensional-subspace">Approximate a function in a finite-dimensional subspace</a></li>
+<li><a href="#/orthogonalize-the-first-two-polynomial-directions">Orthogonalize the first two polynomial directions</a></li>
+<li><a href="#/a-best-linear-approximation-to-a-quadratic-function">A best linear approximation to a quadratic function</a></li>
+<li><a href="#/sines-and-cosines-form-orthogonal-directions">Sines and cosines form orthogonal directions</a></li>
+<li><a href="#/complex-inner-products-use-conjugation">Complex inner products use conjugation</a></li>
+<li><a href="#/complex-exponentials-package-the-fourier-pairs">Complex exponentials package the Fourier pairs</a></li>
+<li><a href="#/finite-projections-and-infinite-expansions-have-different-meanings">Finite projections and infinite expansions have different meanings</a></li>
+<li><a href="#/practice-extracting-fourier-coordinates">Practice extracting Fourier coordinates</a></li>
+</ul>
+</section>
+<section id="approximate-a-function-in-a-finite-dimensional-subspace" class="slide level2">
+<h2>Approximate a function in a finite-dimensional subspace</h2>
+<p>Choose an orthonormal list <span class="math inline">\(q_1,\ldots,q_n\)</span> using the integral inner product <span class="math display">\[\begin{gather*}
+p_n=\sum_{j=1}^n\langle q_j,f\rangle q_j\\
+\|f-p_n\|^2=\|f\|^2-\sum_{j=1}^n|\langle q_j,f\rangle|^2
+\end{gather*}\]</span></p>
+<p><span class="math inline">\(p_n\)</span> is the unique best approximation in their span</p>
+<p>This is the same projection geometry used in regression</p>
+</section>
+<section id="orthogonalize-the-first-two-polynomial-directions" class="slide level2">
+<h2>Orthogonalize the first two polynomial directions</h2>
+<p>On <span class="math inline">\([0,1]\)</span>, begin with <span class="math inline">\(1\)</span> and <span class="math inline">\(t\)</span> <span class="math display">\[\begin{gather*}
+q_1(t)=1,\qquad w_2(t)=t-\int_0^1t\,\dif t=t-1/2\\
+\int_0^1(t-1/2)^2\,\dif t=1/12,\qquad
+q_2(t)=\sqrt{12}(t-1/2)
+\end{gather*}\]</span></p>
+<p>Gram–Schmidt works on functions as well as coordinate vectors</p>
+<aside class="notes">
+<p>This is the beginning of shifted, normalized Legendre polynomials. Higher-degree formulas are optional; retain the same interval and weight when using orthogonality.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-best-linear-approximation-to-a-quadratic-function" class="slide level2">
+<h2>A best linear approximation to a quadratic function</h2>
+<p>For <span class="math inline">\(f(t)=t^2\)</span> on <span class="math inline">\([0,1]\)</span>: <span class="math display">\[\begin{gather*}
+\langle q_1,f\rangle=1/3,\qquad
+\langle q_2,f\rangle=\sqrt{12}/12\\
+p(t)=\frac13+\frac{\sqrt{12}}{12}\sqrt{12}(t-1/2)=t-1/6\\
+\|f-p\|^2=\frac15-\frac19-\frac1{12}=\frac1{180}
+\end{gather*}\]</span></p>
+<p>Continuous least squares minimizes an integral of squared error</p>
+<p>It need not interpolate either endpoint</p>
+</section>
+<section id="sines-and-cosines-form-orthogonal-directions" class="slide level2">
+<h2>Sines and cosines form orthogonal directions</h2>
+<p>On <span class="math inline">\([0,1]\)</span>, use <span class="math inline">\(1\)</span> and, for <span class="math inline">\(k\ge1\)</span>: <span class="math display">\[\begin{equation*}
+\sqrt2\cos(2\pi kt),\qquad \sqrt2\sin(2\pi kt)
+\end{equation*}\]</span></p>
+<p>These functions are orthonormal under <span class="math inline">\(\int_0^1 f(t)g(t)\,\dif t\)</span></p>
+<p>Finite sums approximate a function by its periodic components</p>
+<p>The constant coefficient is the mean <span class="math inline">\(\int_0^1f(t)\,\dif t\)</span></p>
+<aside class="notes">
+<p>Use 1-periodic extension. Orthogonality follows from trigonometric product identities. Finite truncations are projections; do not assert pointwise convergence of every Fourier series. The infinite completeness statement is in the L2 sense.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="complex-inner-products-use-conjugation" class="slide level2">
+<h2>Complex inner products use conjugation</h2>
+<p>On <span class="math inline">\(\mathbb{C}^n\)</span>, adopt <span class="math inline">\(\langle\vct{u},\vct{v}\rangle=\vct{u}^*\vct{v}\)</span></p>
+<p>Conjugate linear in the first argument, linear in the second <span class="math display">\[\begin{gather*}
+\langle\vct{u},\vct{v}\rangle=\overline{\langle\vct{v},\vct{u}\rangle},\qquad
+\|\vct{v}\|^2=\sum_j|v_j|^2\\
+\langle f,g\rangle=\int_0^1\overline{f(t)}g(t)\,\dif t
+\end{gather*}\]</span></p>
+<p>Ordinary real-angle formulas do not directly define a complex angle</p>
+<aside class="notes">
+<p>Declare the argument convention explicitly; some books adopt the opposite one. With this convention coefficients in an orthonormal expansion are &lt;q_j,v&gt;, as in the real case. Orthogonality means the complex inner product is zero.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="complex-exponentials-package-the-fourier-pairs" class="slide level2">
+<h2>Complex exponentials package the Fourier pairs</h2>
+<p>For integers <span class="math inline">\(k\)</span>, let <span class="math inline">\(q_k(t)=e^{2\pi\sqrt{-1}\,kt}\)</span> <span class="math display">\[\begin{gather*}
+\langle q_k,q_\ell\rangle
+=\int_0^1e^{2\pi\sqrt{-1}(\ell-k)t}\,\dif t
+=\begin{cases}1,&amp;k=\ell\\0,&amp;k\ne\ell\end{cases}\\
+c_k=\langle q_k,f\rangle
+=\int_0^1e^{-2\pi\sqrt{-1}\,kt}f(t)\,\dif t
+\end{gather*}\]</span></p>
+<p>For real <span class="math inline">\(f\)</span>, <span class="math inline">\(c_{-k}=\overline{c_k}\)</span></p>
+<p><a href="11-special-topics.html#fourier-coordinates-and-the-fft">Fourier matrices and FFT</a> turn sampled versions into fast coordinate calculations</p>
+</section>
+<section id="finite-projections-and-infinite-expansions-have-different-meanings" class="slide level2">
+<h2>Finite projections and infinite expansions have different meanings</h2>
+<p>An algebraic basis represents each vector with a <span class="alert">finite</span> linear combination</p>
+<p>A complete orthonormal Fourier system represents square-integrable functions by limits in the <span class="math inline">\(L^2\)</span> norm <span class="math display">\[\begin{equation*}
+\left\|f-\sum_{k=-N}^{N}c_kq_k\right\|_{L^2}\longrightarrow0
+\end{equation*}\]</span></p>
+<p>Convergence in mean square does not automatically imply convergence at every point</p>
+<aside class="notes">
+<p>Use L2 equivalence classes. A continuous function viewed as L2 has the same finite integral projections. At jump discontinuities, familiar piecewise smooth Fourier series converge to midpoint values; leave detailed pointwise theorems to a later course. The Fourier system is not an algebraic Hamel basis.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="practice-extracting-fourier-coordinates" class="slide level2">
+<h2>Practice extracting Fourier coordinates</h2>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>For <span class="math inline">\(f(t)=2+3\cos(2\pi t)-\sin(4\pi t)\)</span>, find its mean<br>Find its coefficients in the normalized real Fourier system<br>Which complex frequencies can have nonzero coefficients?</span></p>
+</div>
+<aside class="notes">
+<p>Mean 2. Normalized real coefficients: 2 for constant, 3/sqrt(2) for sqrt(2)cos(2pi t), -1/sqrt(2) for sqrt(2)sin(4pi t); others zero. Complex frequencies 0, ±1, ±2. Complex coefficients c_1=c_-1=3/2, c_2=i/2, c_-2=-i/2.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
+<h1>Big Ideas</h1>
+<ul>
+<li><span class="alert">Inner products</span> define length, distance, and perpendicularity</li>
+<li><span class="alert">Orthogonal projection</span> gives the unique closest vector in a finite-dimensional subspace</li>
+<li><span class="alert">Gram–Schmidt</span> produces orthonormal directions with the same span</li>
+<li><span class="alert">QR</span> records those directions and triangular coordinates</li>
+<li><span class="alert">Least squares</span> fits the column-space component of the data</li>
+<li><span class="alert">Fourier approximation</span> projects onto oscillatory directions</li>
+</ul>
+</section>
+
+<section id="how-far-we-have-come" class="title-slide slide level1 center">
+<h1>How Far We Have Come</h1>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Course idea</th>
+<th>What inner products add</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Solution sets and subspaces</td>
+<td>perpendicular decompositions</td>
+</tr>
+<tr class="even">
+<td>Bases and coordinates</td>
+<td>coordinates computed by inner products</td>
+</tr>
+<tr class="odd">
+<td>Matrix factorizations</td>
+<td>orthogonal directions and triangular solves</td>
+</tr>
+<tr class="even">
+<td>Inconsistent systems</td>
+<td>closest fits and orthogonal residuals</td>
+</tr>
+<tr class="odd">
+<td>Function spaces</td>
+<td>integral geometry and best approximation</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<section id="what-comes-next" class="title-slide slide level1 center">
+<h1>What Comes Next</h1>
+<p><a href="11-special-topics.html">Special Topics</a></p>
+<ul>
+<li>SVD: orthonormal input and output directions for every matrix</li>
+<li>Regression with redundant or sensitive features</li>
+<li>Quadratic forms, FFT, tensors, and network applications</li>
+</ul>
+<p>Choose later topics according to class preferences and remaining time</p>
+</section>
+
+<section>
+<section id="terms-to-know" class="title-slide slide level1 center">
+<h1>Terms to Know</h1>
+<ul>
+<li><a href="#/the-real-inner-product-axioms">Inner product</a></li>
+<li><a href="#/norms-distances-and-angles-follow">Norm; distance; Cauchy–Schwarz</a></li>
+<li><a href="#/perpendicular-vectors-split-squared-length">Orthogonality; orthonormal list</a></li>
+<li><a href="#/projection-onto-an-orthonormal-basis">Orthogonal complement; projection</a></li>
+<li><a href="#/build-perpendicular-directions-without-changing-the-span">Gram–Schmidt</a></li>
+<li><a href="#/the-coefficients-form-a-triangular-matrix">QR factorization</a></li>
+</ul>
+</section>
+<section id="terms-to-know-approximation" class="slide level2">
+<h2>Terms to know: approximation</h2>
+<ul>
+<li><a href="#/inconsistent-systems-still-have-a-best-fit">Least squares; normal equations</a></li>
+<li><a href="#/general-features-keep-the-model-linear-in-coefficients">Design matrix; features</a></li>
+<li><a href="#/weights-and-rank-deficiency-change-the-calculation">Weighted least squares</a></li>
+<li><a href="#/approximate-a-function-in-a-finite-dimensional-subspace">Function approximation</a></li>
+<li><a href="#/complex-inner-products-use-conjugation">Conjugate transpose; complex inner product</a></li>
+<li><a href="#/complex-exponentials-package-the-fourier-pairs">Fourier coefficients</a></li>
+</ul>
+<aside class="notes">
+<p>Instructor draft. Anton Chapter 6 crosswalk: §§6.1–6.2 inner products, angle and orthogonality; §6.3 Gram–Schmidt/QR; §§6.4–6.5 best approximation, least squares and modeling; §6.6 function approximation/Fourier series. Complex inner products support the later DFT. Companion candidates: weighted geometry, projection, QR residuals, line regression, polynomial integral projection and finite Fourier approximations. Student-facing mathematical exposition remains in this deck. Demonstrations and full instructor review remain.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
@@ -1242,7 +1963,7 @@ In this deck
       </script>
     <script src="../classlib/classlib/quarto/slides/deck-nav-arrows.js"></script>
     <script id="deck-nav-meta" type="application/json">
-    {"deck_prev_file":"09-eigenvalues-and-eigenvectors.html","deck_prev_title":"Eigenvalues and Eigenvectors","deck_next_file":"","deck_next_title":""}
+    {"deck_prev_file":"09-eigenvalues-and-eigenvectors.html","deck_prev_title":"Eigenvalues and Eigenvectors","deck_next_file":"11-special-topics.html","deck_next_title":"Special Topics"}
     </script>
     
 
