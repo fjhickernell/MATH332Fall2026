@@ -422,8 +422,9 @@ Continue upward until the left block becomes $\mat{I}$:
 :::
 
 ::: {.key-point}
-- Right block — $\mat{A}^{-1}$
-- Original $\vct{b}$ — $\mat{A}^{-1}\vct{b}=\begin{bmatrix}-1&2&1\end{bmatrix}^{\mathsf T}$
+The left block becomes $\mat{I}$
+
+The right block becomes $\mat{A}^{-1}$
 :::
 
 ## A missing pivot proves singularity
@@ -835,9 +836,9 @@ $$
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
 <span>
-Compute the precision matrix $\mQ=\mSigma^{-1}$ by Gauss–Jordan reduction of $[\,\mSigma\mid\mat{I}\,]$.
-<span class="exsub">Verify that $\mSigma\mQ=\mat{I}$.</span>
-<span class="exsub">Compare $\mSigma_{13}$ with $\mQ_{13}$ and interpret the different zero patterns.</span>
+Compute the precision matrix $\mQ=\mSigma^{-1}$ by Gauss–Jordan reduction of $[\,\mSigma\mid\mat{I}\,]$
+<span class="exsub">Verify that $\mSigma\mQ=\mat{I}$</span>
+<span class="exsub">Compare $\mSigma_{13}$ with $\mQ_{13}$ and interpret the different zero patterns</span>
 </span>
 :::
 
