@@ -174,8 +174,8 @@ address reported Colab problems.
   Test 1 or Test 2.
 - Later projection/rank-factorization material and next-offering Deck 00
   revisions remain deferred in `notes/TODO-LATER.md`.
-- The broader tensor scope and placement discussion is deferred until much
-  later in `notes/TODO-LATER.md`.
+- Tensor products are drafted in Deck 11; review their scope alongside the
+  other optional topics and develop a companion demonstration.
 
 ## Current state
 
