@@ -902,7 +902,7 @@ Row operations on $[\mat{A}\mid\vct{b}]$ are compact versions of reversible oper
 
 - [Translate equations into matrix rows](#translate-equations-into-matrix-rows)
 - [One algorithm, many valid paths](#one-algorithm-many-valid-paths)
-- [Eliminate and organize with pivots](#eliminate-and-organize-with-pivots)
+- [Eliminate and organize with pivots](#eliminate-and-organize-with-pivots) · [pivot definition](#pivots-organize-elimination)
 - [Read the solution set (back substitution)](#read-the-solution-set)
 - [Resistance circuit](#resistance-circuit)
 
@@ -986,7 +986,7 @@ For each candidate column, moving left to right:
 
 1. If the candidate is zero but a lower entry is not, swap rows
 2. If the column is zero from the current row down, skip it
-3. With a nonzero pivot in place, clear below using
+3. With a nonzero [pivot](#pivots-organize-elimination) in place, clear below using
 
 $$
 E_i\leftarrow E_i-mE_j
@@ -1046,7 +1046,9 @@ Continue the same elimination with compact matrix notation:
 
 ---
 
-### Pivots organize elimination
+### Pivots organize elimination {#pivots-organize-elimination}
+
+For any $m\times n$ matrix, including an augmented matrix:
 
 $$
 \left[
@@ -1058,7 +1060,7 @@ $$
 \right]
 $$
 
-- [pivot]{.alert} — leading nonzero entry in a nonzero row
+- [pivot]{.alert} — leading nonzero entry of a nonzero row in echelon form
 - entries below each pivot are zero
 - each pivot lies to the right of the pivot above it
 - zero rows, if any, lie at the bottom
@@ -1072,7 +1074,7 @@ independent constraints; each pivot column identifies one
 :::
 
 ::: {.small}
-Pivot entries need not equal $1$ in row echelon form
+Pivot entries need not equal $1$ or lie on the main diagonal
 :::
 
 ---
@@ -1730,7 +1732,7 @@ $$
 
 ## Elimination is an ordered product
 
-First suppose every successive diagonal pivot is nonzero, so no row exchanges
+First suppose every successive diagonal pivot candidate is nonzero, so no row exchanges
 or skipped pivot columns are needed. For $\mat{A}\in\reals^{m\times n}$, the
 last possible elimination stage is
 
@@ -1770,7 +1772,7 @@ It is generally [not commutative]{.alert}: factors may not be reordered
 - Reversible row operations preserve the solution set
 - [Dot products]{.alert} express individual equations<br>Matrix multiplication
   collects many dot products and composes actions
-- [Pivots]{.alert} organize elimination and reveal whether a system has [zero, one, or infinitely many solutions]{.alert}
+- [Pivots](#pivots-organize-elimination) organize elimination and reveal whether a system has [zero, one, or infinitely many solutions]{.alert}
 - Compute only what the problem requires
 
     - Direct elimination solves the system

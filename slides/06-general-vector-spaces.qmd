@@ -1131,27 +1131,24 @@ linear combinations. $W_1$ is not: the zero function does not belong to it.
 
 ::: {.columns}
 ::: {.column width="47%"}
-<h3>Systems and actions</h3>
-
-- [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#read-the-solution-set) — $\mat{A}\vct{x}=\vct{b}$; pivots test consistency and identify free parameters
-- [{{< meta decks.d03.short_title >}}]({{< meta decks.d03.file >}}#triangular-factors-organize-repeated-solves) — $\mat{A}=\mat{P}\mat{L}\mat{U}$ reuses elimination; products compose actions
-- [{{< meta decks.d02.short_title >}}]({{< meta decks.d02.file >}}#reversible-versus-information-losing) / [{{< meta decks.d04.short_title >}}]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor) — square $\mat{A}$: $\det(\mat{A})\ne0\iff\mat{A}^{-1}$ exists; signed scale and collapse
+- [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#read-the-solution-set) — $[\,\mat{A}\mid\vct{b}\,]$ keeps coefficients and data together; row operations preserve solutions
+- [Matrix actions]{.alert} — PLU reuses elimination; products compose; inverses undo; for square $\mat{A}$, $\det(\mat{A})\ne0$ means invertible
+- [Solution geometry]{.alert} — homogeneous solutions give directions; consistent solutions are $\vct{x}_p+\operatorname{null}(\mat{A})$
 :::
 
 ::: {.column width="6%"}
 :::
 
 ::: {.column width="47%"}
-<h3>Directions and combinations</h3>
-
-- [{{< meta decks.d05.short_title >}}]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions) — point differences give directions; consistent solutions: $\vct{x}_p+\operatorname{null}(\mat{A})$
-- [{{< meta decks.d05.short_title >}}]({{< meta decks.d05.file >}}#projection-finds-the-nearest-point-on-an-affine-line) — dot products test perpendicularity; 3D cross gives normals/areas; projection finds nearest points
-- [{{< meta decks.d06.short_title >}}]({{< meta decks.d06.file >}}#vectors-need-not-be-coordinate-columns) — matrix, polynomial, function vectors; subspaces closed under linear combinations
+- [{{< meta decks.d05.short_title >}}]({{< meta decks.d05.file >}}#projection-finds-the-nearest-point-on-an-affine-line) — dot products measure lengths/angles; projection gives nearest points; 3D cross products give normals/areas
+- [{{< meta decks.d06.short_title >}}](#vectors-need-not-be-coordinate-columns) — matrices, polynomials, and functions obey the same axioms with their specified operations
+- [Subspaces and spans](#span-is-the-subspace-generated-by-chosen-vectors) — subspace test: nonempty, closed under linear combinations; span: all finite linear combinations of its generators
 :::
 :::
 
 ::: {.key-point}
-[Span]({{< meta decks.d06.file >}}#in-rn-span-is-matrix-vector-multiplication) for $\vct{v}_j\in\reals^n$: $\mat{V}=[\vct{v}_1\ \cdots\ \vct{v}_k]$ gives $\operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}=\{\mat{V}\vct{c}:\vct{c}\in\reals^k\}$
+For $\vct{v}_j\in\reals^n$ and $\mat{V}=[\vct{v}_1\ \cdots\ \vct{v}_k]$:
+$\vct{b}$ is in their span iff the coefficient system $\mat{V}\vct{c}=\vct{b}$ is consistent
 :::
 
 # What Comes Next

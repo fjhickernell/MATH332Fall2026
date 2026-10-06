@@ -469,10 +469,26 @@ calendar unchanged and check again later.
   compatibility. The How Far synthesis should carry these connections
   forward with meaningful equations and conditions, rather than only a
   history of deck titles.
+- Keep each MATH 332 How Far synthesis on one slide, aiming for roughly
+  two-thirds of the available page instead of a sparse half-page recap.
+  Include enough explanation to recover the connections: augmented matrices,
+  the role of row operations, consistency and free parameters, and the new
+  geometric or coordinate interpretation earned by the deck. State the
+  conditions on formulas and explain unfamiliar symbols. Expand sparse
+  summaries and reorganize dense ones; keep ordinary type size rather than
+  filling space or compressing every earlier topic into an abbreviation.
+  In the Special Topics draft, distinguish the core SVD/regression connection
+  from optional extensions and trim the recap to modules actually selected.
 - In rank factorization, write `A=CR`: `C` contains the original pivot
   columns and `R` the nonzero RREF rows. Write the full reduced matrix as
   `rref(A)=[R;0]`; keep `U` for the upper triangular factor in PLU. These
   are local roles in this topic; existing rotation notation remains valid.
+- Link the first instructional use of pivot, pivot column, or pivot variable
+  in each deck to Systems and Matrices, `#pivots-organize-elimination`.
+  Use the term as the link label; retain outline navigation and place a
+  definition link beside an outline's first mention when needed. Repeat the
+  reminder in closing summaries that use pivots. Keep the original definition
+  explicit for square, rectangular, and augmented matrices.
 - RevealJS hierarchy exception: inside a `#` section slide, use an HTML `<h3>`
   for a visible tertiary heading because Quarto `###` does not render there as
   intended. Inside a `##` slide, ordinary Quarto `###` headings work normally.

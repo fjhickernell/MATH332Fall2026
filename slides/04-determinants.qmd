@@ -273,7 +273,7 @@ The same diagonal-product rule holds for lower-triangular matrices
 To compute $\det(\mat{A})$:
 
 1. Eliminate to triangular form using row replacements and swaps
-2. Avoid normalizing pivot rows; otherwise track the scaling
+2. Avoid normalizing [pivot]({{< meta decks.d01.file >}}#pivots-organize-elimination) rows; otherwise track the scaling
 3. If elimination used $s$ swaps, then
    $\det(\mat{A})=(-1)^s\prod_{j=1}^n u_{jj}$
 
@@ -867,15 +867,17 @@ map here is still represented by a matrix.
 
 # How Far We Have Come
 
-[One matrix, four connected views]{.alert}
+[Solvability, computation, and geometry meet in one scalar]{.alert}
 
-- [Representation]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system) — $\mat{A}\vct{x}=\vct{b}$ expresses systems and applications
-- [Elimination]({{< meta decks.d03.file >}}#elimination-becomes-a-factorization) — row reduction exposes contradictions or free variables; PLU reuses the work for new right-hand sides
-- [Transformation]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column) — columns show basis images; products compose actions, inverses undo them
-- [Geometry]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor) — $\det(\mat{A})$ gives signed volume scale and detects collapse
+- [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system) — reduce $[\,\mat{A}\mid\vct{b}\,]$ to test consistency and find free variables
+- [{{< meta decks.d03.short_title >}}]({{< meta decks.d03.file >}}#triangular-factors-organize-repeated-solves) — PLU saves repeated solves; columns are basis images and products compose actions
+- [{{< meta decks.d02.short_title >}}]({{< meta decks.d02.file >}}#undo-products-in-reverse-order) — for invertible $\mat{A},\mat{B}$, $(\mat{A}\mat{B})^{-1}=\mat{B}^{-1}\mat{A}^{-1}$ reverses factor order
+- [{{< meta decks.d04.short_title >}}]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor) — $|\det(\mat{A})|$ gives volume scale; the sign gives orientation; zero means collapse
+- [Compute from PLU](#read-the-determinant-from-plu) — for square $\mat{A}=\mat{P}\mat{L}\mat{U}$, $\det(\mat{A})=(-1)^s\prod_j u_{jj}$, with $s$ row swaps
+- [Local geometry](#a-jacobian-is-the-local-linear-map) — a Jacobian linearizes a map; its absolute determinant gives local area or volume scale
 
 ::: {.key-point}
-For square $\mat{A}$: $\det(\mat{A})\ne0$ $\iff$ $n$ pivots $\iff$
+For $n\times n$ $\mat{A}$: $\det(\mat{A})\ne0$ $\iff$ $n$ [pivots]({{< meta decks.d01.file >}}#pivots-organize-elimination) $\iff$
 $\mat{A}^{-1}$ exists $\iff$ one solution for every $\vct{b}$
 :::
 

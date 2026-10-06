@@ -300,7 +300,7 @@ For a consistent system with $n$ unknowns
 | $2$ | affine plane |
 | $k$ | $k$-parameter affine set |
 
-If there are $r$ pivot variables, then there are
+If there are $r$ [pivot variables]({{< meta decks.d01.file >}}#pivots-organize-elimination), then there are
 
 $$
 n-r
@@ -903,14 +903,16 @@ nonnegative.
 
 [From matrix equations to the geometry of their solutions]{.alert}
 
-- [Systems]({{< meta decks.d01.file >}}#read-the-solution-set) — $\mat{A}\vct{x}=\vct{b}$; elimination reveals consistency and free directions; [PLU]({{< meta decks.d03.file >}}#triangular-factors-organize-repeated-solves) reuses the work
-- [Matrix actions]({{< meta decks.d03.file >}}#composition-is-matrix-multiplication) — products compose, inverses undo; [determinants]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor) measure signed scale and collapse
-- [Points and directions]({{< meta decks.d05.file >}}#the-operations-reveal-the-roles) — subtract points to get vectors; add vectors to move points
-- [Solution geometry]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions) — every consistent solution set is $\vct{x}_p+\operatorname{null}(\mat{A})$
-- [Euclidean tools]({{< meta decks.d05.file >}}#projection-finds-the-nearest-point-on-an-affine-line) — projection finds nearest points; [3D cross products]({{< meta decks.d05.file >}}#point-differences-build-a-plane-normal) give normals and areas
+- [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#read-the-solution-set) — $[\,\mat{A}\mid\vct{b}\,]$ tests consistency and identifies [pivot variables]({{< meta decks.d01.file >}}#pivots-organize-elimination) and free parameters
+- [{{< meta decks.d03.short_title >}}]({{< meta decks.d03.file >}}#triangular-factors-organize-repeated-solves) — PLU reuses solves; products compose and inverses undo actions; determinants give signed scale and detect collapse
+- [Points and directions](#the-operations-reveal-the-roles) — point differences are vectors; $\vct{p}+t\vct{d}$ is a line through $\vct{p}$ when $\vct{d}\ne\vct{0}$
+- [Homogeneous directions](#homogeneous-systems-produce-directions) — $\operatorname{null}(\mat{A})=\{\vct{z}:\mat{A}\vct{z}=\vct{0}\}$ supplies the differences between solutions
+- [Dot products and projection](#projection-finds-the-nearest-point-on-an-affine-line) — dot products measure lengths and angles; projection finds nearest points
+- [Cross products in 3D](#point-differences-build-a-plane-normal) — $\vct{u}\times\vct{v}$ is perpendicular to both; $\|\vct{u}\times\vct{v}\|$ is the parallelogram area
 
 ::: {.key-point}
-Solving now means describing [all solutions]{.alert}, not only finding one
+For a consistent system, [all solutions]{.alert} are $\vct{x}_p+\operatorname{null}(\mat{A})$;
+free variables count independent directions
 :::
 
 # What Comes Next

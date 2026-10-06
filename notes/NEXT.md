@@ -18,6 +18,29 @@ DFT, pseudoinverse, and Kronecker examples were checked numerically. The
 unchanged shared biography snippet retains its standalone image-path issue;
 the course homepage image resolves.
 
+The cumulative How Far recaps in Decks 02–08 and 10–11 have been audited
+and revised for fuller explanations and balanced one-page layouts at ordinary
+type size. Inverses now recalls both the system augmentation [A|b] and the
+Gauss–Jordan computation [A|I] to [I|A^-1]; its Big Ideas label is "Inverse
+of a product." Inverses and Matrix Transformations use "inconsistencies
+(contradictions)." Later recaps carry the solution, geometry, basis, rank,
+projection, and least-squares connections forward with formula conditions.
+All twelve decks render; the nine recaps pass MathJax/layout review and the
+assembled site passes local-link/anchor checks. Instructor review remains.
+Deck 09 is still the only placeholder; the review order above is unchanged.
+
+Pivot reminders now point to the original Systems and Matrices definition,
+`#pivots-organize-elimination`, at the first mention in every deck that uses
+the term and in relevant closing summaries. The definition explicitly covers
+any m-by-n matrix, including augmented matrices; pivots need not be unit
+entries or diagonal entries. Zero entries considered during elimination are
+called pivot candidates, and the triangular example's invertibility test
+requires a pivot in every column. This course convention is recorded in
+AUTHOR_WORKFLOW.md. The seven new first-use links were clicked and verified;
+the definition and corrected examples pass visual/MathJax review, and the
+website and all twelve decks render with valid local links and anchors.
+Instructor review and topic selection remain.
+
 The General Vector Spaces material is now three instructor-review decks:
 Vector Spaces, Subspaces, and Span (`06-general-vector-spaces.qmd`, Anton
 §§4.1–4.3); Bases, Dimension, and Coordinates
@@ -311,7 +334,7 @@ address reported Colab problems.
   null space supplies adapted directions while its coefficients locate a
   solution relative to a particular solution.
 - How should the 20 class meetings after Test 1 be allocated among Decks
-  05--10, Test 2, exercises, companion notebooks, synthesis, and review? In
+  05--11, Test 2, exercises, companion notebooks, synthesis, and review? In
   particular, should the large Chapter 5 and 6 units remain Decks 09 and 10 or
   be divided into smaller teaching decks?
 - Should Deck 03 briefly signpost Strang's later
@@ -339,8 +362,9 @@ address reported Colab problems.
 - The instructor has reviewed the determinants companion; local validation
   and the companion's Colab badge are complete. Address Colab problems if
   reported.
-- The instructor has reviewed Decks 05–08 and their companions and identified any revisions
-  needed before they are scheduled.
+- The instructor has reviewed Decks 06–08 and 10–11 and the pending companion
+  notebooks, selected Special Topics modules, and identified any revisions
+  needed before they are scheduled. Deck 05 slide review is already complete.
 - The remaining-semester arc makes the instructional scope hidden inside
-  Decks 05--10 visible and assigns the available meetings without rushing the
+  Decks 05--11 visible and assigns the available meetings without rushing the
   denser later material.

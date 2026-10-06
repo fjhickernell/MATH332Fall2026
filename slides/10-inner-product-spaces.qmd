@@ -640,13 +640,29 @@ Mean 2. Normalized real coefficients: 2 for constant, 3/sqrt(2) for sqrt(2)cos(2
 
 # How Far We Have Come
 
-| Course idea | What inner products add |
-|---|---|
-| Solution sets and subspaces | perpendicular decompositions |
-| Bases and coordinates | coordinates computed by inner products |
-| Matrix factorizations | orthogonal directions and triangular solves |
-| Inconsistent systems | closest fits and orthogonal residuals |
-| Function spaces | integral geometry and best approximation |
+[From exact solutions to orthogonal decompositions and best fits]{.alert}
+
+::: {.columns}
+::: {.column width="47%"}
+- [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system) — $[\,\mat{A}\mid\vct{b}\,]$ tests exact solvability; column/null spaces describe attainable data and coefficient freedom
+- [{{< meta decks.d07.short_title >}}]({{< meta decks.d07.file >}}#a-basis-gives-every-vector-unique-coordinates) — a basis gives unique coefficients; orthonormal coordinates are inner products
+- [{{< meta decks.d10.short_title >}}](#continuous-functions-also-have-geometry) — dot products extend to weighted and integral geometry; $\|\vct{v}\|^2=\langle\vct{v},\vct{v}\rangle$
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+- [Projection](#projection-onto-an-orthonormal-basis) — split a vector into its closest subspace component and a perpendicular residual
+- [QR](#qr-turns-least-squares-into-a-triangular-solve) — Gram–Schmidt preserves span; $\mat{A}=\mat{Q}\mat{R}_Q$ records orthonormal directions and triangular coordinates
+- [Function approximation](#approximate-a-function-in-a-finite-dimensional-subspace) — polynomials/Fourier modes give finite spans; for orthonormal $q_j$, coefficients are $\langle f,q_j\rangle$
+:::
+:::
+
+::: {.key-point}
+For real $\mat{A}$ with full column rank: least squares solves $\mat{R}_Q\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}$;
+the residual satisfies $\mat{A}^{\mathsf T}(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}$
+:::
 
 # What Comes Next
 

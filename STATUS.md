@@ -108,6 +108,14 @@ Mathematical content should be maintained only in the slides.
   between Big Ideas and What Comes Next, with one Course Map link for each
   closing sequence; Decks 10–11 now include it, while Deck 09 remains deferred
   until its content is developed.
+- [x] Audit all nine developed How Far recaps for sufficient explanation and
+  readable one-page layout: include augmented matrices and solution-preserving
+  elimination, state formula conditions, and connect geometry, bases, rank,
+  projection, and least squares; distinguish the Special Topics core from
+  optional extensions. Retain ordinary type size and verify renders and links.
+- [x] Link each deck's first pivot mention and relevant closing reminders to
+  the original Systems and Matrices definition; make its rectangular and
+  augmented-matrix scope explicit and distinguish zero candidates from pivots.
 - [ ] Verify the revised surface slide layout and MathJax typesetting in Safari.
 - [x] Add the Deck 04 companion’s Colab badge using the established setup;
   separate clean-Colab validation is not required by instructor policy.

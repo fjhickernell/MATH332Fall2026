@@ -129,7 +129,7 @@ $$
 
 Row reduction gives
 
-- rank = number of pivot columns = dimension of the row space
+- rank = number of [pivot columns]({{< meta decks.d01.file >}}#pivots-organize-elimination) = dimension of the row space
 - nullity = number of free variables
 
 $$
@@ -152,7 +152,7 @@ null-space vector. We use real matrices throughout this deck.
 ## One reduction exposes the structure {#one-reduction-exposes-the-structure}
 
 Use one example throughout, recalling
-[pivots and free variables from {{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#eliminate-and-organize-with-pivots):
+[pivots and free variables from {{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#pivots-organize-elimination):
 
 $$
 \mat{A}=
@@ -959,34 +959,25 @@ Eigenvectors are basis candidates adapted to the action of a matrix
 
 ::: {.columns}
 ::: {.column width="47%"}
-<h3>Equations and geometry</h3>
-
-- [Systems and Matrices]({{< meta decks.d01.file >}}#read-the-solution-set) — $\mat{A}\in\reals^{m\times n}$, $\mat{A}\vct{x}=\vct{b}$: pivots, consistency, free parameters
-- [Inverses]({{< meta decks.d02.file >}}#one-theorem-many-viewpoints) and [Matrix Transformations]({{< meta decks.d03.file >}}#triangular-factors-organize-repeated-solves) — undo and compose actions; PLU reuses elimination
-- [Determinants]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor) and [Euclidean Spaces]({{< meta decks.d05.file >}}#projection-finds-the-nearest-point-on-an-affine-line) — signed scale and collapse; projection; 3D normals and areas
+- [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#read-the-solution-set) — reduce $[\,\mat{A}\mid\vct{b}\,]$ to determine consistency, [pivots]({{< meta decks.d01.file >}}#pivots-organize-elimination), and free parameters
+- [Matrix actions]{.alert} — PLU reuses elimination; products compose, inverses undo; determinants detect collapse
+- [Geometry and bases]{.alert} — dot products, projection, and 3D cross products describe geometry; subspaces admit linear combinations and bases give unique coordinates
 :::
 
 ::: {.column width="6%"}
 :::
 
 ::: {.column width="47%"}
-<h3>Spaces and coordinates</h3>
-
-- [Vector Spaces and Span]({{< meta decks.d06.file >}}#span-is-the-subspace-generated-by-chosen-vectors) — matrices, polynomials, functions; subspace closure; column spans as $\mat{V}\vct{c}$
-- [Bases and Coordinates]({{< meta decks.d07.file >}}#a-basis-gives-every-vector-unique-coordinates) — spanning gives existence; independence gives uniqueness; dimension counts basis vectors
-- [Matrix Spaces and Rank](#rank-factorization-keeps-the-independent-columns-and-rows) — $\mat{A}=\mat{C}\mat{R}$: column/row bases; $r=\operatorname{rank}(\mat{A})$; four spaces in orthogonal pairs
+- [Rank factorization](#rank-factorization-keeps-the-independent-columns-and-rows) — $\mat{A}=\mat{C}\mat{R}$; $\mat{C}$'s columns and $\mat{R}$'s rows are column/row-space bases; each has $r=\operatorname{rank}(\mat{A})$ members
+- [Four spaces](#the-four-spaces-pair-through-orthogonality) — column space gives attainable outputs; null space gives lost inputs; row/null and column/left-null are orthogonal pairs
+- [Compatibility](#find-the-left-null-space) — consistent iff $\vct{b}\in\operatorname{col}(\mat{A})$, equivalently $\vct{y}^{\mathsf T}\vct{b}=0$ for every $\vct{y}\in\operatorname{null}(\mat{A}^{\mathsf T})$
 :::
 :::
 
 ::: {.key-point}
-$\mat{A}\vct{x}=\vct{b}$ is solvable iff $\vct{b}\in\operatorname{col}(\mat{A})$, equivalently $\vct{y}^{\mathsf T}\vct{b}=0$ for every $\vct{y}\in\operatorname{null}(\mat{A}^{\mathsf T})$
-
-Choose $\vct{x}_p$ with $\mat{A}\vct{x}_p=\vct{b}$; columns of $\mat{N}$ form a basis of $\operatorname{null}(\mat{A})$
-
-$$
-\text{All solutions:}\quad
-\vct{x}=\vct{x}_p+\mat{N}\vct{t},\qquad \vct{t}\in\reals^{n-r}
-$$
+For consistent $\mat{A}\vct{x}=\vct{b}$ with $\mat{A}\in\reals^{m\times n}$:
+[all solutions]{.alert} are $\vct{x}=\vct{x}_p+\mat{N}\vct{t}$, $\vct{t}\in\reals^{n-r}$;
+$\vct{x}_p$ is one solution and $\mat{N}$'s columns are a null-space basis
 :::
 
 ::: {.notes}

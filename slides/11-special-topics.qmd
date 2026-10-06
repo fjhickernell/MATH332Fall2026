@@ -804,13 +804,33 @@ D=[[-1,1,0,0],[0,-1,1,0]]. L=[[1,-1,0,0],[-1,2,-1,0],[0,-1,1,0],[0,0,0,0]]. A nu
 
 # How Far We Have Come
 
-| Earlier idea | New use |
-|---|---|
-| Systems and elimination | regression coefficients and computational choices |
-| Bases and coordinates | singular and Fourier directions |
-| Rank and null spaces | compression, identifiability, graph components |
-| Eigenvalues | principal axes and iterative ranking |
-| Inner products | orthogonal fits and minimum-norm solutions |
+[SVD and regression are core; extensions can follow the class's interests]{.alert}
+
+::: {.columns}
+::: {.column width="47%"}
+- [{{< meta decks.d10.short_title >}}]({{< meta decks.d10.file >}}#inconsistent-systems-still-have-a-best-fit) — regression finds best fits; QR solves them in orthogonal coordinates
+- [{{< meta decks.d08.short_title >}}]({{< meta decks.d08.file >}}#rank-factorization-keeps-the-independent-columns-and-rows) — SVD gives directions and stretches; nonzero singular values count rank; truncation gives low-rank approximations
+- [Minimum-norm fit](#the-pseudoinverse-reverses-the-nonzero-stretches) — $\mat{A}^{\dagger}\vct{b}$ gives the shortest least-squares coefficient vector; null vectors leave the fit unchanged
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+- [Principal axes](#symmetry-gives-orthogonal-eigenvectors) — real symmetric matrices have orthonormal eigenvectors; eigenvalue signs classify shape
+- [Fourier coordinates](#the-fft-reuses-the-even-and-odd-calculations) — FFT reuses smaller DFTs to compute frequency coordinates
+- [Tensor products](#a-tensor-has-coordinates-after-choosing-bases) — factor bases give array coordinates; $\mat{B}\otimes\mat{C}$ acts on both factors
+- [Networks](#networks-and-iterative-eigenvectors) — repeated actions drive power iteration/PageRank; undirected Laplacian nullity counts components
+:::
+:::
+
+::: {.key-point}
+Choose bases and factorizations to reveal attainable outputs, lost directions, and useful structure
+:::
+
+::: {.notes}
+This is a modular recap for the draft's possible coverage, not a promise to teach every extension. Keep the SVD/regression connection; retain the principal-axis, Fourier, tensor, and network bullets for modules actually selected with the class. The SVD compression statement refers to truncating to the largest singular values; the first omitted singular value gives the spectral-norm error. Power-iteration convergence requires the assumptions stated in its own slide. The graph component statement is for the undirected combinatorial Laplacian used here. Singular-vector coordinates use different input and output bases; they are not generally an eigenbasis of A.
+:::
 
 # What Comes Next
 

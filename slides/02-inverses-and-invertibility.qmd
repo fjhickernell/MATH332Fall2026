@@ -160,7 +160,7 @@ $$
 
 From [Systems and Matrices]({{< meta decks.d01.file >}}#/undoing-restores-the-original-system)
 
-- $\mat{M}_1$ — zeros the first column below its pivot
+- $\mat{M}_1$ — zeros the first column below its [pivot]({{< meta decks.d01.file >}}#pivots-organize-elimination)
 - $\mat{N}_1$ — reverses that elimination stage
 
 $$
@@ -275,7 +275,7 @@ $$
 =\mat{A}\mat{A}^{-1}=\mat{I},\\
 (\mat{B}^{-1}\mat{A}^{-1})(\mat{A}\mat{B})
 &=\mat{B}^{-1}(\mat{A}^{-1}\mat{A})\mat{B}
-=\mat{B}^{-1}\mat{B}=\mat{I}.
+=\mat{B}^{-1}\mat{B}=\mat{I}
 \end{align*}
 
 - No standard matrix quotient $\mat{B}/\mat{A}$
@@ -865,8 +865,8 @@ $2$. Covariance and precision zeros encode different relationships.
 # Big Ideas {data-state="goldborder"}
 
 - [Two-sided inverse]{.alert} — $\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}$
-- Invertible — pivot in every row and column; one solution for every $\vct{b}$
-- Product inverse — [reverse factor order]{.alert}
+- Invertible — [pivot]({{< meta decks.d01.file >}}#pivots-organize-elimination) in every row and column; one solution for every $\vct{b}$
+- Inverse of a product — [reverse factor order]{.alert}
 - Gauss–Jordan on $[\,\mat{A}\mid\mat{I}\,]$ computes $\mat{A}^{-1}$
 - [Least computation]{.alert} — solve a few right-hand sides directly<br>Reuse
   factors or response maps for many
@@ -875,15 +875,17 @@ $2$. Covariance and precision zeros encode different relationships.
 
 # How Far We Have Come
 
-[From equations to reversible actions]{.alert}
+[From equations to reversible matrix actions]{.alert}
 
-- [Represent]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system) — $\mat{A}\vct{x}=\vct{b}$ gathers equations and applications in one form
-- [Eliminate]({{< meta decks.d01.file >}}#read-the-solution-set) — reversible row operations expose contradictions and free variables
-- [Invert]({{< meta decks.d02.file >}}#one-theorem-many-viewpoints) — a square matrix with a pivot in every column has one solution for every $\vct{b}$
-- [Compute wisely]({{< meta decks.d02.file >}}#choose-the-least-computation) — solve for one right-hand side; build a reusable response map only when needed
+- [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system) — $\mat{A}\vct{x}=\vct{b}$ becomes the augmented matrix $[\,\mat{A}\mid\vct{b}\,]$: coefficients and right-hand side together
+- [Elimination]{.alert} — row operations preserve all solutions; reduced row echelon form reveals inconsistencies (contradictions), [pivots]({{< meta decks.d01.file >}}#pivots-organize-elimination), and free variables
+- [{{< meta decks.d02.short_title >}}]({{< meta decks.d02.file >}}#an-inverse-undoes-a-matrix-action) — a two-sided inverse undoes a square matrix action: $\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}$
+- [Gauss–Jordan]{.alert} — reduce $[\,\mat{A}\mid\mat{I}\,]$ to $[\,\mat{I}\mid\mat{A}^{-1}\,]$; a missing pivot in $\mat{A}$ means no inverse
+- [Inverse of a product]{.alert} — for invertible $\mat{A},\mat{B}$, undo the factors in reverse order: $(\mat{A}\mat{B})^{-1}=\mat{B}^{-1}\mat{A}^{-1}$
+- [Choose the computation](#choose-the-least-computation) — solve a few right-hand sides directly; a computed inverse supplies the reusable response map $\vct{b}\mapsto\mat{A}^{-1}\vct{b}$
 
 ::: {.key-point}
-For square $\mat{A}$: full pivots $\iff$ $\mat{A}^{-1}$ exists $\iff$
+For square $\mat{A}$: a pivot in every column $\iff$ $\mat{A}^{-1}$ exists $\iff$
 every $\vct{b}$ has exactly one solution
 :::
 

@@ -77,7 +77,7 @@ include-after-body:
 The pattern of entries can reveal how a matrix behaves before any calculation
 
 - [Diagonal matrices act one coordinate at a time](#diagonal-matrices-act-one-coordinate-at-a-time)
-- [Triangular matrices expose pivots](#triangular-matrices-expose-pivots)
+- [Triangular matrices expose pivots](#triangular-matrices-expose-pivots) · [pivot definition]({{< meta decks.d01.file >}}#pivots-organize-elimination)
 - [Tridiagonal matrices couple neighboring grid values](#tridiagonal-matrices-couple-neighboring-grid-values)
 - [Transpose exchanges rows and columns](#transpose-exchanges-rows-and-columns)
 - [Symmetric matrices mirror pairwise relationships](#symmetric-matrices-mirror-pairwise-relationships)
@@ -113,7 +113,7 @@ For a positive integer $k$, $\mat{D}^k$ has diagonal entries $d_i^k$
 If every $d_i\ne0$, $\mat{D}^{-1}$ has diagonal entries $1/d_i$
 :::
 
-## Triangular matrices expose pivots
+## Triangular matrices expose [pivots]({{< meta decks.d01.file >}}#pivots-organize-elimination) {#triangular-matrices-expose-pivots}
 
 ::: {.columns}
 ::: {.column width="47%"}
@@ -174,7 +174,7 @@ $$
 $$
 
 - Diagonal pivots — $1,2,1$
-- Every pivot nonzero — $\mat{U}$ invertible
+- A pivot in every column — $\mat{U}$ invertible
 - Inverse from Gauss–Jordan reduction of $[\,\mat{U}\mid\mat{I}\,]$
 
 $$
@@ -357,7 +357,7 @@ $$
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Numerically solve the system for $\vct{y}=[y_1,y_2,y_3,y_4]^{\mathsf T}$.</span>
+<span>Numerically solve the system for $\vct{y}=[y_1,y_2,y_3,y_4]^{\mathsf T}$</span>
 :::
 
 ::: {.notes}
@@ -692,7 +692,7 @@ $$
 \end{bmatrix}
 $$
 
-- First pivot zero
+- First pivot candidate is zero
 - $\mat{\Pi}_1=\mat{P}_{12}$ — exchange rows $1$ and $2$
 
 $$
@@ -729,7 +729,7 @@ $$
 $$
 
 ::: {.key-point}
-Next pivot zero — another row exchange
+Next pivot candidate is zero — another row exchange
 :::
 
 ---
@@ -877,7 +877,7 @@ $O(n^2)$ operations, without forming an inverse
 ::: {.small}
 The [Lecture 03 companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/03-matrix-structure-and-transformations.ipynb)
 carries out these steps with SciPy, including packed factors, pivot indices,
-multiple right-hand sides, residual checks, and measured solve times.
+multiple right-hand sides, residual checks, and measured solve times
 :::
 
 # Matrices as Linear Transformations
@@ -1423,9 +1423,9 @@ $$
 <span>
 For $\mat{A}\in\reals^{2\times2}$, show that this identity holds exactly when
 its columns are an orthonormal pair—each has length $1$, and their dot product
-is $0$.<br>Show that it also holds exactly when its rows are an orthonormal pair.
-<span class="exsub">Hint: the entries of $\mat{A}^{\mathsf T}\mat{A}$ are dot products of columns; the entries of $\mat{A}\mat{A}^{\mathsf T}$ are dot products of rows.</span>
-<span class="exsub">Verify the identity for the rotation $\mat{R}_{\theta}$ above and the reflection across $y=x$, $\mat{H}=\begin{bmatrix}0&1\\1&0\end{bmatrix}$.</span>
+is $0$<br>Show that it also holds exactly when its rows are an orthonormal pair
+<span class="exsub">Hint: the entries of $\mat{A}^{\mathsf T}\mat{A}$ are dot products of columns; the entries of $\mat{A}\mat{A}^{\mathsf T}$ are dot products of rows</span>
+<span class="exsub">Verify the identity for the rotation $\mat{R}_{\theta}$ above and the reflection across $y=x$, $\mat{H}=\begin{bmatrix}0&1\\1&0\end{bmatrix}$</span>
 </span>
 :::
 
@@ -1579,14 +1579,15 @@ Multiplication composes them
 
 [One matrix, computational and geometric views]{.alert}
 
-- [Systems]({{< meta decks.d01.file >}}#read-the-solution-set) — $\mat{A}\vct{x}=\vct{b}$; elimination reveals contradictions and free variables
-- [Reusable solves]({{< meta decks.d03.file >}}#triangular-factors-organize-repeated-solves) — $\mat{A}=\mat{P}\mat{L}\mat{U}$ stores row order and triangular work
-- [Transformations]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column) — columns are basis images; matrix products compose actions
-- [Reversibility]({{< meta decks.d02.file >}}#reversible-versus-information-losing) — inverses undo actions; projections show how information can be lost
+- [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#read-the-solution-set) — row operations on $[\,\mat{A}\mid\vct{b}\,]$ preserve solutions; reduction reveals inconsistencies (contradictions) and free variables
+- [{{< meta decks.d02.short_title >}}]({{< meta decks.d02.file >}}#reduce-beside-the-identity) — for invertible square $\mat{A}$, Gauss–Jordan gives $[\,\mat{A}\mid\mat{I}\,]\longrightarrow[\,\mat{I}\mid\mat{A}^{-1}\,]$
+- [Matrix patterns]{.alert} — diagonal scaling, triangular substitution, and tridiagonal neighbor coupling
+- [Reusable solves](#triangular-factors-organize-repeated-solves) — $\mat{A}=\mat{P}\mat{L}\mat{U}$ stores row order and elimination; for invertible $\mat{A}$, solve $\mat{L}\vct{y}=\mat{P}^{\mathsf T}\vct{b}$, then $\mat{U}\vct{x}=\vct{y}$
+- [Linear transformations](#standard-basis-vectors-reveal-every-column) — columns are standard-basis images; $\mat{A}\mat{B}\vct{x}=\mat{A}(\mat{B}\vct{x})$ applies $\mat{B}$ first
+- [Geometry](#one-vector-reveals-four-different-actions) — orthogonal maps preserve lengths; nonidentity projections lose directions and are singular
 
 ::: {.key-point}
-Matrix structure tells us both [how to compute]{.alert} and
-[what the action does]{.alert}
+Factors decompose the computation; geometric actions explain what it does
 :::
 
 # What Comes Next

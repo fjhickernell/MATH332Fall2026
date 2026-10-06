@@ -161,7 +161,7 @@ c_1\vct{v}_1+\cdots+c_k\vct{v}_k=\vct{0}
 \mat{V}\vct{c}=\vct{0}
 $$
 
-Only $\vct{c}=\vct{0}$ solves this system exactly when every column has a pivot
+Only $\vct{c}=\vct{0}$ solves this system exactly when every column has a [pivot]({{< meta decks.d01.file >}}#pivots-organize-elimination)
 
 ::: {.key-point}
 The familiar homogeneous system answers the abstract independence question
@@ -1076,29 +1076,24 @@ to $(4,-3)^{\mathsf T}$.
 
 ::: {.columns}
 ::: {.column width="47%"}
-<h3>Systems and actions</h3>
-
-- [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#read-the-solution-set) — $\mat{A}\vct{x}=\vct{b}$; pivots test consistency and identify free parameters
-- [{{< meta decks.d03.short_title >}}]({{< meta decks.d03.file >}}#triangular-factors-organize-repeated-solves) — $\mat{A}=\mat{P}\mat{L}\mat{U}$ reuses elimination; products compose actions
-- [{{< meta decks.d02.short_title >}}]({{< meta decks.d02.file >}}#reversible-versus-information-losing) / [{{< meta decks.d04.short_title >}}]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor) — square $\mat{A}$: $\det(\mat{A})\ne0\iff\mat{A}^{-1}$ exists; signed scale and collapse
+- [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#read-the-solution-set) — $[\,\mat{A}\mid\vct{b}\,]$ tests consistency and finds free parameters; PLU saves elimination
+- [Matrix actions]{.alert} — products compose, inverses undo; determinants give signed scale and detect collapse
+- [{{< meta decks.d05.short_title >}}]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions) — consistent solutions: $\vct{x}_p+\operatorname{null}(\mat{A})$; dot products, projection, and 3D cross products describe geometry
 :::
 
 ::: {.column width="6%"}
 :::
 
 ::: {.column width="47%"}
-<h3>Directions and combinations</h3>
-
-- [{{< meta decks.d05.short_title >}}]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions) — point differences give directions; consistent solutions: $\vct{x}_p+\operatorname{null}(\mat{A})$
-- [{{< meta decks.d05.short_title >}}]({{< meta decks.d05.file >}}#projection-finds-the-nearest-point-on-an-affine-line) — dot products test perpendicularity; 3D cross gives normals/areas; projection finds nearest points
-- [{{< meta decks.d06.short_title >}}]({{< meta decks.d06.file >}}#in-rn-span-is-matrix-vector-multiplication) — matrix, polynomial, function vectors; subspaces closed under combinations; column spans: $\{\mat{V}\vct{c}:\vct{c}\in\reals^k\}$
+- [{{< meta decks.d06.short_title >}}]({{< meta decks.d06.file >}}#span-is-the-subspace-generated-by-chosen-vectors) — subspaces contain all linear combinations; vectors can be matrices, polynomials, or functions
+- [{{< meta decks.d07.short_title >}}](#a-basis-gives-every-vector-unique-coordinates) — spanning gives coefficients; independence makes them unique; dimension counts basis vectors
+- [Coordinates](#the-coordinate-map-preserves-linear-combinations) — ordered-basis coordinates preserve linear combinations; changing the basis changes the column, not the vector
 :::
 :::
 
 ::: {.key-point}
-[Ordered basis $\mathcal{B}$]({{< meta decks.d07.file >}}#a-basis-gives-every-vector-unique-coordinates) has $\dim(V)$ vectors; spanning gives coordinates, independence makes $[\vct{v}]_{\mathcal{B}}$ unique
-
-[Changing the basis](#change-of-basis-passes-through-the-vector) changes the coordinate column and preserves the vector
+With ordered basis $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_d)$ and $d=\dim(V)<\infty$:
+$\vct{v}=\sum_{j=1}^d c_j\vct{b}_j$ has unique coordinates $[\vct{v}]_{\mathcal{B}}=(c_1,\ldots,c_d)^{\mathsf T}$
 :::
 
 # What Comes Next
