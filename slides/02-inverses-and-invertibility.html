@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-05">
+  <meta name="dcterms.date" content="2026-10-06">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 5, 2026</p>
+  <p class="date">October 6, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -782,7 +782,7 @@ In this deck
 <h2>Elimination matrices are invertible</h2>
 <p>From <a href="01-systems-and-matrices.html#/undoing-restores-the-original-system">Systems and Matrices</a></p>
 <ul>
-<li><span class="math inline">\(\mat{M}_1\)</span> — zeros the first column below its pivot</li>
+<li><span class="math inline">\(\mat{M}_1\)</span> — zeros the first column below its <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivot</a></li>
 <li><span class="math inline">\(\mat{N}_1\)</span> — reverses that elimination stage</li>
 </ul>
 <p><span class="math display">\[
@@ -887,7 +887,7 @@ In this deck
 =\mat{A}\mat{A}^{-1}=\mat{I},\\
 (\mat{B}^{-1}\mat{A}^{-1})(\mat{A}\mat{B})
 &amp;=\mat{B}^{-1}(\mat{A}^{-1}\mat{A})\mat{B}
-=\mat{B}^{-1}\mat{B}=\mat{I}.
+=\mat{B}^{-1}\mat{B}=\mat{I}
 \end{align*}\]</span></p>
 <ul>
 <li>No standard matrix quotient <span class="math inline">\(\mat{B}/\mat{A}\)</span></li>
@@ -1402,8 +1402,8 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 <h1>Big Ideas</h1>
 <ul>
 <li><span class="alert">Two-sided inverse</span> — <span class="math inline">\(\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}\)</span></li>
-<li>Invertible — pivot in every row and column; one solution for every <span class="math inline">\(\vct{b}\)</span></li>
-<li>Product inverse — <span class="alert">reverse factor order</span></li>
+<li>Invertible — <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivot</a> in every row and column; one solution for every <span class="math inline">\(\vct{b}\)</span></li>
+<li>Inverse of a product — <span class="alert">reverse factor order</span></li>
 <li>Gauss–Jordan on <span class="math inline">\([\,\mat{A}\mid\mat{I}\,]\)</span> computes <span class="math inline">\(\mat{A}^{-1}\)</span></li>
 <li><span class="alert">Least computation</span> — solve a few right-hand sides directly<br>Reuse factors or response maps for many</li>
 <li>Applications — Leontief maps demand to production<br>Gaussian precision captures conditional structure</li>
@@ -1412,15 +1412,17 @@ f(t_1)&amp;\cdots&amp;f(t_n)
 
 <section id="how-far-we-have-come" class="title-slide slide level1 center">
 <h1>How Far We Have Come</h1>
-<p><span class="alert">From equations to reversible actions</span></p>
+<p><span class="alert">From equations to reversible matrix actions</span></p>
 <ul>
-<li><a href="01-systems-and-matrices.html#the-augmented-matrix-stores-the-system">Represent</a> — <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> gathers equations and applications in one form</li>
-<li><a href="01-systems-and-matrices.html#read-the-solution-set">Eliminate</a> — reversible row operations expose contradictions and free variables</li>
-<li><a href="02-inverses-and-invertibility.html#one-theorem-many-viewpoints">Invert</a> — a square matrix with a pivot in every column has one solution for every <span class="math inline">\(\vct{b}\)</span></li>
-<li><a href="02-inverses-and-invertibility.html#choose-the-least-computation">Compute wisely</a> — solve for one right-hand side; build a reusable response map only when needed</li>
+<li><a href="01-systems-and-matrices.html#the-augmented-matrix-stores-the-system">Systems and Matrices</a> — <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> becomes the augmented matrix <span class="math inline">\([\,\mat{A}\mid\vct{b}\,]\)</span>: coefficients and right-hand side together</li>
+<li><span class="alert">Elimination</span> — row operations preserve all solutions; reduced row echelon form reveals inconsistencies (contradictions), <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivots</a>, and free variables</li>
+<li><a href="02-inverses-and-invertibility.html#an-inverse-undoes-a-matrix-action">Inverses</a> — a two-sided inverse undoes a square matrix action: <span class="math inline">\(\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}\)</span></li>
+<li><span class="alert">Gauss–Jordan</span> — reduce <span class="math inline">\([\,\mat{A}\mid\mat{I}\,]\)</span> to <span class="math inline">\([\,\mat{I}\mid\mat{A}^{-1}\,]\)</span>; a missing pivot in <span class="math inline">\(\mat{A}\)</span> means no inverse</li>
+<li><span class="alert">Inverse of a product</span> — for invertible <span class="math inline">\(\mat{A},\mat{B}\)</span>, undo the factors in reverse order: <span class="math inline">\((\mat{A}\mat{B})^{-1}=\mat{B}^{-1}\mat{A}^{-1}\)</span></li>
+<li><a href="#/choose-the-least-computation">Choose the computation</a> — solve a few right-hand sides directly; a computed inverse supplies the reusable response map <span class="math inline">\(\vct{b}\mapsto\mat{A}^{-1}\vct{b}\)</span></li>
 </ul>
 <div class="key-point">
-<p>For square <span class="math inline">\(\mat{A}\)</span>: full pivots <span class="math inline">\(\iff\)</span> <span class="math inline">\(\mat{A}^{-1}\)</span> exists <span class="math inline">\(\iff\)</span> every <span class="math inline">\(\vct{b}\)</span> has exactly one solution</p>
+<p>For square <span class="math inline">\(\mat{A}\)</span>: a pivot in every column <span class="math inline">\(\iff\)</span> <span class="math inline">\(\mat{A}^{-1}\)</span> exists <span class="math inline">\(\iff\)</span> every <span class="math inline">\(\vct{b}\)</span> has exactly one solution</p>
 </div>
 </section>
 

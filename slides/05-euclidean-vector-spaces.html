@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-05">
+  <meta name="dcterms.date" content="2026-10-06">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 5, 2026</p>
+  <p class="date">October 6, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -952,7 +952,7 @@ L=\{P+t\vct{v}:t\in\reals\}
 </tr>
 </tbody>
 </table>
-<p>If there are <span class="math inline">\(r\)</span> pivot variables, then there are</p>
+<p>If there are <span class="math inline">\(r\)</span> <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivot variables</a>, then there are</p>
 <p><span class="math display">\[
 n-r
 \]</span></p>
@@ -1510,14 +1510,15 @@ P=(1,1,0),\qquad Q=(2,1,1),\qquad R=(1,3,0)
 <h1>How Far We Have Come</h1>
 <p><span class="alert">From matrix equations to the geometry of their solutions</span></p>
 <ul>
-<li><a href="01-systems-and-matrices.html#read-the-solution-set">Systems</a> — <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>; elimination reveals consistency and free directions; <a href="03-matrix-structure-and-transformations.html#triangular-factors-organize-repeated-solves">PLU</a> reuses the work</li>
-<li><a href="03-matrix-structure-and-transformations.html#composition-is-matrix-multiplication">Matrix actions</a> — products compose, inverses undo; <a href="04-determinants.html#a-determinant-is-a-signed-scale-factor">determinants</a> measure signed scale and collapse</li>
-<li><a href="05-euclidean-vector-spaces.html#the-operations-reveal-the-roles">Points and directions</a> — subtract points to get vectors; add vectors to move points</li>
-<li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Solution geometry</a> — every consistent solution set is <span class="math inline">\(\vct{x}_p+\operatorname{null}(\mat{A})\)</span></li>
-<li><a href="05-euclidean-vector-spaces.html#projection-finds-the-nearest-point-on-an-affine-line">Euclidean tools</a> — projection finds nearest points; <a href="05-euclidean-vector-spaces.html#point-differences-build-a-plane-normal">3D cross products</a> give normals and areas</li>
+<li><a href="01-systems-and-matrices.html#read-the-solution-set">Systems and Matrices</a> — <span class="math inline">\([\,\mat{A}\mid\vct{b}\,]\)</span> tests consistency and identifies <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivot variables</a> and free parameters</li>
+<li><a href="03-matrix-structure-and-transformations.html#triangular-factors-organize-repeated-solves">Matrix Transformations</a> — PLU reuses solves; products compose and inverses undo actions; determinants give signed scale and detect collapse</li>
+<li><a href="#/the-operations-reveal-the-roles">Points and directions</a> — point differences are vectors; <span class="math inline">\(\vct{p}+t\vct{d}\)</span> is a line through <span class="math inline">\(\vct{p}\)</span> when <span class="math inline">\(\vct{d}\ne\vct{0}\)</span></li>
+<li><a href="#/homogeneous-systems-produce-directions">Homogeneous directions</a> — <span class="math inline">\(\operatorname{null}(\mat{A})=\{\vct{z}:\mat{A}\vct{z}=\vct{0}\}\)</span> supplies the differences between solutions</li>
+<li><a href="#/projection-finds-the-nearest-point-on-an-affine-line">Dot products and projection</a> — dot products measure lengths and angles; projection finds nearest points</li>
+<li><a href="#/point-differences-build-a-plane-normal">Cross products in 3D</a> — <span class="math inline">\(\vct{u}\times\vct{v}\)</span> is perpendicular to both; <span class="math inline">\(\|\vct{u}\times\vct{v}\|\)</span> is the parallelogram area</li>
 </ul>
 <div class="key-point">
-<p>Solving now means describing <span class="alert">all solutions</span>, not only finding one</p>
+<p>For a consistent system, <span class="alert">all solutions</span> are <span class="math inline">\(\vct{x}_p+\operatorname{null}(\mat{A})\)</span>; free variables count independent directions</p>
 </div>
 </section>
 

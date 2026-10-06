@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-05">
+  <meta name="dcterms.date" content="2026-10-06">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 5, 2026</p>
+  <p class="date">October 6, 2026</p>
 </section>
 <section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
@@ -1622,40 +1622,40 @@ y_i=\sum_{j,k}t_{ijk}v_j w_k
 
 <section id="how-far-we-have-come" class="title-slide slide level1 center">
 <h1>How Far We Have Come</h1>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Earlier idea</th>
-<th>New use</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Systems and elimination</td>
-<td>regression coefficients and computational choices</td>
-</tr>
-<tr class="even">
-<td>Bases and coordinates</td>
-<td>singular and Fourier directions</td>
-</tr>
-<tr class="odd">
-<td>Rank and null spaces</td>
-<td>compression, identifiability, graph components</td>
-</tr>
-<tr class="even">
-<td>Eigenvalues</td>
-<td>principal axes and iterative ranking</td>
-</tr>
-<tr class="odd">
-<td>Inner products</td>
-<td>orthogonal fits and minimum-norm solutions</td>
-</tr>
-</tbody>
-</table>
+<p><span class="alert">SVD and regression are core; extensions can follow the class’s interests</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<ul>
+<li><a href="10-inner-product-spaces.html#inconsistent-systems-still-have-a-best-fit">Inner Products</a> — regression finds best fits; QR solves them in orthogonal coordinates</li>
+<li><a href="08-matrix-spaces-and-rank.html#rank-factorization-keeps-the-independent-columns-and-rows">Matrix Spaces and Rank</a> — SVD gives directions and stretches; nonzero singular values count rank; truncation gives low-rank approximations</li>
+<li><a href="#/the-pseudoinverse-reverses-the-nonzero-stretches">Minimum-norm fit</a> — <span class="math inline">\(\mat{A}^{\dagger}\vct{b}\)</span> gives the shortest least-squares coefficient vector; null vectors leave the fit unchanged</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<ul>
+<li><a href="#/symmetry-gives-orthogonal-eigenvectors">Principal axes</a> — real symmetric matrices have orthonormal eigenvectors; eigenvalue signs classify shape</li>
+<li><a href="#/the-fft-reuses-the-even-and-odd-calculations">Fourier coordinates</a> — FFT reuses smaller DFTs to compute frequency coordinates</li>
+<li><a href="#/a-tensor-has-coordinates-after-choosing-bases">Tensor products</a> — factor bases give array coordinates; <span class="math inline">\(\mat{B}\otimes\mat{C}\)</span> acts on both factors</li>
+<li><a href="#/networks-and-iterative-eigenvectors">Networks</a> — repeated actions drive power iteration/PageRank; undirected Laplacian nullity counts components</li>
+</ul>
+</div></div>
+<div class="key-point">
+<p>Choose bases and factorizations to reveal attainable outputs, lost directions, and useful structure</p>
+</div>
+<aside class="notes">
+<p>This is a modular recap for the draft’s possible coverage, not a promise to teach every extension. Keep the SVD/regression connection; retain the principal-axis, Fourier, tensor, and network bullets for modules actually selected with the class. The SVD compression statement refers to truncating to the largest singular values; the first omitted singular value gives the spectral-norm error. Power-iteration convergence requires the assumptions stated in its own slide. The graph component statement is for the undirected combinatorial Laplacian used here. Singular-vector coordinates use different input and output bases; they are not generally an eigenbasis of A.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 
 <section id="what-comes-next" class="title-slide slide level1 center">

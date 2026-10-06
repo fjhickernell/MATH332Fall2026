@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-05">
+  <meta name="dcterms.date" content="2026-10-06">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 5, 2026</p>
+  <p class="date">October 6, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -1325,36 +1325,26 @@ c_k=\langle q_k,f\rangle
 
 <section id="how-far-we-have-come" class="title-slide slide level1 center">
 <h1>How Far We Have Come</h1>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Course idea</th>
-<th>What inner products add</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Solution sets and subspaces</td>
-<td>perpendicular decompositions</td>
-</tr>
-<tr class="even">
-<td>Bases and coordinates</td>
-<td>coordinates computed by inner products</td>
-</tr>
-<tr class="odd">
-<td>Matrix factorizations</td>
-<td>orthogonal directions and triangular solves</td>
-</tr>
-<tr class="even">
-<td>Inconsistent systems</td>
-<td>closest fits and orthogonal residuals</td>
-</tr>
-<tr class="odd">
-<td>Function spaces</td>
-<td>integral geometry and best approximation</td>
-</tr>
-</tbody>
-</table>
+<p><span class="alert">From exact solutions to orthogonal decompositions and best fits</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<ul>
+<li><a href="01-systems-and-matrices.html#the-augmented-matrix-stores-the-system">Systems and Matrices</a> — <span class="math inline">\([\,\mat{A}\mid\vct{b}\,]\)</span> tests exact solvability; column/null spaces describe attainable data and coefficient freedom</li>
+<li><a href="07-bases-dimension-and-coordinates.html#a-basis-gives-every-vector-unique-coordinates">Bases and Coordinates</a> — a basis gives unique coefficients; orthonormal coordinates are inner products</li>
+<li><a href="#/continuous-functions-also-have-geometry">Inner Products</a> — dot products extend to weighted and integral geometry; <span class="math inline">\(\|\vct{v}\|^2=\langle\vct{v},\vct{v}\rangle\)</span></li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<ul>
+<li><a href="#/projection-onto-an-orthonormal-basis">Projection</a> — split a vector into its closest subspace component and a perpendicular residual</li>
+<li><a href="#/qr-turns-least-squares-into-a-triangular-solve">QR</a> — Gram–Schmidt preserves span; <span class="math inline">\(\mat{A}=\mat{Q}\mat{R}_Q\)</span> records orthonormal directions and triangular coordinates</li>
+<li><a href="#/approximate-a-function-in-a-finite-dimensional-subspace">Function approximation</a> — polynomials/Fourier modes give finite spans; for orthonormal <span class="math inline">\(q_j\)</span>, coefficients are <span class="math inline">\(\langle f,q_j\rangle\)</span></li>
+</ul>
+</div></div>
+<div class="key-point">
+<p>For real <span class="math inline">\(\mat{A}\)</span> with full column rank: least squares solves <span class="math inline">\(\mat{R}_Q\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}\)</span>; the residual satisfies <span class="math inline">\(\mat{A}^{\mathsf T}(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}\)</span></p>
+</div>
 </section>
 
 <section id="what-comes-next" class="title-slide slide level1 center">

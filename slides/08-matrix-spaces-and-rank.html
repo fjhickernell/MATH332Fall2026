@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-05">
+  <meta name="dcterms.date" content="2026-10-06">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 5, 2026</p>
+  <p class="date">October 6, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -807,7 +807,7 @@ Output: <span class="math inline">\(\reals^m\)</span>
 \]</span></p>
 <p>Row reduction gives</p>
 <ul>
-<li>rank = number of pivot columns = dimension of the row space</li>
+<li>rank = number of <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivot columns</a> = dimension of the row space</li>
 <li>nullity = number of free variables</li>
 </ul>
 <p><span class="math display">\[
@@ -832,7 +832,7 @@ Output: <span class="math inline">\(\reals^m\)</span>
 </section>
 <section id="one-reduction-exposes-the-structure" class="slide level2">
 <h2>One reduction exposes the structure</h2>
-<p>Use one example throughout, recalling <a href="01-systems-and-matrices.html#eliminate-and-organize-with-pivots">pivots and free variables from Systems and Matrices</a>:</p>
+<p>Use one example throughout, recalling <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivots and free variables from Systems and Matrices</a>:</p>
 <p><span class="math display">\[
 \mat{A}=
 \begin{bmatrix}
@@ -1545,33 +1545,22 @@ T(p)=\begin{bmatrix}p(0)\\p(1)\end{bmatrix}
 <h1>How Far We Have Come</h1>
 <div class="columns">
 <div class="column" style="width:47%;">
-<h3>
-Equations and geometry
-</h3>
 <ul>
-<li><a href="01-systems-and-matrices.html#read-the-solution-set">Systems and Matrices</a> — <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>: pivots, consistency, free parameters</li>
-<li><a href="02-inverses-and-invertibility.html#one-theorem-many-viewpoints">Inverses</a> and <a href="03-matrix-structure-and-transformations.html#triangular-factors-organize-repeated-solves">Matrix Transformations</a> — undo and compose actions; PLU reuses elimination</li>
-<li><a href="04-determinants.html#a-determinant-is-a-signed-scale-factor">Determinants</a> and <a href="05-euclidean-vector-spaces.html#projection-finds-the-nearest-point-on-an-affine-line">Euclidean Spaces</a> — signed scale and collapse; projection; 3D normals and areas</li>
+<li><a href="01-systems-and-matrices.html#read-the-solution-set">Systems and Matrices</a> — reduce <span class="math inline">\([\,\mat{A}\mid\vct{b}\,]\)</span> to determine consistency, <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivots</a>, and free parameters</li>
+<li><span class="alert">Matrix actions</span> — PLU reuses elimination; products compose, inverses undo; determinants detect collapse</li>
+<li><span class="alert">Geometry and bases</span> — dot products, projection, and 3D cross products describe geometry; subspaces admit linear combinations and bases give unique coordinates</li>
 </ul>
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<h3>
-Spaces and coordinates
-</h3>
 <ul>
-<li><a href="06-general-vector-spaces.html#span-is-the-subspace-generated-by-chosen-vectors">Vector Spaces and Span</a> — matrices, polynomials, functions; subspace closure; column spans as <span class="math inline">\(\mat{V}\vct{c}\)</span></li>
-<li><a href="07-bases-dimension-and-coordinates.html#a-basis-gives-every-vector-unique-coordinates">Bases and Coordinates</a> — spanning gives existence; independence gives uniqueness; dimension counts basis vectors</li>
-<li><a href="#/rank-factorization-keeps-the-independent-columns-and-rows">Matrix Spaces and Rank</a> — <span class="math inline">\(\mat{A}=\mat{C}\mat{R}\)</span>: column/row bases; <span class="math inline">\(r=\operatorname{rank}(\mat{A})\)</span>; four spaces in orthogonal pairs</li>
+<li><a href="#/rank-factorization-keeps-the-independent-columns-and-rows">Rank factorization</a> — <span class="math inline">\(\mat{A}=\mat{C}\mat{R}\)</span>; <span class="math inline">\(\mat{C}\)</span>’s columns and <span class="math inline">\(\mat{R}\)</span>’s rows are column/row-space bases; each has <span class="math inline">\(r=\operatorname{rank}(\mat{A})\)</span> members</li>
+<li><a href="#/the-four-spaces-pair-through-orthogonality">Four spaces</a> — column space gives attainable outputs; null space gives lost inputs; row/null and column/left-null are orthogonal pairs</li>
+<li><a href="#/find-the-left-null-space">Compatibility</a> — consistent iff <span class="math inline">\(\vct{b}\in\operatorname{col}(\mat{A})\)</span>, equivalently <span class="math inline">\(\vct{y}^{\mathsf T}\vct{b}=0\)</span> for every <span class="math inline">\(\vct{y}\in\operatorname{null}(\mat{A}^{\mathsf T})\)</span></li>
 </ul>
 </div></div>
 <div class="key-point">
-<p><span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> is solvable iff <span class="math inline">\(\vct{b}\in\operatorname{col}(\mat{A})\)</span>, equivalently <span class="math inline">\(\vct{y}^{\mathsf T}\vct{b}=0\)</span> for every <span class="math inline">\(\vct{y}\in\operatorname{null}(\mat{A}^{\mathsf T})\)</span></p>
-<p>Choose <span class="math inline">\(\vct{x}_p\)</span> with <span class="math inline">\(\mat{A}\vct{x}_p=\vct{b}\)</span>; columns of <span class="math inline">\(\mat{N}\)</span> form a basis of <span class="math inline">\(\operatorname{null}(\mat{A})\)</span></p>
-<p><span class="math display">\[
-\text{All solutions:}\quad
-\vct{x}=\vct{x}_p+\mat{N}\vct{t},\qquad \vct{t}\in\reals^{n-r}
-\]</span></p>
+<p>For consistent <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> with <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>: <span class="alert">all solutions</span> are <span class="math inline">\(\vct{x}=\vct{x}_p+\mat{N}\vct{t}\)</span>, <span class="math inline">\(\vct{t}\in\reals^{n-r}\)</span>; <span class="math inline">\(\vct{x}_p\)</span> is one solution and <span class="math inline">\(\mat{N}\)</span>’s columns are a null-space basis</p>
 </div>
 <aside class="notes">
 <p>This is a cumulative synthesis, rather than a chronology of deck titles. Retain the original question Ax=b, the reversible computations and reusable factors, the geometric meaning of actions, and the progressively richer descriptions of vectors. N’s columns are a basis of Null(A), so t supplies exactly n-r independent free parameters. A column-space basis C describes which right-hand sides are attainable; a null-space basis N describes all inputs that give the same attainable right-hand side. The condition can also be tested by y^T b=0 for every left-null vector y. Full row rank r=m makes every b attainable, and full column rank r=n gives uniqueness when a solution exists. Projections, point differences, and cross-product normals and areas retain the Euclidean geometric tools from the earlier deck.</p>

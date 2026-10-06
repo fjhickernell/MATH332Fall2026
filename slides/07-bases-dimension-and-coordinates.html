@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-05">
+  <meta name="dcterms.date" content="2026-10-06">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 5, 2026</p>
+  <p class="date">October 6, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -788,7 +788,7 @@ c_1\vct{v}_1+\cdots+c_k\vct{v}_k=\vct{0}
 \quad\Longleftrightarrow\quad
 \mat{V}\vct{c}=\vct{0}
 \]</span></p>
-<p>Only <span class="math inline">\(\vct{c}=\vct{0}\)</span> solves this system exactly when every column has a pivot</p>
+<p>Only <span class="math inline">\(\vct{c}=\vct{0}\)</span> solves this system exactly when every column has a <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivot</a></p>
 <div class="key-point">
 <p>The familiar homogeneous system answers the abstract independence question</p>
 </div>
@@ -1571,29 +1571,22 @@ q=1-t+2t^2,
 <h1>How Far We Have Come</h1>
 <div class="columns">
 <div class="column" style="width:47%;">
-<h3>
-Systems and actions
-</h3>
 <ul>
-<li><a href="01-systems-and-matrices.html#read-the-solution-set">Systems and Matrices</a> — <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>; pivots test consistency and identify free parameters</li>
-<li><a href="03-matrix-structure-and-transformations.html#triangular-factors-organize-repeated-solves">Matrix Transformations</a> — <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span> reuses elimination; products compose actions</li>
-<li><a href="02-inverses-and-invertibility.html#reversible-versus-information-losing">Inverses</a> / <a href="04-determinants.html#a-determinant-is-a-signed-scale-factor">Determinants</a> — square <span class="math inline">\(\mat{A}\)</span>: <span class="math inline">\(\det(\mat{A})\ne0\iff\mat{A}^{-1}\)</span> exists; signed scale and collapse</li>
+<li><a href="01-systems-and-matrices.html#read-the-solution-set">Systems and Matrices</a> — <span class="math inline">\([\,\mat{A}\mid\vct{b}\,]\)</span> tests consistency and finds free parameters; PLU saves elimination</li>
+<li><span class="alert">Matrix actions</span> — products compose, inverses undo; determinants give signed scale and detect collapse</li>
+<li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Euclidean Spaces</a> — consistent solutions: <span class="math inline">\(\vct{x}_p+\operatorname{null}(\mat{A})\)</span>; dot products, projection, and 3D cross products describe geometry</li>
 </ul>
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
-<h3>
-Directions and combinations
-</h3>
 <ul>
-<li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Euclidean Spaces</a> — point differences give directions; consistent solutions: <span class="math inline">\(\vct{x}_p+\operatorname{null}(\mat{A})\)</span></li>
-<li><a href="05-euclidean-vector-spaces.html#projection-finds-the-nearest-point-on-an-affine-line">Euclidean Spaces</a> — dot products test perpendicularity; 3D cross gives normals/areas; projection finds nearest points</li>
-<li><a href="06-general-vector-spaces.html#in-rn-span-is-matrix-vector-multiplication">Vector Spaces and Span</a> — matrix, polynomial, function vectors; subspaces closed under combinations; column spans: <span class="math inline">\(\{\mat{V}\vct{c}:\vct{c}\in\reals^k\}\)</span></li>
+<li><a href="06-general-vector-spaces.html#span-is-the-subspace-generated-by-chosen-vectors">Vector Spaces and Span</a> — subspaces contain all linear combinations; vectors can be matrices, polynomials, or functions</li>
+<li><a href="#/a-basis-gives-every-vector-unique-coordinates">Bases and Coordinates</a> — spanning gives coefficients; independence makes them unique; dimension counts basis vectors</li>
+<li><a href="#/the-coordinate-map-preserves-linear-combinations">Coordinates</a> — ordered-basis coordinates preserve linear combinations; changing the basis changes the column, not the vector</li>
 </ul>
 </div></div>
 <div class="key-point">
-<p><a href="07-bases-dimension-and-coordinates.html#a-basis-gives-every-vector-unique-coordinates">Ordered basis <span class="math inline">\(\mathcal{B}\)</span></a> has <span class="math inline">\(\dim(V)\)</span> vectors; spanning gives coordinates, independence makes <span class="math inline">\([\vct{v}]_{\mathcal{B}}\)</span> unique</p>
-<p><a href="#/change-of-basis-passes-through-the-vector">Changing the basis</a> changes the coordinate column and preserves the vector</p>
+<p>With ordered basis <span class="math inline">\(\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_d)\)</span> and <span class="math inline">\(d=\dim(V)&lt;\infty\)</span>: <span class="math inline">\(\vct{v}=\sum_{j=1}^d c_j\vct{b}_j\)</span> has unique coordinates <span class="math inline">\([\vct{v}]_{\mathcal{B}}=(c_1,\ldots,c_d)^{\mathsf T}\)</span></p>
 </div>
 </section>
 

@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-05">
+  <meta name="dcterms.date" content="2026-10-06">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 5, 2026</p>
+  <p class="date">October 6, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -1374,7 +1374,7 @@ x+2y-z&amp;=2\\
 <ul>
 <li><a href="#/translate-equations-into-matrix-rows">Translate equations into matrix rows</a></li>
 <li><a href="#/one-algorithm-many-valid-paths">One algorithm, many valid paths</a></li>
-<li><a href="#/eliminate-and-organize-with-pivots">Eliminate and organize with pivots</a></li>
+<li><a href="#/eliminate-and-organize-with-pivots">Eliminate and organize with pivots</a> · <a href="#/pivots-organize-elimination">pivot definition</a></li>
 <li><a href="#/read-the-solution-set">Read the solution set (back substitution)</a></li>
 <li><a href="#/resistance-circuit">Resistance circuit</a></li>
 </ul>
@@ -1441,7 +1441,7 @@ x+2y-z&amp;=2 &amp;&amp;(E_1)\\
 <ol type="1">
 <li>If the candidate is zero but a lower entry is not, swap rows</li>
 <li>If the column is zero from the current row down, skip it</li>
-<li>With a nonzero pivot in place, clear below using</li>
+<li>With a nonzero <a href="#/pivots-organize-elimination">pivot</a> in place, clear below using</li>
 </ol>
 <p><span class="math display">\[
 E_i\leftarrow E_i-mE_j
@@ -1489,6 +1489,7 @@ R_i\leftarrow R_i-mR_j
 <section class="slide level2">
 
 <h3 id="pivots-organize-elimination">Pivots organize elimination</h3>
+<p>For any <span class="math inline">\(m\times n\)</span> matrix, including an augmented matrix:</p>
 <p><span class="math display">\[
 \left[
 \begin{array}{rrr|r}
@@ -1499,7 +1500,7 @@ R_i\leftarrow R_i-mR_j
 \right]
 \]</span></p>
 <ul>
-<li><span class="alert">pivot</span> — leading nonzero entry in a nonzero row</li>
+<li><span class="alert">pivot</span> — leading nonzero entry of a nonzero row in echelon form</li>
 <li>entries below each pivot are zero</li>
 <li>each pivot lies to the right of the pivot above it</li>
 <li>zero rows, if any, lie at the bottom</li>
@@ -1509,7 +1510,7 @@ R_i\leftarrow R_i-mR_j
 <p>For a consistent system, pivots in the <span class="alert">variable columns</span> count independent constraints; each pivot column identifies one <span class="alert">pivot variable</span></p>
 </div>
 <div class="small">
-<p>Pivot entries need not equal <span class="math inline">\(1\)</span> in row echelon form</p>
+<p>Pivot entries need not equal <span class="math inline">\(1\)</span> or lie on the main diagonal</p>
 </div>
 </section>
 <section class="slide level2">
@@ -2023,7 +2024,7 @@ a_{31}&amp;a_{32}&amp;a_{33}
 </section>
 <section id="elimination-is-an-ordered-product" class="slide level2">
 <h2>Elimination is an ordered product</h2>
-<p>First suppose every successive diagonal pivot is nonzero, so no row exchanges or skipped pivot columns are needed. For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, the last possible elimination stage is</p>
+<p>First suppose every successive diagonal pivot candidate is nonzero, so no row exchanges or skipped pivot columns are needed. For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>, the last possible elimination stage is</p>
 <p><span class="math display">\[
 q=\min(m-1,n)
 \]</span></p>
@@ -2051,7 +2052,7 @@ q=\min(m-1,n)
 <li><p><span class="alert">Equations show the details</span><br><span class="alert">Augmented matrices compress the same information</span> for computation<br><span class="alert">Elimination matrices group row operations algebraically</span></p></li>
 <li><p>Reversible row operations preserve the solution set</p></li>
 <li><p><span class="alert">Dot products</span> express individual equations<br>Matrix multiplication collects many dot products and composes actions</p></li>
-<li><p><span class="alert">Pivots</span> organize elimination and reveal whether a system has <span class="alert">zero, one, or infinitely many solutions</span></p></li>
+<li><p><a href="#/pivots-organize-elimination">Pivots</a> organize elimination and reveal whether a system has <span class="alert">zero, one, or infinitely many solutions</span></p></li>
 <li><p>Compute only what the problem requires</p>
 <ul>
 <li>Direct elimination solves the system</li>

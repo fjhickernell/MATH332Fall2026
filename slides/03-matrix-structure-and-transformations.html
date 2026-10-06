@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-05">
+  <meta name="dcterms.date" content="2026-10-06">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 5, 2026</p>
+  <p class="date">October 6, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -705,7 +705,7 @@ In this deck
 <p>The pattern of entries can reveal how a matrix behaves before any calculation</p>
 <ul>
 <li><a href="#/diagonal-matrices-act-one-coordinate-at-a-time">Diagonal matrices act one coordinate at a time</a></li>
-<li><a href="#/triangular-matrices-expose-pivots">Triangular matrices expose pivots</a></li>
+<li><a href="#/triangular-matrices-expose-pivots">Triangular matrices expose pivots</a> · <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivot definition</a></li>
 <li><a href="#/tridiagonal-matrices-couple-neighboring-grid-values">Tridiagonal matrices couple neighboring grid values</a></li>
 <li><a href="#/transpose-exchanges-rows-and-columns">Transpose exchanges rows and columns</a></li>
 <li><a href="#/symmetric-matrices-mirror-pairwise-relationships">Symmetric matrices mirror pairwise relationships</a></li>
@@ -737,7 +737,7 @@ d_1x_1&amp;d_2x_2&amp;\cdots&amp;d_nx_n
 </div>
 </section>
 <section id="triangular-matrices-expose-pivots" class="slide level2">
-<h2>Triangular matrices expose pivots</h2>
+<h2>Triangular matrices expose <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivots</a></h2>
 <div class="columns">
 <div class="column" style="width:47%;">
 <h3 id="lower-triangular">Lower triangular</h3>
@@ -785,7 +785,7 @@ u_{11}&amp;u_{12}&amp;u_{13}\\
 \]</span></p>
 <ul>
 <li>Diagonal pivots — <span class="math inline">\(1,2,1\)</span></li>
-<li>Every pivot nonzero — <span class="math inline">\(\mat{U}\)</span> invertible</li>
+<li>A pivot in every column — <span class="math inline">\(\mat{U}\)</span> invertible</li>
 <li>Inverse from Gauss–Jordan reduction of <span class="math inline">\([\,\mat{U}\mid\mat{I}\,]\)</span></li>
 </ul>
 <p><span class="math display">\[
@@ -947,7 +947,7 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 </ul>
 </div>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Numerically solve the system for <span class="math inline">\(\vct{y}=[y_1,y_2,y_3,y_4]^{\mathsf T}\)</span>.</span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Numerically solve the system for <span class="math inline">\(\vct{y}=[y_1,y_2,y_3,y_4]^{\mathsf T}\)</span></span></p>
 </div>
 <aside class="notes">
 <p>The numerical solution is</p>
@@ -1241,7 +1241,7 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 \end{bmatrix}
 \]</span></p>
 <ul>
-<li>First pivot zero</li>
+<li>First pivot candidate is zero</li>
 <li><span class="math inline">\(\mat{\Pi}_1=\mat{P}_{12}\)</span> — exchange rows <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span></li>
 </ul>
 <p><span class="math display">\[
@@ -1275,7 +1275,7 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 \end{bmatrix}
 \]</span></p>
 <div class="key-point">
-<p>Next pivot zero — another row exchange</p>
+<p>Next pivot candidate is zero — another row exchange</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1394,7 +1394,7 @@ y'(x_i)\approx\frac{y_{i+1}-y_{i-1}}{2h}
 <p>Each new <span class="math inline">\(\vct{b}\)</span> with saved PLU — permute, forward solve, and back solve: <span class="math inline">\(O(n^2)\)</span> operations, without forming an inverse</p>
 </div>
 <div class="small">
-<p>The <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/03-matrix-structure-and-transformations.ipynb">Lecture 03 companion notebook</a> carries out these steps with SciPy, including packed factors, pivot indices, multiple right-hand sides, residual checks, and measured solve times.</p>
+<p>The <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/03-matrix-structure-and-transformations.ipynb">Lecture 03 companion notebook</a> carries out these steps with SciPy, including packed factors, pivot indices, multiple right-hand sides, residual checks, and measured solve times</p>
 </div>
 </section></section>
 <section>
@@ -1855,7 +1855,7 @@ s=\sin\theta
 \mat{A}^{-1}=\mat{A}^{\mathsf T}
 \]</span></p>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> For <span class="math inline">\(\mat{A}\in\reals^{2\times2}\)</span>, show that this identity holds exactly when its columns are an orthonormal pair—each has length <span class="math inline">\(1\)</span>, and their dot product is <span class="math inline">\(0\)</span>.<br>Show that it also holds exactly when its rows are an orthonormal pair. <span class="exsub">Hint: the entries of <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}\)</span> are dot products of columns; the entries of <span class="math inline">\(\mat{A}\mat{A}^{\mathsf T}\)</span> are dot products of rows.</span> <span class="exsub">Verify the identity for the rotation <span class="math inline">\(\mat{R}_{\theta}\)</span> above and the reflection across <span class="math inline">\(y=x\)</span>, <span class="math inline">\(\mat{H}=\begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix}\)</span>.</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> For <span class="math inline">\(\mat{A}\in\reals^{2\times2}\)</span>, show that this identity holds exactly when its columns are an orthonormal pair—each has length <span class="math inline">\(1\)</span>, and their dot product is <span class="math inline">\(0\)</span><br>Show that it also holds exactly when its rows are an orthonormal pair <span class="exsub">Hint: the entries of <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}\)</span> are dot products of columns; the entries of <span class="math inline">\(\mat{A}\mat{A}^{\mathsf T}\)</span> are dot products of rows</span> <span class="exsub">Verify the identity for the rotation <span class="math inline">\(\mat{R}_{\theta}\)</span> above and the reflection across <span class="math inline">\(y=x\)</span>, <span class="math inline">\(\mat{H}=\begin{bmatrix}0&amp;1\\1&amp;0\end{bmatrix}\)</span></span> </span></p>
 </div>
 <aside class="notes">
 <p>Write <span class="math inline">\(\mat{A}=[\vct{A}_1\ \vct{A}_2]\)</span>. The <span class="math inline">\((i,j)\)</span> entry of <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}\)</span> is <span class="math inline">\(\vct{A}_i^{\mathsf T}\vct{A}_j\)</span>, so <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}=\mat{I}\)</span> exactly when the columns are orthonormal. Likewise, the entries of <span class="math inline">\(\mat{A}\mat{A}^{\mathsf T}\)</span> are dot products of rows. For a square matrix, either identity makes <span class="math inline">\(\mat{A}^{\mathsf T}\)</span> the inverse, so both the column and row conditions hold.</p>
@@ -1988,13 +1988,15 @@ T_{\mat{B}}:\reals^k\to\reals^m
 <h1>How Far We Have Come</h1>
 <p><span class="alert">One matrix, computational and geometric views</span></p>
 <ul>
-<li><a href="01-systems-and-matrices.html#read-the-solution-set">Systems</a> — <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>; elimination reveals contradictions and free variables</li>
-<li><a href="03-matrix-structure-and-transformations.html#triangular-factors-organize-repeated-solves">Reusable solves</a> — <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span> stores row order and triangular work</li>
-<li><a href="03-matrix-structure-and-transformations.html#standard-basis-vectors-reveal-every-column">Transformations</a> — columns are basis images; matrix products compose actions</li>
-<li><a href="02-inverses-and-invertibility.html#reversible-versus-information-losing">Reversibility</a> — inverses undo actions; projections show how information can be lost</li>
+<li><a href="01-systems-and-matrices.html#read-the-solution-set">Systems and Matrices</a> — row operations on <span class="math inline">\([\,\mat{A}\mid\vct{b}\,]\)</span> preserve solutions; reduction reveals inconsistencies (contradictions) and free variables</li>
+<li><a href="02-inverses-and-invertibility.html#reduce-beside-the-identity">Inverses</a> — for invertible square <span class="math inline">\(\mat{A}\)</span>, Gauss–Jordan gives <span class="math inline">\([\,\mat{A}\mid\mat{I}\,]\longrightarrow[\,\mat{I}\mid\mat{A}^{-1}\,]\)</span></li>
+<li><span class="alert">Matrix patterns</span> — diagonal scaling, triangular substitution, and tridiagonal neighbor coupling</li>
+<li><a href="#/triangular-factors-organize-repeated-solves">Reusable solves</a> — <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span> stores row order and elimination; for invertible <span class="math inline">\(\mat{A}\)</span>, solve <span class="math inline">\(\mat{L}\vct{y}=\mat{P}^{\mathsf T}\vct{b}\)</span>, then <span class="math inline">\(\mat{U}\vct{x}=\vct{y}\)</span></li>
+<li><a href="#/standard-basis-vectors-reveal-every-column">Linear transformations</a> — columns are standard-basis images; <span class="math inline">\(\mat{A}\mat{B}\vct{x}=\mat{A}(\mat{B}\vct{x})\)</span> applies <span class="math inline">\(\mat{B}\)</span> first</li>
+<li><a href="#/one-vector-reveals-four-different-actions">Geometry</a> — orthogonal maps preserve lengths; nonidentity projections lose directions and are singular</li>
 </ul>
 <div class="key-point">
-<p>Matrix structure tells us both <span class="alert">how to compute</span> and <span class="alert">what the action does</span></p>
+<p>Factors decompose the computation; geometric actions explain what it does</p>
 </div>
 </section>
 

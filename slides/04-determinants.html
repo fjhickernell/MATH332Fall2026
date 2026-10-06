@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-05">
+  <meta name="dcterms.date" content="2026-10-06">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 5, 2026</p>
+  <p class="date">October 6, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -930,7 +930,7 @@ u_{11}&amp;u_{12}&amp;\cdots&amp;u_{1n}\\
 <p>To compute <span class="math inline">\(\det(\mat{A})\)</span>:</p>
 <ol type="1">
 <li>Eliminate to triangular form using row replacements and swaps</li>
-<li>Avoid normalizing pivot rows; otherwise track the scaling</li>
+<li>Avoid normalizing <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivot</a> rows; otherwise track the scaling</li>
 <li>If elimination used <span class="math inline">\(s\)</span> swaps, then <span class="math inline">\(\det(\mat{A})=(-1)^s\prod_{j=1}^n u_{jj}\)</span></li>
 </ol>
 </section>
@@ -1467,15 +1467,17 @@ a&amp;\rho b&amp;0\\0&amp;0&amp;\rho a\\b&amp;-\rho a&amp;0
 
 <section id="how-far-we-have-come" class="title-slide slide level1 center">
 <h1>How Far We Have Come</h1>
-<p><span class="alert">One matrix, four connected views</span></p>
+<p><span class="alert">Solvability, computation, and geometry meet in one scalar</span></p>
 <ul>
-<li><a href="01-systems-and-matrices.html#the-augmented-matrix-stores-the-system">Representation</a> — <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> expresses systems and applications</li>
-<li><a href="03-matrix-structure-and-transformations.html#elimination-becomes-a-factorization">Elimination</a> — row reduction exposes contradictions or free variables; PLU reuses the work for new right-hand sides</li>
-<li><a href="03-matrix-structure-and-transformations.html#standard-basis-vectors-reveal-every-column">Transformation</a> — columns show basis images; products compose actions, inverses undo them</li>
-<li><a href="04-determinants.html#a-determinant-is-a-signed-scale-factor">Geometry</a> — <span class="math inline">\(\det(\mat{A})\)</span> gives signed volume scale and detects collapse</li>
+<li><a href="01-systems-and-matrices.html#the-augmented-matrix-stores-the-system">Systems and Matrices</a> — reduce <span class="math inline">\([\,\mat{A}\mid\vct{b}\,]\)</span> to test consistency and find free variables</li>
+<li><a href="03-matrix-structure-and-transformations.html#triangular-factors-organize-repeated-solves">Matrix Transformations</a> — PLU saves repeated solves; columns are basis images and products compose actions</li>
+<li><a href="02-inverses-and-invertibility.html#undo-products-in-reverse-order">Inverses</a> — for invertible <span class="math inline">\(\mat{A},\mat{B}\)</span>, <span class="math inline">\((\mat{A}\mat{B})^{-1}=\mat{B}^{-1}\mat{A}^{-1}\)</span> reverses factor order</li>
+<li><a href="04-determinants.html#a-determinant-is-a-signed-scale-factor">Determinants</a> — <span class="math inline">\(|\det(\mat{A})|\)</span> gives volume scale; the sign gives orientation; zero means collapse</li>
+<li><a href="#/read-the-determinant-from-plu">Compute from PLU</a> — for square <span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span>, <span class="math inline">\(\det(\mat{A})=(-1)^s\prod_j u_{jj}\)</span>, with <span class="math inline">\(s\)</span> row swaps</li>
+<li><a href="#/a-jacobian-is-the-local-linear-map">Local geometry</a> — a Jacobian linearizes a map; its absolute determinant gives local area or volume scale</li>
 </ul>
 <div class="key-point">
-<p>For square <span class="math inline">\(\mat{A}\)</span>: <span class="math inline">\(\det(\mat{A})\ne0\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(n\)</span> pivots <span class="math inline">\(\iff\)</span> <span class="math inline">\(\mat{A}^{-1}\)</span> exists <span class="math inline">\(\iff\)</span> one solution for every <span class="math inline">\(\vct{b}\)</span></p>
+<p>For <span class="math inline">\(n\times n\)</span> <span class="math inline">\(\mat{A}\)</span>: <span class="math inline">\(\det(\mat{A})\ne0\)</span> <span class="math inline">\(\iff\)</span> <span class="math inline">\(n\)</span> <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivots</a> <span class="math inline">\(\iff\)</span> <span class="math inline">\(\mat{A}^{-1}\)</span> exists <span class="math inline">\(\iff\)</span> one solution for every <span class="math inline">\(\vct{b}\)</span></p>
 </div>
 </section>
 
