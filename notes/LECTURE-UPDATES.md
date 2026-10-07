@@ -2,7 +2,7 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest reconciled instructional meeting: October 1, 2026
+- Latest reconciled instructional meeting: October 6, 2026
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -12,6 +12,7 @@
 | September 24, 2026 | Reconciled through the worked nearest-point projection example; nearest-point exercise left for practice and cross products previewed only | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5510df24-5c1f-4771-a918-b4cf01302e9a) | September 29, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 05 at “Find the nearest point and distance,” then “A special 3D operation: the cross product” | September 24, 2026 |
 | September 29, 2026 | Reconciled: nearest-point practice; cross product, determinant pattern, area and plane-normal examples; scalar triple product; general vector spaces previewed only | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6cce5357-9159-4422-91f7-b4d4012f8b82) | October 1, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 06 at “The previous deck found directions inside solution sets,” before Quiz 2 | September 29, 2026 |
 | October 1, 2026 | Reconciled: vector-space axioms and scalar fields; polynomial, function, DE, and Fourier examples; affine solution spaces and zero-vector test; operations example completed; subspaces displayed but deferred | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0ce3ba75-8d71-41df-82b3-b4d601242487) | October 6, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 06 at “Subspaces and Span” → “A subspace inherits its operations” | October 1, 2026 |
+| October 6, 2026 | Reconciled: subspace tests for polynomial and matrix families, homogeneous solution sets, span as linear combinations, plane-span membership and redundant generators; polynomial spanning remains | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9c378e01-89cd-41f8-af88-b4db01321802) | October 8, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 06 at “Spanning polynomials means matching every coefficient” | October 7, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -97,3 +98,19 @@ America/Chicago hours. Fantastical independently shows the corrected notes
 for both dates and Chicago 11:15 AM–12:45 PM times. Future verification must
 read the saved note after the recurrence choice, rather than rely on the
 text displayed during editing.
+
+## October 6 recording evidence
+
+The October 6 readiness notice identifies an 11:19 AM start and 1:25:06
+recording. After the closing-summary preview, instruction returns to span as
+a matrix product at 1:07:36, the plane example at 1:13:09, and “Membership
+and an extra generator” at 1:13:30 (slide 38 of 47). Closing captions
+complete membership and redundancy, including two representations of
+(3,2,5); the instructor verbally changes the last exercise target to that
+vector. Polynomial spanning was not developed. Basis terminology was
+previewed, rather than taught as a completed unit.
+
+The October 8 occurrence was saved using “Only This Event” and reopened in
+Illinois Tech Fred → Calendar to verify the continuation note, PH 109, and
+existing meeting hours. Fantastical independently confirms the saved note
+and Chicago times. Recording tabs were closed after inspection.

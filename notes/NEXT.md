@@ -10,7 +10,7 @@ The capstone prioritizes SVD and regression, with quadratic forms, FFT,
 tensor products, power iteration/PageRank, and graph Laplacians as modular
 choices. Its class-preferences slide asks students to rank optional coverage;
 select topics and pacing after review. Companion demonstrations remain to be
-built. The imminent October 6 preparation and Chapter 4 review below remain.
+built. The imminent October 8 preparation and Chapter 4 review below remain.
 
 Both new decks and the twelve-deck navigation pass local rendering,
 MathJax/layout inspection, and link/anchor checks. Worked QR, regression,
@@ -118,18 +118,15 @@ algebraic representations from convergent Hilbert-space expansions.
 Named deck references follow `classlib/docs/slide-style.md`, intentionally
 adopted in this course at HickernellAcademicLib commit `5becc32`.
 
-The lecture ledger and schedule are reconciled through October 1. Prepare
-October 6 to resume Vector Spaces, Subspaces, and Span, at “Subspaces and Span”
-→ “A subspace inherits its operations.” October 1 completed the introductory
-vector-space axioms and examples, affine solution spaces, the zero-vector
-test, and the role of the operations; subspaces were displayed but deferred
-before Quiz 2. The October 6 Illinois Tech → Calendar occurrence was saved
-using “Only This Event” and reopened to verify its continuation note and
-PH 109, 11:15 AM–12:45 PM hours. The stale “Notebook for geometry, then
-determinants” note was found on both October 1 and October 6 despite the prior
-verification record; both occurrence notes were corrected and reopened.
-Fantastical independently confirms both corrected notes and Chicago times.
-The underlying cause remains unverified.
+The lecture ledger and schedule are reconciled through October 6. Prepare
+October 8 to resume Deck 06 at “Spanning polynomials means matching every
+coefficient.” October 6 completed subspace tests, span as linear combinations,
+plane-span membership, and redundant generators. The October 8 Illinois Tech
+Fred → Calendar occurrence was saved using “Only This Event” and reopened to
+verify its continuation note, PH 109, and 11:15 AM–12:45 PM hours. Fantastical
+independently confirms the saved note and Chicago times. These schedule and
+handoff changes are included in the October 7 checkpoint; remote deployment
+is pending.
 
 Quiz 2 website coverage is updated to Determinants and Euclidean Vector
 Spaces through projections (excluding cross products), as confirmed by the
