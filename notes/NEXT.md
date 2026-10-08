@@ -22,7 +22,8 @@ is published and verified (October 8, 8:35 AM CDT).
 Notation touch-ups use square brackets for numerical vector columns and
 explicit columns in the zero-test set definitions. The extra-generator
 practice now states its representation equation and allows zero coefficients;
-its answer notes explain why redundancy makes coefficients nonunique.
+both membership parts ask “If so, find coefficients.” Its answer notes explain
+why redundancy makes coefficients nonunique.
 
 Inner Product Spaces (`slides/10-inner-product-spaces.qmd`, 46 slides) now
 has an instructor-review draft covering inner products, projections,

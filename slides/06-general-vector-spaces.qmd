@@ -945,8 +945,8 @@ $\vct{v}_3=[1,1,2]^{\mathsf T}$
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
 <span>Use coefficients or the plane equation $z=x+y$
-<span class="exsub">Is $[3,2,5]^{\mathsf T}$ in the span? Find coefficients</span>
-<span class="exsub">Is $[3,2,4]^{\mathsf T}$ in the span?</span>
+<span class="exsub">Is $[3,2,5]^{\mathsf T}$ in the span? If so, find coefficients</span>
+<span class="exsub">Is $[3,2,4]^{\mathsf T}$ in the span? If so, find coefficients</span>
 <span class="exsub">Does adding $\vct{v}_3$ enlarge the span? Explain</span>
 <span class="exsub">Find two different coefficient lists in $\vct{v}_3=c_1\vct{v}_1+c_2\vct{v}_2+c_3\vct{v}_3$; zero coefficients are allowed</span>
 </span>
