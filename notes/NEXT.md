@@ -2,6 +2,11 @@
 
 ## Current task
 
+Prepare the October 15 continuation in Deck 07: briefly recap independence
+and bases, then resume at “Example: independent Fourier modes.” Return to
+the deferred differentiation-by-coordinates, regression, and PCA motivation.
+Quiz 3 remains in the last 15 minutes with its announced coverage unchanged.
+
 Review the new opening motivation in Bases and Coordinates: linear
 combinations build vectors, span describes reach, independence gives unique
 coefficients, and an ordered basis turns them into coordinates. Seven content
@@ -33,7 +38,7 @@ The capstone prioritizes SVD and regression, with quadratic forms, FFT,
 tensor products, power iteration/PageRank, and graph Laplacians as modular
 choices. Its class-preferences slide asks students to rank optional coverage;
 select topics and pacing after review. Companion demonstrations remain to be
-built. The imminent October 8 preparation and Chapter 4 review below remain.
+built. The October 15 preparation and Chapter 4 review below remain.
 
 Both new decks and the twelve-deck navigation pass local rendering,
 MathJax/layout inspection, and link/anchor checks. Worked QR, regression,
@@ -141,15 +146,20 @@ algebraic representations from convergent Hilbert-space expansions.
 Named deck references follow `classlib/docs/slide-style.md`, intentionally
 adopted in this course at HickernellAcademicLib commit `5becc32`.
 
-The lecture ledger and schedule are reconciled through October 6. Prepare
-October 8 to resume Deck 06 at “Spanning polynomials means matching every
-coefficient.” October 6 completed subspace tests, span as linear combinations,
-plane-span membership, and redundant generators. The October 8 Illinois Tech
-Fred → Calendar occurrence was saved using “Only This Event” and reopened to
-verify its continuation note, PH 109, and 11:15 AM–12:45 PM hours. Fantastical
-independently confirms the saved note and Chicago times. These schedule and
-handoff changes are included in the October 7 checkpoint; publishing and Pages
-deployment succeeded.
+The lecture ledger and schedule are reconciled through October 8. Deck 06
+finished with polynomial-span coefficient tests and a singular example;
+remaining practice was left to students. Deck 07 developed the transformed
+square, polynomial dependence and redundancy, the basis definition, and R³
+membership/basis examples. Fourier examples, the uniqueness proof, and the
+deferred coordinate applications remain. The Course Outline now estimates
+Deck 06 at three 50-minute hours. October 13 is Fall Break. The October 15
+Illinois Tech Fred → Calendar occurrence was saved using “Only This Event”
+and reopened to verify its continuation note, PH 109, and 11:15 AM–12:45 PM
+hours; Fantastical independently confirms the saved note and Chicago times.
+The schedule and updated Course Outline render successfully. Desktop and
+phone layout checks pass; schedule dates now have enough desktop width to
+stay separate from the topic column. Check the publishing and Pages workflows
+before relying on the deployed update.
 
 Quiz 2 website coverage is updated to Determinants and Euclidean Vector
 Spaces through projections (excluding cross products), as confirmed by the

@@ -2,7 +2,7 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest reconciled instructional meeting: October 6, 2026
+- Latest reconciled instructional meeting: October 8, 2026
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -13,6 +13,7 @@
 | September 29, 2026 | Reconciled: nearest-point practice; cross product, determinant pattern, area and plane-normal examples; scalar triple product; general vector spaces previewed only | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6cce5357-9159-4422-91f7-b4d4012f8b82) | October 1, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 06 at “The previous deck found directions inside solution sets,” before Quiz 2 | September 29, 2026 |
 | October 1, 2026 | Reconciled: vector-space axioms and scalar fields; polynomial, function, DE, and Fourier examples; affine solution spaces and zero-vector test; operations example completed; subspaces displayed but deferred | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0ce3ba75-8d71-41df-82b3-b4d601242487) | October 6, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 06 at “Subspaces and Span” → “A subspace inherits its operations” | October 1, 2026 |
 | October 6, 2026 | Reconciled: subspace tests for polynomial and matrix families, homogeneous solution sets, span as linear combinations, plane-span membership and redundant generators; polynomial spanning remains | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9c378e01-89cd-41f8-af88-b4db01321802) | October 8, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 06 at “Spanning polynomials means matching every coefficient” | October 7, 2026 |
+| October 8, 2026 | Reconciled: polynomial-span coefficient tests and singular example; coordinate motivation and transformed square; polynomial dependence, redundant-generator removal, and R³ basis tests by elimination | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6f1ffeed-06a8-46bb-831e-b4dd012c2299) | October 15, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 07 at “Example: independent Fourier modes,” recap independence/bases and revisit deferred coordinate applications; Quiz 3 remains in the last 15 minutes | October 8, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -114,3 +115,37 @@ The October 8 occurrence was saved using “Only This Event” and reopened in
 Illinois Tech Fred → Calendar to verify the continuation note, PH 109, and
 existing meeting hours. Fantastical independently confirms the saved note
 and Chicago times. Recording tabs were closed after inspection.
+
+## October 8 recording evidence
+
+The Illinois Tech Fred inbox readiness notice identifies an 11:36 AM start
+and 1:04:05 recording. Polynomial spanning begins at 10:15, followed by the
+singular coefficient-matrix example at 15:09; the constant polynomial is
+shown outside the span by inconsistency. At 23:10 the instructor leaves
+the remaining examples for student practice, then reviews Deck 06's Big
+Ideas. Deck 07 begins at 27:36. Standard coordinates and polynomial
+coefficients lead to the transformed-square example at 32:12. The
+differentiation slide is displayed at 35:30, but its development, regression,
+and PCA are explicitly deferred at 35:38–35:50.
+
+The independence definition begins at 36:15. The board develops the
+dependence of the earlier three polynomials, removes one redundant
+generator, and identifies the remaining pairs as bases of their span
+(40:12–43:19). The basis definition follows at 44:10. Student-selected R³
+examples run from 45:26 through 1:03:22: a one-vector span, an inconsistent
+membership system for two generators, and a three-vector basis verified by
+elimination, followed by dependent choices for the third vector. Fourier
+examples and the proof of coordinate uniqueness were not developed.
+
+Resume Deck 07 at “Example: independent Fourier modes” after a brief recap;
+return to the deferred coordinate applications. October 13 is Fall Break.
+October 15 is an instructional meeting with Quiz 3 in its last 15 minutes,
+so it is the continuation destination. The calendar note was saved with
+“Only This Event,” closed, and reopened; Illinois Tech Fred → Calendar,
+PH 109, date, hours, and saved note were verified. Fantastical independently
+confirms both the note and Chicago times. Playback was paused and muted.
+
+Deck 06 is complete for classroom pacing, with its remaining practice left
+to students. Its Course Outline estimate is three 50-minute hours: roughly
+57 minutes on October 1, 85 on October 6, and 20 on October 8, excluding
+quiz time and Deck 07's motivation preview.
