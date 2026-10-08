@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-07">
+  <meta name="dcterms.date" content="2026-10-08">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -633,7 +633,7 @@
 
 <section id="title-slide" data-background-color="#f5f7fb" data-background-image="https://fjhickernell.github.io/MATH332Fall2026/classlib/classlib/quarto/assets/images/normal-scatter.png" data-background-position="top left" data-background-size="55%" class="quarto-title-block center">
   <h1 class="title">MATH 332 — Fall 2026</h1>
-  <p class="subtitle"><span class="deck-title">Vector Spaces,<br>Subspaces, and Span</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul §§4.1–4.3</span></p>
+  <p class="subtitle"><span class="deck-title">Vector Spaces,<br>Subspaces, and Span</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul §§4.1–4.3<br> Quiz 3 on 10/15</span></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 7, 2026</p>
+  <p class="date">October 8, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -877,7 +877,7 @@ New examples
 <p>A vector in <span class="math inline">\(\mathbb{F}_2^n\)</span> is a binary string; vector addition applies XOR coordinatewise</p>
 <p>For example,</p>
 <p><span class="math display">\[
-(1,0,1,1)+(1,1,0,1)=(0,1,1,0)
+[1,0,1,1]^{\mathsf T}+[1,1,0,1]^{\mathsf T}=[0,1,1,0]^{\mathsf T}
 \]</span></p>
 <div class="key-point">
 <p>Changing the scalar field changes which linear combinations are possible</p>
@@ -901,7 +901,7 @@ New examples
 <h3 id="additive-inverses-over-f2">Additive inverses over <span class="math inline">\(\mathbb{F}_2\)</span></h3>
 <p>An additive inverse adds to give <span class="math inline">\(\vct{0}\)</span>; in <span class="math inline">\(\mathbb{F}_2\)</span>, <span class="math inline">\(1+1=0\)</span></p>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find the additive inverse of <span class="math inline">\(\vct{u}=(1,0,1,1)\)</span> in <span class="math inline">\(\mathbb{F}_2^4\)</span> <span class="exsub">Repeat for <span class="math inline">\(\vct{w}=(0,1,1,0)\)</span></span> <span class="exsub">Does the answer generalize to every vector in <span class="math inline">\(\mathbb{F}_2^n\)</span>? Explain using XOR</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find the additive inverse of <span class="math inline">\(\vct{u}=[1,0,1,1]^{\mathsf T}\)</span> in <span class="math inline">\(\mathbb{F}_2^4\)</span> <span class="exsub">Repeat for <span class="math inline">\(\vct{w}=[0,1,1,0]^{\mathsf T}\)</span></span> <span class="exsub">Does the answer generalize to every vector in <span class="math inline">\(\mathbb{F}_2^n\)</span>? Explain using XOR</span> </span></p>
 </div>
 <aside class="notes">
 <p>Both vectors are their own additive inverses. Use <span class="math inline">\(\vct{u}\)</span> on the board and leave <span class="math inline">\(\vct{w}\)</span> and the generalization for students: each bit added to itself by XOR gives zero, so <span class="math inline">\(\vct{v}+\vct{v}=\vct{0}\)</span> for every <span class="math inline">\(\vct{v}\in\mathbb{F}_2^n\)</span>.</p>
@@ -1037,7 +1037,7 @@ f(t)=a\cos t+b\sin t,
 
 <h3 id="try-another-equation-and-a-system">Try another equation and a system</h3>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Test whether linear combinations of solutions are still solutions <span class="exsub">For <span class="math inline">\(h''-h=0\)</span>, verify that <span class="math inline">\(e^t\)</span> and <span class="math inline">\(e^{-t}\)</span> solve it and that every <span class="math inline">\(ae^t+be^{-t}\)</span> does too</span> <span class="exsub">For <span class="math inline">\(\mat{A}=\operatorname{diag}(1,-1)\)</span>, verify that <span class="math inline">\((e^t,0)^{\mathsf T}\)</span> and <span class="math inline">\((0,e^{-t})^{\mathsf T}\)</span> solve <span class="math inline">\(\vct{y}'=\mat{A}\vct{y}\)</span> and so does every linear combination</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Test whether linear combinations of solutions are still solutions <span class="exsub">For <span class="math inline">\(h''-h=0\)</span>, verify that <span class="math inline">\(e^t\)</span> and <span class="math inline">\(e^{-t}\)</span> solve it and that every <span class="math inline">\(ae^t+be^{-t}\)</span> does too</span> <span class="exsub">For <span class="math inline">\(\mat{A}=\operatorname{diag}(1,-1)\)</span>, verify that <span class="math inline">\([e^t,0]^{\mathsf T}\)</span> and <span class="math inline">\([0,e^{-t}]^{\mathsf T}\)</span> solve <span class="math inline">\(\vct{y}'=\mat{A}\vct{y}\)</span> and so does every linear combination</span> </span></p>
 </div>
 <aside class="notes">
 <p>Use <span class="math inline">\(f''+f=0\)</span> on the previous slide as the board example. For the first variant, both exponentials satisfy <span class="math inline">\(h''=h\)</span>, and the differential operator is linear. For the system, differentiate each displayed vector and multiply by <span class="math inline">\(\mat{A}\)</span>; both give the same result. Linearity then covers any combination. The zero function solves both homogeneous equations. A nonhomogeneous equation such as <span class="math inline">\(h''-h=1\)</span> does not have the zero function as a solution.</p>
@@ -1126,7 +1126,7 @@ h(t)=-1+ae^t+be^{-t},
 </section>
 <section id="affine-sets-usually-fail-the-zero-vector-test" class="slide level2">
 <h2>Affine sets usually fail the zero-vector test</h2>
-<p>Under ordinary operations, the zero vector is <span class="math inline">\((0,0)^{\mathsf T}\)</span></p>
+<p>Under ordinary operations, the zero vector is <span class="math inline">\([0,0]^{\mathsf T}\)</span></p>
 <p><span class="math display">\[
 L=\left\{
 \begin{bmatrix}1\\2\end{bmatrix}
@@ -1220,13 +1220,13 @@ c\vct{u}+d\vct{v}\in W
 <h2>The zero vector is the quickest rejection test</h2>
 <p>For each subset of <span class="math inline">\(\reals^2\)</span>, ask first whether <span class="math inline">\(\vct{0}\)</span> belongs</p>
 <p><span class="math display">\[
-W_1=\{(x,y):x+2y=0\}
+W_1=\left\{\begin{bmatrix}x\\y\end{bmatrix}:x+2y=0\right\}
 \]</span></p>
 <p><span class="math display">\[
-W_2=\{(x,y):x+2y=1\}
+W_2=\left\{\begin{bmatrix}x\\y\end{bmatrix}:x+2y=1\right\}
 \]</span></p>
 <p><span class="math inline">\(W_1\)</span> passes the zero test and is closed under linear combinations</p>
-<p><span class="math inline">\(W_2\)</span> fails immediately because <span class="math inline">\((0,0)\notin W_2\)</span></p>
+<p><span class="math inline">\(W_2\)</span> fails immediately because <span class="math inline">\(\vct{0}\notin W_2\)</span></p>
 <div class="key-point">
 <p>Homogeneous linear conditions define subspaces; shifted conditions usually define affine sets</p>
 </div>
@@ -1236,7 +1236,7 @@ W_2=\{(x,y):x+2y=1\}
 <h3 id="containing-zero-is-necessary-not-sufficient">Containing zero is necessary, not sufficient</h3>
 <p>The union of the coordinate axes contains the origin</p>
 <p><span class="math display">\[
-W=\{(x,y)^{\mathsf T}:xy=0\}
+W=\left\{\begin{bmatrix}x\\y\end{bmatrix}:xy=0\right\}
 \]</span></p>
 <p>Every scalar multiple of a vector in <span class="math inline">\(W\)</span> stays on its axis</p>
 <div class="exitem">
@@ -1246,7 +1246,7 @@ W=\{(x,y)^{\mathsf T}:xy=0\}
 <p>The zero-vector test can reject a set; closure is still needed to accept it</p>
 </div>
 <aside class="notes">
-<p>Take (1,0)^T and (0,1)^T. Their sum (1,1)^T is off both axes, so W is not closed under addition. Containing zero and being closed under scalar multiplication together are still insufficient. This is a necessary-versus- sufficient-condition example, not a new subspace test.</p>
+<p>Take [1,0]^T and [0,1]^T. Their sum [1,1]^T is off both axes, so W is not closed under addition. Containing zero and being closed under scalar multiplication together are still insufficient. This is a necessary-versus- sufficient-condition example, not a new subspace test.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1393,7 +1393,7 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 <section class="slide level2">
 
 <h3 id="worked-example-a-span-is-a-plane">Example: a span is a plane</h3>
-<p>Take <span class="math inline">\(\vct{v}_1=(1,0,1)^{\mathsf T}\)</span> and <span class="math inline">\(\vct{v}_2=(0,1,1)^{\mathsf T}\)</span></p>
+<p>Take <span class="math inline">\(\vct{v}_1=[1,0,1]^{\mathsf T}\)</span> and <span class="math inline">\(\vct{v}_2=[0,1,1]^{\mathsf T}\)</span></p>
 <p><span class="math display">\[
 \mat{V}\vct{c}
 =\begin{bmatrix}1&amp;0\\0&amp;1\\1&amp;1\end{bmatrix}
@@ -1403,9 +1403,9 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 <p>Thus</p>
 <p><span class="math display">\[
 \operatorname{span}\{\vct{v}_1,\vct{v}_2\}
-=\{(x,y,z)^{\mathsf T}:z=x+y\}
+=\{[x,y,z]^{\mathsf T}:z=x+y\}
 \]</span></p>
-<p>For example, <span class="math inline">\((2,-1,1)^{\mathsf T}=2\vct{v}_1-\vct{v}_2\)</span> belongs; <span class="math inline">\((0,0,1)^{\mathsf T}\)</span> does not</p>
+<p>For example, <span class="math inline">\([2,-1,1]^{\mathsf T}=2\vct{v}_1-\vct{v}_2\)</span> belongs; <span class="math inline">\([0,0,1]^{\mathsf T}\)</span> does not</p>
 <div class="key-point">
 <p>A spanning description and an equation can describe the same subspace</p>
 </div>
@@ -1413,12 +1413,12 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 <section class="slide level2">
 
 <h3 id="practice-membership-and-an-extra-generator">Membership and an extra generator</h3>
-<p>Keep <span class="math inline">\(\vct{v}_1=(1,0,1)^{\mathsf T}\)</span> and <span class="math inline">\(\vct{v}_2=(0,1,1)^{\mathsf T}\)</span>; let <span class="math inline">\(\vct{v}_3=(1,1,2)^{\mathsf T}\)</span></p>
+<p>Keep <span class="math inline">\(\vct{v}_1=[1,0,1]^{\mathsf T}\)</span> and <span class="math inline">\(\vct{v}_2=[0,1,1]^{\mathsf T}\)</span>; let <span class="math inline">\(\vct{v}_3=[1,1,2]^{\mathsf T}\)</span></p>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use coefficients or the plane equation <span class="math inline">\(z=x+y\)</span> <span class="exsub">Is <span class="math inline">\((3,2,5)^{\mathsf T}\)</span> in the span? Find coefficients</span> <span class="exsub">Is <span class="math inline">\((3,2,4)^{\mathsf T}\)</span> in the span?</span> <span class="exsub">Does adding <span class="math inline">\(\vct{v}_3\)</span> enlarge the span? Explain</span> <span class="exsub">Find two different coefficient vectors representing <span class="math inline">\(\vct{v}_3\)</span> using all three generators</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use coefficients or the plane equation <span class="math inline">\(z=x+y\)</span> <span class="exsub">Is <span class="math inline">\([3,2,5]^{\mathsf T}\)</span> in the span? Find coefficients</span> <span class="exsub">Is <span class="math inline">\([3,2,4]^{\mathsf T}\)</span> in the span?</span> <span class="exsub">Does adding <span class="math inline">\(\vct{v}_3\)</span> enlarge the span? Explain</span> <span class="exsub">Find two different coefficient lists in <span class="math inline">\(\vct{v}_3=c_1\vct{v}_1+c_2\vct{v}_2+c_3\vct{v}_3\)</span>; zero coefficients are allowed</span> </span></p>
 </div>
 <aside class="notes">
-<p>(3,2,5)^T=3v_1+2v_2; (3,2,4)^T fails z=x+y. Since v_3=v_1+v_2, adding it does not enlarge the span. Coefficients (1,1,0)^T and (0,0,1)^T both represent v_3. More generally (1-s,1-s,s)^T does for every real s.</p>
+<p>[3,2,5]^T=3v_1+2v_2; [3,2,4]^T fails z=x+y. Since v_3=v_1+v_2, adding it does not enlarge the span. For part (d), the list [1,1,0]^T means v_3=1v_1+1v_2+0v_3, whereas [0,0,1]^T means v_3=0v_1+0v_2+1v_3. The three coefficient positions correspond to the ordered generators (v_1,v_2,v_3); using this list does not require every coefficient to be nonzero. More generally [1-s,1-s,s]^T represents v_3 for every real s. The target vector stays the same while its coefficients change because the generators are dependent. Call these coefficient lists, not coordinates in a basis: a basis would give a unique list.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1596,8 +1596,9 @@ W=\{p\in\mathbb{P}_3:p(1)=0\}
 <section id="what-comes-next" class="title-slide slide level1 center">
 <h1>What Comes Next</h1>
 <p>How can we remove redundant generators and describe each vector uniquely?</p>
+<p>First see how spans, bases, and coordinates connect a transformed square, polynomial differentiation, regression, and PCA</p>
 <div class="key-point">
-<p><a href="07-bases-dimension-and-coordinates.html">Next: Bases, Dimension, and Coordinates</a></p>
+<p><a href="07-bases-dimension-and-coordinates.html#why-span-bases-and-coordinates">Next: Bases, Dimension, and Coordinates</a></p>
 </div>
 
 </section>
