@@ -11,19 +11,18 @@
 
 #quarto-document-content table th:nth-child(1),
 #quarto-document-content table td:nth-child(1) {
-  width: 7%;
+  width: 4rem;
 }
 
 #quarto-document-content table th:nth-child(2),
 #quarto-document-content table td:nth-child(2) {
-  width: 12%;
-  min-width: 7rem;
+  width: 7rem;
   white-space: nowrap;
 }
 
 #quarto-document-content table th:nth-child(3),
 #quarto-document-content table td:nth-child(3) {
-  width: 51%;
+  width: auto;
   overflow-wrap: anywhere;
 }
 
