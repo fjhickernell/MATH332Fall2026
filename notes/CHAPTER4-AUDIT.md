@@ -27,6 +27,26 @@ metadata/subtitles, the welcome outline, and PLAN.
 
 ## Editorial decisions
 
+- Follow-up notation and exercise clarification: use square brackets for
+  numerical vector rows/columns, with explicit vertical columns in the
+  zero-test set definitions; retain parentheses for points and ordered lists.
+  The extra-generator exercises state the representation equation and permit
+  zero coefficients. Instructor notes distinguish nonunique coefficient lists
+  for dependent generators from unique coordinates in a basis.
+- October 8 motivation bridge: open Bases and Coordinates with a section on
+  linear combinations as constructions, span as reach, independence as
+  coefficient uniqueness, and ordered bases as coordinate systems. Seven
+  content slides use a square-to-parallelogram map, redundancy practice,
+  differentiation P_3 to P_2 through a coordinate matrix, regression in
+  response space, and centered PCA. Keep the formal definitions
+  and proofs afterward. The bounded parallelogram is not a subspace; the edge
+  vectors form a basis of the full plane. Use the same geometric scale in both
+  panels and transform every grid line and point consistently. Regression
+  needs full column rank for unique coefficients, while the fitted vector is
+  unique even with dependent columns. A retained PCA basis gives coordinates
+  of the projection, not an exact representation of every original vector.
+  Link back from Vector Spaces and Span and forward to the existing least
+  squares and low-rank treatments; leave algorithms and proofs there.
 - Keep elimination, its concrete redundancy-removal example, an alternative-
   basis exercise, and the frame preview together in the bases section.
 - Show the row operation in the example; retain pivot columns of the original
@@ -153,6 +173,23 @@ all entries are unchanged. Both decks render, all six changed slides fit at
   remain unchanged.
 - The welcome page's expanded outline was reviewed at desktop and phone widths;
   it has no horizontal overflow. New cumulative-index entries were checked.
+- October 8 motivation bridge on M3: the updated Vector Spaces and Span,
+  Bases and Coordinates, and cumulative-index decks render. The seven new
+  content slides, section outline, and updated Course Map pass 27 rendered
+  overflow/MathJax checks at 1600 by 1000, 1280 by 800, and 1024 by 768.
+  Visible review confirms diagram labels and footer/navigation clearance;
+  the PCA and differentiation layouts were refined before the final pass.
+  Exact checks cover the transformed point, derivative coordinate matrix,
+  regression residual, and synthetic PCA principal directions. All prior
+  explicit anchors survive; 210 local anchor references and local image
+  assets pass. Cross-deck clicks reach the new bridge and the existing
+  transformation, least-squares, and low-rank treatments. Source style and
+  git diff --check pass. Instructor review and publication remain.
+- The notation/exercise follow-up rerendered Decks 06 and 07. All 27 changed
+  slide sections pass 81 overflow/MathJax checks across the same three viewport
+  sizes, with no browser errors. Visible review confirms the explicit-column
+  zero tests, revised extra-generator prompts, and PCA coordinate notation;
+  210 local anchor references and local image assets still pass.
 
 Companion drafts for Decks 06–08 are constructed and locally validated.
 Instructor review of the decks and companions, and later-semester pacing,

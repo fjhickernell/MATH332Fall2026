@@ -862,6 +862,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [PLU factorization]({{< meta decks.d03.file >}}#a-permutation-matrix-records-row-order)
 - [Polynomial space]({{< meta decks.d06.file >}}#polynomials-form-a-vector-space)
 - [Precision matrix]({{< meta decks.d02.file >}}#precision-describes-conditional-structure)
+- [Principal component analysis (PCA)]({{< meta decks.d07.file >}}#pca-chooses-coordinates-adapted-to-the-data)
 - [Projection]({{< meta decks.d03.file >}}#projections-discard-information)
 :::
 

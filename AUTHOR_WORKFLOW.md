@@ -236,6 +236,10 @@ until grading is complete.
    full title, placing each link on its own line with `<br>`. The Quizzes and
    Tests page is available through the site navigation and should not be
    linked redundantly from an assessment's schedule row.
+   When a meeting combines lecture and a quiz, separate the quiz name from
+   the lecture topic and separate `Covers` from the lecture materials with
+   the schedule's `.assessment-divider` (a light rule with a blank line of
+   space on either side). Assessment-only rows need no leading divider.
 5. Add the assessment name and date to the title slide of the latest deck
    included in its coverage. Do not put the coverage or duration on the deck
    title slide, and remove or replace stale notices as the course advances.
@@ -434,6 +438,12 @@ calendar unchanged and check again later.
   symbols $\vct{A}_j$ and its rows by lowercase transposed vector symbols
   $\vct{a}_i^{\mathsf T}$. Apply the same uppercase-column/lowercase-row
   convention to other matrices.
+- Use square brackets for numerical vector rows and columns, and parentheses
+  for geometric points and ordered lists such as bases. Compact column
+  vectors may use `[a,b,...]^{\mathsf T}`; prefer an explicit vertical
+  `bmatrix` in displayed set definitions so no transpose is needed merely
+  to specify a column. Parentheses remain appropriate for abstract ordered
+  pairs when no row or column orientation is intended.
 - Use lowercase mathematical operators `col`, `row`, and `null` in course
   slides and notebooks. Represent row-space vectors as columns, so
   `col(A) = row(A^T)` and `row(A) = col(A^T)` are equalities of subspaces.

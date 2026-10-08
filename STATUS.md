@@ -76,6 +76,10 @@ Mathematical content should be maintained only in the slides.
     Verification and scope are recorded in `notes/CHAPTER4-AUDIT.md`.
   - [ ] Complete instructor-led content and visible-layout review of these
     three Chapter 4 decks.
+  - [x] Add an opening motivation bridge in Bases and Coordinates connecting
+    linear combinations, span, independence, bases, and coordinates through
+    transformed grids, polynomial differentiation by a coordinate matrix,
+    regression, and PCA; link it from Vector Spaces and Span.
   - [x] Expand General Vector Spaces with worked-example and starred-practice
     pairs for multivariable polynomials, concrete spans, matrix bases,
     dimension, coordinate arithmetic, orthogonality, and matrix representations
@@ -181,8 +185,11 @@ Mathematical content should be maintained only in the slides.
     and post all-sections Canvas announcement `106481`.
   - [x] Publish and verify Quiz 2's On Paper Canvas assignment on September 30; grades remain for later entry.
   - [x] Complete the private Quiz 2 draft; final printing remains.
+  - [x] Finalize Quiz 3 coverage as Euclidean Vector Spaces and Vector Spaces,
+    Subspaces, and Span; update the assessment page, schedule, and Deck 06 notice.
+  - [ ] Publish and verify the Quiz 3 coverage announcement to all Canvas sections.
   - [x] Publish and verify Quizzes 3–5 for their announced October 15,
-    November 12, and December 1 dates; coverage remains TBD. Both tests are
+    November 12, and December 1 dates; Quiz 4 and Quiz 5 coverage remains TBD. Both tests are
     published. Grades remain for later entry.
   - [x] Schedule Test 2 for October 29 in PH 109; create and publish its
     On Paper Canvas assignment for 12:45 PM; add the date to the

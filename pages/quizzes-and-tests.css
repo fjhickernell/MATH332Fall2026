@@ -1,0 +1,50 @@
+/* Fit this course's assessment table and long archive labels on narrow screens. */
+#quarto-document-content {
+  overflow-wrap: anywhere;
+}
+
+#quarto-document-content table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+#quarto-document-content table col {
+  width: auto !important;
+}
+
+#quarto-document-content table th,
+#quarto-document-content table td,
+#quarto-document-content table a {
+  white-space: normal;
+}
+
+#quarto-document-content table th:nth-child(1),
+#quarto-document-content table td:nth-child(1) {
+  width: 16%;
+}
+
+#quarto-document-content table th:nth-child(2),
+#quarto-document-content table td:nth-child(2) {
+  width: 17%;
+}
+
+#quarto-document-content table th:nth-child(3),
+#quarto-document-content table td:nth-child(3) {
+  width: 42%;
+}
+
+#quarto-document-content table th:nth-child(4),
+#quarto-document-content table td:nth-child(4) {
+  width: 25%;
+}
+
+@media (max-width: 768px) {
+  #quarto-document-content table {
+    font-size: 14px;
+  }
+
+  #quarto-document-content table th,
+  #quarto-document-content table td {
+    padding: 0.35rem 0.25rem;
+  }
+}

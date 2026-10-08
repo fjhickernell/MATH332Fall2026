@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 560" role="img" aria-labelledby="pca-title pca-desc">
+  <title id="pca-title">Coordinates along principal directions</title>
+  <desc id="pca-desc">Eight synthetic centered observations have orthogonal principal directions q1=(1,1)/sqrt(2) and q2=(-1,1)/sqrt(2). The highlighted vector z has scores (3,1/2); its nearest point on the q1 line is 3q1.</desc>
+  <style>
+    text { font-family: "Times New Roman", Times, serif; font-size: 25px; fill: #064b76; }
+    .vector { font-weight: bold; font-style: italic; }
+    .observation { fill: #7a949e; }
+  </style>
+  <defs>
+    <marker id="pca-blue" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#064b76"/></marker>
+    <marker id="pca-teal" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#168b90"/></marker>
+  </defs>
+  <!-- Equal feature scales: (x,y) -> (280+90x,280-90y). -->
+  <path d="M35,280 H525 M280,525 V25" stroke="#b8c5cc" stroke-width="2"/>
+  <text x="519" y="307" font-style="italic">x₁</text>
+  <text x="292" y="29" font-style="italic">x₂</text>
+  <path d="M45,515 L515,45" stroke="#168b90" stroke-width="2" stroke-dasharray="8 6"/>
+  <path d="M175,175 L385,385" stroke="#b8c5cc" stroke-width="2" stroke-dasharray="5 6"/>
+  <g class="observation">
+    <circle cx="120.901" cy="502.739" r="7"/>
+    <circle cx="455.009" cy="200.45" r="7"/>
+    <circle cx="104.991" cy="359.55" r="7"/>
+    <circle cx="343.64" cy="216.36" r="7"/>
+    <circle cx="216.36" cy="343.64" r="7"/>
+    <circle cx="248.18" cy="248.18" r="7"/>
+    <circle cx="311.82" cy="311.82" r="7"/>
+  </g>
+  <path d="M280,280 L343.64,216.36" stroke="#168b90" stroke-width="5" marker-end="url(#pca-teal)"/>
+  <path d="M280,280 L216.36,216.36" stroke="#064b76" stroke-width="5" marker-end="url(#pca-blue)"/>
+  <text class="vector" x="356" y="220" style="fill:#168b90">q₁</text>
+  <text class="vector" x="177" y="205">q₂</text>
+  <circle cx="280" cy="280" r="4" fill="#064b76"/>
+  <text x="259" y="304">0</text>
+  <path d="M439.099,57.261 L470.919,89.081" stroke="#7b3c90" stroke-width="3" stroke-dasharray="6 4"/>
+  <circle cx="470.919" cy="89.081" r="7" fill="#168b90"/>
+  <circle cx="439.099" cy="57.261" r="8" fill="#7b3c90"/>
+  <text class="vector" x="421" y="40" style="fill:#7b3c90">z</text>
+  <text x="479" y="119" style="fill:#168b90">3<tspan class="vector">q₁</tspan></text>
+</svg>

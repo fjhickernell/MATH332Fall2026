@@ -2,6 +2,21 @@
 
 ## Current task
 
+Review the new opening motivation in Bases and Coordinates: linear
+combinations build vectors, span describes reach, independence gives unique
+coefficients, and an ordered basis turns them into coordinates. Seven content
+slides use a square-to-parallelogram map, redundancy practice, polynomial
+differentiation through a coordinate matrix, regression with a three-response
+example, and centered PCA with a one-direction approximation. Vector Spaces
+and Span links directly to this bridge. The examples link forward to Matrix
+Spaces and Rank, Inner Products, and Special Topics. Local mathematical,
+rendered-layout, and link checks pass; instructor review remains. The October 8
+checkpoint publishes this bridge and its notation/exercise touch-ups.
+Notation touch-ups use square brackets for numerical vector columns and
+explicit columns in the zero-test set definitions. The extra-generator
+practice now states its representation equation and allows zero coefficients;
+its answer notes explain why redundancy makes coefficients nonunique.
+
 Inner Product Spaces (`slides/10-inner-product-spaces.qmd`, 46 slides) now
 has an instructor-review draft covering inner products, projections,
 Gram–Schmidt/QR, regression, and function/Fourier approximation. Review this
@@ -47,7 +62,7 @@ Vector Spaces, Subspaces, and Span (`06-general-vector-spaces.qmd`, Anton
 (`07-bases-dimension-and-coordinates.qmd`, §§4.4–4.7, with basis extraction
 from §4.8); and Matrix Spaces and Rank (`08-matrix-spaces-and-rank.qmd`,
 §§4.8–4.9, with a closing preview of §§8.1 and 8.4). Their instructional
-sections number four, six, and five; their slide counts are 47, 47, and 35,
+sections number four, seven, and five; their slide counts are 47, 55, and 35,
 including titles and closing slides.
 
 The deck sequence is consecutive from 00 through 11: the Chapter 4 decks
@@ -167,11 +182,19 @@ address reported Colab problems.
   Canvas On Paper assignment `104699` is published and verified for Everyone,
   in Quizzes, with an October 1 at 12:40 PM deadline. Quizzes 3–5 are also
   published for their announced October 15, November 12, and December 1 dates;
-  coverage remains TBD. Both tests are published. Grades remain for later entry.
+  Quiz 3 covers Euclidean Vector Spaces and Vector Spaces, Subspaces, and Span.
+  Quiz 4 and Quiz 5 coverage remains TBD. Both tests are published. Grades
+  remain for later entry.
 - All-sections Canvas announcement `106298` posts the remaining quiz dates:
   Quiz 3 on October 15, Quiz 4 on November 12, and Quiz 5 on December 1. The
-  same dates are recorded in the Schedule and Quizzes and Tests page; coverage
-  for each remains TBD.
+  same dates are recorded in the Schedule and Quizzes and Tests page. Quiz 3
+  coverage is now finalized as the full Euclidean Vector Spaces and Vector
+  Spaces, Subspaces, and Span decks; the October 8 coverage announcement is
+  filled in for All Sections, pending deployment and verified publication. Quiz 4 and
+  Quiz 5 coverage remains TBD. Quiz 3 grading is due October 21, six calendar
+  days after October 15. Mixed lecture/quiz schedule rows now separate the
+  quiz and its coverage with a light divider and blank-line spacing. All
+  monthly tables, including the final examination, use consistent columns.
 - Assignment 2 is published in Canvas (`104698`) and available in WileyPLUS,
   with four instructor-selected questions, five points each, three attempts,
   no deduction, best score, and per-student fixed values. Deadline:
@@ -220,7 +243,7 @@ address reported Colab problems.
   their targets. Diagram implementation is documented in
   `notes/TECHNICAL-NOTES.md`, with author-workflow links and continuation rules.
 - The former General Vector Spaces draft is split into three audited decks:
-  Vector Spaces and Span (47 slides), Bases and Coordinates (47), and Matrix
+  Vector Spaces and Span (47 slides), Bases and Coordinates (55), and Matrix
   Spaces and Rank (35). Precise Anton ranges appear in their metadata,
   subtitles, website outline, and PLAN. Section outlines, previous/next links,
   course maps, schedule references, and the cumulative terms index agree.

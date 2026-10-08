@@ -4,6 +4,11 @@
   table-layout: fixed;
 }
 
+/* Let the first-row cell widths override Pandoc's inferred colgroup widths. */
+#quarto-document-content table col {
+  width: auto !important;
+}
+
 #quarto-document-content table th:nth-child(1),
 #quarto-document-content table td:nth-child(1) {
   width: 7%;
@@ -30,24 +35,42 @@
 }
 
 @media (max-width: 768px) {
+  #quarto-document-content table {
+    font-size: 14px;
+  }
+
+  #quarto-document-content table th,
+  #quarto-document-content table td {
+    padding: 0.35rem 0.25rem;
+    overflow-wrap: anywhere;
+  }
+
   #quarto-document-content table th:nth-child(1),
   #quarto-document-content table td:nth-child(1) {
-    width: 10%;
+    width: 15%;
   }
 
   #quarto-document-content table th:nth-child(2),
   #quarto-document-content table td:nth-child(2) {
     width: 20%;
     min-width: 0;
+    white-space: normal;
   }
 
   #quarto-document-content table th:nth-child(3),
   #quarto-document-content table td:nth-child(3) {
-    width: 33%;
+    width: 32%;
   }
 
   #quarto-document-content table th:nth-child(4),
   #quarto-document-content table td:nth-child(4) {
-    width: 37%;
+    width: 33%;
   }
+}
+
+/* Separate a quiz from the lecture and its materials in a mixed meeting. */
+#quarto-document-content .assessment-divider {
+  display: block;
+  border-top: 1px solid var(--bs-border-color, #dee2e6);
+  margin: 1em 0;
 }

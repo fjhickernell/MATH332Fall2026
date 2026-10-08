@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 370" role="img" aria-labelledby="square-title square-desc">
+  <title id="square-title">The same weights on a transformed grid</title>
+  <desc id="square-desc">A maps the unit square to a parallelogram with basis vectors (2,0) and (1,1). Weights one quarter and three quarters locate the highlighted point in each grid. The full span is the plane.</desc>
+  <style>
+    text { font-family: Arial, sans-serif; font-size: 24px; fill: #064b76; }
+    .math { font-family: "Times New Roman", Times, serif; font-style: italic; font-size: 29px; }
+    .vector { font-weight: bold; }
+    .grid { stroke: #168b90; stroke-width: 1.6; opacity: .45; fill: none; }
+    .weights { stroke: #a36a00; stroke-width: 3; stroke-dasharray: 7 5; fill: none; }
+  </style>
+  <defs>
+    <marker id="square-blue" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#064b76"/></marker>
+    <marker id="square-teal" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#168b90"/></marker>
+  </defs>
+  <text x="175" y="40" text-anchor="middle">Standard basis</text>
+  <text x="805" y="40" text-anchor="middle">Transformed basis</text>
+  <!-- Both panels use 150 drawing units per coordinate unit. -->
+  <path d="M100,300 L250,300 L250,150 L100,150 Z" fill="#168b90" fill-opacity=".1" stroke="#168b90" stroke-width="2"/>
+  <path class="grid" d="M137.5,300 V150 M175,300 V150 M212.5,300 V150 M100,262.5 H250 M100,225 H250 M100,187.5 H250"/>
+  <path class="weights" d="M137.5,300 V187.5 H100"/>
+  <path d="M100,300 H250" stroke="#064b76" stroke-width="5" marker-end="url(#square-blue)"/>
+  <path d="M100,300 V150" stroke="#168b90" stroke-width="5" marker-end="url(#square-teal)"/>
+  <circle cx="137.5" cy="187.5" r="7" fill="#7b3c90"/>
+  <text class="math vector" x="153" y="177" style="fill:#7b3c90">c</text>
+  <text class="math vector" x="256" y="326">e₁</text>
+  <text class="math vector" x="65" y="146" style="fill:#168b90">e₂</text>
+  <text class="math" x="77" y="325">0</text>
+  <text x="137.5" y="331" text-anchor="middle" style="font-size:21px;fill:#a36a00">¼</text>
+  <text x="68" y="195" style="font-size:21px;fill:#a36a00">¾</text>
+  <path d="M350,230 H500" stroke="#064b76" stroke-width="4" marker-end="url(#square-blue)"/>
+  <text class="math" x="425" y="207" text-anchor="middle" style="font-style:normal">A</text>
+  <!-- All image geometry uses (x,y) -> (580+150(2x+y),300-150y). -->
+  <path d="M580,300 L880,300 L1030,150 L730,150 Z" fill="#168b90" fill-opacity=".1" stroke="#168b90" stroke-width="2"/>
+  <path class="grid" d="M655,300 L805,150 M730,300 L880,150 M805,300 L955,150 M617.5,262.5 H917.5 M655,225 H955 M692.5,187.5 H992.5"/>
+  <path class="weights" d="M655,300 L767.5,187.5 H692.5"/>
+  <path d="M580,300 H880" stroke="#064b76" stroke-width="5" marker-end="url(#square-blue)"/>
+  <path d="M580,300 L730,150" stroke="#168b90" stroke-width="5" marker-end="url(#square-teal)"/>
+  <circle cx="767.5" cy="187.5" r="7" fill="#7b3c90"/>
+  <text class="math vector" x="783" y="178" style="fill:#7b3c90">v</text>
+  <text class="math vector" x="877" y="330">b₁</text>
+  <text class="math vector" x="696" y="132" style="fill:#168b90">b₂</text>
+  <text class="math" x="556" y="325">0</text>
+  <text x="655" y="331" text-anchor="middle" style="font-size:21px;fill:#a36a00">¼</text>
+  <text x="650" y="190" style="font-size:21px;fill:#a36a00">¾</text>
+</svg>

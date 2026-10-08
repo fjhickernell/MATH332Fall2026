@@ -6,10 +6,12 @@ state why the work was deferred when that context will matter later.
 
 ## Deferred work
 
-- Revisit the placement and motivation of projections, vector spaces, and
-  coordinates during the Decks 05--06 review; the instructor raised these
-  questions again on September 16, 2026. Keep the placement open rather than
-  treating the existing deferred plan as a final decision. Consider naming
+- Revisit the early placement of projections and vector spaces during the
+  Decks 05--06 review; the instructor raised these questions again on
+  September 16, 2026. The October 8 opening bridge in Bases and Coordinates
+  now motivates span, independence, bases, and coordinates with transformed
+  grids, regression, and PCA. The earlier null-space introduction remains a
+  separate placement question. Consider naming
   $\operatorname{Null}(\mat{A})=\{\vct{x}:\mat{A}\vct{x}=\vct{0}\}$
   early, using closure under linear combinations to motivate a vector space,
   then extracting independent directions by elimination. Introduce a basis
