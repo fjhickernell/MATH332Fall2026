@@ -187,7 +187,7 @@ Mathematical content should be maintained only in the slides.
   - [x] Complete the private Quiz 2 draft; final printing remains.
   - [x] Finalize Quiz 3 coverage as Euclidean Vector Spaces and Vector Spaces,
     Subspaces, and Span; update the assessment page, schedule, and Deck 06 notice.
-  - [ ] Publish and verify the Quiz 3 coverage announcement to all Canvas sections.
+  - [x] Publish and verify the Quiz 3 coverage announcement (`107573`) to all Canvas sections.
   - [x] Publish and verify Quizzes 3–5 for their announced October 15,
     November 12, and December 1 dates; Quiz 4 and Quiz 5 coverage remains TBD. Both tests are
     published. Grades remain for later entry.

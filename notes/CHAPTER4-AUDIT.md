@@ -184,12 +184,18 @@ all entries are unchanged. Both decks render, all six changed slides fit at
   explicit anchors survive; 210 local anchor references and local image
   assets pass. Cross-deck clicks reach the new bridge and the existing
   transformation, least-squares, and low-rank treatments. Source style and
-  git diff --check pass. Instructor review and publication remain.
+  git diff --check pass. Instructor review remains; publication is included
+  in the October 8 Checkpoint.
 - The notation/exercise follow-up rerendered Decks 06 and 07. All 27 changed
   slide sections pass 81 overflow/MathJax checks across the same three viewport
   sizes, with no browser errors. Visible review confirms the explicit-column
   zero tests, revised extra-generator prompts, and PCA coordinate notation;
   210 local anchor references and local image assets still pass.
+- October 8 Checkpoint `f03285f` publishes the motivation and notation
+  revisions. The isolated full website and twelve-deck renders pass without
+  warnings; the assembled site passes 1,703 local references and 695 anchors.
+  Publishing and Pages deployment succeeded, and the live bridge was verified.
+  Instructor content review remains open.
 
 Companion drafts for Decks 06–08 are constructed and locally validated.
 Instructor review of the decks and companions, and later-semester pacing,

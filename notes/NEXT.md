@@ -11,7 +11,14 @@ example, and centered PCA with a one-direction approximation. Vector Spaces
 and Span links directly to this bridge. The examples link forward to Matrix
 Spaces and Rank, Inner Products, and Special Topics. Local mathematical,
 rendered-layout, and link checks pass; instructor review remains. The October 8
-checkpoint publishes this bridge and its notation/exercise touch-ups.
+checkpoint `f03285f` publishes this bridge and its notation/exercise touch-ups.
+The isolated full website and twelve-deck renders pass without warnings; the
+assembled site passes 1,703 local references and 695 anchors. The schedule
+and assessment tables pass text-boundary and visible checks at desktop and
+phone widths. Both publishing and Pages deployment succeeded; the live
+coverage pages and Decks 05–07 were verified. All-sections Canvas coverage announcement
+[107573](https://iit.instructure.com/courses/23913/discussion_topics/107573)
+is published and verified (October 8, 8:35 AM CDT).
 Notation touch-ups use square brackets for numerical vector columns and
 explicit columns in the zero-test set definitions. The extra-generator
 practice now states its representation equation and allows zero coefficients;
@@ -188,11 +195,12 @@ address reported Colab problems.
 - All-sections Canvas announcement `106298` posts the remaining quiz dates:
   Quiz 3 on October 15, Quiz 4 on November 12, and Quiz 5 on December 1. The
   same dates are recorded in the Schedule and Quizzes and Tests page. Quiz 3
-  coverage is now finalized as the full Euclidean Vector Spaces and Vector
-  Spaces, Subspaces, and Span decks; the October 8 coverage announcement is
-  filled in for All Sections, pending deployment and verified publication. Quiz 4 and
-  Quiz 5 coverage remains TBD. Quiz 3 grading is due October 21, six calendar
-  days after October 15. Mixed lecture/quiz schedule rows now separate the
+  coverage is finalized as the full Euclidean Vector Spaces and Vector
+  Spaces, Subspaces, and Span decks. The October 8 coverage announcement
+  [107573](https://iit.instructure.com/courses/23913/discussion_topics/107573),
+  “Quiz 3: Coverage for Thursday, October 15,” is published and verified for
+  All Sections. Quiz 4 and Quiz 5 coverage remains TBD. Quiz 3 grading is due
+  October 21, six calendar days after October 15. Mixed lecture/quiz schedule rows now separate the
   quiz and its coverage with a light divider and blank-line spacing. All
   monthly tables, including the final examination, use consistent columns.
 - Assignment 2 is published in Canvas (`104698`) and available in WileyPLUS,
