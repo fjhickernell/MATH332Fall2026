@@ -148,8 +148,8 @@ plane-span membership, and redundant generators. The October 8 Illinois Tech
 Fred → Calendar occurrence was saved using “Only This Event” and reopened to
 verify its continuation note, PH 109, and 11:15 AM–12:45 PM hours. Fantastical
 independently confirms the saved note and Chicago times. These schedule and
-handoff changes are included in the October 7 checkpoint; remote deployment
-is pending.
+handoff changes are included in the October 7 checkpoint; publishing and Pages
+deployment succeeded.
 
 Quiz 2 website coverage is updated to Determinants and Euclidean Vector
 Spaces through projections (excluding cross products), as confirmed by the
