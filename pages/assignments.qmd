@@ -18,6 +18,12 @@ through **WileyPLUS**. WileyPLUS access is therefore a
   authoritative; Canvas is the launch point and may intentionally show no due
   date for WileyPLUS homework.
 
+## Homework grading
+
+Each numbered homework assignment is worth **20 points**. Your lowest
+homework score will be dropped when calculating your homework grade.
+The **10-point Diagnostic Survey** is not eligible to be dropped.
+
 ## List of assignments
 
 The diagnostic survey and WileyPLUS homework assignments are listed below.

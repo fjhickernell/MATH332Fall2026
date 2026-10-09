@@ -8,6 +8,10 @@ Mathematical content should be maintained only in the slides.
 1. [x] Create the repository skeleton and achieve a successful website and
    seven-deck render.
 2. [ ] Finalize course information, syllabus, and policies.
+   - [x] Record the 20-point homework and quiz policies, drop one lowest score
+     in each category, protect the 10-point Diagnostic Survey from dropping,
+     and save unpublished Canvas placeholders for Assignments 4–6
+     (October 9, 2026).
    - [x] Add a detailed instructor statement describing how ChatGPT and Codex
      support course preparation, verification, and maintenance, and link to it
      from an abbreviated early slide in Deck 00.

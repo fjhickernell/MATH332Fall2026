@@ -416,3 +416,30 @@ address reported Colab problems.
 - The remaining-semester arc makes the instructional scope hidden inside
   Decks 05--11 visible and assigns the available meetings without rushing the
   denser later material.
+
+## Canvas homework and quiz setup — October 9, 2026
+
+All six numbered homework assignments are 20 points. The Assignments group
+drops one lowest score and excludes the unchanged 10-point Diagnostic Survey
+with Never Drop. All five quizzes already exist at 20 points with schedule-matching
+dates; the Quizzes group now drops one lowest score.
+
+The following Canvas placeholders are saved and verified, **unpublished**,
+with no submission requested yet. Due dates reserve the schedule date at
+11:59 PM America/Chicago. Reuse these IDs during the full assignment setup:
+
+- Assignment 4: [106680](https://iit.instructure.com/courses/23913/assignments/106680), due October 23, 2026.
+- Assignment 5: [106681](https://iit.instructure.com/courses/23913/assignments/106681), due November 6, 2026.
+- Assignment 6: [106682](https://iit.instructure.com/courses/23913/assignments/106682), due November 20, 2026.
+
+When the WileyPLUS launches are configured, replace the placeholder submission
+type with External Tool, set the authoritative deadlines in WileyPLUS, and
+clear Canvas Due/Until fields under the existing course workflow. Existing
+Assignments 1–3 retain their WileyPLUS setup and blank Canvas due dates.
+
+The student-facing Assignments page now records the 20-point homework and
+lowest-score-drop policy, including the Diagnostic Survey exception.
+The Quizzes and Tests page also records the 20-point quiz and lowest-quiz-drop
+policy.
+Affected pages render successfully and pass desktop/390-pixel browser layout
+checks. Remote deployment of these policy updates remains to be verified.

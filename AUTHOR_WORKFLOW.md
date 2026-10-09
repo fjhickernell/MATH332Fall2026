@@ -36,6 +36,18 @@ page after editing.
 
 ## Adding or updating an assignment
 
+### Fall 2026 Canvas grading policy
+
+Each numbered homework assignment is worth 20 points. Canvas drops one
+lowest homework score in the Assignments group; the 10-point Diagnostic
+Survey retains its point value and is marked Never Drop. Each quiz is also
+worth 20 points, and Canvas drops one lowest score in the Quizzes group.
+
+When setting up a future assignment, reuse its existing unpublished Canvas
+placeholder recorded in `notes/NEXT.md`, rather than creating a duplicate.
+A placeholder reserves the grade item and schedule date; complete the normal
+assignment workflow before publication.
+
 ### Dates before assignment details
 
 When due dates are set before assignment content, add numbered, unlinked
@@ -72,11 +84,12 @@ standing defaults:
 - a course-wide Canvas announcement after publication that links to the live
   course pages and does not repeat details that could later diverge.
 
-The WileyPLUS question selection, total and per-question points, randomization,
-attempt policy, score reduction, and best-score behavior are not standing
-defaults. Establish them from the live WileyPLUS assignment and the
-instructor's intent each time; do not silently reuse Assignment 1's 20 points
-or three-attempt policy.
+The total is 20 points for each Fall 2026 homework assignment, as directed
+October 9, 2026. The WileyPLUS question selection, per-question points,
+randomization, attempt policy, score reduction, and best-score behavior are
+not standing defaults. Establish them from the live WileyPLUS assignment and
+the instructor's intent each time; do not silently reuse Assignment 1's
+three-attempt policy.
 
 At intake, give the instructor one compact checklist covering the textbook-to-
 WileyPLUS crosswalk, WileyPLUS question set and policies, Canvas External Tool

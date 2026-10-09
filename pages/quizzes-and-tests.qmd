@@ -8,6 +8,8 @@ jupyter: qmcpy
 
 - Quizzes are held during the **last 15 minutes of class**.
 - Tests use the **full 75-minute class period**.
+- Each quiz is worth **20 points**. Your lowest quiz score will be dropped
+  when calculating your quiz grade.
 - Students with recognized accommodations will receive the testing
   arrangements specified in their accommodation letters.
 
