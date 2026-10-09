@@ -176,9 +176,14 @@ instructor on September 24. All-sections Canvas announcement `106481`,
 “Quiz 2 on October 1: coverage through projections,” is posted and verified.
 The updated coverage passed the full local website and slide renders.
 
-The private Quiz 2 draft is complete and was sent to CDR on September 30.
-The Canvas On Paper assignment is published and verified; grades will be
-entered after grading.
+Quiz 2 grading is complete. Canvas grades are posted and the All Sections
+announcement [Quiz 2 scores are posted](https://iit.instructure.com/courses/23913/discussion_topics/107714)
+was published and verified October 9. The released answer PDF includes the
+anonymous distribution for 19 participants, excluding the confirmed
+nonparticipant and Test Student. The identical answer PDF is in the current
+assessment folder and canonical archive commit `89cc874`; the course archive
+pin and Quizzes and Tests link are updated. The Dashboard grading task and
+matching Academic reminder are complete. Private sources remain outside Git.
 
 Deck 05 instructor-led content and layout review is complete, as confirmed
 October 4. Its locally executed companion notebook still awaits instructor
@@ -442,4 +447,5 @@ lowest-score-drop policy, including the Diagnostic Survey exception.
 The Quizzes and Tests page also records the 20-point quiz and lowest-quiz-drop
 policy.
 Affected pages render successfully and pass desktop/390-pixel browser layout
-checks. Remote deployment of these policy updates remains to be verified.
+checks. The policy updates have successful publishing and Pages deployment runs,
+verified October 9.

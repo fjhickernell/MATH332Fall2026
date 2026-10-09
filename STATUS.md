@@ -188,7 +188,9 @@ Mathematical content should be maintained only in the slides.
   - [x] Clarify Quiz 2 coverage through projections, excluding cross products,
     and post all-sections Canvas announcement `106481`.
   - [x] Publish and verify Quiz 2's On Paper Canvas assignment on September 30; grades remain for later entry.
-  - [x] Complete the private Quiz 2 draft; final printing remains.
+  - [x] Prepare the private Quiz 2 source for administration.
+  - [x] Release Quiz 2 grades, publish the answer PDF with anonymous scores,
+    and announce the posted scores to all sections (October 9, 2026).
   - [x] Finalize Quiz 3 coverage as Euclidean Vector Spaces and Vector Spaces,
     Subspaces, and Span; update the assessment page, schedule, and Deck 06 notice.
   - [x] Publish and verify the Quiz 3 coverage announcement (`107573`) to all Canvas sections.
