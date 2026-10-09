@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-08">
+  <meta name="dcterms.date" content="2026-10-09">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 8, 2026</p>
+  <p class="date">October 9, 2026</p>
 </section>
 <section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
@@ -976,17 +976,17 @@ In this deck
 <section id="qr-solves-full-column-rank-least-squares" class="slide level2">
 <h2>QR solves full-column-rank least squares</h2>
 <p>For <span class="math inline">\(m\ge n\)</span> and independent columns: <span class="math display">\[\begin{gather*}
-\mat{A}=\mat{Q}\mat{R}_Q,\quad
+\mat{A}=\mat{Q}\mat{R},\quad
 \mat{Q}^{\mathsf T}\mat{Q}=\mat{I}_n,\quad
-\mat{R}_Q\text{ upper triangular and invertible}\\
+\mat{R}\text{ upper triangular and invertible}\\
 \|\mat{A}\vct{x}-\vct{b}\|^2
-=\|\mat{R}_Q\vct{x}-\mat{Q}^{\mathsf T}\vct{b}\|^2
+=\|\mat{R}\vct{x}-\mat{Q}^{\mathsf T}\vct{b}\|^2
 +\|(\mat{I}_m-\mat{Q}\mat{Q}^{\mathsf T})\vct{b}\|^2\\
-\mat{R}_Q\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}
+\mat{R}\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}
 \end{gather*}\]</span></p>
 <p>Compute orthogonal coordinates, then use back substitution</p>
 <aside class="notes">
-<p>Reduced QR: Q is m-by-n, R_Q is n-by-n.&nbsp;The subscript distinguishes the triangular QR factor from R in the earlier rank factorization A=C R. Gram–Schmidt explains the factorization; Householder QR is the standard practical method. Full development belongs in Anton §6.3 in Inner Product Spaces; this is a refresher.</p>
+<p>Reduced QR: Q is m-by-n, R is n-by-n.&nbsp;This R is the triangular QR factor, different from R in A=C R; reused matrix letters are defined by the current factorization. Gram–Schmidt explains the factorization; Householder QR is the standard practical method. Full development belongs in Anton §6.3 in Inner Product Spaces; this is a refresher.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1415,15 +1415,15 @@ a_{ij}=u_i v_j
 </section>
 <section id="a-tensor-has-coordinates-after-choosing-bases" class="slide level2">
 <h2>A tensor has coordinates after choosing bases</h2>
-<p>For finite-dimensional real spaces <span class="math inline">\(V\)</span> and <span class="math inline">\(W\)</span> with bases <span class="math inline">\((\vct{e}_i)\)</span> and <span class="math inline">\((\vct{f}_j)\)</span>: <span class="math display">\[\begin{gather*}
-V\otimes W\text{ has basis }(\vct{e}_i\otimes\vct{f}_j)_{i,j}\\
+<p>For finite-dimensional real spaces <span class="math inline">\(V\)</span> and <span class="math inline">\(W\)</span> with bases <span class="math inline">\(\{\vct{e}_i\}\)</span> and <span class="math inline">\(\{\vct{f}_j\}\)</span>: <span class="math display">\[\begin{gather*}
+V\otimes W\text{ has basis }\{\vct{e}_i\otimes\vct{f}_j\}_{i,j}\\
 T=\sum_{i,j}t_{ij}\vct{e}_i\otimes\vct{f}_j,\qquad
 \dim(V\otimes W)=\dim(V)\dim(W)
 \end{gather*}\]</span></p>
 <p><span class="math inline">\(\otimes\)</span> is bilinear; a general tensor is a sum of elementary tensors</p>
 <p>The elementary tensor <span class="math inline">\(\vct{u}\otimes\vct{v}\)</span> has coordinate matrix <span class="math inline">\(\vct{u}\vct{v}^{\mathsf T}\)</span></p>
 <div class="key-point">
-<p>The coordinate array represents the tensor relative to chosen bases</p>
+<p>The coordinate array uses the listed orders of the chosen bases</p>
 </div>
 <aside class="notes">
 <p>This is an introductory finite-dimensional description. Tensor products can be characterized by a universal property for bilinear maps; defer that abstraction. V tensor W is not canonically the space of maps W to V: that identification uses W’s dual, or an explicitly chosen inner product. Avoid equating every two-index tensor with a linear operator without this distinction.</p>

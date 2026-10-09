@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-08">
+  <meta name="dcterms.date" content="2026-10-09">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 8, 2026</p>
+  <p class="date">October 9, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -934,14 +934,15 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <section id="the-coefficients-form-a-triangular-matrix" class="slide level2">
 <h2>The coefficients form a triangular matrix</h2>
 <p>For a real <span class="math inline">\(m\times n\)</span> matrix with independent columns, <span class="math inline">\(m\ge n\)</span>: <span class="math display">\[\begin{gather*}
-\mat{A}=\mat{Q}\mat{R}_Q,\qquad \mat{Q}^{\mathsf T}\mat{Q}=\mat{I}_n\\
+\mat{A}=\mat{Q}\mat{R},\qquad \mat{Q}^{\mathsf T}\mat{Q}=\mat{I}_n\\
 \mat{Q}=[\vct{q}_1\ \cdots\ \vct{q}_n],\qquad
-(\mat{R}_Q)_{ij}=\begin{cases}\vct{q}_i^{\mathsf T}\vct{A}_j,&amp;i\le j\\0,&amp;i&gt;j\end{cases}
+(\mat{R})_{ij}=\begin{cases}\vct{q}_i^{\mathsf T}\vct{A}_j,&amp;i\le j\\0,&amp;i&gt;j\end{cases}
 \end{gather*}\]</span></p>
 <p><span class="math inline">\(\mat{Q}\)</span>: <span class="math inline">\(m\times n\)</span> orthonormal directions</p>
-<p><span class="math inline">\(\mat{R}_Q\)</span>: <span class="math inline">\(n\times n\)</span> upper triangular coordinates, positive diagonal with this construction</p>
+<p><span class="math inline">\(\mat{R}\)</span>: <span class="math inline">\(n\times n\)</span> upper triangular coordinates, positive diagonal with this construction</p>
+<p>Here <span class="math inline">\(\mat{R}\)</span> is the QR factor, different from <span class="math inline">\(\mat{R}\)</span> in <span class="math inline">\(\mat{A}=\mat{C}\mat{R}\)</span></p>
 <aside class="notes">
-<p>This is reduced QR. Use R_Q to distinguish the triangular QR factor from R in A=C R. When Q is rectangular, Q^T Q=I but Q Q^T is a projector rather than the identity.</p>
+<p>This is reduced QR. Here R denotes the triangular QR factor, not the row-space factor in A=C R. Reused matrix letters are defined by the current factorization. When Q is rectangular, Q^T Q=I but Q Q^T is a projector rather than the identity.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -961,10 +962,10 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 \mat{Q}=\begin{pmatrix}
 1/\sqrt2&amp;1/\sqrt6\\1/\sqrt2&amp;-1/\sqrt6\\0&amp;2/\sqrt6
 \end{pmatrix}\\
-\mat{R}_Q=\begin{pmatrix}\sqrt2&amp;1/\sqrt2\\0&amp;\sqrt{3/2}\end{pmatrix}
+\mat{R}=\begin{pmatrix}\sqrt2&amp;1/\sqrt2\\0&amp;\sqrt{3/2}\end{pmatrix}
 \end{gather*}\]</span></p>
 <p>Column 1 uses only <span class="math inline">\(\vct{q}_1\)</span>; column 2 uses <span class="math inline">\(\vct{q}_1\)</span> and <span class="math inline">\(\vct{q}_2\)</span></p>
-<p>Verify <span class="math inline">\(\mat{Q}\mat{R}_Q=\mat{A}\)</span></p>
+<p>Verify <span class="math inline">\(\mat{Q}\mat{R}=\mat{A}\)</span></p>
 </section>
 <section id="exact-construction-and-numerical-computation-differ" class="slide level2">
 <h2>Exact construction and numerical computation differ</h2>
@@ -998,7 +999,7 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Apply Gram–Schmidt to <span class="math inline">\((1,0,1)^{\mathsf T}\)</span> and <span class="math inline">\((1,1,0)^{\mathsf T}\)</span><br>Write the reduced QR factorization<br>Why is <span class="math inline">\(\mat{Q}\mat{Q}^{\mathsf T}\)</span> not <span class="math inline">\(\mat{I}_3\)</span>?</span></p>
 </div>
 <aside class="notes">
-<p>q_1=(1,0,1)^T/sqrt(2), q_2=(1,2,-1)^T/sqrt(6), R_Q=[[sqrt(2),1/sqrt(2)],[0,sqrt(3/2)]]. Q Q^T has rank two and projects onto the plane spanned by the two columns.</p>
+<p>q_1=(1,0,1)^T/sqrt(2), q_2=(1,2,-1)^T/sqrt(6), R=[[sqrt(2),1/sqrt(2)],[0,sqrt(3/2)]]. Q Q^T has rank two and projects onto the plane spanned by the two columns.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1040,9 +1041,9 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <h2>QR turns least squares into a triangular solve</h2>
 <p>With reduced QR and full column rank: <span class="math display">\[\begin{gather*}
 \|\mat{A}\vct{x}-\vct{b}\|^2
-=\|\mat{R}_Q\vct{x}-\mat{Q}^{\mathsf T}\vct{b}\|^2
+=\|\mat{R}\vct{x}-\mat{Q}^{\mathsf T}\vct{b}\|^2
 +\|(\mat{I}-\mat{Q}\mat{Q}^{\mathsf T})\vct{b}\|^2\\
-\mat{R}_Q\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}\\
+\mat{R}\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}\\
 \widehat{\vct{b}}=\mat{Q}\mat{Q}^{\mathsf T}\vct{b}
 \end{gather*}\]</span></p>
 <p>Compute coordinates with <span class="math inline">\(\mat{Q}^{\mathsf T}\)</span>, then back substitute</p>
@@ -1338,12 +1339,12 @@ c_k=\langle q_k,f\rangle
 </div><div class="column" style="width:47%;">
 <ul>
 <li><a href="#/projection-onto-an-orthonormal-basis">Projection</a> — split a vector into its closest subspace component and a perpendicular residual</li>
-<li><a href="#/qr-turns-least-squares-into-a-triangular-solve">QR</a> — Gram–Schmidt preserves span; <span class="math inline">\(\mat{A}=\mat{Q}\mat{R}_Q\)</span> records orthonormal directions and triangular coordinates</li>
+<li><a href="#/qr-turns-least-squares-into-a-triangular-solve">QR</a> — Gram–Schmidt preserves span; <span class="math inline">\(\mat{A}=\mat{Q}\mat{R}\)</span> records orthonormal directions and triangular coordinates</li>
 <li><a href="#/approximate-a-function-in-a-finite-dimensional-subspace">Function approximation</a> — polynomials/Fourier modes give finite spans; for orthonormal <span class="math inline">\(q_j\)</span>, coefficients are <span class="math inline">\(\langle f,q_j\rangle\)</span></li>
 </ul>
 </div></div>
 <div class="key-point">
-<p>For real <span class="math inline">\(\mat{A}\)</span> with full column rank: least squares solves <span class="math inline">\(\mat{R}_Q\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}\)</span>; the residual satisfies <span class="math inline">\(\mat{A}^{\mathsf T}(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}\)</span></p>
+<p>For real <span class="math inline">\(\mat{A}\)</span> with full column rank: least squares solves <span class="math inline">\(\mat{R}\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}\)</span>; the residual satisfies <span class="math inline">\(\mat{A}^{\mathsf T}(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}\)</span></p>
 </div>
 </section>
 
