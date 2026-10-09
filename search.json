@@ -11,7 +11,7 @@
     "href": "pages/quizzes-and-tests.html",
     "title": "Quizzes and Tests",
     "section": "",
-    "text": "Quizzes are held during the last 15 minutes of class.\nTests use the full 75-minute class period.\nStudents with recognized accommodations will receive the testing arrangements specified in their accommodation letters."
+    "text": "Quizzes are held during the last 15 minutes of class.\nTests use the full 75-minute class period.\nEach quiz is worth 20 points. Your lowest quiz score will be dropped when calculating your quiz grade.\nStudents with recognized accommodations will receive the testing arrangements specified in their accommodation letters."
   },
   {
     "objectID": "pages/quizzes-and-tests.html#rules-for-quizzes-and-tests",
@@ -47,6 +47,13 @@
     "title": "Assignments",
     "section": "",
     "text": "Every assignment in this course must be completed and submitted individually. All homework will be assigned and automatically graded through WileyPLUS. WileyPLUS access is therefore a required course resource.\n\nLaunch every WileyPLUS homework assignment from Canvas. Do not search for or join the course separately on the WileyPLUS website.\nHomework scores are passed automatically from WileyPLUS to the Canvas gradebook.\nUnless a homework assignment states otherwise, it is due by 11:59 PM Chicago Time on the due date. The deadline shown in WileyPLUS is authoritative; Canvas is the launch point and may intentionally show no due date for WileyPLUS homework."
+  },
+  {
+    "objectID": "pages/assignments.html#homework-grading",
+    "href": "pages/assignments.html#homework-grading",
+    "title": "Assignments",
+    "section": "Homework grading",
+    "text": "Homework grading\nEach numbered homework assignment is worth 20 points. Your lowest homework score will be dropped when calculating your homework grade. The 10-point Diagnostic Survey is not eligible to be dropped."
   },
   {
     "objectID": "pages/assignments.html#list-of-assignments",
