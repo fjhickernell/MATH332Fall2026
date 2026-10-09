@@ -757,31 +757,31 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 ::: {.columns style="font-size: 0.92em;"}
 ::: {.column width="50%"}
 - [Algebraic (Hamel) basis]({{< meta decks.d07.file >}}#bases-need-not-be-finite)
-- [Angle between vectors]({{< meta decks.d01.file >}}#measures-alignment)
-- [Associativity]({{< meta decks.d01.file >}}#by-rows)
-- [Augmented matrix]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system)
+- [Angle between vectors]({{< meta decks.d01.file >}}#measures-alignment), $\theta$
+- [Associativity]({{< meta decks.d01.file >}}#by-rows), $(\mat{A}\mat{B})\mat{C}=\mat{A}(\mat{B}\mat{C})$
+- [Augmented matrix]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system), $[\,\mat{A}\mid\vct{b}\,]$
 - [Back substitution]({{< meta decks.d01.file >}}#back-substitution)
-- [Basis]({{< meta decks.d07.file >}}#a-basis-balances-reach-and-economy)
-- [Basis matrix]({{< meta decks.d07.file >}}#a-basis-matrix-converts-coordinates-to-standard-form)
+- [Basis]({{< meta decks.d07.file >}}#a-basis-balances-reach-and-economy), $\mathcal{B}$
+- [Basis matrix]({{< meta decks.d07.file >}}#a-basis-matrix-converts-coordinates-to-standard-form), $\mat{P}_{\mathcal{B}}$
 - [Catastrophic cancellation](#equivalent-mathematics-unequal-computations)
 - [Change of basis]({{< meta decks.d07.file >}}#change-of-basis-passes-through-the-vector)
-- [Column space]({{< meta decks.d08.file >}}#a-matrix-has-four-fundamental-subspaces)
-- [Commutativity]({{< meta decks.d01.file >}}#by-rows)
+- [Column space]({{< meta decks.d08.file >}}#a-matrix-has-four-fundamental-subspaces), $\operatorname{col}(\mat{A})$
+- [Commutativity]({{< meta decks.d01.file >}}#by-rows), $\mat{A}\mat{B}=\mat{B}\mat{A}$
 - [Composition of transformations]({{< meta decks.d03.file >}}#composition-is-matrix-multiplication)
 :::
 
 ::: {.column width="50%"}
 - [Computational cost](#a-correct-computation-can-still-cost-too-much)
 - [Consistent / inconsistent system]({{< meta decks.d01.file >}}#read-the-solution-set)
-- [Coordinate map]({{< meta decks.d07.file >}}#the-coordinate-map-preserves-linear-combinations)
-- [Coordinate vector]({{< meta decks.d07.file >}}#a-basis-gives-every-vector-unique-coordinates)
-- [Covariance matrix]({{< meta decks.d02.file >}}#covariance-describes-joint-variation)
-- [Cross product]({{< meta decks.d05.file >}}#the-cross-product-combines-two-directions)
-- [Determinant]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor)
-- [Diagonal matrix]({{< meta decks.d03.file >}}#diagonal-matrices-act-one-coordinate-at-a-time)
-- [Dimension]({{< meta decks.d07.file >}}#dimension-counts-vectors-in-any-basis)
-- [Distance]({{< meta decks.d05.file >}}#recall-what-the-dot-product-already-gives-us)
-- [Dot product]({{< meta decks.d01.file >}}#combines-coefficients-and-unknowns)
+- [Coordinate map]({{< meta decks.d07.file >}}#the-coordinate-map-preserves-linear-combinations), $\vct{v}\mapsto[\vct{v}]_{\mathcal{B}}$
+- [Coordinate vector]({{< meta decks.d07.file >}}#a-basis-gives-every-vector-unique-coordinates), $[\vct{v}]_{\mathcal{B}}$
+- [Covariance matrix]({{< meta decks.d02.file >}}#covariance-describes-joint-variation), $\mat{\Sigma}$
+- [Cross product]({{< meta decks.d05.file >}}#the-cross-product-combines-two-directions), $\vct{u}\times\vct{v}$
+- [Determinant]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor), $\det(\mat{A})$
+- [Diagonal matrix]({{< meta decks.d03.file >}}#diagonal-matrices-act-one-coordinate-at-a-time), $\mat{D}$
+- [Dimension]({{< meta decks.d07.file >}}#dimension-counts-vectors-in-any-basis), $\dim(V)$
+- [Distance]({{< meta decks.d05.file >}}#recall-what-the-dot-product-already-gives-us), $\norm{\vct{u}-\vct{v}}$
+- [Dot product]({{< meta decks.d01.file >}}#combines-coefficients-and-unknowns), $\vct{u}^{\mathsf T}\vct{v}$
 :::
 :::
 
@@ -791,29 +791,29 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 
 ::: {.columns style="font-size: 0.92em;"}
 ::: {.column width="50%"}
-- [Eigenvalue]({{< meta decks.d04.file >}}#eigenvalues-give-another-determinant-formula)
+- [Eigenvalue]({{< meta decks.d04.file >}}#eigenvalues-give-another-determinant-formula), $\lambda$
 - [Elementary matrix]({{< meta decks.d01.file >}}#start-with-one-row-replacement)
 - [Elementary row operations]({{< meta decks.d01.file >}}#three-reversible-moves)
 - [Elimination]({{< meta decks.d01.file >}}#elimination)
-- [Elimination matrix]({{< meta decks.d01.file >}}#group-the-first-column-operations)
-- [Euclidean norm]({{< meta decks.d01.file >}}#measures-alignment)
-- [Field]({{< meta decks.d06.file >}}#the-scalar-field-can-change)
+- [Elimination matrix]({{< meta decks.d01.file >}}#group-the-first-column-operations), $\mat{M}_j$
+- [Euclidean norm]({{< meta decks.d01.file >}}#measures-alignment), $\|\vct{v}\|_2$
+- [Field]({{< meta decks.d06.file >}}#the-scalar-field-can-change), $\reals,\ \mathbb{C},\ \mathbb{F}_2$
 - [Finite-dimensional space]({{< meta decks.d07.file >}}#dimension-counts-vectors-in-any-basis)
-- [Fourier mode]({{< meta decks.d06.file >}}#finite-fourier-sums-are-vectors)
+- [Fourier mode]({{< meta decks.d06.file >}}#finite-fourier-sums-are-vectors), $\phi_k(t)$
 - [Frame]({{< meta decks.d07.file >}}#a-frame-can-keep-redundant-generators)
 - [Free variable]({{< meta decks.d01.file >}}#a-free-variable-produces-infinitely-many-solutions)
 :::
 
 ::: {.column width="50%"}
 - [Gauss–Jordan reduction]({{< meta decks.d02.file >}}#reduce-beside-the-identity)
-- [Givens rotation]({{< meta decks.d03.file >}}#rotation-matrix-from-rotated-basis-vectors)
-- [Householder reflection]({{< meta decks.d03.file >}}#reflections-reverse-one-direction-and-preserve-lengths)
-- [Hyperplane]({{< meta decks.d01.file >}}#a-linear-equation-describes-a-hyperplane)
-- [Identity matrix]({{< meta decks.d01.file >}}#undoing-restores-the-original-system)
+- [Givens rotation]({{< meta decks.d03.file >}}#givens-rotations), $\mat{G}(i,j,\theta)$
+- [Householder reflection]({{< meta decks.d03.file >}}#householder-reflections), $\mat{H}$
+- [Hyperplane]({{< meta decks.d01.file >}}#a-linear-equation-describes-a-hyperplane), $\vct{a}^{\mathsf T}\vct{x}=b$
+- [Identity matrix]({{< meta decks.d01.file >}}#undoing-restores-the-original-system), $\mat{I}$
 - [Ill-conditioned problem](#almost-parallel-almost-unknowable)
 - [Ill-posed problem](#too-little-information-many-answers)
 - [Incidence matrix](#represent-a-network-by-an-incidence-matrix)
-- [Inverse matrix]({{< meta decks.d02.file >}}#an-inverse-undoes-a-matrix-action)
+- [Inverse matrix]({{< meta decks.d02.file >}}#an-inverse-undoes-a-matrix-action), $\mat{A}^{-1}$
 :::
 :::
 
@@ -824,24 +824,25 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 ::: {.columns style="font-size: 0.92em;"}
 ::: {.column width="50%"}
 - [Least squares](#when-the-constraints-cannot-all-be-satisfied)
-- [Left null space]({{< meta decks.d08.file >}}#a-matrix-has-four-fundamental-subspaces)
+- [Left null space]({{< meta decks.d08.file >}}#a-matrix-has-four-fundamental-subspaces), $\operatorname{null}(\mat{A}^{\mathsf T})$
 - [Leontief input–output model]({{< meta decks.d02.file >}}#production-creates-internal-demand)
-- [Linear combination]({{< meta decks.d03.file >}}#given-output-solve-column-weights)
+- [Linear combination]({{< meta decks.d03.file >}}#given-output-solve-column-weights), $c_1\vct{v}_1+\cdots+c_k\vct{v}_k$
 - [Linear independence]({{< meta decks.d07.file >}}#independence-means-the-zero-vector-has-one-construction)
 - [Linear isomorphism]({{< meta decks.d07.file >}}#the-coordinate-map-preserves-linear-combinations)
-- [Linear system]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
-- [Linear transformation]({{< meta decks.d03.file >}}#linear-transformations-preserve-combinations)
+- [Linear system]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations), $\mat{A}\vct{x}=\vct{b}$
+- [Linear transformation]({{< meta decks.d03.file >}}#linear-transformations-preserve-combinations), $T$
+- [Lower-triangular matrix]({{< meta decks.d03.file >}}#lower-triangular), $\mat{L}$
 :::
 
 ::: {.column width="50%"}
-- [Matrix](#represent-objects-numerically)
-- [Matrix–matrix multiplication]({{< meta decks.d01.file >}}#matrix-matrix-multiplication-collects-dot-products)
+- [Matrix](#represent-objects-numerically), $\mat{A}\in\reals^{m\times n}$
+- [Matrix–matrix multiplication]({{< meta decks.d01.file >}}#matrix-matrix-multiplication-collects-dot-products), $\mat{A}\mat{B}$
 - [Matrix representation of a linear map]({{< meta decks.d08.file >}}#a-basis-turns-an-abstract-problem-into-a-matrix-problem)
-- [Matrix–vector multiplication]({{< meta decks.d01.file >}}#each-equation-is-one-dot-product)
+- [Matrix–vector multiplication]({{< meta decks.d01.file >}}#each-equation-is-one-dot-product), $\mat{A}\vct{x}$
 - [Monomial]({{< meta decks.d06.file >}}#polynomials-in-several-variables-total-degree)
 - [Nonsingular / singular matrix]({{< meta decks.d02.file >}}#invertible-or-singular)
-- [Null space]({{< meta decks.d06.file >}}#homogeneous-systems-produce-subspaces)
-- [Nullity]({{< meta decks.d08.file >}}#rank-and-nullity-measure-different-parts-of-a-matrix)
+- [Null space]({{< meta decks.d06.file >}}#homogeneous-systems-produce-subspaces), $\operatorname{null}(\mat{A})$
+- [Nullity]({{< meta decks.d08.file >}}#rank-and-nullity-measure-different-parts-of-a-matrix), $\dim(\operatorname{null}(\mat{A}))$
 - [Numerical instability](#equivalent-mathematics-unequal-computations)
 :::
 :::
@@ -852,30 +853,31 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 
 ::: {.columns style="font-size: 0.92em;"}
 ::: {.column width="50%"}
-- [Orthogonal complement]({{< meta decks.d08.file >}}#an-orthogonal-complement-contains-all-perpendicular-directions)
+- [Orthogonal complement]({{< meta decks.d08.file >}}#an-orthogonal-complement-contains-all-perpendicular-directions), $W^{\perp}$
 - [Orthogonal decomposition]({{< meta decks.d05.file >}}#projection-finds-the-nearest-point-on-an-affine-line)
-- [Orthogonal matrix]({{< meta decks.d03.file >}}#orthogonal-matrices-have-orthonormal-rows-and-columns)
-- [Orthogonal vectors]({{< meta decks.d01.file >}}#measures-alignment)
-- [Parallel vectors]({{< meta decks.d01.file >}}#parallel-vectors-point-along-one-line)
-- [Permutation matrix]({{< meta decks.d03.file >}}#a-permutation-matrix-records-row-order)
+- [Orthogonal matrix]({{< meta decks.d03.file >}}#orthogonal-matrices-have-orthonormal-rows-and-columns), $\mat{Q}^{\mathsf T}\mat{Q}=\mat{I}$
+- [Orthogonal vectors]({{< meta decks.d01.file >}}#measures-alignment), $\vct{u}^{\mathsf T}\vct{v}=0$
+- [Parallel vectors]({{< meta decks.d01.file >}}#parallel-vectors-point-along-one-line), $\vct{u}=c\vct{v}$
+- [Permutation matrix]({{< meta decks.d03.file >}}#a-permutation-matrix-records-row-order), $\mat{P}$
 - [Pivot]({{< meta decks.d01.file >}}#pivots-organize-elimination)
-- [PLU factorization]({{< meta decks.d03.file >}}#a-permutation-matrix-records-row-order)
-- [Polynomial space]({{< meta decks.d06.file >}}#polynomials-form-a-vector-space)
-- [Precision matrix]({{< meta decks.d02.file >}}#precision-describes-conditional-structure)
+- [PLU factorization]({{< meta decks.d03.file >}}#a-permutation-matrix-records-row-order), $\mat{A}=\mat{P}\mat{L}\mat{U}$
+- [Polynomial space]({{< meta decks.d06.file >}}#polynomials-form-a-vector-space), $\mathbb{P}_n$
+- [Precision matrix]({{< meta decks.d02.file >}}#precision-describes-conditional-structure), $\mat{\Sigma}^{-1}$
 - [Principal component analysis (PCA)]({{< meta decks.d07.file >}}#pca-chooses-coordinates-adapted-to-the-data)
-- [Projection]({{< meta decks.d03.file >}}#projections-discard-information)
+- [Projection]({{< meta decks.d03.file >}}#projections-discard-information), $\mat{Q}$
+- [QR factorization]({{< meta decks.d10.file >}}#the-coefficients-form-a-triangular-matrix), $\mat{A}=\mat{Q}\mat{R}$
 :::
 
 ::: {.column width="50%"}
-- [Rank]({{< meta decks.d08.file >}}#rank-and-nullity-measure-different-parts-of-a-matrix)
-- [Rank factorization]({{< meta decks.d08.file >}}#rank-factorization-keeps-the-independent-columns-and-rows)
+- [Rank]({{< meta decks.d08.file >}}#rank-and-nullity-measure-different-parts-of-a-matrix), $\operatorname{rank}(\mat{A})$
+- [Rank factorization]({{< meta decks.d08.file >}}#rank-factorization-keeps-the-independent-columns-and-rows), $\mat{A}=\mat{C}\mat{R}$
 - [Rank–nullity theorem]({{< meta decks.d08.file >}}#rank-nullity-counts-inputs)
-- [Reduced row-echelon form (RREF)]({{< meta decks.d01.file >}}#reduced-row-echelon-form)
+- [Reduced row-echelon form (RREF)]({{< meta decks.d01.file >}}#reduced-row-echelon-form), $\operatorname{rref}(\mat{A})$
 - [Redundant constraint](#what-does-the-system-tell-us)
-- [Reflection]({{< meta decks.d03.file >}}#reflections-reverse-one-direction-and-preserve-lengths)
+- [Reflection]({{< meta decks.d03.file >}}#reflections-reverse-one-direction-and-preserve-lengths), $\mat{H}$
 - [Reversible transformation]({{< meta decks.d01.file >}}#three-reversible-moves)
-- [Rotation]({{< meta decks.d03.file >}}#rotation-matrix-from-rotated-basis-vectors)
-- [Row space]({{< meta decks.d08.file >}}#a-matrix-has-four-fundamental-subspaces)
+- [Rotation]({{< meta decks.d03.file >}}#rotation-matrix-from-rotated-basis-vectors), $\mat{R}_{\theta}$
+- [Row space]({{< meta decks.d08.file >}}#a-matrix-has-four-fundamental-subspaces), $\operatorname{row}(\mat{A})$
 - [Row echelon form]({{< meta decks.d01.file >}}#pivots-organize-elimination)
 :::
 :::
@@ -886,28 +888,28 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 
 ::: {.columns style="font-size: 0.92em;"}
 ::: {.column width="50%"}
-- [Scalar](#represent-objects-numerically)
-- [Scalar triple product]({{< meta decks.d05.file >}}#the-triple-product-reconnects-to-determinants)
-- [Singular value decomposition (SVD)](#images-contain-important-patterns)
-- [Skew-symmetric matrix]({{< meta decks.d07.file >}}#practice-bases-for-other-matrix-spaces)
+- [Scalar](#represent-objects-numerically), $c\in\reals$
+- [Scalar triple product]({{< meta decks.d05.file >}}#the-triple-product-reconnects-to-determinants), $\vct{u}^{\mathsf T}(\vct{v}\times\vct{w})$
+- [Singular value decomposition (SVD)](#images-contain-important-patterns), $\mat{A}=\mat{U}\mat{\Lambda}\mat{V}^{\mathsf T}$
+- [Skew-symmetric matrix]({{< meta decks.d07.file >}}#practice-bases-for-other-matrix-spaces), $\mat{A}^{\mathsf T}=-\mat{A}$
 - [Solution / solution set]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
-- [Span]({{< meta decks.d06.file >}}#span-is-the-subspace-generated-by-chosen-vectors)
-- [Standard basis]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column)
-- [Standard matrix]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column)
-- [Subspace]({{< meta decks.d06.file >}}#a-subspace-inherits-its-operations)
-- [Symmetric matrix]({{< meta decks.d03.file >}}#symmetric-matrices-mirror-pairwise-relationships)
+- [Span]({{< meta decks.d06.file >}}#span-is-the-subspace-generated-by-chosen-vectors), $\operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}$
+- [Standard basis]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column), $\{\vct{e}_1,\ldots,\vct{e}_n\}$
+- [Standard matrix]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column), $\mat{A}$
+- [Subspace]({{< meta decks.d06.file >}}#a-subspace-inherits-its-operations), $W\subseteq V$
+- [Symmetric matrix]({{< meta decks.d03.file >}}#symmetric-matrices-mirror-pairwise-relationships), $\mat{A}^{\mathsf T}=\mat{A}$
 - [Tensor](#represent-objects-numerically)
 :::
 
 ::: {.column width="50%"}
 - [Total degree]({{< meta decks.d06.file >}}#polynomials-in-several-variables-total-degree)
-- [Transformation](#act-on-these-objects-via-transformations-to-obtain-new-objects)
-- [Transpose]({{< meta decks.d03.file >}}#transpose-exchanges-rows-and-columns)
-- [Triangular matrix]({{< meta decks.d03.file >}}#triangular-matrices-expose-pivots)
+- [Transformation](#act-on-these-objects-via-transformations-to-obtain-new-objects), $T$ (matrix action: $T_{\mat{A}}$)
+- [Transpose]({{< meta decks.d03.file >}}#transpose-exchanges-rows-and-columns), $\mat{A}^{\mathsf T}$
 - [Tridiagonal matrix]({{< meta decks.d03.file >}}#tridiagonal-matrices-couple-neighboring-grid-values)
-- [Vector](#represent-objects-numerically)
-- [Vector equation of a line]({{< meta decks.d05.file >}}#lines-and-planes-combine-points-with-directions)
-- [Vector space]({{< meta decks.d06.file >}}#a-vector-space-starts-with-objects-and-two-operations)
+- [Upper-triangular matrix]({{< meta decks.d03.file >}}#upper-triangular), $\mat{U}$
+- [Vector](#represent-objects-numerically), $\vct{v}$
+- [Vector equation of a line]({{< meta decks.d05.file >}}#lines-and-planes-combine-points-with-directions), $\vct{x}=\vct{p}+t\vct{v}$
+- [Vector space]({{< meta decks.d06.file >}}#a-vector-space-starts-with-objects-and-two-operations), $V$
 :::
 :::
 

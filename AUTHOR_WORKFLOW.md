@@ -374,6 +374,17 @@ calendar unchanged and check again later.
 
 ## Slide-source conventions
 
+- Write QR factorization as $\mat{A}=\mat{Q}\mat{R}$, with no subscript
+  on the triangular factor $\mat{R}$. Briefly clarify that it differs from
+  the $\mat{R}$ in $\mat{A}=\mat{C}\mat{R}$; reused matrix letters are
+  defined by the current factorization.
+
+- Write bases with braces, such as $\mathcal{B}=\{b_1,\ldots,b_n\}$,
+  including when using them for coordinates. State that coordinates follow the
+  listed order: entry $j$ multiplies $b_j$. Changing the listed order changes
+  coordinate entries while preserving the underlying basis set. Use the same
+  order for columns of a basis matrix and for matrix representations of maps.
+
 - Whenever an assessed item is finalized or updated on its course website
   page, also put its name and date on exactly one relevant deck title slide,
   following the assessment-specific workflow above. Choose one suitable
@@ -415,7 +426,9 @@ calendar unchanged and check again later.
   it first receives substantial treatment, not merely its first mention. Do
   not invent links for topics that have not yet been developed. Split the
   index into alphabetical continuation slides as needed while retaining
-  `#terms-to-know` as its stable entry point.
+  `#terms-to-know` as its stable entry point. Add a short symbol or expression
+  after a term when it aids recognition; leave entries plain when a useful cue
+  would require a lengthy definition or distracting qualifications.
 - Prefer readable Quarto Markdown for headings, text, columns, equations, and
   ordinary emphasis. Use raw HTML when a diagram or specialized layout is
   materially easier to construct that way.

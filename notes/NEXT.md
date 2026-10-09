@@ -7,6 +7,13 @@ and bases, then resume at “Example: independent Fourier modes.” Return to
 the deferred differentiation-by-coordinates, regression, and PCA motivation.
 Quiz 3 remains in the last 15 minutes with its announced coverage unchanged.
 
+Course notation now uses braces for bases; coordinates and basis-matrix
+columns follow the listed order. QR uses A=Q R with plain R; its triangular
+factor differs from R in A=C R. Deck 00's cumulative terms index now includes
+compact notation cues, QR, and separate upper-/lower-triangular entries,
+with no redundant generic triangular entry. These conventions are recorded
+in AUTHOR_WORKFLOW.md. The October 15 continuation remains the next task.
+
 Review the new opening motivation in Bases and Coordinates: linear
 combinations build vectors, span describes reach, independence gives unique
 coefficients, and an ordered basis turns them into coordinates. Seven content
@@ -131,8 +138,10 @@ tests and x=x_p+N t with n-r free parameters. All four affected decks render;
 the nine changed/new slides pass visible layout review and the assembled-site
 links/anchors pass. Details and current counts are in CHAPTER4-AUDIT.md.
 
-Rank-factorization notation now reserves R for the nonzero-row factor in
+Rank-factorization notation uses R for the nonzero-row factor in
 A=C R, writes the full reduced matrix as rref(A), and keeps U for PLU.
+QR also uses plain R in A=Q R, as requested by the instructor; its role
+is determined by context.
 Teal boxes mark the running example's pivot columns in the RREF definition
 and rank deck; matching boxes in R expose I_2 after removing the zero row.
 The notation and boxes were published in `1c78f80`; its build and Pages
@@ -158,8 +167,8 @@ and reopened to verify its continuation note, PH 109, and 11:15 AM–12:45 PM
 hours; Fantastical independently confirms the saved note and Chicago times.
 The schedule and updated Course Outline render successfully. Desktop and
 phone layout checks pass; schedule dates now have enough desktop width to
-stay separate from the topic column. Check the publishing and Pages workflows
-before relying on the deployed update.
+stay separate from the topic column. The October 8 pacing/schedule update has
+successful publishing and Pages deployment runs, verified October 9.
 
 Quiz 2 website coverage is updated to Determinants and Euclidean Vector
 Spaces through projections (excluding cross products), as confirmed by the

@@ -284,17 +284,19 @@ Check $\vct{q}_1^{\mathsf T}\vct{q}_2=0$ and both squared norms equal one
 
 For a real $m\times n$ matrix with independent columns, $m\ge n$:
 \begin{gather*}
-\mat{A}=\mat{Q}\mat{R}_Q,\qquad \mat{Q}^{\mathsf T}\mat{Q}=\mat{I}_n\\
+\mat{A}=\mat{Q}\mat{R},\qquad \mat{Q}^{\mathsf T}\mat{Q}=\mat{I}_n\\
 \mat{Q}=[\vct{q}_1\ \cdots\ \vct{q}_n],\qquad
-(\mat{R}_Q)_{ij}=\begin{cases}\vct{q}_i^{\mathsf T}\vct{A}_j,&i\le j\\0,&i>j\end{cases}
+(\mat{R})_{ij}=\begin{cases}\vct{q}_i^{\mathsf T}\vct{A}_j,&i\le j\\0,&i>j\end{cases}
 \end{gather*}
 
 $\mat{Q}$: $m\times n$ orthonormal directions
 
-$\mat{R}_Q$: $n\times n$ upper triangular coordinates, positive diagonal with this construction
+$\mat{R}$: $n\times n$ upper triangular coordinates, positive diagonal with this construction
+
+Here $\mat{R}$ is the QR factor, different from $\mat{R}$ in $\mat{A}=\mat{C}\mat{R}$
 
 ::: {.notes}
-This is reduced QR. Use R_Q to distinguish the triangular QR factor from R in A=C R. When Q is rectangular, Q^T Q=I but Q Q^T is a projector rather than the identity.
+This is reduced QR. Here R denotes the triangular QR factor, not the row-space factor in A=C R. Reused matrix letters are defined by the current factorization. When Q is rectangular, Q^T Q=I but Q Q^T is a projector rather than the identity.
 :::
 
 
@@ -305,12 +307,12 @@ This is reduced QR. Use R_Q to distinguish the triangular QR factor from R in A=
 \mat{Q}=\begin{pmatrix}
 1/\sqrt2&1/\sqrt6\\1/\sqrt2&-1/\sqrt6\\0&2/\sqrt6
 \end{pmatrix}\\
-\mat{R}_Q=\begin{pmatrix}\sqrt2&1/\sqrt2\\0&\sqrt{3/2}\end{pmatrix}
+\mat{R}=\begin{pmatrix}\sqrt2&1/\sqrt2\\0&\sqrt{3/2}\end{pmatrix}
 \end{gather*}
 
 Column 1 uses only $\vct{q}_1$; column 2 uses $\vct{q}_1$ and $\vct{q}_2$
 
-Verify $\mat{Q}\mat{R}_Q=\mat{A}$
+Verify $\mat{Q}\mat{R}=\mat{A}$
 
 
 ## Exact construction and numerical computation differ {#exact-construction-and-numerical-computation-differ}
@@ -340,7 +342,7 @@ Dependence detection in floating point requires a scale-aware tolerance; no univ
 :::
 
 ::: {.notes}
-q_1=(1,0,1)^T/sqrt(2), q_2=(1,2,-1)^T/sqrt(6), R_Q=[[sqrt(2),1/sqrt(2)],[0,sqrt(3/2)]]. Q Q^T has rank two and projects onto the plane spanned by the two columns.
+q_1=(1,0,1)^T/sqrt(2), q_2=(1,2,-1)^T/sqrt(6), R=[[sqrt(2),1/sqrt(2)],[0,sqrt(3/2)]]. Q Q^T has rank two and projects onto the plane spanned by the two columns.
 :::
 
 
@@ -376,9 +378,9 @@ The fitted vector is unique; coefficients are unique exactly when columns are in
 With reduced QR and full column rank:
 \begin{gather*}
 \|\mat{A}\vct{x}-\vct{b}\|^2
-=\|\mat{R}_Q\vct{x}-\mat{Q}^{\mathsf T}\vct{b}\|^2
+=\|\mat{R}\vct{x}-\mat{Q}^{\mathsf T}\vct{b}\|^2
 +\|(\mat{I}-\mat{Q}\mat{Q}^{\mathsf T})\vct{b}\|^2\\
-\mat{R}_Q\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}\\
+\mat{R}\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}\\
 \widehat{\vct{b}}=\mat{Q}\mat{Q}^{\mathsf T}\vct{b}
 \end{gather*}
 
@@ -654,13 +656,13 @@ Mean 2. Normalized real coefficients: 2 for constant, 3/sqrt(2) for sqrt(2)cos(2
 
 ::: {.column width="47%"}
 - [Projection](#projection-onto-an-orthonormal-basis) — split a vector into its closest subspace component and a perpendicular residual
-- [QR](#qr-turns-least-squares-into-a-triangular-solve) — Gram–Schmidt preserves span; $\mat{A}=\mat{Q}\mat{R}_Q$ records orthonormal directions and triangular coordinates
+- [QR](#qr-turns-least-squares-into-a-triangular-solve) — Gram–Schmidt preserves span; $\mat{A}=\mat{Q}\mat{R}$ records orthonormal directions and triangular coordinates
 - [Function approximation](#approximate-a-function-in-a-finite-dimensional-subspace) — polynomials/Fourier modes give finite spans; for orthonormal $q_j$, coefficients are $\langle f,q_j\rangle$
 :::
 :::
 
 ::: {.key-point}
-For real $\mat{A}$ with full column rank: least squares solves $\mat{R}_Q\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}$;
+For real $\mat{A}$ with full column rank: least squares solves $\mat{R}\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}$;
 the residual satisfies $\mat{A}^{\mathsf T}(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}$
 :::
 

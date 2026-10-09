@@ -279,19 +279,19 @@ A column of ones supplies an intercept
 
 For $m\ge n$ and independent columns:
 \begin{gather*}
-\mat{A}=\mat{Q}\mat{R}_Q,\quad
+\mat{A}=\mat{Q}\mat{R},\quad
 \mat{Q}^{\mathsf T}\mat{Q}=\mat{I}_n,\quad
-\mat{R}_Q\text{ upper triangular and invertible}\\
+\mat{R}\text{ upper triangular and invertible}\\
 \|\mat{A}\vct{x}-\vct{b}\|^2
-=\|\mat{R}_Q\vct{x}-\mat{Q}^{\mathsf T}\vct{b}\|^2
+=\|\mat{R}\vct{x}-\mat{Q}^{\mathsf T}\vct{b}\|^2
 +\|(\mat{I}_m-\mat{Q}\mat{Q}^{\mathsf T})\vct{b}\|^2\\
-\mat{R}_Q\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}
+\mat{R}\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}
 \end{gather*}
 
 Compute orthogonal coordinates, then use back substitution
 
 ::: {.notes}
-Reduced QR: Q is m-by-n, R_Q is n-by-n. The subscript distinguishes the triangular QR factor from R in the earlier rank factorization A=C R. Gram–Schmidt explains the factorization; Householder QR is the standard practical method. Full development belongs in Anton §6.3 in Inner Product Spaces; this is a refresher.
+Reduced QR: Q is m-by-n, R is n-by-n. This R is the triangular QR factor, different from R in A=C R; reused matrix letters are defined by the current factorization. Gram–Schmidt explains the factorization; Householder QR is the standard practical method. Full development belongs in Anton §6.3 in Inner Product Spaces; this is a refresher.
 :::
 
 
@@ -633,9 +633,9 @@ SVD builds matrices by summing such separated patterns
 
 ## A tensor has coordinates after choosing bases {#a-tensor-has-coordinates-after-choosing-bases}
 
-For finite-dimensional real spaces $V$ and $W$ with bases $(\vct{e}_i)$ and $(\vct{f}_j)$:
+For finite-dimensional real spaces $V$ and $W$ with bases $\{\vct{e}_i\}$ and $\{\vct{f}_j\}$:
 \begin{gather*}
-V\otimes W\text{ has basis }(\vct{e}_i\otimes\vct{f}_j)_{i,j}\\
+V\otimes W\text{ has basis }\{\vct{e}_i\otimes\vct{f}_j\}_{i,j}\\
 T=\sum_{i,j}t_{ij}\vct{e}_i\otimes\vct{f}_j,\qquad
 \dim(V\otimes W)=\dim(V)\dim(W)
 \end{gather*}
@@ -645,7 +645,7 @@ $\otimes$ is bilinear; a general tensor is a sum of elementary tensors
 The elementary tensor $\vct{u}\otimes\vct{v}$ has coordinate matrix $\vct{u}\vct{v}^{\mathsf T}$
 
 ::: {.key-point}
-The coordinate array represents the tensor relative to chosen bases
+The coordinate array uses the listed orders of the chosen bases
 :::
 
 ::: {.notes}

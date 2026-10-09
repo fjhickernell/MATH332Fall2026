@@ -42,7 +42,7 @@ include-after-body:
 <h3>In this deck</h3>
 
 ::: {style="text-align:center;"}
-Ordered basis: $\mathcal{B}=(1,t,t^2)$
+Basis (coordinates use the listed order): $\mathcal{B}=\{1,t,t^2\}$
 
 ::: {.diagram-flow role="group" aria-label="The coordinates 2, minus 3, and 5 in the ordered basis 1, t, t squared determine the polynomial p of t equals 2 minus 3t plus 5t squared. The coordinate column and polynomial are different kinds of objects."}
 <div class="diagram-node"><span class="diagram-label">Coordinates in $\mathcal{B}$</span><br>$[p]_{\mathcal{B}}=\begin{bmatrix}2\\-3\\5\end{bmatrix}$</div>
@@ -68,7 +68,8 @@ Ordered basis: $\mathcal{B}=(1,t,t^2)$
 
 ::: {.notes}
 The polynomial is the vector in this example; the column contains its
-coordinates in the ordered basis (1,t,t^2). Its first entry multiplies 1,
+coordinates in the basis {1,t,t^2}, in the listed order. We use braces for
+bases; for coordinates, the displayed order matters. Its first entry multiplies 1,
 its second multiplies t, and its third multiplies t^2. In R^n with the standard
 basis, a vector and its coordinate column look identical. Here the different
 kinds of objects make the distinction visible: coefficients together with the
@@ -94,7 +95,7 @@ Choose vectors $\vct{b}_1,\ldots,\vct{b}_k$ in a space $V$
 | [Linear combination]{.alert} | What does $c_1\vct{b}_1+\cdots+c_k\vct{b}_k$ build? | One vector from chosen ingredients |
 | [Span]{.alert} | What can all choices of coefficients reach? | The attainable subspace |
 | [Linear independence]{.alert} | Can two coefficient lists build the same vector? | No ambiguity when independent |
-| [Basis]{.alert} $(\vct{b}_1,\ldots,\vct{b}_k)$ | Do we reach every vector of $V$, uniquely? | A spanning, independent list |
+| [Basis]{.alert} $\{\vct{b}_1,\ldots,\vct{b}_k\}$ | Do we reach every vector of $V$, uniquely? | A spanning, independent set |
 | [Coordinates]{.alert} $c_1,\ldots,c_k$ | Which coefficients build this vector? | Its address in an ordered basis |
 
 ::: {.key-point}
@@ -145,7 +146,7 @@ A singular map may collapse a direction, so it need not preserve a basis.
 
 Keep $\vct{b}_1=[2,0]^{\mathsf T}$ and $\vct{b}_2=[1,1]^{\mathsf T}$
 
-For the ordered basis $\mathcal{B}=(\vct{b}_1,\vct{b}_2)$,
+For the ordered basis $\mathcal{B}=\{\vct{b}_1,\vct{b}_2\}$,
 
 $$
 \vct{v}=\begin{bmatrix}5/4\\3/4\end{bmatrix}
@@ -178,8 +179,8 @@ Differentiation is a linear transformation $D:\mathbb{P}_3\to\mathbb{P}_2$,
 $D(p)=p'$
 
 $$
-\text{Input basis: }\mathcal{B}=(1,t,t^2,t^3),\qquad
-\text{output basis: }\mathcal{C}=(1,t,t^2)
+\text{Input basis: }\mathcal{B}=\{1,t,t^2,t^3\},\qquad
+\text{output basis: }\mathcal{C}=\{1,t,t^2\}
 $$
 
 For $p(t)=2-3t+5t^2+4t^3$, transform its coordinates:
@@ -472,16 +473,18 @@ A dependence relation is a certificate of redundancy
 
 ## A basis balances reach and economy {#a-basis-balances-reach-and-economy}
 
-A finite ordered list
+A finite set
 
 $$
-\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)
+\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}
 $$
 
 is a [basis]{.alert} for $V$ when
 
 1. $\mathcal{B}$ spans $V$
 2. $\mathcal{B}$ is linearly independent
+
+For coordinates, use the basis vectors in the order listed
 
 Spanning guarantees existence of coefficients
 
@@ -495,7 +498,7 @@ Every vector has one coefficient list in a chosen ordered basis
 
 ### Independence makes coordinates unique {#independence-makes-coordinates-unique}
 
-Let $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ span $V$ and be independent
+Let $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ span $V$ and be independent
 
 Spanning supplies coefficients; suppose one vector has two coefficient lists
 
@@ -568,7 +571,7 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 $$
 
 ::: {.key-point}
-$\mathcal{B}=(\vct{v}_1,\vct{v}_2)$ still spans $W$
+$\mathcal{B}=\{\vct{v}_1,\vct{v}_2\}$ still spans $W$
 
 $a\vct{v}_1+b\vct{v}_2=\vct{0}$ forces $a=b=0$: independence completes the basis proof
 :::
@@ -599,8 +602,8 @@ $$
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
 <span>A basis must span $W$ and be independent
-<span class="exsub">Show that $(\vct{v}_2,\vct{v}_3)$ is another basis for $W$</span>
-<span class="exsub">Explain why $(\vct{v}_1,\vct{v}_4)$ is not a basis for $W$</span>
+<span class="exsub">Show that $\{\vct{v}_2,\vct{v}_3\}$ is another basis for $W$</span>
+<span class="exsub">Explain why $\{\vct{v}_1,\vct{v}_4\}$ is not a basis for $W$</span>
 </span>
 :::
 
@@ -698,7 +701,7 @@ Reference: https://math.mit.edu/~rbm/18.103-S04/node3.html
 
 ## A basis gives every vector unique coordinates {#a-basis-gives-every-vector-unique-coordinates}
 
-An [ordered basis]{.alert} $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ spans $V$ and is independent
+A [basis]{.alert} $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ spans $V$ and is independent
 
 For $\vct{v}\in V$, spanning gives existence and independence gives uniqueness:
 
@@ -714,7 +717,7 @@ $$
 $$
 
 ::: {.key-point}
-Entry $j$ is the coefficient multiplying basis vector $\vct{b}_j$
+For coordinates, the listed order matters: entry $j$ multiplies $\vct{b}_j$
 :::
 
 ---
@@ -724,8 +727,8 @@ Entry $j$ is the coefficient multiplying basis vector $\vct{b}_j$
 In $\reals^2$, the [standard basis]{.alert} is
 
 $$
-\mathcal{E}=\left(\vct{e}_1=\begin{bmatrix}1\\0\end{bmatrix},
-\vct{e}_2=\begin{bmatrix}0\\1\end{bmatrix}\right)
+\mathcal{E}=\left\{\vct{e}_1=\begin{bmatrix}1\\0\end{bmatrix},
+\vct{e}_2=\begin{bmatrix}0\\1\end{bmatrix}\right\}
 $$
 
 Writing $\vct{x}=\begin{bmatrix}5\\1\end{bmatrix}$ has meant
@@ -735,7 +738,7 @@ $$
 \qquad [\vct{x}]_{\mathcal{E}}=\begin{bmatrix}5\\1\end{bmatrix}
 $$
 
-In $\reals^n$, use $\mathcal{E}=(\vct{e}_1,\ldots,\vct{e}_n)$, where
+In $\reals^n$, use $\mathcal{E}=\{\vct{e}_1,\ldots,\vct{e}_n\}$, where
 $\vct{e}_j$ has a 1 in entry $j$ and zeros elsewhere
 
 ::: {.key-point}
@@ -747,11 +750,11 @@ Our familiar vector column is its coordinate vector in the standard basis
 ## Same vector, different coordinate columns {#same-vector-different-coordinate-columns}
 
 For $\vct{x}=[5,1]^{\mathsf T}$, compare the standard basis
-$\mathcal{E}=([1,0]^{\mathsf T},[0,1]^{\mathsf T})$ with
+$\mathcal{E}=\{[1,0]^{\mathsf T},[0,1]^{\mathsf T}\}$ with
 
 $$
-\mathcal{B}=\left(\vct{b}_1=\begin{bmatrix}1\\1\end{bmatrix},
-\vct{b}_2=\begin{bmatrix}1\\-1\end{bmatrix}\right)
+\mathcal{B}=\left\{\vct{b}_1=\begin{bmatrix}1\\1\end{bmatrix},
+\vct{b}_2=\begin{bmatrix}1\\-1\end{bmatrix}\right\}
 $$
 
 The same vector has two descriptions:
@@ -778,22 +781,23 @@ The vector stays at $(5,1)$; changing the basis changes its description
 
 ### Read the basis label before the numbers {#practice-read-the-basis-label-before-the-numbers}
 
-Use $\mathcal{E}=([1,0]^{\mathsf T},[0,1]^{\mathsf T})$ and
-$\mathcal{B}=([1,1]^{\mathsf T},[1,-1]^{\mathsf T})$
+Use $\mathcal{E}=\{[1,0]^{\mathsf T},[0,1]^{\mathsf T}\}$ and
+$\mathcal{B}=\{[1,1]^{\mathsf T},[1,-1]^{\mathsf T}\}$
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
 <span>Interpret each coordinate column
 <span class="exsub">If $[\vct{u}]_{\mathcal{B}}=[1,0]^{\mathsf T}$, find $\vct{u}$ in standard coordinates</span>
 <span class="exsub">If $[\vct{v}]_{\mathcal{E}}=[1,0]^{\mathsf T}$, find $\vct{v}$. Is it the same vector as $\vct{u}$?</span>
-<span class="exsub">Reverse the order in $\mathcal{B}$ to get $\mathcal{B}'$. Find $[\vct{x}]_{\mathcal{B}'}$ for $\vct{x}=[5,1]^{\mathsf T}$</span>
+<span class="exsub">Reverse the listed order of $\mathcal{B}$ to get $\mathcal{B}'$. Find $[\vct{x}]_{\mathcal{B}'}$ for $\vct{x}=[5,1]^{\mathsf T}$</span>
 </span>
 :::
 
 ::: {.notes}
 The first column means u = 1 b1 + 0 b2 = [1,1]^T. The second means
 v = 1 e1 + 0 e2 = [1,0]^T, a different vector despite identical coordinate
-entries. With B' = (b2,b1), x = 2 b2 + 3 b1, so its coordinates are [2,3]^T.
+entries. With B' = {b2,b1} in the reversed order (the same underlying set),
+x = 2 b2 + 3 b1, so its coordinates are [2,3]^T.
 The jth coordinate multiplies the jth basis vector; their order matters.
 :::
 
@@ -804,7 +808,7 @@ The jth coordinate multiplies the jth basis vector; their order matters.
 For the standard polynomial basis
 
 $$
-\mathcal{E}=(1,t,t^2)
+\mathcal{E}=\{1,t,t^2\}
 $$
 
 the polynomial $p(t)=2-3t+5t^2$ has coordinates
@@ -841,7 +845,7 @@ $$
 =a\mat{B}_1+b\mat{B}_2+d\mat{B}_3
 $$
 
-Thus $\mathcal{B}=(\mat{B}_1,\mat{B}_2,\mat{B}_3)$ spans the space and is
+Thus $\mathcal{B}=\{\mat{B}_1,\mat{B}_2,\mat{B}_3\}$ spans the space and is
 independent
 
 $$
@@ -879,9 +883,9 @@ No dimension terminology is needed yet.
 ## Example: test a polynomial basis {#worked-example-test-a-polynomial-basis}
 
 In $\mathbb{P}_2$, the polynomials in $t$ of degree at most two, take
-$\mathcal{E}=(1,t,1+t^2)$
+$\mathcal{E}=\{1,t,1+t^2\}$
 
-Its coefficient columns relative to $(1,t,t^2)$ form
+Its coefficient columns relative to $\{1,t,t^2\}$ form
 
 $$
 \begin{bmatrix}1&0&1\\0&1&0\\0&0&1\end{bmatrix}
@@ -904,13 +908,13 @@ $$
 In $\mathbb{P}_2$, consider
 
 $$
-\mathcal{B}=(1+t,\ t+t^2,\ 1+t^2)
+\mathcal{B}=\{1+t,\ t+t^2,\ 1+t^2\}
 $$
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
 <span>Does $\mathcal{B}$ span all of $\mathbb{P}_2$ and is it independent?
-<span class="exsub">Form the matrix of coefficients relative to $(1,t,t^2)$</span>
+<span class="exsub">Form the matrix of coefficients relative to $\{1,t,t^2\}$</span>
 <span class="exsub">Test its columns for independence</span>
 <span class="exsub">If it is a basis, find $[2+4t]_{\mathcal{B}}$</span>
 </span>
@@ -930,9 +934,9 @@ $2+4t$.
 In $\mathbb{P}_2$, consider
 
 $$
-\mathcal{C}=(1+t,\ t+t^2,\ 1+2t+t^2),
+\mathcal{C}=\{1+t,\ t+t^2,\ 1+2t+t^2\},
 \qquad
-\mathcal{D}=(1+t,\ t+t^2,\ 1)
+\mathcal{D}=\{1+t,\ t+t^2,\ 1\}
 $$
 
 ::: {.exitem}
@@ -975,7 +979,7 @@ $$
 \dim(\reals^{m\times n})=mn
 $$
 
-Our earlier $U=\{p\in\mathbb{P}_3:p(0)=0\}$ has basis $(t,t^2,t^3)$,
+Our earlier $U=\{p\in\mathbb{P}_3:p(0)=0\}$ has basis $\{t,t^2,t^3\}$,
 so $\dim(U)=3$
 
 The zero space has the empty basis, so $\dim(\{\vct{0}\})=0$
@@ -1036,8 +1040,8 @@ The same set $\mathbb{C}$ can be viewed as two different vector spaces
 
 | Scalars | A basis | Dimension |
 |---|---|---|
-| $\mathbb{C}$ | $(1)$ | $\dim_{\mathbb{C}}(\mathbb{C})=1$ |
-| $\reals$ | $(1,\sqrt{-1})$ | $\dim_{\reals}(\mathbb{C})=2$ |
+| $\mathbb{C}$ | $\{1\}$ | $\dim_{\mathbb{C}}(\mathbb{C})=1$ |
+| $\reals$ | $\{1,\sqrt{-1}\}$ | $\dim_{\reals}(\mathbb{C})=2$ |
 
 Over $\mathbb{C}$, any $z$ is the scalar multiple $z\cdot1$
 
@@ -1052,7 +1056,7 @@ Over $\reals$, write $z=a+b\sqrt{-1}$ with two real coefficients
 This extends the earlier scalar-field discussion and previews Anton Section
 5.3 rather than adding a Chapter 4 reading requirement. The dimensions of
 C^2 are 2 over C and 4 over R. A real basis is
-((1,0),(sqrt(-1),0),(0,1),(0,sqrt(-1))). Independence and spanning must always
+{(1,0),(sqrt(-1),0),(0,1),(0,sqrt(-1))}. Independence and spanning must always
 refer to the chosen scalar field. When the field is not shown in our later
 real examples, it is R.
 :::
@@ -1095,7 +1099,7 @@ Count freely chosen coefficients after identifying a basis
 :::
 
 ::: {.notes}
-For P_3(R^2), a basis is (1,x,y,x^2,xy,y^2,x^3,x^2y,xy^2,y^3), so the
+For P_3(R^2), a basis is {1,x,y,x^2,xy,y^2,x^3,x^2y,xy^2,y^3}, so the
 dimension is 1+2+3+4=10. Upper-triangular 3x3 matrices have six free entries;
 the six corresponding single-entry matrices form a basis. Symmetric 3x3
 matrices also have six free entries: three diagonal and three off-diagonal
@@ -1138,7 +1142,7 @@ $\reals^n$
 ::: {.notes}
 This is a statement about linear structure. The ordinary Euclidean length of
 a coordinate column need not equal the original vector's length. For the
-basis ([1,1]^T,[1,-1]^T), b1 has length sqrt(2), while its coordinate column
+basis {[1,1]^T,[1,-1]^T}, b1 has length sqrt(2), while its coordinate column
 [1,0]^T has Euclidean length 1. General coordinates preserve algebra;
 geometry requires the inner product in those coordinates.
 :::
@@ -1147,7 +1151,7 @@ geometry requires the inner product in those coordinates.
 
 ## Example: combine coordinate vectors {#worked-example-combine-coordinate-vectors}
 
-Use the polynomial basis $\mathcal{B}=(1,1+t,t^2)$
+Use the polynomial basis $\mathcal{B}=\{1,1+t,t^2\}$
 
 $$
 p=2+3t+t^2,
@@ -1177,7 +1181,7 @@ Coordinate arithmetic uses coefficients in the chosen basis
 
 ### Reconstruct after coordinate arithmetic {#practice-reconstruct-after-coordinate-arithmetic}
 
-Keep $\mathcal{B}=(1,1+t,t^2)$ and suppose
+Keep $\mathcal{B}=\{1,1+t,t^2\}$ and suppose
 
 $$
 [p]_{\mathcal{B}}=[1,2,-1]^{\mathsf T},
@@ -1211,7 +1215,7 @@ explores basis extraction and coordinate changes
 
 ## A basis matrix converts coordinates to standard form {#a-basis-matrix-converts-coordinates-to-standard-form}
 
-For a basis $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ of $\reals^n$, form
+For a basis $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ of $\reals^n$, form
 
 $$
 \mat{P}_{\mathcal{B}}
@@ -1260,7 +1264,7 @@ Changing coordinates changes the description, not the vector
 
 ## Transition columns describe the old basis in the new one {#transition-columns-describe-the-old-basis-in-the-new-one}
 
-Let $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ and $\mathcal{C}$ be ordered
+Let $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ and $\mathcal{C}$ be ordered
 bases of the same finite-dimensional real vector space
 
 $$
@@ -1286,7 +1290,7 @@ The arrow records the direction: input coordinates in $\mathcal{B}$, output coor
 In $\mathbb{P}_2$, choose
 
 $$
-\mathcal{B}=(1,1+t,t^2),\qquad \mathcal{C}=(1,t,t+t^2)
+\mathcal{B}=\{1,1+t,t^2\},\qquad \mathcal{C}=\{1,t,t+t^2\}
 $$
 
 Columns give $\mathcal{C}$-coefficients of the $\mathcal{B}$ polynomials; use $t^2=(t+t^2)-t$:
@@ -1315,9 +1319,9 @@ $2(1)-8t+5(t+t^2)=p$: new coordinates, same polynomial
 Keep $\vct{x}=[5,1]^{\mathsf T}$ and compare
 
 $$
-\mathcal{C}=\bigl([1,0]^{\mathsf T},[1,1]^{\mathsf T}\bigr),
+\mathcal{C}=\bigl\{[1,0]^{\mathsf T},[1,1]^{\mathsf T}\bigr\},
 \qquad
-\mathcal{D}=\bigl([2,1]^{\mathsf T},[1,1]^{\mathsf T}\bigr)
+\mathcal{D}=\bigl\{[2,1]^{\mathsf T},[1,1]^{\mathsf T}\bigr\}
 $$
 
 ::: {.exitem}
@@ -1366,7 +1370,7 @@ to $[4,-3]^{\mathsf T}$.
 :::
 
 ::: {.key-point}
-With ordered basis $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_d)$ and $d=\dim(V)<\infty$:
+With ordered basis $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_d\}$ and $d=\dim(V)<\infty$:
 $\vct{v}=\sum_{j=1}^d c_j\vct{b}_j$ has unique coordinates $[\vct{v}]_{\mathcal{B}}=[c_1,\ldots,c_d]^{\mathsf T}$
 :::
 

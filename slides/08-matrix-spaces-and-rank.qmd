@@ -692,7 +692,7 @@ $$
 Thus $\mat{C}\mat{R}$ rebuilds all four columns of $\mat{A}$
 
 ::: {.key-point}
-For the ordered column-space basis $\mathcal{C}=(\vct{C}_1,\vct{C}_2)$,
+For the ordered column-space basis $\mathcal{C}=\{\vct{C}_1,\vct{C}_2\}$,
 
 $$
 [\mat{A}\vct{x}]_{\mathcal{C}}=\mat{R}\vct{x}
@@ -834,8 +834,10 @@ $$
 T(c\vct{u}+d\vct{v})=cT(\vct{u})+dT(\vct{v})
 $$
 
-Choose ordered bases $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ for the input $V$
+Choose ordered bases $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ for the input $V$
 and $\mathcal{C}$ for the output $W$: $\dim(V)=n$, $\dim(W)=m$
+
+Coordinates and matrix columns use the basis vectors in the listed order
 
 Recall [coordinates]({{< meta decks.d07.file >}}#a-basis-gives-every-vector-unique-coordinates): $[\vct{v}]_{\mathcal{B}}=(c_1,\ldots,c_n)^{\mathsf T}$ means $\vct{v}=\sum_{j=1}^n c_j\vct{b}_j$
 
@@ -857,7 +859,7 @@ A linear transformation is determined by its action on a basis
 
 Let $D:\mathbb{P}_2\to\mathbb{P}_1$ send $p$ to $p'$
 
-Use $\mathcal{B}=(1,t,t^2)$ for the input and $\mathcal{C}=(1,t)$ for the output
+Use $\mathcal{B}=\{1,t,t^2\}$ for the input and $\mathcal{C}=\{1,t\}$ for the output
 
 $$
 D(1)=0,
@@ -894,7 +896,7 @@ $$
 T(p)=\begin{bmatrix}p(0)\\p(1)\end{bmatrix}
 $$
 
-Use $\mathcal{B}=(1,t,t^2)$ and standard output coordinates
+Use $\mathcal{B}=\{1,t,t^2\}$ and standard output coordinates
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
@@ -919,7 +921,7 @@ evaluation.
 
 For $\mat{A}:\reals^n\to\reals^n$, use the same basis for input and output
 
-For a basis $\mathcal{B}=(\vct{b}_1,\ldots,\vct{b}_n)$ of $\reals^n$,
+For a basis $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ of $\reals^n$,
 
 $$
 \mat{P}=[\vct{b}_1\ \cdots\ \vct{b}_n],
