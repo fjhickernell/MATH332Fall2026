@@ -49,7 +49,7 @@ assignments, quizzes, holidays, and examination details are finalized.
 | | Thu Oct 22 | | |
 | | Fri Oct 23 | **Assignment 4 due** | Details TBD |
 | 11 | Tue Oct 27 | | |
-| | Thu Oct 29 | **Test 2** | Coverage TBD |
+| | Thu Oct 29 | **Test 2** | Covers<br>[Determinants](../slides/04-determinants.html)<br>[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html)<br>[Vector Spaces, Subspaces, and Span](../slides/06-general-vector-spaces.html)<br>[Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html)<br>[Matrix Spaces and Rank](../slides/08-matrix-spaces-and-rank.html) |
 
 ### November
 

@@ -199,8 +199,13 @@ Mathematical content should be maintained only in the slides.
     published. Grades remain for later entry.
   - [x] Schedule Test 2 for October 29 in PH 109; create and publish its
     On Paper Canvas assignment for 12:45 PM; add the date to the
-    course website sources; and post the all-sections announcement. Coverage
-    remains TBD.
+    course website sources; and post the all-sections save-the-date announcement.
+  - [x] Finalize Test 2 coverage as Determinants through Matrix Spaces and Rank
+    (Decks 04–08, inclusive); update both website tables and the Deck 08 notice.
+  - [x] Publish and verify the All Sections Test 2 coverage announcement
+    (`107870`), October 12, 2026.
+  - [x] Include the validated Test 2 coverage website update in the October 12
+    teaching Checkpoint; remote deployment remains unverified.
   - [x] State that the final-examination date will be posted when scheduled by
     the Registrar and that the cumulative examination will emphasize material
     not covered by Test 1 or Test 2.
