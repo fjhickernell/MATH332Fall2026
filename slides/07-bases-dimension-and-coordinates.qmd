@@ -5,7 +5,8 @@ deck_title: "{{< meta decks.d07.title >}}"
 deck_short_title: "{{< meta decks.d07.short_title >}}"
 subtitle: |
   <span class="deck-title">Bases, Dimension,<br>and Coordinates</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} {{< meta decks.d07.anton_sections >}}</span>
+  <span class="deck-meta">{{< meta texts.anton.short >}} {{< meta decks.d07.anton_sections >}}</span><br>
+  <span class="deck-meta">[Assignment 4](../assignments/assignment_4.html) due October 23</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">

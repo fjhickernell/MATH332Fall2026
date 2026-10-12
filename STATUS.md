@@ -149,6 +149,17 @@ Mathematical content should be maintained only in the slides.
 - [x] Deploy Assignment 2's course pages, verify live links, enable WileyPLUS,
   publish Canvas, and post the all-sections announcement (`105900`); verify
   the assignment and WileyPLUS launch in Canvas Student View.
+- [x] Prepare Assignment 4's instructor-approved five-question, 20-point
+  website draft, Schedule/Assignments links, and Deck 07 reminder; render and
+  inspect the affected content. Deadline: October 23 at 11:59 PM Chicago time.
+- [x] Save/link Assignment 4 in WileyPLUS and the existing unpublished Canvas
+  shell; verify 20 points, selected questions/policies, unavailable WileyPLUS
+  state, new-tab launch, and blank saved Canvas Due/Until fields.
+- [x] Verify Fred’s All Sections Assignment 4 announcement (`107874`), posted
+  October 12; corrected link spacing is present.
+- [ ] Deploy and verify Assignment 4 website links, then obtain approval to
+  enable WileyPLUS and publish Canvas 106680; verify student access. The
+  announcement is already posted and must not be duplicated.
 - [x] Prepare Assignment 3's five-question, 20-point WileyPLUS set, unpublished
   Canvas launch, October 9 deadline, course pages, and Deck 05 title notice.
 - [x] Deploy Assignment 3's pages, enable WileyPLUS, publish Canvas item

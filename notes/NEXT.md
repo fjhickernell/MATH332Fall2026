@@ -428,6 +428,44 @@ address reported Colab problems.
   Decks 05--11 visible and assigns the available meetings without rushing the
   denser later material.
 
+## Assignment 4 preparation — October 12, 2026
+
+Instructor selected WileyPLUS 4.1 Q11, 4.3 Q09, 4.4 Q11, 4.5 Q16,
+and 4.8 Q09a; all five full previews inspected. Instructor approved four
+points each (20 total), three attempts, no deduction, best score, fixed
+per-student values, and October 23 at 11:59 PM America/Chicago.
+
+WileyPLUS question set Assignment 4 is saved and linked to Canvas 106680.
+Its assessment identifier is `d81b5d4a-2f61-4970-8b3e-7dc905b2092b`.
+The saved dashboard verifies five questions, four points each, October 23 at
+11:59 PM, and “Not available to students”; its Policies tab verifies three
+attempts, best score, immediate feedback, assistance timing, and per-student
+randomization. Canvas 106680 is saved, unpublished, in Assignments, worth
+20 points, with individual External Tool submission and a new-tab launch.
+The concise description links to the assignment and Assignments pages.
+Reopened saved settings verify Due, Until, and Available from are blank.
+WileyPLUS still displays its duplicate-LMS-deadline warning despite these
+blank saved Canvas fields; recheck at release rather than restoring a Canvas
+deadline. Instructor launch reaches the correct saved set.
+
+Local assignment detail, Assignments table, Schedule link, metadata Canvas
+URL, and Deck 07 title reminder are prepared. Website and twelve-deck renders
+completed; assembled deck title and website preview inspected. Slide render
+reported unchanged classlib resource warnings. All 176 local references from affected pages resolve; Assignment 4 and the
+Assignments table pass desktop and phone review, and the Deck 07 title passes
+1050-by-700 review.
+
+Fred published the All Sections announcement
+[107874](https://iit.instructure.com/courses/23913/discussion_topics/107874),
+“Assignment 4 is available in WileyPLUS,” on October 12 at 3:54 PM CDT.
+The posted text and corrected space after the Assignments-page link are verified.
+The release is incomplete: the assignment-details URL returned 404, Canvas
+106680 remains Not Published, and WileyPLUS remains Not available to students.
+This Checkpoint deploys the prepared website sources. Verify the live details,
+Assignments and Schedule links, then obtain approval to enable WileyPLUS and
+publish Canvas. Do not repost the announcement. Preserve the October 29
+WileyPLUS-grading/Canvas-transfer review deadline.
+
 ## Canvas homework and quiz setup — October 9, 2026
 
 All six numbered homework assignments are 20 points. The Assignments group
@@ -435,11 +473,11 @@ drops one lowest score and excludes the unchanged 10-point Diagnostic Survey
 with Never Drop. All five quizzes already exist at 20 points with schedule-matching
 dates; the Quizzes group now drops one lowest score.
 
-The following Canvas placeholders are saved and verified, **unpublished**,
+Assignment 4 now uses the configured External Tool launch described above.
+The remaining Canvas placeholders are saved and verified, **unpublished**,
 with no submission requested yet. Due dates reserve the schedule date at
 11:59 PM America/Chicago. Reuse these IDs during the full assignment setup:
 
-- Assignment 4: [106680](https://iit.instructure.com/courses/23913/assignments/106680), due October 23, 2026.
 - Assignment 5: [106681](https://iit.instructure.com/courses/23913/assignments/106681), due November 6, 2026.
 - Assignment 6: [106682](https://iit.instructure.com/courses/23913/assignments/106682), due November 20, 2026.
 

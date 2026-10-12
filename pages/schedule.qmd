@@ -47,7 +47,7 @@ assignments, quizzes, holidays, and examination details are finalized.
 | | Thu Oct 15 | Independence and bases: resume at “Example: independent Fourier modes”; revisit deferred coordinate applications<span class="assessment-divider" aria-hidden="true"></span>**Quiz 3** | [Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html#worked-example-independent-fourier-modes)<span class="assessment-divider" aria-hidden="true"></span>Covers<br>&nbsp;&nbsp;&nbsp;&nbsp;[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html)<br>&nbsp;&nbsp;&nbsp;&nbsp;[Vector Spaces, Subspaces, and Span](../slides/06-general-vector-spaces.html) |
 | 10 | Tue Oct 20 | | |
 | | Thu Oct 22 | | |
-| | Fri Oct 23 | **Assignment 4 due** | Details TBD |
+| | Fri Oct 23 | **Assignment 4 due** | [WileyPLUS: General Vector Spaces](../assignments/assignment_4.qmd) |
 | 11 | Tue Oct 27 | | |
 | | Thu Oct 29 | **Test 2** | Covers<br>[Determinants](../slides/04-determinants.html)<br>[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html)<br>[Vector Spaces, Subspaces, and Span](../slides/06-general-vector-spaces.html)<br>[Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html)<br>[Matrix Spaces and Rank](../slides/08-matrix-spaces-and-rank.html) |
 

@@ -1,0 +1,54 @@
+---
+title: "Assignment 4: WileyPLUS — General Vector Spaces"
+metadata-files:
+  - ../classlib/classlib/quarto/website/hickernell-website.yml
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    include-in-header:
+      - ../classlib/classlib/quarto/slides/hickernell-latex-macros.js
+---
+
+## Due date
+
+**Due:** Friday, October 23, 2026, at 11:59 PM Chicago Time
+
+The deadline in WileyPLUS is authoritative; Canvas's Due and Until fields
+are intentionally blank.
+
+## Assignment
+
+Complete these five WileyPLUS questions. Each is worth **4 points**, for
+**20 points** total.
+
+1. Chapter 4, Section 4.1, Question 11 — vector-space axioms with specified operations
+2. Chapter 4, Section 4.3, Question 09 — spanning a polynomial space
+3. Chapter 4, Section 4.4, Question 11 — parameter-dependent linear independence
+4. Chapter 4, Section 4.5, Question 16 — coordinates of a matrix relative to a basis
+5. Chapter 4, Section 4.8, Question 09a — bases for the null space and row space
+
+These are the question identifiers shown in WileyPLUS. Review the relevant
+sections of the [Vector Spaces and Span slides](../slides/06-general-vector-spaces.html),
+[Bases and Coordinates slides](../slides/07-bases-dimension-and-coordinates.html),
+and [Matrix Spaces and Rank slides](../slides/08-matrix-spaces-and-rank.html).
+
+## Submission and grading
+
+Launch [Assignment 4 in Canvas]({{< meta canvas.assignment_4 >}}) and complete
+it **individually** in WileyPLUS. Follow the
+[course assignment ground rules](../pages/assignments.qmd#individual-assignments).
+
+- The assignment is automatically graded, with **three attempts per question**,
+  **no score reduction**, and the **best score** retained.
+- WileyPLUS randomizes values for each student while keeping that student's
+  values fixed across attempts.
+- Answer feedback is available as answers are submitted. Textbook resources
+  are always available; hints become available after the first attempt, and
+  correct answers and solutions after the last attempt. Assistance carries
+  no score deduction.
+- Work is automatically submitted to the Canvas gradebook on the due date.
+  WileyPLUS notes that auto-submission uses one attempt and may take up to
+  ten minutes. Submit your answers before the deadline.
+- Late submissions are not enabled. Assignment review becomes available
+  after the deadline.
