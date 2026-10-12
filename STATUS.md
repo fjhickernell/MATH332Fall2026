@@ -157,9 +157,10 @@ Mathematical content should be maintained only in the slides.
   state, new-tab launch, and blank saved Canvas Due/Until fields.
 - [x] Verify Fred’s All Sections Assignment 4 announcement (`107874`), posted
   October 12; corrected link spacing is present.
-- [ ] Deploy and verify Assignment 4 website links, then obtain approval to
-  enable WileyPLUS and publish Canvas 106680; verify student access. The
-  announcement is already posted and must not be duplicated.
+- [x] Deploy and verify Assignment 4 website links; with instructor approval,
+  enable WileyPLUS and publish Canvas 106680. Published settings and the
+  20-point Student View launch are verified October 12. Announcement `107874`
+  is already posted; actual graded-submission passback remains untested.
 - [x] Prepare Assignment 3's five-question, 20-point WileyPLUS set, unpublished
   Canvas launch, October 9 deadline, course pages, and Deck 05 title notice.
 - [x] Deploy Assignment 3's pages, enable WileyPLUS, publish Canvas item

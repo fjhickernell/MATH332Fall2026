@@ -438,9 +438,9 @@ per-student values, and October 23 at 11:59 PM America/Chicago.
 WileyPLUS question set Assignment 4 is saved and linked to Canvas 106680.
 Its assessment identifier is `d81b5d4a-2f61-4970-8b3e-7dc905b2092b`.
 The saved dashboard verifies five questions, four points each, October 23 at
-11:59 PM, and “Not available to students”; its Policies tab verifies three
+11:59 PM, and “Available to students” after the approved release; its Policies tab verifies three
 attempts, best score, immediate feedback, assistance timing, and per-student
-randomization. Canvas 106680 is saved, unpublished, in Assignments, worth
+randomization. Canvas 106680 is published for Everyone, in Assignments, worth
 20 points, with individual External Tool submission and a new-tab launch.
 The concise description links to the assignment and Assignments pages.
 Reopened saved settings verify Due, Until, and Available from are blank.
@@ -459,12 +459,18 @@ Fred published the All Sections announcement
 [107874](https://iit.instructure.com/courses/23913/discussion_topics/107874),
 “Assignment 4 is available in WileyPLUS,” on October 12 at 3:54 PM CDT.
 The posted text and corrected space after the Assignments-page link are verified.
-The release is incomplete: the assignment-details URL returned 404, Canvas
-106680 remains Not Published, and WileyPLUS remains Not available to students.
-This Checkpoint deploys the prepared website sources. Verify the live details,
-Assignments and Schedule links, then obtain approval to enable WileyPLUS and
-publish Canvas. Do not repost the announcement. Preserve the October 29
-WileyPLUS-grading/Canvas-transfer review deadline.
+Publication completed October 12 after Fred’s explicit approval to publish
+Canvas and WileyPLUS. Course Checkpoint `1dffa0e` has successful publishing
+and Pages deployment runs; live assignment details, Assignments and Schedule
+links are verified. WileyPLUS confirms Available to students, five questions,
+20 points and October 23 at 11:59 PM CDT. Reopened Canvas settings verify
+Published for Everyone, 20 points, Assignments, the correct individual External
+Tool deep link, new-tab launch and blank Due/Until fields. Canvas Student View
+shows the assignment and WileyPLUS launch button; no answers or scores were
+submitted. Actual graded-submission passback remains untested. Do not repost
+the verified announcement. Preserve the October 29 WileyPLUS-grading/Canvas-
+transfer review deadline. This closeout Checkpoint preserves the verified
+external-completion updates.
 
 ## Canvas homework and quiz setup — October 9, 2026
 
