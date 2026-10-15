@@ -222,6 +222,11 @@ Mathematical content should be maintained only in the slides.
     (Decks 04–08, inclusive); update both website tables and the Deck 08 notice.
   - [x] Publish and verify the All Sections Test 2 coverage announcement
     (`107870`), October 12, 2026.
+  - [x] Reduce Test 2 coverage to Determinants through Bases, Dimension, and
+    Coordinates (Decks 04–07), excluding Matrix Spaces and Rank, October 15.
+    Update both website tables, move the test notice to Deck 07, and correct
+    announcement `107870` with a student notification. Local renders pass;
+    live deployment verification remains pending.
   - [x] Include the validated Test 2 coverage website update in the October 12
     teaching Checkpoint; remote deployment remains unverified.
   - [x] State that the final-examination date will be posted when scheduled by

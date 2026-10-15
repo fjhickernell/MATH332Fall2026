@@ -25,6 +25,8 @@ factor differs from R in A=C R. Deck 00's cumulative terms index now includes
 compact notation cues, QR, and separate upper-/lower-triangular entries,
 with no redundant generic triangular entry. These conventions are recorded
 in AUTHOR_WORKFLOW.md. The October 15 continuation remains the next task.
+The opening “From building vectors to giving them addresses” summary slide
+now has the gold border selected by the instructor.
 
 Review the new opening motivation in Bases and Coordinates: linear
 combinations build vectors, span describes reach, independence gives unique
@@ -255,12 +257,15 @@ address reported Colab problems.
   All-sections Canvas announcement `106115` is posted.
 - Test 2 is scheduled for Thursday, October 29, 2026, in PH 109. Published
   Canvas On Paper assignment `105162` is due at the 12:45 PM class end for
-  Everyone in the Tests group. Coverage is Determinants through Matrix Spaces
-  and Rank (Decks 04–08, inclusive). Website sources and the Deck 08 title
-  notice are included in the October 12 teaching Checkpoint; remote deployment
-  is not yet verified. The self-contained coverage
+  Everyone in the Tests group. Coverage is Determinants through Bases,
+  Dimension, and Coordinates (Decks 04–07, inclusive); Matrix Spaces and Rank
+  is excluded by the instructor's October 15 revision. Both website tables
+  are updated, and the Test 2 title-slide notice moves from Deck 08 to Deck 07.
+  These pages and both decks render locally; verify the revised live pages after deployment.
+  The self-contained coverage
   announcement [107870](https://iit.instructure.com/courses/23913/discussion_topics/107870)
-  is published to All Sections and verified October 12, 2026, 3:16 PM CDT.
+  is published to All Sections; its October 15 correction and notification
+  are verified. Grading remains due November 4, 2026.
   Existing save-the-date announcement
   `106297` is posted. The announcement and Quizzes and Tests page state that
   the final-examination date will be posted when scheduled by the Registrar
