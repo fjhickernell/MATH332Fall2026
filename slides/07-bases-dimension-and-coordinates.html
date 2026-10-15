@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-12">
+  <meta name="dcterms.date" content="2026-10-15">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 12, 2026</p>
+  <p class="date">October 15, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -720,6 +720,7 @@ In this deck
 <section id="why-span-bases-and-coordinates" class="title-slide slide level1 center">
 <h1>Why Span, Bases, and Coordinates?</h1>
 <p>Which vectors can we build, and how can we describe each one uniquely?</p>
+<p><span class="alert">Motivation preview</span>: the definitions and proofs follow</p>
 <ul>
 <li><a href="#/from-building-vectors-to-giving-them-addresses">From building vectors to giving them addresses</a></li>
 <li><a href="#/a-square-becomes-a-parallelogram">A square becomes a parallelogram</a></li>
@@ -892,8 +893,7 @@ In this deck
 <ul>
 <li><span class="alert">Span</span>: <span class="math inline">\(S=\operatorname{span}\{\vct{A}_1,\ldots,\vct{A}_n\}\)</span> contains every possible fitted response</li>
 <li><span class="alert">Closest fit</span>: choose <span class="math inline">\(\widehat{\vct{b}}\in S\)</span> minimizing <span class="math inline">\(\|\vct{b}-\widehat{\vct{b}}\|^2\)</span></li>
-<li><span class="alert">Independent columns</span>: <span class="math inline">\(\operatorname{rank}(\mat{A})=n\)</span>, called full column rank</li>
-<li><span class="alert">Basis and coordinates</span>: the ordered columns form a basis of <span class="math inline">\(S\)</span>; <span class="math inline">\(\widehat{\vct{x}}\)</span> gives the fitted vector’s coordinates</li>
+<li><span class="alert">When columns are independent</span>: the ordered columns form a basis of <span class="math inline">\(S\)</span>; <span class="math inline">\(\widehat{\vct{x}}\)</span> gives the fitted vector’s coordinates</li>
 </ul>
 <div class="key-point">
 <p>The closest fitted vector is unique; its coefficients are unique exactly when the columns are independent</p>
@@ -1063,6 +1063,27 @@ c_1\vct{v}_1+\cdots+c_k\vct{v}_k=\vct{0}
 <div class="key-point">
 <p>The familiar homogeneous system answers the abstract independence question</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="test-independence-with-a-coefficient-system">Test independence with a coefficient system</h3>
+<p>Take <span class="math inline">\(\vct{u}_1=[1,1,0]^{\mathsf T}\)</span>, <span class="math inline">\(\vct{u}_2=[1,0,1]^{\mathsf T}\)</span>, and <span class="math inline">\(\vct{u}_3=[2,1,1]^{\mathsf T}\)</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Place the vectors in columns and solve <span class="math inline">\(\mat{U}\vct{c}=\vct{0}\)</span> <span class="exsub">Are these three vectors independent? Give a nonzero coefficient list if they are dependent</span> <span class="exsub">Which vector can you remove without changing their span?</span> <span class="exsub">Replace <span class="math inline">\(\vct{u}_3\)</span> by <span class="math inline">\([2,1,2]^{\mathsf T}\)</span> and test independence again</span> </span></p>
+</div>
+<aside class="notes">
+<p>The original columns have u3=u1+u2, so [1,1,-1]^T gives zero. All solutions are [-s,-s,s]^T. Removing u3 leaves the same span; either of the other two can also be removed using the same relation. With the replacement third column, the determinant is -1, so every column has a pivot and the only zero combination is trivial. Use elimination if students prefer it.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="dependence-identifies-a-redundant-generator" class="slide level2">
 <h2>Dependence identifies a redundant generator</h2>
@@ -1272,6 +1293,7 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 <li><a href="#/a-basis-gives-every-vector-unique-coordinates">A basis gives every vector unique coordinates</a></li>
 <li><a href="#/same-vector-different-coordinate-columns">Same vector, different coordinate columns</a></li>
 <li><a href="#/polynomial-coefficients-are-coordinates-in-a-chosen-basis">Polynomial coefficients are coordinates in a chosen basis</a></li>
+<li><a href="#/one-line-two-coordinate-systems">Example: one line, two coordinate systems</a></li>
 <li><a href="#/worked-example-a-basis-of-symmetric-matrices">Example: a basis of symmetric matrices</a></li>
 <li><a href="#/worked-example-test-a-polynomial-basis">Example: test a polynomial basis</a></li>
 </ul>
@@ -1367,6 +1389,141 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 <div class="key-point">
 <p>Choosing a basis converts abstract vectors into coordinate columns</p>
 </div>
+</section>
+<section id="one-line-two-coordinate-systems" class="slide level2">
+<h2>Example: one line, two coordinate systems</h2>
+<p>High school algebra in <span class="math inline">\(\mathbb{P}_1\)</span>: polynomials of degree at most one</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><span class="alert">Slope-intercept form</span></p>
+<p><span class="math display">\[
+p(x)=b+mx
+\]</span></p>
+<p>Basis <span class="math inline">\(\mathcal{B}=\{1,x\}\)</span>, in that order</p>
+<p><span class="math display">\[
+[p]_{\mathcal{B}}=\begin{bmatrix}b\\m\end{bmatrix}
+\]</span></p>
+<p>Coordinates: intercept and slope</p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><span class="alert">Two-point form</span> at <span class="math inline">\(x=0,1\)</span></p>
+<p><span class="math display">\[
+p(x)=y_0(1-x)+y_1x
+\]</span></p>
+<p>Basis <span class="math inline">\(\mathcal{C}=\{1-x,x\}\)</span>, in that order</p>
+<p><span class="math display">\[
+[p]_{\mathcal{C}}=\begin{bmatrix}y_0\\y_1\end{bmatrix}
+\]</span></p>
+<p>Coordinates: <span class="math inline">\(y_0=p(0)\)</span> and <span class="math inline">\(y_1=p(1)\)</span></p>
+</div></div>
+<p>For <span class="math inline">\(p(x)=2+3x=2(1-x)+5x\)</span>,</p>
+<p><span class="math display">\[
+[p]_{\mathcal{B}}=\begin{bmatrix}2\\3\end{bmatrix},
+\qquad [p]_{\mathcal{C}}=\begin{bmatrix}2\\5\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<p>Same line, different coordinates in different bases</p>
+</div>
+<aside class="notes">
+<p>The familiar name for b+mx is slope-intercept form. It is point-slope form based at x=0 after writing p(x)-b=m(x-0). For C, 1-x has values 1,0 at x=0,1, while x has values 0,1. Thus the weights are exactly the two sampled y values. Expanding gives b=y_0 and m=y_1-y_0, so every polynomial of degree at most one has exactly one representation in either listed basis. Constants and the zero polynomial are included in P_1.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="a-third-point-gives-redundant-data">A third point gives redundant data</h3>
+<p>Add the point at <span class="math inline">\(x=2\)</span> to the two-point description</p>
+<p><span class="math display">\[
+p(2)=y_0(1-2)+2y_1=2y_1-y_0
+\]</span></p>
+<p>For <span class="math inline">\(p(x)=2+3x\)</span>, the three points are <span class="math inline">\((0,2)\)</span>, <span class="math inline">\((1,5)\)</span>, and <span class="math inline">\((2,8)\)</span></p>
+<ul>
+<li>The first two values determine the line uniquely</li>
+<li>The third value must satisfy <span class="math inline">\(y_2=2y_1-y_0\)</span></li>
+<li>Arbitrary values at <span class="math inline">\(x=0,1,2\)</span> may require a <span class="alert">quadratic</span></li>
+</ul>
+<div class="key-point">
+<p>Three sampled values of a line cannot vary independently</p>
+<p>&nbsp;</p>
+<p>There is no basis of three polynomials in <span class="math inline">\(\mathbb{P}_1\)</span></p>
+</div>
+<aside class="notes">
+<p>Compatible three-point data still specify one unique line. Redundant data do not mean that several lines pass through the same two distinct x values. Every polynomial in P_1 is determined by its two coefficients relative to {1,x}; three such coefficient columns are dependent. Hence three linear polynomials cannot form a basis of P_1. A three-node Lagrange basis instead belongs to P_2; for collinear data, its quadratic terms cancel. The next slide distinguishes fixed sample values from nonunique synthesis weights.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="three-linear-generators-give-many-coefficient-lists">Three linear generators give many coefficient lists</h3>
+<p>Extend the two-point basis to the spanning family <span class="math inline">\(\mathcal{G}=\{1-x,x,1\}\)</span></p>
+<p>It is dependent because</p>
+<p><span class="math display">\[
+(1-x)+x-1=0
+\]</span></p>
+<p>The same line has infinitely many representations, one for each <span class="math inline">\(s\in\reals\)</span>:</p>
+<p><span class="math display">\[
+2+3x=(2-s)(1-x)+(5-s)x+s(1)
+\]</span></p>
+<p>For example,</p>
+<p><span class="math display">\[
+2(1-x)+5x+0(1)=1(1-x)+4x+1(1)
+\]</span></p>
+<div class="key-point">
+<p>A basis gives unique coordinates; redundant generators give nonunique weights</p>
+</div>
+<aside class="notes">
+<p>The three weights here are coefficients on the listed generators, not the sample values p(0),p(1),p(2). Those values remain fixed at 2,5,8. Adding s times the zero relation -(1-x)-x+1=0 changes the coefficient list without changing the polynomial. This is the same redundancy seen earlier with frames. The two-point basis is enough to describe every line uniquely.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="practice-coordinates-and-a-third-sample">Coordinates and a third sample</h3>
+<p>Use <span class="math inline">\(\mathcal{B}=\{1,x\}\)</span> and <span class="math inline">\(\mathcal{C}=\{1-x,x\}\)</span>, in the listed order</p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>A polynomial <span class="math inline">\(p\in\mathbb{P}_1\)</span> satisfies <span class="math inline">\(p(0)=3\)</span> and <span class="math inline">\(p(1)=-1\)</span> <span class="exsub">Find <span class="math inline">\([p]_{\mathcal{C}}\)</span>, reconstruct <span class="math inline">\(p(x)\)</span>, and find <span class="math inline">\([p]_{\mathcal{B}}\)</span></span> <span class="exsub">Predict <span class="math inline">\(p(2)\)</span>; could the point <span class="math inline">\((2,-4)\)</span> lie on this same line?</span> <span class="exsub">Find two different coefficient lists for <span class="math inline">\(p\)</span> in the redundant family <span class="math inline">\(\{1-x,x,1\}\)</span></span> </span></p>
+</div>
+<aside class="notes">
+<p>[p]_C=[3,-1]^T, so p=3(1-x)-x=3-4x and [p]_B=[3,-4]^T. p(2)=-5, so (2,-4) does not lie on this line. In the three-generator family, [3,-1,0]^T and [2,-2,1]^T both represent p.&nbsp;The sample values are fixed, while these redundant-generator coefficients can vary. Do not call the three-generator lists coordinates in a basis.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="worked-example-a-basis-of-symmetric-matrices" class="slide level2">
 <h2>Example: a basis of symmetric matrices</h2>

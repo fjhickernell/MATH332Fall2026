@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-12">
+  <meta name="dcterms.date" content="2026-10-15">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -633,7 +633,7 @@
 
 <section id="title-slide" data-background-color="#f5f7fb" data-background-image="https://fjhickernell.github.io/MATH332Fall2026/classlib/classlib/quarto/assets/images/normal-scatter.png" data-background-position="top left" data-background-size="55%" class="quarto-title-block center">
   <h1 class="title">MATH 332 — Fall 2026</h1>
-  <p class="subtitle"><span class="deck-title">Euclidean Vector Spaces</span><br> <span class="deck-meta">Points, directions, and affine solution sets · Anton, Rorres, &amp; Kaul §§3.1–3.5<br> <a href="../assignments/assignment_3.html">Assignment 3 due 10/9</a></span></p>
+  <p class="subtitle"><span class="deck-title">Euclidean Vector Spaces</span><br> <span class="deck-meta">Points, directions, and affine solution sets<br>Anton, Rorres, &amp; Kaul §§3.1–3.5<br> <a href="../assignments/assignment_3.html">Assignment 3 due 10/9</a></span></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 12, 2026</p>
+  <p class="date">October 15, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -727,7 +727,7 @@ P+\vct{v}=\text{point}
 <li>a <span class="alert">displacement or direction</span></li>
 <li>written <span class="math inline">\(\vct{u},\vct{v},\ldots\)</span></li>
 <li>from origin <span class="math inline">\(O\)</span>, <span class="math inline">\(\vct{p}=\overrightarrow{OP}=[p_1,p_2,\ldots]^{\mathsf T}\)</span></li>
-<li>has length and direction; translation leaves it unchanged</li>
+<li>has length; when nonzero, has a direction; translation leaves it unchanged</li>
 </ul>
 </div></div>
 <p><span class="math display">\[
@@ -844,7 +844,7 @@ P=(p_1,p_2,p_3)
 <p><span class="math display">\[
 L=\{P+t\vct{v}:t\in\reals\}
 \]</span></p>
-<p>A plane needs one point and two independent directions:</p>
+<p>A plane needs one point and two independent directions: neither is a scalar multiple of the other</p>
 <p><span class="math display">\[
 \Pi=\{P+s\vct{u}+t\vct{v}:s,t\in\reals\}
 \]</span></p>
@@ -854,6 +854,27 @@ L=\{P+t\vct{v}:t\in\reals\}
 <div class="key-point">
 <p>Point <span class="math inline">\(+\)</span> directions describes a translated, or <span class="alert">affine</span>, set</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="points-and-directions-on-a-line">Points and directions on a line</h3>
+<p>Let <span class="math inline">\(P=(1,1)\)</span>, <span class="math inline">\(Q=(3,2)\)</span>, and <span class="math inline">\(R=(5,3)\)</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Distinguish locations from displacements <span class="exsub">Find <span class="math inline">\(\vct{d}=Q-P\)</span> and determine whether <span class="math inline">\(R\)</span> lies on <span class="math inline">\(L=\{P+t\vct{d}:t\in\reals\}\)</span></span> <span class="exsub">Find the midpoint <span class="math inline">\(M=\tfrac12P+\tfrac12Q\)</span>; why does this combination of points have an origin-independent meaning?</span> <span class="exsub">Choose <span class="math inline">\(P\)</span> as a new origin: find the new position vectors of <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span>, and check that <span class="math inline">\(Q-P\)</span> is unchanged</span> </span></p>
+</div>
+<aside class="notes">
+<p>d=[2,1]^T and R=P+2d, so R lies on L. The midpoint is (2,3/2). The coefficients of the point combination sum to one; shifting the origin therefore changes its position coordinates by exactly the origin shift, while the geometric point remains the same. With new origin P, the position vectors are [0,0]^T and [2,1]^T, whose difference is still [2,1]^T.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="solution-sets-have-directions" class="title-slide slide level1 center">
@@ -990,6 +1011,19 @@ x-y+z&amp;=0
 <div class="exitem lettered">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Interpret this solution set <span class="exsub">Verify that the direction satisfies <span class="math inline">\(\mat{A}\vct{z}=\vct{0}\)</span></span> <span class="exsub">Explain why adding <span class="math inline">\(t\vct{z}\)</span> leaves both equations unchanged</span> <span class="exsub">Decide whether the solution line passes through the origin</span> </span></p>
 </div>
+<aside class="notes">
+<p>A=[[1,1,1],[1,-1,1]] and z=[-1,0,1]^T give Az=[0,0]^T. Thus A(x_p+t z)=Ax_p+tAz=[2,0]^T for every real t. The origin does not satisfy the first equation, so this affine line is not a subspace.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="euclidean-tools-for-affine-questions" class="title-slide slide level1 center">
@@ -1121,7 +1155,7 @@ P=(1,-1,0),\qquad \vct{v}=\begin{bmatrix}1\\2\\0\end{bmatrix},
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Project a displacement to find the nearest point <span class="exsub">Form <span class="math inline">\(\vct{q}-\vct{p}\)</span> and compute the minimizing parameter <span class="math inline">\(t_*\)</span></span> <span class="exsub">Find the nearest point <span class="math inline">\(P_*\)</span> and the distance from <span class="math inline">\(Q\)</span> to <span class="math inline">\(L\)</span></span> <span class="exsub">Verify that <span class="math inline">\(\vct{q}-\vct{p}_*\)</span> is perpendicular to <span class="math inline">\(\vct{v}\)</span></span> <span class="exsub">Explain why projecting <span class="math inline">\(\vct{q}\)</span> onto <span class="math inline">\(\vct{v}\)</span> alone does not solve this problem</span> </span></p>
 </div>
 <aside class="notes">
-<p>The displacement is <span class="math inline">\((3,1,2)^{\mathsf T}\)</span>, so <span class="math inline">\(t_*=5/5=1\)</span>. The nearest point is <span class="math inline">\(P_*=(2,1,0)\)</span>; the residual is <span class="math inline">\((2,-1,2)^{\mathsf T}\)</span>, which has dot product zero with <span class="math inline">\((1,2,0)^{\mathsf T}\)</span> and norm <span class="math inline">\(3\)</span>. The squared distance at parameter <span class="math inline">\(t\)</span> is <span class="math inline">\(9+5(t-1)^2\)</span>. Projecting <span class="math inline">\(\vct{q}\)</span> alone finds the nearest point on the parallel line through the origin, not on the given affine line. Subtract the anchor point first, project the displacement, then add the anchor point back.</p>
+<p>The displacement is <span class="math inline">\([3,1,2]^{\mathsf T}\)</span>, so <span class="math inline">\(t_*=5/5=1\)</span>. The nearest point is <span class="math inline">\(P_*=(2,1,0)\)</span>; the residual is <span class="math inline">\([2,-1,2]^{\mathsf T}\)</span>, which has dot product zero with <span class="math inline">\([1,2,0]^{\mathsf T}\)</span> and norm <span class="math inline">\(3\)</span>. The squared distance at parameter <span class="math inline">\(t\)</span> is <span class="math inline">\(9+5(t-1)^2\)</span>. Projecting <span class="math inline">\(\vct{q}\)</span> alone finds the nearest point on the parallel line through the origin, not on the given affine line. Subtract the anchor point first, project the displacement, then add the anchor point back.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1312,20 +1346,20 @@ P=(1,0,1),\qquad Q=(2,1,1),\qquad R=(1,2,3)
 \]</span></p>
 <p>First form directions from the same point:</p>
 <p><span class="math display">\[
-\vct{u}=\overrightarrow{PQ}=(1,1,0)^{\mathsf T},
+\vct{u}=\overrightarrow{PQ}=[1,1,0]^{\mathsf T},
 \qquad
-\vct{v}=\overrightarrow{PR}=(0,2,2)^{\mathsf T}
+\vct{v}=\overrightarrow{PR}=[0,2,2]^{\mathsf T}
 \]</span></p>
 <p>Their cross product is</p>
 <p><span class="math display">\[
-\vct{n}=\vct{u}\mathbin{\times}\vct{v}=(2,-2,2)^{\mathsf T}
+\vct{n}=\vct{u}\mathbin{\times}\vct{v}=[2,-2,2]^{\mathsf T}
 \]</span></p>
 <p>Check: <span class="math inline">\(\vct{n}^{\mathsf T}\vct{u}=2-2=0\)</span> and <span class="math inline">\(\vct{n}^{\mathsf T}\vct{v}=-4+4=0\)</span></p>
 </section>
 <section class="slide level2">
 
 <h3 id="worked-example-the-plane-and-its-area">Example: the plane and its area</h3>
-<p>Keep <span class="math inline">\(P=(1,0,1)\)</span> and <span class="math inline">\(\vct{n}=(2,-2,2)^{\mathsf T}\)</span></p>
+<p>Keep <span class="math inline">\(P=(1,0,1)\)</span> and <span class="math inline">\(\vct{n}=[2,-2,2]^{\mathsf T}\)</span></p>
 <p>The plane through <span class="math inline">\(P,Q,R\)</span> is</p>
 <p><span class="math display">\[
 \vct{n}^{\mathsf T}(\vct{x}-\vct{p})=0
@@ -1350,7 +1384,7 @@ P=(0,1,0),\qquad Q=(2,1,0),\qquad R=(0,2,2)
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use point differences and a cross product <span class="exsub">Find <span class="math inline">\(\vct{u}=\overrightarrow{PQ}\)</span> and <span class="math inline">\(\vct{v}=\overrightarrow{PR}\)</span></span> <span class="exsub">Compute <span class="math inline">\(\vct{n}=\vct{u}\mathbin{\times}\vct{v}\)</span> and verify that it is perpendicular to both directions</span> <span class="exsub">Find an equation for the affine plane through <span class="math inline">\(P,Q,R\)</span></span> <span class="exsub">Find the area of triangle <span class="math inline">\(PQR\)</span> using the original cross product</span> </span></p>
 </div>
 <aside class="notes">
-<p>The directions are <span class="math inline">\((2,0,0)^{\mathsf T}\)</span> and <span class="math inline">\((0,1,2)^{\mathsf T}\)</span>; the cross product is <span class="math inline">\((0,-4,2)^{\mathsf T}\)</span>. Both dot products are zero. The plane equation is <span class="math inline">\(-4(y-1)+2z=0\)</span>, or <span class="math inline">\(2y-z=2\)</span>. The triangle area is <span class="math inline">\(\sqrt5\)</span>. A scaled normal gives the same plane but its norm does not give the original parallelogram area.</p>
+<p>The directions are <span class="math inline">\([2,0,0]^{\mathsf T}\)</span> and <span class="math inline">\([0,1,2]^{\mathsf T}\)</span>; the cross product is <span class="math inline">\([0,-4,2]^{\mathsf T}\)</span>. Both dot products are zero. The plane equation is <span class="math inline">\(-4(y-1)+2z=0\)</span>, or <span class="math inline">\(2y-z=2\)</span>. The triangle area is <span class="math inline">\(\sqrt5\)</span>. A scaled normal gives the same plane but its norm does not give the original parallelogram area.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1373,7 +1407,7 @@ P=(1,1,0),\qquad Q=(2,1,1),\qquad R=(1,3,0)
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find a normal, the plane equation, and the triangle area <span class="exsub">Check your normal against both point-difference vectors</span> <span class="exsub">Explain what changes if <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> are exchanged</span> </span></p>
 </div>
 <aside class="notes">
-<p>The directions are <span class="math inline">\((1,0,1)^{\mathsf T}\)</span> and <span class="math inline">\((0,2,0)^{\mathsf T}\)</span>. Their cross product is <span class="math inline">\((-2,0,2)^{\mathsf T}\)</span>, perpendicular to both. The plane is <span class="math inline">\(-2(x-1)+2z=0\)</span>, or <span class="math inline">\(x-z=1\)</span>, and the triangle area is <span class="math inline">\(\sqrt2\)</span>. Exchanging <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> negates the normal and leaves the plane and area unchanged.</p>
+<p>The directions are <span class="math inline">\([1,0,1]^{\mathsf T}\)</span> and <span class="math inline">\([0,2,0]^{\mathsf T}\)</span>. Their cross product is <span class="math inline">\([-2,0,2]^{\mathsf T}\)</span>, perpendicular to both. The plane is <span class="math inline">\(-2(x-1)+2z=0\)</span>, or <span class="math inline">\(x-z=1\)</span>, and the triangle area is <span class="math inline">\(\sqrt2\)</span>. Exchanging <span class="math inline">\(Q\)</span> and <span class="math inline">\(R\)</span> negates the normal and leaves the plane and area unchanged.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

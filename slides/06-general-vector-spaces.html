@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-12">
+  <meta name="dcterms.date" content="2026-10-15">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 12, 2026</p>
+  <p class="date">October 15, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -821,6 +821,27 @@ c\vct{0}=\vct{0},
 <div class="key-point">
 <p>Once the axioms hold, familiar algebraic manipulations work for every kind of vector</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="two-more-consequences-of-the-axioms">Two more consequences of the axioms</h3>
+<p>We have proved <span class="math inline">\(0\vct{v}=\vct{0}\)</span> by distributivity and additive cancellation</p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use the vector-space axioms rather than coordinate entries <span class="exsub">Prove <span class="math inline">\(c\vct{0}=\vct{0}\)</span> for every real scalar <span class="math inline">\(c\)</span></span> <span class="exsub">Prove <span class="math inline">\((-1)\vct{v}=-\vct{v}\)</span> by showing that <span class="math inline">\((-1)\vct{v}\)</span> is an additive inverse of <span class="math inline">\(\vct{v}\)</span></span> </span></p>
+</div>
+<aside class="notes">
+<p>c0=c(0+0)=c0+c0; adding the additive inverse of c0 gives c0=0. Also v+(-1)v=1v+(-1)v=(1+(-1))v=0v=0. Additive inverses are unique: if v+u=0=v+w, adding -v gives u=w. Thus (-1)v=-v.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="vectors-beyond-coordinate-columns" class="title-slide slide level1 center">
@@ -833,6 +854,19 @@ c\vct{0}=\vct{0},
 <li><a href="#/affine-sets-usually-fail-the-zero-vector-test">Affine sets usually fail the zero-vector test</a></li>
 <li><a href="#/the-operations-are-part-of-the-definition">The operations are part of the definition</a></li>
 </ul>
+<aside class="notes">
+<p>Pacing: polynomials supply the main concrete bridge to subspaces and span. Finite fields, multivariable polynomials, differential equations, and Fourier sums are extensions; choose examples according to the class background. The DE practice assumes differentiation and the displayed homogeneous solutions, not a prior course in solving DEs. Avoid letting these extensions delay the closure and membership questions in the next two sections.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="vectors-need-not-be-coordinate-columns" class="slide level2">
 <h2>Vectors need not be coordinate columns</h2>
@@ -1155,7 +1189,7 @@ W=\left\{t\begin{bmatrix}3\\1\end{bmatrix}:t\in\reals\right\}
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find the element <span class="math inline">\(\vct{z}\)</span> satisfying <span class="math inline">\((x,y)\mathbin{\boxplus}\vct{z}=(x,y)\)</span> for every <span class="math inline">\((x,y)\)</span> <span class="exsub">Why must scalar multiplication also be specified before deciding whether these operations define a vector space?</span> </span></p>
 </div>
 <aside class="notes">
-<p>The additive identity is <span class="math inline">\((1,1)\)</span>. The point is not to finish constructing an unusual vector space, but to establish that the underlying set alone does not determine its vector-space structure.</p>
+<p>The additive identity is <span class="math inline">\((1,1)\)</span>. The point is not to finish constructing an unusual vector space, but to establish that the underlying set alone does not determine its vector-space structure. Ordinary scalar multiplication would give 0(x,y)=(0,0), which differs from the additive identity, so it fails the consequences of the axioms.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1213,7 +1247,7 @@ c\vct{u}+d\vct{v}\in W
 <li>additive inverses by taking <span class="math inline">\(c=-1\)</span> and <span class="math inline">\(d=0\)</span></li>
 </ul>
 <div class="key-point">
-<p>Subspaces are exactly the subsets closed under linear combinations</p>
+<p>Subspaces are exactly the nonempty subsets closed under linear combinations</p>
 </div>
 </section>
 <section id="the-zero-vector-is-the-quickest-rejection-test" class="slide level2">
@@ -1308,7 +1342,7 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 <div class="exitem lettered">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Decide whether each family is a subspace <span class="exsub">Diagonal matrices: <span class="math inline">\(a_{ij}=0\)</span> when <span class="math inline">\(i\ne j\)</span></span> <span class="exsub">Lower-triangular matrices: <span class="math inline">\(a_{ij}=0\)</span> when <span class="math inline">\(i&lt;j\)</span></span> <span class="exsub">Symmetric matrices: <span class="math inline">\(\mat{A}^{\mathsf T}=\mat{A}\)</span></span> <span class="exsub">Tridiagonal matrices: <span class="math inline">\(a_{ij}=0\)</span> when <span class="math inline">\(|i-j|&gt;1\)</span></span> <span class="exsub">Invertible matrices: a matrix inverse exists</span> <span class="exsub">Orthogonal matrices: <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}=\mat{I}\)</span></span> </span></p>
 </div>
-<p>For each yes, prove closure under linear combinations; for each no, give a failed test or counterexample</p>
+<p>For each yes, check the zero matrix and closure under linear combinations; for each no, give a failed test or counterexample</p>
 <aside class="notes">
 <p>Diagonal, lower-triangular, and tridiagonal matrices contain the zero matrix and preserve their required zero entries under linear combinations. Symmetric matrices contain zero and satisfy <span class="math inline">\((rA+sB)^{\mathsf T}=rA+sB\)</span> when A and B are symmetric. Invertible and orthogonal matrices exclude zero; I belongs to each family, while 0I and I+(-I) do not. Matrix multiplication is not a vector-space operation. These are subspaces of a fixed-size matrix space; do not mix matrix sizes.</p>
 <style type="text/css">
