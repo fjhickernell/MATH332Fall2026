@@ -88,6 +88,12 @@ Mathematical content should be maintained only in the slides.
     pairs for multivariable polynomials, concrete spans, matrix bases,
     dimension, coordinate arithmetic, orthogonality, and matrix representations
     of linear maps; keep exercise solutions in presenter notes.
+  - [x] Add the high school line example to Bases and Coordinates: slope and
+    intercept versus two sampled values, the constraint on a third point,
+    and nonunique coefficients with redundant linear generators.
+  - [x] Audit Decks 05–07 for flow, starred practice, and correctness; fill
+    practice/answer-note gaps and clarify assumptions and preview pacing.
+    Current audit and exercise counts are in `notes/CHAPTER4-AUDIT.md`.
   - [ ] Develop Deck 09.
   - [x] Draft Deck 10 with QR, regression, and Fourier approximation.
 - [x] Renumber the split Chapter 4 decks as 06–08 and the later placeholders

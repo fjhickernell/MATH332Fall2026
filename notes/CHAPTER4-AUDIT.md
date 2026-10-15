@@ -201,3 +201,64 @@ Companion drafts for Decks 06–08 are constructed and locally validated.
 Instructor review of the decks and companions, and later-semester pacing,
 remain open.
 Local validation does not establish a new live deployment.
+
+## October 15, 2026 — flow, practice, and correctness audit of Decks 05–07
+
+Reviewed the complete source, worked examples, proofs, and presenter answers
+in Euclidean Spaces, Vector Spaces and Span, and Bases and Coordinates.
+The geometry-to-abstraction-to-coordinates sequence remains coherent; preserve
+the existing anchors and recorded classroom stopping points.
+
+| Deck | Rendered slides | Starred exercise sets | Explicit subparts |
+|---|---:|---:|---:|
+| 05 Euclidean Spaces | 34 | 6 | 19 |
+| 06 Vector Spaces and Span | 48 | 12 | 34 |
+| 07 Bases and Coordinates | 60 | 14 | 34 |
+
+Counts distinguish a starred set from its subparts; the lead prompt can also
+require work. All 32 sets now have presenter-only answer notes. Previous set
+counts were 5, 11, and 12. Added targeted practice for points/displacements,
+axiom consequences, a concrete homogeneous independence test, and the new
+two-point polynomial coordinate example. Do not add exercises merely to meet
+a numerical quota: every core section now includes an active check. The
+finite/infinite-basis enrichment does not require a separate exercise.
+
+- Deck 05: explain two independent plane directions without presupposing the
+  formal definition; qualify the zero-vector direction language; normalize
+  numerical vector columns to square brackets. Supply the missing affine-
+  elimination answer notes. The first projection and first plane exercise
+  are the core practice; the second plane exercise is useful reserve practice.
+  Split the title subtitle before the textbook citation to prevent clipping.
+- Deck 06: include nonemptiness in the subspace-test takeaway and explicitly
+  check the zero matrix in matrix-family proofs. Extend the operations
+  example's answer notes to show why ordinary scalar multiplication fails.
+  New presenter pacing guidance keeps fields, multivariable polynomials,
+  DEs, and Fourier sums as selectable extensions around the polynomial core.
+- Deck 07: label the applications opening as a motivation preview. Make the
+  regression basis/coordinate claim conditional on independent feature
+  columns and leave rank terminology to the later development. The line
+  example distinguishes constrained samples from nonunique synthesis weights;
+  highlight “quadratic” using the standard alert style. Follow it with an
+  exercise whose answers remain in presenter notes.
+
+No erroneous numerical example or worked-answer formula was found. Exact
+checks cover affine systems, both projection calculations, cross products,
+plane equations/areas, determinant identities, polynomial arithmetic and
+membership, DE solution families, differentiation coordinates, regression
+residuals, PCA score covariance, independence, basis extraction, coordinate
+arithmetic, and transition matrices: 83 symbolic/numerical assertions pass.
+Definitions, scalar fields, zero/degenerate cases, finite versus infinite
+representations, and exercise solutions were also reviewed directly.
+
+The root website and all twelve decks render. At 1050 by 700, DOM geometry checks cover all 142
+slides in the three audited decks with no MathJax errors or content-slide
+overflow. Title-card container bounds require text-range/visible inspection;
+Deck 05's long subtitle was the actual clipping issue and was split locally.
+Source checks find no bold prose or unnecessary visible terminal periods;
+HTML source comments and presenter notes are excluded. All three title text
+bounds and the four new exercises pass final visible/layout review. All
+section outlines and original explicit anchors survive; 759 local deck
+links/anchors pass in the assembled site. When checking actual slide positions,
+allow the shared 350 ms horizontal-to-section-top reset to settle before
+descending; verify the active heading rather than counting navigation attempts.
+These are local checks; instructor review and publication remain separate.

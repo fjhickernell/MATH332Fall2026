@@ -81,6 +81,8 @@ chosen basis determine the polynomial.
 
 Which vectors can we build, and how can we describe each one uniquely?
 
+[Motivation preview]{.alert}: the definitions and proofs follow
+
 - [From building vectors to giving them addresses](#from-building-vectors-to-giving-them-addresses)
 - [A square becomes a parallelogram](#a-square-becomes-a-parallelogram)
 - [Coordinates turn transformations into matrix multiplication](#coordinates-turn-transformations-into-matrix-multiplication)
@@ -232,8 +234,7 @@ $$
 
 - [Span]{.alert}: $S=\operatorname{span}\{\vct{A}_1,\ldots,\vct{A}_n\}$ contains every possible fitted response
 - [Closest fit]{.alert}: choose $\widehat{\vct{b}}\in S$ minimizing $\|\vct{b}-\widehat{\vct{b}}\|^2$
-- [Independent columns]{.alert}: $\operatorname{rank}(\mat{A})=n$, called full column rank
-- [Basis and coordinates]{.alert}: the ordered columns form a basis of $S$; $\widehat{\vct{x}}$ gives the fitted vector's coordinates
+- [When columns are independent]{.alert}: the ordered columns form a basis of $S$; $\widehat{\vct{x}}$ gives the fitted vector's coordinates
 
 ::: {.key-point}
 The closest fitted vector is unique; its coefficients are unique exactly when
@@ -441,6 +442,30 @@ Only $\vct{c}=\vct{0}$ solves this system exactly when every column has a [pivot
 
 ::: {.key-point}
 The familiar homogeneous system answers the abstract independence question
+:::
+
+---
+
+### Test independence with a coefficient system {#test-independence-with-a-coefficient-system}
+
+Take $\vct{u}_1=[1,1,0]^{\mathsf T}$, $\vct{u}_2=[1,0,1]^{\mathsf T}$, and
+$\vct{u}_3=[2,1,1]^{\mathsf T}$
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>Place the vectors in columns and solve $\mat{U}\vct{c}=\vct{0}$
+<span class="exsub">Are these three vectors independent? Give a nonzero coefficient list if they are dependent</span>
+<span class="exsub">Which vector can you remove without changing their span?</span>
+<span class="exsub">Replace $\vct{u}_3$ by $[2,1,2]^{\mathsf T}$ and test independence again</span>
+</span>
+:::
+
+::: {.notes}
+The original columns have u3=u1+u2, so [1,1,-1]^T gives zero. All
+solutions are [-s,-s,s]^T. Removing u3 leaves the same span; either of the
+other two can also be removed using the same relation. With the replacement
+third column, the determinant is -1, so every column has a pivot and the
+only zero combination is trivial. Use elimination if students prefer it.
 :::
 
 ---
@@ -697,6 +722,7 @@ Reference: https://math.mit.edu/~rbm/18.103-S04/node3.html
 - [A basis gives every vector unique coordinates](#a-basis-gives-every-vector-unique-coordinates)
 - [Same vector, different coordinate columns](#same-vector-different-coordinate-columns)
 - [Polynomial coefficients are coordinates in a chosen basis](#polynomial-coefficients-are-coordinates-in-a-chosen-basis)
+- [Example: one line, two coordinate systems](#one-line-two-coordinate-systems)
 - [Example: a basis of symmetric matrices](#worked-example-a-basis-of-symmetric-matrices)
 - [Example: test a polynomial basis](#worked-example-test-a-polynomial-basis)
 
@@ -823,6 +849,161 @@ For another basis, the same polynomial has another coordinate vector
 
 ::: {.key-point}
 Choosing a basis converts abstract vectors into coordinate columns
+:::
+
+---
+
+## Example: one line, two coordinate systems {#one-line-two-coordinate-systems}
+
+High school algebra in $\mathbb{P}_1$: polynomials of degree at most one
+
+:::: {.columns}
+::: {.column width="47%"}
+[Slope-intercept form]{.alert}
+
+$$
+p(x)=b+mx
+$$
+
+Basis $\mathcal{B}=\{1,x\}$, in that order
+
+$$
+[p]_{\mathcal{B}}=\begin{bmatrix}b\\m\end{bmatrix}
+$$
+
+Coordinates: intercept and slope
+:::
+::: {.column width="6%"}
+:::
+::: {.column width="47%"}
+[Two-point form]{.alert} at $x=0,1$
+
+$$
+p(x)=y_0(1-x)+y_1x
+$$
+
+Basis $\mathcal{C}=\{1-x,x\}$, in that order
+
+$$
+[p]_{\mathcal{C}}=\begin{bmatrix}y_0\\y_1\end{bmatrix}
+$$
+
+Coordinates: $y_0=p(0)$ and $y_1=p(1)$
+:::
+::::
+
+For $p(x)=2+3x=2(1-x)+5x$,
+
+$$
+[p]_{\mathcal{B}}=\begin{bmatrix}2\\3\end{bmatrix},
+\qquad [p]_{\mathcal{C}}=\begin{bmatrix}2\\5\end{bmatrix}
+$$
+
+::: {.key-point}
+Same line, different coordinates in different bases
+:::
+
+::: {.notes}
+The familiar name for b+mx is slope-intercept form. It is point-slope form
+based at x=0 after writing p(x)-b=m(x-0).
+For C, 1-x has values 1,0 at x=0,1, while x has values 0,1. Thus the
+weights are exactly the two sampled y values. Expanding gives b=y_0 and
+m=y_1-y_0, so every polynomial of degree at most one has exactly one
+representation in either listed basis. Constants and the zero polynomial
+are included in P_1.
+:::
+
+---
+
+### A third point gives redundant data {#a-third-point-gives-redundant-data}
+
+Add the point at $x=2$ to the two-point description
+
+$$
+p(2)=y_0(1-2)+2y_1=2y_1-y_0
+$$
+
+For $p(x)=2+3x$, the three points are $(0,2)$, $(1,5)$, and $(2,8)$
+
+- The first two values determine the line uniquely
+- The third value must satisfy $y_2=2y_1-y_0$
+- Arbitrary values at $x=0,1,2$ may require a [quadratic]{.alert}
+
+::: {.key-point}
+Three sampled values of a line cannot vary independently
+
+&nbsp;
+
+There is no basis of three polynomials in $\mathbb{P}_1$
+:::
+
+::: {.notes}
+Compatible three-point data still specify one unique line. Redundant data
+do not mean that several lines pass through the same two distinct x values.
+Every polynomial in P_1 is determined by its two coefficients relative to
+{1,x}; three such coefficient columns are dependent. Hence three linear
+polynomials cannot form a basis of P_1. A three-node Lagrange basis instead
+belongs to P_2; for collinear data, its quadratic terms cancel. The next
+slide distinguishes fixed sample values from nonunique synthesis weights.
+:::
+
+---
+
+### Three linear generators give many coefficient lists {#three-linear-generators-give-many-coefficient-lists}
+
+Extend the two-point basis to the spanning family $\mathcal{G}=\{1-x,x,1\}$
+
+It is dependent because
+
+$$
+(1-x)+x-1=0
+$$
+
+The same line has infinitely many representations, one for each $s\in\reals$:
+
+$$
+2+3x=(2-s)(1-x)+(5-s)x+s(1)
+$$
+
+For example,
+
+$$
+2(1-x)+5x+0(1)=1(1-x)+4x+1(1)
+$$
+
+::: {.key-point}
+A basis gives unique coordinates; redundant generators give nonunique weights
+:::
+
+::: {.notes}
+The three weights here are coefficients on the listed generators, not the
+sample values p(0),p(1),p(2). Those values remain fixed at 2,5,8. Adding
+s times the zero relation -(1-x)-x+1=0 changes the coefficient list without
+changing the polynomial. This is the same redundancy seen earlier with
+frames. The two-point basis is enough to describe every line uniquely.
+:::
+
+---
+
+### Coordinates and a third sample {#practice-coordinates-and-a-third-sample}
+
+Use $\mathcal{B}=\{1,x\}$ and $\mathcal{C}=\{1-x,x\}$, in the listed order
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>A polynomial $p\in\mathbb{P}_1$ satisfies $p(0)=3$ and $p(1)=-1$
+<span class="exsub">Find $[p]_{\mathcal{C}}$, reconstruct $p(x)$, and find $[p]_{\mathcal{B}}$</span>
+<span class="exsub">Predict $p(2)$; could the point $(2,-4)$ lie on this same line?</span>
+<span class="exsub">Find two different coefficient lists for $p$ in the redundant family $\{1-x,x,1\}$</span>
+</span>
+:::
+
+::: {.notes}
+[p]_C=[3,-1]^T, so p=3(1-x)-x=3-4x and [p]_B=[3,-4]^T.
+p(2)=-5, so (2,-4) does not lie on this line. In the three-generator
+family, [3,-1,0]^T and [2,-2,1]^T both represent p. The sample values are
+fixed, while these redundant-generator coefficients can vary. Do not call
+the three-generator lists coordinates in a basis.
 :::
 
 ---

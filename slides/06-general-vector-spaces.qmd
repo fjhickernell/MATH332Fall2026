@@ -217,6 +217,26 @@ Once the axioms hold, familiar algebraic manipulations work for every kind of
 vector
 :::
 
+---
+
+### Two more consequences of the axioms {#two-more-consequences-of-the-axioms}
+
+We have proved $0\vct{v}=\vct{0}$ by distributivity and additive cancellation
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>Use the vector-space axioms rather than coordinate entries
+<span class="exsub">Prove $c\vct{0}=\vct{0}$ for every real scalar $c$</span>
+<span class="exsub">Prove $(-1)\vct{v}=-\vct{v}$ by showing that $(-1)\vct{v}$ is an additive inverse of $\vct{v}$</span>
+</span>
+:::
+
+::: {.notes}
+c0=c(0+0)=c0+c0; adding the additive inverse of c0 gives c0=0.
+Also v+(-1)v=1v+(-1)v=(1+(-1))v=0v=0. Additive inverses are unique:
+if v+u=0=v+w, adding -v gives u=w. Thus (-1)v=-v.
+:::
+
 # Vectors Beyond Coordinate Columns
 
 - [Vectors need not be coordinate columns](#vectors-need-not-be-coordinate-columns)
@@ -225,6 +245,15 @@ vector
 - [Functions can be vectors](#functions-can-be-vectors)
 - [Affine sets usually fail the zero-vector test](#affine-sets-usually-fail-the-zero-vector-test)
 - [The operations are part of the definition](#the-operations-are-part-of-the-definition)
+
+::: {.notes}
+Pacing: polynomials supply the main concrete bridge to subspaces and span.
+Finite fields, multivariable polynomials, differential equations, and Fourier
+sums are extensions; choose examples according to the class background.
+The DE practice assumes differentiation and the displayed homogeneous
+solutions, not a prior course in solving DEs. Avoid letting these extensions
+delay the closure and membership questions in the next two sections.
+:::
 
 ## Vectors need not be coordinate columns {#vectors-need-not-be-coordinate-columns}
 
@@ -625,6 +654,8 @@ The usual pair $(0,0)$ is not the zero vector for this addition
 The additive identity is $(1,1)$. The point is not to finish constructing an
 unusual vector space, but to establish that the underlying set alone does not
 determine its vector-space structure.
+Ordinary scalar multiplication would give 0(x,y)=(0,0), which differs from
+the additive identity, so it fails the consequences of the axioms.
 :::
 
 # Subspaces and Span
@@ -676,7 +707,7 @@ This one condition gives
 - additive inverses by taking $c=-1$ and $d=0$
 
 ::: {.key-point}
-Subspaces are exactly the subsets closed under linear combinations
+Subspaces are exactly the nonempty subsets closed under linear combinations
 :::
 
 ## The zero vector is the quickest rejection test {#the-zero-vector-is-the-quickest-rejection-test}
@@ -810,8 +841,8 @@ with fixed $n\ge2$
 </span>
 :::
 
-For each yes, prove closure under linear combinations; for each no, give a
-failed test or counterexample
+For each yes, check the zero matrix and closure under linear combinations;
+for each no, give a failed test or counterexample
 
 ::: {.notes}
 Diagonal, lower-triangular, and tridiagonal matrices contain the zero matrix

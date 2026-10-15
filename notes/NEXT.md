@@ -7,6 +7,18 @@ and bases, then resume at “Example: independent Fourier modes.” Return to
 the deferred differentiation-by-coordinates, regression, and PCA motivation.
 Quiz 3 remains in the last 15 minutes with its announced coverage unchanged.
 
+Deck 07's coordinate section now includes the high school line example after
+polynomial coefficients: slope/intercept versus values at x=0,1, followed by
+the constrained third sample at x=2 and nonunique weights in a redundant
+spanning family. Exact symbolic checks, full website/twelve-deck renders,
+759 local slide-link/anchor checks, and visible review of all three new slides
+at 1050-by-700 pass. The follow-up flow/correctness audit of Decks 05–07 adds
+four targeted exercises (6/12/14 starred sets in 34/48/60 slides), fills the
+missing affine-elimination answer notes, and clarifies subspace nonemptiness,
+regression assumptions, and preview pacing. Details and validation are in
+`notes/CHAPTER4-AUDIT.md`. Include these additions in the pending instructor
+review; the recorded continuation and assessment coverage are unchanged.
+
 Course notation now uses braces for bases; coordinates and basis-matrix
 columns follow the listed order. QR uses A=Q R with plain R; its triangular
 factor differs from R in A=C R. Deck 00's cumulative terms index now includes

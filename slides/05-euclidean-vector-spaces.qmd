@@ -5,7 +5,7 @@ deck_title: "{{< meta decks.d05.title >}}"
 deck_short_title: "{{< meta decks.d05.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
-  <span class="deck-meta">Points, directions, and affine solution sets · {{< meta texts.anton.short >}} §§3.1–3.5<br>
+  <span class="deck-meta">Points, directions, and affine solution sets<br>{{< meta texts.anton.short >}} §§3.1–3.5<br>
   <a href="../assignments/assignment_3.html">Assignment 3 due 10/9</a></span>
 include-after-body:
   - text: |
@@ -95,7 +95,7 @@ The same coordinate column can play two different geometric roles
 - a [displacement or direction]{.alert}
 - written $\vct{u},\vct{v},\ldots$
 - from origin $O$, $\vct{p}=\overrightarrow{OP}=[p_1,p_2,\ldots]^{\mathsf T}$
-- has length and direction; translation leaves it unchanged
+- has length; when nonzero, has a direction; translation leaves it unchanged
 :::
 :::
 
@@ -199,7 +199,8 @@ $$
 L=\{P+t\vct{v}:t\in\reals\}
 $$
 
-A plane needs one point and two independent directions:
+A plane needs one point and two independent directions: neither is a scalar
+multiple of the other
 
 $$
 \Pi=\{P+s\vct{u}+t\vct{v}:s,t\in\reals\}
@@ -214,6 +215,29 @@ a collection of vectors closed under addition and scaling
 
 ::: {.key-point}
 Point $+$ directions describes a translated, or [affine]{.alert}, set
+:::
+
+---
+
+### Points and directions on a line {#points-and-directions-on-a-line}
+
+Let $P=(1,1)$, $Q=(3,2)$, and $R=(5,3)$
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>Distinguish locations from displacements
+<span class="exsub">Find $\vct{d}=Q-P$ and determine whether $R$ lies on $L=\{P+t\vct{d}:t\in\reals\}$</span>
+<span class="exsub">Find the midpoint $M=\tfrac12P+\tfrac12Q$; why does this combination of points have an origin-independent meaning?</span>
+<span class="exsub">Choose $P$ as a new origin: find the new position vectors of $P$ and $Q$, and check that $Q-P$ is unchanged</span>
+</span>
+:::
+
+::: {.notes}
+d=[2,1]^T and R=P+2d, so R lies on L. The midpoint is (2,3/2).
+The coefficients of the point combination sum to one; shifting the origin
+therefore changes its position coordinates by exactly the origin shift,
+while the geometric point remains the same. With new origin P, the position
+vectors are [0,0]^T and [2,1]^T, whose difference is still [2,1]^T.
 :::
 
 # Solution Sets Have Directions
@@ -344,6 +368,12 @@ $$
 <span class="exsub">Explain why adding $t\vct{z}$ leaves both equations unchanged</span>
 <span class="exsub">Decide whether the solution line passes through the origin</span>
 </span>
+:::
+
+::: {.notes}
+A=[[1,1,1],[1,-1,1]] and z=[-1,0,1]^T give Az=[0,0]^T.
+Thus A(x_p+t z)=Ax_p+tAz=[2,0]^T for every real t. The origin does not
+satisfy the first equation, so this affine line is not a subspace.
 :::
 
 # Euclidean Tools for Affine Questions
@@ -501,9 +531,9 @@ $$
 :::
 
 ::: {.notes}
-The displacement is $(3,1,2)^{\mathsf T}$, so $t_*=5/5=1$.
-The nearest point is $P_*=(2,1,0)$; the residual is $(2,-1,2)^{\mathsf T}$,
-which has dot product zero with $(1,2,0)^{\mathsf T}$ and norm $3$.
+The displacement is $[3,1,2]^{\mathsf T}$, so $t_*=5/5=1$.
+The nearest point is $P_*=(2,1,0)$; the residual is $[2,-1,2]^{\mathsf T}$,
+which has dot product zero with $[1,2,0]^{\mathsf T}$ and norm $3$.
 The squared distance at parameter $t$ is $9+5(t-1)^2$.
 Projecting $\vct{q}$ alone finds the nearest point on the parallel line through
 the origin, not on the given affine line. Subtract the anchor point first,
@@ -722,15 +752,15 @@ $$
 First form directions from the same point:
 
 $$
-\vct{u}=\overrightarrow{PQ}=(1,1,0)^{\mathsf T},
+\vct{u}=\overrightarrow{PQ}=[1,1,0]^{\mathsf T},
 \qquad
-\vct{v}=\overrightarrow{PR}=(0,2,2)^{\mathsf T}
+\vct{v}=\overrightarrow{PR}=[0,2,2]^{\mathsf T}
 $$
 
 Their cross product is
 
 $$
-\vct{n}=\vct{u}\mathbin{\times}\vct{v}=(2,-2,2)^{\mathsf T}
+\vct{n}=\vct{u}\mathbin{\times}\vct{v}=[2,-2,2]^{\mathsf T}
 $$
 
 Check: $\vct{n}^{\mathsf T}\vct{u}=2-2=0$ and
@@ -740,7 +770,7 @@ $\vct{n}^{\mathsf T}\vct{v}=-4+4=0$
 
 ### Example: the plane and its area {#worked-example-the-plane-and-its-area}
 
-Keep $P=(1,0,1)$ and $\vct{n}=(2,-2,2)^{\mathsf T}$
+Keep $P=(1,0,1)$ and $\vct{n}=[2,-2,2]^{\mathsf T}$
 
 The plane through $P,Q,R$ is
 
@@ -780,8 +810,8 @@ $$
 :::
 
 ::: {.notes}
-The directions are $(2,0,0)^{\mathsf T}$ and $(0,1,2)^{\mathsf T}$;
-the cross product is $(0,-4,2)^{\mathsf T}$. Both dot products are zero.
+The directions are $[2,0,0]^{\mathsf T}$ and $[0,1,2]^{\mathsf T}$;
+the cross product is $[0,-4,2]^{\mathsf T}$. Both dot products are zero.
 The plane equation is $-4(y-1)+2z=0$, or $2y-z=2$.
 The triangle area is $\sqrt5$. A scaled normal gives the same plane but its
 norm does not give the original parallelogram area.
@@ -804,8 +834,8 @@ $$
 :::
 
 ::: {.notes}
-The directions are $(1,0,1)^{\mathsf T}$ and $(0,2,0)^{\mathsf T}$.
-Their cross product is $(-2,0,2)^{\mathsf T}$, perpendicular to both.
+The directions are $[1,0,1]^{\mathsf T}$ and $[0,2,0]^{\mathsf T}$.
+Their cross product is $[-2,0,2]^{\mathsf T}$, perpendicular to both.
 The plane is $-2(x-1)+2z=0$, or $x-z=1$, and the triangle area is $\sqrt2$.
 Exchanging $Q$ and $R$ negates the normal and leaves the plane and area unchanged.
 :::
