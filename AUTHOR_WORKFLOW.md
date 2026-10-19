@@ -465,11 +465,13 @@ calendar unchanged and check again later.
   the user specifies another treatment.
 - For a matrix such as $\mat{A}$, denote its columns by uppercase vector
   symbols $\vct{A}_j$ and its rows by lowercase transposed vector symbols
-  $\vct{a}_i^{\mathsf T}$. Apply the same uppercase-column/lowercase-row
+  $\vct{a}_i^\top$. Apply the same uppercase-column/lowercase-row
   convention to other matrices.
+- Write transposes with `^\top`, such as $\mat{A}^\top$
 - Use square brackets for numerical vector rows and columns, and parentheses
-  for geometric points and ordered lists such as bases. Compact column
-  vectors may use `[a,b,...]^{\mathsf T}`; prefer an explicit vertical
+  for geometric points. Use braces for bases; coordinates follow the listed
+  order. Compact column
+  vectors may use `[a,b,...]^\top`; prefer an explicit vertical
   `bmatrix` in displayed set definitions so no transpose is needed merely
   to specify a column. Parentheses remain appropriate for abstract ordered
   pairs when no row or column orientation is intended.

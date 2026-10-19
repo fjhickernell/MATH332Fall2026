@@ -2,6 +2,13 @@
 
 ## Current task
 
+The October 19 Safari math-loading fix is validated and published in
+HickernellAcademicLib `8b84f9a`, intentionally pinned here. MathJax 3.2.2 is
+bundled instead of downloaded from the CDN; the local metadata inherits the
+shared setting. Twelve decks render, and Safari reload and slide/section
+navigation pass, confirmed by the instructor. Other computers obtain the
+runtime through normal recursive repository synchronization.
+
 Prepare the October 20 continuation in Deck 07: recap independence and
 coordinate uniqueness, then resume “Coordinates in a Chosen Basis” →
 “A basis gives every vector unique coordinates.” October 15 covered the
@@ -35,9 +42,25 @@ columns follow the listed order. QR uses A=Q R with plain R; its triangular
 factor differs from R in A=C R. Deck 00's cumulative terms index now includes
 compact notation cues, QR, and separate upper-/lower-triangular entries,
 with no redundant generic triangular entry. These conventions are recorded
-in AUTHOR_WORKFLOW.md. The October 20 continuation is the next task.
+in AUTHOR_WORKFLOW.md. Bases and Coordinates now uses `^\top` for all
+transposes; retain this notation in future revisions. The October 20
+continuation is the next task. Three additional gold-star exercises now
+cover algebra versus lengths, polynomial transition direction, and
+differentiation in distinct input/output bases, with full answers in notes.
+The closing transformation explanation returns to the opening motivation
+and distinguishes output coordinates from the vector. The later sections
+are consolidated as Dimension and Coordinate Arithmetic, and Transformations
+and Change of Basis; the Course Map has seven entries and fits at normal
+type size. Existing section anchors remain available.
+Deck 07 now has 63 slides and 17 starred exercise sets; exact calculations,
+rendering, and visible review of all four new content slides pass.
+The redundant-generator example now retains columns 1 and 3 after moving
+the former fourth generator to second; the following alternate-basis and
+frame examples use the same relabeling. Exact rank/dependence checks pass.
 The opening “From building vectors to giving them addresses” summary slide
-now has the gold border selected by the instructor.
+has the gold border selected by the instructor. Its October 19 revision uses
+Concept / Notation / What it does, with concrete actions replacing the
+question-and-payoff columns; the table and equations pass visible review.
 
 Review the new opening motivation in Bases and Coordinates: linear
 combinations build vectors, span describes reach, independence gives unique

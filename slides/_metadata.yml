@@ -70,9 +70,6 @@ format:
       - simple
       - ../classlib/classlib/quarto/slides/hickernell-slides.scss
       - math332-slides.scss
-    html-math-method:
-      method: mathjax
-      url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js
 execute:
   warning: false
   message: false

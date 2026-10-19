@@ -59,9 +59,8 @@ Basis (coordinates use the listed order): $\mathcal{B}=\{1,t,t^2\}$
 - [Independence and Bases](#independence-and-bases)
 - [Bases and Unique Representations](#bases-and-unique-representations)
 - [Coordinates in a Chosen Basis](#coordinates-in-a-chosen-basis)
-- [Dimension and Coordinates](#dimension-and-coordinates)
-- [Arithmetic in Coordinates](#arithmetic-in-coordinates)
-- [Changing Coordinate Systems](#changing-coordinate-systems)
+- [Dimension and Coordinate Arithmetic](#dimension-and-coordinates)
+- [Transformations and Change of Basis](#changing-coordinate-systems)
 - [Big Ideas](#big-ideas)
 :::
 :::
@@ -93,13 +92,13 @@ Which vectors can we build, and how can we describe each one uniquely?
 
 Choose vectors $\vct{b}_1,\ldots,\vct{b}_k$ in a space $V$
 
-| Concept | Question it answers | Payoff |
+| Concept | Notation | What it does |
 |---|---|---|
-| [Linear combination]{.alert} | What does $c_1\vct{b}_1+\cdots+c_k\vct{b}_k$ build? | One vector from chosen ingredients |
-| [Span]{.alert} | What can all choices of coefficients reach? | The attainable subspace |
-| [Linear independence]{.alert} | Can two coefficient lists build the same vector? | No ambiguity when independent |
-| [Basis]{.alert} $\{\vct{b}_1,\ldots,\vct{b}_k\}$ | Do we reach every vector of $V$, uniquely? | A spanning, independent set |
-| [Coordinates]{.alert} $c_1,\ldots,c_k$ | Which coefficients build this vector? | Its address in an ordered basis |
+| [Linear combination]{.alert} | $c_1\vct{b}_1+\cdots+c_k\vct{b}_k$ | Builds many new vectors |
+| [Span]{.alert} | $\operatorname{span}\{\vct{b}_1,\ldots,\vct{b}_k\}$ | Collects all vectors we can build |
+| [Linear independence]{.alert} | $c_1\vct{b}_1+\cdots+c_k\vct{b}_k=\vct{0}$<br>$\implies c_1=\cdots=c_k=0$ | Makes the formula for building unique |
+| [Basis]{.alert} | $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_k\}$ | Builds every vector in $V$ uniquely, via linear combinations |
+| [Coordinates]{.alert} | $[\vct{v}]_{\mathcal{B}}=[c_1,\ldots,c_k]^\top$ | Records the weights as an address |
 
 ::: {.key-point}
 Spanning gives existence; independence gives uniqueness
@@ -107,7 +106,10 @@ Spanning gives existence; independence gives uniqueness
 
 ::: {.notes}
 This is a motivation preview; the next sections develop the definitions and
-proofs. A list always spans its own span; being a basis for a specified V
+proofs. One fixed coefficient list builds one vector; varying the coefficients
+builds all the vectors in the span. Independence makes the coefficients unique
+for each vector we can build; a basis adds existence for every vector in V.
+A list always spans its own span; being a basis for a specified V
 additionally requires that this span equal V. If two coefficient lists build
 the same vector, subtracting their combinations produces a nontrivial zero
 combination. Conversely a nontrivial zero combination changes coefficients
@@ -147,7 +149,7 @@ A singular map may collapse a direction, so it need not preserve a basis.
 
 ### Unique addresses need independent directions {#unique-addresses-need-independent-directions}
 
-Keep $\vct{b}_1=[2,0]^{\mathsf T}$ and $\vct{b}_2=[1,1]^{\mathsf T}$
+Keep $\vct{b}_1=[2,0]^\top$ and $\vct{b}_2=[1,1]^\top$
 
 For the ordered basis $\mathcal{B}=\{\vct{b}_1,\vct{b}_2\}$,
 
@@ -159,7 +161,7 @@ $$
 
 - $0\le c_1,c_2\le1$ fills the parallelogram; $c_1,c_2\in\reals$ fills $\reals^2$
 - $\det[\vct{b}_1\ \vct{b}_2]=2\ne0$: every vector has one address
-- $\vct{b}_1^{\mathsf T}\vct{b}_2=2\ne0$: a basis need not be orthogonal
+- $\vct{b}_1^\top\vct{b}_2=2\ne0$: a basis need not be orthogonal
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
@@ -214,8 +216,9 @@ The constant coordinate is lost under differentiation; invertibility is not
 required. The matrix is attached to the transformation AND the chosen input
 and output bases; changing bases generally changes it. For any linear map
 between finite-dimensional spaces, linearity lets us transform basis vectors
-once and then act on coordinate columns. The next deck proves the formula
-and works a lower-degree differentiation example, P_2 to P_1. This same
+once and then act on coordinate columns. The closing section returns to
+the general formula and practices differentiation with nonstandard bases;
+the next deck connects the representation to rank and nullity. This same
 principle works for functions in a chosen finite-dimensional function space,
 matrices, and other abstract vectors. For a general infinite-dimensional
 space, a finite coordinate column may represent only a selected subspace or
@@ -279,7 +282,7 @@ The independent feature columns span a plane in $\reals^3$
 The residual is perpendicular to both columns: this is the closest fit
 
 ::: {.key-point}
-$[1/2,1/2]^{\mathsf T}$ locates the fitted response in that plane; it does not
+$[1/2,1/2]^\top$ locates the fitted response in that plane; it does not
 represent the observed response outside the plane
 :::
 
@@ -319,7 +322,7 @@ $$
 \vct{z}=3\vct{q}_1+\tfrac12\vct{q}_2
 $$
 
-Its coordinate vector $[3,1/2]^{\mathsf T}$ contains its [scores]{.alert}
+Its coordinate vector $[3,1/2]^\top$ contains its [scores]{.alert}
 
 ::: {.key-point}
 Full basis: exact coordinates
@@ -448,15 +451,15 @@ The familiar homogeneous system answers the abstract independence question
 
 ### Test independence with a coefficient system {#test-independence-with-a-coefficient-system}
 
-Take $\vct{u}_1=[1,1,0]^{\mathsf T}$, $\vct{u}_2=[1,0,1]^{\mathsf T}$, and
-$\vct{u}_3=[2,1,1]^{\mathsf T}$
+Take $\vct{u}_1=[1,1,0]^\top$, $\vct{u}_2=[1,0,1]^\top$, and
+$\vct{u}_3=[2,1,1]^\top$
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
 <span>Place the vectors in columns and solve $\mat{U}\vct{c}=\vct{0}$
 <span class="exsub">Are these three vectors independent? Give a nonzero coefficient list if they are dependent</span>
 <span class="exsub">Which vector can you remove without changing their span?</span>
-<span class="exsub">Replace $\vct{u}_3$ by $[2,1,2]^{\mathsf T}$ and test independence again</span>
+<span class="exsub">Replace $\vct{u}_3$ by $[2,1,2]^\top$ and test independence again</span>
 </span>
 :::
 
@@ -577,37 +580,39 @@ Let $W$ be the span of the columns of $\mat{V}$
 
 $$
 \mat{V}=[\vct{v}_1\ \vct{v}_2\ \vct{v}_3\ \vct{v}_4]
-=\begin{bmatrix}1&0&1&2\\0&1&1&0\\1&1&2&2\end{bmatrix}
+=\begin{bmatrix}1&2&0&1\\0&0&1&1\\1&2&1&2\end{bmatrix}
 \;\xrightarrow{R_3\leftarrow R_3-R_1-R_2}\;
-\begin{bmatrix}1&0&1&2\\0&1&1&0\\0&0&0&0\end{bmatrix}
+\begin{bmatrix}1&2&0&1\\0&0&1&1\\0&0&0&0\end{bmatrix}
 $$
 
-The first two columns are pivot columns
+The first and third columns are pivot columns
 
 $$
-\vct{v}_3=\vct{v}_1+\vct{v}_2,
-\qquad \vct{v}_4=2\vct{v}_1
+\vct{v}_4=\vct{v}_1+\vct{v}_3,
+\qquad \vct{v}_2=2\vct{v}_1
 $$
 
-Remove $\vct{v}_3$ and $\vct{v}_4$ without changing the span
+Remove $\vct{v}_4$ and $\vct{v}_2$ without changing the span
 
 $$
 W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
-=\operatorname{span}\{\vct{v}_1,\vct{v}_2\}
+=\operatorname{span}\{\vct{v}_1,\vct{v}_3\}
 $$
 
 ::: {.key-point}
-$\mathcal{B}=\{\vct{v}_1,\vct{v}_2\}$ still spans $W$
+$\mathcal{B}=\{\vct{v}_1,\vct{v}_3\}$ still spans $W$
 
-$a\vct{v}_1+b\vct{v}_2=\vct{0}$ forces $a=b=0$: independence completes the basis proof
+$a\vct{v}_1+b\vct{v}_3=\vct{0}$ forces $a=b=0$: independence completes the basis proof
 :::
 
 ::: {.notes}
 Subtract the first two rows from the third to obtain the displayed echelon
-form. The nonpivot columns reveal the two dependence relations. The retained
+form. The second column is already a multiple of the first; the next pivot is
+in column 3. Pivot columns need not be consecutive. The nonpivot columns
+reveal the two dependence relations. The retained
 columns span the original space because both removed vectors can be rebuilt
 from them. They are independent: the first and second components of
-$a\vct{v}_1+b\vct{v}_2=\vct{0}$ force $a=b=0$. Thus four generators become
+$a\vct{v}_1+b\vct{v}_3=\vct{0}$ force $a=b=0$. Thus four generators become
 a two-vector basis without losing any vector in W. The space is the plane
 $z=x+y$, connecting back to the first deck's Course Map.
 :::
@@ -616,27 +621,27 @@ $z=x+y$, connecting back to the first deck's Course Map.
 
 ### Different bases can describe the same span {#different-bases-can-describe-the-same-span}
 
-Use the preceding generators of the plane $W=\{[x,y,z]^{\mathsf T}:z=x+y\}$
+Use the preceding generators of the plane $W=\{[x,y,z]^\top:z=x+y\}$
 
 $$
 \vct{v}_1=\begin{bmatrix}1\\0\\1\end{bmatrix},\quad
-\vct{v}_2=\begin{bmatrix}0\\1\\1\end{bmatrix},\quad
-\vct{v}_3=\begin{bmatrix}1\\1\\2\end{bmatrix},\quad
-\vct{v}_4=\begin{bmatrix}2\\0\\2\end{bmatrix}
+\vct{v}_2=\begin{bmatrix}2\\0\\2\end{bmatrix},\quad
+\vct{v}_3=\begin{bmatrix}0\\1\\1\end{bmatrix},\quad
+\vct{v}_4=\begin{bmatrix}1\\1\\2\end{bmatrix}
 $$
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
 <span>A basis must span $W$ and be independent
-<span class="exsub">Show that $\{\vct{v}_2,\vct{v}_3\}$ is another basis for $W$</span>
-<span class="exsub">Explain why $\{\vct{v}_1,\vct{v}_4\}$ is not a basis for $W$</span>
+<span class="exsub">Show that $\{\vct{v}_3,\vct{v}_4\}$ is another basis for $W$</span>
+<span class="exsub">Explain why $\{\vct{v}_1,\vct{v}_2\}$ is not a basis for $W$</span>
 </span>
 :::
 
 ::: {.notes}
-The first two components of a v2+b v3=0 force b=0, then a=0, so v2 and
-v3 are independent. Since v1=v3-v2 and v4=2(v3-v2), they span W.
-The pair v1,v4 is dependent because v4=2v1; it spans only a line in W.
+The first two components of a v3+b v4=0 force b=0, then a=0, so v3 and
+v4 are independent. Since v1=v4-v3 and v2=2(v4-v3), they span W.
+The pair v1,v2 is dependent because v2=2v1; it spans only a line in W.
 A basis need not be unique. Independence makes a vector's coefficients
 unique after an ordered basis has been chosen.
 :::
@@ -647,17 +652,17 @@ unique after an ordered basis has been chosen.
 
 For a subspace of $\reals^n$, a finite spanning list is a [frame]{.alert}
 
-Independence is optional; for $W=\{[x,y,z]^{\mathsf T}:z=x+y\}$, use
+Independence is optional; for $W=\{[x,y,z]^\top:z=x+y\}$, use
 
 $$
-\vct{v}_1=[1,0,1]^{\mathsf T},\quad \vct{v}_2=[0,1,1]^{\mathsf T},
-\quad \vct{v}_3=\vct{v}_1+\vct{v}_2,\quad \vct{v}_4=2\vct{v}_1
+\vct{v}_1=[1,0,1]^\top,\quad \vct{v}_2=2\vct{v}_1,
+\quad \vct{v}_3=[0,1,1]^\top,\quad \vct{v}_4=\vct{v}_1+\vct{v}_3
 $$
 
 $$
-\vct{v}_3
-=0\vct{v}_1+0\vct{v}_2+1\vct{v}_3+0\vct{v}_4
-=1\vct{v}_1+1\vct{v}_2+0\vct{v}_3+0\vct{v}_4
+\vct{v}_4
+=0\vct{v}_1+0\vct{v}_2+0\vct{v}_3+1\vct{v}_4
+=1\vct{v}_1+0\vct{v}_2+1\vct{v}_3+0\vct{v}_4
 $$
 
 A redundant frame admits more than one coefficient list for the same vector
@@ -674,8 +679,8 @@ suffice. The word frame does not require redundancy: a basis is also a frame.
 For a redundant frame, a reconstruction rule can select one coefficient list
 (for example the minimum-norm list), even though the representation equation
 alone has many solutions. Inner products and norms come later in the course.
-For the displayed example, loss of v1 leaves v2 and v3, loss of v2 leaves v1
-and v3, and loss of v3 or v4 leaves v1 and v2; each remaining list spans W.
+For the displayed example, loss of v1 leaves v3 and v4, loss of v3 leaves v1
+and v4, and loss of v4 or v2 leaves v1 and v3; each remaining list spans W.
 Reference: https://faculty.sites.iastate.edu/esweber/files/inline-files/book_final_0.pdf
 :::
 
@@ -776,8 +781,8 @@ Our familiar vector column is its coordinate vector in the standard basis
 
 ## Same vector, different coordinate columns {#same-vector-different-coordinate-columns}
 
-For $\vct{x}=[5,1]^{\mathsf T}$, compare the standard basis
-$\mathcal{E}=\{[1,0]^{\mathsf T},[0,1]^{\mathsf T}\}$ with
+For $\vct{x}=[5,1]^\top$, compare the standard basis
+$\mathcal{E}=\{[1,0]^\top,[0,1]^\top\}$ with
 
 $$
 \mathcal{B}=\left\{\vct{b}_1=\begin{bmatrix}1\\1\end{bmatrix},
@@ -808,15 +813,15 @@ The vector stays at $(5,1)$; changing the basis changes its description
 
 ### Read the basis label before the numbers {#practice-read-the-basis-label-before-the-numbers}
 
-Use $\mathcal{E}=\{[1,0]^{\mathsf T},[0,1]^{\mathsf T}\}$ and
-$\mathcal{B}=\{[1,1]^{\mathsf T},[1,-1]^{\mathsf T}\}$
+Use $\mathcal{E}=\{[1,0]^\top,[0,1]^\top\}$ and
+$\mathcal{B}=\{[1,1]^\top,[1,-1]^\top\}$
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
 <span>Interpret each coordinate column
-<span class="exsub">If $[\vct{u}]_{\mathcal{B}}=[1,0]^{\mathsf T}$, find $\vct{u}$ in standard coordinates</span>
-<span class="exsub">If $[\vct{v}]_{\mathcal{E}}=[1,0]^{\mathsf T}$, find $\vct{v}$. Is it the same vector as $\vct{u}$?</span>
-<span class="exsub">Reverse the listed order of $\mathcal{B}$ to get $\mathcal{B}'$. Find $[\vct{x}]_{\mathcal{B}'}$ for $\vct{x}=[5,1]^{\mathsf T}$</span>
+<span class="exsub">If $[\vct{u}]_{\mathcal{B}}=[1,0]^\top$, find $\vct{u}$ in standard coordinates</span>
+<span class="exsub">If $[\vct{v}]_{\mathcal{E}}=[1,0]^\top$, find $\vct{v}$. Is it the same vector as $\vct{u}$?</span>
+<span class="exsub">Reverse the listed order of $\mathcal{B}$ to get $\mathcal{B}'$. Find $[\vct{x}]_{\mathcal{B}'}$ for $\vct{x}=[5,1]^\top$</span>
 </span>
 :::
 
@@ -1010,7 +1015,7 @@ the three-generator lists coordinates in a basis.
 
 ## Example: a basis of symmetric matrices {#worked-example-a-basis-of-symmetric-matrices}
 
-For real symmetric $2\times2$ matrices ($\mat{A}^{\mathsf T}=\mat{A}$), use
+For real symmetric $2\times2$ matrices ($\mat{A}^\top=\mat{A}$), use
 
 $$
 \mat{B}_1=\begin{bmatrix}1&0\\0&0\end{bmatrix},
@@ -1049,7 +1054,7 @@ The vector is a matrix; its coordinate vector is a column of coefficients
 <span>For real $2\times2$ matrices, build bases from the freely chosen entries
 <span class="exsub">Find an ordered basis for all upper-triangular $2\times2$ matrices</span>
 <span class="exsub">In your basis, find the coordinates of $\begin{bmatrix}2&-1\\0&3\end{bmatrix}$</span>
-<span class="exsub">Find a basis for the skew-symmetric matrices: $\mat{A}^{\mathsf T}=-\mat{A}$</span>
+<span class="exsub">Find a basis for the skew-symmetric matrices: $\mat{A}^\top=-\mat{A}$</span>
 <span class="exsub">Explain why your lists both span and are independent</span>
 </span>
 :::
@@ -1080,7 +1085,7 @@ For $p(t)=2+4t+3t^2$,
 
 $$
 p=-1(1)+4t+3(1+t^2),
-\qquad [p]_{\mathcal{E}}=[-1,4,3]^{\mathsf T}
+\qquad [p]_{\mathcal{E}}=[-1,4,3]^\top
 $$
 
 ---
@@ -1134,12 +1139,14 @@ its third polynomial is the sum of its first two. $\mathcal{D}$ is a basis;
 $2+4t=4(1+t)+0(t+t^2)-2(1)$, so the coordinates are $(4,0,-2)$.
 :::
 
-# Dimension and Coordinates
+# Dimension and Coordinate Arithmetic {#dimension-and-coordinates}
 
 - [Dimension counts vectors in any basis](#dimension-counts-vectors-in-any-basis)
 - [Dimension turns two tests into one](#dimension-turns-two-tests-into-one)
 - [Dimension depends on the scalar field](#dimension-depends-on-the-scalar-field)
 - [Example: count monomials to find dimension](#worked-example-count-monomials-to-find-dimension)
+- [The coordinate map preserves linear combinations](#the-coordinate-map-preserves-linear-combinations)
+- [Example: combine coordinate vectors](#worked-example-combine-coordinate-vectors)
 
 ## Dimension counts vectors in any basis {#dimension-counts-vectors-in-any-basis}
 
@@ -1290,12 +1297,9 @@ Matching entries proves independence. Five cannot span this six-dimensional
 space.
 :::
 
-# Arithmetic in Coordinates
-
-- [The coordinate map preserves linear combinations](#the-coordinate-map-preserves-linear-combinations)
-- [Example: combine coordinate vectors](#worked-example-combine-coordinate-vectors)
-
 ## The coordinate map preserves linear combinations {#the-coordinate-map-preserves-linear-combinations}
+
+<span id="arithmetic-in-coordinates"></span>
 
 For a basis $\mathcal{B}$ of an $n$-dimensional real vector space, define
 
@@ -1337,20 +1341,20 @@ Use the polynomial basis $\mathcal{B}=\{1,1+t,t^2\}$
 
 $$
 p=2+3t+t^2,
-\quad [p]_{\mathcal{B}}=[-1,3,1]^{\mathsf T}
+\quad [p]_{\mathcal{B}}=[-1,3,1]^\top
 $$
 
 $$
 q=1-t+2t^2,
-\quad [q]_{\mathcal{B}}=[2,-1,2]^{\mathsf T}
+\quad [q]_{\mathcal{B}}=[2,-1,2]^\top
 $$
 
 Compute in coordinates:
 
 $$
 [2p-q]_{\mathcal{B}}
-=2[-1,3,1]^{\mathsf T}-[2,-1,2]^{\mathsf T}
-=[-4,7,0]^{\mathsf T}
+=2[-1,3,1]^\top-[2,-1,2]^\top
+=[-4,7,0]^\top
 $$
 
 Reconstruct: $-4(1)+7(1+t)+0t^2=3+7t=2p-q$
@@ -1366,8 +1370,8 @@ Coordinate arithmetic uses coefficients in the chosen basis
 Keep $\mathcal{B}=\{1,1+t,t^2\}$ and suppose
 
 $$
-[p]_{\mathcal{B}}=[1,2,-1]^{\mathsf T},
-\qquad [q]_{\mathcal{B}}=[-2,1,3]^{\mathsf T}
+[p]_{\mathcal{B}}=[1,2,-1]^\top,
+\qquad [q]_{\mathcal{B}}=[-2,1,3]^\top
 $$
 
 ::: {.exitem .lettered}
@@ -1385,12 +1389,41 @@ The coordinate vector is [-3,4,5]^T, and the polynomial is
 coefficient. Directly, p=3+2t-t^2 and q=-1+t+3t^2, giving the same result.
 :::
 
-# Changing Coordinate Systems
+---
+
+### Coordinate arithmetic preserves algebra, not lengths {#coordinate-arithmetic-preserves-algebra-not-lengths}
+
+In $\reals^2$, use $\mathcal{B}=\{[1,1]^\top,[1,-1]^\top\}$
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>Separate linear structure from geometry
+<span class="exsub">Suppose $[\vct{u}]_{\mathcal{B}}=[1,0]^\top$ and $[\vct{v}]_{\mathcal{B}}=[0,1]^\top$. Find $[2\vct{u}-\vct{v}]_{\mathcal{B}}$ and reconstruct $2\vct{u}-\vct{v}$</span>
+<span class="exsub">Compare the Euclidean lengths of $\vct{u}$ and $[\vct{u}]_{\mathcal{B}}$</span>
+<span class="exsub">Why does preserving linear combinations not guarantee preserving lengths?</span>
+</span>
+:::
+
+::: {.notes}
+The coordinate calculation gives [2,-1]^\top. Reconstructing yields
+2[1,1]^\top-[1,-1]^\top=[1,3]^\top. Here u=[1,1]^\top has Euclidean
+length sqrt(2), whereas [u]_B=[1,0]^\top has Euclidean length 1.
+The coordinate map preserves addition and scalar multiplication by matching
+coefficients in a basis. Those algebraic properties impose no unit-length
+or orthogonality requirement on the basis. In this example the two basis
+vectors are orthogonal but have length sqrt(2), so the ordinary Euclidean
+length of every coordinate column is smaller by that factor. A linear
+isomorphism need not be an isometry; the latter term is optional enrichment.
+:::
+
+# Transformations and Change of Basis {#changing-coordinate-systems}
 
 - [A basis matrix converts coordinates to standard form](#a-basis-matrix-converts-coordinates-to-standard-form)
 - [Change of basis passes through the vector](#change-of-basis-passes-through-the-vector)
 - [Transition columns describe the old basis in the new one](#transition-columns-describe-the-old-basis-in-the-new-one)
 - [Example: change between polynomial bases](#two-coordinate-systems-describe-one-vector)
+- [Transform coordinates to obtain output coordinates](#transform-coordinates-to-obtain-output-coordinates)
+- [Differentiate using two chosen bases](#differentiate-using-two-chosen-bases)
 
 The [companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/07-bases-dimension-and-coordinates.ipynb)
 explores basis extraction and coordinate changes
@@ -1498,12 +1531,12 @@ $2(1)-8t+5(t+t^2)=p$: new coordinates, same polynomial
 
 ### Coordinates change with the basis {#coordinates-change-with-the-basis}
 
-Keep $\vct{x}=[5,1]^{\mathsf T}$ and compare
+Keep $\vct{x}=[5,1]^\top$ and compare
 
 $$
-\mathcal{C}=\bigl\{[1,0]^{\mathsf T},[1,1]^{\mathsf T}\bigr\},
+\mathcal{C}=\bigl\{[1,0]^\top,[1,1]^\top\bigr\},
 \qquad
-\mathcal{D}=\bigl\{[2,1]^{\mathsf T},[1,1]^{\mathsf T}\bigr\}
+\mathcal{D}=\bigl\{[2,1]^\top,[1,1]^\top\bigr\}
 $$
 
 ::: {.exitem}
@@ -1516,12 +1549,122 @@ $$
 
 ::: {.notes}
 The preceding slide is the board example. Here
-$[\vct{x}]_{\mathcal{C}}=[4,1]^{\mathsf T}$ and
-$[\vct{x}]_{\mathcal{D}}=[4,-3]^{\mathsf T}$; both reconstruct
-$\vct{x}=[5,1]^{\mathsf T}$. The transition matrix is
+$[\vct{x}]_{\mathcal{C}}=[4,1]^\top$ and
+$[\vct{x}]_{\mathcal{D}}=[4,-3]^\top$; both reconstruct
+$\vct{x}=[5,1]^\top$. The transition matrix is
 $\mat{P}_{\mathcal{D}}^{-1}\mat{P}_{\mathcal{C}}
-=\begin{bmatrix}1&0\\-1&1\end{bmatrix}$, which sends $[4,1]^{\mathsf T}$
-to $[4,-3]^{\mathsf T}$.
+=\begin{bmatrix}1&0\\-1&1\end{bmatrix}$, which sends $[4,1]^\top$
+to $[4,-3]^\top$.
+:::
+
+---
+
+### Build a polynomial transition matrix in the right direction {#build-a-polynomial-transition-matrix-in-the-right-direction}
+
+In $\mathbb{P}_1$, use $\mathcal{B}=\{1,t\}$ and $\mathcal{C}=\{1-t,t\}$
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>Convert $\mathcal{B}$-coordinates to $\mathcal{C}$-coordinates
+<span class="exsub">Find $[1]_{\mathcal{C}}$ and $[t]_{\mathcal{C}}$; use them as columns of $\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}$</span>
+<span class="exsub">For $p(t)=3-2t$, find $[p]_{\mathcal{C}}$ by matrix multiplication and reconstruct $p$</span>
+<span class="exsub">Would the same matrix convert $\mathcal{C}$-coordinates back to $\mathcal{B}$-coordinates? Find the reverse matrix</span>
+</span>
+:::
+
+::: {.notes}
+Since 1=(1-t)+t and t=0(1-t)+t, the transition columns are
+[1,1]^\top and [0,1]^\top, so
+$\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}
+=\begin{bmatrix}1&0\\1&1\end{bmatrix}$.
+Multiplying [3,-2]^\top gives [3,1]^\top, and
+3(1-t)+t=3-2t. The reverse matrix is
+$\mat{Q}_{\mathcal{B}\leftarrow\mathcal{C}}
+=\begin{bmatrix}1&0\\-1&1\end{bmatrix}$;
+its columns are the B-coordinates of 1-t and t. It sends [3,1]^\top
+back to [3,-2]^\top. The forward matrix would instead send [3,1]^\top
+to [3,4]^\top, so the direction matters. Both matrices represent the
+identity transformation with different input and output bases.
+:::
+
+## Transform coordinates to obtain output coordinates {#transform-coordinates-to-obtain-output-coordinates}
+
+<span id="linear-transformations-in-coordinates"></span>
+
+Let $T:V\to W$ be linear, with ordered bases
+$\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ of $V$ and
+$\mathcal{C}=\{\vct{c}_1,\ldots,\vct{c}_m\}$ of $W$
+
+Transform each input basis vector; put its output coordinates in a column:
+
+$$
+\mat{M}_{\mathcal{C}\leftarrow\mathcal{B}}
+=\begin{bmatrix}[T(\vct{b}_1)]_{\mathcal{C}}&\cdots&[T(\vct{b}_n)]_{\mathcal{C}}\end{bmatrix}
+\in\reals^{m\times n}
+$$
+
+Then transform any input coordinate column:
+
+$$
+\boxed{[T(\vct{v})]_{\mathcal{C}}
+=\mat{M}_{\mathcal{C}\leftarrow\mathcal{B}}[\vct{v}]_{\mathcal{B}}}
+$$
+
+$\mathcal{C}$ describes the output space; $T$ need not reach every vector in $W$
+
+::: {.key-point}
+The matrix acts on input coordinates and returns output coordinates
+
+A change of basis is the special case $T=I$: the vector itself stays the same
+:::
+
+::: {.notes}
+This returns to the opening differentiation preview after students have
+learned coordinates and transition matrices. Linearity is the reason one
+matrix works for every input: if v=a_1 b_1+...+a_n b_n, then
+T(v)=a_1 T(b_1)+...+a_n T(b_n). Taking C-coordinates gives the displayed
+matrix product. There is one column per input basis vector and one row per
+output basis vector. The matrix depends on T and on both listed bases.
+The formula applies to finite-dimensional real spaces; complex spaces use
+complex matrices. W is the codomain. The image T(V) is a subspace of W and
+may be smaller; C can be a basis of all W, so surjectivity is not required.
+Alternatively, choosing W=T(V) gives coordinates directly in a basis of
+the image. Invertibility is not required either. For the identity map on
+one space, the columns become [b_j]_C, exactly the preceding transition
+matrix. The next deck connects this representation to rank and nullity.
+:::
+
+## Differentiate using two chosen bases {#differentiate-using-two-chosen-bases}
+
+Let $D:\mathbb{P}_2\to\mathbb{P}_1$ send $p$ to $p'$, with
+
+$$
+\mathcal{B}=\{1,1+t,t^2\},\qquad \mathcal{C}=\{1,1+t\}
+$$
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>Compute the derivative through its coordinates
+<span class="exsub">Find the $\mathcal{C}$-coordinates of $D(1)$, $D(1+t)$, and $D(t^2)$; form $\mat{M}_{\mathcal{C}\leftarrow\mathcal{B}}$</span>
+<span class="exsub">For $p(t)=2-3t+5t^2$, find $[p]_{\mathcal{B}}$, multiply by your matrix, and reconstruct $D(p)$</span>
+<span class="exsub">Why is the matrix $2\times3$? What does its zero first column tell you?</span>
+</span>
+:::
+
+::: {.notes}
+The derivatives are 0, 1, and 2t. In C, 2t=-2(1)+2(1+t), so the
+columns are [0,0]^\top, [1,0]^\top, and [-2,2]^\top:
+$\mat{M}_{\mathcal{C}\leftarrow\mathcal{B}}
+=\begin{bmatrix}0&1&-2\\0&0&2\end{bmatrix}$.
+Since p=5(1)-3(1+t)+5t^2, [p]_B=[5,-3,5]^\top. The matrix product is
+[-13,10]^\top, which reconstructs -13(1)+10(1+t)=-3+10t=p'.
+The three columns correspond to the three input basis polynomials; the two
+rows correspond to the two output basis polynomials. The first column is
+zero because differentiation annihilates the constant input basis vector.
+Every constant is sent to zero, so the map is not one-to-one, although it
+reaches all P_1. A zero first column does not mean that all outputs have
+zero constant term. Do not mistake [-13,10]^\top for ordinary monomial
+coefficients: the output basis is {1,1+t}.
 :::
 
 # Big Ideas {data-state="goldborder"}
@@ -1531,6 +1674,7 @@ to $[4,-3]^{\mathsf T}$.
 - Coordinates are coefficients in an ordered basis; the same vector can have different coordinate columns
 - Dimension counts basis vectors and depends on the scalar field
 - Coordinate maps preserve linear structure; transition matrices change descriptions
+- A linear transformation becomes a matrix from input coordinates to output coordinates
 
 # How Far We Have Come
 
@@ -1553,7 +1697,7 @@ to $[4,-3]^{\mathsf T}$.
 
 ::: {.key-point}
 With ordered basis $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_d\}$ and $d=\dim(V)<\infty$:
-$\vct{v}=\sum_{j=1}^d c_j\vct{b}_j$ has unique coordinates $[\vct{v}]_{\mathcal{B}}=[c_1,\ldots,c_d]^{\mathsf T}$
+$\vct{v}=\sum_{j=1}^d c_j\vct{b}_j$ has unique coordinates $[\vct{v}]_{\mathcal{B}}=[c_1,\ldots,c_d]^\top$
 :::
 
 # What Comes Next
