@@ -6,7 +6,7 @@ format:
       disableLayout: true
     html-math-method:
       method: mathjax
-      url: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js
+      url: ../classlib/classlib/quarto/assets/mathjax/tex-svg-full.js
 
     metadata-files:
       - ../classlib/classlib/quarto/metadata/hickernell-texts.yml

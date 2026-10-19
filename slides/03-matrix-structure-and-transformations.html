@@ -483,7 +483,7 @@
     // the shared MathJax 3 configuration can load without a MathJax.Hub error.
     (() => {
       const defaultMathJax3Url =
-        "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js";
+        "../classlib/classlib/quarto/assets/mathjax/tex-svg-full.js";
 
       const mathJax3Plugin = {
         id: "mathjax3",
@@ -494,7 +494,7 @@
           script.src = configuredUrl || defaultMathJax3Url;
           script.async = true;
 
-          // Reveal must remain usable while the remote math script is loading.
+          // Reveal must remain usable while the math script is loading.
           // The shared MathJax configuration typesets and relayouts the deck
           // after MathJax starts, even if Reveal is already ready by then.
           script.addEventListener(
@@ -2210,7 +2210,7 @@ T_{\mat{B}}:\reals^k\to\reals^m
         margin: 0,
 
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg-full.js',
+          mathjax: '../classlib/classlib/quarto/assets/mathjax/tex-svg-full.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
