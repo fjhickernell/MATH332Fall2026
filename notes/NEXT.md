@@ -12,8 +12,8 @@ previously deferred differentiation-by-coordinates, regression, and PCA
 motivation remain. The October 20 single-occurrence note is saved and reopened
 in Fantastical on Illinois Tech Fred → Calendar: PH 109, 11:15 AM–12:45 PM
 America/Chicago. Schedule and ledger are reconciled through October 15;
-these pacing changes are included in this checkpoint; remote deployment
-is pending.
+these pacing changes are deployed, and the live October 20 continuation
+was verified October 19.
 
 The unqualified `Lecture update` command now reconciles both active courses;
 `Lecture update 332` and `Lecture update 565` select only the named course.
@@ -268,7 +268,8 @@ address reported Colab problems.
   Dimension, and Coordinates (Decks 04–07, inclusive); Matrix Spaces and Rank
   is excluded by the instructor's October 15 revision. Both website tables
   are updated, and the Test 2 title-slide notice moves from Deck 08 to Deck 07.
-  These pages and both decks render locally; verify the revised live pages after deployment.
+  These pages and both decks render locally; the live coverage pages and
+  Deck 07 title-slide notice were verified October 19.
   The self-contained coverage
   announcement [107870](https://iit.instructure.com/courses/23913/discussion_topics/107870)
   is published to All Sections; its October 15 correction and notification
