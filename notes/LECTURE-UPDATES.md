@@ -2,7 +2,7 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest reconciled instructional meeting: October 8, 2026
+- Latest reconciled instructional meeting: October 15, 2026
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -14,6 +14,7 @@
 | October 1, 2026 | Reconciled: vector-space axioms and scalar fields; polynomial, function, DE, and Fourier examples; affine solution spaces and zero-vector test; operations example completed; subspaces displayed but deferred | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=0ce3ba75-8d71-41df-82b3-b4d601242487) | October 6, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 06 at “Subspaces and Span” → “A subspace inherits its operations” | October 1, 2026 |
 | October 6, 2026 | Reconciled: subspace tests for polynomial and matrix families, homogeneous solution sets, span as linear combinations, plane-span membership and redundant generators; polynomial spanning remains | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9c378e01-89cd-41f8-af88-b4db01321802) | October 8, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 06 at “Spanning polynomials means matching every coefficient” | October 7, 2026 |
 | October 8, 2026 | Reconciled: polynomial-span coefficient tests and singular example; coordinate motivation and transformed square; polynomial dependence, redundant-generator removal, and R³ basis tests by elimination | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6f1ffeed-06a8-46bb-831e-b4dd012c2299) | October 15, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 07 at “Example: independent Fourier modes,” recap independence/bases and revisit deferred coordinate applications; Quiz 3 remains in the last 15 minutes | October 8, 2026 |
+| October 15, 2026 | Reconciled: line-coordinate examples, Fourier-mode independence, homogeneous coefficient tests, and basis extraction by elimination; frames and infinite bases previewed before Quiz 3 | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2de95612-7f46-4253-88e1-b4e40121cfd0) | October 20, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; recap coordinate uniqueness, then “Coordinates in a Chosen Basis” → “A basis gives every vector unique coordinates” | October 18, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -149,3 +150,32 @@ Deck 06 is complete for classroom pacing, with its remaining practice left
 to students. Its Course Outline estimate is three 50-minute hours: roughly
 57 minutes on October 1, 85 on October 6, and 20 on October 8, excluding
 quiz time and Deck 07's motivation preview.
+
+
+## October 15 recording evidence
+
+The Illinois Tech Fred readiness notice identifies an 11:22 AM recording;
+Panopto runs 1:02:45. This is an instructional meeting followed by Quiz 3,
+so the stopping point is taken before quiz administration, not the video end.
+
+At 9:29–10:52 the captions explain line coordinates using slope/intercept
+and values at x=0,1. At 19:23–20:40 the board/captions develop complex
+exponentials and independence of Fourier modes by evaluation. At 31:00–31:26
+the homogeneous coefficient system distinguishes dependence and independence.
+Student questions about dependent sets continue through 35:34; numerical
+R³ examples begin around 40:19. At 54:29–55:58, elimination identifies pivot
+columns, removes a redundant generator, and shows that three independent
+vectors span R³. The visible board identifies the selected original columns.
+
+At 56:36–57:08, frames and infinite bases are brief previews; do not count
+them as fully developed units. At 57:14 the instructor recalls coordinates,
+then stops for quiz administration at 57:22–57:41. Resume systematic
+coordinate calculations, with a brief independence/uniqueness recap. The
+previously deferred differentiation, regression, and PCA applications are
+not established as completed by this recording inspection.
+
+The October 20 single occurrence was saved with “Only This Event” and
+reopened in Fantastical to verify the continuation note, PH 109, and
+11:15 AM–12:45 PM Chicago hours. The calendar menu identifies Illinois Tech
+Fred → Calendar. The obsolete inherited geometry/determinants note was
+replaced only on this occurrence. The recording was paused and muted.

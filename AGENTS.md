@@ -102,13 +102,16 @@ task does not authorize beginning it.
 ### Lecture-update shorthand
 
 Interpret the exact command `Lecture update` as authorization to perform the
-complete post-lecture pacing reconciliation workflow in
+complete post-lecture pacing reconciliation workflow in both active course
+repositories, MATH332Fall2026 and MATH565Fall2026. Apply each course's
 [`AUTHOR_WORKFLOW.md`](AUTHOR_WORKFLOW.md#post-lecture-pacing-reconciliation)
-for MATH 332. Interpret `Lecture update 332` the same way from either active
-course repository, and interpret `Lecture update 565` as routing the request
-to the active MATH 565 repository. The command authorizes the required
-read-only Illinois Tech email check, Panopto inspection, schedule edit, and
-single-occurrence calendar-note edit without another confirmation.
+and reconcile the courses independently. `Lecture update 332` and
+`Lecture update 565` select only the named active course from either
+repository. The command authorizes the required read-only Illinois Tech email
+check, Panopto inspection, schedule edit, and single-occurrence calendar-note
+edit for each selected course without another confirmation. An already
+reconciled course needs no duplicate update; a recording or access blocker
+in one course does not prevent completing the other.
 
 Reconcile the most recent completed instructional meeting that has not already
 been reconciled. Never treat a quiz, test, examination, or other

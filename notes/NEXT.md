@@ -2,10 +2,21 @@
 
 ## Current task
 
-Prepare the October 15 continuation in Deck 07: briefly recap independence
-and bases, then resume at “Example: independent Fourier modes.” Return to
-the deferred differentiation-by-coordinates, regression, and PCA motivation.
-Quiz 3 remains in the last 15 minutes with its announced coverage unchanged.
+Prepare the October 20 continuation in Deck 07: recap independence and
+coordinate uniqueness, then resume “Coordinates in a Chosen Basis” →
+“A basis gives every vector unique coordinates.” October 15 covered the
+line-coordinate example, Fourier-mode independence, homogeneous coefficient
+tests, and basis extraction by elimination. Frames and infinite bases were
+brief previews before Quiz 3. Systematic coordinate calculations and the
+previously deferred differentiation-by-coordinates, regression, and PCA
+motivation remain. The October 20 single-occurrence note is saved and reopened
+in Fantastical on Illinois Tech Fred → Calendar: PH 109, 11:15 AM–12:45 PM
+America/Chicago. Schedule and ledger are reconciled through October 15;
+these pacing changes are included in this checkpoint; remote deployment
+is pending.
+
+The unqualified `Lecture update` command now reconciles both active courses;
+`Lecture update 332` and `Lecture update 565` select only the named course.
 
 Deck 07's coordinate section now includes the high school line example after
 polynomial coefficients: slope/intercept versus values at x=0,1, followed by
@@ -24,7 +35,7 @@ columns follow the listed order. QR uses A=Q R with plain R; its triangular
 factor differs from R in A=C R. Deck 00's cumulative terms index now includes
 compact notation cues, QR, and separate upper-/lower-triangular entries,
 with no redundant generic triangular entry. These conventions are recorded
-in AUTHOR_WORKFLOW.md. The October 15 continuation remains the next task.
+in AUTHOR_WORKFLOW.md. The October 20 continuation is the next task.
 The opening “From building vectors to giving them addresses” summary slide
 now has the gold border selected by the instructor.
 
@@ -59,7 +70,7 @@ The capstone prioritizes SVD and regression, with quadratic forms, FFT,
 tensor products, power iteration/PageRank, and graph Laplacians as modular
 choices. Its class-preferences slide asks students to rank optional coverage;
 select topics and pacing after review. Companion demonstrations remain to be
-built. The October 15 preparation and Chapter 4 review below remain.
+built. The October 20 preparation and Chapter 4 review below remain.
 
 Both new decks and the twelve-deck navigation pass local rendering,
 MathJax/layout inspection, and link/anchor checks. Worked QR, regression,
@@ -169,20 +180,16 @@ algebraic representations from convergent Hilbert-space expansions.
 Named deck references follow `classlib/docs/slide-style.md`, intentionally
 adopted in this course at HickernellAcademicLib commit `5becc32`.
 
-The lecture ledger and schedule are reconciled through October 8. Deck 06
-finished with polynomial-span coefficient tests and a singular example;
-remaining practice was left to students. Deck 07 developed the transformed
-square, polynomial dependence and redundancy, the basis definition, and R³
-membership/basis examples. Fourier examples, the uniqueness proof, and the
-deferred coordinate applications remain. The Course Outline now estimates
-Deck 06 at three 50-minute hours. October 13 is Fall Break. The October 15
-Illinois Tech Fred → Calendar occurrence was saved using “Only This Event”
-and reopened to verify its continuation note, PH 109, and 11:15 AM–12:45 PM
-hours; Fantastical independently confirms the saved note and Chicago times.
-The schedule and updated Course Outline render successfully. Desktop and
-phone layout checks pass; schedule dates now have enough desktop width to
-stay separate from the topic column. The October 8 pacing/schedule update has
-successful publishing and Pages deployment runs, verified October 9.
+The lecture ledger and schedule are reconciled through October 15. Deck 06
+is complete for classroom pacing, with remaining practice left to students;
+its Course Outline estimate remains three 50-minute hours. Deck 07 has now
+covered line coordinates, Fourier-mode independence, homogeneous coefficient
+tests, and basis extraction by elimination. Resume systematic coordinates
+on October 20, with the saved single-occurrence note described above.
+Differentiation, regression, and PCA motivation still require follow-up.
+The updated schedule renders successfully and passes desktop and phone
+layout checks; the continuation anchor resolves. Remote deployment of this
+checkpoint remains pending.
 
 Quiz 2 website coverage is updated to Determinants and Euclidean Vector
 Spaces through projections (excluding cross products), as confirmed by the

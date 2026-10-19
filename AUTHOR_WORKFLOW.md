@@ -344,10 +344,13 @@ remains a separate final action after the instructor reviews the draft.
 After each lecture, reconcile the public schedule and the next lecture plan
 against the Panopto recording:
 
-The exact command `Lecture update` runs this workflow for the current course;
-`Lecture update 332` and `Lecture update 565` select the named active course
-from either course repository. The command itself authorizes the email,
-Panopto, schedule, and single-occurrence calendar actions below.
+The exact command `Lecture update` runs this workflow independently for both
+active courses, MATH 332 and MATH 565, using each course's own repository and
+workflow. `Lecture update 332` and `Lecture update 565` select only the named
+active course from either course repository. The command itself authorizes
+the email, Panopto, schedule, and single-occurrence calendar actions below for
+each selected course. Skip duplicate work when a course is already reconciled;
+complete the other course if one is blocked.
 
 1. Check the Illinois Tech email account for the Panopto “Ready to view”
    notice. This standing workflow authorizes that read-only email check. If
