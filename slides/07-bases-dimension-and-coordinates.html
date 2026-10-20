@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-19">
+  <meta name="dcterms.date" content="2026-10-20">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 19, 2026</p>
+  <p class="date">October 20, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -1897,6 +1897,7 @@ q=1-t+2t^2,
 <li><a href="#/two-coordinate-systems-describe-one-vector">Example: change between polynomial bases</a></li>
 <li><a href="#/transform-coordinates-to-obtain-output-coordinates">Transform coordinates to obtain output coordinates</a></li>
 <li><a href="#/differentiate-using-two-chosen-bases">Differentiate using two chosen bases</a></li>
+<li><a href="#/initial-data-map-linearly-to-a-solution-function">Initial data map linearly to a solution function</a></li>
 </ul>
 <p>The <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/07-bases-dimension-and-coordinates.ipynb">companion notebook</a> explores basis extraction and coordinate changes</p>
 </section>
@@ -2071,6 +2072,165 @@ q=1-t+2t^2,
 <aside class="notes">
 <p>The derivatives are 0, 1, and 2t. In C, 2t=-2(1)+2(1+t), so the columns are [0,0]^, [1,0]^, and [-2,2]^: <span class="math inline">\(\mat{M}_{\mathcal{C}\leftarrow\mathcal{B}}
 =\begin{bmatrix}0&amp;1&amp;-2\\0&amp;0&amp;2\end{bmatrix}\)</span>. Since p=5(1)-3(1+t)+5t^2, [p]_B=[5,-3,5]^. The matrix product is [-13,10]^, which reconstructs -13(1)+10(1+t)=-3+10t=p’. The three columns correspond to the three input basis polynomials; the two rows correspond to the two output basis polynomials. The first column is zero because differentiation annihilates the constant input basis vector. Every constant is sent to zero, so the map is not one-to-one, although it reaches all P_1. A zero first column does not mean that all outputs have zero constant term. Do not mistake [-13,10]^for ordinary monomial coefficients: the output basis is {1,1+t}.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="initial-data-map-linearly-to-a-solution-function" class="slide level2">
+<h2>Initial data map linearly to a solution function</h2>
+<p>Let <span class="math inline">\(S_{\reals}\)</span> be the real-valued solutions of <span class="math inline">\(y''+y=0\)</span> on <span class="math inline">\(\reals\)</span></p>
+<p>The <span class="alert">initial-value problem</span> has a unique solution for every <span class="math inline">\(a,b\in\reals\)</span>:</p>
+<p><span class="math display">\[
+y''+y=0,\qquad y(0)=a,\qquad y'(0)=b
+\]</span></p>
+<p><span class="math display">\[
+T:\reals^2\longrightarrow S_{\reals},\qquad
+\begin{bmatrix}a\\b\end{bmatrix}
+\longmapsto y,\qquad y(t)=a\cos(t)+b\sin(t)
+\]</span></p>
+<p>The standard input basis maps to <span class="math inline">\(\mathcal{B}=\{\cos(t),\sin(t)\}\)</span>:</p>
+<p><span class="math display">\[
+T\!\left(\begin{bmatrix}1\\0\end{bmatrix}\right)=\cos(t),
+\qquad
+T\!\left(\begin{bmatrix}0\\1\end{bmatrix}\right)=\sin(t)
+\]</span></p>
+<div class="key-point">
+<p>The input is a column of two numbers; the output is an entire function</p>
+</div>
+<aside class="notes">
+<p>This is the normalized undamped spring model. S_R consists of twice continuously differentiable real-valued functions on R solving the equation. It revisits the homogeneous-DE vector space from Vector Spaces and Span. Check y’=-a sin(t)+b cos(t), y’‘=-y, y(0)=a, and y’(0)=b. The standard uniqueness theorem for this constant-coefficient IVP gives every solution this form; the focus is its linear structure, not a new DE-solving method. An elementary real-valued uniqueness proof: the difference z of solutions with the same initial data has zero initial data, and (z<sup>2+(z’)</sup>2)‘=2z’(z+z’’)=0. Thus its zero initial energy forces z=0. Write T([1,0]^top) as the function cos, rather than its value at one t. The t notation in the basis names those functions. Physical motion starts at t=0; we define the solution space for all real t.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="initial-conditions-recover-the-coordinates">Initial conditions recover the coordinates</h3>
+<p>For <span class="math inline">\(y(t)=a\cos(t)+b\sin(t)\)</span>,</p>
+<p><span class="math display">\[
+y'(t)=-a\sin(t)+b\cos(t),\qquad
+\begin{bmatrix}y(0)\\y'(0)\end{bmatrix}
+=\begin{bmatrix}a\\b\end{bmatrix}=[y]_{\mathcal{B}}
+\]</span></p>
+<p>With <span class="math inline">\(\vct{u},\vct{v}\in\reals^2\)</span> and <span class="math inline">\(c,d\in\reals\)</span>,</p>
+<p><span class="math display">\[
+T(c\vct{u}+d\vct{v})=cT(\vct{u})+dT(\vct{v})
+\]</span></p>
+<p>The inverse extracts the initial data:</p>
+<p><span class="math display">\[
+T^{-1}:y\longmapsto\begin{bmatrix}y(0)\\y'(0)\end{bmatrix},
+\qquad
+[T(\vct{u})]_{\mathcal{B}}=\mat{I}_2\vct{u}
+\]</span></p>
+<div class="key-point">
+<p><span class="math inline">\(T\)</span> is a linear isomorphism: <span class="math inline">\(\dim(S_{\reals})=2\)</span></p>
+<p>Here the identity matrix represents a map from columns to functions</p>
+</div>
+<aside class="notes">
+<p>The input basis is the standard basis of R^2, and the output basis B lists cos(t), sin(t) in that order. Spanning follows from the solution formula. For independence, a zero combination evaluated at zero gives a=0; differentiating and evaluating at zero gives b=0. Initial values provide exactly the B-coordinate map, inverse to T. The matrix is identity because images of the input basis vectors are precisely the output basis vectors. T itself is not the identity on a single space. Linearity follows directly from the solution formula or by adding solutions and their initial data, then invoking uniqueness. For a=2,b=-1, y=2 cos(t)-sin(t) and [y]_B=[2,-1]^top.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="complex-exponentials-give-another-basis">Complex exponentials give another basis</h3>
+<p>Allow complex-valued solutions: <span class="math inline">\(S_{\mathbb{C}}=\{y:y''+y=0\}\)</span> over <span class="math inline">\(\mathbb{C}\)</span></p>
+<p>Two bases, with coordinates in the listed order:</p>
+<p><span class="math display">\[
+\mathcal{B}=\{\cos(t),\sin(t)\},\qquad
+\mathcal{E}=\{e^{\sqrt{-1}\,t},e^{-\sqrt{-1}\,t}\}
+\]</span></p>
+<p>Euler’s formulas give the transition columns:</p>
+<p><span class="math display">\[
+\cos(t)=\frac{e^{\sqrt{-1}\,t}+e^{-\sqrt{-1}\,t}}{2},
+\qquad
+\sin(t)=\frac{e^{\sqrt{-1}\,t}-e^{-\sqrt{-1}\,t}}{2\sqrt{-1}}
+\]</span></p>
+<p><span class="math display">\[
+[y]_{\mathcal{E}}
+=\underbrace{\frac12\begin{bmatrix}1&amp;-\sqrt{-1}\\1&amp;\sqrt{-1}\end{bmatrix}}_{\mat{Q}_{\mathcal{E}\leftarrow\mathcal{B}}}
+\begin{bmatrix}a\\b\end{bmatrix}
+=\begin{bmatrix}(a-b\sqrt{-1})/2\\(a+b\sqrt{-1})/2\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<p>For real <span class="math inline">\(a,b\)</span>, the two coefficients are complex conjugates and <span class="math inline">\(y\)</span> is real-valued</p>
+</div>
+<aside class="notes">
+<p>The field change matters: the individual exponential functions are not members of S_R. E is a complex basis of S_C, not a real basis of S_R. Both B and E are bases of the two-dimensional complex solution space. Extending T’s domain to C^2 gives a complex-linear isomorphism onto S_C; restricting a,b to R gives a real-linear map with image S_R. For y=c_+ exp(sqrt(-1)t)+c_- exp(-sqrt(-1)t), initial conditions read a=c_++c_- and b=sqrt(-1)(c_+-c_-). The inverse transition matrix is [[1,1],[sqrt(-1),-sqrt(-1)]], and its product with the displayed matrix is I_2. The transition columns are E-coordinates of cos and sin, exactly the general rule developed earlier. The nonzero determinant verifies that E is a basis. For real a,b, c_- is the conjugate of c_+; the functions are conjugates too, so their sum is real. Conversely, real initial data force this relation. For a=2,b=-1, [y]_E=[1+sqrt(-1)/2,1-sqrt(-1)/2]^top. There is no four-real-parameter freedom for real-valued solutions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="a-critically-damped-spring-find-the-solution-map">A critically damped spring: find the solution map</h3>
+<p>An idealized car spring and shock absorber, with normalized coefficients:</p>
+<p><span class="math display">\[
+y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
+\]</span></p>
+<p>Let <span class="math inline">\(S_d\)</span> be its real-valued solution space on <span class="math inline">\(\reals\)</span>, with basis</p>
+<p><span class="math display">\[
+\mathcal{D}=\{e^{-t},te^{-t}\}
+\]</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Repeat the undamped construction <span class="exsub">Verify that both basis functions solve the equation and are independent</span> <span class="exsub">Write <span class="math inline">\(y(t)=c_1e^{-t}+c_2te^{-t}\)</span>; find <span class="math inline">\(c_1,c_2\)</span> from the initial data</span> <span class="exsub">Define <span class="math inline">\(U:\reals^2\to S_d\)</span> from initial data to the solution; explain why it is a linear isomorphism</span> </span></p>
+</div>
+<aside class="notes">
+<p>The damping term is 2y’, not 2y. This is m y’‘+c y’+k y=0 with m=k=1 and c=2, so c^2=4mk: critical damping. A car’s spring and shock absorber motivate the idealized model, without asserting a vehicle’s actual damping ratio. The characteristic polynomial is (r+1)^2. Both e^(-t) and t e^(-t) solve the equation. Dividing a zero combination by e^(-t) gives c_1+c_2 t=0 for every t, hence independence. The displayed basis may be taken as given; the task is to verify its solutions/independence, then use coordinates rather than learn DE methods. Initial-value uniqueness establishes that it spans all S_d. For y=(c_1+c_2 t)e^(-t), y’=(c_2-c_1-c_2 t)e^(-t). Thus y(0)=c_1=a, y’(0)=c_2-c_1=b, and c_2=a+b. U maps [a,b]^top to y(t)=[a+(a+b)t]e^(-t). This is linear in a,b, bijective, and has inverse y -&gt; [y(0),y’(0)]^top. Thus dim(S_d)=2. The basis functions tend to zero as t tends to infinity; critical damping is the threshold between oscillatory and overdamped motion. Avoid claiming that every initial condition prevents crossing equilibrium: some initial velocities can cause one crossing.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="choose-output-coordinates-for-the-damped-motion">Choose output coordinates for the damped motion</h3>
+<p>Keep <span class="math inline">\(U:\reals^2\to S_d\)</span> and <span class="math inline">\(\mathcal{D}=\{e^{-t},te^{-t}\}\)</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>The input basis is the standard basis of <span class="math inline">\(\reals^2\)</span> <span class="exsub">Find the <span class="math inline">\(\mathcal{D}\)</span>-coordinates of <span class="math inline">\(U([1,0]^\top)\)</span> and <span class="math inline">\(U([0,1]^\top)\)</span>; form the matrix representing <span class="math inline">\(U\)</span></span> <span class="exsub">Use those two output functions as a new basis <span class="math inline">\(\mathcal{F}\)</span>; what matrix now represents <span class="math inline">\(U\)</span>?</span> <span class="exsub">For <span class="math inline">\(a=1\)</span>, <span class="math inline">\(b=0\)</span>, give <span class="math inline">\(y(t)\)</span>, <span class="math inline">\([y]_{\mathcal{D}}\)</span>, and <span class="math inline">\([y]_{\mathcal{F}}\)</span></span> </span></p>
+</div>
+<aside class="notes">
+<p>U([1,0]<sup>top)=(1+t)e</sup>(-t), with D-coordinates [1,1]^top. U([0,1]^top)=t e^(-t), with D-coordinates [0,1]^top. The matrix with standard input basis and output basis D is [[1,0],[1,1]], sending [a,b]^top to [a,a+b]^top. F={(1+t)e^(-t),t e^(-t)} is a basis, since the matrix is invertible or because an isomorphism maps a basis to a basis. With output basis F, [U(u)]_F=I_2 u: the same transformation has identity coordinate matrix. For a=1,b=0, y=(1+t)e^(-t), [y]_D=[1,1]^top, [y]_F=[1,0]^top. The inverse D-coordinate matrix [[1,0],[-1,1]] recovers the initial data. The function and transformation stay fixed while the coordinate columns and representing matrices change. Keep these answers in presenter notes.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
