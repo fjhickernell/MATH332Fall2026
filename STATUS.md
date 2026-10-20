@@ -100,6 +100,9 @@ Mathematical content should be maintained only in the slides.
   - [x] Add Deck 07's undamped initial-data solution map with real and
     complex bases as a worked example; use the critically damped car-spring
     model and its coordinate matrices for starred practice.
+  - [x] Expose and highlight both oscillator coordinate-change matrices,
+    reinforce Deck 07's main distinctions, and audit the intro terminology
+    index against all twelve decks (191 linked entries on ten pages).
   - [x] Pin the bundled MathJax runtime and verify Safari rendering through
     reloads and slide/section navigation without a CDN dependency.
   - [ ] Develop Deck 09.

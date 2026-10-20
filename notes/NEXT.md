@@ -9,6 +9,16 @@ shared setting. Twelve decks render, and Safari reload and slide/section
 navigation pass, confirmed by the instructor. Other computers obtain the
 runtime through normal recursive repository synchronization.
 
+The oscillator continuation now displays both coordinate-change directions,
+with the forward matrix boxed in blue and a numerical round trip. Selective
+emphasis reinforces basis order, uniqueness, matrix columns, and arrow
+direction throughout Deck 07. The intro index has been audited against all
+twelve decks: 191 alphabetized terms across ten pages, linked to substantive
+treatments. Matrix representation now links to Deck 07 and SVD to Deck 11.
+Exact oscillator checks, full rendering, local links, and visible layout
+checks pass; see `notes/TERMINOLOGY-AUDIT.md`. The October 20 revisions are
+validated for publication; live deployment has not yet been verified.
+
 The October 20 continuation in Deck 07 is prepared. Recap independence and
 coordinate uniqueness, then resume “Coordinates in a Chosen Basis” →
 “A basis gives every vector unique coordinates.” October 15 covered the
@@ -52,7 +62,7 @@ and distinguishes output coordinates from the vector. The later sections
 are consolidated as Dimension and Coordinate Arithmetic, and Transformations
 and Change of Basis; the Course Map has seven entries and fits at normal
 type size. Existing section anchors remain available.
-Deck 07 now has 68 slides and 19 starred exercise sets; exact calculations,
+Deck 07 now has 69 slides and 19 starred exercise sets; exact calculations,
 rendering, and visible review of the new content slides pass.
 The redundant-generator example now retains columns 1 and 3 after moving
 the former fourth generator to second; the following alternate-basis and

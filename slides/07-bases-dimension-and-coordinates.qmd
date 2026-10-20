@@ -101,7 +101,7 @@ Choose vectors $\vct{b}_1,\ldots,\vct{b}_k$ in a space $V$
 | [Coordinates]{.alert} | $[\vct{v}]_{\mathcal{B}}=[c_1,\ldots,c_k]^\top$ | Records the weights as an address |
 
 ::: {.key-point}
-Spanning gives existence; independence gives uniqueness
+Spanning gives [existence]{.alert}; independence gives [uniqueness]{.alert}
 :::
 
 ::: {.notes}
@@ -749,7 +749,7 @@ $$
 $$
 
 ::: {.key-point}
-For coordinates, the listed order matters: entry $j$ multiplies $\vct{b}_j$
+For coordinates, the [listed order matters]{.alert}: entry $j$ multiplies $\vct{b}_j$
 :::
 
 ---
@@ -806,7 +806,7 @@ The entries 3 and 2 are weights on $\vct{b}_1$ and $\vct{b}_2$, not the
 standard horizontal and vertical components
 
 ::: {.key-point}
-The vector stays at $(5,1)$; changing the basis changes its description
+[Same vector]{.alert} at $(5,1)$; [different coordinates]{.alert} in a different basis
 :::
 
 ---
@@ -977,7 +977,7 @@ $$
 $$
 
 ::: {.key-point}
-A basis gives unique coordinates; redundant generators give nonunique weights
+A basis gives [unique coordinates]{.alert}; redundant generators give [nonunique weights]{.alert}
 :::
 
 ::: {.notes}
@@ -1449,8 +1449,7 @@ $$
 $$
 
 ::: {.key-point}
-The columns of a basis matrix tell what the new coordinate axes mean in
-standard coordinates
+[Basis vectors are the columns]{.alert}: multiply coordinates to rebuild the vector
 :::
 
 ## Change of basis passes through the vector {#change-of-basis-passes-through-the-vector}
@@ -1464,7 +1463,7 @@ $$
 =\mat{P}_{\mathcal{C}}[\vct{x}]_{\mathcal{C}}
 $$
 
-To obtain $\mathcal{C}$-coordinates, multiply by $\mat{P}_{\mathcal{C}}^{-1}$:
+[Change-of-basis matrix]{.alert}: first rebuild the vector, then read its new coordinates
 
 $$
 [\vct{x}]_{\mathcal{C}}
@@ -1474,7 +1473,7 @@ $$
 $$
 
 ::: {.key-point}
-Changing coordinates changes the description, not the vector
+[Same vector, new description]{.alert}: only its coordinate column changes
 :::
 
 
@@ -1483,12 +1482,14 @@ Changing coordinates changes the description, not the vector
 Let $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ and $\mathcal{C}$ be ordered
 bases of the same finite-dimensional real vector space
 
+::: {.alert}
 $$
-\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}
-=\begin{bmatrix}[\vct{b}_1]_{\mathcal{C}}&\cdots&[\vct{b}_n]_{\mathcal{C}}\end{bmatrix}
+\color{#007acc}\boxed{\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}
+=\begin{bmatrix}[\vct{b}_1]_{\mathcal{C}}&\cdots&[\vct{b}_n]_{\mathcal{C}}\end{bmatrix}}
 $$
+:::
 
-Column $[\vct{b}_j]_{\mathcal{C}}$ lists the coefficients that rebuild $\vct{b}_j$ from $\mathcal{C}$
+[Column $j$]{.alert} is the old basis vector $\vct{b}_j$, written in the new basis $\mathcal{C}$
 
 $$
 [\vct{v}]_{\mathcal{C}}
@@ -1498,7 +1499,7 @@ $$
 For bases of $\reals^n$, this is $\mat{P}_{\mathcal{C}}^{-1}\mat{P}_{\mathcal{B}}$
 
 ::: {.key-point}
-The arrow records the direction: input coordinates in $\mathcal{B}$, output coordinates in $\mathcal{C}$
+[Read the arrow]{.alert}: $\mathcal{B}$-coordinates in, $\mathcal{C}$-coordinates out
 :::
 
 ## Example: change between polynomial bases {#two-coordinate-systems-describe-one-vector}
@@ -1614,7 +1615,7 @@ $$
 $\mathcal{C}$ describes the output space; $T$ need not reach every vector in $W$
 
 ::: {.key-point}
-The matrix acts on input coordinates and returns output coordinates
+[Input coordinates in, output coordinates out]{.alert}: the bases determine what the entries mean
 
 A change of basis is the special case $T=I$: the vector itself stays the same
 :::
@@ -1693,7 +1694,7 @@ T\!\left(\begin{bmatrix}0\\1\end{bmatrix}\right)=\sin(t)
 $$
 
 ::: {.key-point}
-The input is a column of two numbers; the output is an entire function
+[Input: two numbers]{.alert}; [output: an entire function]{.alert}
 :::
 
 ::: {.notes}
@@ -1740,7 +1741,7 @@ $$
 ::: {.key-point}
 $T$ is a linear isomorphism: $\dim(S_{\reals})=2$
 
-Here the identity matrix represents a map from columns to functions
+[Identity coordinate matrix]{.alert}; the map itself sends columns to functions
 :::
 
 ::: {.notes}
@@ -1776,15 +1777,8 @@ $$
 \sin(t)=\frac{e^{\sqrt{-1}\,t}-e^{-\sqrt{-1}\,t}}{2\sqrt{-1}}
 $$
 
-$$
-[y]_{\mathcal{E}}
-=\underbrace{\frac12\begin{bmatrix}1&-\sqrt{-1}\\1&\sqrt{-1}\end{bmatrix}}_{\mat{Q}_{\mathcal{E}\leftarrow\mathcal{B}}}
-\begin{bmatrix}a\\b\end{bmatrix}
-=\begin{bmatrix}(a-b\sqrt{-1})/2\\(a+b\sqrt{-1})/2\end{bmatrix}
-$$
-
 ::: {.key-point}
-For real $a,b$, the two coefficients are complex conjugates and $y$ is real-valued
+[Same solution space]{.alert}; Euler's formulas give the [change-of-basis columns]{.alert}
 :::
 
 ::: {.notes}
@@ -1802,6 +1796,54 @@ For real a,b, c_- is the conjugate of c_+; the functions are conjugates too,
 so their sum is real. Conversely, real initial data force this relation.
 For a=2,b=-1, [y]_E=[1+sqrt(-1)/2,1-sqrt(-1)/2]^top.
 There is no four-real-parameter freedom for real-valued solutions.
+:::
+
+---
+
+### Change the oscillator's coordinates, not its motion {#change-the-oscillators-coordinates-not-its-motion}
+
+Use $i=\sqrt{-1}$, $\mathcal{B}=\{\cos(t),\sin(t)\}$ and
+$\mathcal{E}=\{e^{it},e^{-it}\}$ in the complex solution space
+
+[Cosine–sine coordinates to exponential coordinates]{.alert}
+
+::: {.alert}
+$$
+[y]_{\mathcal{E}}
+=\underbrace{\color{#007acc}\boxed{\frac12\begin{bmatrix}1&-i\\1&i\end{bmatrix}}}_{\mat{Q}_{\mathcal{E}\leftarrow\mathcal{B}}}
+\underbrace{\begin{bmatrix}a\\b\end{bmatrix}}_{[y]_{\mathcal{B}}}
+=\begin{bmatrix}c_+\\c_-\end{bmatrix}
+$$
+:::
+
+[Reverse direction]{.alert}: recover the initial position and velocity
+
+$$
+[y]_{\mathcal{B}}
+=\underbrace{\boxed{\begin{bmatrix}1&1\\i&-i\end{bmatrix}}}_{\mat{Q}_{\mathcal{B}\leftarrow\mathcal{E}}}
+[y]_{\mathcal{E}},\qquad
+\mat{Q}_{\mathcal{B}\leftarrow\mathcal{E}}=\mat{Q}_{\mathcal{E}\leftarrow\mathcal{B}}^{-1}
+$$
+
+For $y(t)=2\cos(t)-\sin(t)$:
+$[y]_{\mathcal{B}}=[2,-1]^\top\longmapsto[y]_{\mathcal{E}}=[1+i/2,1-i/2]^\top$
+
+::: {.key-point}
+[Same function, different coefficients]{.alert}; real initial data give conjugate exponential coefficients
+:::
+
+::: {.notes}
+The first transition column is [cos]_E=[1/2,1/2]^top; the second is
+[sin]_E=[-i/2,i/2]^top. Hence c_+=(a-ib)/2 and c_-=(a+ib)/2.
+Conversely, a=c_++c_- and b=i(c_+-c_-), obtained from y(0) and y'(0).
+Multiplying the two displayed matrices in either order gives I_2.
+For a=2,b=-1, c_+=1+i/2 and c_-=1-i/2; the reverse product gives
+[2,-1]^top. This changes only the description of the same solution y,
+not the motion or its initial data. The matrix of the solution map T in
+standard input coordinates and output basis B is I_2; changing its output
+basis to E changes that matrix to Q_(E<-B). Both bases here belong to S_C
+over C. Real-valued solutions correspond to conjugate coefficient pairs,
+not arbitrary independent complex coefficients.
 :::
 
 ---
