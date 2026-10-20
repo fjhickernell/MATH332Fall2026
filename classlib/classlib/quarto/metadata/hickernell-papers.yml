@@ -196,3 +196,14 @@ papers:
     tags: [qmc, lattice-rules, error]
     doi: "10.1090/mcom/3791"
     doi_url: "https://doi.org/10.1090/mcom/3791"
+
+  nuyens_2026_lattice_rules_function_spaces:
+    cite: "N26"
+    short: "Nuyens (2026)"
+    full: "D. Nuyens, A gentle introduction to approximating high-dimensional integrals with lattice rules and a maybe-not-so-gentle introduction to the relevant function spaces for QMC integration, lecture notes, arXiv:2610.25331 (2026)."
+    type: preprint
+    tags: [qmc, lattice-rules, function-spaces, sobolev-spaces, cbc, tutorial]
+    doi: "10.48550/arXiv.2610.25331"
+    doi_url: "https://doi.org/10.48550/arXiv.2610.25331"
+    arxiv: "arXiv:2610.25331"
+    arxiv_url: "https://arxiv.org/abs/2610.25331"
