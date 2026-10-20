@@ -773,7 +773,7 @@ In this deck
 </tbody>
 </table>
 <div class="key-point">
-<p>Spanning gives existence; independence gives uniqueness</p>
+<p>Spanning gives <span class="alert">existence</span>; independence gives <span class="alert">uniqueness</span></p>
 </div>
 <aside class="notes">
 <p>This is a motivation preview; the next sections develop the definitions and proofs. One fixed coefficient list builds one vector; varying the coefficients builds all the vectors in the span. Independence makes the coefficients unique for each vector we can build; a basis adds existence for every vector in V. A list always spans its own span; being a basis for a specified V additionally requires that this span equal V. If two coefficient lists build the same vector, subtracting their combinations produces a nontrivial zero combination. Conversely a nontrivial zero combination changes coefficients without changing the vector. A vector and its coordinate list are different objects, even when both are displayed as columns.</p>
@@ -1310,7 +1310,7 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 =\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix}
 \]</span></p>
 <div class="key-point">
-<p>For coordinates, the listed order matters: entry <span class="math inline">\(j\)</span> multiplies <span class="math inline">\(\vct{b}_j\)</span></p>
+<p>For coordinates, the <span class="alert">listed order matters</span>: entry <span class="math inline">\(j\)</span> multiplies <span class="math inline">\(\vct{b}_j\)</span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -1349,7 +1349,7 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 <p>The brackets mean “coordinates of this vector in this basis”</p>
 <p>The entries 3 and 2 are weights on <span class="math inline">\(\vct{b}_1\)</span> and <span class="math inline">\(\vct{b}_2\)</span>, not the standard horizontal and vertical components</p>
 <div class="key-point">
-<p>The vector stays at <span class="math inline">\((5,1)\)</span>; changing the basis changes its description</p>
+<p><span class="alert">Same vector</span> at <span class="math inline">\((5,1)\)</span>; <span class="alert">different coordinates</span> in a different basis</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1487,7 +1487,7 @@ p(2)=y_0(1-2)+2y_1=2y_1-y_0
 2(1-x)+5x+0(1)=1(1-x)+4x+1(1)
 \]</span></p>
 <div class="key-point">
-<p>A basis gives unique coordinates; redundant generators give nonunique weights</p>
+<p>A basis gives <span class="alert">unique coordinates</span>; redundant generators give <span class="alert">nonunique weights</span></p>
 </div>
 <aside class="notes">
 <p>The three weights here are coefficients on the listed generators, not the sample values p(0),p(1),p(2). Those values remain fixed at 2,5,8. Adding s times the zero relation -(1-x)-x+1=0 changes the coefficient list without changing the polynomial. This is the same redundancy seen earlier with frames. The two-point basis is enough to describe every line uniquely.</p>
@@ -1916,7 +1916,7 @@ q=1-t+2t^2,
 [\vct{x}]_{\mathcal{B}}=\mat{P}_{\mathcal{B}}^{-1}\vct{x}
 \]</span></p>
 <div class="key-point">
-<p>The columns of a basis matrix tell what the new coordinate axes mean in standard coordinates</p>
+<p><span class="alert">Basis vectors are the columns</span>: multiply coordinates to rebuild the vector</p>
 </div>
 </section>
 <section id="change-of-basis-passes-through-the-vector" class="slide level2">
@@ -1927,7 +1927,7 @@ q=1-t+2t^2,
 \vct{x}=\mat{P}_{\mathcal{B}}[\vct{x}]_{\mathcal{B}}
 =\mat{P}_{\mathcal{C}}[\vct{x}]_{\mathcal{C}}
 \]</span></p>
-<p>To obtain <span class="math inline">\(\mathcal{C}\)</span>-coordinates, multiply by <span class="math inline">\(\mat{P}_{\mathcal{C}}^{-1}\)</span>:</p>
+<p><span class="alert">Change-of-basis matrix</span>: first rebuild the vector, then read its new coordinates</p>
 <p><span class="math display">\[
 [\vct{x}]_{\mathcal{C}}
 =\underbrace{\mat{P}_{\mathcal{C}}^{-1}\mat{P}_{\mathcal{B}}}_{
@@ -1935,24 +1935,26 @@ q=1-t+2t^2,
 [\vct{x}]_{\mathcal{B}}
 \]</span></p>
 <div class="key-point">
-<p>Changing coordinates changes the description, not the vector</p>
+<p><span class="alert">Same vector, new description</span>: only its coordinate column changes</p>
 </div>
 </section>
 <section id="transition-columns-describe-the-old-basis-in-the-new-one" class="slide level2">
 <h2>Transition columns describe the old basis in the new one</h2>
 <p>Let <span class="math inline">\(\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}\)</span> and <span class="math inline">\(\mathcal{C}\)</span> be ordered bases of the same finite-dimensional real vector space</p>
+<div class="alert">
 <p><span class="math display">\[
-\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}
-=\begin{bmatrix}[\vct{b}_1]_{\mathcal{C}}&amp;\cdots&amp;[\vct{b}_n]_{\mathcal{C}}\end{bmatrix}
+\color{#007acc}\boxed{\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}
+=\begin{bmatrix}[\vct{b}_1]_{\mathcal{C}}&amp;\cdots&amp;[\vct{b}_n]_{\mathcal{C}}\end{bmatrix}}
 \]</span></p>
-<p>Column <span class="math inline">\([\vct{b}_j]_{\mathcal{C}}\)</span> lists the coefficients that rebuild <span class="math inline">\(\vct{b}_j\)</span> from <span class="math inline">\(\mathcal{C}\)</span></p>
+</div>
+<p><span class="alert">Column <span class="math inline">\(j\)</span></span> is the old basis vector <span class="math inline">\(\vct{b}_j\)</span>, written in the new basis <span class="math inline">\(\mathcal{C}\)</span></p>
 <p><span class="math display">\[
 [\vct{v}]_{\mathcal{C}}
 =\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}[\vct{v}]_{\mathcal{B}}
 \]</span></p>
 <p>For bases of <span class="math inline">\(\reals^n\)</span>, this is <span class="math inline">\(\mat{P}_{\mathcal{C}}^{-1}\mat{P}_{\mathcal{B}}\)</span></p>
 <div class="key-point">
-<p>The arrow records the direction: input coordinates in <span class="math inline">\(\mathcal{B}\)</span>, output coordinates in <span class="math inline">\(\mathcal{C}\)</span></p>
+<p><span class="alert">Read the arrow</span>: <span class="math inline">\(\mathcal{B}\)</span>-coordinates in, <span class="math inline">\(\mathcal{C}\)</span>-coordinates out</p>
 </div>
 </section>
 <section id="two-coordinate-systems-describe-one-vector" class="slide level2">
@@ -2043,7 +2045,7 @@ q=1-t+2t^2,
 \]</span></p>
 <p><span class="math inline">\(\mathcal{C}\)</span> describes the output space; <span class="math inline">\(T\)</span> need not reach every vector in <span class="math inline">\(W\)</span></p>
 <div class="key-point">
-<p>The matrix acts on input coordinates and returns output coordinates</p>
+<p><span class="alert">Input coordinates in, output coordinates out</span>: the bases determine what the entries mean</p>
 <p>A change of basis is the special case <span class="math inline">\(T=I\)</span>: the vector itself stays the same</p>
 </div>
 <aside class="notes">
@@ -2103,7 +2105,7 @@ T\!\left(\begin{bmatrix}1\\0\end{bmatrix}\right)=\cos(t),
 T\!\left(\begin{bmatrix}0\\1\end{bmatrix}\right)=\sin(t)
 \]</span></p>
 <div class="key-point">
-<p>The input is a column of two numbers; the output is an entire function</p>
+<p><span class="alert">Input: two numbers</span>; <span class="alert">output: an entire function</span></p>
 </div>
 <aside class="notes">
 <p>This is the normalized undamped spring model. S_R consists of twice continuously differentiable real-valued functions on R solving the equation. It revisits the homogeneous-DE vector space from Vector Spaces and Span. Check y’=-a sin(t)+b cos(t), y’‘=-y, y(0)=a, and y’(0)=b. The standard uniqueness theorem for this constant-coefficient IVP gives every solution this form; the focus is its linear structure, not a new DE-solving method. An elementary real-valued uniqueness proof: the difference z of solutions with the same initial data has zero initial data, and (z<sup>2+(z’)</sup>2)‘=2z’(z+z’’)=0. Thus its zero initial energy forces z=0. Write T([1,0]^top) as the function cos, rather than its value at one t. The t notation in the basis names those functions. Physical motion starts at t=0; we define the solution space for all real t.</p>
@@ -2140,7 +2142,7 @@ T^{-1}:y\longmapsto\begin{bmatrix}y(0)\\y'(0)\end{bmatrix},
 \]</span></p>
 <div class="key-point">
 <p><span class="math inline">\(T\)</span> is a linear isomorphism: <span class="math inline">\(\dim(S_{\reals})=2\)</span></p>
-<p>Here the identity matrix represents a map from columns to functions</p>
+<p><span class="alert">Identity coordinate matrix</span>; the map itself sends columns to functions</p>
 </div>
 <aside class="notes">
 <p>The input basis is the standard basis of R^2, and the output basis B lists cos(t), sin(t) in that order. Spanning follows from the solution formula. For independence, a zero combination evaluated at zero gives a=0; differentiating and evaluating at zero gives b=0. Initial values provide exactly the B-coordinate map, inverse to T. The matrix is identity because images of the input basis vectors are precisely the output basis vectors. T itself is not the identity on a single space. Linearity follows directly from the solution formula or by adding solutions and their initial data, then invoking uniqueness. For a=2,b=-1, y=2 cos(t)-sin(t) and [y]_B=[2,-1]^top.</p>
@@ -2171,17 +2173,49 @@ T^{-1}:y\longmapsto\begin{bmatrix}y(0)\\y'(0)\end{bmatrix},
 \qquad
 \sin(t)=\frac{e^{\sqrt{-1}\,t}-e^{-\sqrt{-1}\,t}}{2\sqrt{-1}}
 \]</span></p>
-<p><span class="math display">\[
-[y]_{\mathcal{E}}
-=\underbrace{\frac12\begin{bmatrix}1&amp;-\sqrt{-1}\\1&amp;\sqrt{-1}\end{bmatrix}}_{\mat{Q}_{\mathcal{E}\leftarrow\mathcal{B}}}
-\begin{bmatrix}a\\b\end{bmatrix}
-=\begin{bmatrix}(a-b\sqrt{-1})/2\\(a+b\sqrt{-1})/2\end{bmatrix}
-\]</span></p>
 <div class="key-point">
-<p>For real <span class="math inline">\(a,b\)</span>, the two coefficients are complex conjugates and <span class="math inline">\(y\)</span> is real-valued</p>
+<p><span class="alert">Same solution space</span>; Euler’s formulas give the <span class="alert">change-of-basis columns</span></p>
 </div>
 <aside class="notes">
 <p>The field change matters: the individual exponential functions are not members of S_R. E is a complex basis of S_C, not a real basis of S_R. Both B and E are bases of the two-dimensional complex solution space. Extending T’s domain to C^2 gives a complex-linear isomorphism onto S_C; restricting a,b to R gives a real-linear map with image S_R. For y=c_+ exp(sqrt(-1)t)+c_- exp(-sqrt(-1)t), initial conditions read a=c_++c_- and b=sqrt(-1)(c_+-c_-). The inverse transition matrix is [[1,1],[sqrt(-1),-sqrt(-1)]], and its product with the displayed matrix is I_2. The transition columns are E-coordinates of cos and sin, exactly the general rule developed earlier. The nonzero determinant verifies that E is a basis. For real a,b, c_- is the conjugate of c_+; the functions are conjugates too, so their sum is real. Conversely, real initial data force this relation. For a=2,b=-1, [y]_E=[1+sqrt(-1)/2,1-sqrt(-1)/2]^top. There is no four-real-parameter freedom for real-valued solutions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="change-the-oscillators-coordinates-not-its-motion">Change the oscillator’s coordinates, not its motion</h3>
+<p>Use <span class="math inline">\(i=\sqrt{-1}\)</span>, <span class="math inline">\(\mathcal{B}=\{\cos(t),\sin(t)\}\)</span> and <span class="math inline">\(\mathcal{E}=\{e^{it},e^{-it}\}\)</span> in the complex solution space</p>
+<p><span class="alert">Cosine–sine coordinates to exponential coordinates</span></p>
+<div class="alert">
+<p><span class="math display">\[
+[y]_{\mathcal{E}}
+=\underbrace{\color{#007acc}\boxed{\frac12\begin{bmatrix}1&amp;-i\\1&amp;i\end{bmatrix}}}_{\mat{Q}_{\mathcal{E}\leftarrow\mathcal{B}}}
+\underbrace{\begin{bmatrix}a\\b\end{bmatrix}}_{[y]_{\mathcal{B}}}
+=\begin{bmatrix}c_+\\c_-\end{bmatrix}
+\]</span></p>
+</div>
+<p><span class="alert">Reverse direction</span>: recover the initial position and velocity</p>
+<p><span class="math display">\[
+[y]_{\mathcal{B}}
+=\underbrace{\boxed{\begin{bmatrix}1&amp;1\\i&amp;-i\end{bmatrix}}}_{\mat{Q}_{\mathcal{B}\leftarrow\mathcal{E}}}
+[y]_{\mathcal{E}},\qquad
+\mat{Q}_{\mathcal{B}\leftarrow\mathcal{E}}=\mat{Q}_{\mathcal{E}\leftarrow\mathcal{B}}^{-1}
+\]</span></p>
+<p>For <span class="math inline">\(y(t)=2\cos(t)-\sin(t)\)</span>: <span class="math inline">\([y]_{\mathcal{B}}=[2,-1]^\top\longmapsto[y]_{\mathcal{E}}=[1+i/2,1-i/2]^\top\)</span></p>
+<div class="key-point">
+<p><span class="alert">Same function, different coefficients</span>; real initial data give conjugate exponential coefficients</p>
+</div>
+<aside class="notes">
+<p>The first transition column is [cos]<em>E=[1/2,1/2]^top; the second is [sin]<em>E=[-i/2,i/2]^top. Hence c</em>+=(a-ib)/2 and c</em>-=(a+ib)/2. Conversely, a=c_++c_- and b=i(c_+-c_-), obtained from y(0) and y’(0). Multiplying the two displayed matrices in either order gives I_2. For a=2,b=-1, c_+=1+i/2 and c_-=1-i/2; the reverse product gives [2,-1]^top. This changes only the description of the same solution y, not the motion or its initial data. The matrix of the solution map T in standard input coordinates and output basis B is I_2; changing its output basis to E changes that matrix to Q_(E&lt;-B). Both bases here belong to S_C over C. Real-valued solutions correspond to conjugate coefficient pairs, not arbitrary independent complex coefficients.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
