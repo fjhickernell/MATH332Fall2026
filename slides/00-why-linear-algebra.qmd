@@ -813,6 +813,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Ill-conditioned problem](#almost-parallel-almost-unknowable)
 - [Ill-posed problem](#too-little-information-many-answers)
 - [Incidence matrix](#represent-a-network-by-an-incidence-matrix)
+- [Initial-value problem]({{< meta decks.d07.file >}}#initial-data-map-linearly-to-a-solution-function), $y(0),y'(0)$
 - [Inverse matrix]({{< meta decks.d02.file >}}#an-inverse-undoes-a-matrix-action), $\mat{A}^{-1}$
 :::
 :::

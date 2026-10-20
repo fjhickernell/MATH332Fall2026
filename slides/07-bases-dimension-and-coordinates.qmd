@@ -1424,6 +1424,7 @@ isomorphism need not be an isometry; the latter term is optional enrichment.
 - [Example: change between polynomial bases](#two-coordinate-systems-describe-one-vector)
 - [Transform coordinates to obtain output coordinates](#transform-coordinates-to-obtain-output-coordinates)
 - [Differentiate using two chosen bases](#differentiate-using-two-chosen-bases)
+- [Initial data map linearly to a solution function](#initial-data-map-linearly-to-a-solution-function)
 
 The [companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/07-bases-dimension-and-coordinates.ipynb)
 explores basis extraction and coordinate changes
@@ -1665,6 +1666,216 @@ Every constant is sent to zero, so the map is not one-to-one, although it
 reaches all P_1. A zero first column does not mean that all outputs have
 zero constant term. Do not mistake [-13,10]^\top for ordinary monomial
 coefficients: the output basis is {1,1+t}.
+:::
+
+## Initial data map linearly to a solution function {#initial-data-map-linearly-to-a-solution-function}
+
+Let $S_{\reals}$ be the real-valued solutions of $y''+y=0$ on $\reals$
+
+The [initial-value problem]{.alert} has a unique solution for every $a,b\in\reals$:
+
+$$
+y''+y=0,\qquad y(0)=a,\qquad y'(0)=b
+$$
+
+$$
+T:\reals^2\longrightarrow S_{\reals},\qquad
+\begin{bmatrix}a\\b\end{bmatrix}
+\longmapsto y,\qquad y(t)=a\cos(t)+b\sin(t)
+$$
+
+The standard input basis maps to $\mathcal{B}=\{\cos(t),\sin(t)\}$:
+
+$$
+T\!\left(\begin{bmatrix}1\\0\end{bmatrix}\right)=\cos(t),
+\qquad
+T\!\left(\begin{bmatrix}0\\1\end{bmatrix}\right)=\sin(t)
+$$
+
+::: {.key-point}
+The input is a column of two numbers; the output is an entire function
+:::
+
+::: {.notes}
+This is the normalized undamped spring model. S_R consists of twice
+continuously differentiable real-valued functions on R solving the equation.
+It revisits the homogeneous-DE vector space from Vector Spaces and Span.
+Check y'=-a sin(t)+b cos(t), y''=-y, y(0)=a, and y'(0)=b.
+The standard uniqueness theorem for this constant-coefficient IVP gives
+every solution this form; the focus is its linear structure, not a new
+DE-solving method. An elementary real-valued uniqueness proof: the
+difference z of solutions with the same initial data has zero initial data,
+and (z^2+(z')^2)'=2z'(z+z'')=0. Thus its zero initial energy forces z=0.
+Write T([1,0]^top) as the function cos, rather than its value at one t.
+The t notation in the basis names those functions. Physical motion starts
+at t=0; we define the solution space for all real t.
+:::
+
+---
+
+### Initial conditions recover the coordinates {#initial-conditions-recover-the-coordinates}
+
+For $y(t)=a\cos(t)+b\sin(t)$,
+
+$$
+y'(t)=-a\sin(t)+b\cos(t),\qquad
+\begin{bmatrix}y(0)\\y'(0)\end{bmatrix}
+=\begin{bmatrix}a\\b\end{bmatrix}=[y]_{\mathcal{B}}
+$$
+
+With $\vct{u},\vct{v}\in\reals^2$ and $c,d\in\reals$,
+
+$$
+T(c\vct{u}+d\vct{v})=cT(\vct{u})+dT(\vct{v})
+$$
+
+The inverse extracts the initial data:
+
+$$
+T^{-1}:y\longmapsto\begin{bmatrix}y(0)\\y'(0)\end{bmatrix},
+\qquad
+[T(\vct{u})]_{\mathcal{B}}=\mat{I}_2\vct{u}
+$$
+
+::: {.key-point}
+$T$ is a linear isomorphism: $\dim(S_{\reals})=2$
+
+Here the identity matrix represents a map from columns to functions
+:::
+
+::: {.notes}
+The input basis is the standard basis of R^2, and the output basis B lists
+cos(t), sin(t) in that order. Spanning follows from the solution formula.
+For independence, a zero combination evaluated at zero gives a=0;
+differentiating and evaluating at zero gives b=0. Initial values provide
+exactly the B-coordinate map, inverse to T. The matrix is identity because
+images of the input basis vectors are precisely the output basis vectors.
+T itself is not the identity on a single space. Linearity follows directly
+from the solution formula or by adding solutions and their initial data,
+then invoking uniqueness. For a=2,b=-1, y=2 cos(t)-sin(t) and [y]_B=[2,-1]^top.
+:::
+
+---
+
+### Complex exponentials give another basis {#complex-exponentials-give-another-basis}
+
+Allow complex-valued solutions: $S_{\mathbb{C}}=\{y:y''+y=0\}$ over $\mathbb{C}$
+
+Two bases, with coordinates in the listed order:
+
+$$
+\mathcal{B}=\{\cos(t),\sin(t)\},\qquad
+\mathcal{E}=\{e^{\sqrt{-1}\,t},e^{-\sqrt{-1}\,t}\}
+$$
+
+Euler's formulas give the transition columns:
+
+$$
+\cos(t)=\frac{e^{\sqrt{-1}\,t}+e^{-\sqrt{-1}\,t}}{2},
+\qquad
+\sin(t)=\frac{e^{\sqrt{-1}\,t}-e^{-\sqrt{-1}\,t}}{2\sqrt{-1}}
+$$
+
+$$
+[y]_{\mathcal{E}}
+=\underbrace{\frac12\begin{bmatrix}1&-\sqrt{-1}\\1&\sqrt{-1}\end{bmatrix}}_{\mat{Q}_{\mathcal{E}\leftarrow\mathcal{B}}}
+\begin{bmatrix}a\\b\end{bmatrix}
+=\begin{bmatrix}(a-b\sqrt{-1})/2\\(a+b\sqrt{-1})/2\end{bmatrix}
+$$
+
+::: {.key-point}
+For real $a,b$, the two coefficients are complex conjugates and $y$ is real-valued
+:::
+
+::: {.notes}
+The field change matters: the individual exponential functions are not
+members of S_R. E is a complex basis of S_C, not a real basis of S_R.
+Both B and E are bases of the two-dimensional complex solution space.
+Extending T's domain to C^2 gives a complex-linear isomorphism onto S_C;
+restricting a,b to R gives a real-linear map with image S_R.
+For y=c_+ exp(sqrt(-1)t)+c_- exp(-sqrt(-1)t), initial conditions read
+a=c_++c_- and b=sqrt(-1)(c_+-c_-). The inverse transition matrix is
+[[1,1],[sqrt(-1),-sqrt(-1)]], and its product with the displayed matrix is I_2.
+The transition columns are E-coordinates of cos and sin, exactly the general
+rule developed earlier. The nonzero determinant verifies that E is a basis.
+For real a,b, c_- is the conjugate of c_+; the functions are conjugates too,
+so their sum is real. Conversely, real initial data force this relation.
+For a=2,b=-1, [y]_E=[1+sqrt(-1)/2,1-sqrt(-1)/2]^top.
+There is no four-real-parameter freedom for real-valued solutions.
+:::
+
+---
+
+### A critically damped spring: find the solution map {#a-critically-damped-spring-find-the-solution-map}
+
+An idealized car spring and shock absorber, with normalized coefficients:
+
+$$
+y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
+$$
+
+Let $S_d$ be its real-valued solution space on $\reals$, with basis
+
+$$
+\mathcal{D}=\{e^{-t},te^{-t}\}
+$$
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>Repeat the undamped construction
+<span class="exsub">Verify that both basis functions solve the equation and are independent</span>
+<span class="exsub">Write $y(t)=c_1e^{-t}+c_2te^{-t}$; find $c_1,c_2$ from the initial data</span>
+<span class="exsub">Define $U:\reals^2\to S_d$ from initial data to the solution; explain why it is a linear isomorphism</span>
+</span>
+:::
+
+::: {.notes}
+The damping term is 2y', not 2y. This is m y''+c y'+k y=0 with
+m=k=1 and c=2, so c^2=4mk: critical damping. A car's spring and shock
+absorber motivate the idealized model, without asserting a vehicle's
+actual damping ratio. The characteristic polynomial is (r+1)^2.
+Both e^(-t) and t e^(-t) solve the equation. Dividing a zero combination
+by e^(-t) gives c_1+c_2 t=0 for every t, hence independence.
+The displayed basis may be taken as given; the task is to verify its
+solutions/independence, then use coordinates rather than learn DE methods.
+Initial-value uniqueness establishes that it spans all S_d.
+For y=(c_1+c_2 t)e^(-t), y'=(c_2-c_1-c_2 t)e^(-t).
+Thus y(0)=c_1=a, y'(0)=c_2-c_1=b, and c_2=a+b.
+U maps [a,b]^top to y(t)=[a+(a+b)t]e^(-t).
+This is linear in a,b, bijective, and has inverse y -> [y(0),y'(0)]^top.
+Thus dim(S_d)=2. The basis functions tend to zero as t tends to infinity;
+critical damping is the threshold between oscillatory and overdamped
+motion. Avoid claiming that every initial condition prevents crossing
+equilibrium: some initial velocities can cause one crossing.
+:::
+
+---
+
+### Choose output coordinates for the damped motion {#choose-output-coordinates-for-the-damped-motion}
+
+Keep $U:\reals^2\to S_d$ and $\mathcal{D}=\{e^{-t},te^{-t}\}$
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>The input basis is the standard basis of $\reals^2$
+<span class="exsub">Find the $\mathcal{D}$-coordinates of $U([1,0]^\top)$ and $U([0,1]^\top)$; form the matrix representing $U$</span>
+<span class="exsub">Use those two output functions as a new basis $\mathcal{F}$; what matrix now represents $U$?</span>
+<span class="exsub">For $a=1$, $b=0$, give $y(t)$, $[y]_{\mathcal{D}}$, and $[y]_{\mathcal{F}}$</span>
+</span>
+:::
+
+::: {.notes}
+U([1,0]^top)=(1+t)e^(-t), with D-coordinates [1,1]^top.
+U([0,1]^top)=t e^(-t), with D-coordinates [0,1]^top.
+The matrix with standard input basis and output basis D is
+[[1,0],[1,1]], sending [a,b]^top to [a,a+b]^top.
+F={(1+t)e^(-t),t e^(-t)} is a basis, since the matrix is invertible or
+because an isomorphism maps a basis to a basis. With output basis F,
+[U(u)]_F=I_2 u: the same transformation has identity coordinate matrix.
+For a=1,b=0, y=(1+t)e^(-t), [y]_D=[1,1]^top, [y]_F=[1,0]^top.
+The inverse D-coordinate matrix [[1,0],[-1,1]] recovers the initial data.
+The function and transformation stay fixed while the coordinate columns
+and representing matrices change. Keep these answers in presenter notes.
 :::
 
 # Big Ideas {data-state="goldborder"}

@@ -97,6 +97,9 @@ Mathematical content should be maintained only in the slides.
   - [x] Refine Deck 07's action table and pivot-column example, add three
     starred exercises with answer notes, connect transformations to input
     and output coordinates, and consolidate the Course Map to seven entries.
+  - [x] Add Deck 07's undamped initial-data solution map with real and
+    complex bases as a worked example; use the critically damped car-spring
+    model and its coordinate matrices for starred practice.
   - [x] Pin the bundled MathJax runtime and verify Safari rendering through
     reloads and slide/section navigation without a CDN dependency.
   - [ ] Develop Deck 09.

@@ -9,7 +9,7 @@ shared setting. Twelve decks render, and Safari reload and slide/section
 navigation pass, confirmed by the instructor. Other computers obtain the
 runtime through normal recursive repository synchronization.
 
-Prepare the October 20 continuation in Deck 07: recap independence and
+The October 20 continuation in Deck 07 is prepared. Recap independence and
 coordinate uniqueness, then resume “Coordinates in a Chosen Basis” →
 “A basis gives every vector unique coordinates.” October 15 covered the
 line-coordinate example, Fourier-mode independence, homogeneous coefficient
@@ -52,8 +52,8 @@ and distinguishes output coordinates from the vector. The later sections
 are consolidated as Dimension and Coordinate Arithmetic, and Transformations
 and Change of Basis; the Course Map has seven entries and fits at normal
 type size. Existing section anchors remain available.
-Deck 07 now has 63 slides and 17 starred exercise sets; exact calculations,
-rendering, and visible review of all four new content slides pass.
+Deck 07 now has 68 slides and 19 starred exercise sets; exact calculations,
+rendering, and visible review of the new content slides pass.
 The redundant-generator example now retains columns 1 and 3 after moving
 the former fourth generator to second; the following alternate-basis and
 frame examples use the same relabeling. Exact rank/dependence checks pass.
@@ -61,6 +61,19 @@ The opening “From building vectors to giving them addresses” summary slide
 has the gold border selected by the instructor. Its October 19 revision uses
 Concept / Notation / What it does, with concrete actions replacing the
 question-and-payoff columns; the table and equations pass visible review.
+
+Deck 07 also has a five-slide initial-value sequence at the end of
+Transformations and Change of Basis. The worked undamped example uses
+`y''+y=0`, its initial-data solution map, the inverse coordinate map, and
+complex exponential coordinates. The critically damped car-spring model
+`y''+2y'+y=0` supplies two starred exercise slides on the solution map and
+its matrices in two output bases; answers remain in presenter notes.
+The imaginary unit is `\sqrt{-1}`. Include this sequence and Deck 00's
+linked index entry in the pending instructor review; the October 20
+continuation is unchanged.
+Symbolic checks of both initial-value problems and coordinate matrices pass;
+the complete website and twelve-deck renders, local links, and five new
+slide layouts are verified.
 
 Review the new opening motivation in Bases and Coordinates: linear
 combinations build vectors, span describes reach, independence gives unique
