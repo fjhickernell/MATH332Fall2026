@@ -1,5 +1,9 @@
 # Next task
 
+## October 22 lecture continuation
+
+October 20 recording coverage is verified. Finish “A critically damped spring: find the solution map,” then “Choose output coordinates for the damped motion.” The October 22 note and repaired event title are saved and reopened in Apple Calendar; final Fantastical read-back remains pending because its window is unavailable. This Checkpoint publishes the schedule changes; remote deployment and live-page verification remain pending. See `notes/LECTURE-UPDATES.md` for evidence; retain the older preparation details below as historical context.
+
 ## Current task
 
 The October 19 Safari math-loading fix is validated and published in
