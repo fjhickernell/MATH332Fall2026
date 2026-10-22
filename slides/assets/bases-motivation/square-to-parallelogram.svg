@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 370" role="img" aria-labelledby="square-title square-desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 60 1100 290" role="img" aria-labelledby="square-title square-desc">
   <title id="square-title">The same weights on a transformed grid</title>
   <desc id="square-desc">A maps the unit square to a parallelogram with basis vectors (2,0) and (1,1). Weights one quarter and three quarters locate the highlighted point in each grid. The full span is the plane.</desc>
   <style>
@@ -12,8 +12,8 @@
     <marker id="square-blue" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#064b76"/></marker>
     <marker id="square-teal" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#168b90"/></marker>
   </defs>
-  <text x="175" y="40" text-anchor="middle">Standard basis</text>
-  <text x="805" y="40" text-anchor="middle">Transformed basis</text>
+  <text x="175" y="92" text-anchor="middle">Standard basis</text>
+  <text x="805" y="92" text-anchor="middle">Transformed basis</text>
   <!-- Both panels use 150 drawing units per coordinate unit. -->
   <path d="M100,300 L250,300 L250,150 L100,150 Z" fill="#168b90" fill-opacity=".1" stroke="#168b90" stroke-width="2"/>
   <path class="grid" d="M137.5,300 V150 M175,300 V150 M212.5,300 V150 M100,262.5 H250 M100,225 H250 M100,187.5 H250"/>
