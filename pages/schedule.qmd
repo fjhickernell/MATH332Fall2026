@@ -5,7 +5,7 @@ css: schedule.css
 
 Classes normally meet Tuesdays and Thursdays at 11:25 AM in **PH 109**.
 
-Completed lecture topics through October 20 have been checked against the
+Completed lecture topics through October 22 have been checked against the
 Panopto recordings. Future topics are provisional and will be updated as
 assignments, quizzes, holidays, and examination details are finalized.
 
@@ -46,10 +46,10 @@ assignments, quizzes, holidays, and examination details are finalized.
 | 9 | Tue Oct 13 | **No Class — Fall Break** | |
 | | Thu Oct 15 | Line-coordinate examples; Fourier-mode independence; homogeneous coefficient tests; basis extraction by elimination<span class="assessment-divider" aria-hidden="true"></span>**Quiz 3** | [Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html#worked-example-independent-fourier-modes)<span class="assessment-divider" aria-hidden="true"></span>Covers<br>&nbsp;&nbsp;&nbsp;&nbsp;[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html)<br>&nbsp;&nbsp;&nbsp;&nbsp;[Vector Spaces, Subspaces, and Span](../slides/06-general-vector-spaces.html) |
 | 10 | Tue Oct 20 | Matrix and polynomial bases; dimension and coordinate arithmetic; undamped initial-data solution map and complex bases; critically damped spring exercise begun | [Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html) |
-| | Thu Oct 22 | Finish the critically damped spring solution map; coordinate matrices for the same map | [Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html#a-critically-damped-spring-find-the-solution-map) |
+| | Thu Oct 22 | Critically damped spring solution map in two output bases; independence, redundant generators and bases; dimension and equivalence of independence/spanning tests | [Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html#a-critically-damped-spring-find-the-solution-map) |
 | | Fri Oct 23 | **Assignment 4 due** | [WileyPLUS: General Vector Spaces](../assignments/assignment_4.qmd) |
-| 11 | Tue Oct 27 | | |
-| | Thu Oct 29 | **Test 2** | Covers<br>[Determinants](../slides/04-determinants.html)<br>[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html)<br>[Vector Spaces, Subspaces, and Span](../slides/06-general-vector-spaces.html)<br>[Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html) |
+| 11 | Tue Oct 27 | Finish dimension: basis construction and examples; coordinate maps and arithmetic | [Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html#build-a-basis-by-adding-or-removing-vectors) |
+| | Thu Oct 29 | **Test 2** | Covers<br>[Determinants](../slides/04-determinants.html)<br>[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html)<br>[Vector Spaces, Subspaces, and Span](../slides/06-general-vector-spaces.html)<br>[Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html#dimension-and-coordinates)<br>Through dimension only<br>Coordinates, change of basis, and transformations excluded |
 
 ### November
 

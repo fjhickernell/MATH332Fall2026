@@ -2,7 +2,7 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest reconciled instructional meeting: October 20, 2026
+- Latest reconciled instructional meeting: October 22, 2026
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -16,6 +16,7 @@
 | October 8, 2026 | Reconciled: polynomial-span coefficient tests and singular example; coordinate motivation and transformed square; polynomial dependence, redundant-generator removal, and R³ basis tests by elimination | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6f1ffeed-06a8-46bb-831e-b4dd012c2299) | October 15, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 07 at “Example: independent Fourier modes,” recap independence/bases and revisit deferred coordinate applications; Quiz 3 remains in the last 15 minutes | October 8, 2026 |
 | October 15, 2026 | Reconciled: line-coordinate examples, Fourier-mode independence, homogeneous coefficient tests, and basis extraction by elimination; frames and infinite bases previewed before Quiz 3 | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2de95612-7f46-4253-88e1-b4e40121cfd0) | October 20, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; recap coordinate uniqueness, then “Coordinates in a Chosen Basis” → “A basis gives every vector unique coordinates” | October 18, 2026 |
 | October 20, 2026 | Reconciled (Fantastical read-back completed October 22): matrix and polynomial bases; dimension and coordinate arithmetic; undamped initial-data solution map and complex bases; critically damped spring exercise begun | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=330a3335-a279-49c1-b6a1-b4e9012bbf78) | October 22, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; Finish “A critically damped spring: find the solution map,” then “Choose output coordinates for the damped motion” | October 20, 2026 |
+| October 22, 2026 | Reconciled: critically damped spring in original and initial-data-adapted bases; independence, redundancy and bases; dimension, counting comparison and equivalence of independence/spanning for exactly dim(V) vectors | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=35a56247-4ad0-46cf-a1f6-b4eb012ce87c) | October 27, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; resume Deck 07 at “Build a basis by adding or removing vectors,” remaining dimension examples, then “Coordinates and Their Arithmetic” | October 22, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -195,3 +196,14 @@ Validation: the changed schedule page renders successfully in Quarto; updated Oc
 Completed the outstanding October 20 closeout: reopened the October 22 event in Fantastical and verified MATH 332 Linear Algebra, PH 109, October 22, 11:15 AM–12:45 PM Chicago and its persisted critically-damped-spring continuation. The calendar selector identifies Illinois Tech Fred → Calendar. This closes the earlier read-back barrier; October 20 is reconciled.
 
 October 22 readiness notice identifies an 11:23 AM start and approximately 1:19:49 recording: [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=35a56247-4ad0-46cf-a1f6-b4eb012ce87c). Panopto reports “Captions not available,” including after a reload. The transition index and closing slide were inspected with playback muted but do not establish substantive coverage or the continuation point. October 22 reconciliation remains pending; no October 22/27 schedule or calendar note was changed, and the reconciled date was not advanced past October 20. Retry when captions are available.
+
+
+## October 22 reconciliation — captions available on retry
+
+The earlier caption barrier is resolved. Downloaded and inspected the transcript, transition index, and visible closing slides with playback paused and muted. The 11:23 AM recording runs 1:19:49. The opening discussion derives the damped-spring coefficients and the adapted basis whose coordinates equal the initial data; both output-coordinate descriptions were completed before the 19:48 recap. The lecture then reviews span, independence and bases. The counting comparison appears at 46:54, dimension at 52:51, familiar spaces at 57:18, and the equivalent basis tests at 58:18. At 1:09:28 the visible slide is “Dimension turns two tests into one”; closing captions complete the independence/spanning argument through 1:13:06. The later coordinate/transformation and applications slides are navigation and preview, not completed units.
+
+Resume the remaining dimension construction/examples before systematic coordinate arithmetic. The October 27 occurrence was saved with Only This Event, closed and reopened in Fantastical: MATH 332 Linear Algebra, PH 109, October 27, 11:15 AM–12:45 PM; calendar selector verifies Illinois Tech Fred → Calendar and the complete persisted note. Safari’s temporary recording tab was closed; Fantastical has its normal Week view with no search results or event editor.
+
+Coverage discrepancy resolved by instructor direction on October 22: Test 2 ends at dimension, excluding coordinates, change of basis and transformations. Canvas assignment 105162 and prior announcement 107870 are corrected; all-sections correction announcement 108764 is published and verified. Both website source rows are corrected and included in the October 22 checkpoint; remote deployment/live-page verification remains pending.
+
+Validation: the updated schedule renders successfully in Quarto. The changed October rows and surrounding tables were inspected in Safari at desktop width and a 390-pixel responsive viewport; text and links wrap within their columns. The continuation anchor exists in the deck source. `git diff --check` passes. The temporary preview tab was closed and responsive mode exited. The complete website and all twelve decks also render; the corrected Test 2 rows pass desktop and 390-pixel Safari layout checks. Changes are included in the October 22 checkpoint; remote deployment is pending.

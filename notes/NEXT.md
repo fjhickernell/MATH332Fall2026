@@ -1,12 +1,31 @@
 # Next task
 
-## October 22 lecture update pending captions
+## October 27 lecture continuation
 
-October 20 is now fully reconciled: October 22 continuation was reopened and verified in Fantastical on Illinois Tech Fred → Calendar. The October 22 recording readiness notice is available, but Panopto reports “Captions not available” after reload. Retry `Lecture update 332` when captions are ready; identify substantive coverage before updating the October 22/27 schedule and October 27 event. No new continuation has been inferred from the slide index. This supersedes the earlier Fantastical verification barrier below.
+October 22 is reconciled from the now-available captions and closing slides.
+The damped spring was completed in both output bases, followed by review of
+independence, bases and dimension through the equivalence of independence
+and spanning tests for exactly dim(V) vectors. Resume Deck 07 at “Build a
+basis by adding or removing vectors,” remaining dimension examples, then
+“Coordinates and Their Arithmetic.” The October 27 occurrence is saved and
+reopened in Fantastical on Illinois Tech Fred → Calendar, PH 109,
+11:15 AM–12:45 PM Chicago. Schedule and ledger edits are included in this
+checkpoint; remote deployment and live-page verification remain pending.
 
-## October 22 lecture continuation
+### Test 2 coverage correction — Canvas published, website pending
 
-October 20 recording coverage is verified. Finish “A critically damped spring: find the solution map,” then “Choose output coordinates for the damped motion.” The October 22 note and repaired event title are saved and reopened in Apple Calendar; final Fantastical read-back remains pending because its window is unavailable. The schedule changes in `70802f9` passed publishing and Pages deployment; live-page verification remains pending. See `notes/LECTURE-UPDATES.md` for evidence; retain the older preparation details below as historical context.
+The instructor confirmed on October 22 that Test 2 ends at dimension.
+Coordinates, coordinate arithmetic, change of basis and transformations are
+excluded, as are the later applications and Matrix Spaces and Rank. Canvas
+assignment `105162` and the prior coverage announcement `107870` are corrected.
+The new [all-sections correction announcement](https://iit.instructure.com/courses/23913/discussion_topics/108764)
+is published and verified. The website Schedule and Quizzes and Tests source
+rows have the same cutoff and exclusions and are included in this checkpoint;
+remote deployment and live-page verification remain pending. The complete website and all twelve decks render; the
+corrected assessment and schedule rows pass desktop and 390-pixel Safari
+layout checks, and `git diff --check` passes. Test date/location and grading
+deadline are unchanged:
+October 29, PH 109; grading due November 4.
 
 ## Deck 07 structure review
 
@@ -351,9 +370,9 @@ address reported Colab problems.
   All-sections Canvas announcement `106115` is posted.
 - Test 2 is scheduled for Thursday, October 29, 2026, in PH 109. Published
   Canvas On Paper assignment `105162` is due at the 12:45 PM class end for
-  Everyone in the Tests group. Coverage is Determinants through Bases,
-  Dimension, and Coordinates (Decks 04–07, inclusive); Matrix Spaces and Rank
-  is excluded by the instructor's October 15 revision. Both website tables
+  Everyone in the Tests group. Coverage is Determinants through dimension in Deck 07; coordinates,
+  change of basis, transformations and Matrix Spaces and Rank are excluded
+  by the instructor's October 22 correction. Both website source tables
   are updated, and the Test 2 title-slide notice moves from Deck 08 to Deck 07.
   These pages and both decks render locally; the live coverage pages and
   Deck 07 title-slide notice were verified October 19.

@@ -241,6 +241,11 @@ Mathematical content should be maintained only in the slides.
   - [x] Publish and verify Quizzes 3–5 for their announced October 15,
     November 12, and December 1 dates; Quiz 4 and Quiz 5 coverage remains TBD. Both tests are
     published. Grades remain for later entry.
+  - [x] Narrow Test 2 coverage through dimension; exclude coordinates and
+    transformations; correct the Canvas assignment and prior notice, and
+    publish the all-sections correction announcement `108764` (October 22).
+  - [ ] Deploy and verify the matching October 22 Test 2 coverage correction
+    on the Schedule and Quizzes and Tests pages.
   - [x] Schedule Test 2 for October 29 in PH 109; create and publish its
     On Paper Canvas assignment for 12:45 PM; add the date to the
     course website sources; and post the all-sections save-the-date announcement.
