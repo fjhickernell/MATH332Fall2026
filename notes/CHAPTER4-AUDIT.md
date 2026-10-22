@@ -7,6 +7,113 @@ Pages deployment, through commit `1c78f80`, including the notation and
 pivot-column boxes. The October 4 renumbering and notebook Checkpoint has
 not yet had its remote deployment verified.
 
+## October 21, 2026 — Bases and Coordinates reasoning and structure
+
+The instructor found that examples separated prerequisites from the claims
+they should explain. The revision keeps every example and the 19 original
+exercise sets, adds a basis question and a linked roadmap, and frames each
+section by its purpose. It grows from 69 to 81 slides without changing the recorded
+October 22 lecture continuation or assessment coverage.
+
+The main progression is construction, independence, bases, dimension,
+coordinates and arithmetic, then transformations. The dimension comparison
+uses an explicit vector-list factorization, a homogeneous coefficient system,
+and a free-variable argument, before
+dimension is defined; it does not assume the dimension or rank-nullity
+theorems. The exact-size equivalence uses the same column-list factorization,
+with an explicitly square coefficient matrix, to connect uniqueness and
+spanning to column and row pivots. The instructor prefers these matrix
+factorizations to indexed sums for the dimension and basis-extension arguments.
+The extension and reduction constructions follow with a visible independence
+argument using an augmented column matrix to append a vector outside the span.
+
+The remaining-notation audit converts five further proofs to matrix form:
+the zero-vector test, removal of a redundant generator, coordinate uniqueness,
+coordinate arithmetic, and determination of a linear map by its basis images.
+The redundancy proof uses the same augmented-column notation as the extension
+proof. Coordinate arithmetic distributes the reconstruction matrix over two
+coefficient columns; the map proof carries one coefficient column through the
+input vectors, their images, and the output-coordinate columns. The closing
+reconstruction formula uses the same notation. Expanded finite combinations
+remain in definitions, the coefficient-system bridge, regression, and concrete
+polynomial/function examples where they explain individual weights. Bracketed
+lists of abstract vectors denote linear-combination maps rather than requiring
+an ambient numerical coordinate system. All 20 current exercise sets are
+unchanged by this audit; every example remains. The polynomial continuation
+described below brings the deck to 81 slides.
+
+The basis-matrix sequence explicitly includes the identity matrix for the
+standard basis and the two-step coordinate-to-vector-to-coordinate arrows.
+The transition-column rule is explained by feeding in a standard coefficient
+column: this selects a matrix column and represents one old basis vector.
+The following polynomial example now has two slides: a table derives all
+three transition columns, then a continuation derives the input coordinates
+by matching coefficients, shows the matrix-product arithmetic, and
+reconstructs the original polynomial using the output basis.
+
+A final whole-deck source review found no arithmetic or matrix-direction
+errors. Exact symbolic checks cover 14 groups: the opening map and redundant
+weights, independence and pivot examples, coordinate and polynomial-basis
+exercises, transition matrices, differentiation, both spring models,
+regression, and the displayed PCA geometry. Minor clarifications distinguish
+one fixed linear combination from the span, define column-list products for
+abstract vectors visibly, retain list multiplicity in the counting theorem,
+and label the ODE uniqueness result as supplied background. A stale reference
+to frames as an earlier topic is corrected. All examples, 20 exercise sets,
+81 slides, and existing anchors remain; full browser layout review is still
+pending under the local-file access restriction.
+
+Other visible reasons explain the zero-vector test, original pivot columns,
+coordinate arithmetic, and why images of a basis determine a map's matrix.
+The basis-extraction procedure explicitly stops at row echelon form. Its
+proof uses a triangular pivot submatrix and back substitution, so the
+justification uses the same form. The procedure and proof omit discussion
+of further reduction to keep attention on locating pivots and selecting
+original columns.
+Mixed prose/math spacing was audited throughout Deck 07. The mixed labels
+use explicit TeX word spaces at text/symbol boundaries, including the
+basis equivalence, transition label, and input/output basis labels.
+Distinct visible statements have explicit line breaks; ordinary source
+newlines had joined those statements in the rendered paragraphs. Periods
+were not added.
+The differentiation example follows that derivation. Regression, PCA, frames,
+and infinite bases move to Applications and Extensions after the foundations;
+later projection/PCA claims are identified as previews of later geometry.
+All previous explicit anchors and content headings are retained, and section
+outlines and the Course Map follow the new order. The terminology index's
+existing destinations remain valid; no new index term is needed.
+
+The roadmap uses Question / How we will answer it / Concept, with explicit
+explanatory steps. The parallelogram slide leads with the same map acting on
+the shape and basis vectors. Its SVG canvas is shorter while drawing scale
+and geometry are retained; the two diagram headings move into unused space.
+The standalone SVG crop and label clearance were inspected in a rendered PNG.
+The unique-address slide first asks whether the two pictured directions reach
+every vector in R^2 uniquely, identifying that property as a basis. Presenter
+notes solve the general target explicitly. A separate continuation keeps the
+same target vector from the diagram and asks for two coefficient lists after adding a redundant
+generator. This exposes lost uniqueness directly; the span-growth question
+and its definition detour are removed. Answers remain in presenter notes,
+which distinguish basis coordinates from coefficients in a redundant family.
+The continuation concludes that the extra generator is redundant for a coordinate
+system: it adds no direction and makes coefficient lists nonunique.
+
+Validation: the complete website and all twelve decks render without warnings.
+The assembled course site passes 1,721 local-reference and 750 anchor checks,
+including previous/next navigation across all twelve decks.
+Automated source and HTML checks verify retention of the 19 original exercise
+sets, plus the new
+basis question (20 total, with the early redundancy exercise refocused on
+the instructor's fixed-vector question), every
+original content heading, 62 explicit anchors, all section outlines, all
+same-deck links, and 20 distinct incoming course anchors. Visible prose has
+no bold emphasis or unnecessary terminal periods; HTML IDs are unique and
+`git diff --check` passes. Quarto needed access to its normal user Sass cache.
+Browser visual inspection remains pending: the local-file URL was blocked by
+browser policy. Rendering and source checks do not establish visible layout.
+The instructor subsequently authorized publication with Checkpoint. Remote
+deployment and live-page verification of this revision remain pending.
+
 ## Anton crosswalk
 
 Verified against Wiley's official contents for *Elementary Linear Algebra:

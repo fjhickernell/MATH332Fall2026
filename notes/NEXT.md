@@ -2,7 +2,28 @@
 
 ## October 22 lecture continuation
 
-October 20 recording coverage is verified. Finish “A critically damped spring: find the solution map,” then “Choose output coordinates for the damped motion.” The October 22 note and repaired event title are saved and reopened in Apple Calendar; final Fantastical read-back remains pending because its window is unavailable. This Checkpoint publishes the schedule changes; remote deployment and live-page verification remain pending. See `notes/LECTURE-UPDATES.md` for evidence; retain the older preparation details below as historical context.
+October 20 recording coverage is verified. Finish “A critically damped spring: find the solution map,” then “Choose output coordinates for the damped motion.” The October 22 note and repaired event title are saved and reopened in Apple Calendar; final Fantastical read-back remains pending because its window is unavailable. The schedule changes in `70802f9` passed publishing and Pages deployment; live-page verification remains pending. See `notes/LECTURE-UPDATES.md` for evidence; retain the older preparation details below as historical context.
+
+## Deck 07 structure review
+
+Review the revised 81-slide flow and visible layouts before teaching. The
+October 21 revision organizes the deck by motivating questions, puts visible
+matrix proofs before their applications, moves dimension before the coordinate
+examples, and places enrichment after the foundations. All examples and the
+19 original exercise sets remain; the opening basis question makes 20 sets.
+The basis-matrix sequence includes the standard-basis identity, labeled
+conversion arrows, a derivation of transition columns, and a two-slide worked
+polynomial conversion with reconstruction.
+
+Exact checks of 14 mathematical groups, the full website and twelve-deck
+renders, source/style, exercise preservation, outlines, and local/incoming
+anchor checks pass. Browser visual review remains pending because access to
+local-file URLs was blocked. The instructor authorized publication with
+Checkpoint; remote deployment of this revision remains pending. The recorded
+October 22 lecture continuation above is unchanged. See
+`notes/CHAPTER4-AUDIT.md` for the rationale and validation scope. Older
+construction details below are historical context when their ordering differs
+from this revision.
 
 ## Current task
 
