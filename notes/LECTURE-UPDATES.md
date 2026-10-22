@@ -2,7 +2,7 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest reconciled instructional meeting: October 15, 2026
+- Latest reconciled instructional meeting: October 20, 2026
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -15,7 +15,7 @@
 | October 6, 2026 | Reconciled: subspace tests for polynomial and matrix families, homogeneous solution sets, span as linear combinations, plane-span membership and redundant generators; polynomial spanning remains | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=9c378e01-89cd-41f8-af88-b4db01321802) | October 8, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 06 at “Spanning polynomials means matching every coefficient” | October 7, 2026 |
 | October 8, 2026 | Reconciled: polynomial-span coefficient tests and singular example; coordinate motivation and transformed square; polynomial dependence, redundant-generator removal, and R³ basis tests by elimination | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=6f1ffeed-06a8-46bb-831e-b4dd012c2299) | October 15, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Calendar occurrence only; resume Deck 07 at “Example: independent Fourier modes,” recap independence/bases and revisit deferred coordinate applications; Quiz 3 remains in the last 15 minutes | October 8, 2026 |
 | October 15, 2026 | Reconciled: line-coordinate examples, Fourier-mode independence, homogeneous coefficient tests, and basis extraction by elimination; frames and infinite bases previewed before Quiz 3 | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2de95612-7f46-4253-88e1-b4e40121cfd0) | October 20, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; recap coordinate uniqueness, then “Coordinates in a Chosen Basis” → “A basis gives every vector unique coordinates” | October 18, 2026 |
-| October 20, 2026 | Coverage verified; Calendar saved; Fantastical read-back pending: matrix and polynomial bases; dimension and coordinate arithmetic; undamped initial-data solution map and complex bases; critically damped spring exercise begun | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=330a3335-a279-49c1-b6a1-b4e9012bbf78) | October 22, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; Finish “A critically damped spring: find the solution map,” then “Choose output coordinates for the damped motion” | October 20, 2026 |
+| October 20, 2026 | Reconciled (Fantastical read-back completed October 22): matrix and polynomial bases; dimension and coordinate arithmetic; undamped initial-data solution map and complex bases; critically damped spring exercise begun | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=330a3335-a279-49c1-b6a1-b4e9012bbf78) | October 22, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; Finish “A critically damped spring: find the solution map,” then “Choose output coordinates for the damped motion” | October 20, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -188,3 +188,10 @@ The readiness notice in Illinois Tech Fred identifies an 11:22 AM start and a 1:
 Playback was paused and muted; the temporary recording tab was closed. The schedule changes are included in the October 20 Checkpoint; remote deployment and live-page verification remain pending.
 
 Validation: the changed schedule page renders successfully in Quarto; updated October rows and surrounding tables were inspected at desktop and 390-pixel widths. Continuation source files and explicit anchors resolve. `git diff --check` passes.
+
+
+## October 22 check and recording availability
+
+Completed the outstanding October 20 closeout: reopened the October 22 event in Fantastical and verified MATH 332 Linear Algebra, PH 109, October 22, 11:15 AM–12:45 PM Chicago and its persisted critically-damped-spring continuation. The calendar selector identifies Illinois Tech Fred → Calendar. This closes the earlier read-back barrier; October 20 is reconciled.
+
+October 22 readiness notice identifies an 11:23 AM start and approximately 1:19:49 recording: [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=35a56247-4ad0-46cf-a1f6-b4eb012ce87c). Panopto reports “Captions not available,” including after a reload. The transition index and closing slide were inspected with playback muted but do not establish substantive coverage or the continuation point. October 22 reconciliation remains pending; no October 22/27 schedule or calendar note was changed, and the reconciled date was not advanced past October 20. Retry when captions are available.

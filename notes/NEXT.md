@@ -1,5 +1,9 @@
 # Next task
 
+## October 22 lecture update pending captions
+
+October 20 is now fully reconciled: October 22 continuation was reopened and verified in Fantastical on Illinois Tech Fred → Calendar. The October 22 recording readiness notice is available, but Panopto reports “Captions not available” after reload. Retry `Lecture update 332` when captions are ready; identify substantive coverage before updating the October 22/27 schedule and October 27 event. No new continuation has been inferred from the slide index. This supersedes the earlier Fantastical verification barrier below.
+
 ## October 22 lecture continuation
 
 October 20 recording coverage is verified. Finish “A critically damped spring: find the solution map,” then “Choose output coordinates for the damped motion.” The October 22 note and repaired event title are saved and reopened in Apple Calendar; final Fantastical read-back remains pending because its window is unavailable. The schedule changes in `70802f9` passed publishing and Pages deployment; live-page verification remains pending. See `notes/LECTURE-UPDATES.md` for evidence; retain the older preparation details below as historical context.
