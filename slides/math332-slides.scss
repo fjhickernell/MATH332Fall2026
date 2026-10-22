@@ -2,6 +2,24 @@
 
 /* Course-wide diagram primitives shared by multiple MATH 332 decks. */
 
+/* Deck 07 opening table: leave room for both forms of a linear combination. */
+.reveal #from-building-vectors-to-giving-them-addresses {
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  col:nth-child(1) { width: 18% !important; }
+  col:nth-child(2) { width: 48% !important; }
+  col:nth-child(3) { width: 34% !important; }
+
+  th, td {
+    line-height: 1.15;
+    padding-top: 0.18em;
+    padding-bottom: 0.18em;
+  }
+}
+
 .reveal .deck-course-map a.current-deck {
   color: var(--header-blue);
   font-weight: 800;

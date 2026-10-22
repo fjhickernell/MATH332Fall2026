@@ -107,8 +107,11 @@ Mathematical content should be maintained only in the slides.
     dependencies; justify the dimension equivalence, basis-size comparison,
     pivot-column method, and coordinate/matrix rules while retaining all
     examples and 19 original exercise sets (October 21).
-  - [ ] Review Deck 07's revised 81-slide flow and visible layouts; the local
-    render and source/link checks pass, but browser visual review is pending.
+  - [ ] Review Deck 07's revised 82-slide flow and remaining visible layouts;
+    the local render and source/link checks pass; opening table review is complete.
+  - [x] Review the opening concept table with the instructor; show expanded
+    sums and matrix products for combinations and independence, and verify
+    column widths and the key point's clearance above the footer.
   - [x] Audit Deck 07's remaining finite-dimensional arguments for matrix
     notation; convert five general proofs and the closing reconstruction
     formula while preserving every example and all 20 current exercise sets.

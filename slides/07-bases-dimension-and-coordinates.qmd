@@ -89,14 +89,14 @@ A transformed grid motivates the question; definitions and proofs make the answe
 
 ## From building vectors to giving them addresses {#from-building-vectors-to-giving-them-addresses data-state="goldborder"}
 
-Choose vectors $\vct{b}_1,\ldots,\vct{b}_k$ in a space $V$
+Choose vectors $\vct{b}_1,\ldots,\vct{b}_k$ in $V$; write $\vct{c}=[c_1,\ldots,c_k]^\top$
 
 | Concept | Notation | What it does |
 |---|---|---|
-| [Linear combination]{.alert} | $c_1\vct{b}_1+\cdots+c_k\vct{b}_k$ | Builds one vector from chosen weights |
+| [Linear combination]{.alert} | $c_1\vct{b}_1+\cdots+c_k\vct{b}_k=[\vct{b}_1\ \cdots\ \vct{b}_k]\vct{c}$ | Builds one vector from chosen weights |
 | [Span]{.alert} | $\operatorname{span}\{\vct{b}_1,\ldots,\vct{b}_k\}$ | Collects all vectors we can build |
-| [Linear independence]{.alert} | $c_1\vct{b}_1+\cdots+c_k\vct{b}_k=\vct{0}$<br>$\implies c_1=\cdots=c_k=0$ | Makes the formula for building unique |
-| [Basis]{.alert} | $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_k\}$ | Builds every vector in $V$ uniquely, via linear combinations |
+| [Linear independence]{.alert} | $c_1\vct{b}_1+\cdots+c_k\vct{b}_k=[\vct{b}_1\ \cdots\ \vct{b}_k]\vct{c}=\vct{0}$<br>$\implies c_1=\cdots=c_k=0\quad(\vct{c}=\vct{0})$ | Makes the formula for building unique |
+| [Basis]{.alert} | $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_k\}$ | Builds every vector in $V$ uniquely |
 | [Dimension]{.alert} | $\dim V=k$ for a basis $\mathcal{B}$ | Counts basis vectors and coordinates |
 | [Coordinates]{.alert} | $[\vct{v}]_{\mathcal{B}}=[c_1,\ldots,c_k]^\top$ | Records the weights as an address |
 

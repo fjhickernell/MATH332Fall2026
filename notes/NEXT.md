@@ -6,7 +6,12 @@ October 20 recording coverage is verified. Finish “A critically damped spring:
 
 ## Deck 07 structure review
 
-Review the revised 81-slide flow and visible layouts before teaching. The
+The opening concept table is instructor-approved: linear combinations and
+independence show both expanded sums and matrix products. Its 18/48/34 column
+proportions and compact row spacing pass rendered browser review, with the key
+point clear of the footer. Continue reviewing the remaining layouts.
+
+Review the revised 82-slide flow and visible layouts before teaching. The
 October 21 revision organizes the deck by motivating questions, puts visible
 matrix proofs before their applications, moves dimension before the coordinate
 examples, and places enrichment after the foundations. All examples and the
