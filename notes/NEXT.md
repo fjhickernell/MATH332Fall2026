@@ -316,8 +316,11 @@ address reported Colab problems.
   Spaces, Subspaces, and Span decks. The October 8 coverage announcement
   [107573](https://iit.instructure.com/courses/23913/discussion_topics/107573),
   “Quiz 3: Coverage for Thursday, October 15,” is published and verified for
-  All Sections. Quiz 4 and Quiz 5 coverage remains TBD. Quiz 3 grading is due
-  October 21, six calendar days after October 15. Mixed lecture/quiz schedule rows now separate the
+  All Sections. Quiz 4 and Quiz 5 coverage remains TBD. Quiz 3 grading is
+  complete; all 20 Canvas scores are posted. The answer PDF includes the
+  anonymous distribution, including both earned zeros, and is released in the
+  current-assessment folder and canonical archive commit `bc6be6c`. The
+  all-sections announcement and live deployment verification remain pending. Mixed lecture/quiz schedule rows now separate the
   quiz and its coverage with a light divider and blank-line spacing. All
   monthly tables, including the final examination, use consistent columns.
 - Assignment 2 is published in Canvas (`104698`) and available in WileyPLUS,
