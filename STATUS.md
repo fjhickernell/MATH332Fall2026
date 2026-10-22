@@ -232,6 +232,9 @@ Mathematical content should be maintained only in the slides.
   - [x] Finalize Quiz 3 coverage as Euclidean Vector Spaces and Vector Spaces,
     Subspaces, and Span; update the assessment page, schedule, and Deck 06 notice.
   - [x] Publish and verify the Quiz 3 coverage announcement (`107573`) to all Canvas sections.
+  - [x] Release Quiz 3 grades, publish identical answer PDFs with the anonymous
+    distribution in the course and archive, verify live deployment, and post
+    the all-sections Canvas announcement (October 22, 2026).
   - [x] Publish and verify Quizzes 3–5 for their announced October 15,
     November 12, and December 1 dates; Quiz 4 and Quiz 5 coverage remains TBD. Both tests are
     published. Grades remain for later entry.
