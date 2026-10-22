@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="07-bases-dimension-and-coordinates_files/libs/revealjs/dist/theme/quarto-e2c737db624b6b1fda97442e9ed43e9e.css">
+  <link rel="stylesheet" href="07-bases-dimension-and-coordinates_files/libs/revealjs/dist/theme/quarto-fbc6e616c4cae1ebf8227a82079a983a.css">
   <link href="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="07-bases-dimension-and-coordinates_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -729,7 +729,7 @@ In this deck
 </section>
 <section id="from-building-vectors-to-giving-them-addresses" class="slide level2" data-state="goldborder">
 <h2>From building vectors to giving them addresses</h2>
-<p>Choose vectors <span class="math inline">\(\vct{b}_1,\ldots,\vct{b}_k\)</span> in a space <span class="math inline">\(V\)</span></p>
+<p>Choose vectors <span class="math inline">\(\vct{b}_1,\ldots,\vct{b}_k\)</span> in <span class="math inline">\(V\)</span>; write <span class="math inline">\(\vct{c}=[c_1,\ldots,c_k]^\top\)</span></p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 33%">
@@ -746,7 +746,7 @@ In this deck
 <tbody>
 <tr class="odd">
 <td><span class="alert">Linear combination</span></td>
-<td><span class="math inline">\(c_1\vct{b}_1+\cdots+c_k\vct{b}_k\)</span></td>
+<td><span class="math inline">\(c_1\vct{b}_1+\cdots+c_k\vct{b}_k=[\vct{b}_1\ \cdots\ \vct{b}_k]\vct{c}\)</span></td>
 <td>Builds one vector from chosen weights</td>
 </tr>
 <tr class="even">
@@ -756,13 +756,13 @@ In this deck
 </tr>
 <tr class="odd">
 <td><span class="alert">Linear independence</span></td>
-<td><span class="math inline">\(c_1\vct{b}_1+\cdots+c_k\vct{b}_k=\vct{0}\)</span><br><span class="math inline">\(\implies c_1=\cdots=c_k=0\)</span></td>
+<td><span class="math inline">\(c_1\vct{b}_1+\cdots+c_k\vct{b}_k=[\vct{b}_1\ \cdots\ \vct{b}_k]\vct{c}=\vct{0}\)</span><br><span class="math inline">\(\implies c_1=\cdots=c_k=0\quad(\vct{c}=\vct{0})\)</span></td>
 <td>Makes the formula for building unique</td>
 </tr>
 <tr class="even">
 <td><span class="alert">Basis</span></td>
 <td><span class="math inline">\(\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_k\}\)</span></td>
-<td>Builds every vector in <span class="math inline">\(V\)</span> uniquely, via linear combinations</td>
+<td>Builds every vector in <span class="math inline">\(V\)</span> uniquely</td>
 </tr>
 <tr class="odd">
 <td><span class="alert">Dimension</span></td>
