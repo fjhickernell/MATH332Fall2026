@@ -167,7 +167,10 @@ preview §§8.1 and 8.4. Detailed pacing is **TBD**.
 <details>
 <summary><strong>Eigenvalues and Eigenvectors</strong></summary>
 
-[Lecture slides](slides/09-eigenvalues-and-eigenvectors.html). Anton, Chapter 5. Detailed pacing is **TBD**.
+[Lecture slides](slides/09-eigenvalues-and-eigenvectors.html). Anton, Chapter 5:
+eigenvalues and eigenspaces, diagonalization, complex eigenvalues, powers and
+discrete dynamics, and orthogonal diagonalization of real symmetric matrices.
+Detailed pacing is **TBD**.
 
 </details>
 

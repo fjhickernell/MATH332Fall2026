@@ -27,6 +27,34 @@ layout checks, and `git diff --check` passes. Test date/location and grading
 deadline are unchanged:
 October 29, PH 109; grading due November 4.
 
+## Decks 07–09 revision and development
+
+Deck 07 now explains abstract basis-column reconstruction and labels the later
+matrix/polynomial basis examples as review. Deck 08 replaces its repeated
+transformation definition with kernel/image coordinates and rank–nullity,
+including the differentiation example's constant kernel and full P1 image.
+
+Deck 09 is now a substantive Chapter 5 draft: preserved directions,
+characteristic polynomials/eigenspaces, diagonalization and multiplicities,
+complex pairs, powers and population exchange, and real symmetric spectral
+theory. It includes seven starred exercise sets with presenter-note answers,
+a geometric eigenvector figure, section outlines and the cumulative closing
+sequence. The intro terminology links now point to its developed treatments;
+the welcome-page description lists the draft coverage without assigning hours.
+
+Complete instructor review of the new deck and remaining Deck 07/08 layouts
+before teaching. No lecture dates, assessment coverage, or notebook assignments
+were changed. These revisions are included in the October 24 teaching
+Checkpoint; remote deployment and instructor review remain pending.
+
+Validation: exact symbolic checks pass for the numerical examples and exercise
+answers; the root website and all twelve decks render. All 41 Deck 09 slides
+and the five edited Deck 07/08 slides were inspected in the browser, with the
+figure and matrix-basis takeaway clearance corrected. The welcome page and
+twelve decks pass 985 local-link/asset checks; source style and
+`git diff --check` pass. Instructor content review remains distinct from this
+local validation.
+
 ## Deck 07 structure review
 
 The opening concept table is instructor-approved: linear combinations and
@@ -186,7 +214,8 @@ of a product." Inverses and Matrix Transformations use "inconsistencies
 projection, and least-squares connections forward with formula conditions.
 All twelve decks render; the nine recaps pass MathJax/layout review and the
 assembled site passes local-link/anchor checks. Instructor review remains.
-Deck 09 is still the only placeholder; the review order above is unchanged.
+Deck 09 now has its Chapter 5 draft and closing recap; review it before
+continuing to Inner Product Spaces and Special Topics.
 
 Pivot reminders now point to the original Systems and Matrices definition,
 `#pivots-organize-elimination`, at the first mention in every deck that uses
@@ -441,10 +470,9 @@ address reported Colab problems.
   browser preview; instructor review remains pending.
 - Deck 04's Big Ideas now explicitly distinguishes the nonnegative magnitude
   from the sign of the determinant; zero determinant has its own collapse bullet.
-- Developed Decks 02–08 now close with Big Ideas, a cumulative "How Far We
+- Developed Decks 02–11 close with Big Ideas, a cumulative "How Far We
   Have Come" slide, and What Comes Next. Each Course Map links once to Big
-  Ideas for the closing sequence. Deck 09 remains a placeholder and should
-  gain this sequence when developed; the new Decks 10–11 drafts include it.
+  Ideas for the closing sequence; Deck 09 gained it with its Chapter 5 draft.
 - Deck 04 now proves the parallelogram-area formula immediately after its
   signed-area statement, using base times perpendicular height; the proof
   includes the zero-edge case and explains the sign. Rendering, visible layout,
@@ -471,8 +499,9 @@ address reported Colab problems.
   Deck 05 content and layout review was completed October 4.
 - Decks 00--04 are substantive and instructor-reviewed; Deck 04 has also been
   developed and audited. Deck 05 is an expanded 33-slide draft (including its
-  title), the three Chapter 4 decks are audited drafts, and Deck 09 remains
-  a placeholder for Anton Chapter 5. Decks 10–11 have instructor-review drafts.
+  title), the three Chapter 4 decks are audited drafts, and Deck 09 now has
+  an instructor-review draft for Anton Chapter 5. Decks 10–11 have
+  instructor-review drafts.
   The post-Test-1 schedule has 20 class meetings, but their allocation among
   Decks 05–11, Test 2, exercises, companions, and review has
   not yet been decided.

@@ -1020,6 +1020,9 @@ geometry requires the inner product in those coordinates.
 Put $\mat{B}=[\vct{b}_1\ \cdots\ \vct{b}_n]$, with
 $\vct{c}=[\vct{u}]_{\mathcal{B}}$ and $\vct{d}=[\vct{v}]_{\mathcal{B}}$
 
+Here $\mat{B}\vct{a}$ means $a_1\vct{b}_1+\cdots+a_n\vct{b}_n$,
+even when the basis vectors are polynomials, functions, or matrices
+
 $$
 \alpha\vct{u}+\beta\vct{v}
 =\alpha\mat{B}\vct{c}+\beta\mat{B}\vct{d}
@@ -1362,7 +1365,7 @@ the three-generator lists coordinates in a basis.
 
 ## Example: a basis of symmetric matrices {#worked-example-a-basis-of-symmetric-matrices}
 
-Symmetry ties two entries together; identify the freely chosen entries
+Review bases and dimension; the freely chosen entries become coordinates
 
 For real symmetric $2\times2$ matrices ($\mat{A}^\top=\mat{A}$), use
 
@@ -1419,7 +1422,7 @@ matrix, so the dimensions are three and one, respectively.
 
 ## Example: test a polynomial basis {#worked-example-test-a-polynomial-basis}
 
-For polynomials, matching coefficients plays the role of matching vector entries
+Review the basis test; use the resulting basis to find coordinates
 
 In $\mathbb{P}_2$, the polynomials in $t$ of degree at most two, take
 $\mathcal{E}=\{1,t,1+t^2\}$

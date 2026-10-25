@@ -807,7 +807,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Design matrix]({{< meta decks.d07.file >}}#regression-chooses-the-closest-vector-we-can-build)
 - [Determinant]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor), $\det(\mat{A})$
 - [Diagonal matrix]({{< meta decks.d03.file >}}#diagonal-matrices-act-one-coordinate-at-a-time), $\mat{D}$
-- [Diagonalization / similarity]({{< meta decks.d08.file >}}#a-well-chosen-basis-can-simplify-an-operator)
+- [Diagonalization / similarity]({{< meta decks.d09.file >}}#an-eigenvector-basis-makes-the-matrix-diagonal)
 - [Dimension]({{< meta decks.d07.file >}}#dimension-counts-vectors-in-any-basis), $\dim(V)$
 - [Discrete Fourier transform (DFT)]({{< meta decks.d11.file >}}#sampled-signals-are-vectors)
 - [Distance]({{< meta decks.d05.file >}}#recall-what-the-dot-product-already-gives-us), $\norm{\vct{u}-\vct{v}}$
@@ -824,8 +824,8 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 ::: {.column width="50%"}
 - [Domain]({{< meta decks.d03.file >}}#input-domain)
 - [Dot product]({{< meta decks.d01.file >}}#combines-coefficients-and-unknowns), $\vct{u}^{\mathsf T}\vct{v}$
-- [Eigenvalue]({{< meta decks.d04.file >}}#eigenvalues-give-another-determinant-formula), $\lambda$
-- [Eigenvector]({{< meta decks.d04.file >}}#eigenvalues-give-another-determinant-formula)
+- [Eigenvalue]({{< meta decks.d09.file >}}#an-eigenvector-stays-on-its-own-line), $\lambda$
+- [Eigenvector]({{< meta decks.d09.file >}}#an-eigenvector-stays-on-its-own-line)
 - [Elementary matrix]({{< meta decks.d01.file >}}#start-with-one-row-replacement)
 - [Elementary row operations]({{< meta decks.d01.file >}}#three-reversible-moves)
 - [Elimination]({{< meta decks.d01.file >}}#elimination)
@@ -943,7 +943,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Orthogonal basis]({{< meta decks.d10.file >}}#perpendicular-vectors-split-squared-length)
 - [Orthogonal complement]({{< meta decks.d08.file >}}#an-orthogonal-complement-contains-all-perpendicular-directions), $W^{\perp}$
 - [Orthogonal decomposition]({{< meta decks.d05.file >}}#projection-finds-the-nearest-point-on-an-affine-line)
-- [Orthogonal diagonalization]({{< meta decks.d11.file >}}#symmetry-gives-orthogonal-eigenvectors)
+- [Orthogonal diagonalization]({{< meta decks.d09.file >}}#the-spectral-theorem-supplies-an-orthonormal-eigenbasis)
 :::
 
 :::
@@ -1027,7 +1027,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Solution map]({{< meta decks.d07.file >}}#initial-data-map-linearly-to-a-solution-function)
 - [Span]({{< meta decks.d06.file >}}#span-is-the-subspace-generated-by-chosen-vectors), $\operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}$
 - [Spectral norm]({{< meta decks.d11.file >}}#the-best-low-rank-approximation-has-a-measurable-error)
-- [Spectral theorem (real symmetric)]({{< meta decks.d11.file >}}#symmetry-gives-orthogonal-eigenvectors)
+- [Spectral theorem (real symmetric)]({{< meta decks.d09.file >}}#the-spectral-theorem-supplies-an-orthonormal-eigenbasis)
 - [Standard basis]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column), $\{\vct{e}_1,\ldots,\vct{e}_n\}$
 - [Standard matrix]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column), $\mat{A}$
 :::

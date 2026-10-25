@@ -117,7 +117,11 @@ Mathematical content should be maintained only in the slides.
     formula while preserving every example and all 20 current exercise sets.
   - [x] Pin the bundled MathJax runtime and verify Safari rendering through
     reloads and slide/section navigation without a CDN dependency.
-  - [ ] Develop Deck 09.
+  - [x] Draft Deck 09: eigenvalues and eigenspaces, eigenvector bases and
+    diagonalization, complex eigenvalues, powers and discrete dynamics, and
+    orthogonal diagonalization of real symmetric matrices; include worked
+    examples, a geometric figure, and seven starred exercise sets.
+  - [ ] Review Deck 09 with the instructor before classroom use.
   - [x] Draft Deck 10 with QR, regression, and Fourier approximation.
 - [x] Renumber the split Chapter 4 decks as 06–08 and the later placeholders
   as 09–10; update metadata, course maps, navigation, links, and author guidance.
@@ -143,8 +147,7 @@ Mathematical content should be maintained only in the slides.
   cross products have been introduced; render the revised deck.
 - [x] Add cumulative "How Far We Have Come" slides to developed Decks 02–08
   between Big Ideas and What Comes Next, with one Course Map link for each
-  closing sequence; Decks 10–11 now include it, while Deck 09 remains deferred
-  until its content is developed.
+  closing sequence; developed Decks 09–11 now include it as well.
 - [x] Audit all nine developed How Far recaps for sufficient explanation and
   readable one-page layout: include augmented matrices and solution-preserving
   elimination, state formula conditions, and connect geometry, bases, rank,

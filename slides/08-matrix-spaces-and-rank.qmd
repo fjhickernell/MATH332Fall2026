@@ -826,31 +826,30 @@ Preview: Anton §§8.1 and 8.4
 
 ## A basis turns an abstract problem into a matrix problem {#a-basis-turns-an-abstract-problem-into-a-matrix-problem}
 
-Let $V$ and $W$ be finite-dimensional real vector spaces
+Let $T:V\to W$ be linear between finite-dimensional real spaces
 
-A [linear transformation]{.alert} $T:V\to W$ preserves linear combinations:
-
-$$
-T(c\vct{u}+d\vct{v})=cT(\vct{u})+dT(\vct{v})
-$$
-
-Choose ordered bases $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ for the input $V$
-and $\mathcal{C}$ for the output $W$: $\dim(V)=n$, $\dim(W)=m$
-
-Coordinates and matrix columns use the basis vectors in the listed order
-
-Recall [coordinates]({{< meta decks.d07.file >}}#a-basis-gives-every-vector-unique-coordinates): $[\vct{v}]_{\mathcal{B}}=(c_1,\ldots,c_n)^{\mathsf T}$ means $\vct{v}=\sum_{j=1}^n c_j\vct{b}_j$
-
-The $m\times n$ coordinate matrix $\mat{M}$ has column $j$ equal to $[T(\vct{b}_j)]_{\mathcal{C}}$
-and satisfies
+With ordered bases $\mathcal{B}$ and $\mathcal{C}$, recall
+[the coordinate-matrix rule]({{< meta decks.d07.file >}}#transform-coordinates-to-obtain-output-coordinates):
 
 $$
 [T(\vct{v})]_{\mathcal{C}}
-=\mat{M}[\vct{v}]_{\mathcal{B}}
+=\mat{M}[\vct{v}]_{\mathcal{B}},\qquad
+\vct{M}_j=[T(\vct{b}_j)]_{\mathcal{C}}
 $$
 
+Coordinate maps are isomorphisms, so the matrix exposes the map's structure:
+
+| Abstract map | Coordinate matrix |
+|---|---|
+| Image $T(V)$: all attainable outputs | $\operatorname{col}(\mat{M})$ in output coordinates |
+| Kernel $\ker(T)=\{\vct{v}:T(\vct{v})=\vct{0}\}$ | $\operatorname{null}(\mat{M})$ in input coordinates |
+
 ::: {.key-point}
-A linear transformation is determined by its action on a basis
+$\dim(T(V))+\dim(\ker(T))=\dim(V)$
+
+&nbsp;
+
+Rank–nullity describes linear maps, including maps of polynomials and functions
 :::
 
 ---
@@ -883,7 +882,19 @@ $$
 $$
 
 ::: {.key-point}
-Apply the map to each input basis vector; put its output coordinates in a column
+$\ker(D)=\operatorname{span}\{1\}$, $\quad D(\mathbb{P}_2)=\mathbb{P}_1$
+
+Rank $2$ + nullity $1$ = input dimension $3$
+:::
+
+::: {.notes}
+The matrix has pivots in columns 2 and 3 and null space span{[1,0,0]^T}.
+Those input coordinates reconstruct the constant polynomials. Every linear
+polynomial a+bt is D(at+(b/2)t^2), so the image is all P_1. Coordinate
+isomorphisms carry the kernel and image to the matrix's null and column
+spaces; their dimensions therefore agree. Differentiation is onto this
+codomain but is not one-to-one. The rank-nullity theorem for T follows
+from the matrix theorem already developed, without a new proof.
 :::
 
 ---

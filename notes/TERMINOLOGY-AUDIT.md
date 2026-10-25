@@ -19,10 +19,11 @@ networks. Incidental narrative words are not separate index entries.
 The matrix-representation entry now points to the substantive explanation
 in Bases and Coordinates; SVD points to its developed treatment in Special
 Topics rather than the intro teaser. The commutativity cue now states that
-matrix multiplication generally fails to commute. Deck 09 remains a
-placeholder: eigenvalue/eigenvector entries point to the developed determinant
-example, with diagonalization/spectral-theorem entries pointing to their
-existing substantive treatments. No definitions were invented for Deck 09.
+matrix multiplication generally fails to commute. Deck 09 was a
+placeholder in the October 20 audit. With its October 24 development,
+eigenvalue/eigenvector, diagonalization/similarity, orthogonal diagonalization,
+and real symmetric spectral-theorem entries now point to substantive Deck 09
+treatments. The number and alphabetical order of index entries are unchanged.
 
 ## Coordinate emphasis
 
