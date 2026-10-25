@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-22">
+  <meta name="dcterms.date" content="2026-10-25">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 22, 2026</p>
+  <p class="date">October 25, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -1631,6 +1631,7 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 
 <h3 id="why-coordinate-arithmetic-works">Why coordinate arithmetic works</h3>
 <p>Put <span class="math inline">\(\mat{B}=[\vct{b}_1\ \cdots\ \vct{b}_n]\)</span>, with <span class="math inline">\(\vct{c}=[\vct{u}]_{\mathcal{B}}\)</span> and <span class="math inline">\(\vct{d}=[\vct{v}]_{\mathcal{B}}\)</span></p>
+<p>Here <span class="math inline">\(\mat{B}\vct{a}\)</span> means <span class="math inline">\(a_1\vct{b}_1+\cdots+a_n\vct{b}_n\)</span>, even when the basis vectors are polynomials, functions, or matrices</p>
 <p><span class="math display">\[
 \alpha\vct{u}+\beta\vct{v}
 =\alpha\mat{B}\vct{c}+\beta\mat{B}\vct{d}
@@ -1910,7 +1911,7 @@ p(2)=y_0(1-2)+2y_1=2y_1-y_0
 </section>
 <section id="worked-example-a-basis-of-symmetric-matrices" class="slide level2">
 <h2>Example: a basis of symmetric matrices</h2>
-<p>Symmetry ties two entries together; identify the freely chosen entries</p>
+<p>Review bases and dimension; the freely chosen entries become coordinates</p>
 <p>For real symmetric <span class="math inline">\(2\times2\)</span> matrices (<span class="math inline">\(\mat{A}^\top=\mat{A}\)</span>), use</p>
 <p><span class="math display">\[
 \mat{B}_1=\begin{bmatrix}1&amp;0\\0&amp;0\end{bmatrix},
@@ -1956,7 +1957,7 @@ p(2)=y_0(1-2)+2y_1=2y_1-y_0
 </section>
 <section id="worked-example-test-a-polynomial-basis" class="slide level2">
 <h2>Example: test a polynomial basis</h2>
-<p>For polynomials, matching coefficients plays the role of matching vector entries</p>
+<p>Review the basis test; use the resulting basis to find coordinates</p>
 <p>In <span class="math inline">\(\mathbb{P}_2\)</span>, the polynomials in <span class="math inline">\(t\)</span> of degree at most two, take <span class="math inline">\(\mathcal{E}=\{1,t,1+t^2\}\)</span></p>
 <p>Its coefficient columns relative to <span class="math inline">\(\{1,t,t^2\}\)</span> form</p>
 <p><span class="math display">\[

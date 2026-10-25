@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-22">
+  <meta name="dcterms.date" content="2026-10-25">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 22, 2026</p>
+  <p class="date">October 25, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -1440,21 +1440,40 @@ y_1+2y_2+y_3=0,
 </section>
 <section id="a-basis-turns-an-abstract-problem-into-a-matrix-problem" class="slide level2">
 <h2>A basis turns an abstract problem into a matrix problem</h2>
-<p>Let <span class="math inline">\(V\)</span> and <span class="math inline">\(W\)</span> be finite-dimensional real vector spaces</p>
-<p>A <span class="alert">linear transformation</span> <span class="math inline">\(T:V\to W\)</span> preserves linear combinations:</p>
-<p><span class="math display">\[
-T(c\vct{u}+d\vct{v})=cT(\vct{u})+dT(\vct{v})
-\]</span></p>
-<p>Choose ordered bases <span class="math inline">\(\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}\)</span> for the input <span class="math inline">\(V\)</span> and <span class="math inline">\(\mathcal{C}\)</span> for the output <span class="math inline">\(W\)</span>: <span class="math inline">\(\dim(V)=n\)</span>, <span class="math inline">\(\dim(W)=m\)</span></p>
-<p>Coordinates and matrix columns use the basis vectors in the listed order</p>
-<p>Recall <a href="07-bases-dimension-and-coordinates.html#a-basis-gives-every-vector-unique-coordinates">coordinates</a>: <span class="math inline">\([\vct{v}]_{\mathcal{B}}=(c_1,\ldots,c_n)^{\mathsf T}\)</span> means <span class="math inline">\(\vct{v}=\sum_{j=1}^n c_j\vct{b}_j\)</span></p>
-<p>The <span class="math inline">\(m\times n\)</span> coordinate matrix <span class="math inline">\(\mat{M}\)</span> has column <span class="math inline">\(j\)</span> equal to <span class="math inline">\([T(\vct{b}_j)]_{\mathcal{C}}\)</span> and satisfies</p>
+<p>Let <span class="math inline">\(T:V\to W\)</span> be linear between finite-dimensional real spaces</p>
+<p>With ordered bases <span class="math inline">\(\mathcal{B}\)</span> and <span class="math inline">\(\mathcal{C}\)</span>, recall <a href="07-bases-dimension-and-coordinates.html#transform-coordinates-to-obtain-output-coordinates">the coordinate-matrix rule</a>:</p>
 <p><span class="math display">\[
 [T(\vct{v})]_{\mathcal{C}}
-=\mat{M}[\vct{v}]_{\mathcal{B}}
+=\mat{M}[\vct{v}]_{\mathcal{B}},\qquad
+\vct{M}_j=[T(\vct{b}_j)]_{\mathcal{C}}
 \]</span></p>
+<p>Coordinate maps are isomorphisms, so the matrix exposes the map’s structure:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Abstract map</th>
+<th>Coordinate matrix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Image <span class="math inline">\(T(V)\)</span>: all attainable outputs</td>
+<td><span class="math inline">\(\operatorname{col}(\mat{M})\)</span> in output coordinates</td>
+</tr>
+<tr class="even">
+<td>Kernel <span class="math inline">\(\ker(T)=\{\vct{v}:T(\vct{v})=\vct{0}\}\)</span></td>
+<td><span class="math inline">\(\operatorname{null}(\mat{M})\)</span> in input coordinates</td>
+</tr>
+</tbody>
+</table>
 <div class="key-point">
-<p>A linear transformation is determined by its action on a basis</p>
+<p><span class="math inline">\(\dim(T(V))+\dim(\ker(T))=\dim(V)\)</span></p>
+<p>&nbsp;</p>
+<p>Rank–nullity describes linear maps, including maps of polynomials and functions</p>
 </div>
 </section>
 <section id="worked-example-differentiation-is-a-matrix" class="slide level2">
@@ -1478,8 +1497,22 @@ D(1)=0,
 \quad\Longleftrightarrow\quad p'=-3+10t
 \]</span></p>
 <div class="key-point">
-<p>Apply the map to each input basis vector; put its output coordinates in a column</p>
+<p><span class="math inline">\(\ker(D)=\operatorname{span}\{1\}\)</span>, <span class="math inline">\(\quad D(\mathbb{P}_2)=\mathbb{P}_1\)</span></p>
+<p>Rank <span class="math inline">\(2\)</span> + nullity <span class="math inline">\(1\)</span> = input dimension <span class="math inline">\(3\)</span></p>
 </div>
+<aside class="notes">
+<p>The matrix has pivots in columns 2 and 3 and null space span{[1,0,0]^T}. Those input coordinates reconstruct the constant polynomials. Every linear polynomial a+bt is D(at+(b/2)t^2), so the image is all P_1. Coordinate isomorphisms carry the kernel and image to the matrix’s null and column spaces; their dimensions therefore agree. Differentiation is onto this codomain but is not one-to-one. The rank-nullity theorem for T follows from the matrix theorem already developed, without a new proof.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 

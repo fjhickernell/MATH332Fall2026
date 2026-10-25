@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-22">
+  <meta name="dcterms.date" content="2026-10-25">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 22, 2026</p>
+  <p class="date">October 25, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -674,15 +674,1010 @@ Course decks
 <h3>
 In this deck
 </h3>
+<div class="key-point">
+<p>Choose directions that turn a matrix action into separate scalar actions</p>
+<p>&nbsp;</p>
+<p><span class="math inline">\(\mat{A}\mat{P}=\mat{P}\mat{D},\qquad
+\vct{x}=\mat{P}\vct{c}\longmapsto\mat{A}\vct{x}=\mat{P}\mat{D}\vct{c}\)</span></p>
+</div>
 <ul>
-<li><a href="#/eigenvalues-and-eigenvectors">Eigenvalues and Eigenvectors</a></li>
+<li><a href="#/preserved-directions">Preserved Directions</a></li>
+<li><a href="#/eigenvalues-and-eigenspaces">Eigenvalues and Eigenspaces</a></li>
+<li><a href="#/eigenvector-bases-and-diagonalization">Eigenvector Bases and Diagonalization</a></li>
+<li><a href="#/complex-eigenvalues">Complex Eigenvalues</a></li>
+<li><a href="#/powers-and-dynamics">Powers and Dynamics</a></li>
+<li><a href="#/symmetric-matrices">Symmetric Matrices</a></li>
+<li><a href="#/big-ideas">Big Ideas</a></li>
 </ul>
 </div></div>
 </section>
 
-<section id="eigenvalues-and-eigenvectors" class="title-slide slide level1 center">
-<h1>Eigenvalues and Eigenvectors</h1>
-<p>Chapter 5 content will be developed in this deck.</p>
+<section>
+<section id="preserved-directions" class="title-slide slide level1 center">
+<h1>Preserved Directions</h1>
+<p>Which lines through the origin does a matrix send into themselves?</p>
+<ul>
+<li><a href="#/an-eigenvector-stays-on-its-own-line">An eigenvector stays on its own line</a></li>
+<li><a href="#/two-directions-reveal-the-action">Two directions reveal the action</a></li>
+<li><a href="#/an-eigenvalue-describes-a-scalar-action">An eigenvalue describes a scalar action</a></li>
+<li><a href="#/recognize-eigenvectors-before-computing">Recognize eigenvectors before computing</a></li>
+</ul>
+</section>
+<section id="an-eigenvector-stays-on-its-own-line" class="slide level2">
+<h2>An eigenvector stays on its own line</h2>
+<p>For a square matrix <span class="math inline">\(\mat{A}\)</span>, an <span class="alert">eigenvector</span> is a nonzero vector <span class="math inline">\(\vct{v}\)</span> satisfying</p>
+<p><span class="math display">\[
+\mat{A}\vct{v}=\lambda\vct{v},\qquad \vct{v}\ne\vct{0}
+\]</span></p>
+<p>The scalar <span class="math inline">\(\lambda\)</span> is its <span class="alert">eigenvalue</span></p>
+<ul>
+<li>Every multiple of <span class="math inline">\(\vct{v}\)</span> is mapped into <span class="math inline">\(\operatorname{span}\{\vct{v}\}\)</span></li>
+<li>A nonzero multiple is another eigenvector for the same eigenvalue</li>
+<li>The zero vector satisfies the equation for every <span class="math inline">\(\lambda\)</span>, so it is excluded</li>
+</ul>
+<div class="key-point">
+<p>The line is preserved as a subspace; its vectors may stretch, reverse, or collapse</p>
+</div>
+<aside class="notes">
+<p>A is n-by-n over a specified field, initially R. For any scalar c, A(cv)=cAv=lambda(cv). When lambda=0 the entire line maps to zero, so “preserved” means invariant (mapped into itself), not necessarily mapped onto itself. A nonzero eigenvector can have zero entries. Zero is an allowed eigenvalue, but the zero vector is never an eigenvector. The real/complex field distinction becomes essential in the complex-eigenvalue section.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="two-directions-reveal-the-action" class="slide level2">
+<h2>Two directions reveal the action</h2>
+<p><span class="math display">\[
+\mat{A}=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix},\qquad
+\vct{v}_1=\begin{bmatrix}1\\1\end{bmatrix},\quad
+\vct{v}_2=\begin{bmatrix}1\\-1\end{bmatrix}
+\]</span></p>
+<p><img data-src="assets/eigenvalues/eigen-directions.svg" class="" style="width:70.0%" alt="Before and after applying A with rows 2,1 and 1,2. The vector v1=(1,1) becomes (3,3) on the same diagonal line; v2=(1,-1) stays fixed. The vector e1=(1,0) becomes (2,1), leaving its original line."></p>
+<p><span class="math display">\[
+\mat{A}\vct{v}_1=3\vct{v}_1,\qquad
+\mat{A}\vct{v}_2=\vct{v}_2
+\]</span></p>
+<div class="key-point">
+<p>The standard axes mix; the two diagonal directions act independently</p>
+</div>
+</section>
+<section id="an-eigenvalue-describes-a-scalar-action" class="slide level2">
+<h2>An eigenvalue describes a scalar action</h2>
+<p>For a real eigenvalue and its eigenvector:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Eigenvalue</th>
+<th>Action on that vector</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\lambda&gt;1\)</span></td>
+<td>stretch in the same direction</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(0&lt;\lambda&lt;1\)</span></td>
+<td>shrink in the same direction</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\lambda=1\)</span></td>
+<td>leave fixed</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\lambda&lt;0\)</span></td>
+<td>reverse direction and scale length by <span class="math inline">\(|\lambda|\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\lambda=0\)</span></td>
+<td>send to zero</td>
+</tr>
+</tbody>
+</table>
+<p>For a square matrix,</p>
+<p><span class="math display">\[
+0\text{ is an eigenvalue}\iff\operatorname{null}(\mat{A})\ne\{\vct{0}\}
+\iff\mat{A}\text{ is singular}
+\]</span></p>
+<div class="key-point">
+<p>The scale factor belongs to a direction; it need not describe every vector</p>
+</div>
+</section>
+<section id="recognize-eigenvectors-before-computing" class="slide level2">
+<h2>Recognize eigenvectors before computing</h2>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find eigenvalues and describe their eigendirections geometrically <span class="exsub">Reflection <span class="math inline">\(\mat{H}=\begin{bmatrix}1&amp;0\\0&amp;-1\end{bmatrix}\)</span></span> <span class="exsub">Projection <span class="math inline">\(\mat{J}=\begin{bmatrix}1&amp;0\\0&amp;0\end{bmatrix}\)</span></span> <span class="exsub">Scaling <span class="math inline">\(\mat{S}=2\mat{I}_2\)</span>: which nonzero vectors are eigenvectors?</span> <span class="exsub">For the preceding <span class="math inline">\(\mat{A}=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}\)</span>, is <span class="math inline">\([2,1]^\top\)</span> an eigenvector?</span> </span></p>
+</div>
+<aside class="notes">
+<p>H: eigenvalue 1 on the horizontal axis, -1 on the vertical axis. J: eigenvalue 1 on the horizontal axis, 0 on the vertical axis. S: every nonzero vector has eigenvalue 2. For A, A[2,1]<sup>T=[5,4]</sup>T, which is not a scalar multiple of [2,1]^T. These are all the real eigenvalues for the first three matrices. Reconnect H and J to Matrix Transformations.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="eigenvalues-and-eigenspaces" class="title-slide slide level1 center">
+<h1>Eigenvalues and Eigenspaces</h1>
+<p>Turn the preserved-direction question into a homogeneous system</p>
+<ul>
+<li><a href="#/a-nonzero-null-vector-identifies-an-eigenvalue">A nonzero null vector identifies an eigenvalue</a></li>
+<li><a href="#/find-eigenvalues-then-eigenvectors">Example: find eigenvalues, then eigenvectors</a></li>
+<li><a href="#/an-eigenspace-includes-all-vectors-for-one-eigenvalue">An eigenspace includes all vectors for one eigenvalue</a></li>
+<li><a href="#/compute-and-check-an-eigenspace">Compute and check an eigenspace</a></li>
+<li><a href="#/trace-and-determinant-check-the-eigenvalues">Trace and determinant check the eigenvalues</a></li>
+</ul>
+</section>
+<section id="a-nonzero-null-vector-identifies-an-eigenvalue" class="slide level2">
+<h2>A nonzero null vector identifies an eigenvalue</h2>
+<p>For <span class="math inline">\(\mat{A}\in\reals^{n\times n}\)</span>:</p>
+<p><span class="math display">\[
+\mat{A}\vct{v}=\lambda\vct{v}
+\iff(\mat{A}-\lambda\mat{I}_n)\vct{v}=\vct{0}
+\]</span></p>
+<p>A nonzero solution exists exactly when the shifted matrix is singular:</p>
+<p><span class="math display">\[
+\det(\mat{A}-\lambda\mat{I}_n)=0
+\]</span></p>
+<p>Define the <span class="alert">characteristic polynomial</span></p>
+<p><span class="math display">\[
+p_{\mat{A}}(\lambda)=\det(\lambda\mat{I}_n-\mat{A})
+\]</span></p>
+<div class="key-point">
+<p>First solve the scalar polynomial equation; then solve a homogeneous system for each root</p>
+</div>
+<aside class="notes">
+<p>We use the monic convention det(lambda I-A). The alternative det(A-lambda I) differs by (-1)^n and has exactly the same roots with the same multiplicities. The equivalence uses the invertibility/determinant results already taught. To find eigenvectors after finding a root, reduce A-lambda I and solve its homogeneous system. A root guarantees at least one free variable, not a unique eigenvector. Never divide a vector equation by a vector.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="find-eigenvalues-then-eigenvectors" class="slide level2">
+<h2>Example: find eigenvalues, then eigenvectors</h2>
+<p>Return to <span class="math inline">\(\mat{A}=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}\)</span></p>
+<p><span class="math display">\[
+p_{\mat{A}}(\lambda)
+=\det\begin{bmatrix}\lambda-2&amp;-1\\-1&amp;\lambda-2\end{bmatrix}
+=(\lambda-2)^2-1=(\lambda-3)(\lambda-1)
+\]</span></p>
+<p>For each eigenvalue, solve a different homogeneous system:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(\lambda\)</span></th>
+<th><span class="math inline">\(\mat{A}-\lambda\mat{I}\)</span></th>
+<th>Solution condition</th>
+<th>Eigenspace basis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(\begin{bmatrix}-1&amp;1\\1&amp;-1\end{bmatrix}\)</span></td>
+<td><span class="math inline">\(v_2=v_1\)</span></td>
+<td><span class="math inline">\(\{[1,1]^\top\}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(\begin{bmatrix}1&amp;1\\1&amp;1\end{bmatrix}\)</span></td>
+<td><span class="math inline">\(v_2=-v_1\)</span></td>
+<td><span class="math inline">\(\{[1,-1]^\top\}\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="key-point">
+<p>The determinant finds the scale factors; null spaces find their directions</p>
+</div>
+</section>
+<section id="an-eigenspace-includes-all-vectors-for-one-eigenvalue" class="slide level2">
+<h2>An eigenspace includes all vectors for one eigenvalue</h2>
+<p>For an eigenvalue <span class="math inline">\(\lambda\)</span>, its <span class="alert">eigenspace</span> is</p>
+<p><span class="math display">\[
+E_\lambda=\operatorname{null}(\mat{A}-\lambda\mat{I})
+\]</span></p>
+<ul>
+<li>It is a subspace: zero and all linear combinations remain in it</li>
+<li>Its nonzero vectors are exactly the eigenvectors with eigenvalue <span class="math inline">\(\lambda\)</span></li>
+<li>Its basis comes from <a href="01-systems-and-matrices.html#pivots-organize-elimination">free variables</a> in the shifted system</li>
+</ul>
+<p>By <a href="08-matrix-spaces-and-rank.html#rank-nullity-counts-inputs">rank–nullity</a>,</p>
+<p><span class="math display">\[
+\dim(E_\lambda)=n-\operatorname{rank}(\mat{A}-\lambda\mat{I})\ge1
+\]</span></p>
+<div class="key-point">
+<p>Eigenvectors exclude zero; the eigenspace includes zero</p>
+</div>
+</section>
+<section id="compute-and-check-an-eigenspace" class="slide level2">
+<h2>Compute and check an eigenspace</h2>
+<p><span class="math display">\[
+\mat{B}=\begin{bmatrix}4&amp;1\\0&amp;2\end{bmatrix}
+\]</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use determinants, homogeneous systems, and direct multiplication <span class="exsub">Find the characteristic polynomial and both eigenvalues</span> <span class="exsub">Find a basis for each eigenspace</span> <span class="exsub">Check <span class="math inline">\(\mat{B}\vct{v}=\lambda\vct{v}\)</span> for each chosen basis vector</span> <span class="exsub">Does <span class="math inline">\(\vct{e}_2\)</span> have to be an eigenvector because <span class="math inline">\(\mat{B}\)</span> is triangular?</span> </span></p>
+</div>
+<aside class="notes">
+<p>p_B=(lambda-4)(lambda-2). E_4=span{[1,0]^T}; E_2=span{[1,-2]^T}. B[1,-2]<sup>T=[2,-4]</sup>T=2[1,-2]^T. B e2=[1,2]^T, not a multiple of e2. Triangular diagonal entries give eigenvalues, not necessarily standard-basis eigenvectors. The two chosen eigenvectors are independent.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="trace-and-determinant-check-the-eigenvalues" class="slide level2">
+<h2>Trace and determinant check the eigenvalues</h2>
+<p>Count all <span class="math inline">\(n\)</span> eigenvalues with algebraic multiplicity, allowing complex roots</p>
+<p><span class="math display">\[
+\operatorname{tr}(\mat{A})=\sum_{j=1}^n\lambda_j,
+\qquad \det(\mat{A})=\prod_{j=1}^n\lambda_j
+\]</span></p>
+<p>For <span class="math inline">\(\mat{A}=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}\)</span>: <span class="math inline">\(\quad3+1=4\)</span>, <span class="math inline">\(\quad3\cdot1=3\)</span></p>
+<p>For any triangular matrix, the characteristic determinant is a product:</p>
+<p><span class="math display">\[
+p_{\mat{U}}(\lambda)=\prod_{j=1}^n(\lambda-u_{jj})
+\]</span></p>
+<div class="key-point">
+<p>Triangular eigenvalues are the diagonal entries; trace and determinant are checks, not a general eigensolver</p>
+</div>
+<aside class="notes">
+<p>The coefficient of lambda^(n-1) in the monic characteristic polynomial is -tr(A); its constant coefficient is (-1)^n det(A). Comparing with the factored polynomial proves both identities, without diagonalizability. The identities do not generally determine all eigenvalues when n&gt;2. For a triangular matrix, lambda I-U remains triangular, so its determinant is the product of its diagonal entries. A real matrix may have nonreal roots; that topic is developed below rather than excluded by the real entries.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="eigenvector-bases-and-diagonalization" class="title-slide slide level1 center">
+<h1>Eigenvector Bases and Diagonalization</h1>
+<p>When do preserved directions provide enough coordinates for every vector?</p>
+<ul>
+<li><a href="#/an-eigenvector-basis-makes-the-matrix-diagonal">An eigenvector basis makes the matrix diagonal</a></li>
+<li><a href="#/diagonalize-and-read-the-coordinates">Example: diagonalize and read the coordinates</a></li>
+<li><a href="#/distinct-eigenvalues-supply-independent-eigenvectors">Distinct eigenvalues supply independent eigenvectors</a></li>
+<li><a href="#/repeated-roots-may-leave-too-few-directions">Repeated roots may leave too few directions</a></li>
+<li><a href="#/count-eigenspace-dimensions-before-building-a-basis">Count eigenspace dimensions before building a basis</a></li>
+<li><a href="#/a-diagonalization-recipe">A diagonalization recipe</a></li>
+<li><a href="#/practice-deciding-whether-diagonalization-is-possible">Practice deciding whether diagonalization is possible</a></li>
+<li><a href="#/similarity-changes-coordinates-not-the-operator">Similarity changes coordinates, not the operator</a></li>
+</ul>
+</section>
+<section id="an-eigenvector-basis-makes-the-matrix-diagonal" class="slide level2">
+<h2>An eigenvector basis makes the matrix diagonal</h2>
+<p>Put <span class="math inline">\(n\)</span> independent eigenvectors into <span class="math inline">\(\mat{P}\)</span>, with matching eigenvalues in <span class="math inline">\(\mat{D}\)</span>:</p>
+<p><span class="math display">\[
+\mat{P}=[\vct{v}_1\ \cdots\ \vct{v}_n],\qquad
+\mat{D}=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)
+\]</span></p>
+<p>Multiplication by columns gives</p>
+<p><span class="math display">\[
+\mat{A}\mat{P}=[\lambda_1\vct{v}_1\ \cdots\ \lambda_n\vct{v}_n]
+=\mat{P}\mat{D}
+\]</span></p>
+<p>Independence makes <span class="math inline">\(\mat{P}\)</span> invertible:</p>
+<p><span class="math display">\[
+\boxed{\mat{P}^{-1}\mat{A}\mat{P}=\mat{D}},\qquad
+\mat{A}=\mat{P}\mat{D}\mat{P}^{-1}
+\]</span></p>
+<div class="key-point">
+<p><span class="math inline">\(\mat{A}\)</span> is <span class="alert">diagonalizable</span> over the chosen field exactly when it has an eigenvector basis there</p>
+</div>
+<aside class="notes">
+<p>The converse is equally important. If P^{-1} A P=D is diagonal and P is invertible, multiply by P to obtain AP=PD. Column j says A v_j=lambda_j v_j. The columns of invertible P form a basis, so this is an eigenvector basis. The order of eigenvalues must match the order of columns. Scaling a column by a nonzero constant gives another valid P with the same D. A matrix with an eigenvalue zero may still be diagonalizable; P, not D, must be invertible.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="diagonalize-and-read-the-coordinates" class="slide level2">
+<h2>Example: diagonalize and read the coordinates</h2>
+<p>For <span class="math inline">\(\mat{A}=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}\)</span>, choose</p>
+<p><span class="math display">\[
+\mat{P}=\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix},\qquad
+\mat{P}^{-1}=\tfrac12\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix},\qquad
+\mat{D}=\begin{bmatrix}3&amp;0\\0&amp;1\end{bmatrix}
+\]</span></p>
+<p>For <span class="math inline">\(\vct{x}=[4,2]^\top\)</span>:</p>
+<p><span class="math display">\[
+\underbrace{\mat{P}^{-1}\vct{x}}_{\text{eigenbasis coordinates}}
+=\begin{bmatrix}3\\1\end{bmatrix}
+\quad\xrightarrow{\mat{D}}\quad
+\begin{bmatrix}9\\1\end{bmatrix}
+\quad\xrightarrow{\mat{P}}\quad
+\mat{A}\vct{x}=\begin{bmatrix}10\\8\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<p>Read coordinates, scale them separately, then reconstruct the output</p>
+</div>
+<aside class="notes">
+<p>Check P D P^{-1}=A and P^{-1}P=I. The input x is 3v1+v2; the output is 9v1+v2. Direct multiplication gives [10,8]^T. P maps eigenbasis coordinates to standard coordinates; P^{-1} goes the reverse way. This is the same coordinate route taught in Bases and Coordinates.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="distinct-eigenvalues-supply-independent-eigenvectors" class="slide level2">
+<h2>Distinct eigenvalues supply independent eigenvectors</h2>
+<p>Eigenvectors belonging to distinct eigenvalues are linearly independent</p>
+<p>For two eigenvectors, suppose <span class="math inline">\(c_1\vct{v}_1+c_2\vct{v}_2=\vct{0}\)</span></p>
+<p>Apply <span class="math inline">\(\mat{A}\)</span>, then subtract <span class="math inline">\(\lambda_2\)</span> times the original relation:</p>
+<p><span class="math display">\[
+c_1\lambda_1\vct{v}_1+c_2\lambda_2\vct{v}_2=\vct{0}
+\quad\implies\quad c_1(\lambda_1-\lambda_2)\vct{v}_1=\vct{0}
+\]</span></p>
+<p>Since <span class="math inline">\(\lambda_1\ne\lambda_2\)</span> and <span class="math inline">\(\vct{v}_1\ne\vct{0}\)</span>, <span class="math inline">\(c_1=0\)</span>, then <span class="math inline">\(c_2=0\)</span></p>
+<div class="key-point">
+<p>An <span class="math inline">\(n\times n\)</span> matrix with <span class="math inline">\(n\)</span> distinct eigenvalues in the chosen field is diagonalizable there</p>
+</div>
+<aside class="notes">
+<p>For k distinct eigenvalues, induction proves the same statement. Apply A-lambda_k I to a zero relation among v1,…,vk. The first k-1 terms have coefficients c_j(lambda_j-lambda_k); the inductive hypothesis forces them all to zero. Distinct eigenvalues give c_j=0 for j&lt;k; the original relation gives c_k=0. Existence of n distinct roots is sufficient, not necessary: the identity matrix is a counterexample to necessity.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="repeated-roots-may-leave-too-few-directions" class="slide level2">
+<h2>Repeated roots may leave too few directions</h2>
+<p>Two matrices with the same characteristic polynomial <span class="math inline">\((\lambda-2)^2\)</span>:</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><span class="math display">\[
+\mat{S}=\begin{bmatrix}2&amp;0\\0&amp;2\end{bmatrix}
+\]</span></p>
+<p><span class="math inline">\(\mat{S}-2\mat{I}=\mat{0}\)</span></p>
+<p><span class="math inline">\(E_2=\reals^2\)</span>: two independent eigenvectors</p>
+<p><span class="alert">Diagonalizable</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><span class="math display">\[
+\mat{J}=\begin{bmatrix}2&amp;1\\0&amp;2\end{bmatrix}
+\]</span></p>
+<p><span class="math inline">\(\mat{J}-2\mat{I}=\begin{bmatrix}0&amp;1\\0&amp;0\end{bmatrix}\)</span></p>
+<p><span class="math inline">\(E_2=\operatorname{span}\{\vct{e}_1\}\)</span>: only one independent eigenvector</p>
+<p><span class="alert">Not diagonalizable</span></p>
+</div></div>
+<div class="key-point">
+<p>Repeated roots permit diagonalization, but do not guarantee enough eigenvectors</p>
+</div>
+</section>
+<section id="count-eigenspace-dimensions-before-building-a-basis" class="slide level2">
+<h2>Count eigenspace dimensions before building a basis</h2>
+<p>For each eigenvalue <span class="math inline">\(\lambda\)</span>:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Multiplicity</th>
+<th>What it counts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="alert">Algebraic</span>, <span class="math inline">\(a_\lambda\)</span></td>
+<td>repetitions of the root in <span class="math inline">\(p_{\mat{A}}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="alert">Geometric</span>, <span class="math inline">\(g_\lambda\)</span></td>
+<td><span class="math inline">\(\dim(E_\lambda)\)</span>: independent eigenvectors available</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math display">\[
+1\le g_\lambda\le a_\lambda
+\]</span></p>
+<p>Over a field in which <span class="math inline">\(p_{\mat{A}}\)</span> splits into linear factors:</p>
+<p><span class="math display">\[
+\mat{A}\text{ diagonalizable}
+\iff\sum_{\text{distinct }\lambda}g_\lambda=n
+\iff g_\lambda=a_\lambda\text{ for every }\lambda
+\]</span></p>
+<div class="key-point">
+<p>Collect a basis of each eigenspace; diagonalization needs <span class="math inline">\(n\)</span> independent columns altogether</p>
+</div>
+<aside class="notes">
+<p>For a real eigenbasis all roots must be real. Over C the characteristic polynomial always splits. To justify g&lt;=a, extend a basis of E_lambda to one of the whole space. In that basis A has block form [[lambda I_g, B],[0,C]], whose characteristic polynomial contains (t-lambda)^g. Thus g&lt;=a. Eigenspaces for distinct eigenvalues form a direct sum: apply the distinct-eigenvalue independence argument to a relation among nonzero vectors, one from each eigenspace. Combining bases of the individual eigenspaces is therefore independent. Since sum a=n when the polynomial splits, the three displayed conditions are equivalent. A repeated root is a prompt to compute nullity, not evidence of failure.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-diagonalization-recipe" class="slide level2">
+<h2>A diagonalization recipe</h2>
+<p>For a square matrix over the chosen field:</p>
+<ol type="1">
+<li>Factor <span class="math inline">\(p_{\mat{A}}(\lambda)\)</span> and list its distinct roots and multiplicities</li>
+<li>For each root, solve <span class="math inline">\((\mat{A}-\lambda\mat{I})\vct{v}=\vct{0}\)</span> and find an eigenspace basis</li>
+<li>Count all independent eigenvectors obtained; fewer than <span class="math inline">\(n\)</span> means no eigenvector basis</li>
+<li>If there are <span class="math inline">\(n\)</span>, put them into <span class="math inline">\(\mat{P}\)</span> and their matching eigenvalues into <span class="math inline">\(\mat{D}\)</span></li>
+<li>Check <span class="math inline">\(\mat{A}\mat{P}=\mat{P}\mat{D}\)</span> and that <span class="math inline">\(\mat{P}\)</span> is invertible</li>
+</ol>
+<div class="key-point">
+<p>If the characteristic polynomial does not split in the field, diagonalization there is impossible</p>
+<p>&nbsp;</p>
+<p>Verification by <span class="math inline">\(\mat{A}\mat{P}=\mat{P}\mat{D}\)</span> avoids computing an inverse</p>
+</div>
+</section>
+<section id="practice-deciding-whether-diagonalization-is-possible" class="slide level2">
+<h2>Practice deciding whether diagonalization is possible</h2>
+<p><span class="math display">\[
+\mat{B}=\begin{bmatrix}4&amp;1\\0&amp;2\end{bmatrix},\qquad
+\mat{C}=\begin{bmatrix}2&amp;0&amp;0\\0&amp;2&amp;0\\0&amp;0&amp;3\end{bmatrix}
+\]</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Build and verify eigenvector bases <span class="exsub">Use the eigenspaces already found for <span class="math inline">\(\mat{B}\)</span> to construct <span class="math inline">\(\mat{P},\mat{D}\)</span>; verify <span class="math inline">\(\mat{B}\mat{P}=\mat{P}\mat{D}\)</span></span> <span class="exsub">For <span class="math inline">\(\mat{C}\)</span>, give both multiplicities for each eigenvalue and construct an eigenvector basis</span> <span class="exsub">Explain why <span class="math inline">\(\mat{C}\)</span> disproves “diagonalizable means all eigenvalues are distinct”</span> </span></p>
+</div>
+<aside class="notes">
+<p>For B use P=[[1,1],[0,-2]], D=diag(4,2), P^{-1}=[[1,1/2],[0,-1/2]]. Both sides BP=PD=[[4,2],[0,-4]]. For C, lambda=2 has algebraic and geometric multiplicity 2, E_2=span{e1,e2}; lambda=3 has both multiplicities 1, E_3=span{e3}. P=I_3, D=C is a diagonalization. Any basis within E_2 works, together with a nonzero vector from E_3.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="a-repeated-root-test">A repeated-root test</h3>
+<p><span class="math display">\[
+\mat{F}=\begin{bmatrix}2&amp;1&amp;0\\0&amp;2&amp;0\\0&amp;0&amp;3\end{bmatrix}
+\]</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>The diagonal entries give eigenvalues 2 and 3 <span class="exsub">Find the algebraic multiplicity and an eigenspace basis for each</span> <span class="exsub">How many independent eigenvectors are available altogether?</span> <span class="exsub">Can a different choice of vectors inside those same eigenspaces produce an eigenvector basis?</span> </span></p>
+</div>
+<aside class="notes">
+<p>For lambda=2, F-2I has rows [0,1,0], [0,0,0], [0,0,1], so E_2=span{e1}, algebraic multiplicity 2, geometric multiplicity 1. For lambda=3, F-3I has rows [-1,1,0], [0,-1,0], [0,0,0], so E_3=span{e3}, with both multiplicities 1. Only two independent eigenvectors are available in dimension three. No change of basis within these eigenspaces can increase their dimensions, so F is not diagonalizable.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="similarity-changes-coordinates-not-the-operator" class="slide level2">
+<h2>Similarity changes coordinates, not the operator</h2>
+<p>Matrices <span class="math inline">\(\mat{A}\)</span> and <span class="math inline">\(\mat{B}\)</span> are <span class="alert">similar</span> when</p>
+<p><span class="math display">\[
+\mat{B}=\mat{P}^{-1}\mat{A}\mat{P},\qquad\mat{P}\text{ invertible}
+\]</span></p>
+<p>Their characteristic polynomials agree:</p>
+<p><span class="math display">\[
+\det(\lambda\mat{I}-\mat{B})
+=\det\bigl(\mat{P}^{-1}(\lambda\mat{I}-\mat{A})\mat{P}\bigr)
+=\det(\lambda\mat{I}-\mat{A})
+\]</span></p>
+<ul>
+<li>Same eigenvalues, multiplicities, trace, and determinant</li>
+<li>If <span class="math inline">\(\mat{B}\vct{c}=\lambda\vct{c}\)</span>, then <span class="math inline">\(\mat{A}(\mat{P}\vct{c})=\lambda\mat{P}\vct{c}\)</span></li>
+<li>Eigenvector coordinate columns usually change</li>
+</ul>
+<div class="key-point">
+<p>Diagonalization is similarity to a diagonal matrix; ordinary row reduction is a different operation</p>
+</div>
+<aside class="notes">
+<p>The identity lambda I=P^{-1}(lambda I)P gives the displayed factorization. The nonzero determinant factors of P cancel. Similarity also preserves rank and eigenspace dimensions, via the invertible coordinate change. Row operations are left multiplication by an invertible matrix; similarity requires matching inverse changes on the left and right. For example rref(diag(2,3))=I changes its eigenvalues. Equal characteristic polynomials alone do not imply similarity: S and J in the repeated-root example differ in eigenspace dimension. Avoid treating eigenvalues as a full classification.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="complex-eigenvalues" class="title-slide slide level1 center">
+<h1>Complex Eigenvalues</h1>
+<p>A real matrix may need complex coordinates to reveal its eigenvectors</p>
+<ul>
+<li><a href="#/a-quarter-turn-has-no-real-eigendirection">A quarter turn has no real eigendirection</a></li>
+<li><a href="#/complex-coordinates-reveal-two-eigenvectors">Complex coordinates reveal two eigenvectors</a></li>
+<li><a href="#/real-matrices-pair-their-nonreal-eigenvalues">Real matrices pair their nonreal eigenvalues</a></li>
+<li><a href="#/practice-interpreting-a-rotation-and-scaling">Practice interpreting a rotation and scaling</a></li>
+</ul>
+</section>
+<section id="a-quarter-turn-has-no-real-eigendirection" class="slide level2">
+<h2>A quarter turn has no real eigendirection</h2>
+<p><span class="math display">\[
+\mat{R}=\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix},\qquad
+\mat{R}\begin{bmatrix}x\\y\end{bmatrix}=\begin{bmatrix}-y\\x\end{bmatrix}
+\]</span></p>
+<p>Every nonzero real vector turns through <span class="math inline">\(90^\circ\)</span>; none stays on its line</p>
+<p><span class="math display">\[
+p_{\mat{R}}(\lambda)=\lambda^2+1
+\]</span></p>
+<ul>
+<li>Over <span class="math inline">\(\reals\)</span>: no roots, no eigenvectors, no diagonalization</li>
+<li>Over <span class="math inline">\(\mathbb{C}\)</span>: roots <span class="math inline">\(i,-i\)</span>, where <span class="math inline">\(i^2=-1\)</span></li>
+</ul>
+<div class="key-point">
+<p>Always name the scalar field when deciding whether an eigenvector basis exists</p>
+</div>
+<aside class="notes">
+<p>R maps real vectors to real vectors and has determinant 1; absence of real eigenvectors does not imply singularity. A 180-degree rotation is different: -I has every nonzero real vector as an eigenvector. On C^2 the same matrix acts complex-linearly, with two distinct eigenvalues. This is an extension of the scalar field, as in the oscillator example in Bases and Coordinates.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="complex-coordinates-reveal-two-eigenvectors" class="slide level2">
+<h2>Complex coordinates reveal two eigenvectors</h2>
+<p>For the quarter-turn matrix, direct multiplication gives</p>
+<p><span class="math display">\[
+\mat{R}\begin{bmatrix}1\\-i\end{bmatrix}
+=\begin{bmatrix}i\\1\end{bmatrix}
+=i\begin{bmatrix}1\\-i\end{bmatrix},\qquad
+\mat{R}\begin{bmatrix}1\\i\end{bmatrix}
+=\begin{bmatrix}-i\\1\end{bmatrix}
+=-i\begin{bmatrix}1\\i\end{bmatrix}
+\]</span></p>
+<p>Thus, over <span class="math inline">\(\mathbb{C}\)</span>,</p>
+<p><span class="math display">\[
+\mat{P}=\begin{bmatrix}1&amp;1\\-i&amp;i\end{bmatrix},\qquad
+\mat{D}=\begin{bmatrix}i&amp;0\\0&amp;-i\end{bmatrix},\qquad
+\mat{R}=\mat{P}\mat{D}\mat{P}^{-1}
+\]</span></p>
+<p>For real <span class="math inline">\(x,y\)</span>:</p>
+<p><span class="math display">\[
+\begin{bmatrix}x\\y\end{bmatrix}
+=\frac{x+iy}{2}\begin{bmatrix}1\\-i\end{bmatrix}
++\frac{x-iy}{2}\begin{bmatrix}1\\i\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<p>Conjugate coefficients and eigenvectors reconstruct a real vector</p>
+</div>
+<aside class="notes">
+<p>The determinant of P is 2i, so P is invertible. Its inverse is (1/2)[[1,i],[1,-i]]. The coordinate formula follows by multiplication. Applying R multiplies the first coefficient by i and the second by -i; they remain conjugates, and their reconstruction is real. Do not draw the complex eigenvectors as real planar arrows. The actual real motion is still a quarter turn, not two real stretches.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="real-matrices-pair-their-nonreal-eigenvalues" class="slide level2">
+<h2>Real matrices pair their nonreal eigenvalues</h2>
+<p>If <span class="math inline">\(\mat{A}\)</span> has real entries and <span class="math inline">\(\mat{A}\vct{v}=\lambda\vct{v}\)</span>, conjugate both sides:</p>
+<p><span class="math display">\[
+\mat{A}\overline{\vct{v}}=\overline{\lambda}\,\overline{\vct{v}}
+\]</span></p>
+<p>Nonreal eigenvalues and their eigenvectors occur in conjugate pairs</p>
+<p>For <span class="math inline">\(\lambda=a+ib\)</span>, <span class="math inline">\(\vct{v}=\vct{p}+i\vct{q}\)</span>, equate real and imaginary parts:</p>
+<p><span class="math display">\[
+\mat{A}\vct{p}=a\vct{p}-b\vct{q},\qquad
+\mat{A}\vct{q}=b\vct{p}+a\vct{q}
+\]</span></p>
+<p>When <span class="math inline">\(b\ne0\)</span>, <span class="math inline">\(\vct{p},\vct{q}\)</span> span a real invariant plane</p>
+<div class="key-point">
+<p>A complex pair describes a real two-dimensional action, even without real eigenvectors in that plane</p>
+</div>
+<aside class="notes">
+<p>For b nonzero, p and q are real-linearly independent. Otherwise v would be a nonzero complex scalar times a real vector w, giving A w=lambda w, impossible for a nonreal lambda and real nonzero w. In the ordered real basis {p,q}, the plane action has matrix [[a,b],[-b,a]]. This is rotation and uniform scaling in those coordinates, but p and q need not be orthonormal, so it need not be Euclidean rotation/scaling in the original coordinates. The next exercise uses a matrix already expressed in an orthonormal standard basis, where the geometric interpretation is literal.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="practice-interpreting-a-rotation-and-scaling" class="slide level2">
+<h2>Practice interpreting a rotation and scaling</h2>
+<p><span class="math display">\[
+\mat{B}=\begin{bmatrix}1&amp;-1\\1&amp;1\end{bmatrix}
+\]</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Compare real geometry with complex coordinates <span class="exsub">Find the characteristic polynomial, eigenvalues, and an eigenvector for each</span> <span class="exsub">Is <span class="math inline">\(\mat{B}\)</span> diagonalizable over <span class="math inline">\(\reals\)</span>? Over <span class="math inline">\(\mathbb{C}\)</span>?</span> <span class="exsub">Compute <span class="math inline">\(\mat{B}\vct{e}_1\)</span> and <span class="math inline">\(\mat{B}\vct{e}_2\)</span>; identify the rotation angle and length factor</span> </span></p>
+</div>
+<aside class="notes">
+<p>p_B=(lambda-1)^2+1, roots 1+i,1-i, with eigenvectors [1,-i]^T and [1,i]^T respectively. Not diagonalizable over R; diagonalizable over C because there are two distinct complex eigenvalues. B e1=[1,1]^T, B e2=[-1,1]^T. Both axes rotate counterclockwise 45 degrees and scale by sqrt(2); B=sqrt(2) R_(pi/4). B^T B=2I verifies the length factor for every real vector, not just the axes.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="powers-and-dynamics" class="title-slide slide level1 center">
+<h1>Powers and Dynamics</h1>
+<p>Repeated matrix actions become repeated scalar actions in an eigenvector basis</p>
+<ul>
+<li><a href="#/powers-act-separately-on-eigenbasis-coordinates">Powers act separately on eigenbasis coordinates</a></li>
+<li><a href="#/a-two-group-population-exchange">Example: a two-group population exchange</a></li>
+<li><a href="#/separate-the-equilibrium-from-the-changing-part">Separate the equilibrium from the changing part</a></li>
+<li><a href="#/practice-predicting-repeated-actions">Practice predicting repeated actions</a></li>
+</ul>
+</section>
+<section id="powers-act-separately-on-eigenbasis-coordinates" class="slide level2">
+<h2>Powers act separately on eigenbasis coordinates</h2>
+<p>If <span class="math inline">\(\mat{A}=\mat{P}\mat{D}\mat{P}^{-1}\)</span>, cancellation gives, for integers <span class="math inline">\(k\ge0\)</span>,</p>
+<p><span class="math display">\[
+\mat{A}^k=\mat{P}\mat{D}^k\mat{P}^{-1},\qquad
+\mat{D}^k=\operatorname{diag}(\lambda_1^k,\ldots,\lambda_n^k)
+\]</span></p>
+<p>If <span class="math inline">\(\vct{x}_0=\sum_{j=1}^n c_j\vct{v}_j\)</span>, then</p>
+<p><span class="math display">\[
+\vct{x}_k=\mat{A}^k\vct{x}_0
+=\sum_{j=1}^n c_j\lambda_j^k\vct{v}_j
+\]</span></p>
+<ul>
+<li><span class="math inline">\(|\lambda_j|&lt;1\)</span>: that component tends to zero</li>
+<li><span class="math inline">\(\lambda_j=1\)</span>: that component stays fixed</li>
+<li><span class="math inline">\(\lambda_j=-1\)</span>: that component alternates sign</li>
+<li><span class="math inline">\(|\lambda_j|&gt;1\)</span>: a nonzero component grows in magnitude</li>
+</ul>
+<aside class="notes">
+<p>A^0=I and D^0=I by definition, including when an eigenvalue is zero; avoid interpreting the k=0 case as a scalar 0^0 limit. For k&gt;=1 the powers are ordinary scalar powers. Negative powers require A invertible. Complex components include phase changes; their magnitudes scale by |lambda|^k. This formula assumes an eigenvector basis. A missing initial component c_j=0 stays absent, so a large eigenvalue does not make every initial vector grow. Jordan methods for defective matrices are outside this deck’s scope.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="a-two-group-population-exchange" class="slide level2">
+<h2>Example: a two-group population exchange</h2>
+<p>Each step: 20% of group 1 moves to group 2; 30% of group 2 moves to group 1</p>
+<p><span class="math display">\[
+\vct{x}_{k+1}=\mat{A}\vct{x}_k,\qquad
+\mat{A}=\begin{bmatrix}0.8&amp;0.3\\0.2&amp;0.7\end{bmatrix},\qquad
+\vct{x}_0=\begin{bmatrix}100\\0\end{bmatrix}
+\]</span></p>
+<p>Columns describe where each group’s population goes; each column sums to 1</p>
+<p><span class="math display">\[
+p_{\mat{A}}(\lambda)=\lambda^2-1.5\lambda+0.5
+=(\lambda-1)(\lambda-0.5)
+\]</span></p>
+<p><span class="math display">\[
+\lambda_1=1:\ \vct{v}_1=\begin{bmatrix}3\\2\end{bmatrix},\qquad
+\lambda_2=\tfrac12:\ \vct{v}_2=\begin{bmatrix}1\\-1\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<p>One direction persists; the other describes a redistribution that decays</p>
+</div>
+<aside class="notes">
+<p>This is a deterministic aggregate model (or expected counts); fractional counts are allowed. There are no births or deaths, and transitions are constant over time. The column convention matters: x is a column and x_(k+1)=A x_k. The row [1,1] satisfies [1,1]A=[1,1], so total population is conserved. The eigenvector v2 describes a signed perturbation, not itself a nonnegative population. A v1=v1, A v2=(1/2)v2.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="separate-the-equilibrium-from-the-changing-part" class="slide level2">
+<h2>Separate the equilibrium from the changing part</h2>
+<p>Decompose the initial population into eigenvectors:</p>
+<p><span class="math display">\[
+\begin{bmatrix}100\\0\end{bmatrix}
+=20\begin{bmatrix}3\\2\end{bmatrix}
++40\begin{bmatrix}1\\-1\end{bmatrix}
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\vct{x}_k
+=20\begin{bmatrix}3\\2\end{bmatrix}
++40\left(\tfrac12\right)^k\begin{bmatrix}1\\-1\end{bmatrix}
+=\begin{bmatrix}60+40(1/2)^k\\40-40(1/2)^k\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\vct{x}_1=\begin{bmatrix}80\\20\end{bmatrix},\qquad
+\vct{x}_2=\begin{bmatrix}70\\30\end{bmatrix},\qquad
+\vct{x}_k\longrightarrow\begin{bmatrix}60\\40\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<p>The eigenvalue 1 gives the equilibrium proportions; <span class="math inline">\(1/2\)</span> gives the decay factor per step</p>
+</div>
+</section>
+<section id="practice-predicting-repeated-actions" class="slide level2">
+<h2>Practice predicting repeated actions</h2>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use the eigenvectors before multiplying matrices repeatedly <span class="exsub">For the population matrix, start with <span class="math inline">\([0,100]^\top\)</span>; find <span class="math inline">\(\vct{x}_k\)</span> and its limit</span> <span class="exsub">For <span class="math inline">\(\mat{A}=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}\)</span> and <span class="math inline">\(\vct{x}_0=[1,0]^\top\)</span>, find <span class="math inline">\(\mat{A}^k\vct{x}_0\)</span></span> <span class="exsub">For that same <span class="math inline">\(\mat{A}\)</span>, why does <span class="math inline">\(\vct{x}_0=[1,-1]^\top\)</span> stay fixed even though 3 is an eigenvalue?</span> </span></p>
+</div>
+<aside class="notes">
+<p>Population: x0=20[3,2]<sup>T-60[1,-1]</sup>T, so xk=[60-60(1/2)^k, 40+60(1/2)^k]^T and the limit is [60,40]^T. For the symmetric matrix, e1=(v1+v2)/2, so A^k e1=[(3<sup>k+1)/2,(3</sup>k-1)/2]^T. For x0=v2 the v1 coefficient is zero, so no growing component is present. At k=0 the formula returns e1, and k=1 gives [2,1]^T.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="symmetric-matrices" class="title-slide slide level1 center">
+<h1>Symmetric Matrices</h1>
+<p>Symmetry guarantees a real eigenbasis with especially simple geometry</p>
+<ul>
+<li><a href="#/symmetry-makes-different-eigenspaces-perpendicular">Symmetry makes different eigenspaces perpendicular</a></li>
+<li><a href="#/the-spectral-theorem-supplies-an-orthonormal-eigenbasis">The spectral theorem supplies an orthonormal eigenbasis</a></li>
+<li><a href="#/normalize-the-eigenvectors">Example: normalize the eigenvectors</a></li>
+<li><a href="#/practice-orthogonal-diagonalization">Practice orthogonal diagonalization</a></li>
+</ul>
+</section>
+<section id="symmetry-makes-different-eigenspaces-perpendicular" class="slide level2">
+<h2>Symmetry makes different eigenspaces perpendicular</h2>
+<p>Let <span class="math inline">\(\mat{A}=\mat{A}^{\mathsf T}\)</span> be real, with <span class="math inline">\(\mat{A}\vct{u}=\lambda\vct{u}\)</span> and <span class="math inline">\(\mat{A}\vct{v}=\mu\vct{v}\)</span></p>
+<p>Symmetry lets the action move across the dot product:</p>
+<p><span class="math display">\[
+\lambda\vct{u}^{\mathsf T}\vct{v}
+=(\mat{A}\vct{u})^{\mathsf T}\vct{v}
+=\vct{u}^{\mathsf T}\mat{A}\vct{v}
+=\mu\vct{u}^{\mathsf T}\vct{v}
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+(\lambda-\mu)\vct{u}^{\mathsf T}\vct{v}=0
+\]</span></p>
+<div class="key-point">
+<p>Distinct eigenvalues of a real symmetric matrix have perpendicular eigenvectors</p>
+<p>&nbsp;</p>
+<p>Within a repeated eigenspace, perpendicular basis vectors must still be chosen</p>
+</div>
+<aside class="notes">
+<p>The displayed calculation concerns real eigenvectors and eigenvalues. The spectral theorem on the next slide supplies their existence for all real symmetric matrices. For a general nonsymmetric matrix, distinct eigenvalues still imply independence but do not imply perpendicular eigenvectors: B in the earlier exercise has eigenvectors [1,0]^T and [1,-2]^T. In a repeated eigenspace every linear combination remains an eigenvector; therefore Gram-Schmidt within that eigenspace, introduced in Inner Products, can choose an orthonormal basis without changing the eigenvalue.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-spectral-theorem-supplies-an-orthonormal-eigenbasis" class="slide level2">
+<h2>The spectral theorem supplies an orthonormal eigenbasis</h2>
+<p><span class="alert">Spectral theorem</span>: every real symmetric <span class="math inline">\(n\times n\)</span> matrix has a real orthonormal eigenbasis</p>
+<p>Put its unit eigenvectors in <span class="math inline">\(\mat{Q}\)</span>, in the same order as <span class="math inline">\(\mat{D}\)</span>:</p>
+<p><span class="math display">\[
+\mat{Q}^{\mathsf T}\mat{Q}=\mat{I},\qquad
+\mat{Q}^{-1}=\mat{Q}^{\mathsf T},\qquad
+\boxed{\mat{A}=\mat{Q}\mat{D}\mat{Q}^{\mathsf T}}
+\]</span></p>
+<p>This is <span class="alert">orthogonal diagonalization</span></p>
+<ul>
+<li>All eigenvalues are real; repeated eigenvalues are allowed</li>
+<li>Coordinates are dot products: <span class="math inline">\([\vct{x}]_{\mathcal{Q}}=\mat{Q}^{\mathsf T}\vct{x}\)</span></li>
+<li>Euclidean lengths are preserved: <span class="math inline">\(\|\mat{Q}^{\mathsf T}\vct{x}\|=\|\vct{x}\|\)</span></li>
+</ul>
+<div class="key-point">
+<p>A real matrix is orthogonally diagonalizable exactly when it is symmetric</p>
+</div>
+<aside class="notes">
+<p>State the existence part as a theorem; the preceding orthogonality calculation alone does not prove it. One proof selects a real unit eigenvector by maximizing x^T A x on the unit sphere, shows its perpendicular complement is invariant, and uses induction. That proof needs tools beyond the current course prerequisites and is not required here. Conversely, Q D Q^T with real diagonal D is symmetric by taking its transpose. Length preservation follows by squaring the norm and using QQ^T=I. This strengthens the general coordinate isomorphism, which preserves algebra but need not preserve ordinary coordinate lengths. Repeated eigenspaces admit orthonormal bases.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="normalize-the-eigenvectors" class="slide level2">
+<h2>Example: normalize the eigenvectors</h2>
+<p>For <span class="math inline">\(\mat{A}=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}\)</span>:</p>
+<p><span class="math display">\[
+\vct{q}_1=\tfrac1{\sqrt2}\begin{bmatrix}1\\1\end{bmatrix},\qquad
+\vct{q}_2=\tfrac1{\sqrt2}\begin{bmatrix}1\\-1\end{bmatrix},\qquad
+\mat{Q}=\tfrac1{\sqrt2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\mat{Q}^{\mathsf T}\mat{A}\mat{Q}=\begin{bmatrix}3&amp;0\\0&amp;1\end{bmatrix},\qquad
+\mat{A}=3\vct{q}_1\vct{q}_1^{\mathsf T}+\vct{q}_2\vct{q}_2^{\mathsf T}
+\]</span></p>
+<p>Each <span class="math inline">\(\vct{q}_j\vct{q}_j^{\mathsf T}\vct{x}\)</span> projects onto one unit eigendirection</p>
+<div class="key-point">
+<p>Resolve the input into perpendicular components, then scale each by its eigenvalue</p>
+</div>
+<p><a href="11-special-topics.html#symmetry-gives-orthogonal-eigenvectors">Later: Special Topics — quadratic forms and principal axes</a></p>
+<aside class="notes">
+<p>The projection statement follows from q q^T x=(q^T x)q and ||q||=1, using the Euclidean projection formula already taught. Expanding the two rank-one matrices gives (3/2)[[1,1],[1,1]]+(1/2)[[1,-1],[-1,1]]=A. The sum of the two orthogonal projectors is I. PCA uses eigenvectors of a symmetric covariance matrix; estimation, centering, and choice of how many directions to retain belong to the later application. Do not imply that arbitrary nonsymmetric matrices admit orthonormal eigenvectors.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="practice-orthogonal-diagonalization" class="slide level2">
+<h2>Practice orthogonal diagonalization</h2>
+<p><span class="math display">\[
+\mat{C}=\begin{bmatrix}5&amp;2\\2&amp;5\end{bmatrix},\qquad
+\mat{B}=\begin{bmatrix}4&amp;1\\0&amp;2\end{bmatrix}
+\]</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Distinguish an eigenbasis from an orthonormal eigenbasis <span class="exsub">Find an orthogonal <span class="math inline">\(\mat{Q}\)</span> and diagonal <span class="math inline">\(\mat{D}\)</span> with <span class="math inline">\(\mat{C}=\mat{Q}\mat{D}\mat{Q}^{\mathsf T}\)</span></span> <span class="exsub">Write <span class="math inline">\(\mat{C}\)</span> as a sum of scaled orthogonal projectors</span> <span class="exsub">The matrix <span class="math inline">\(\mat{B}\)</span> is diagonalizable; can it be orthogonally diagonalized over <span class="math inline">\(\reals\)</span>? Explain</span> </span></p>
+</div>
+<aside class="notes">
+<p>C has eigenvalues 7,3 with unit eigenvectors q1=[1,1]^T/sqrt(2), q2=[1,-1]^T/sqrt(2). Q has those columns and D=diag(7,3). C=7q1q1<sup>T+3q2q2</sup>T. B is not symmetric, so the converse of the real spectral theorem rules out orthogonal diagonalization. Its eigenspaces span the plane but are not perpendicular. Scaling its eigenvectors cannot change the nonzero angle between those lines to a right angle.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
+<h1>Big Ideas</h1>
+<ul>
+<li>Eigenvectors are nonzero vectors satisfying <span class="math inline">\(\mat{A}\vct{v}=\lambda\vct{v}\)</span></li>
+<li>Characteristic roots give eigenvalues; shifted null spaces give eigenspaces</li>
+<li>An eigenvector basis makes the matrix diagonal</li>
+<li>Distinct eigenvalues guarantee independence; repeated roots require an eigenspace count</li>
+<li>The scalar field matters: real matrices can have nonreal eigenvalues</li>
+<li>Powers scale each eigenbasis component by <span class="math inline">\(\lambda_j^k\)</span></li>
+<li>Real symmetric matrices have real orthonormal eigenbases</li>
+</ul>
+</section>
+
+<section id="how-far-we-have-come" class="title-slide slide level1 center">
+<h1>How Far We Have Come</h1>
+<div class="columns">
+<div class="column" style="width:47%;">
+<ul>
+<li><a href="01-systems-and-matrices.html#read-the-solution-set">Systems and Matrices</a> — reduce <span class="math inline">\([\,\mat{A}\mid\vct{b}\,]\)</span> to find consistency and free parameters; PLU reuses elimination</li>
+<li><span class="alert">Matrix actions</span> — products compose and inverses undo; determinants measure signed scale and detect collapse</li>
+<li><a href="07-bases-dimension-and-coordinates.html#the-coordinate-map-preserves-linear-combinations">Bases and Coordinates</a> — bases give unique coordinates; dimension counts directions</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<ul>
+<li><a href="08-matrix-spaces-and-rank.html#rank-separates-existence-from-uniqueness">Matrix Spaces and Rank</a> — column space gives attainable outputs; null space gives lost inputs; rank–nullity counts both</li>
+<li><a href="#/an-eigenspace-includes-all-vectors-for-one-eigenvalue">Eigenspaces</a> — solve <span class="math inline">\((\mat{A}-\lambda\mat{I})\vct{v}=\vct{0}\)</span> to find directions adapted to a square matrix</li>
+<li><a href="#/an-eigenvector-basis-makes-the-matrix-diagonal">Diagonalization</a> — enough eigenvectors separate a matrix action; symmetry permits perpendicular unit directions</li>
+</ul>
+</div></div>
+<div class="key-point">
+<p>In an eigenvector basis, <span class="math inline">\(\vct{x}=\sum_j c_j\vct{v}_j\)</span> becomes <span class="math inline">\(\mat{A}\vct{x}=\sum_j\lambda_jc_j\vct{v}_j\)</span></p>
+<p>&nbsp;</p>
+<p>The coordinate method now explains both a single action and its repeated effects</p>
+</div>
+</section>
+
+<section id="what-comes-next" class="title-slide slide level1 center">
+<h1>What Comes Next</h1>
+<p>How do we measure lengths and angles for abstract vectors, and choose perpendicular coordinates?</p>
+<div class="key-point">
+<p><a href="10-inner-product-spaces.html">Next: Inner Product Spaces</a></p>
+<p>&nbsp;</p>
+<p>Inner products lead to orthogonal projection, Gram–Schmidt, QR, and least squares</p>
+</div>
 
 </section>
     </div>
