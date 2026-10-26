@@ -467,6 +467,21 @@ calendar unchanged and check again later.
   symbols $\vct{A}_j$ and its rows by lowercase transposed vector symbols
   $\vct{a}_i^\top$. Apply the same uppercase-column/lowercase-row
   convention to other matrices.
+- In the general-vector-space material, name the ambient space and the role
+  of each object when its interpretation changes. Symbols such as
+  `\vct{u}` and `\vct{b}` may denote whole polynomials, functions, or matrices;
+  vector typography does not require numerical columns. A bracketed row
+  `[v_1 ... v_k]` may collect abstract vectors and its product with a scalar
+  column denotes their linear combination. Call it a numerical matrix only
+  when its scalar entries have been identified, directly from numerical
+  columns or from coordinates in a stated reference basis. Label this switch
+  before elimination, transpose/dot-product arguments, determinants, or
+  numerical inverses. A whole numerical matrix can itself be one vector in
+  a matrix space; do not present vectors and matrices as mutually exclusive
+  types. Distinguish a whole function from one of its values in DE examples.
+  Explain that calling an object a vector presumes membership in a vector
+  space with specified addition and scalar multiplication satisfying the
+  axioms; a set or an object's shape alone does not specify this structure.
 - Write transposes with `^\top`, such as $\mat{A}^\top$
 - Use square brackets for numerical vector rows and columns, and parentheses
   for geometric points. Use braces for bases; coordinates follow the listed

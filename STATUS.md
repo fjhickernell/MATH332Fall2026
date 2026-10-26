@@ -107,8 +107,13 @@ Mathematical content should be maintained only in the slides.
     dependencies; justify the dimension equivalence, basis-size comparison,
     pivot-column method, and coordinate/matrix rules while retaining all
     examples and 19 original exercise sets (October 21).
-  - [ ] Review Deck 07's revised 82-slide flow and remaining visible layouts;
+  - [ ] Review Deck 07's revised 85-slide flow and remaining visible layouts;
     the local render and source/link checks pass; opening table review is complete.
+  - [x] Clarify vectors as elements of a named vector space with specified
+    operations in Decks 06–07; distinguish abstract-vector rows from numerical
+    matrices and coordinate columns. Preserve examples and exercises while
+    focusing Deck 07's main headings, highlighting uniqueness, and giving
+    length preservation its own worked topic with the orthonormal condition.
   - [x] Review the opening concept table with the instructor; show expanded
     sums and matrix products for combinations and independence, and verify
     column widths and the key point's clearance above the footer.

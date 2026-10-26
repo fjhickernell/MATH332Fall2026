@@ -12,6 +12,26 @@ reopened in Fantastical on Illinois Tech Fred → Calendar, PH 109,
 11:15 AM–12:45 PM Chicago. Schedule and ledger edits are included in this
 checkpoint; remote deployment and live-page verification remain pending.
 
+For October 27, the instructor aims to finish Bases and Coordinates. The
+October 26 local revisions clarify arbitrary vectors and numerical
+representations across Decks 06 and 07. Deck 06 now has 50 slides; Deck 07
+has 85, with conceptual section outlines, preserved examples/exercises,
+highlighted uniqueness, and a separate length-preservation topic. The
+monomial dimension example and practice now follow the dimension definition,
+before the equivalent basis tests; revisit that relocated practice as needed.
+Review these revisions before teaching. They are included in this Checkpoint;
+remote deployment and live-page verification remain pending. The notation
+convention is recorded in AUTHOR_WORKFLOW.md.
+
+Checkpoint validation also corrects the shared navigation reset: explicit
+cross-section links and hash addresses retain the requested child slide,
+while horizontal arrows still open the section overview. This course
+intentionally pins HickernellAcademicLib `5484f82`; other dependencies remain
+unchanged. The complete website and all twelve decks render without warnings;
+1,756 local links/assets, exercise preservation, exact new calculations, and
+browser navigation checks pass. Instructor review remains distinct from these
+local checks.
+
 ### Test 2 — private preparation complete
 
 The private draft is complete and reviewed; final printing remains for the
@@ -68,7 +88,7 @@ independence show both expanded sums and matrix products. Its 18/48/34 column
 proportions and compact row spacing pass rendered browser review, with the key
 point clear of the footer. Continue reviewing the remaining layouts.
 
-Review the revised 82-slide flow and visible layouts before teaching. The
+Review the revised 85-slide flow and visible layouts before teaching. The
 October 21 revision organizes the deck by motivating questions, puts visible
 matrix proofs before their applications, moves dimension before the coordinate
 examples, and places enrichment after the foundations. All examples and the

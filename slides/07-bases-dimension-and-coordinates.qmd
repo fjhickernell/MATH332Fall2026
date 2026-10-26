@@ -89,14 +89,14 @@ A transformed grid motivates the question; definitions and proofs make the answe
 
 ## From building vectors to giving them addresses {#from-building-vectors-to-giving-them-addresses data-state="goldborder"}
 
-Choose vectors $\vct{b}_1,\ldots,\vct{b}_k$ in $V$; write $\vct{c}=[c_1,\ldots,c_k]^\top$
+Use a [row of vectors]{.alert} $[\vct{b}_1\ \cdots\ \vct{b}_k]$ from $V$ and a scalar column $\vct{c}=[c_1,\ldots,c_k]^\top$
 
 | Concept | Notation | What it does |
 |---|---|---|
 | [Linear combination]{.alert} | $c_1\vct{b}_1+\cdots+c_k\vct{b}_k=[\vct{b}_1\ \cdots\ \vct{b}_k]\vct{c}$ | Builds one vector from chosen weights |
 | [Span]{.alert} | $\operatorname{span}\{\vct{b}_1,\ldots,\vct{b}_k\}$ | Collects all vectors we can build |
-| [Linear independence]{.alert} | $c_1\vct{b}_1+\cdots+c_k\vct{b}_k=[\vct{b}_1\ \cdots\ \vct{b}_k]\vct{c}=\vct{0}$<br>$\implies c_1=\cdots=c_k=0\quad(\vct{c}=\vct{0})$ | Makes the formula for building unique |
-| [Basis]{.alert} | $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_k\}$ | Builds every vector in $V$ uniquely |
+| [Linear independence]{.alert} | $c_1\vct{b}_1+\cdots+c_k\vct{b}_k=[\vct{b}_1\ \cdots\ \vct{b}_k]\vct{c}=\vct{0}$<br>$\implies c_1=\cdots=c_k=0\quad(\vct{c}=\vct{0})$ | Makes the coefficients [unique]{.alert} |
+| [Basis]{.alert} | $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_k\}$ | Builds every vector in $V$ [uniquely]{.alert} |
 | [Dimension]{.alert} | $\dim V=k$ for a basis $\mathcal{B}$ | Counts basis vectors and coordinates |
 | [Coordinates]{.alert} | $[\vct{v}]_{\mathcal{B}}=[c_1,\ldots,c_k]^\top$ | Records the weights as an address |
 
@@ -115,6 +115,51 @@ the same vector, subtracting their combinations produces a nontrivial zero
 combination. Conversely a nontrivial zero combination changes coefficients
 without changing the vector. A vector and its coordinate list are different
 objects, even when both are displayed as columns.
+:::
+
+---
+
+### A row of vectors is a linear-combination recipe {#a-row-of-vectors-is-a-linear-combination-recipe}
+
+Each $\vct{b}_j$ is one vector in $V$; each $c_j$ is a scalar
+
+Recall [the row-of-vectors convention in {{< meta decks.d06.short_title >}}]({{< meta decks.d06.file >}}#brackets-collect-vectors-from-the-named-space)
+
+$$
+[\vct{b}_1\ \cdots\ \vct{b}_k]\vct{c}
+=c_1\vct{b}_1+\cdots+c_k\vct{b}_k
+$$
+
+| What are the $\vct{b}_j$? | How to read the brackets |
+|---|---|
+| Numerical columns in $\reals^m$ | A numerical $m\times k$ matrix |
+| Polynomials, functions, or matrices | A row of [abstract vectors]{.alert} in $V$ |
+
+For example, a row of polynomials builds a polynomial:
+
+$$
+\begin{bmatrix}1&t\end{bmatrix}\begin{bmatrix}2\\3\end{bmatrix}=2+3t
+$$
+
+::: {.key-point}
+Linear-combination rules work in every $V$
+
+For numerical elimination or inversion, first assemble a matrix of scalar entries
+:::
+
+::: {.notes}
+Keep the objects and their coefficients separate from the beginning of the
+deck. A bracketed row of abstract vectors is notation for a linear-combination
+operation. When each object is a numerical column, stacking those columns
+gives an ordinary numerical matrix. For matrix-valued vectors, treat each
+whole matrix as one vector; the displayed row is not an instruction to
+concatenate its scalar columns into a larger numerical matrix.
+The same row-of-vectors convention applies in the zero-test, dependence,
+uniqueness, counting, and coordinate-arithmetic arguments. A numerical
+coefficient matrix can appear alongside such a row; name its scalar entries
+explicitly. An ordinary inverse additionally requires a square invertible
+numerical matrix, as explained later for bases of R^n and polynomial
+coefficient matrices.
 :::
 
 ## The questions that organize this deck {#the-questions-that-organize-this-deck}
@@ -170,7 +215,7 @@ $\mathcal{B}=\{\vct{b}_1,\vct{b}_2\}$
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Can we reach every vector in $\reals^2$ uniquely using $\vct{b}_1$ and $\vct{b}_2$?
+<span>Can we reach every vector in $\reals^2$ [uniquely]{.alert} using $\vct{b}_1$ and $\vct{b}_2$?
 <span class="exsub">Solve the coefficient system below for arbitrary $x,y\in\reals$; is there exactly one solution?</span>
 </span>
 :::
@@ -182,7 +227,7 @@ $$
 $$
 
 ::: {.key-point}
-Reaching every vector uniquely means $\mathcal{B}$ is a [basis]{.alert} for $\reals^2$
+Reaching every vector [uniquely]{.alert} means $\mathcal{B}$ is a [basis]{.alert} for $\reals^2$
 :::
 
 For our vector, the coordinates in this basis are
@@ -226,7 +271,7 @@ Add $\vct{b}_3=\vct{b}_1+\vct{b}_2=[3,1]^\top$
 :::
 
 ::: {.key-point}
-For a coordinate system, $\vct{b}_3$ is [redundant]{.alert}: it adds no new direction and makes coefficient lists nonunique
+For a coordinate system, $\vct{b}_3$ is [redundant]{.alert}: it adds no new direction and makes coefficient lists [nonunique]{.alert}
 :::
 
 ::: {.notes}
@@ -275,8 +320,8 @@ Why test only zero? Subtract two constructions of the same vector
 
 ### Why test only the zero vector? {#why-test-only-the-zero-vector}
 
-Put the vectors into $\mat{V}=[\vct{v}_1\ \cdots\ \vct{v}_k]$<br>
-The product $\mat{V}\vct{c}$ forms their linear combination, even for functions or matrices
+Write the [row of vectors]{.alert} $\mat{V}=[\vct{v}_1\ \cdots\ \vct{v}_k]$<br>
+The product $\mat{V}\vct{c}$ means their linear combination, including for functions or matrices
 
 Compare two coefficient columns $\vct{c}$ and $\vct{d}$ for the same vector:
 
@@ -290,7 +335,7 @@ $$
 - [Dependent]{.alert}: if $\mat{V}\vct{z}=\vct{0}$ with $\vct{z}\ne\vct{0}$, then $\mat{V}(\vct{c}+\vct{z})=\mat{V}\vct{c}$
 
 ::: {.key-point}
-One homogeneous test controls uniqueness for every vector in the span
+One homogeneous test controls [uniqueness]{.alert} for every vector in the span
 
 Spanning is the separate question of which vectors are reachable
 :::
@@ -346,7 +391,7 @@ $a=b=0$.
 
 ## A homogeneous coefficient system detects independence {#a-homogeneous-coefficient-system-detects-independence}
 
-For coordinate vectors, place the candidates into columns:
+Here the candidates $\vct{v}_j\in\reals^m$ are [numerical columns]{.alert}:
 
 $$
 \mat{V}=
@@ -355,7 +400,7 @@ $$
 \end{bmatrix}
 $$
 
-Then
+Now $\mat{V}$ is a numerical $m\times k$ matrix, and
 
 $$
 c_1\vct{v}_1+\cdots+c_k\vct{v}_k=\vct{0}
@@ -399,7 +444,7 @@ only zero combination is trivial. Use elimination if students prefer it.
 
 In a dependence relation, choose a vector with a nonzero coefficient and put it last
 
-Write the reordered list as $[\mat{U}\ \vct{w}]$, with $\mat{U}$ containing the other vectors:
+Write the reordered [row of vectors]{.alert} as $[\mat{U}\ \vct{w}]$, with $\mat{U}$ containing the other vectors:
 
 $$
 [\mat{U}\ \vct{w}]
@@ -413,7 +458,7 @@ $$
 \vct{w}=\mat{U}\!\left(-\frac{\vct{c}}{d}\right)
 $$
 
-Removing $\vct{w}$ preserves the span: the other columns already build it
+Removing $\vct{w}$ preserves the span: the other vectors already build it
 
 Conversely, $\vct{w}=\mat{U}\vct{a}$ gives the nontrivial zero-combination
 $\mat{U}\vct{a}-\vct{w}=\vct{0}$
@@ -425,7 +470,7 @@ A dependence relation is a certificate of redundancy
 # Bases and Unique Representations
 
 How do we keep every vector reachable while removing redundant generators?<br>
-A basis gives both existence and uniqueness
+A basis gives both [existence]{.alert} and [uniqueness]{.alert}
 
 - [A basis balances reach and economy](#a-basis-balances-reach-and-economy)
 - [Elimination extracts a basis from a spanning set](#elimination-extracts-a-basis-from-a-spanning-set)
@@ -445,19 +490,21 @@ is a [basis]{.alert} for $V$ when
 
 For coordinates, use the basis vectors in the order listed
 
-Spanning guarantees existence of coefficients
+Spanning guarantees [existence]{.alert} of coefficients
 
-Independence guarantees uniqueness of coefficients
+Independence guarantees [uniqueness]{.alert} of coefficients
 
 ::: {.key-point}
-Every vector has one coefficient list in a chosen ordered basis
+Every vector has a [unique]{.alert} coefficient list in a chosen ordered basis
 :::
 
 ---
 
 ### Independence makes coordinates unique {#independence-makes-coordinates-unique}
 
-For a basis $\mathcal{B}$ of $V$, write $\mat{B}=[\vct{b}_1\ \cdots\ \vct{b}_n]$
+For a basis $\mathcal{B}$ of $V$, write the [row of vectors]{.alert} $\mat{B}=[\vct{b}_1\ \cdots\ \vct{b}_n]$
+
+Here $\mat{B}\vct{c}$ means $\sum_{j=1}^n c_j\vct{b}_j$; the $\vct{b}_j$ need not be numerical columns
 
 Spanning supplies coefficients; suppose one vector has two coefficient lists
 
@@ -477,7 +524,7 @@ Linear independence forces the two coefficient lists to agree
 ::: {.key-point}
 A space can have many bases
 
-Coordinates are unique once the ordered basis is fixed
+Coordinates are [unique]{.alert} once the ordered basis is fixed
 :::
 
 ---
@@ -486,7 +533,7 @@ Coordinates are unique once the ordered basis is fixed
 
 The retained vectors must span the same space and be independent
 
-For vectors in $\reals^m$:
+Here the vectors are [numerical columns in $\reals^m$]{.alert}:
 
 1. place the spanning vectors into columns: $\mat{A}=[\vct{b}_1\ \cdots\ \vct{b}_k]$
 2. reduce to [row echelon form]{.alert}: $\mat{U}=[\vct{u}_1\ \cdots\ \vct{u}_k]$
@@ -616,19 +663,20 @@ Why must their sizes agree, and when can counting replace a computation?
 - [Dimension turns two tests into one](#dimension-turns-two-tests-into-one)
 - [Build a basis by adding or removing vectors](#build-a-basis-by-adding-or-removing-vectors)
 - [Dimension depends on the scalar field](#dimension-depends-on-the-scalar-field)
-- [Example: count monomials to find dimension](#worked-example-count-monomials-to-find-dimension)
 
 ## An independent list cannot outnumber a spanning list {#an-independent-list-cannot-outnumber-a-spanning-list}
 
 Suppose $V=\operatorname{span}\{\vct{b}_1,\ldots,\vct{b}_n\}$,
 $\vct{u}_1,\ldots,\vct{u}_r\in V$, and $r>n$
 
-Each $\vct{u}_j$ is a combination of the $\vct{b}_i$, so for some $n\times r$ coefficient matrix $\mat{A}$,
+Each $\vct{u}_j$ is a combination of the $\vct{b}_i$, so for some numerical $n\times r$ coefficient matrix $\mat{A}$,
 
 $$
 [\vct{u}_1\ \cdots\ \vct{u}_r]
 =[\vct{b}_1\ \cdots\ \vct{b}_n]\mat{A}
 $$
+
+The bracketed rows contain vectors in $V$; $\mat{A}$ contains scalar coefficients
 
 Since $r>n$, $\mat{A}\vct{c}=\vct{0}$ has a free variable, giving a solution $\vct{c}\ne\vct{0}$
 
@@ -702,6 +750,55 @@ Dimension counts independent directions, not the number of vectors in the
 space
 :::
 
+---
+
+### Example: count monomials to find dimension {#worked-example-count-monomials-to-find-dimension}
+
+In $\mathbb{P}_2(\reals^2)$, total degree is at most two: add the $x$ and $y$ exponents
+
+$$
+\underbrace{1}_{0},
+\qquad \underbrace{x,\ y}_{1},
+\qquad \underbrace{x^2,\ xy,\ y^2}_{2}
+$$
+
+Every polynomial in the space is a unique linear combination of these six
+monomials
+
+They form a basis, so
+
+$$
+\dim(\mathbb{P}_2(\reals^2))=1+2+3=6
+$$
+
+::: {.key-point}
+Count freely chosen coefficients after identifying a basis
+:::
+
+---
+
+### Dimension beyond coordinate columns {#practice-dimension-beyond-coordinate-columns}
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>Find a basis and count its vectors; total degree adds the $x$ and $y$ exponents
+<span class="exsub">$\mathbb{P}_3(\reals^2)$: list monomials by total degree</span>
+<span class="exsub">All upper-triangular $3\times3$ matrices</span>
+<span class="exsub">All symmetric $3\times3$ matrices</span>
+<span class="exsub">Could five symmetric $3\times3$ matrices span their entire space?</span>
+</span>
+:::
+
+::: {.notes}
+For P_3(R^2), a basis is {1,x,y,x^2,xy,y^2,x^3,x^2y,xy^2,y^3}, so the
+dimension is 1+2+3+4=10. Upper-triangular 3x3 matrices have six free entries;
+the six corresponding single-entry matrices form a basis. Symmetric 3x3
+matrices also have six free entries: three diagonal and three off-diagonal
+pairs. Use three diagonal single-entry matrices and E_ij+E_ji for i<j.
+Matching entries proves independence. Five cannot span this six-dimensional
+space.
+:::
+
 ## Dimension turns two tests into one {#dimension-turns-two-tests-into-one}
 
 Suppose $\dim(V)=n$ and $\vct{u}_1,\ldots,\vct{u}_n$ are exactly $n$ vectors in $V$
@@ -709,9 +806,9 @@ Suppose $\dim(V)=n$ and $\vct{u}_1,\ldots,\vct{u}_n$ are exactly $n$ vectors in 
 $$
 \text{linearly independent}
 \quad\Longleftrightarrow\quad
-\text{spans}\ V
+\text{spans}\ \ V
 \quad\Longleftrightarrow\quad
-\text{is a basis of}\ V
+\text{is a basis of}\ \ \ V
 $$
 
 The counting comparison also gives
@@ -798,7 +895,7 @@ Appending such a vector preserves independence<br>
 Afterward every $\vct{b}_j$ lies in the span, so the list spans $V$ and is a basis
 
 ::: {.key-point}
-Trim while preserving reach; grow while preserving uniqueness
+Trim while preserving reach; grow while preserving [uniqueness]{.alert}
 :::
 
 ::: {.notes}
@@ -838,7 +935,7 @@ This puts $\vct{w}$ in the span of the original columns: a contradiction
 Thus $d=0$ and $\mat{U}\vct{c}=\vct{0}$; independence of the original columns forces $\vct{c}=\vct{0}$
 
 ::: {.key-point}
-Adding a vector outside the span increases reach without losing uniqueness
+Adding a vector outside the span increases reach without losing [uniqueness]{.alert}
 :::
 
 ## Dimension depends on the scalar field {#dimension-depends-on-the-scalar-field}
@@ -868,72 +965,24 @@ refer to the chosen scalar field. When the field is not shown in our later
 real examples, it is R.
 :::
 
-## Example: count monomials to find dimension {#worked-example-count-monomials-to-find-dimension}
-
-In $\mathbb{P}_2(\reals^2)$, total degree is at most two: add the $x$ and $y$ exponents
-
-$$
-\underbrace{1}_{0},
-\qquad \underbrace{x,\ y}_{1},
-\qquad \underbrace{x^2,\ xy,\ y^2}_{2}
-$$
-
-Every polynomial in the space is a unique linear combination of these six
-monomials
-
-They form a basis, so
-
-$$
-\dim(\mathbb{P}_2(\reals^2))=1+2+3=6
-$$
-
-::: {.key-point}
-Count freely chosen coefficients after identifying a basis
-:::
-
----
-
-### Dimension beyond coordinate columns {#practice-dimension-beyond-coordinate-columns}
-
-::: {.exitem .lettered}
-<span class="exbullet">$\exstar$</span>
-<span>Find a basis and count its vectors; total degree adds the $x$ and $y$ exponents
-<span class="exsub">$\mathbb{P}_3(\reals^2)$: list monomials by total degree</span>
-<span class="exsub">All upper-triangular $3\times3$ matrices</span>
-<span class="exsub">All symmetric $3\times3$ matrices</span>
-<span class="exsub">Could five symmetric $3\times3$ matrices span their entire space?</span>
-</span>
-:::
-
-::: {.notes}
-For P_3(R^2), a basis is {1,x,y,x^2,xy,y^2,x^3,x^2y,xy^2,y^3}, so the
-dimension is 1+2+3+4=10. Upper-triangular 3x3 matrices have six free entries;
-the six corresponding single-entry matrices form a basis. Symmetric 3x3
-matrices also have six free entries: three diagonal and three off-diagonal
-pairs. Use three diagonal single-entry matrices and E_ij+E_ji for i<j.
-Matching entries proves independence. Five cannot span this six-dimensional
-space.
-:::
-
 # Coordinates and Their Arithmetic {#coordinates-in-a-chosen-basis}
 
-A basis is now available: turn its unique coefficients into a usable description<br>
+A basis is now available: turn its [unique]{.alert} coefficients into a usable description<br>
 First justify coordinate arithmetic, then choose coordinates for different kinds of vectors
 
 - [A basis gives every vector unique coordinates](#a-basis-gives-every-vector-unique-coordinates)
 - [The coordinate map preserves linear combinations](#the-coordinate-map-preserves-linear-combinations)
-- [Example: combine coordinate vectors](#worked-example-combine-coordinate-vectors)
+- [The coordinate map need *not* preserve lengths](#example-a-matrix-preserves-combinations-but-changes-lengths)
 - [Same vector, different coordinate columns](#same-vector-different-coordinate-columns)
-- [Polynomial coefficients are coordinates in a chosen basis](#polynomial-coefficients-are-coordinates-in-a-chosen-basis)
-- [Example: one line, two coordinate systems](#one-line-two-coordinate-systems)
-- [Example: a basis of symmetric matrices](#worked-example-a-basis-of-symmetric-matrices)
-- [Example: test a polynomial basis](#worked-example-test-a-polynomial-basis)
+- [Coordinates describe polynomials and matrices](#polynomial-coefficients-are-coordinates-in-a-chosen-basis)
 
 ## A basis gives every vector unique coordinates {#a-basis-gives-every-vector-unique-coordinates}
 
 A [basis]{.alert} $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ spans $V$ and is independent
 
-For $\vct{v}\in V$, spanning gives existence and independence gives uniqueness:
+The $\vct{b}_j$ belong to $V$: often $\reals^n$, but sometimes a space of polynomials, other functions, or matrices
+
+For $\vct{v}\in V$, spanning gives [existence]{.alert} and independence gives [uniqueness]{.alert}:
 
 $$
 \vct{v}=c_1\vct{b}_1+\cdots+c_n\vct{b}_n
@@ -948,6 +997,8 @@ $$
 
 ::: {.key-point}
 For coordinates, the [listed order matters]{.alert}: entry $j$ multiplies $\vct{b}_j$
+
+Basis vectors belong to $V$; coordinates are scalars from its scalar field
 :::
 
 ---
@@ -1015,13 +1066,55 @@ geometry requires the inner product in those coordinates.
 
 ---
 
+### Polynomials build vectors; numerical matrices convert coordinates {#polynomials-and-their-numerical-coordinate-matrix}
+
+Use $\mathcal{B}=\{1,1+t,t^2\}$ and the reference basis $\mathcal{E}=\{1,t,t^2\}$
+
+[Polynomial entries]{.alert}: brackets describe a linear combination
+
+$$
+p=\begin{bmatrix}1&1+t&t^2\end{bmatrix}
+\begin{bmatrix}c_1\\c_2\\c_3\end{bmatrix}
+=c_1+c_2(1+t)+c_3t^2
+$$
+
+[Numerical entries]{.alert}: columns contain $[1]_{\mathcal{E}}$, $[1+t]_{\mathcal{E}}$, and $[t^2]_{\mathcal{E}}$
+
+$$
+[p]_{\mathcal{E}}=
+\underbrace{\begin{bmatrix}1&1&0\\0&1&0\\0&0&1\end{bmatrix}}_{\mat{A}}
+[p]_{\mathcal{B}},
+\qquad [p]_{\mathcal{B}}=\mat{A}^{-1}[p]_{\mathcal{E}}
+$$
+
+::: {.key-point}
+The polynomial row builds $p$; the numerical matrix $\mat{A}$ converts coordinate columns
+
+Before using a matrix inverse, identify a square matrix of scalar entries
+:::
+
+::: {.notes}
+The coordinate column [p]_B is [c_1,c_2,c_3]^top. Expanding gives
+[p]_E=[c_1+c_2,c_2,c_3]^top. The inverse numerical matrix is
+[[1,-1,0],[0,1,0],[0,0,1]]. For p=2+3t+t^2 it returns [-1,3,1]^top,
+which is used in the later worked coordinate-arithmetic example.
+The polynomial row is a 1-by-3 array, not the square scalar matrix A.
+Both expressions are useful, but the inverse in the displayed formula
+belongs to A. For a basis of R^n, the basis vectors are already numerical
+columns, so assembling those columns directly produces the square matrix.
+For other abstract vectors, choose a reference basis and assemble their
+coordinate columns, as shown here.
+:::
+
+---
+
 ### Why coordinate arithmetic works {#why-coordinate-arithmetic-works}
 
 Put $\mat{B}=[\vct{b}_1\ \cdots\ \vct{b}_n]$, with
 $\vct{c}=[\vct{u}]_{\mathcal{B}}$ and $\vct{d}=[\vct{v}]_{\mathcal{B}}$
 
-Here $\mat{B}\vct{a}$ means $a_1\vct{b}_1+\cdots+a_n\vct{b}_n$,
-even when the basis vectors are polynomials, functions, or matrices
+[For any $V$]{.alert}, $\mat{B}\vct{a}$ means $a_1\vct{b}_1+\cdots+a_n\vct{b}_n$<br>
+This is linear-combination notation, including for polynomials, functions, or matrices
 
 $$
 \alpha\vct{u}+\beta\vct{v}
@@ -1029,7 +1122,7 @@ $$
 =\mat{B}(\alpha\vct{c}+\beta\vct{d})
 $$
 
-Uniqueness makes these coefficients the coordinates of the result:
+[Uniqueness]{.alert} makes these coefficients the coordinates of the result:
 
 $$
 [\alpha\vct{u}+\beta\vct{v}]_{\mathcal{B}}
@@ -1045,7 +1138,7 @@ Reconstruction and taking coordinates undo each other and preserve linear combin
 
 ---
 
-## Example: combine coordinate vectors {#worked-example-combine-coordinate-vectors}
+### Example: combine coordinate vectors {#worked-example-combine-coordinate-vectors}
 
 Use the polynomial basis $\mathcal{B}=\{1,1+t,t^2\}$
 
@@ -1101,7 +1194,61 @@ coefficient. Directly, p=3+2t-t^2 and q=-1+t+3t^2, giving the same result.
 
 ---
 
-### Coordinate arithmetic preserves algebra, not lengths {#coordinate-arithmetic-preserves-algebra-not-lengths}
+## The coordinate map need *not* preserve lengths {#example-a-matrix-preserves-combinations-but-changes-lengths}
+
+Here $V=\reals^2$, with [Euclidean length]{.alert}; use $\mathcal{B}=\{[1,0]^\top,[1,1]^\top\}$
+
+$$
+\mat{B}=\begin{bmatrix}1&1\\0&1\end{bmatrix},
+\qquad
+\mat{B}^\top\mat{B}=\begin{bmatrix}1&1\\1&2\end{bmatrix}\ne\mat{I}
+$$
+
+[Algebra]{.alert}: matrix multiplication distributes over linear combinations
+
+$$
+\mat{B}(\alpha\vct{c}+\beta\vct{d})
+=\alpha\mat{B}\vct{c}+\beta\mat{B}\vct{d}
+$$
+
+[Lengths]{.alert}: reconstruct $\vct{u}=\mat{B}\vct{c}$ and use the dot product
+
+$$
+\|\vct{u}\|^2=(\mat{B}\vct{c})^\top(\mat{B}\vct{c})
+=\vct{c}^\top\mat{B}^\top\mat{B}\vct{c}
+$$
+
+For $\vct{c}=[1,1]^\top$, $\vct{u}=[2,1]^\top$: $\|\vct{c}\|^2=2$, but $\|\vct{u}\|^2=5$
+
+::: {.key-point}
+Every basis preserves linear combinations
+
+All lengths are preserved exactly when $\mat{B}^\top\mat{B}=\mat{I}$: an [orthonormal basis]{.alert}
+
+The basis vectors must be mutually orthogonal and each have length one
+:::
+
+::: {.notes}
+The columns of B are independent, so each vector has unique coordinates in
+the listed basis. If u=Bc and v=Bd, distributivity constructs alpha u+beta v
+from the coefficient column alpha c+beta d. Uniqueness identifies that column
+as the coordinates of the result.
+For lengths, use the familiar Euclidean dot product: ||u||^2=u^top u.
+The coordinate column c=[1,1]^top has length sqrt(2), while u=[2,1]^top
+has length sqrt(5). This counterexample proves length preservation fails;
+B^top B differing from I does not mean every vector changes length.
+Indeed the first basis vector retains length 1.
+For a real square basis matrix, preserving lengths for every c is equivalent
+to B^top B=I: evaluating the symmetric quadratic form at e_i and e_i+e_j
+forces its diagonal and off-diagonal entries to match I. Its entries are
+pairwise dot products of the basis vectors, so the condition means the
+basis vectors are orthogonal unit vectors. The following exercise uses a
+different basis with orthogonal vectors that are not unit length.
+:::
+
+---
+
+### Coordinate arithmetic preserves algebra, *not* lengths {#coordinate-arithmetic-preserves-algebra-not-lengths}
 
 In $\reals^2$, use $\mathcal{B}=\{[1,1]^\top,[1,-1]^\top\}$
 
@@ -1147,7 +1294,7 @@ $$
 \qquad [\vct{x}]_{\mathcal{B}}=\begin{bmatrix}3\\2\end{bmatrix}
 $$
 
-The brackets mean “coordinates of this vector in this basis”
+The coordinates are [unique]{.alert} in each fixed ordered basis
 
 The entries 3 and 2 are weights on $\vct{b}_1$ and $\vct{b}_2$, not the
 standard horizontal and vertical components
@@ -1182,7 +1329,7 @@ The jth coordinate multiplies the jth basis vector; their order matters.
 
 ---
 
-## Polynomial coefficients are coordinates in a chosen basis {#polynomial-coefficients-are-coordinates-in-a-chosen-basis}
+## Coordinates describe polynomials and matrices {#polynomial-coefficients-are-coordinates-in-a-chosen-basis}
 
 For the standard polynomial basis
 
@@ -1205,7 +1352,7 @@ Choosing a basis converts abstract vectors into coordinate columns
 
 ---
 
-## Example: one line, two coordinate systems {#one-line-two-coordinate-systems}
+### Example: one line, two coordinate systems {#one-line-two-coordinate-systems}
 
 Choose coordinates that match how a line is measured
 
@@ -1279,7 +1426,7 @@ $$
 
 For $p(x)=2+3x$, the three points are $(0,2)$, $(1,5)$, and $(2,8)$
 
-- The first two values determine the line uniquely
+- The first two values determine the line [uniquely]{.alert}
 - The third value must satisfy $y_2=2y_1-y_0$
 - Arbitrary values at $x=0,1,2$ may require a [quadratic]{.alert}
 
@@ -1363,7 +1510,7 @@ the three-generator lists coordinates in a basis.
 
 ---
 
-## Example: a basis of symmetric matrices {#worked-example-a-basis-of-symmetric-matrices}
+### Example: a basis of symmetric matrices {#worked-example-a-basis-of-symmetric-matrices}
 
 Review bases and dimension; the freely chosen entries become coordinates
 
@@ -1394,7 +1541,7 @@ $$
 $$
 
 ::: {.key-point}
-The vector is a matrix; its coordinate vector is a column of coefficients
+Here $\mat{A}$ is one vector in the symmetric-matrix space; $[\mat{A}]_{\mathcal{B}}\in\reals^3$ is its coordinate column
 :::
 
 ---
@@ -1420,7 +1567,9 @@ There are three upper-triangular basis matrices and one skew-symmetric basis
 matrix, so the dimensions are three and one, respectively.
 :::
 
-## Example: test a polynomial basis {#worked-example-test-a-polynomial-basis}
+---
+
+### Example: test a polynomial basis {#worked-example-test-a-polynomial-basis}
 
 Review the basis test; use the resulting basis to find coordinates
 
@@ -1433,7 +1582,7 @@ $$
 \begin{bmatrix}1&0&1\\0&1&0\\0&0&1\end{bmatrix}
 $$
 
-Three pivots: every coefficient vector is reached uniquely, so $\mathcal{E}$
+Three pivots: every coefficient vector is reached [uniquely]{.alert}, so $\mathcal{E}$
 spans $\mathbb{P}_2$ and is independent
 
 For $p(t)=2+4t+3t^2$,
@@ -1501,11 +1650,7 @@ Both use the same principle: determine the outputs of the input basis vectors
 
 - [A basis matrix converts coordinates to standard form](#a-basis-matrix-converts-coordinates-to-standard-form)
 - [Change of basis passes through the vector](#change-of-basis-passes-through-the-vector)
-- [Transition columns describe the old basis in the new one](#transition-columns-describe-the-old-basis-in-the-new-one)
-- [Example: change between polynomial bases](#two-coordinate-systems-describe-one-vector)
 - [Transform coordinates to obtain output coordinates](#transform-coordinates-to-obtain-output-coordinates)
-- [Coordinates turn transformations into matrix multiplication](#coordinates-turn-transformations-into-matrix-multiplication)
-- [Differentiate using two chosen bases](#differentiate-using-two-chosen-bases)
 - [Initial data map linearly to a solution function](#initial-data-map-linearly-to-a-solution-function)
 
 The [companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/07-bases-dimension-and-coordinates.ipynb)
@@ -1513,16 +1658,16 @@ explores basis extraction and coordinate changes
 
 ## A basis matrix converts coordinates to standard form {#a-basis-matrix-converts-coordinates-to-standard-form}
 
-For a basis $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ of $\reals^n$, form
+[Here $V=\reals^n$]{.alert}: the basis vectors $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ are numerical columns
 
 $$
 \mat{P}_{\mathcal{B}}
 =\begin{bmatrix}\vct{b}_1&\cdots&\vct{b}_n\end{bmatrix}
 $$
 
-The column $[\vct{x}]_{\mathcal{B}}$ lists coefficients multiplying these basis vectors
+The numerical $n\times n$ matrix $\mat{P}_{\mathcal{B}}$ is invertible
 
-Independence makes $\mat{P}_{\mathcal{B}}$ invertible:
+The coordinate map multiplies by the [inverse basis matrix]{.alert}:
 
 $$
 \vct{x}=\mat{P}_{\mathcal{B}}[\vct{x}]_{\mathcal{B}},
@@ -1539,6 +1684,18 @@ $$
 
 ::: {.key-point}
 [Basis vectors are the columns]{.alert}: multiply coordinates to rebuild the vector
+
+For other vector spaces, first express the basis vectors as [numerical coordinate columns](#polynomials-and-their-numerical-coordinate-matrix)
+:::
+
+::: {.notes}
+This numerical basis-matrix formula assumes V=R^n and exactly n basis
+vectors. For a proper subspace of R^m, the basis matrix is rectangular;
+solve P_B c=x for x in the subspace rather than write P_B^{-1}.
+For polynomials, functions, or matrices viewed as abstract vectors, first
+choose a reference basis E. The numerical conversion matrix then has columns
+[b_j]_E and maps B-coordinates to E-coordinates. It does not multiply the
+abstract vector itself as though it were already a numerical column.
 :::
 
 ## Change of basis passes through the vector {#change-of-basis-passes-through-the-vector}
@@ -1568,8 +1725,9 @@ $$
 [Same vector, new description]{.alert}: only its coordinate column changes
 :::
 
+---
 
-## Transition columns describe the old basis in the new one {#transition-columns-describe-the-old-basis-in-the-new-one}
+### Transition columns describe the old basis in the new one {#transition-columns-describe-the-old-basis-in-the-new-one}
 
 Let $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ and $\mathcal{C}$ be ordered
 bases of the same finite-dimensional real vector space
@@ -1604,7 +1762,9 @@ For bases of $\reals^n$, this is $\mat{P}_{\mathcal{C}}^{-1}\mat{P}_{\mathcal{B}
 To build [column $j$]{.alert}, write $\vct{b}_j$ in basis $\mathcal{C}$ and record its coefficients
 :::
 
-## Example: change between polynomial bases {#two-coordinate-systems-describe-one-vector}
+---
+
+### Example: change between polynomial bases {#two-coordinate-systems-describe-one-vector}
 
 In $\mathbb{P}_2$, choose
 
@@ -1726,6 +1886,8 @@ Let $T:V\to W$ be linear between real vector spaces, with ordered bases
 $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ of $V$ and
 $\mathcal{C}=\{\vct{c}_1,\ldots,\vct{c}_m\}$ of $W$
 
+The basis vectors may be functions or matrices; their [coordinate columns]{.alert} are numerical
+
 Transform each input basis vector; put its output coordinates in a column:
 
 $$
@@ -1790,7 +1952,9 @@ One column for each input basis vector; one entry for each output basis vector
 Linearity is why those columns determine every output
 :::
 
-## Coordinates turn transformations into matrix multiplication {#coordinates-turn-transformations-into-matrix-multiplication}
+---
+
+### Coordinates turn transformations into matrix multiplication {#coordinates-turn-transformations-into-matrix-multiplication}
 
 Return to the general matrix rule: differentiate the input basis to build its columns
 
@@ -1839,7 +2003,9 @@ space, a finite coordinate column may represent only a selected subspace or
 approximation; no such restriction is needed for these polynomial spaces.
 :::
 
-## Differentiate using two chosen bases {#differentiate-using-two-chosen-bases}
+---
+
+### Differentiate using two chosen bases {#differentiate-using-two-chosen-bases}
 
 Let $D:\mathbb{P}_2\to\mathbb{P}_1$ send $p$ to $p'$, with
 
@@ -2153,7 +2319,7 @@ $$
 - [When columns are independent]{.alert}: the ordered columns form a basis of $S$; $\widehat{\vct{x}}$ gives the fitted vector's coordinates
 
 ::: {.key-point}
-Independence gives unique coefficients for the fitted vector
+Independence gives [unique]{.alert} coefficients for the fitted vector
 
 The existence and uniqueness of the closest fit comes from projection in
 [{{< meta decks.d10.short_title >}}]({{< meta decks.d10.file >}}#inconsistent-systems-still-have-a-best-fit)
@@ -2351,7 +2517,7 @@ Reference: https://math.mit.edu/~rbm/18.103-S04/node3.html
 
 
 - Independence means every vector has at most one construction from the generators
-- A basis combines independence and spanning to give unique coordinates
+- A basis combines independence and spanning to give [unique]{.alert} coordinates
 - Coordinates are coefficients in an ordered basis; the same vector can have different coordinate columns
 - Dimension counts basis vectors and depends on the scalar field
 - Coordinate maps preserve linear structure; transition matrices change descriptions
@@ -2372,14 +2538,14 @@ Reference: https://math.mit.edu/~rbm/18.103-S04/node3.html
 
 ::: {.column width="47%"}
 - [{{< meta decks.d06.short_title >}}]({{< meta decks.d06.file >}}#span-is-the-subspace-generated-by-chosen-vectors) — subspaces contain all linear combinations; vectors can be matrices, polynomials, or functions
-- [{{< meta decks.d07.short_title >}}](#a-basis-gives-every-vector-unique-coordinates) — spanning gives coefficients; independence makes them unique; dimension counts basis vectors
+- [{{< meta decks.d07.short_title >}}](#a-basis-gives-every-vector-unique-coordinates) — spanning gives coefficients; independence makes them [unique]{.alert}; dimension counts basis vectors
 - [Coordinates](#the-coordinate-map-preserves-linear-combinations) — ordered-basis coordinates preserve linear combinations; changing the basis changes the column, not the vector
 :::
 :::
 
 ::: {.key-point}
 With ordered basis $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_d\}$ and $d=\dim(V)<\infty$:
-$\vct{v}=[\vct{b}_1\ \cdots\ \vct{b}_d][\vct{v}]_{\mathcal{B}}$ with a unique coordinate column $[\vct{v}]_{\mathcal{B}}$
+$\vct{v}=[\vct{b}_1\ \cdots\ \vct{b}_d][\vct{v}]_{\mathcal{B}}$ with a [unique]{.alert} coordinate column $[\vct{v}]_{\mathcal{B}}$
 :::
 
 # What Comes Next
