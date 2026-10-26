@@ -740,6 +740,7 @@ In this deck
 <section id="the-previous-deck-found-directions-inside-solution-sets" class="slide level2">
 <h2>The previous deck found directions inside solution sets</h2>
 <p>As <a href="01-systems-and-matrices.html#read-the-solution-set">Systems and Matrices</a> showed, elimination reveals free variables in a consistent system <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span></p>
+<p>Here <span class="math inline">\(\mat{A}\)</span> is a numerical <span class="math inline">\(m\times n\)</span> matrix; <span class="math inline">\(\vct{x}\in\reals^n\)</span> and <span class="math inline">\(\vct{b}\in\reals^m\)</span></p>
 <p>Choose one particular solution <span class="math inline">\(\vct{x}_p\)</span>, so <span class="math inline">\(\mat{A}\vct{x}_p=\vct{b}\)</span></p>
 <p>As <a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Euclidean Spaces</a> showed, all solutions have the form</p>
 <p><span class="math display">\[
@@ -766,10 +767,78 @@ c\vct{v}\in V
 \qquad
 (\vct{u},\vct{v}\in V,\ c\in\reals)
 \]</span></p>
-<p>These operations obey the vector-space axioms on the next two slides</p>
+<p>These operations must satisfy the vector-space axioms</p>
 <div class="key-point">
-<p>We specify the set and operations so polynomials, functions, and other objects can be vectors, not only columns in <span class="math inline">\(\reals^n\)</span></p>
+<p>The symbols <span class="math inline">\(\vct{u}\)</span> and <span class="math inline">\(\vct{v}\)</span> can denote <span class="alert">any elements of <span class="math inline">\(V\)</span></span>, such as polynomials, functions, matrices, or vectors in <span class="math inline">\(\reals^n\)</span></p>
+<p>&nbsp;</p>
+<p>Calling an object a <span class="alert">vector</span> refers to its membership in this vector space with these operations</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="read-the-space-before-interpreting-the-symbol">Read the space before interpreting the symbol</h3>
+<p>We call <span class="math inline">\(\vct{u}\)</span> a <span class="alert">vector</span> as an element of a vector space <span class="math inline">\(V\)</span>, with specified addition and scalar multiplication satisfying the axioms</p>
+<p>For the usual operations:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Space <span class="math inline">\(V\)</span></th>
+<th>One vector <span class="math inline">\(\vct{u}\)</span></th>
+<th>Addition</th>
+<th>Scalar multiplication</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\reals^n\)</span></td>
+<td>A numerical column</td>
+<td>Add entries</td>
+<td>Scale entries</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{P}_k\)</span></td>
+<td>A whole polynomial <span class="math inline">\(p\)</span></td>
+<td>Add polynomials</td>
+<td>Multiply <span class="math inline">\(p\)</span> by <span class="math inline">\(c\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(C[a,b]\)</span></td>
+<td>A whole function <span class="math inline">\(f\)</span></td>
+<td>Add pointwise</td>
+<td><span class="math inline">\((cf)(t)=c\,f(t)\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\reals^{m\times n}\)</span></td>
+<td>A whole matrix <span class="math inline">\(\mat{A}\)</span></td>
+<td>Add entries</td>
+<td>Scale entries</td>
+</tr>
+</tbody>
+</table>
+<p>The same axioms apply to all four kinds of objects</p>
+<div class="key-point">
+<p>A matrix can itself be <span class="alert">one vector</span> in a matrix space</p>
+<p>Vector notation describes its role in <span class="math inline">\(V\)</span>, not a requirement to be a column</p>
+</div>
+<aside class="notes">
+<p>The bold vector notation u, v, b is generic once V has been named. For example, u=A is legitimate when V is a fixed-size matrix space; this does not erase A’s rows and columns. A numerical matrix may be one vector in a matrix space, or may act on numerical columns, depending on the task. Likewise u=f denotes the whole function, whereas f(t) is a value. Avoid teaching “vector” and “matrix” as mutually exclusive types: distinguish the underlying object from the role it plays in the named vector space. Calling an object a vector presumes membership in a vector space with specified addition and scalar multiplication satisfying the axioms. The set alone does not supply those operations; the later operations example makes this distinction explicit.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -969,7 +1038,7 @@ New examples
 0(t)=0
 \]</span></p>
 <div class="key-point">
-<p>A polynomial is one vector; its coefficients provide one possible coordinate description</p>
+<p>Here <span class="math inline">\(\vct{u}=p\)</span> can be a whole polynomial; its coefficients provide one possible coordinate description</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1047,7 +1116,7 @@ p(x,y)=1+x+xy,
 \]</span></p>
 <p>No finite list of functions can generate all of <span class="math inline">\(C[a,b]\)</span> by linear combinations, for <span class="math inline">\(a&lt;b\)</span></p>
 <div class="key-point">
-<p>A function is one vector, even though its values vary over an entire interval</p>
+<p>Here <span class="math inline">\(\vct{u}=f\)</span> is a whole function; <span class="math inline">\(f(t)\)</span> is one scalar value</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1062,7 +1131,7 @@ f(t)=a\cos t+b\sin t,
 <p><span class="math display">\[
 (cf+dg)''+(cf+dg)=c(f''+f)+d(g''+g)=0
 \]</span></p>
-<p>The same closure holds for vector-valued solutions of <span class="math inline">\(\vct{y}'=\mat{A}\vct{y}\)</span> with a fixed matrix <span class="math inline">\(\mat{A}\)</span></p>
+<p>For <span class="math inline">\(\vct{y}'=\mat{A}\vct{y}\)</span>, <span class="math inline">\(\mat{A}\)</span> is a fixed numerical <span class="math inline">\(m\times m\)</span> matrix<br> One solution is a whole function <span class="math inline">\(\vct{y}\)</span>; its value <span class="math inline">\(\vct{y}(t)\)</span> is a column in <span class="math inline">\(\reals^m\)</span></p>
 <div class="key-point">
 <p>Solutions of a homogeneous linear DE or system form a vector space of functions</p>
 </div>
@@ -1238,7 +1307,7 @@ W=\left\{t\begin{bmatrix}3\\1\end{bmatrix}:t\in\reals\right\}
 <p><span class="math display">\[
 c\vct{u}+d\vct{v}\in W
 \]</span></p>
-<p>for every <span class="math inline">\(\vct{u},\vct{v}\in W\)</span> and every <span class="math inline">\(c,d\in\reals\)</span></p>
+<p>for every <span class="math inline">\(\vct{u},\vct{v}\in W\)</span> and every <span class="math inline">\(c,d\in\reals\)</span><br> The vectors may be columns, polynomials, functions, or whole matrices</p>
 <p>This one condition gives</p>
 <ul>
 <li>closure under addition by taking <span class="math inline">\(c=d=1\)</span></li>
@@ -1312,6 +1381,7 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 \]</span></p>
 <div class="key-point">
 <p>Upper-triangular matrices form a vector space: linear combinations preserve the zeros below the diagonal</p>
+<p>Here <span class="math inline">\(\mat{A}\)</span> and <span class="math inline">\(\mat{B}\)</span> are the vectors; <span class="math inline">\(r\)</span> and <span class="math inline">\(s\)</span> are scalars</p>
 </div>
 </section>
 <section class="slide level2">
@@ -1390,7 +1460,7 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 </section>
 <section id="span-is-the-subspace-generated-by-chosen-vectors" class="slide level2">
 <h2>Span is the subspace generated by chosen vectors</h2>
-<p>For vectors <span class="math inline">\(\vct{v}_1,\ldots,\vct{v}_k\)</span> in a real vector space <span class="math inline">\(V\)</span>,</p>
+<p>For any vectors <span class="math inline">\(\vct{v}_1,\ldots,\vct{v}_k\)</span> in the named real vector space <span class="math inline">\(V\)</span>,</p>
 <p><span class="math display">\[
 \operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}
 =\left\{c_1\vct{v}_1+\cdots+c_k\vct{v}_k:c_i\in\reals\right\}
@@ -1405,9 +1475,67 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 <p>Span answers a reachability question: which vectors can these generators build?</p>
 </div>
 </section>
+<section class="slide level2">
+
+<h3 id="brackets-collect-vectors-from-the-named-space">Brackets collect vectors from the named space</h3>
+<p>Let <span class="math inline">\(\vct{v}_1,\ldots,\vct{v}_k\in V\)</span> and <span class="math inline">\(\vct{c}=[c_1,\ldots,c_k]^\top\)</span></p>
+<p><span class="math display">\[
+\mat{A}=[\vct{v}_1\ \cdots\ \vct{v}_k],
+\qquad
+\mat{A}\vct{c}:=\sum_{j=1}^k c_j\vct{v}_j
+\]</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Named space <span class="math inline">\(V\)</span></th>
+<th>One entry <span class="math inline">\(\vct{v}_j\)</span></th>
+<th>Result <span class="math inline">\(\mat{A}\vct{c}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\reals^m\)</span></td>
+<td>A numerical column</td>
+<td>A numerical column</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\mathbb{P}_d\)</span></td>
+<td>A whole polynomial</td>
+<td>A polynomial</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(C[a,b]\)</span></td>
+<td>A whole function</td>
+<td>A function</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\reals^{r\times s}\)</span></td>
+<td>A whole matrix</td>
+<td>An <span class="math inline">\(r\times s\)</span> matrix</td>
+</tr>
+</tbody>
+</table>
+<div class="key-point">
+<p><span class="math inline">\(\mat{A}\)</span> records a <span class="alert">row of vectors</span>; its letter style does not determine the entries</p>
+<p>When each <span class="math inline">\(\vct{v}_j\in\reals^m\)</span> is a numerical column, <span class="math inline">\(\mat{A}\)</span> is a numerical <span class="math inline">\(m\times k\)</span> matrix</p>
+</div>
+<aside class="notes">
+<p>This is linear-combination notation for any real vector space V. The row contains k objects from V, and c contains k real scalars. For example, [1,t][2,3]^top=2+3t in P_1. If the objects are whole matrices, do not concatenate their scalar columns and then multiply by the k-entry c; the intended operation is a scalar-weighted sum of the whole matrices. A numerical matrix is also an element of a matrix vector space, so the roles “matrix” and “vector” are not mutually exclusive. The row of abstract vectors is distinguished here from a matrix of scalar entries. Elimination, determinants, and ordinary matrix inverses later in the course apply to the scalar matrices that represent the relevant combinations.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="in-rn-span-is-matrix-vector-multiplication" class="slide level2">
 <h2>In <span class="math inline">\(\reals^n\)</span>, span is matrix–vector multiplication</h2>
-<p>For <span class="math inline">\(\vct{v}_j\in\reals^n\)</span>, collect the chosen vectors as columns:</p>
+<p><span class="alert">Here <span class="math inline">\(V=\reals^n\)</span></span>: each <span class="math inline">\(\vct{v}_j\)</span> is a numerical column, so collect them into a numerical matrix</p>
 <p><span class="math display">\[
 \mat{V}=\begin{bmatrix}\vct{v}_1&amp;\cdots&amp;\vct{v}_k\end{bmatrix}\in\reals^{n\times k},
 \qquad
@@ -1479,7 +1607,7 @@ p_3(t)=1-t^2
 <p><span class="math display">\[
 c_1p_1+c_2p_2+c_3p_3=a_0+a_1t+a_2t^2
 \]</span></p>
-<p>Matching coefficients gives <span class="math inline">\(\mat{A}\vct{c}=\vct{a}\)</span>:</p>
+<p>The <span class="math inline">\(p_j\)</span> are polynomial vectors; matching coefficients gives a <span class="alert">numerical system</span> <span class="math inline">\(\mat{A}\vct{c}=\vct{a}\)</span>:</p>
 <p><span class="math display">\[
 \underbrace{\begin{bmatrix}
 1&amp;0&amp;1\\
@@ -1490,6 +1618,7 @@ c_1p_1+c_2p_2+c_3p_3=a_0+a_1t+a_2t^2
 =
 \begin{bmatrix}a_0\\a_1\\a_2\end{bmatrix}
 \]</span></p>
+<p>The scalar columns of <span class="math inline">\(\mat{A}\)</span> describe the polynomials in the order <span class="math inline">\(1,t,t^2\)</span></p>
 </section>
 <section class="slide level2">
 
@@ -1909,6 +2038,7 @@ W=\{p\in\mathbb{P}_3:p(1)=0\}
         // When h changes, keep forcing v=0 for a short window (ms).
         let lockH = null;
         let lockUntil = 0;
+        let linkedTarget = null;
 
         function nowMs() {
           return (typeof performance !== "undefined" && performance.now) ? performance.now() : Date.now();
@@ -1919,14 +2049,49 @@ W=\{p\in\mathbb{P}_3:p(1)=0\}
           lockUntil = nowMs() + ms;
         }
 
+        function preserveHashTarget(requestedHash) {
+          // Named headings can be inside a continuation slide rather than on
+          // its section element. Resolve the containing slide before navigation.
+          const isHashChange = requestedHash && typeof requestedHash.newURL === "string";
+          const requested = isHashChange ? new URL(requestedHash.newURL).hash : requestedHash;
+          const hash = (typeof requested === "string" ? requested : window.location.hash).replace(/^#\/?/, "");
+          if (!hash) return;
+          let destination;
+          if (/^\d+(\/\d+)?(\/\d+)?$/.test(hash)) {
+            const parts = hash.split("/").map(Number);
+            destination = { h: parts[0], v: parts[1] || 0, f: parts[2] };
+          } else {
+            let target;
+            try { target = document.getElementById(decodeURIComponent(hash)); }
+            catch (_) { return; }
+            const slide = target && target.closest("section.slide");
+            if (!slide) return;
+            destination = Reveal.getIndices(slide);
+          }
+          linkedTarget = { h: destination.h, v: destination.v || 0, until: nowMs() + 1000 };
+          lockH = null;
+          if (isHashChange) Reveal.slide(destination.h, destination.v || 0, destination.f);
+        }
+
         function snapTopIfNeeded(tag) {
           if (!window.Reveal || !Reveal.getIndices || !Reveal.slide) return;
+          if (Reveal.isReady && !Reveal.isReady()) return;
 
           if (Reveal.isOverview && Reveal.isOverview()) return;
           if (Reveal.isPaused && Reveal.isPaused()) return;
 
           const idx = Reveal.getIndices();
           const t = nowMs();
+
+          // A deliberate hash jump must retain its requested vertical slide.
+          // Arrow navigation still starts a new horizontal section at its top.
+          if (linkedTarget && t <= linkedTarget.until && idx.h === linkedTarget.h) {
+            prevH = idx.h;
+            lockH = null;
+            if (idx.v === linkedTarget.v) linkedTarget = null;
+            return;
+          }
+          if (linkedTarget && t > linkedTarget.until) linkedTarget = null;
 
           // Detect any horizontal move (either direction) and start a lock.
           if (prevH === null) {
@@ -1958,7 +2123,18 @@ W=\{p\in\mathbb{P}_3:p(1)=0\}
           Reveal.on("ready", function () { snapTopIfNeeded("ready"); });
         }
 
+        // Capture runs before Reveal reads the new hash, including browser
+        // back/forward and same-document links to another section's child slide.
+        window.addEventListener("hashchange", preserveHashTarget, true);
         window.addEventListener("hashchange", function () { snapTopIfNeeded("hashchange"); });
+        document.addEventListener("click", function (event) {
+          const link = event.target.closest && event.target.closest("a[href]");
+          if (!link) return;
+          const url = new URL(link.href, window.location.href);
+          if (url.origin === window.location.origin && url.pathname === window.location.pathname && url.search === window.location.search) {
+            preserveHashTarget(url.hash);
+          }
+        }, true);
 
         // Safari/WebKit occasionally fails to repaint Reveal slides after focus returns.
         const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);

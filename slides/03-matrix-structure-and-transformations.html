@@ -2292,6 +2292,7 @@ T_{\mat{B}}:\reals^k\to\reals^m
         // When h changes, keep forcing v=0 for a short window (ms).
         let lockH = null;
         let lockUntil = 0;
+        let linkedTarget = null;
 
         function nowMs() {
           return (typeof performance !== "undefined" && performance.now) ? performance.now() : Date.now();
@@ -2302,14 +2303,49 @@ T_{\mat{B}}:\reals^k\to\reals^m
           lockUntil = nowMs() + ms;
         }
 
+        function preserveHashTarget(requestedHash) {
+          // Named headings can be inside a continuation slide rather than on
+          // its section element. Resolve the containing slide before navigation.
+          const isHashChange = requestedHash && typeof requestedHash.newURL === "string";
+          const requested = isHashChange ? new URL(requestedHash.newURL).hash : requestedHash;
+          const hash = (typeof requested === "string" ? requested : window.location.hash).replace(/^#\/?/, "");
+          if (!hash) return;
+          let destination;
+          if (/^\d+(\/\d+)?(\/\d+)?$/.test(hash)) {
+            const parts = hash.split("/").map(Number);
+            destination = { h: parts[0], v: parts[1] || 0, f: parts[2] };
+          } else {
+            let target;
+            try { target = document.getElementById(decodeURIComponent(hash)); }
+            catch (_) { return; }
+            const slide = target && target.closest("section.slide");
+            if (!slide) return;
+            destination = Reveal.getIndices(slide);
+          }
+          linkedTarget = { h: destination.h, v: destination.v || 0, until: nowMs() + 1000 };
+          lockH = null;
+          if (isHashChange) Reveal.slide(destination.h, destination.v || 0, destination.f);
+        }
+
         function snapTopIfNeeded(tag) {
           if (!window.Reveal || !Reveal.getIndices || !Reveal.slide) return;
+          if (Reveal.isReady && !Reveal.isReady()) return;
 
           if (Reveal.isOverview && Reveal.isOverview()) return;
           if (Reveal.isPaused && Reveal.isPaused()) return;
 
           const idx = Reveal.getIndices();
           const t = nowMs();
+
+          // A deliberate hash jump must retain its requested vertical slide.
+          // Arrow navigation still starts a new horizontal section at its top.
+          if (linkedTarget && t <= linkedTarget.until && idx.h === linkedTarget.h) {
+            prevH = idx.h;
+            lockH = null;
+            if (idx.v === linkedTarget.v) linkedTarget = null;
+            return;
+          }
+          if (linkedTarget && t > linkedTarget.until) linkedTarget = null;
 
           // Detect any horizontal move (either direction) and start a lock.
           if (prevH === null) {
@@ -2341,7 +2377,18 @@ T_{\mat{B}}:\reals^k\to\reals^m
           Reveal.on("ready", function () { snapTopIfNeeded("ready"); });
         }
 
+        // Capture runs before Reveal reads the new hash, including browser
+        // back/forward and same-document links to another section's child slide.
+        window.addEventListener("hashchange", preserveHashTarget, true);
         window.addEventListener("hashchange", function () { snapTopIfNeeded("hashchange"); });
+        document.addEventListener("click", function (event) {
+          const link = event.target.closest && event.target.closest("a[href]");
+          if (!link) return;
+          const url = new URL(link.href, window.location.href);
+          if (url.origin === window.location.origin && url.pathname === window.location.pathname && url.search === window.location.search) {
+            preserveHashTarget(url.hash);
+          }
+        }, true);
 
         // Safari/WebKit occasionally fails to repaint Reveal slides after focus returns.
         const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
