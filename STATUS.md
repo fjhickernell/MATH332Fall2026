@@ -249,6 +249,7 @@ Mathematical content should be maintained only in the slides.
     publish the all-sections correction announcement `108764` (October 22).
   - [ ] Deploy and verify the matching October 22 Test 2 coverage correction
     on the Schedule and Quizzes and Tests pages.
+  - [x] Complete and review the private Test 2 draft; final printing remains.
   - [x] Schedule Test 2 for October 29 in PH 109; create and publish its
     On Paper Canvas assignment for 12:45 PM; add the date to the
     course website sources; and post the all-sections save-the-date announcement.

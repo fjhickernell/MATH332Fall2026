@@ -12,6 +12,12 @@ reopened in Fantastical on Illinois Tech Fred → Calendar, PH 109,
 11:15 AM–12:45 PM Chicago. Schedule and ledger edits are included in this
 checkpoint; remote deployment and live-page verification remain pending.
 
+### Test 2 — private preparation complete
+
+The private draft is complete and reviewed; final printing remains for the
+October 29 test in PH 109. Grading is due November 4. Keep unreleased
+assessment material private.
+
 ### Test 2 coverage correction — Canvas published, website pending
 
 The instructor confirmed on October 22 that Test 2 ends at dimension.
