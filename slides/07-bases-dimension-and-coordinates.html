@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-10-26">
+  <meta name="dcterms.date" content="2026-10-27">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">October 26, 2026</p>
+  <p class="date">October 27, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -2676,7 +2676,34 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 <section id="applications-and-extensions" class="title-slide slide level1 center">
 <h1>Applications and Extensions</h1>
 <p>What does choosing a basis let us do, and when might we keep redundancy?</p>
-<p>The core argument is complete; regression and PCA preview later geometry, while frames and infinite bases extend the finite-basis picture</p>
+<p>Regression and PCA use coordinates to represent different objects</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>What we use</th>
+<th>What we represent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="alert">Regression</span></td>
+<td>Explanatory data <span class="math inline">\(\mat{X}\)</span> and a response <span class="math inline">\(\vct{y}\)</span></td>
+<td>The response, through <span class="math inline">\(\vct{y}\approx\mat{X}\vct{\beta}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="alert">PCA</span></td>
+<td>The data <span class="math inline">\(\mat{X}\)</span> alone</td>
+<td>The observations, in a basis chosen from their variation</td>
+</tr>
+</tbody>
+</table>
+<p>Frames and infinite bases extend the finite-basis picture</p>
 <ul>
 <li><a href="#/regression-chooses-the-closest-vector-we-can-build">Regression chooses the closest vector we can build</a></li>
 <li><a href="#/pca-chooses-coordinates-adapted-to-the-data">PCA chooses coordinates adapted to the data</a></li>
@@ -2686,23 +2713,24 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 </section>
 <section id="regression-chooses-the-closest-vector-we-can-build" class="slide level2">
 <h2>Regression chooses the closest vector we can build</h2>
-<p><span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span>: <span class="math inline">\(m\)</span> observations, <span class="math inline">\(n\)</span> feature columns <span class="math inline">\(\vct{A}_1,\ldots,\vct{A}_n\)</span>; <span class="math inline">\(\vct{b}\in\reals^m\)</span>: observed responses</p>
+<p><span class="alert">Explanatory data</span>: <span class="math inline">\(\mat{X}\in\reals^{m\times n}\)</span>, with <span class="math inline">\(m\)</span> observations and <span class="math inline">\(n\)</span> feature columns <span class="math inline">\(\vct{X}_1,\ldots,\vct{X}_n\)</span></p>
+<p><span class="alert">Response</span>: <span class="math inline">\(\vct{y}\in\reals^m\)</span>, one observed response for each observation</p>
 <p><span class="math display">\[
-\widehat{\vct{b}}=\mat{A}\widehat{\vct{x}}
-=\widehat{x}_1\vct{A}_1+\cdots+\widehat{x}_n\vct{A}_n
+\widehat{\vct{y}}=\mat{X}\widehat{\vct{\beta}}
+=\widehat{\beta}_1\vct{X}_1+\cdots+\widehat{\beta}_n\vct{X}_n
 \]</span></p>
 <ul>
-<li><span class="alert">Span</span>: <span class="math inline">\(S=\operatorname{span}\{\vct{A}_1,\ldots,\vct{A}_n\}\)</span> contains every possible fitted response</li>
-<li><span class="alert">Closest fit</span>: choose <span class="math inline">\(\widehat{\vct{b}}\in S\)</span> minimizing <span class="math inline">\(\|\vct{b}-\widehat{\vct{b}}\|^2\)</span></li>
-<li><span class="alert">When columns are independent</span>: the ordered columns form a basis of <span class="math inline">\(S\)</span>; <span class="math inline">\(\widehat{\vct{x}}\)</span> gives the fitted vector’s coordinates</li>
+<li><span class="alert">Span</span>: <span class="math inline">\(W=\operatorname{span}\{\vct{X}_1,\ldots,\vct{X}_n\}\)</span> contains every possible fitted response</li>
+<li><span class="alert">Closest fit</span>: choose <span class="math inline">\(\widehat{\vct{y}}\in W\)</span> minimizing <span class="math inline">\(\|\vct{y}-\widehat{\vct{y}}\|^2\)</span></li>
+<li><span class="alert">When columns are independent</span>: the ordered columns form a basis of <span class="math inline">\(W\)</span>; <span class="math inline">\(\widehat{\vct{\beta}}\)</span> gives the fitted response’s coordinates</li>
 </ul>
 <div class="key-point">
-<p>Independence gives <span class="alert">unique</span> coefficients for the fitted vector</p>
-<p>The existence and uniqueness of the closest fit comes from projection in <a href="10-inner-product-spaces.html#inconsistent-systems-still-have-a-best-fit">Inner Products</a></p>
+<p>Regression uses the response <span class="math inline">\(\vct{y}\)</span> to choose the weights <span class="math inline">\(\widehat{\vct{\beta}}\)</span></p>
+<p>Independent explanatory columns give <span class="alert">unique</span> weights</p>
 </div>
 <p><a href="10-inner-product-spaces.html#inconsistent-systems-still-have-a-best-fit">Later: Inner Products — least squares</a></p>
 <aside class="notes">
-<p>Ordinary unweighted least squares uses Euclidean distance in response space R^m. A response vector collects all m observed responses; a feature column collects one feature’s values at those same observations. The columns span the column space, which may be much smaller than R^m. Full column rank requires m &gt;= n.&nbsp;Full row rank alone does not give unique coefficients. Dependent columns still yield a unique Euclidean projection but allow different coefficient lists for it. We preview rank as the number of independent columns; Matrix Spaces and Rank develops it formally. Leave normal equations and projection formulas to Inner Products.</p>
+<p>Ordinary unweighted least squares uses Euclidean distance in response space R^m. A response vector collects all m observed responses; a feature column collects one feature’s values at those same observations. The columns span the column space, which may be much smaller than R^m. Full column rank requires m &gt;= n.&nbsp;Full row rank alone does not give unique coefficients. Dependent columns still yield a unique Euclidean projection but allow different coefficient lists for it. The response y determines the fitted weights beta; this is the distinction from PCA, which chooses directions from X without using a response. We preview rank as the number of independent columns; Matrix Spaces and Rank develops it formally. Leave normal equations and projection formulas to Inner Products.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2718,25 +2746,25 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 <section class="slide level2">
 
 <h3 id="two-features-give-coordinates-for-three-fitted-responses">Example: two features give coordinates for three fitted responses</h3>
-<p>Fit a line <span class="math inline">\(b\approx x_1+x_2t\)</span> to <span class="math inline">\((t,b)=(0,1),(1,0),(2,2)\)</span></p>
+<p>Fit a response <span class="math inline">\(y\approx\beta_1+\beta_2t\)</span> to <span class="math inline">\((t,y)=(0,1),(1,0),(2,2)\)</span></p>
 <p><span class="math display">\[
-\mat{A}=\begin{bmatrix}1&amp;0\\1&amp;1\\1&amp;2\end{bmatrix},\qquad
-\vct{b}=\begin{bmatrix}1\\0\\2\end{bmatrix},\qquad
-\widehat{\vct{x}}=\begin{bmatrix}1/2\\1/2\end{bmatrix}
+\mat{X}=\begin{bmatrix}1&amp;0\\1&amp;1\\1&amp;2\end{bmatrix},\qquad
+\vct{y}=\begin{bmatrix}1\\0\\2\end{bmatrix},\qquad
+\widehat{\vct{\beta}}=\begin{bmatrix}1/2\\1/2\end{bmatrix}
 \]</span></p>
 <p><span class="math display">\[
-\widehat{\vct{b}}=\tfrac12\begin{bmatrix}1\\1\\1\end{bmatrix}
+\widehat{\vct{y}}=\tfrac12\begin{bmatrix}1\\1\\1\end{bmatrix}
 +\tfrac12\begin{bmatrix}0\\1\\2\end{bmatrix}
 =\begin{bmatrix}1/2\\1\\3/2\end{bmatrix},\qquad
-\vct{b}-\widehat{\vct{b}}=\begin{bmatrix}1/2\\-1\\1/2\end{bmatrix}
+\vct{y}-\widehat{\vct{y}}=\begin{bmatrix}1/2\\-1\\1/2\end{bmatrix}
 \]</span></p>
-<p>The independent feature columns span a plane in <span class="math inline">\(\reals^3\)</span></p>
+<p>The explanatory columns span a plane in <span class="alert">response space <span class="math inline">\(\reals^3\)</span></span></p>
 <p>The residual is perpendicular to both columns: this is the closest fit</p>
 <div class="key-point">
 <p><span class="math inline">\([1/2,1/2]^\top\)</span> locates the fitted response in that plane; it does not represent the observed response outside the plane</p>
 </div>
 <aside class="notes">
-<p>The feature columns have dot product 3, so this basis is not orthogonal. The residual r=[1/2,-1,1/2]^T has zero dot product with each column. For any candidate A x, Pythagoras gives ||b-A x||^2 = ||r||^2 + ||bhat-A x||^2, minimized at A x=bhat. Independence makes xhat unique. The squared minimum is 3/2. This is the later Inner Products line-fitting example with predictor values shifted by one: its intercept changes from 1 to 1/2 while its fitted responses stay the same. Geometry here takes place in the three-dimensional space of responses, not the plotted (t,b) plane.</p>
+<p>The feature columns have dot product 3, so this basis is not orthogonal. The residual r=[1/2,-1,1/2]^T has zero dot product with each column. For any candidate X beta, Pythagoras gives ||y-X beta||^2 = ||r||^2 + ||yhat-X beta||^2, minimized at X beta=yhat. Independence makes betahat unique. The squared minimum is 3/2. This is the later Inner Products line-fitting example with predictor values shifted by one: its intercept changes from 1 to 1/2 while its fitted responses stay the same. Geometry here takes place in the three-dimensional space of responses, not the plotted (t,y) plane.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2751,10 +2779,166 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 </section>
 <section id="pca-chooses-coordinates-adapted-to-the-data" class="slide level2">
 <h2>PCA chooses coordinates adapted to the data</h2>
-<p><span class="alert">Principal component analysis (PCA)</span>: center the data, then choose orthogonal unit directions with the greatest remaining variation</p>
+<p><span class="alert">Principal component analysis (PCA)</span> describes variation in the data themselves</p>
+<p>Here are the <span class="alert">eight synthetic observations</span> in the picture, each with two features</p>
 <div class="columns">
 <div class="column" style="width:47%;">
-<p><img data-src="assets/bases-motivation/pca-coordinates.svg" class="" style="width:100.0%" alt="Centered two-dimensional observations lie near a diagonal line. Orthogonal unit vectors q1 and q2 define new axes. The highlighted observation has coordinates (3, one half); its projection onto the first axis is 3q1."></p>
+<p><span class="math display">\[
+\mat{X}=
+\begin{bmatrix}
+10&amp;14\\
+-10&amp;-14\\
+11&amp;5\\
+-11&amp;-5\\
+4&amp;4\\
+-4&amp;-4\\
+-2&amp;2\\
+2&amp;-2
+\end{bmatrix}
+\in\reals^{8\times2}
+\]</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p>Each <span class="alert">row</span> is one observation:</p>
+<p><span class="math display">\[
+\text{row }i=\vct{z}_i^\top,
+\qquad \vct{z}_i\in\reals^2
+\]</span></p>
+<p>Each <span class="alert">column</span> records one feature across all eight observations</p>
+<p>Both column means are zero: these data are already <span class="alert">centered</span></p>
+<p>Each plotted dot is one <span class="math inline">\(\vct{z}_i\in\reals^2\)</span></p>
+</div></div>
+<div class="key-point">
+<p>PCA chooses its basis from <span class="math inline">\(\mat{X}\)</span> alone, without using a response vector</p>
+</div>
+<aside class="notes">
+<p>Rows are observations and columns are features throughout these regression and PCA examples. These are the exact eight plotted observations, not a new dataset: the first row is the highlighted z. Their score pairs in the following basis are plus/minus sqrt(2) times (12,2), (8,-3), (4,0), and (0,2). All columns sum to zero, so centering makes no further change here. The observations are whole numbers. Removing the previous common data scale factor changes score magnitudes and variances, but not principal directions or the share of total variance in each direction.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="the-pca-basis-changes-every-observations-coordinates">The PCA basis changes every observation’s coordinates</h3>
+<p>PCA selects orthogonal unit directions with the greatest remaining variation</p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p>For these data, the basis matrix is</p>
+<p><span class="math display">\[
+\mat{Q}=[\vct{q}_1\ \vct{q}_2]
+=\frac1{\sqrt2}\begin{bmatrix}1&amp;-1\\1&amp;1\end{bmatrix}
+\in\reals^{2\times2}
+\]</span></p>
+<p>Its columns form an <span class="alert">orthonormal basis</span> of feature space <span class="math inline">\(\reals^2\)</span></p>
+<p>The <span class="alert">scores</span> are the new coordinates:</p>
+<p><span class="math display">\[
+\underbrace{\mat{X}}_{8\times2}
+\underbrace{\mat{Q}}_{2\times2}
+=\underbrace{\mat{S}}_{8\times2}
+\]</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><span class="math display">\[
+\mat{S}=\sqrt2\begin{bmatrix}
+12&amp;2\\
+-12&amp;-2\\
+8&amp;-3\\
+-8&amp;3\\
+4&amp;0\\
+-4&amp;0\\
+0&amp;2\\
+0&amp;-2
+\end{bmatrix}
+\]</span></p>
+</div></div>
+<div class="key-point">
+<p>Row <span class="math inline">\(i\)</span> of <span class="math inline">\(\mat{S}\)</span> is <span class="math inline">\([\vct{z}_i]_{\mathcal{Q}}^\top\)</span>, where <span class="math inline">\(\mathcal{Q}=\{\vct{q}_1,\vct{q}_2\}\)</span></p>
+<p>The first observation has coordinates <span class="math inline">\(\sqrt2[12,2]^\top\)</span></p>
+</div>
+<aside class="notes">
+<p>We give Q here without deriving the PCA algorithm. Since observations are rows, scores are X Q, whereas one column observation has coordinate column Q^top z_i. Q^top Q=I, so X=S Q^top reconstructs all eight observations. Exactly, X^top X=[[482,414],[414,482]]. Its eigenvectors are the columns of Q, with eigenvalues 896 and 68. Equivalently S^top S=diag(896,68), so the score columns have zero cross product and the first has greater variance. The sample covariance divides these matrices by 7. Eigenvectors and SVD will explain how to find Q later; no response y is used to choose these directions.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="pca-concentrates-variance-in-the-first-coordinate">PCA concentrates variance in the first coordinate</h3>
+<p>Original coordinates use the axes <span class="math inline">\(\vct{e}_1,\vct{e}_2\)</span>; PCA coordinates use <span class="math inline">\(\vct{q}_1,\vct{q}_2\)</span></p>
+<p>For eight centered values <span class="math inline">\(a_i\)</span>, sample variance is <span class="math inline">\(\frac17\sum_{i=1}^8 a_i^2\)</span></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Coordinates</th>
+<th style="text-align: right;">First variance</th>
+<th style="text-align: right;">Second variance</th>
+<th style="text-align: right;">Total variance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Original <span class="math inline">\((x_1,x_2)\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\approx68.857\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\approx68.857\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\approx137.714\)</span></td>
+</tr>
+<tr class="even">
+<td>PCA scores <span class="math inline">\((s_1,s_2)\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(128.000\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\approx9.714\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\approx137.714\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><img data-src="assets/bases-motivation/pca-variance-share.svg" class="" style="width:90.0%" alt="Original coordinates each carry 50 percent of the total variance. The first PCA coordinate carries 92.9 percent and the second carries 7.1 percent."></p>
+<div class="key-point">
+<p>The total variance stays the same; the first PCA coordinate carries <span class="alert">92.9%</span></p>
+</div>
+<aside class="notes">
+<p>The original feature-space basis is {e_1,e_2} in R^2. The data columns X_1,X_2 are in R^8: each collects one coordinate’s values over all eight observations, rather than being a basis direction in the plotted R^2. All column means are zero, so the sample variances are squared column lengths divided by 8-1=7. Exactly, each original coordinate has variance 482/7; the score variances are 128 and 68/7. Their total is 964/7 in either orthonormal basis. The first score’s share is 224/241, approximately 92.946 percent. The table rounds variances to three decimals and the chart rounds shares to one decimal. Orthonormal changes preserve total squared length, so PCA redistributes variance rather than creating more of it. The q_1 projection retains 92.9 percent of total variance; discarding q_2 loses the remaining 7.1 percent. Scaling the original features differently would change the PCA problem; this example uses the given feature scales.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="one-observation-in-the-pca-basis">One observation in the PCA basis</h3>
+<p>The highlighted point is the first row of <span class="math inline">\(\mat{X}\)</span>, written as a column <span class="math inline">\(\vct{z}\)</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><img data-src="assets/bases-motivation/pca-coordinates.svg" class="" style="width:100.0%" alt="Eight centered observations lie near a diagonal principal axis. The highlighted observation z=(10,14) has PCA scores (12 square root of 2, 2 square root of 2). Its projection onto the first axis is 12 square root of 2 times q1."></p>
 </div><div class="column" style="width:6%;">
 
 </div><div class="column" style="width:47%;">
@@ -2764,17 +2948,17 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 \]</span></p>
 <p>In this basis, one centered observation is</p>
 <p><span class="math display">\[
-\vct{z}=3\vct{q}_1+\tfrac12\vct{q}_2
+\vct{z}=12\sqrt2\,\vct{q}_1+2\sqrt2\,\vct{q}_2
 \]</span></p>
-<p>Its coordinate vector <span class="math inline">\([3,1/2]^\top\)</span> contains its <span class="alert">scores</span></p>
+<p>Its coordinate vector <span class="math inline">\(\sqrt2[12,2]^\top\)</span> contains its <span class="alert">scores</span></p>
 <div class="key-point">
 <p>Full basis: exact coordinates</p>
-<p>Keep <span class="math inline">\(\vct{q}_1\)</span>: <span class="math inline">\(\vct{z}\approx3\vct{q}_1\)</span> in its span</p>
+<p>Keep <span class="math inline">\(\vct{q}_1\)</span>: <span class="math inline">\(\vct{z}\approx12\sqrt2\,\vct{q}_1\)</span> in its span</p>
 </div>
 <p><a href="11-special-topics.html#a-matrix-is-a-sum-of-rank-one-maps">Later: Special Topics — low-rank approximation</a></p>
 </div></div>
 <aside class="notes">
-<p>Preview, not a PCA algorithm lesson. Subtract the sample mean before describing observations as vectors from the origin. Feature scaling is a modeling choice. PCA chooses orthonormal directions successively maximizing variance, with each new direction perpendicular to the preceding ones. A full orthonormal basis represents every centered observation exactly; the retained k directions are a basis only of their k-dimensional span. The scores are the coordinates of the projection in that retained basis. Add the mean back to reconstruct an observation in the original feature coordinates. Tied eigenvalues permit different equally valid choices of directions; uniqueness is relative to the chosen ordered basis. The synthetic figure has score pairs plus/minus (3,1/2), (2,-3/4), (1,0), and (0,1/2). Their cross moment is zero and the first variance is larger, so the displayed q_1 and q_2 really are principal directions. Its highlighted z uses the first pair.</p>
+<p>Preview, not a PCA algorithm lesson. Subtract the sample mean before describing observations as vectors from the origin. Feature scaling is a modeling choice. PCA chooses orthonormal directions successively maximizing variance, with each new direction perpendicular to the preceding ones. A full orthonormal basis represents every centered observation exactly; the retained k directions are a basis only of their k-dimensional span. The scores are the coordinates of the projection in that retained basis. Add the mean back to reconstruct an observation in the original feature coordinates. Tied eigenvalues permit different equally valid choices of directions; uniqueness is relative to the chosen ordered basis. The synthetic figure has score pairs plus/minus sqrt(2) times (12,2), (8,-3), (4,0), and (0,2). Their cross moment is zero and the first variance is larger, so the displayed q_1 and q_2 really are principal directions. Its highlighted z uses the first pair.</p>
 <p>[Sources] Andrew Ng, Stanford CS229, <a href="https://cs229.stanford.edu/notes2020spring/cs229-notes10.pdf">Principal components analysis</a>, centering, variance-maximizing directions, and projected coordinates.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
