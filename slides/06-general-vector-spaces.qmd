@@ -91,7 +91,7 @@ include-after-body:
 
 - [From Euclidean Vectors to Vector Spaces](#from-euclidean-vectors-to-vector-spaces)
 - [Vectors Beyond Coordinate Columns](#vectors-beyond-coordinate-columns)
-- [Subspaces and Span](#subspaces-and-span)
+- [Subspaces and Closure](#subspaces-and-span)
 - [Spans and Membership](#spans-and-membership)
 - [Big Ideas](#big-ideas)
 :::
@@ -700,7 +700,7 @@ Ordinary scalar multiplication would give 0(x,y)=(0,0), which differs from
 the additive identity, so it fails the consequences of the axioms.
 :::
 
-# Subspaces and Span
+# Subspaces and Closure {#subspaces-and-span}
 
 - [A subspace inherits its operations](#a-subspace-inherits-its-operations)
 - [One combined test proves the subspace properties](#one-combined-test-proves-the-subspace-properties)
@@ -995,6 +995,15 @@ Span answers a reachability question: which vectors can these generators
 build?
 :::
 
+::: {.notes}
+The span is nonempty because zero coefficients produce the zero vector.
+If u and v are combinations of the generators with scalar columns a and b,
+then cu+dv uses coefficients ca+db, so the span is closed under linear
+combinations. Any subspace containing the generators must contain all these
+combinations; this proves the smallest-subspace claim without assuming bases
+or dimension.
+:::
+
 ---
 
 ### Brackets collect vectors from the named space {#brackets-collect-vectors-from-the-named-space}
@@ -1242,7 +1251,7 @@ $$
 <span class="exsub">Start with $p,q\in W$ and $c,d\in\reals$</span>
 <span class="exsub">Evaluate $(cp+dq)(1)$</span>
 <span class="exsub">Find three polynomials that span $W$</span>
-<span class="exsub">Can fewer than three polynomials span $W$? Why?</span>
+<span class="exsub">Can fewer than three polynomials span $W$? [Revisit after the dimension argument]({{< meta decks.d07.file >}}#an-independent-list-cannot-outnumber-a-spanning-list)</span>
 </span>
 :::
 

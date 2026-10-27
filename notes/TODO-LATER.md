@@ -34,24 +34,13 @@ state why the work was deferred when that context will matter later.
   full-column-rank and least-squares plan below remains the starting point
   for this placement discussion.
 
-- When reviewing Decks 05–08, use infinite solution sets of linear systems to
-  motivate why bases and coordinates matter. Deck 05 already establishes the
-  geometric picture
-  $\{\vct{x}:\mat{A}\vct{x}=\vct{b}\}=\vct{x}_p+\operatorname{Null}(\mat{A})$:
-  depending on the number of free variables, a consistent solution set may be
-  an affine line, plane, or higher-dimensional affine subspace (reserve
-  *hyperplane* for the codimension-one case). After its free-variable or
-  elimination example, ask how to name the independent directions and locate
-  a particular solution within this set. Decks 07–08 can answer by choosing a
-  basis $(\vct{b}_1,\ldots,\vct{b}_k)$ for
-  $\operatorname{Null}(\mat{A})$ and writing
-  $\vct{x}=\vct{x}_p+c_1\vct{b}_1+\cdots+c_k\vct{b}_k$. The direction vectors
-  need not be the standard $\vct{e}_i$; they are adapted to the solution
-  geometry, and $(c_1,\ldots,c_k)$ gives affine coordinates relative to the
-  chosen base point and direction basis. Consider a brief reprise of the Deck
-  05 example near Deck 07's introduction of bases and coordinates, before the
-  polynomial-coordinate example, so the formal definitions answer a question
-  students have already encountered geometrically.
+- Carry the solution-set/basis connection into the Matrix Spaces and Rank
+  review. Deck 07's October 27 “Basis directions locate every solution” now
+  reprises a nonhomogeneous system, identifies a null-space basis, and makes
+  its coefficients unique relative to a particular solution. This completes
+  the proposed Deck 07 reprise before polynomial coordinates. Preserve the
+  distinction between a basis of the direction space and affine coordinates
+  of points in a shifted solution set; use *hyperplane* only in codimension one.
 - Tensor products are now drafted in Special Topics after Inner Product
   Spaces, with product bases, outer products, Kronecker maps, and contractions.
   Instructor review and a companion demonstration remain; retain the

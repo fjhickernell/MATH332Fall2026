@@ -1,5 +1,28 @@
 # Next task
 
+## October 27 clarity review — ready for teaching
+
+Resume at “Build a basis by adding or removing vectors” (slide 34 of the
+current 89-slide Deck 07), then its independence proof, the scalar-field
+example, and “Coordinates and Their Arithmetic.” Revisit the relocated
+monomial/dimension practice if needed. The October 22 recording and the
+October 27 calendar note still determine this pickup; no new lecture
+coverage is inferred from these editorial changes.
+
+Deck 06 separates Subspaces and Closure from Spans and Membership and marks
+the polynomial minimal-spanning question for return after dimension. Deck 07
+separates Independence and Redundancy from Bases and Unique Representations,
+keeps coordinate arithmetic together before numerical change of basis, and
+adds one worked affine-solution example: a null-space basis gives unique
+parameters relative to a particular solution. The extension proof explicitly
+uses abstract vectors in V. All prior examples, exercises and named anchors
+remain. Decks 06 and 07 now have 51 and 89 slides including titles.
+
+These review edits are included in the October 27 checkpoint; remote deployment
+and live verification remain pending. Test 2 coverage still ends at dimension;
+coordinates and transformations remain excluded. Detailed review and validation
+are in `notes/CHAPTER4-AUDIT.md`.
+
 ## October 27 lecture continuation
 
 October 22 is reconciled from the now-available captions and closing slides.
@@ -14,8 +37,8 @@ checkpoint; remote deployment and live-page verification remain pending.
 
 For October 27, the instructor aims to finish Bases and Coordinates. The
 October 26 local revisions clarify arbitrary vectors and numerical
-representations across Decks 06 and 07. Deck 06 now has 51 slides; Deck 07
-has 88, with conceptual section outlines, preserved examples/exercises,
+representations across Decks 06 and 07. That revision left Deck 06 with 51 slides and Deck 07
+with 88, with conceptual section outlines, preserved examples/exercises,
 highlighted uniqueness, and a separate length-preservation topic. The
 monomial dimension example and practice now follow the dimension definition,
 before the equivalent basis tests; revisit that relocated practice as needed.
@@ -599,12 +622,10 @@ address reported Colab problems.
   bases, and coordinates. The placement questions and proposed criteria are
   recorded in `notes/TODO-LATER.md`; no deck changes are yet decided.
 
-- When next reviewing the MATH 332 lectures, revisit Decks 05–08
-  motivation for bases and coordinates through infinite solution sets. Use
-  the precise affine-subspace formulation recorded in `notes/TODO-LATER.md`:
-  Deck 05 poses the geometric need, and Decks 07–08 explain that a basis of the
-  null space supplies adapted directions while its coefficients locate a
-  solution relative to a particular solution.
+- The October 27 Deck 07 example now connects an infinite solution set to a
+  basis of its null-space directions and unique affine parameters. Preserve
+  this connection when reviewing Matrix Spaces and Rank; the remaining
+  Decks 05–08 placement questions are in `notes/TODO-LATER.md`.
 - How should the 20 class meetings after Test 1 be allocated among Decks
   05--11, Test 2, exercises, companion notebooks, synthesis, and review? In
   particular, should the large Chapter 5 and 6 units remain Decks 09 and 10 or

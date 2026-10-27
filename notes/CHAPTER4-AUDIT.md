@@ -7,6 +7,45 @@ Pages deployment, through commit `1c78f80`, including the notation and
 pivot-column boxes. The October 4 renumbering and notebook Checkpoint has
 not yet had its remote deployment verified.
 
+## October 27, 2026 — clarity and prerequisite review of Decks 06–07
+
+The complete source review retains the progression from vector-space
+operations and closure to span, independence, bases, dimension, coordinates,
+and matrix representations. It preserves every previous example, the 14
+Deck 06 and 20 Deck 07 exercise sets, and all previous explicit anchors.
+No assessment content or coverage changes are part of this review.
+
+- Rename the closure section to Subspaces and Closure, keeping its old anchor;
+  Spans and Membership remains the subsequent construction section. Supply
+  the span-closure/minimality justification in presenter notes, and explicitly
+  defer the polynomial minimal-spanning challenge until the dimension argument.
+- Rename Independence and Bases to Independence and Redundancy, retaining
+  its anchor, to distinguish it from Bases and Unique Representations.
+- Keep the coordinate-map proof and arithmetic practice together. Move the
+  polynomial numerical-conversion example after the numerical basis-matrix
+  rule, where its inverse and reference-basis roles have been introduced.
+- Add “Basis directions locate every solution” before polynomial coordinates:
+  x+2y=1 has xp=[1,0]^top, null-space basis {[-2,1]^top}, and the unique
+  parameterization x=xp+t b1. Coordinates apply to x-xp in the direction space;
+  the shifted solution line itself is not called a vector space or given a basis.
+- In basis extension, name an independent list in V and a row of abstract
+  vectors, avoiding a switch to numerical-column language inside the proof.
+
+The October 22 ledger's pickup remains “Build a basis by adding or removing
+vectors” (34/89), then the remaining dimension material and coordinates.
+The relocated monomial practice can be revisited. The new slide increases
+Deck 07 from 88 to 89 slides; Deck 06 remains 51, including title slides.
+
+Validation: the complete website and all twelve decks render without warnings.
+Both revised decks were refreshed after wording fixes. All 120 local links
+from the two decks resolve, including preserved and moved anchors. Mathematical
+review verifies the affine parameterization, basis/uniqueness claims and scalar
+field conditions. The visible source has no prose bold or unnecessary terminal
+periods (HTML comments and presenter notes excluded). Changed layouts and
+navigation are checked in Safari and the separate browser preview at 1050×700.
+These changes are included in the October 27 checkpoint; remote deployment
+and live verification remain pending.
+
 ## October 21, 2026 — Bases and Coordinates reasoning and structure
 
 The instructor found that examples separated prerequisites from the claims

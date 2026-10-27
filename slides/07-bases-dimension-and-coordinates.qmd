@@ -56,7 +56,7 @@ Basis (coordinates use the listed order): $\mathcal{B}=\{1,t,t^2\}$
 
 ::: {style="font-size: 0.9em;"}
 - [Why Span, Bases, and Coordinates?](#why-span-bases-and-coordinates)
-- [Independence and Bases](#independence-and-bases)
+- [Independence and Redundancy](#independence-and-bases)
 - [Bases and Unique Representations](#bases-and-unique-representations)
 - [Dimension: Why Basis Size Is Fixed](#dimension-and-coordinates)
 - [Coordinates and Their Arithmetic](#coordinates-in-a-chosen-basis)
@@ -286,7 +286,7 @@ fixed vector. Redundancy is unhelpful for obtaining unique coordinates;
 the later frame extension discusses other reasons to retain it.
 :::
 
-# Independence and Bases
+# Independence and Redundancy {#independence-and-bases}
 
 When can two coefficient lists build the same vector?<br>
 The zero-vector test detects precisely that ambiguity
@@ -888,7 +888,7 @@ Assume $V$ has a finite basis $\{\vct{b}_1,\ldots,\vct{b}_n\}$
 Remove a redundant vector using a dependence relation; repeat until independent<br>
 The span stays $V$, so the remaining list is a basis
 
-[Start with an independent list]{.alert}
+[Start with an independent list in $V$]{.alert}
 
 Consider $\vct{b}_1,\ldots,\vct{b}_n$ in turn; append each one outside the current span<br>
 Appending such a vector preserves independence<br>
@@ -913,7 +913,7 @@ Both constructions can finish at exactly n vectors, the size of every basis.
 
 ### Why a new direction preserves independence {#why-a-new-direction-preserves-independence}
 
-Let $\mat{U}=[\vct{u}_1\ \cdots\ \vct{u}_r]$ have independent columns, with
+Let $\mat{U}=[\vct{u}_1\ \cdots\ \vct{u}_r]$ be a [row of independent vectors in $V$]{.alert}, with
 $\vct{w}\notin\operatorname{span}\{\vct{u}_1,\ldots,\vct{u}_r\}$
 
 Test a zero combination in the enlarged list:
@@ -930,9 +930,9 @@ $$
 \vct{w}=\mat{U}\!\left(-\frac{\vct{c}}{d}\right)
 $$
 
-This puts $\vct{w}$ in the span of the original columns: a contradiction
+This puts $\vct{w}$ in the span of the original vectors: a contradiction
 
-Thus $d=0$ and $\mat{U}\vct{c}=\vct{0}$; independence of the original columns forces $\vct{c}=\vct{0}$
+Thus $d=0$ and $\mat{U}\vct{c}=\vct{0}$; independence of the original vectors forces $\vct{c}=\vct{0}$
 
 ::: {.key-point}
 Adding a vector outside the span increases reach without losing [uniqueness]{.alert}
@@ -974,6 +974,7 @@ First justify coordinate arithmetic, then choose coordinates for different kinds
 - [The coordinate map preserves linear combinations](#the-coordinate-map-preserves-linear-combinations)
 - [The coordinate map need *not* preserve lengths](#example-a-matrix-preserves-combinations-but-changes-lengths)
 - [Same vector, different coordinate columns](#same-vector-different-coordinate-columns)
+- [Basis directions locate every solution](#basis-directions-locate-every-solution)
 - [Coordinates describe polynomials and matrices](#polynomial-coefficients-are-coordinates-in-a-chosen-basis)
 
 ## A basis gives every vector unique coordinates {#a-basis-gives-every-vector-unique-coordinates}
@@ -1062,48 +1063,6 @@ a coordinate column need not equal the original vector's length. For the
 basis {[1,1]^T,[1,-1]^T}, b1 has length sqrt(2), while its coordinate column
 [1,0]^T has Euclidean length 1. General coordinates preserve algebra;
 geometry requires the inner product in those coordinates.
-:::
-
----
-
-### Polynomials build vectors; numerical matrices convert coordinates {#polynomials-and-their-numerical-coordinate-matrix}
-
-Use $\mathcal{B}=\{1,1+t,t^2\}$ and the reference basis $\mathcal{E}=\{1,t,t^2\}$
-
-[Polynomial entries]{.alert}: brackets describe a linear combination
-
-$$
-p=\begin{bmatrix}1&1+t&t^2\end{bmatrix}
-\begin{bmatrix}c_1\\c_2\\c_3\end{bmatrix}
-=c_1+c_2(1+t)+c_3t^2
-$$
-
-[Numerical entries]{.alert}: columns contain $[1]_{\mathcal{E}}$, $[1+t]_{\mathcal{E}}$, and $[t^2]_{\mathcal{E}}$
-
-$$
-[p]_{\mathcal{E}}=
-\underbrace{\begin{bmatrix}1&1&0\\0&1&0\\0&0&1\end{bmatrix}}_{\mat{A}}
-[p]_{\mathcal{B}},
-\qquad [p]_{\mathcal{B}}=\mat{A}^{-1}[p]_{\mathcal{E}}
-$$
-
-::: {.key-point}
-The polynomial row builds $p$; the numerical matrix $\mat{A}$ converts coordinate columns
-
-Before using a matrix inverse, identify a square matrix of scalar entries
-:::
-
-::: {.notes}
-The coordinate column [p]_B is [c_1,c_2,c_3]^top. Expanding gives
-[p]_E=[c_1+c_2,c_2,c_3]^top. The inverse numerical matrix is
-[[1,-1,0],[0,1,0],[0,0,1]]. For p=2+3t+t^2 it returns [-1,3,1]^top,
-which is used in the later worked coordinate-arithmetic example.
-The polynomial row is a 1-by-3 array, not the square scalar matrix A.
-Both expressions are useful, but the inverse in the displayed formula
-belongs to A. For a basis of R^n, the basis vectors are already numerical
-columns, so assembling those columns directly produces the square matrix.
-For other abstract vectors, choose a reference basis and assemble their
-coordinate columns, as shown here.
 :::
 
 ---
@@ -1328,6 +1287,50 @@ The jth coordinate multiplies the jth basis vector; their order matters.
 :::
 
 ---
+
+## Basis directions locate every solution {#basis-directions-locate-every-solution}
+
+Recall [the affine solution set in {{< meta decks.d06.short_title >}}]({{< meta decks.d06.file >}}#homogeneous-systems-produce-subspaces): one solution plus the null space
+
+For $x+2y=1$, choose a solution point and a direction basis:
+
+$$
+\vct{x}_p=\begin{bmatrix}1\\0\end{bmatrix},
+\qquad \vct{b}_1=\begin{bmatrix}-2\\1\end{bmatrix}
+$$
+
+The nonzero vector $\vct{b}_1$ gives a basis $\mathcal{B}=\{\vct{b}_1\}$ of $\operatorname{null}([1\ \ 2])$
+
+Every solution has the form
+
+$$
+\vct{x}=\vct{x}_p+t\vct{b}_1
+=\begin{bmatrix}1-2t\\t\end{bmatrix},
+\qquad [\vct{x}-\vct{x}_p]_{\mathcal{B}}=[t]
+$$
+
+The parameter $t$ is unique: it is the second entry of the solution
+
+::: {.key-point}
+The basis describes the [direction space]{.alert}, not the shifted line
+
+The parameter locates a solution relative to the chosen base point $\vct{x}_p$
+:::
+
+::: {.notes}
+The numerical matrix is A=[1 2]. Its null space consists of [-2t,t]^top,
+so the nonzero vector b1 spans it and is independent. The chosen xp satisfies
+A xp=1. Thus all solutions are xp+t b1, and y=t proves uniqueness directly.
+These are affine coordinates relative to xp and the listed direction basis.
+The shifted solution set is not a vector space under ordinary operations:
+it does not contain zero, and xp is not an additional basis vector of it.
+The coordinate column belongs to the displacement x-xp in null(A), not to x
+as a vector in that null space. Changing the base point changes t's origin;
+changing the direction basis rescales or recombines its coefficients.
+In general, for a consistent A x=b and a basis {b1,...,bk} of null(A),
+all solutions are xp+[b1 ... bk]c with a unique scalar column c.
+This answers the earlier free-variable question without requiring rank-nullity.
+:::
 
 ## Coordinates describe polynomials and matrices {#polynomial-coefficients-are-coordinates-in-a-chosen-basis}
 
@@ -1696,6 +1699,48 @@ For polynomials, functions, or matrices viewed as abstract vectors, first
 choose a reference basis E. The numerical conversion matrix then has columns
 [b_j]_E and maps B-coordinates to E-coordinates. It does not multiply the
 abstract vector itself as though it were already a numerical column.
+:::
+
+---
+
+### Polynomials build vectors; numerical matrices convert coordinates {#polynomials-and-their-numerical-coordinate-matrix}
+
+Use $\mathcal{B}=\{1,1+t,t^2\}$ and the reference basis $\mathcal{E}=\{1,t,t^2\}$
+
+[Polynomial entries]{.alert}: brackets describe a linear combination
+
+$$
+p=\begin{bmatrix}1&1+t&t^2\end{bmatrix}
+\begin{bmatrix}c_1\\c_2\\c_3\end{bmatrix}
+=c_1+c_2(1+t)+c_3t^2
+$$
+
+[Numerical entries]{.alert}: columns contain $[1]_{\mathcal{E}}$, $[1+t]_{\mathcal{E}}$, and $[t^2]_{\mathcal{E}}$
+
+$$
+[p]_{\mathcal{E}}=
+\underbrace{\begin{bmatrix}1&1&0\\0&1&0\\0&0&1\end{bmatrix}}_{\mat{A}}
+[p]_{\mathcal{B}},
+\qquad [p]_{\mathcal{B}}=\mat{A}^{-1}[p]_{\mathcal{E}}
+$$
+
+::: {.key-point}
+The polynomial row builds $p$; the numerical matrix $\mat{A}$ converts coordinate columns
+
+Before using a matrix inverse, identify a square matrix of scalar entries
+:::
+
+::: {.notes}
+The coordinate column [p]_B is [c_1,c_2,c_3]^top. Expanding gives
+[p]_E=[c_1+c_2,c_2,c_3]^top. The inverse numerical matrix is
+[[1,-1,0],[0,1,0],[0,0,1]]. For p=2+3t+t^2 it returns [-1,3,1]^top,
+as in the earlier worked coordinate-arithmetic example.
+The polynomial row is a 1-by-3 array, not the square scalar matrix A.
+Both expressions are useful, but the inverse in the displayed formula
+belongs to A. For a basis of R^n, the basis vectors are already numerical
+columns, so assembling those columns directly produces the square matrix.
+For other abstract vectors, choose a reference basis and assemble their
+coordinate columns, as shown here.
 :::
 
 ## Change of basis passes through the vector {#change-of-basis-passes-through-the-vector}
