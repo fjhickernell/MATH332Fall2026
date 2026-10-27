@@ -94,6 +94,8 @@ Mathematical content should be maintained only in the slides.
   - [x] Audit Decks 05–07 for flow, starred practice, and correctness; fill
     practice/answer-note gaps and clarify assumptions and preview pacing.
     Current audit and exercise counts are in `notes/CHAPTER4-AUDIT.md`.
+  - [x] Add paired gold-star proof exercises in Deck 06 on removing one vector
+    over real and binary scalar fields, with worked proofs in presenter notes.
   - [x] Refine Deck 07's action table and pivot-column example, add three
     starred exercises with answer notes, connect transformations to input
     and output coordinates, and consolidate the Course Map to seven entries.

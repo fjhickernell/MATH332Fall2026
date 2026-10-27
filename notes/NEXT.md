@@ -14,7 +14,7 @@ checkpoint; remote deployment and live-page verification remain pending.
 
 For October 27, the instructor aims to finish Bases and Coordinates. The
 October 26 local revisions clarify arbitrary vectors and numerical
-representations across Decks 06 and 07. Deck 06 now has 50 slides; Deck 07
+representations across Decks 06 and 07. Deck 06 now has 51 slides; Deck 07
 has 88, with conceptual section outlines, preserved examples/exercises,
 highlighted uniqueness, and a separate length-preservation topic. The
 monomial dimension example and practice now follow the dimension definition,
@@ -23,6 +23,14 @@ Review these revisions before teaching. The abstract-vector and coordinate-map
 changes are published in `6cebaa2`; the regression/PCA clarification below is
 included in this Checkpoint, with deployment/live verification pending. The
 notation convention is recorded in AUTHOR_WORKFLOW.md.
+
+Deck 06 also has paired gold-star proof exercises after the zero-vector test:
+removing one vector from a real vector space cannot leave a subspace, while an
+example over F2 can. Worked proofs are in presenter notes. Full website and
+twelve-deck renders, the new slide and outline layouts, and local links pass.
+These additions are included in this Checkpoint; remote deployment remains
+pending. Lecture preparation is complete per the Dashboard; the next action
+is to teach the recorded October 27 continuation.
 
 Regression/PCA clarification: a visible comparison distinguishes using
 explanatory data X and response y to fit y from representing X without using

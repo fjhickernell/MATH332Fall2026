@@ -359,8 +359,9 @@ Changing the scalar field changes which linear combinations are possible
 
 ::: {.notes}
 This compact extension beyond Anton's real-vector-space treatment provides a
-natural connection to binary linear codes. Return to real scalars for the
-remainder of the deck.
+natural connection to binary linear codes. Most of the remaining deck uses
+real scalars; the paired vector-removal exercises return briefly to
+$\mathbb{F}_2$.
 :::
 
 ---
@@ -704,6 +705,7 @@ the additive identity, so it fails the consequences of the axioms.
 - [A subspace inherits its operations](#a-subspace-inherits-its-operations)
 - [One combined test proves the subspace properties](#one-combined-test-proves-the-subspace-properties)
 - [The zero vector is the quickest rejection test](#the-zero-vector-is-the-quickest-rejection-test)
+- [Removing one vector: real and binary scalars](#removing-one-vector-real-and-binary-scalars)
 - [Upper-triangular matrices form a subspace](#upper-triangular-matrices-form-a-subspace)
 - [Homogeneous systems produce subspaces](#homogeneous-systems-produce-subspaces)
 
@@ -802,6 +804,44 @@ Take [1,0]^T and [0,1]^T. Their sum [1,1]^T is off both axes, so W is not
 closed under addition. Containing zero and being closed under scalar
 multiplication together are still insufficient. This is a necessary-versus-
 sufficient-condition example, not a new subspace test.
+:::
+
+## Removing one vector: real and binary scalars {#removing-one-vector-real-and-binary-scalars}
+
+Use the operations inherited from $V$ in both exercises
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Let $V$ be a vector space over $\reals$
+<span class="exsub">Prove that $V\setminus\{\vct{v}\}$ is not a subspace of $V$ for any $\vct{v}\in V$</span>
+<span class="exsub">Include both $\vct{v}=\vct{0}$ and $\vct{v}\ne\vct{0}$ in your proof</span>
+</span>
+:::
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Now use the scalar field $\mathbb{F}_2=\{0,1\}$, where $1+1=0$
+<span class="exsub">Construct a vector space $V$ over $\mathbb{F}_2$ and a vector $\vct{v}\in V$ such that $V\setminus\{\vct{v}\}$ is a subspace of $V$</span>
+<span class="exsub">Prove that your example satisfies the subspace test</span>
+</span>
+:::
+
+::: {.notes}
+For real scalars, if $\vct{v}=\vct{0}$, the remaining set has no zero vector,
+so it is not a subspace; this also covers $V=\{\vct{0}\}$, when the remainder
+is empty. If $\vct{v}\ne\vct{0}$, then $2\vct{v}\ne\vct{v}$ by additive
+cancellation, so $2\vct{v}\in V\setminus\{\vct{v}\}$. But multiplying it by
+$1/2$ gives the removed vector. Thus scalar-multiplication closure fails.
+This argument uses only the vector-space axioms and applies to arbitrary
+real vector spaces, including infinite-dimensional ones.
+
+For binary scalars, take $V=\mathbb{F}_2$ as a vector space over itself, with
+its field operations, and remove $\vct{v}=1$. The remaining set is $\{0\}$.
+It contains the zero vector, $0+0=0$, and $c\,0=0$ for either scalar $c=0,1$;
+therefore it is a subspace. This is an existence claim, not a claim that one
+vector can be removed from every vector space over $\mathbb{F}_2$.
+The real-scalar argument cannot be reused: in $\mathbb{F}_2$, $2=0$ and
+there is no scalar $1/2$.
 :::
 
 ## Upper-triangular matrices form a subspace {#upper-triangular-matrices-form-a-subspace}
