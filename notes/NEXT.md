@@ -1,32 +1,28 @@
 # Next task
 
-## October 27 clarity review — ready for teaching
-
-The instructor's vector-removal follow-up is included in this checkpoint:
-both real/F2 prompts are open-ended, without redundant reasoning instructions.
-The binary case adds “What is v+v?”; presenter notes give the derivation.
-Remote deployment and live verification remain pending.
+## October 27 coordinate review — ready for teaching
 
 Resume at “Build a basis by adding or removing vectors” (slide 34 of the
-current 89-slide Deck 07), then its independence proof, the scalar-field
-example, and “Coordinates and Their Arithmetic.” Revisit the relocated
-monomial/dimension practice if needed. The October 22 recording and the
-October 27 calendar note still determine this pickup; no new lecture
-coverage is inferred from these editorial changes.
+current 90-slide Deck 07), then its independence proof, scalar-field example,
+and “Coordinates and Their Arithmetic.” Revisit the relocated monomial/dimension
+practice if needed. The October 22 recording and October 27 calendar note
+still determine this pickup; editorial changes do not
+establish new lecture coverage.
 
-Deck 06 separates Subspaces and Closure from Spans and Membership and marks
-the polynomial minimal-spanning question for return after dimension. Deck 07
-separates Independence and Redundancy from Bases and Unique Representations,
-keeps coordinate arithmetic together before numerical change of basis, and
-adds one worked affine-solution example: a null-space basis gives unique
-parameters relative to a particular solution. The extension proof explicitly
-uses abstract vectors in V. All prior examples, exercises and named anchors
-remain. Decks 06 and 07 now have 51 and 89 slides including titles.
+The coordinate sequence now moves from the standard basis and same-vector
+example to arithmetic. It pairs expanded sums with basis-row products, uses
+full coordinate columns where they fit, highlights [x]_E=x in R^n, and builds
+transition columns through a concrete polynomial example before the general
+rule. The PCA calculation displays the full numerical product XQ=S with
+aligned input and score rows. All prior examples, 20 Deck 07 exercise sets,
+and named anchors remain; Decks 06 and 07 have 51 and 90 slides.
 
-These review edits are included in the October 27 checkpoint; remote deployment
-and live verification remain pending. Test 2 coverage still ends at dimension;
-coordinates and transformations remain excluded. Detailed review and validation
-are in `notes/CHAPTER4-AUDIT.md`.
+These revisions and the notation conventions in AUTHOR_WORKFLOW.md are
+included in this Checkpoint. Local validation is recorded in
+`notes/CHAPTER4-AUDIT.md`; remote deployment and live verification remain
+pending. Test 2 coverage still ends at dimension, excluding coordinates and
+transformations. Its remaining private preparation and course actions are
+listed below.
 
 ## October 27 lecture continuation
 

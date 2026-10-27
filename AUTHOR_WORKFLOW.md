@@ -472,7 +472,10 @@ calendar unchanged and check again later.
   `\vct{u}` and `\vct{b}` may denote whole polynomials, functions, or matrices;
   vector typography does not require numerical columns. A bracketed row
   `[v_1 ... v_k]` may collect abstract vectors and its product with a scalar
-  column denotes their linear combination. Call it a numerical matrix only
+  column denotes their linear combination. In coordinate examples, show both
+  the expanded sum and the row-times-coordinate product wherever they fit
+  clearly, reinforcing their equivalence. For a polynomial basis, the row
+  contains whole polynomials. Call it a numerical matrix only
   when its scalar entries have been identified, directly from numerical
   columns or from coordinates in a stated reference basis. Label this switch
   before elimination, transpose/dot-product arguments, determinants, or
@@ -485,10 +488,11 @@ calendar unchanged and check again later.
 - Write transposes with `^\top`, such as $\mat{A}^\top$
 - Use square brackets for numerical vector rows and columns, and parentheses
   for geometric points. Use braces for bases; coordinates follow the listed
-  order. Compact column
-  vectors may use `[a,b,...]^\top`; prefer an explicit vertical
-  `bmatrix` in displayed set definitions so no transpose is needed merely
-  to specify a column. Parentheses remain appropriate for abstract ordered
+  order. Prefer explicit vertical `bmatrix` columns for vectors and coordinate
+  columns whenever space permits. Reserve `[a,b,...]^\top` for places where
+  full columns would crowd the layout, such as dense tables or inline
+  descriptions. Use explicit columns in displayed set definitions whenever
+  they fit. Parentheses remain appropriate for abstract ordered
   pairs when no row or column orientation is intended.
 - Use lowercase mathematical operators `col`, `row`, and `null` in course
   slides and notebooks. Represent row-space vectors as columns, so

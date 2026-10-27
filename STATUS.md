@@ -80,6 +80,9 @@ Mathematical content should be maintained only in the slides.
     Verification and scope are recorded in `notes/CHAPTER4-AUDIT.md`.
   - [ ] Complete instructor-led content and visible-layout review of these
     three Chapter 4 decks.
+  - [x] Clarify Deck 07 coordinates, standard-basis identification and
+    transition columns; pair sums with products, prefer full columns, and
+    display the complete numerical PCA product XQ=S for direct comparison.
   - [x] Add an opening motivation bridge in Bases and Coordinates connecting
     linear combinations, span, independence, bases, and coordinates through
     transformed grids, polynomial differentiation by a coordinate matrix,

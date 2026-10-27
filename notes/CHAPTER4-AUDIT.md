@@ -15,6 +15,89 @@ and matrix representations. It preserves every previous example, the 14
 Deck 06 and 20 Deck 07 exercise sets, and all previous explicit anchors.
 No assessment content or coverage changes are part of this review.
 
+The opening concept table now explicitly names V as a vector space and includes
+Subspace: W is a subset containing zero and closed under linear combinations.
+The row sits between Linear combination and Span. The revised deck renders
+without warnings; the expanded table and takeaway fit in the browser preview.
+The coordinate section now pairs expanded sums with row-times-coordinate
+products throughout the standard and alternative vector bases, coordinate
+arithmetic, affine solution directions, polynomial bases, and symmetric-matrix
+example. Polynomial rows contain whole polynomials; the symmetric-matrix row
+contains whole basis matrices. Redundant-generator coefficients remain weights,
+distinct from unique coordinates in a basis. This convention is recorded in
+AUTHOR_WORKFLOW.md.
+
+Deck 07 renders without warnings. All revised coordinate layouts were checked
+at 1280×720; the line comparison and symmetric-matrix slide keep both sum and
+product forms without footer overlap. Exact reconstruction checks pass. The 89
+slides, 20 exercise sets, and previous explicit anchors are preserved. These
+table and coordinate edits are included in this Checkpoint; remote deployment
+and live verification remain pending.
+
+Instructor notation follow-up: use explicit column vectors wherever space
+permits, reserving transposed rows for crowded layouts. Expanded the columns in
+the coordinate arithmetic, basis definitions and exercises, oscillator, PCA
+observation, and frame examples. The arithmetic example combines its input
+polynomials into one line and labels their full coordinate columns in the
+calculation. Genuine transpose operations are unchanged. AUTHOR_WORKFLOW.md
+records this preference; the revised layouts and warning-free render pass.
+
+Transition-column clarification: the original anchor now opens a P1 example
+with B={1,1+t} and C={1,t}, showing each old basis polynomial's old and new
+coordinate columns and the resulting numerical conversion matrix. A new
+continuation derives the column rule from the explicit equality [b_j]_B=e_j
+and explains that each bracketed term is a whole numerical column. The
+preceding R^n slide names Q=P_C^{-1}P_B and explains its direction; presenter
+notes distinguish rebuilding a vector from reading its coordinates. The
+sequence now has 90 slides, retains all prior anchors and 20 exercise sets,
+and leaves the teaching pickup unchanged. The three revised layouts, exact
+conversion calculations, and warning-free render pass. These edits are
+included in this Checkpoint; remote deployment and live verification remain
+pending.
+
+Standard-basis emphasis: the existing standard-basis slide highlights that
+[x]_E=x in R^n. The numerical basis-matrix slide uses E consistently in that
+identity and the change-of-basis route labels its middle vector x=[x]_E,
+making the standard-coordinate identification explicit. No slides or exercises
+are added by this follow-up. All three revised layouts fit at 1280×720; the
+90-slide render has no warnings and the source checks pass.
+
+Final coordinate clarity pass: move the same-vector/two-bases example and its
+practice immediately after the standard basis, before the general coordinate
+map. Update the section outline accordingly. Use alpha/beta consistently for
+scalar weights and explain the one-to-one/onto property in plain language.
+Show the polynomial arithmetic inputs expanded in their chosen basis before
+reading their coordinate columns. Remove the repeated linearity calculation
+from the length slide, retaining its length calculation, criterion and
+orthonormal-basis definition, with full columns in the freed space. Call the
+nonstandard basis {1,t,1+t^2} D rather than E. Clarify that another basis can
+change a polynomial's coordinates and describe the identity transformation as
+T(v)=v, avoiding confusion with an identity matrix. The abstract-vector,
+sum/product, standard-basis, affine-displacement and transition-column
+explanations remain. No examples, exercise sets or anchors are removed, and
+the deck remains 90 slides. Exact reconstruction and length checks pass; the
+deck renders without warnings. Changed layouts fit at 1280×720, the outline
+matches the new order, and the source style and whitespace checks pass.
+
+PCA comparison follow-up: spell out Principal Component Analysis (PCA) in the
+overview table. The score-calculation slide now displays the full numerical
+product XQ=S, with matching observation rows aligned in X and S. Keep the
+square-root-of-two score factor visible. The second columns have squared
+lengths 482 and 68 respectively; this compares overall variation rather than
+claiming that every score entry has smaller magnitude. All eight observations,
+the basis matrix, score values and dimensions, and coordinate interpretations
+remain unchanged. Exact multiplication, the warning-free render and the final
+1280×720 layout pass; the first observation's coordinates use a full column.
+
+Checkpoint validation: the complete website and all twelve decks render
+without warnings. The assembled output passes 1,938 local link/asset checks
+across 26 pages/decks and all twelve deck navigation records. Previous build
+and Pages runs succeeded. All 20 exercise sets and prior anchors remain;
+exact arithmetic, slide-source style, whitespace, and assessment-confidentiality
+checks pass. AUTHOR_WORKFLOW.md, STATUS.md and the immediate handoff are
+reconciled. Remote publication of this Checkpoint remains separate from these
+local checks.
+
 Instructor follow-up: keep the paired real/F2 vector-removal exercises
 open-ended. Ask whether removing a vector could leave a subspace; do not
 disclose either conclusion, prescribe the zero/nonzero case split, or add
@@ -41,9 +124,10 @@ and follow-up are included in this checkpoint; remote deployment remains pending
   vectors, avoiding a switch to numerical-column language inside the proof.
 
 The October 22 ledger's pickup remains “Build a basis by adding or removing
-vectors” (34/89), then the remaining dimension material and coordinates.
+vectors” (34/90), then the remaining dimension material and coordinates.
 The relocated monomial practice can be revisited. The new slide increases
-Deck 07 from 88 to 89 slides; Deck 06 remains 51, including title slides.
+Deck 07 from 88 to 89 slides; the subsequent transition-column clarification
+brings it to 90. Deck 06 remains 51, including title slides.
 
 Validation: the complete website and all twelve decks render without warnings.
 Both revised decks were refreshed after wording fixes. All 120 local links
