@@ -986,7 +986,7 @@ New examples
 <p>Changing the scalar field changes which linear combinations are possible</p>
 </div>
 <aside class="notes">
-<p>This compact extension beyond Anton’s real-vector-space treatment provides a natural connection to binary linear codes. Return to real scalars for the remainder of the deck.</p>
+<p>This compact extension beyond Anton’s real-vector-space treatment provides a natural connection to binary linear codes. Most of the remaining deck uses real scalars; the paired vector-removal exercises return briefly to <span class="math inline">\(\mathbb{F}_2\)</span>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1278,6 +1278,7 @@ W=\left\{t\begin{bmatrix}3\\1\end{bmatrix}:t\in\reals\right\}
 <li><a href="#/a-subspace-inherits-its-operations">A subspace inherits its operations</a></li>
 <li><a href="#/one-combined-test-proves-the-subspace-properties">One combined test proves the subspace properties</a></li>
 <li><a href="#/the-zero-vector-is-the-quickest-rejection-test">The zero vector is the quickest rejection test</a></li>
+<li><a href="#/removing-one-vector-real-and-binary-scalars">Removing one vector: real and binary scalars</a></li>
 <li><a href="#/upper-triangular-matrices-form-a-subspace">Upper-triangular matrices form a subspace</a></li>
 <li><a href="#/homogeneous-systems-produce-subspaces">Homogeneous systems produce subspaces</a></li>
 </ul>
@@ -1350,6 +1351,30 @@ W=\left\{\begin{bmatrix}x\\y\end{bmatrix}:xy=0\right\}
 </div>
 <aside class="notes">
 <p>Take [1,0]^T and [0,1]^T. Their sum [1,1]^T is off both axes, so W is not closed under addition. Containing zero and being closed under scalar multiplication together are still insufficient. This is a necessary-versus- sufficient-condition example, not a new subspace test.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="removing-one-vector-real-and-binary-scalars" class="slide level2">
+<h2>Removing one vector: real and binary scalars</h2>
+<p>Use the operations inherited from <span class="math inline">\(V\)</span> in both exercises</p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Let <span class="math inline">\(V\)</span> be a vector space over <span class="math inline">\(\reals\)</span> <span class="exsub">Prove that <span class="math inline">\(V\setminus\{\vct{v}\}\)</span> is not a subspace of <span class="math inline">\(V\)</span> for any <span class="math inline">\(\vct{v}\in V\)</span></span> <span class="exsub">Include both <span class="math inline">\(\vct{v}=\vct{0}\)</span> and <span class="math inline">\(\vct{v}\ne\vct{0}\)</span> in your proof</span> </span></p>
+</div>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Now use the scalar field <span class="math inline">\(\mathbb{F}_2=\{0,1\}\)</span>, where <span class="math inline">\(1+1=0\)</span> <span class="exsub">Construct a vector space <span class="math inline">\(V\)</span> over <span class="math inline">\(\mathbb{F}_2\)</span> and a vector <span class="math inline">\(\vct{v}\in V\)</span> such that <span class="math inline">\(V\setminus\{\vct{v}\}\)</span> is a subspace of <span class="math inline">\(V\)</span></span> <span class="exsub">Prove that your example satisfies the subspace test</span> </span></p>
+</div>
+<aside class="notes">
+<p>For real scalars, if <span class="math inline">\(\vct{v}=\vct{0}\)</span>, the remaining set has no zero vector, so it is not a subspace; this also covers <span class="math inline">\(V=\{\vct{0}\}\)</span>, when the remainder is empty. If <span class="math inline">\(\vct{v}\ne\vct{0}\)</span>, then <span class="math inline">\(2\vct{v}\ne\vct{v}\)</span> by additive cancellation, so <span class="math inline">\(2\vct{v}\in V\setminus\{\vct{v}\}\)</span>. But multiplying it by <span class="math inline">\(1/2\)</span> gives the removed vector. Thus scalar-multiplication closure fails. This argument uses only the vector-space axioms and applies to arbitrary real vector spaces, including infinite-dimensional ones.</p>
+<p>For binary scalars, take <span class="math inline">\(V=\mathbb{F}_2\)</span> as a vector space over itself, with its field operations, and remove <span class="math inline">\(\vct{v}=1\)</span>. The remaining set is <span class="math inline">\(\{0\}\)</span>. It contains the zero vector, <span class="math inline">\(0+0=0\)</span>, and <span class="math inline">\(c\,0=0\)</span> for either scalar <span class="math inline">\(c=0,1\)</span>; therefore it is a subspace. This is an existence claim, not a claim that one vector can be removed from every vector space over <span class="math inline">\(\mathbb{F}_2\)</span>. The real-scalar argument cannot be reused: in <span class="math inline">\(\mathbb{F}_2\)</span>, <span class="math inline">\(2=0\)</span> and there is no scalar <span class="math inline">\(1/2\)</span>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
