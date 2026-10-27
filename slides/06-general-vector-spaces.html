@@ -721,7 +721,7 @@ In this deck
 <ul>
 <li><a href="#/from-euclidean-vectors-to-vector-spaces">From Euclidean Vectors to Vector Spaces</a></li>
 <li><a href="#/vectors-beyond-coordinate-columns">Vectors Beyond Coordinate Columns</a></li>
-<li><a href="#/subspaces-and-span">Subspaces and Span</a></li>
+<li><a href="#/subspaces-and-span">Subspaces and Closure</a></li>
 <li><a href="#/spans-and-membership">Spans and Membership</a></li>
 <li><a href="#/big-ideas">Big Ideas</a></li>
 </ul>
@@ -1273,7 +1273,7 @@ W=\left\{t\begin{bmatrix}3\\1\end{bmatrix}:t\in\reals\right\}
 </section></section>
 <section>
 <section id="subspaces-and-span" class="title-slide slide level1 center">
-<h1>Subspaces and Span</h1>
+<h1>Subspaces and Closure</h1>
 <ul>
 <li><a href="#/a-subspace-inherits-its-operations">A subspace inherits its operations</a></li>
 <li><a href="#/one-combined-test-proves-the-subspace-properties">One combined test proves the subspace properties</a></li>
@@ -1499,6 +1499,19 @@ U=\{\mat{A}\in\reals^{n\times n}:a_{ij}=0\text{ whenever }i&gt;j\}
 <div class="key-point">
 <p>Span answers a reachability question: which vectors can these generators build?</p>
 </div>
+<aside class="notes">
+<p>The span is nonempty because zero coefficients produce the zero vector. If u and v are combinations of the generators with scalar columns a and b, then cu+dv uses coefficients ca+db, so the span is closed under linear combinations. Any subspace containing the generators must contain all these combinations; this proves the smallest-subspace claim without assuming bases or dimension.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -1709,7 +1722,7 @@ U=\operatorname{span}\{t,t^2,t^3\}
 W=\{p\in\mathbb{P}_3:p(1)=0\}
 \]</span></p>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Show that <span class="math inline">\(W\)</span> is a subspace of <span class="math inline">\(\mathbb{P}_3\)</span> <span class="exsub">Start with <span class="math inline">\(p,q\in W\)</span> and <span class="math inline">\(c,d\in\reals\)</span></span> <span class="exsub">Evaluate <span class="math inline">\((cp+dq)(1)\)</span></span> <span class="exsub">Find three polynomials that span <span class="math inline">\(W\)</span></span> <span class="exsub">Can fewer than three polynomials span <span class="math inline">\(W\)</span>? Why?</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Show that <span class="math inline">\(W\)</span> is a subspace of <span class="math inline">\(\mathbb{P}_3\)</span> <span class="exsub">Start with <span class="math inline">\(p,q\in W\)</span> and <span class="math inline">\(c,d\in\reals\)</span></span> <span class="exsub">Evaluate <span class="math inline">\((cp+dq)(1)\)</span></span> <span class="exsub">Find three polynomials that span <span class="math inline">\(W\)</span></span> <span class="exsub">Can fewer than three polynomials span <span class="math inline">\(W\)</span>? <a href="07-bases-dimension-and-coordinates.html#an-independent-list-cannot-outnumber-a-spanning-list">Revisit after the dimension argument</a></span> </span></p>
 </div>
 <aside class="notes">
 <p>Since <span class="math inline">\(p(1)=q(1)=0\)</span>, <span class="math inline">\((cp+dq)(1)=0\)</span>. Every polynomial in <span class="math inline">\(W\)</span> factors as <span class="math inline">\((t-1)(a+bt+ct^2)\)</span>, so one spanning set is <span class="math inline">\(\{t-1,t(t-1),t^2(t-1)\}\)</span>. The coefficients <span class="math inline">\((a,b,c)\)</span> range over all of <span class="math inline">\(\reals^3\)</span>; two chosen polynomials yield at most two coefficient columns and cannot span that three-dimensional coefficient space. Thus no set of fewer than three polynomials spans <span class="math inline">\(W\)</span>.</p>

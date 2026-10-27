@@ -691,7 +691,7 @@ In this deck
 <div style="font-size: 0.9em;">
 <ul>
 <li><a href="#/why-span-bases-and-coordinates">Why Span, Bases, and Coordinates?</a></li>
-<li><a href="#/independence-and-bases">Independence and Bases</a></li>
+<li><a href="#/independence-and-bases">Independence and Redundancy</a></li>
 <li><a href="#/bases-and-unique-representations">Bases and Unique Representations</a></li>
 <li><a href="#/dimension-and-coordinates">Dimension: Why Basis Size Is Fixed</a></li>
 <li><a href="#/coordinates-in-a-chosen-basis">Coordinates and Their Arithmetic</a></li>
@@ -981,7 +981,7 @@ In this deck
 </section></section>
 <section>
 <section id="independence-and-bases" class="title-slide slide level1 center">
-<h1>Independence and Bases</h1>
+<h1>Independence and Redundancy</h1>
 <p>When can two coefficient lists build the same vector?<br> The zero-vector test detects precisely that ambiguity</p>
 <ul>
 <li><a href="#/independence-means-the-zero-vector-has-one-construction">Independence means the zero vector has one construction</a></li>
@@ -1519,7 +1519,7 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 <p>Assume <span class="math inline">\(V\)</span> has a finite basis <span class="math inline">\(\{\vct{b}_1,\ldots,\vct{b}_n\}\)</span></p>
 <p><span class="alert">Start with a finite spanning list</span></p>
 <p>Remove a redundant vector using a dependence relation; repeat until independent<br> The span stays <span class="math inline">\(V\)</span>, so the remaining list is a basis</p>
-<p><span class="alert">Start with an independent list</span></p>
+<p><span class="alert">Start with an independent list in <span class="math inline">\(V\)</span></span></p>
 <p>Consider <span class="math inline">\(\vct{b}_1,\ldots,\vct{b}_n\)</span> in turn; append each one outside the current span<br> Appending such a vector preserves independence<br> Afterward every <span class="math inline">\(\vct{b}_j\)</span> lies in the span, so the list spans <span class="math inline">\(V\)</span> and is a basis</p>
 <div class="key-point">
 <p>Trim while preserving reach; grow while preserving <span class="alert">uniqueness</span></p>
@@ -1541,7 +1541,7 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 <section class="slide level2">
 
 <h3 id="why-a-new-direction-preserves-independence">Why a new direction preserves independence</h3>
-<p>Let <span class="math inline">\(\mat{U}=[\vct{u}_1\ \cdots\ \vct{u}_r]\)</span> have independent columns, with <span class="math inline">\(\vct{w}\notin\operatorname{span}\{\vct{u}_1,\ldots,\vct{u}_r\}\)</span></p>
+<p>Let <span class="math inline">\(\mat{U}=[\vct{u}_1\ \cdots\ \vct{u}_r]\)</span> be a <span class="alert">row of independent vectors in <span class="math inline">\(V\)</span></span>, with <span class="math inline">\(\vct{w}\notin\operatorname{span}\{\vct{u}_1,\ldots,\vct{u}_r\}\)</span></p>
 <p>Test a zero combination in the enlarged list:</p>
 <p><span class="math display">\[
 [\mat{U}\ \vct{w}]
@@ -1552,8 +1552,8 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 <p><span class="math display">\[
 \vct{w}=\mat{U}\!\left(-\frac{\vct{c}}{d}\right)
 \]</span></p>
-<p>This puts <span class="math inline">\(\vct{w}\)</span> in the span of the original columns: a contradiction</p>
-<p>Thus <span class="math inline">\(d=0\)</span> and <span class="math inline">\(\mat{U}\vct{c}=\vct{0}\)</span>; independence of the original columns forces <span class="math inline">\(\vct{c}=\vct{0}\)</span></p>
+<p>This puts <span class="math inline">\(\vct{w}\)</span> in the span of the original vectors: a contradiction</p>
+<p>Thus <span class="math inline">\(d=0\)</span> and <span class="math inline">\(\mat{U}\vct{c}=\vct{0}\)</span>; independence of the original vectors forces <span class="math inline">\(\vct{c}=\vct{0}\)</span></p>
 <div class="key-point">
 <p>Adding a vector outside the span increases reach without losing <span class="alert">uniqueness</span></p>
 </div>
@@ -1610,6 +1610,7 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 <li><a href="#/the-coordinate-map-preserves-linear-combinations">The coordinate map preserves linear combinations</a></li>
 <li><a href="#/example-a-matrix-preserves-combinations-but-changes-lengths">The coordinate map need <em>not</em> preserve lengths</a></li>
 <li><a href="#/same-vector-different-coordinate-columns">Same vector, different coordinate columns</a></li>
+<li><a href="#/basis-directions-locate-every-solution">Basis directions locate every solution</a></li>
 <li><a href="#/polynomial-coefficients-are-coordinates-in-a-chosen-basis">Coordinates describe polynomials and matrices</a></li>
 </ul>
 </section>
@@ -1669,41 +1670,6 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 </div>
 <aside class="notes">
 <p>This is a statement about linear structure. The ordinary Euclidean length of a coordinate column need not equal the original vector’s length. For the basis {[1,1]<sup>T,[1,-1]</sup>T}, b1 has length sqrt(2), while its coordinate column [1,0]^T has Euclidean length 1. General coordinates preserve algebra; geometry requires the inner product in those coordinates.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section class="slide level2">
-
-<h3 id="polynomials-and-their-numerical-coordinate-matrix">Polynomials build vectors; numerical matrices convert coordinates</h3>
-<p>Use <span class="math inline">\(\mathcal{B}=\{1,1+t,t^2\}\)</span> and the reference basis <span class="math inline">\(\mathcal{E}=\{1,t,t^2\}\)</span></p>
-<p><span class="alert">Polynomial entries</span>: brackets describe a linear combination</p>
-<p><span class="math display">\[
-p=\begin{bmatrix}1&amp;1+t&amp;t^2\end{bmatrix}
-\begin{bmatrix}c_1\\c_2\\c_3\end{bmatrix}
-=c_1+c_2(1+t)+c_3t^2
-\]</span></p>
-<p><span class="alert">Numerical entries</span>: columns contain <span class="math inline">\([1]_{\mathcal{E}}\)</span>, <span class="math inline">\([1+t]_{\mathcal{E}}\)</span>, and <span class="math inline">\([t^2]_{\mathcal{E}}\)</span></p>
-<p><span class="math display">\[
-[p]_{\mathcal{E}}=
-\underbrace{\begin{bmatrix}1&amp;1&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;1\end{bmatrix}}_{\mat{A}}
-[p]_{\mathcal{B}},
-\qquad [p]_{\mathcal{B}}=\mat{A}^{-1}[p]_{\mathcal{E}}
-\]</span></p>
-<div class="key-point">
-<p>The polynomial row builds <span class="math inline">\(p\)</span>; the numerical matrix <span class="math inline">\(\mat{A}\)</span> converts coordinate columns</p>
-<p>Before using a matrix inverse, identify a square matrix of scalar entries</p>
-</div>
-<aside class="notes">
-<p>The coordinate column [p]_B is [c_1,c_2,c_3]^top. Expanding gives [p]_E=[c_1+c_2,c_2,c_3]^top. The inverse numerical matrix is [[1,-1,0],[0,1,0],[0,0,1]]. For p=2+3t+t^2 it returns [-1,3,1]^top, which is used in the later worked coordinate-arithmetic example. The polynomial row is a 1-by-3 array, not the square scalar matrix A. Both expressions are useful, but the inverse in the displayed formula belongs to A. For a basis of R^n, the basis vectors are already numerical columns, so assembling those columns directly produces the square matrix. For other abstract vectors, choose a reference basis and assemble their coordinate columns, as shown here.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1873,6 +1839,40 @@ q=1-t+2t^2,
 </div>
 <aside class="notes">
 <p>The first column means u = 1 b1 + 0 b2 = [1,1]^T. The second means v = 1 e1 + 0 e2 = [1,0]^T, a different vector despite identical coordinate entries. With B’ = {b2,b1} in the reversed order (the same underlying set), x = 2 b2 + 3 b1, so its coordinates are [2,3]^T. The jth coordinate multiplies the jth basis vector; their order matters.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="basis-directions-locate-every-solution" class="slide level2">
+<h2>Basis directions locate every solution</h2>
+<p>Recall <a href="06-general-vector-spaces.html#homogeneous-systems-produce-subspaces">the affine solution set in Vector Spaces and Span</a>: one solution plus the null space</p>
+<p>For <span class="math inline">\(x+2y=1\)</span>, choose a solution point and a direction basis:</p>
+<p><span class="math display">\[
+\vct{x}_p=\begin{bmatrix}1\\0\end{bmatrix},
+\qquad \vct{b}_1=\begin{bmatrix}-2\\1\end{bmatrix}
+\]</span></p>
+<p>The nonzero vector <span class="math inline">\(\vct{b}_1\)</span> gives a basis <span class="math inline">\(\mathcal{B}=\{\vct{b}_1\}\)</span> of <span class="math inline">\(\operatorname{null}([1\ \ 2])\)</span></p>
+<p>Every solution has the form</p>
+<p><span class="math display">\[
+\vct{x}=\vct{x}_p+t\vct{b}_1
+=\begin{bmatrix}1-2t\\t\end{bmatrix},
+\qquad [\vct{x}-\vct{x}_p]_{\mathcal{B}}=[t]
+\]</span></p>
+<p>The parameter <span class="math inline">\(t\)</span> is unique: it is the second entry of the solution</p>
+<div class="key-point">
+<p>The basis describes the <span class="alert">direction space</span>, not the shifted line</p>
+<p>The parameter locates a solution relative to the chosen base point <span class="math inline">\(\vct{x}_p\)</span></p>
+</div>
+<aside class="notes">
+<p>The numerical matrix is A=[1 2]. Its null space consists of [-2t,t]^top, so the nonzero vector b1 spans it and is independent. The chosen xp satisfies A xp=1. Thus all solutions are xp+t b1, and y=t proves uniqueness directly. These are affine coordinates relative to xp and the listed direction basis. The shifted solution set is not a vector space under ordinary operations: it does not contain zero, and xp is not an additional basis vector of it. The coordinate column belongs to the displacement x-xp in null(A), not to x as a vector in that null space. Changing the base point changes t’s origin; changing the direction basis rescales or recombines its coefficients. In general, for a consistent A x=b and a basis {b1,…,bk} of null(A), all solutions are xp+[b1 … bk]c with a unique scalar column c. This answers the earlier free-variable question without requiring rank-nullity.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2188,6 +2188,41 @@ p=-1(1)+4t+3(1+t^2),
 </div>
 <aside class="notes">
 <p>This numerical basis-matrix formula assumes V=R^n and exactly n basis vectors. For a proper subspace of R^m, the basis matrix is rectangular; solve P_B c=x for x in the subspace rather than write P_B^{-1}. For polynomials, functions, or matrices viewed as abstract vectors, first choose a reference basis E. The numerical conversion matrix then has columns [b_j]_E and maps B-coordinates to E-coordinates. It does not multiply the abstract vector itself as though it were already a numerical column.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="polynomials-and-their-numerical-coordinate-matrix">Polynomials build vectors; numerical matrices convert coordinates</h3>
+<p>Use <span class="math inline">\(\mathcal{B}=\{1,1+t,t^2\}\)</span> and the reference basis <span class="math inline">\(\mathcal{E}=\{1,t,t^2\}\)</span></p>
+<p><span class="alert">Polynomial entries</span>: brackets describe a linear combination</p>
+<p><span class="math display">\[
+p=\begin{bmatrix}1&amp;1+t&amp;t^2\end{bmatrix}
+\begin{bmatrix}c_1\\c_2\\c_3\end{bmatrix}
+=c_1+c_2(1+t)+c_3t^2
+\]</span></p>
+<p><span class="alert">Numerical entries</span>: columns contain <span class="math inline">\([1]_{\mathcal{E}}\)</span>, <span class="math inline">\([1+t]_{\mathcal{E}}\)</span>, and <span class="math inline">\([t^2]_{\mathcal{E}}\)</span></p>
+<p><span class="math display">\[
+[p]_{\mathcal{E}}=
+\underbrace{\begin{bmatrix}1&amp;1&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;1\end{bmatrix}}_{\mat{A}}
+[p]_{\mathcal{B}},
+\qquad [p]_{\mathcal{B}}=\mat{A}^{-1}[p]_{\mathcal{E}}
+\]</span></p>
+<div class="key-point">
+<p>The polynomial row builds <span class="math inline">\(p\)</span>; the numerical matrix <span class="math inline">\(\mat{A}\)</span> converts coordinate columns</p>
+<p>Before using a matrix inverse, identify a square matrix of scalar entries</p>
+</div>
+<aside class="notes">
+<p>The coordinate column [p]_B is [c_1,c_2,c_3]^top. Expanding gives [p]_E=[c_1+c_2,c_2,c_3]^top. The inverse numerical matrix is [[1,-1,0],[0,1,0],[0,0,1]]. For p=2+3t+t^2 it returns [-1,3,1]^top, as in the earlier worked coordinate-arithmetic example. The polynomial row is a 1-by-3 array, not the square scalar matrix A. Both expressions are useful, but the inverse in the displayed formula belongs to A. For a basis of R^n, the basis vectors are already numerical columns, so assembling those columns directly produces the square matrix. For other abstract vectors, choose a reference basis and assemble their coordinate columns, as shown here.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
