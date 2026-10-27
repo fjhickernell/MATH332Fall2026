@@ -729,7 +729,7 @@ In this deck
 </section>
 <section id="from-building-vectors-to-giving-them-addresses" class="slide level2" data-state="goldborder">
 <h2>From building vectors to giving them addresses</h2>
-<p>Use a <span class="alert">row of vectors</span> <span class="math inline">\([\vct{b}_1\ \cdots\ \vct{b}_k]\)</span> from <span class="math inline">\(V\)</span> and a scalar column <span class="math inline">\(\vct{c}=[c_1,\ldots,c_k]^\top\)</span></p>
+<p>Use a <span class="alert">row of vectors</span> <span class="math inline">\([\vct{b}_1\ \cdots\ \vct{b}_k]\)</span> from the vector space <span class="math inline">\(V\)</span> and a scalar column <span class="math inline">\(\vct{c}=[c_1,\ldots,c_k]^\top\)</span></p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 33%">
@@ -750,26 +750,31 @@ In this deck
 <td>Builds one vector from chosen weights</td>
 </tr>
 <tr class="even">
+<td><span class="alert">Subspace</span></td>
+<td><span class="math inline">\(W\subseteq V\)</span></td>
+<td>Contains zero and is closed under linear combinations</td>
+</tr>
+<tr class="odd">
 <td><span class="alert">Span</span></td>
 <td><span class="math inline">\(\operatorname{span}\{\vct{b}_1,\ldots,\vct{b}_k\}\)</span></td>
 <td>Collects all vectors we can build</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><span class="alert">Linear independence</span></td>
 <td><span class="math inline">\(c_1\vct{b}_1+\cdots+c_k\vct{b}_k=[\vct{b}_1\ \cdots\ \vct{b}_k]\vct{c}=\vct{0}\)</span><br><span class="math inline">\(\implies c_1=\cdots=c_k=0\quad(\vct{c}=\vct{0})\)</span></td>
 <td>Makes the coefficients <span class="alert">unique</span></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><span class="alert">Basis</span></td>
 <td><span class="math inline">\(\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_k\}\)</span></td>
 <td>Builds every vector in <span class="math inline">\(V\)</span> <span class="alert">uniquely</span></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><span class="alert">Dimension</span></td>
 <td><span class="math inline">\(\dim V=k\)</span> for a basis <span class="math inline">\(\mathcal{B}\)</span></td>
 <td>Counts basis vectors and coordinates</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><span class="alert">Coordinates</span></td>
 <td><span class="math inline">\([\vct{v}]_{\mathcal{B}}=[c_1,\ldots,c_k]^\top\)</span></td>
 <td>Records the weights as an address</td>
@@ -921,7 +926,7 @@ In this deck
 <section class="slide level2">
 
 <h3 id="unique-addresses-need-independent-directions">Unique addresses need independent directions</h3>
-<p>Keep <span class="math inline">\(\vct{b}_1=[2,0]^\top\)</span>, <span class="math inline">\(\vct{b}_2=[1,1]^\top\)</span>, and <span class="math inline">\(\mathcal{B}=\{\vct{b}_1,\vct{b}_2\}\)</span></p>
+<p>Keep <span class="math inline">\(\vct{b}_1=\begin{bmatrix}2\\0\end{bmatrix}\)</span>, <span class="math inline">\(\vct{b}_2=\begin{bmatrix}1\\1\end{bmatrix}\)</span>, and <span class="math inline">\(\mathcal{B}=\{\vct{b}_1,\vct{b}_2\}\)</span></p>
 <div class="exitem">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Can we reach every vector in <span class="math inline">\(\reals^2\)</span> <span class="alert">uniquely</span> using <span class="math inline">\(\vct{b}_1\)</span> and <span class="math inline">\(\vct{b}_2\)</span>? <span class="exsub">Solve the coefficient system below for arbitrary <span class="math inline">\(x,y\in\reals\)</span>; is there exactly one solution?</span> </span></p>
 </div>
@@ -957,8 +962,8 @@ In this deck
 <section class="slide level2">
 
 <h3 id="an-extra-direction-makes-coefficient-lists-nonunique">An extra direction makes coefficient lists nonunique</h3>
-<p>Keep <span class="math inline">\(\vct{b}_1=[2,0]^\top\)</span>, <span class="math inline">\(\vct{b}_2=[1,1]^\top\)</span>, and the same <span class="math inline">\(\vct{v}=[5/4,3/4]^\top\)</span></p>
-<p>Add <span class="math inline">\(\vct{b}_3=\vct{b}_1+\vct{b}_2=[3,1]^\top\)</span></p>
+<p>Keep <span class="math inline">\(\vct{b}_1=\begin{bmatrix}2\\0\end{bmatrix}\)</span>, <span class="math inline">\(\vct{b}_2=\begin{bmatrix}1\\1\end{bmatrix}\)</span>, and the same <span class="math inline">\(\vct{v}=\begin{bmatrix}5/4\\3/4\end{bmatrix}\)</span></p>
+<p>Add <span class="math inline">\(\vct{b}_3=\vct{b}_1+\vct{b}_2=\begin{bmatrix}3\\1\end{bmatrix}\)</span></p>
 <div class="exitem">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find two different coefficient lists for the same <span class="math inline">\(\vct{v}\)</span> <span class="exsub">Both lists must satisfy <span class="math inline">\(\vct{v}=c_1\vct{b}_1+c_2\vct{b}_2+c_3\vct{b}_3\)</span></span> </span></p>
 </div>
@@ -1093,9 +1098,9 @@ c_1\vct{v}_1+\cdots+c_k\vct{v}_k=\vct{0}
 <section class="slide level2">
 
 <h3 id="test-independence-with-a-coefficient-system">Test independence with a coefficient system</h3>
-<p>Take <span class="math inline">\(\vct{u}_1=[1,1,0]^\top\)</span>, <span class="math inline">\(\vct{u}_2=[1,0,1]^\top\)</span>, and <span class="math inline">\(\vct{u}_3=[2,1,1]^\top\)</span></p>
+<p>Take <span class="math inline">\(\vct{u}_1=\begin{bmatrix}1\\1\\0\end{bmatrix}\)</span>, <span class="math inline">\(\vct{u}_2=\begin{bmatrix}1\\0\\1\end{bmatrix}\)</span>, and <span class="math inline">\(\vct{u}_3=\begin{bmatrix}2\\1\\1\end{bmatrix}\)</span></p>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Place the vectors in columns and solve <span class="math inline">\(\mat{U}\vct{c}=\vct{0}\)</span> <span class="exsub">Are these three vectors independent? Give a nonzero coefficient list if they are dependent</span> <span class="exsub">Which vector can you remove without changing their span?</span> <span class="exsub">Replace <span class="math inline">\(\vct{u}_3\)</span> by <span class="math inline">\([2,1,2]^\top\)</span> and test independence again</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Place the vectors in columns and solve <span class="math inline">\(\mat{U}\vct{c}=\vct{0}\)</span> <span class="exsub">Are these three vectors independent? Give a nonzero coefficient list if they are dependent</span> <span class="exsub">Which vector can you remove without changing their span?</span> <span class="exsub">Replace <span class="math inline">\(\vct{u}_3\)</span> by <span class="math inline">\(\begin{bmatrix}2\\1\\2\end{bmatrix}\)</span> and test independence again</span> </span></p>
 </div>
 <aside class="notes">
 <p>The original columns have u3=u1+u2, so [1,1,-1]^T gives zero. All solutions are [-s,-s,s]^T. Removing u3 leaves the same span; either of the other two can also be removed using the same relation. With the replacement third column, the determinant is -1, so every column has a pivot and the only zero combination is trivial. Use elimination if students prefer it.</p>
@@ -1263,7 +1268,7 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 <section class="slide level2">
 
 <h3 id="different-bases-can-describe-the-same-span">Different bases can describe the same span</h3>
-<p>Use the preceding generators of the plane <span class="math inline">\(W=\{[x,y,z]^\top:z=x+y\}\)</span></p>
+<p>Use the preceding generators of the plane <span class="math inline">\(W=\left\{\begin{bmatrix}x\\y\\z\end{bmatrix}:z=x+y\right\}\)</span></p>
 <p><span class="math display">\[
 \vct{v}_1=\begin{bmatrix}1\\0\\1\end{bmatrix},\quad
 \vct{v}_2=\begin{bmatrix}2\\0\\2\end{bmatrix},\quad
@@ -1604,12 +1609,12 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 <section>
 <section id="coordinates-in-a-chosen-basis" class="title-slide slide level1 center">
 <h1>Coordinates and Their Arithmetic</h1>
-<p>A basis is now available: turn its <span class="alert">unique</span> coefficients into a usable description<br> First justify coordinate arithmetic, then choose coordinates for different kinds of vectors</p>
+<p>A basis is now available: turn its <span class="alert">unique</span> coefficients into a usable description<br> Read the coefficients in a chosen basis, then use them to compute</p>
 <ul>
 <li><a href="#/a-basis-gives-every-vector-unique-coordinates">A basis gives every vector unique coordinates</a></li>
+<li><a href="#/same-vector-different-coordinate-columns">Same vector, different coordinate columns</a></li>
 <li><a href="#/the-coordinate-map-preserves-linear-combinations">The coordinate map preserves linear combinations</a></li>
 <li><a href="#/example-a-matrix-preserves-combinations-but-changes-lengths">The coordinate map need <em>not</em> preserve lengths</a></li>
-<li><a href="#/same-vector-different-coordinate-columns">Same vector, different coordinate columns</a></li>
 <li><a href="#/basis-directions-locate-every-solution">Basis directions locate every solution</a></li>
 <li><a href="#/polynomial-coefficients-are-coordinates-in-a-chosen-basis">Coordinates describe polynomials and matrices</a></li>
 </ul>
@@ -1617,15 +1622,19 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 <section id="a-basis-gives-every-vector-unique-coordinates" class="slide level2">
 <h2>A basis gives every vector unique coordinates</h2>
 <p>A <span class="alert">basis</span> <span class="math inline">\(\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}\)</span> spans <span class="math inline">\(V\)</span> and is independent</p>
-<p>The <span class="math inline">\(\vct{b}_j\)</span> belong to <span class="math inline">\(V\)</span>: often <span class="math inline">\(\reals^n\)</span>, but sometimes a space of polynomials, other functions, or matrices</p>
+<p>The <span class="math inline">\(\vct{b}_j\in V\)</span> may be numerical columns, whole polynomials, other functions, or matrices</p>
 <p>For <span class="math inline">\(\vct{v}\in V\)</span>, spanning gives <span class="alert">existence</span> and independence gives <span class="alert">uniqueness</span>:</p>
 <p><span class="math display">\[
 \vct{v}=c_1\vct{b}_1+\cdots+c_n\vct{b}_n
+=\begin{bmatrix}\vct{b}_1&amp;\cdots&amp;\vct{b}_n\end{bmatrix}
+\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix}
 \]</span></p>
 <p>The <span class="alert">coordinate vector</span> of <span class="math inline">\(\vct{v}\)</span> relative to <span class="math inline">\(\mathcal{B}\)</span> is</p>
 <p><span class="math display">\[
 [\vct{v}]_{\mathcal{B}}
-=\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix}
+=\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix},
+\qquad
+\vct{v}=[\vct{b}_1\ \cdots\ \vct{b}_n][\vct{v}]_{\mathcal{B}}
 \]</span></p>
 <div class="key-point">
 <p>For coordinates, the <span class="alert">listed order matters</span>: entry <span class="math inline">\(j\)</span> multiplies <span class="math inline">\(\vct{b}_j\)</span></p>
@@ -1642,13 +1651,62 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 \]</span></p>
 <p>Writing <span class="math inline">\(\vct{x}=\begin{bmatrix}5\\1\end{bmatrix}\)</span> has meant</p>
 <p><span class="math display">\[
-\vct{x}=5\vct{e}_1+1\vct{e}_2,
-\qquad [\vct{x}]_{\mathcal{E}}=\begin{bmatrix}5\\1\end{bmatrix}
+\vct{x}=5\vct{e}_1+1\vct{e}_2
+=\begin{bmatrix}\vct{e}_1&amp;\vct{e}_2\end{bmatrix}
+\underbrace{\begin{bmatrix}5\\1\end{bmatrix}}_{[\vct{x}]_{\mathcal{E}}}
 \]</span></p>
 <p>In <span class="math inline">\(\reals^n\)</span>, use <span class="math inline">\(\mathcal{E}=\{\vct{e}_1,\ldots,\vct{e}_n\}\)</span>, where <span class="math inline">\(\vct{e}_j\)</span> has a 1 in entry <span class="math inline">\(j\)</span> and zeros elsewhere</p>
 <div class="key-point">
-<p>Our familiar vector column is its coordinate vector in the standard basis</p>
+<p>For the standard basis <span class="math inline">\(\mathcal{E}\)</span> of <span class="math inline">\(\reals^n\)</span>, <span class="alert">coordinates are the vector itself</span></p>
+<p><span class="math display">\[
+[\vct{x}]_{\mathcal{E}}=\vct{x}
+\]</span></p>
 </div>
+</section>
+<section id="same-vector-different-coordinate-columns" class="slide level2">
+<h2>Same vector, different coordinate columns</h2>
+<p>For <span class="math inline">\(\vct{x}=\begin{bmatrix}5\\1\end{bmatrix}\)</span>, compare the standard basis <span class="math inline">\(\mathcal{E}=\left\{\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix}\right\}\)</span> with</p>
+<p><span class="math display">\[
+\mathcal{B}=\left\{\vct{b}_1=\begin{bmatrix}1\\1\end{bmatrix},
+\vct{b}_2=\begin{bmatrix}1\\-1\end{bmatrix}\right\}
+\]</span></p>
+<p>The same vector has two descriptions:</p>
+<p><span class="math display">\[
+\vct{x}=5\vct{e}_1+1\vct{e}_2=3\vct{b}_1+2\vct{b}_2
+\]</span></p>
+<p><span class="math display">\[
+\vct{x}
+=\begin{bmatrix}1&amp;0\\0&amp;1\end{bmatrix}
+\underbrace{\begin{bmatrix}5\\1\end{bmatrix}}_{[\vct{x}]_{\mathcal{E}}}
+=\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}
+\underbrace{\begin{bmatrix}3\\2\end{bmatrix}}_{[\vct{x}]_{\mathcal{B}}}
+\]</span></p>
+<p>The coordinates are <span class="alert">unique</span> in each fixed ordered basis</p>
+<p>The entries 3 and 2 are weights on <span class="math inline">\(\vct{b}_1\)</span> and <span class="math inline">\(\vct{b}_2\)</span>, not the standard horizontal and vertical components</p>
+<div class="key-point">
+<p><span class="alert">Same vector</span> at <span class="math inline">\((5,1)\)</span>; <span class="alert">different coordinates</span> in a different basis</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="practice-read-the-basis-label-before-the-numbers">Read the basis label before the numbers</h3>
+<p>Use <span class="math inline">\(\mathcal{E}=\left\{\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}0\\1\end{bmatrix}\right\}\)</span> and <span class="math inline">\(\mathcal{B}=\left\{\begin{bmatrix}1\\1\end{bmatrix},\begin{bmatrix}1\\-1\end{bmatrix}\right\}\)</span></p>
+<div class="exitem">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Interpret each coordinate column <span class="exsub">If <span class="math inline">\([\vct{u}]_{\mathcal{B}}=\begin{bmatrix}1\\0\end{bmatrix}\)</span>, find <span class="math inline">\(\vct{u}\)</span> in standard coordinates</span> <span class="exsub">If <span class="math inline">\([\vct{v}]_{\mathcal{E}}=\begin{bmatrix}1\\0\end{bmatrix}\)</span>, find <span class="math inline">\(\vct{v}\)</span>. Is it the same vector as <span class="math inline">\(\vct{u}\)</span>?</span> <span class="exsub">Reverse the listed order of <span class="math inline">\(\mathcal{B}\)</span> to get <span class="math inline">\(\mathcal{B}'\)</span>. Find <span class="math inline">\([\vct{x}]_{\mathcal{B}'}\)</span> for <span class="math inline">\(\vct{x}=\begin{bmatrix}5\\1\end{bmatrix}\)</span></span> </span></p>
+</div>
+<aside class="notes">
+<p>The first column means u = 1 b1 + 0 b2 = [1,1]^T. The second means v = 1 e1 + 0 e2 = [1,0]^T, a different vector despite identical coordinate entries. With B’ = {b2,b1} in the reversed order (the same underlying set), x = 2 b2 + 3 b1, so its coordinates are [2,3]^T. The jth coordinate multiplies the jth basis vector; their order matters.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="the-coordinate-map-preserves-linear-combinations" class="slide level2">
 <h2>The coordinate map preserves linear combinations</h2>
@@ -1659,12 +1717,11 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 \]</span></p>
 <p>The column <span class="math inline">\([\vct{v}]_{\mathcal{B}}\)</span> lists coefficients in this ordered basis, so</p>
 <p><span class="math display">\[
-[c\vct{u}+d\vct{v}]_{\mathcal{B}}
-=c[\vct{u}]_{\mathcal{B}}+d[\vct{v}]_{\mathcal{B}}
+[\alpha\vct{u}+\beta\vct{v}]_{\mathcal{B}}
+=\alpha[\vct{u}]_{\mathcal{B}}+\beta[\vct{v}]_{\mathcal{B}}
 \]</span></p>
-<p>The coordinate map is one-to-one, onto, and preserves linear combinations</p>
-<p>Such a map is a <span class="alert">linear isomorphism</span></p>
-<p>It preserves linear combinations; ordinary coordinate lengths may change</p>
+<p>Every vector has one coordinate column, and every column describes one vector</p>
+<p>This one-to-one, onto linear map is a <span class="alert">linear isomorphism</span></p>
 <div class="key-point">
 <p>Every <span class="math inline">\(n\)</span>-dimensional real vector space has the same linear structure as <span class="math inline">\(\reals^n\)</span></p>
 </div>
@@ -1686,7 +1743,7 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 
 <h3 id="why-coordinate-arithmetic-works">Why coordinate arithmetic works</h3>
 <p>Put <span class="math inline">\(\mat{B}=[\vct{b}_1\ \cdots\ \vct{b}_n]\)</span>, with <span class="math inline">\(\vct{c}=[\vct{u}]_{\mathcal{B}}\)</span> and <span class="math inline">\(\vct{d}=[\vct{v}]_{\mathcal{B}}\)</span></p>
-<p><span class="alert">For any <span class="math inline">\(V\)</span></span>, <span class="math inline">\(\mat{B}\vct{a}\)</span> means <span class="math inline">\(a_1\vct{b}_1+\cdots+a_n\vct{b}_n\)</span><br> This is linear-combination notation, including for polynomials, functions, or matrices</p>
+<p><span class="alert">For any <span class="math inline">\(V\)</span></span>, <span class="math inline">\(\mat{B}\vct{a}\)</span> means <span class="math inline">\(a_1\vct{b}_1+\cdots+a_n\vct{b}_n\)</span><br> For polynomial bases, <span class="math inline">\(\mat{B}\)</span> is a <span class="alert">row of whole polynomials</span>; <span class="math inline">\(\mat{B}\vct{a}\)</span> is their weighted sum</p>
 <p><span class="math display">\[
 \alpha\vct{u}+\beta\vct{v}
 =\alpha\mat{B}\vct{c}+\beta\mat{B}\vct{d}
@@ -1705,22 +1762,24 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 <section class="slide level2">
 
 <h3 id="worked-example-combine-coordinate-vectors">Example: combine coordinate vectors</h3>
-<p>Use the polynomial basis <span class="math inline">\(\mathcal{B}=\{1,1+t,t^2\}\)</span></p>
-<p><span class="math display">\[
-p=2+3t+t^2,
-\quad [p]_{\mathcal{B}}=[-1,3,1]^\top
-\]</span></p>
-<p><span class="math display">\[
-q=1-t+2t^2,
-\quad [q]_{\mathcal{B}}=[2,-1,2]^\top
-\]</span></p>
-<p>Compute in coordinates:</p>
+<p>Read the coordinates in <span class="math inline">\(\mathcal{B}=\{1,1+t,t^2\}\)</span> from these expansions:</p>
+<p><span class="math display">\[\begin{align*}
+p&amp;=2+3t+t^2=-1(1)+3(1+t)+1t^2\\
+q&amp;=1-t+2t^2=2(1)-1(1+t)+2t^2
+\end{align*}\]</span></p>
 <p><span class="math display">\[
 [2p-q]_{\mathcal{B}}
-=2[-1,3,1]^\top-[2,-1,2]^\top
-=[-4,7,0]^\top
+=2\underbrace{\begin{bmatrix}-1\\3\\1\end{bmatrix}}_{[p]_{\mathcal{B}}}
+-\underbrace{\begin{bmatrix}2\\-1\\2\end{bmatrix}}_{[q]_{\mathcal{B}}}
+=\begin{bmatrix}-4\\7\\0\end{bmatrix}
 \]</span></p>
-<p>Reconstruct: <span class="math inline">\(-4(1)+7(1+t)+0t^2=3+7t=2p-q\)</span></p>
+<p>Reconstruct using the row of basis polynomials:</p>
+<p><span class="math display">\[
+2p-q=-4(1)+7(1+t)+0t^2
+=\begin{bmatrix}1&amp;1+t&amp;t^2\end{bmatrix}
+\begin{bmatrix}-4\\7\\0\end{bmatrix}
+=3+7t
+\]</span></p>
 <div class="key-point">
 <p>Coordinate arithmetic uses coefficients in the chosen basis</p>
 </div>
@@ -1730,11 +1789,11 @@ q=1-t+2t^2,
 <h3 id="practice-reconstruct-after-coordinate-arithmetic">Reconstruct after coordinate arithmetic</h3>
 <p>Keep <span class="math inline">\(\mathcal{B}=\{1,1+t,t^2\}\)</span> and suppose</p>
 <p><span class="math display">\[
-[p]_{\mathcal{B}}=[1,2,-1]^\top,
-\qquad [q]_{\mathcal{B}}=[-2,1,3]^\top
+[p]_{\mathcal{B}}=\begin{bmatrix}1\\2\\-1\end{bmatrix},
+\qquad [q]_{\mathcal{B}}=\begin{bmatrix}-2\\1\\3\end{bmatrix}
 \]</span></p>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Coordinate entries multiply <span class="math inline">\(1\)</span>, <span class="math inline">\(1+t\)</span>, and <span class="math inline">\(t^2\)</span> in that order <span class="exsub">Find <span class="math inline">\([p+2q]_{\mathcal{B}}\)</span> without first expanding the polynomials</span> <span class="exsub">Reconstruct <span class="math inline">\(p+2q\)</span> as a polynomial in <span class="math inline">\(t\)</span></span> <span class="exsub">Why is its constant coefficient different from the first coordinate?</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Coordinate entries multiply <span class="math inline">\(1\)</span>, <span class="math inline">\(1+t\)</span>, and <span class="math inline">\(t^2\)</span> in that order <span class="exsub">Find <span class="math inline">\([p+2q]_{\mathcal{B}}\)</span> without first expanding the polynomials</span> <span class="exsub">Reconstruct <span class="math inline">\(p+2q\)</span> using <span class="math inline">\([1\ \ 1+t\ \ t^2][p+2q]_{\mathcal{B}}\)</span> and expand the polynomial</span> <span class="exsub">Why is its constant coefficient different from the first coordinate?</span> </span></p>
 </div>
 <aside class="notes">
 <p>The coordinate vector is [-3,4,5]^T, and the polynomial is -3+4(1+t)+5t<sup>2=1+4t+5t</sup>2. Both 1 and 1+t contribute to the constant coefficient. Directly, p=3+2t-t^2 and q=-1+t+3t^2, giving the same result.</p>
@@ -1752,25 +1811,19 @@ q=1-t+2t^2,
 </section>
 <section id="example-a-matrix-preserves-combinations-but-changes-lengths" class="slide level2">
 <h2>The coordinate map need <em>not</em> preserve lengths</h2>
-<p>Here <span class="math inline">\(V=\reals^2\)</span>, with <span class="alert">Euclidean length</span>; use <span class="math inline">\(\mathcal{B}=\{[1,0]^\top,[1,1]^\top\}\)</span></p>
+<p>Here <span class="math inline">\(V=\reals^2\)</span>, with <span class="alert">Euclidean length</span>; use <span class="math inline">\(\mathcal{B}=\left\{\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}1\\1\end{bmatrix}\right\}\)</span></p>
 <p><span class="math display">\[
 \mat{B}=\begin{bmatrix}1&amp;1\\0&amp;1\end{bmatrix},
 \qquad
 \mat{B}^\top\mat{B}=\begin{bmatrix}1&amp;1\\1&amp;2\end{bmatrix}\ne\mat{I}
-\]</span></p>
-<p><span class="alert">Algebra</span>: matrix multiplication distributes over linear combinations</p>
-<p><span class="math display">\[
-\mat{B}(\alpha\vct{c}+\beta\vct{d})
-=\alpha\mat{B}\vct{c}+\beta\mat{B}\vct{d}
 \]</span></p>
 <p><span class="alert">Lengths</span>: reconstruct <span class="math inline">\(\vct{u}=\mat{B}\vct{c}\)</span> and use the dot product</p>
 <p><span class="math display">\[
 \|\vct{u}\|^2=(\mat{B}\vct{c})^\top(\mat{B}\vct{c})
 =\vct{c}^\top\mat{B}^\top\mat{B}\vct{c}
 \]</span></p>
-<p>For <span class="math inline">\(\vct{c}=[1,1]^\top\)</span>, <span class="math inline">\(\vct{u}=[2,1]^\top\)</span>: <span class="math inline">\(\|\vct{c}\|^2=2\)</span>, but <span class="math inline">\(\|\vct{u}\|^2=5\)</span></p>
+<p>For <span class="math inline">\(\vct{c}=\begin{bmatrix}1\\1\end{bmatrix}\)</span>, <span class="math inline">\(\vct{u}=\begin{bmatrix}2\\1\end{bmatrix}\)</span>: <span class="math inline">\(\|\vct{c}\|^2=2\)</span>, but <span class="math inline">\(\|\vct{u}\|^2=5\)</span></p>
 <div class="key-point">
-<p>Every basis preserves linear combinations</p>
 <p>All lengths are preserved exactly when <span class="math inline">\(\mat{B}^\top\mat{B}=\mat{I}\)</span>: an <span class="alert">orthonormal basis</span></p>
 <p>The basis vectors must be mutually orthogonal and each have length one</p>
 </div>
@@ -1791,54 +1844,12 @@ q=1-t+2t^2,
 <section class="slide level2">
 
 <h3 id="coordinate-arithmetic-preserves-algebra-not-lengths">Coordinate arithmetic preserves algebra, <em>not</em> lengths</h3>
-<p>In <span class="math inline">\(\reals^2\)</span>, use <span class="math inline">\(\mathcal{B}=\{[1,1]^\top,[1,-1]^\top\}\)</span></p>
+<p>In <span class="math inline">\(\reals^2\)</span>, use <span class="math inline">\(\mathcal{B}=\left\{\begin{bmatrix}1\\1\end{bmatrix},\begin{bmatrix}1\\-1\end{bmatrix}\right\}\)</span></p>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Separate linear structure from geometry <span class="exsub">Suppose <span class="math inline">\([\vct{u}]_{\mathcal{B}}=[1,0]^\top\)</span> and <span class="math inline">\([\vct{v}]_{\mathcal{B}}=[0,1]^\top\)</span>. Find <span class="math inline">\([2\vct{u}-\vct{v}]_{\mathcal{B}}\)</span> and reconstruct <span class="math inline">\(2\vct{u}-\vct{v}\)</span></span> <span class="exsub">Compare the Euclidean lengths of <span class="math inline">\(\vct{u}\)</span> and <span class="math inline">\([\vct{u}]_{\mathcal{B}}\)</span></span> <span class="exsub">Why does preserving linear combinations not guarantee preserving lengths?</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Separate linear structure from geometry <span class="exsub">Suppose <span class="math inline">\([\vct{u}]_{\mathcal{B}}=\begin{bmatrix}1\\0\end{bmatrix}\)</span> and <span class="math inline">\([\vct{v}]_{\mathcal{B}}=\begin{bmatrix}0\\1\end{bmatrix}\)</span>. Find <span class="math inline">\([2\vct{u}-\vct{v}]_{\mathcal{B}}\)</span> and reconstruct <span class="math inline">\(2\vct{u}-\vct{v}\)</span></span> <span class="exsub">Compare the Euclidean lengths of <span class="math inline">\(\vct{u}\)</span> and <span class="math inline">\([\vct{u}]_{\mathcal{B}}\)</span></span> <span class="exsub">Why does preserving linear combinations not guarantee preserving lengths?</span> </span></p>
 </div>
 <aside class="notes">
 <p>The coordinate calculation gives [2,-1]^. Reconstructing yields 2[1,1]<sup>-[1,-1]</sup>=[1,3]^. Here u=[1,1]^has Euclidean length sqrt(2), whereas [u]_B=[1,0]^has Euclidean length 1. The coordinate map preserves addition and scalar multiplication by matching coefficients in a basis. Those algebraic properties impose no unit-length or orthogonality requirement on the basis. In this example the two basis vectors are orthogonal but have length sqrt(2), so the ordinary Euclidean length of every coordinate column is smaller by that factor. A linear isomorphism need not be an isometry; the latter term is optional enrichment.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="same-vector-different-coordinate-columns" class="slide level2">
-<h2>Same vector, different coordinate columns</h2>
-<p>For <span class="math inline">\(\vct{x}=[5,1]^\top\)</span>, compare the standard basis <span class="math inline">\(\mathcal{E}=\{[1,0]^\top,[0,1]^\top\}\)</span> with</p>
-<p><span class="math display">\[
-\mathcal{B}=\left\{\vct{b}_1=\begin{bmatrix}1\\1\end{bmatrix},
-\vct{b}_2=\begin{bmatrix}1\\-1\end{bmatrix}\right\}
-\]</span></p>
-<p>The same vector has two descriptions:</p>
-<p><span class="math display">\[
-\vct{x}=5\vct{e}_1+1\vct{e}_2=3\vct{b}_1+2\vct{b}_2
-\]</span></p>
-<p><span class="math display">\[
-[\vct{x}]_{\mathcal{E}}=\begin{bmatrix}5\\1\end{bmatrix},
-\qquad [\vct{x}]_{\mathcal{B}}=\begin{bmatrix}3\\2\end{bmatrix}
-\]</span></p>
-<p>The coordinates are <span class="alert">unique</span> in each fixed ordered basis</p>
-<p>The entries 3 and 2 are weights on <span class="math inline">\(\vct{b}_1\)</span> and <span class="math inline">\(\vct{b}_2\)</span>, not the standard horizontal and vertical components</p>
-<div class="key-point">
-<p><span class="alert">Same vector</span> at <span class="math inline">\((5,1)\)</span>; <span class="alert">different coordinates</span> in a different basis</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="practice-read-the-basis-label-before-the-numbers">Read the basis label before the numbers</h3>
-<p>Use <span class="math inline">\(\mathcal{E}=\{[1,0]^\top,[0,1]^\top\}\)</span> and <span class="math inline">\(\mathcal{B}=\{[1,1]^\top,[1,-1]^\top\}\)</span></p>
-<div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Interpret each coordinate column <span class="exsub">If <span class="math inline">\([\vct{u}]_{\mathcal{B}}=[1,0]^\top\)</span>, find <span class="math inline">\(\vct{u}\)</span> in standard coordinates</span> <span class="exsub">If <span class="math inline">\([\vct{v}]_{\mathcal{E}}=[1,0]^\top\)</span>, find <span class="math inline">\(\vct{v}\)</span>. Is it the same vector as <span class="math inline">\(\vct{u}\)</span>?</span> <span class="exsub">Reverse the listed order of <span class="math inline">\(\mathcal{B}\)</span> to get <span class="math inline">\(\mathcal{B}'\)</span>. Find <span class="math inline">\([\vct{x}]_{\mathcal{B}'}\)</span> for <span class="math inline">\(\vct{x}=[5,1]^\top\)</span></span> </span></p>
-</div>
-<aside class="notes">
-<p>The first column means u = 1 b1 + 0 b2 = [1,1]^T. The second means v = 1 e1 + 0 e2 = [1,0]^T, a different vector despite identical coordinate entries. With B’ = {b2,b1} in the reversed order (the same underlying set), x = 2 b2 + 3 b1, so its coordinates are [2,3]^T. The jth coordinate multiplies the jth basis vector; their order matters.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1863,6 +1874,7 @@ q=1-t+2t^2,
 <p>Every solution has the form</p>
 <p><span class="math display">\[
 \vct{x}=\vct{x}_p+t\vct{b}_1
+=\vct{x}_p+\begin{bmatrix}-2\\1\end{bmatrix}[t]
 =\begin{bmatrix}1-2t\\t\end{bmatrix},
 \qquad [\vct{x}-\vct{x}_p]_{\mathcal{B}}=[t]
 \]</span></p>
@@ -1891,12 +1903,13 @@ q=1-t+2t^2,
 <p><span class="math display">\[
 \mathcal{E}=\{1,t,t^2\}
 \]</span></p>
-<p>the polynomial <span class="math inline">\(p(t)=2-3t+5t^2\)</span> has coordinates</p>
+<p>Write the polynomial as a sum or a basis-row product:</p>
 <p><span class="math display">\[
-[p]_{\mathcal{E}}
-=\begin{bmatrix}2\\-3\\5\end{bmatrix}
+p=2(1)-3t+5t^2
+=\underbrace{\begin{bmatrix}1&amp;t&amp;t^2\end{bmatrix}}_{\text{row of polynomials}}
+\underbrace{\begin{bmatrix}2\\-3\\5\end{bmatrix}}_{[p]_{\mathcal{E}}}
 \]</span></p>
-<p>For another basis, the same polynomial has another coordinate vector</p>
+<p>A different basis can give different coordinates for this same polynomial</p>
 <div class="key-point">
 <p>Choosing a basis converts abstract vectors into coordinate columns</p>
 </div>
@@ -1904,8 +1917,7 @@ q=1-t+2t^2,
 <section class="slide level2">
 
 <h3 id="one-line-two-coordinate-systems">Example: one line, two coordinate systems</h3>
-<p>Choose coordinates that match how a line is measured</p>
-<p>High school algebra in <span class="math inline">\(\mathbb{P}_1\)</span>: polynomials of degree at most one</p>
+<p>In <span class="math inline">\(\mathbb{P}_1\)</span>, choose coordinates that match how a line is measured</p>
 <div class="columns">
 <div class="column" style="width:47%;">
 <p><span class="alert">Slope-intercept form</span></p>
@@ -1914,7 +1926,8 @@ p(x)=b+mx
 \]</span></p>
 <p>Basis <span class="math inline">\(\mathcal{B}=\{1,x\}\)</span>, in that order</p>
 <p><span class="math display">\[
-[p]_{\mathcal{B}}=\begin{bmatrix}b\\m\end{bmatrix}
+p(x)=\begin{bmatrix}1&amp;x\end{bmatrix}
+\underbrace{\begin{bmatrix}b\\m\end{bmatrix}}_{[p]_{\mathcal{B}}}
 \]</span></p>
 <p>Coordinates: intercept and slope</p>
 </div><div class="column" style="width:6%;">
@@ -1926,15 +1939,12 @@ p(x)=y_0(1-x)+y_1x
 \]</span></p>
 <p>Basis <span class="math inline">\(\mathcal{C}=\{1-x,x\}\)</span>, in that order</p>
 <p><span class="math display">\[
-[p]_{\mathcal{C}}=\begin{bmatrix}y_0\\y_1\end{bmatrix}
+p(x)=\begin{bmatrix}1-x&amp;x\end{bmatrix}
+\underbrace{\begin{bmatrix}y_0\\y_1\end{bmatrix}}_{[p]_{\mathcal{C}}}
 \]</span></p>
 <p>Coordinates: <span class="math inline">\(y_0=p(0)\)</span> and <span class="math inline">\(y_1=p(1)\)</span></p>
 </div></div>
-<p>For <span class="math inline">\(p(x)=2+3x=2(1-x)+5x\)</span>,</p>
-<p><span class="math display">\[
-[p]_{\mathcal{B}}=\begin{bmatrix}2\\3\end{bmatrix},
-\qquad [p]_{\mathcal{C}}=\begin{bmatrix}2\\5\end{bmatrix}
-\]</span></p>
+<p>For <span class="math inline">\(p(x)=2+3x=2(1-x)+5x\)</span>:<br> <span class="math inline">\([p]_{\mathcal{B}}=\begin{bmatrix}2\\3\end{bmatrix}\)</span> and <span class="math inline">\([p]_{\mathcal{C}}=\begin{bmatrix}2\\5\end{bmatrix}\)</span></p>
 <div class="key-point">
 <p>Same line, different coordinates in different bases</p>
 </div>
@@ -1958,6 +1968,7 @@ p(x)=y_0(1-x)+y_1x
 <p>Add the point at <span class="math inline">\(x=2\)</span> to the two-point description</p>
 <p><span class="math display">\[
 p(2)=y_0(1-2)+2y_1=2y_1-y_0
+=\begin{bmatrix}-1&amp;2\end{bmatrix}\begin{bmatrix}y_0\\y_1\end{bmatrix}
 \]</span></p>
 <p>For <span class="math inline">\(p(x)=2+3x\)</span>, the three points are <span class="math inline">\((0,2)\)</span>, <span class="math inline">\((1,5)\)</span>, and <span class="math inline">\((2,8)\)</span></p>
 <ul>
@@ -1995,6 +2006,8 @@ p(2)=y_0(1-2)+2y_1=2y_1-y_0
 <p>The same line has infinitely many representations, one for each <span class="math inline">\(s\in\reals\)</span>:</p>
 <p><span class="math display">\[
 2+3x=(2-s)(1-x)+(5-s)x+s(1)
+=\begin{bmatrix}1-x&amp;x&amp;1\end{bmatrix}
+\begin{bmatrix}2-s\\5-s\\s\end{bmatrix}
 \]</span></p>
 <p>For example,</p>
 <p><span class="math display">\[
@@ -2041,7 +2054,6 @@ p(2)=y_0(1-2)+2y_1=2y_1-y_0
 <section class="slide level2">
 
 <h3 id="worked-example-a-basis-of-symmetric-matrices">Example: a basis of symmetric matrices</h3>
-<p>Review bases and dimension; the freely chosen entries become coordinates</p>
 <p>For real symmetric <span class="math inline">\(2\times2\)</span> matrices (<span class="math inline">\(\mat{A}^\top=\mat{A}\)</span>), use</p>
 <p><span class="math display">\[
 \mat{B}_1=\begin{bmatrix}1&amp;0\\0&amp;0\end{bmatrix},
@@ -2054,6 +2066,8 @@ p(2)=y_0(1-2)+2y_1=2y_1-y_0
 <p><span class="math display">\[
 \begin{bmatrix}a&amp;b\\b&amp;d\end{bmatrix}
 =a\mat{B}_1+b\mat{B}_2+d\mat{B}_3
+=\begin{bmatrix}\mat{B}_1&amp;\mat{B}_2&amp;\mat{B}_3\end{bmatrix}
+\begin{bmatrix}a\\b\\d\end{bmatrix}
 \]</span></p>
 <p>Thus <span class="math inline">\(\mathcal{B}=\{\mat{B}_1,\mat{B}_2,\mat{B}_3\}\)</span> spans the space and is independent</p>
 <p><span class="math display">\[
@@ -2062,8 +2076,21 @@ p(2)=y_0(1-2)+2y_1=2y_1-y_0
 [\mat{A}]_{\mathcal{B}}=\begin{bmatrix}2\\-1\\3\end{bmatrix}
 \]</span></p>
 <div class="key-point">
-<p>Here <span class="math inline">\(\mat{A}\)</span> is one vector in the symmetric-matrix space; <span class="math inline">\([\mat{A}]_{\mathcal{B}}\in\reals^3\)</span> is its coordinate column</p>
+<p>The row contains three <span class="alert">whole matrices</span>; its product is their weighted sum</p>
 </div>
+<aside class="notes">
+<p>Each symmetric matrix A is one vector in this space. Its coordinate column [A]_B belongs to R^3 and lists the weights on the three whole basis matrices. Matching the freely chosen entries a, b, d proves both spanning and independence, so the dimension is three.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -2089,16 +2116,17 @@ p(2)=y_0(1-2)+2y_1=2y_1-y_0
 
 <h3 id="worked-example-test-a-polynomial-basis">Example: test a polynomial basis</h3>
 <p>Review the basis test; use the resulting basis to find coordinates</p>
-<p>In <span class="math inline">\(\mathbb{P}_2\)</span>, the polynomials in <span class="math inline">\(t\)</span> of degree at most two, take <span class="math inline">\(\mathcal{E}=\{1,t,1+t^2\}\)</span></p>
+<p>In <span class="math inline">\(\mathbb{P}_2\)</span>, the polynomials in <span class="math inline">\(t\)</span> of degree at most two, take <span class="math inline">\(\mathcal{D}=\{1,t,1+t^2\}\)</span></p>
 <p>Its coefficient columns relative to <span class="math inline">\(\{1,t,t^2\}\)</span> form</p>
 <p><span class="math display">\[
 \begin{bmatrix}1&amp;0&amp;1\\0&amp;1&amp;0\\0&amp;0&amp;1\end{bmatrix}
 \]</span></p>
-<p>Three pivots: every coefficient vector is reached <span class="alert">uniquely</span>, so <span class="math inline">\(\mathcal{E}\)</span> spans <span class="math inline">\(\mathbb{P}_2\)</span> and is independent</p>
+<p>Three pivots: every coefficient vector is reached <span class="alert">uniquely</span>, so <span class="math inline">\(\mathcal{D}\)</span> spans <span class="math inline">\(\mathbb{P}_2\)</span> and is independent</p>
 <p>For <span class="math inline">\(p(t)=2+4t+3t^2\)</span>,</p>
 <p><span class="math display">\[
-p=-1(1)+4t+3(1+t^2),
-\qquad [p]_{\mathcal{E}}=[-1,4,3]^\top
+p=-1(1)+4t+3(1+t^2)
+=\begin{bmatrix}1&amp;t&amp;1+t^2\end{bmatrix}
+\underbrace{\begin{bmatrix}-1\\4\\3\end{bmatrix}}_{[p]_{\mathcal{D}}}
 \]</span></p>
 </section>
 <section class="slide level2">
@@ -2177,10 +2205,10 @@ p=-1(1)+4t+3(1+t^2),
 \qquad
 [\vct{x}]_{\mathcal{B}}=\mat{P}_{\mathcal{B}}^{-1}\vct{x}
 \]</span></p>
-<p>For the <span class="alert">standard basis</span> <span class="math inline">\(\mathcal{B}=\mathcal{E}=\{\vct{e}_1,\ldots,\vct{e}_n\}\)</span>,</p>
+<p>For the <span class="alert">standard basis</span> <span class="math inline">\(\mathcal{E}=\{\vct{e}_1,\ldots,\vct{e}_n\}\)</span>, <span class="alert">coordinates equal the vector</span>:</p>
 <p><span class="math display">\[
-\mat{P}_{\mathcal{B}}=\mat{I}_n,
-\qquad [\vct{x}]_{\mathcal{B}}=\vct{x}
+\mat{P}_{\mathcal{E}}=\mat{I}_n,
+\qquad [\vct{x}]_{\mathcal{E}}=\vct{x}
 \]</span></p>
 <div class="key-point">
 <p><span class="alert">Basis vectors are the columns</span>: multiply coordinates to rebuild the vector</p>
@@ -2242,7 +2270,7 @@ p=\begin{bmatrix}1&amp;1+t&amp;t^2\end{bmatrix}
 <p><span class="math display">\[
 [\vct{x}]_{\mathcal{B}}
 \quad\xrightarrow{\mat{P}_{\mathcal{B}}}\quad
-\vct{x}
+\vct{x}=[\vct{x}]_{\mathcal{E}}
 \quad\xrightarrow{\mat{P}_{\mathcal{C}}^{-1}}\quad
 [\vct{x}]_{\mathcal{C}}
 \]</span></p>
@@ -2250,39 +2278,122 @@ p=\begin{bmatrix}1&amp;1+t&amp;t^2\end{bmatrix}
 <p><span class="math display">\[
 [\vct{x}]_{\mathcal{C}}
 =\underbrace{\mat{P}_{\mathcal{C}}^{-1}\mat{P}_{\mathcal{B}}}_{
-\text{transition from}\ \mathcal{B}\ \text{to}\ \mathcal{C}}
+\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}}
 [\vct{x}]_{\mathcal{B}}
 \]</span></p>
+<p>Read <span class="math inline">\(\mathcal{C}\leftarrow\mathcal{B}\)</span> as <span class="alert">from <span class="math inline">\(\mathcal{B}\)</span> to <span class="math inline">\(\mathcal{C}\)</span></span>: input on the right, output on the left</p>
 <div class="key-point">
 <p><span class="alert">Same vector, new description</span>: only its coordinate column changes</p>
 </div>
+<aside class="notes">
+<p>P_B takes B-coordinates as input and rebuilds the numerical vector x. P_C^{-1} takes x as input and returns its C-coordinates. Thus their product, in this order, is the transition matrix Q_{C&lt;-B}. The inverse here is the inverse of the numerical square basis matrix P_C. This formula assumes bases of R^n.&nbsp;For abstract V, use coordinate columns of the old basis vectors in the new basis, developed next; an abstract polynomial row is not a numerical matrix to invert.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
 <h3 id="transition-columns-describe-the-old-basis-in-the-new-one">Transition columns describe the old basis in the new one</h3>
-<p>Let <span class="math inline">\(\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}\)</span> and <span class="math inline">\(\mathcal{C}\)</span> be ordered bases of the same finite-dimensional real vector space</p>
-<p>Name the conversion matrix <span class="math inline">\(\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}\)</span>:</p>
+<p>In <span class="math inline">\(\mathbb{P}_1\)</span>, convert from <span class="math inline">\(\mathcal{B}=\{1,1+t\}\)</span> to <span class="math inline">\(\mathcal{C}=\{1,t\}\)</span></p>
+<p>Describe each old basis polynomial using each basis, in the listed order:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Old basis polynomial</th>
+<th>Its <span class="math inline">\(\mathcal{B}\)</span>-coordinates</th>
+<th>Its <span class="math inline">\(\mathcal{C}\)</span>-coordinates</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(\begin{bmatrix}1\\0\end{bmatrix}\)</span></td>
+<td><span class="math inline">\(\begin{bmatrix}1\\0\end{bmatrix}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(1+t\)</span></td>
+<td><span class="math inline">\(\begin{bmatrix}0\\1\end{bmatrix}\)</span></td>
+<td><span class="math inline">\(\begin{bmatrix}1\\1\end{bmatrix}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>For example, <span class="math inline">\(1+t=0(1)+1(1+t)=1(1)+1(t)\)</span></p>
+<p>The two <span class="math inline">\(\mathcal{C}\)</span>-coordinate columns form the conversion matrix:</p>
 <p><span class="math display">\[
-[\vct{v}]_{\mathcal{B}}
-\quad\xrightarrow{\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}}\quad
-[\vct{v}]_{\mathcal{C}}
+\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}
+=\begin{bmatrix}1&amp;1\\0&amp;1\end{bmatrix},
+\qquad
+\begin{bmatrix}1&amp;1\\0&amp;1\end{bmatrix}\begin{bmatrix}0\\1\end{bmatrix}
+=\begin{bmatrix}1\\1\end{bmatrix}
 \]</span></p>
-<p>For <span class="math inline">\(\vct{b}_j\)</span>, the input column is <span class="math inline">\(\vct{e}_j\)</span>: 1 in entry <span class="math inline">\(j\)</span>, 0 elsewhere</p>
+<div class="key-point">
+<p>The second column is <span class="math inline">\(\begin{bmatrix}1\\1\end{bmatrix}\)</span> because the second old basis polynomial is <span class="math inline">\(1+t=1(1)+1(t)\)</span></p>
+</div>
+<aside class="notes">
+<p>The polynomial 1+t is the second vector in B. Its B-coordinate column is [0,1]^top because it uses no copies of the first B vector and one copy of the second. In C it is one copy of 1 plus one copy of t, so its C-coordinate column is [1,1]^top. Multiplication by [0,1]^top selects the second column of a matrix. The same argument for the first B vector, 1, gives the first column [1,0]^top. Putting these two output columns side by side determines Q. For any p=a(1)+b(1+t)=(a+b)(1)+bt, Q[a,b]<sup>top=[a+b,b]</sup>top. For instance Q[2,3]<sup>top=[5,3]</sup>top describes the same polynomial 5+3t.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="why-each-transition-column-has-this-form">Why each transition column has this form</h3>
+<p>Let <span class="math inline">\(\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}\)</span> and <span class="math inline">\(\mathcal{C}\)</span> be bases of the same <span class="math inline">\(n\)</span>-dimensional real vector space</p>
+<p>The conversion matrix takes <span class="alert">old coordinates as input</span> and returns <span class="alert">new coordinates</span>:</p>
 <p><span class="math display">\[
-\underbrace{\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}\vct{e}_j}_{\text{column}\ j\ \text{of}\ \mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}}
+[\vct{v}]_{\mathcal{C}}
+=\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}[\vct{v}]_{\mathcal{B}}
+\]</span></p>
+<p>To build <span class="math inline">\(\vct{b}_j\)</span> in its own basis, take one copy of <span class="math inline">\(\vct{b}_j\)</span> and zero copies of the other basis vectors<br> Thus <span class="math inline">\([\vct{b}_j]_{\mathcal{B}}=\vct{e}_j\)</span>: one in position <span class="math inline">\(j\)</span>, zero elsewhere</p>
+<p><span class="math display">\[
+\underbrace{\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}\vct{e}_j}_{\text{selects column }j}
+=\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}[\vct{b}_j]_{\mathcal{B}}
 =[\vct{b}_j]_{\mathcal{C}}
 \]</span></p>
-<p>So each column contains one old basis vector’s new coordinates:</p>
+<p>Put these output columns side by side, keeping the order of <span class="math inline">\(\mathcal{B}\)</span>:</p>
 <div class="alert">
 <p><span class="math display">\[
 \color{#007acc}\boxed{\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}
 =\begin{bmatrix}[\vct{b}_1]_{\mathcal{C}}&amp;\cdots&amp;[\vct{b}_n]_{\mathcal{C}}\end{bmatrix}}
 \]</span></p>
 </div>
-<p>For bases of <span class="math inline">\(\reals^n\)</span>, this is <span class="math inline">\(\mat{P}_{\mathcal{C}}^{-1}\mat{P}_{\mathcal{B}}\)</span></p>
 <div class="key-point">
-<p>To build <span class="alert">column <span class="math inline">\(j\)</span></span>, write <span class="math inline">\(\vct{b}_j\)</span> in basis <span class="math inline">\(\mathcal{C}\)</span> and record its coefficients</p>
+<p>Each <span class="math inline">\([\vct{b}_j]_{\mathcal{C}}\)</span> is a <span class="alert">whole column of <span class="math inline">\(n\)</span> numbers</span>; together they form an <span class="math inline">\(n\times n\)</span> matrix</p>
 </div>
+<aside class="notes">
+<p>The input to Q is a coordinate column, rather than the abstract vector b_j itself. The equality [b_j]_B=e_j supplies the missing link: a basis vector’s coordinates in its own ordered basis are the corresponding unit column. In the preceding two-dimensional example, j=2 and e_2=[0,1]^top. For any numerical matrix M with columns M_1,…,M_n, M e_j=M_j because all column weights are zero except the jth, which is one. Applying this fact to the defining coordinate conversion proves the displayed column rule. Each bracketed [b_j]_C denotes an entire n-entry numerical column, not one scalar entry or the old abstract vector itself. To compute it, write b_j as a linear combination of the C basis vectors and list those weights. For R^n, this is the same matrix Q=P_C^{-1}P_B from the preceding route: P_B rebuilds the vector and P_C^{-1} reads its C-coordinates. The column rule also works for polynomial, function, and matrix vector spaces.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 
@@ -2355,11 +2466,11 @@ p(t)&amp;=a(1)+b(1+t)+ct^2\\
 <section class="slide level2">
 
 <h3 id="coordinates-change-with-the-basis">Coordinates change with the basis</h3>
-<p>Keep <span class="math inline">\(\vct{x}=[5,1]^\top\)</span> and compare</p>
+<p>Keep <span class="math inline">\(\vct{x}=\begin{bmatrix}5\\1\end{bmatrix}\)</span> and compare</p>
 <p><span class="math display">\[
-\mathcal{C}=\bigl\{[1,0]^\top,[1,1]^\top\bigr\},
+\mathcal{C}=\left\{\begin{bmatrix}1\\0\end{bmatrix},\begin{bmatrix}1\\1\end{bmatrix}\right\},
 \qquad
-\mathcal{D}=\bigl\{[2,1]^\top,[1,1]^\top\bigr\}
+\mathcal{D}=\left\{\begin{bmatrix}2\\1\end{bmatrix},\begin{bmatrix}1\\1\end{bmatrix}\right\}
 \]</span></p>
 <div class="exitem">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find <span class="math inline">\([\vct{x}]_{\mathcal{C}}\)</span> and <span class="math inline">\([\vct{x}]_{\mathcal{D}}\)</span> <span class="exsub">Reconstruct <span class="math inline">\(\vct{x}\)</span> from each coordinate vector</span> <span class="exsub">Use basis vectors as columns of <span class="math inline">\(\mat{P}_{\mathcal{C}}\)</span> and <span class="math inline">\(\mat{P}_{\mathcal{D}}\)</span>; check the change from <span class="math inline">\(\mathcal{C}\)</span> to <span class="math inline">\(\mathcal{D}\)</span> with <span class="math inline">\(\mat{P}_{\mathcal{D}}^{-1}\mat{P}_{\mathcal{C}}\)</span></span> </span></p>
@@ -2421,7 +2532,7 @@ p(t)&amp;=a(1)+b(1+t)+ct^2\\
 <p><span class="math inline">\(\mathcal{C}\)</span> describes the output space; <span class="math inline">\(T\)</span> need not reach every vector in <span class="math inline">\(W\)</span></p>
 <div class="key-point">
 <p><span class="alert">Input coordinates in, output coordinates out</span>: the bases determine what the entries mean</p>
-<p>A change of basis is the special case <span class="math inline">\(T=I\)</span>: the vector itself stays the same</p>
+<p>For a change of basis, <span class="math inline">\(T(\vct{v})=\vct{v}\)</span>: the vector stays fixed while its coordinates change</p>
 </div>
 <aside class="notes">
 <p>This explains the general rule before the differentiation application. Linearity is the reason one matrix works for every input: if v=[b1 … bn]a, then T(v)=[T(b1) … T(bn)]a. Taking C-coordinates gives the displayed matrix product. There is one column per input basis vector and one row per output basis vector. The matrix depends on T and on both listed bases. The formula applies to finite-dimensional real spaces; complex spaces use complex matrices. W is the codomain. The image T(V) is a subspace of W and may be smaller; C can be a basis of all W, so surjectivity is not required. Alternatively, choosing W=T(V) gives coordinates directly in a basis of the image. Invertibility is not required either. For the identity map on one space, the columns become [b_j]_C, exactly the preceding transition matrix. The next deck connects this representation to rank and nullity.</p>
@@ -2624,7 +2735,6 @@ T^{-1}:y\longmapsto\begin{bmatrix}y(0)\\y'(0)\end{bmatrix},
 
 <h3 id="change-the-oscillators-coordinates-not-its-motion">Change the oscillator’s coordinates, not its motion</h3>
 <p>Use <span class="math inline">\(i=\sqrt{-1}\)</span>, <span class="math inline">\(\mathcal{B}=\{\cos(t),\sin(t)\}\)</span> and <span class="math inline">\(\mathcal{E}=\{e^{it},e^{-it}\}\)</span> in the complex solution space</p>
-<p><span class="alert">Cosine–sine coordinates to exponential coordinates</span></p>
 <div class="alert">
 <p><span class="math display">\[
 [y]_{\mathcal{E}}
@@ -2640,12 +2750,12 @@ T^{-1}:y\longmapsto\begin{bmatrix}y(0)\\y'(0)\end{bmatrix},
 [y]_{\mathcal{E}},\qquad
 \mat{Q}_{\mathcal{B}\leftarrow\mathcal{E}}=\mat{Q}_{\mathcal{E}\leftarrow\mathcal{B}}^{-1}
 \]</span></p>
-<p>For <span class="math inline">\(y(t)=2\cos(t)-\sin(t)\)</span>: <span class="math inline">\([y]_{\mathcal{B}}=[2,-1]^\top\longmapsto[y]_{\mathcal{E}}=[1+i/2,1-i/2]^\top\)</span></p>
+<p>For <span class="math inline">\(y(t)=2\cos(t)-\sin(t)\)</span>: <span class="math inline">\([y]_{\mathcal{B}}=\begin{bmatrix}2\\-1\end{bmatrix}\longmapsto[y]_{\mathcal{E}}=\begin{bmatrix}1+i/2\\1-i/2\end{bmatrix}\)</span></p>
 <div class="key-point">
 <p><span class="alert">Same function, different coefficients</span>; real initial data give conjugate exponential coefficients</p>
 </div>
 <aside class="notes">
-<p>The first transition column is [cos]<em>E=[1/2,1/2]^top; the second is [sin]<em>E=[-i/2,i/2]^top. Hence c</em>+=(a-ib)/2 and c</em>-=(a+ib)/2. Conversely, a=c_++c_- and b=i(c_+-c_-), obtained from y(0) and y’(0). Multiplying the two displayed matrices in either order gives I_2. For a=2,b=-1, c_+=1+i/2 and c_-=1-i/2; the reverse product gives [2,-1]^top. This changes only the description of the same solution y, not the motion or its initial data. The matrix of the solution map T in standard input coordinates and output basis B is I_2; changing its output basis to E changes that matrix to Q_(E&lt;-B). Both bases here belong to S_C over C. Real-valued solutions correspond to conjugate coefficient pairs, not arbitrary independent complex coefficients.</p>
+<p>The first product converts cosine-sine coordinates to exponential coordinates. The first transition column is [cos]<em>E=[1/2,1/2]^top; the second is [sin]<em>E=[-i/2,i/2]^top. Hence c</em>+=(a-ib)/2 and c</em>-=(a+ib)/2. Conversely, a=c_++c_- and b=i(c_+-c_-), obtained from y(0) and y’(0). Multiplying the two displayed matrices in either order gives I_2. For a=2,b=-1, c_+=1+i/2 and c_-=1-i/2; the reverse product gives [2,-1]^top. This changes only the description of the same solution y, not the motion or its initial data. The matrix of the solution map T in standard input coordinates and output basis B is I_2; changing its output basis to E changes that matrix to Q_(E&lt;-B). Both bases here belong to S_C over C. Real-valued solutions correspond to conjugate coefficient pairs, not arbitrary independent complex coefficients.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2691,7 +2801,7 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 <h3 id="choose-output-coordinates-for-the-damped-motion">Choose output coordinates for the damped motion</h3>
 <p>Keep <span class="math inline">\(U:\reals^2\to S_d\)</span> and <span class="math inline">\(\mathcal{D}=\{e^{-t},te^{-t}\}\)</span></p>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>The input basis is the standard basis of <span class="math inline">\(\reals^2\)</span> <span class="exsub">Find the <span class="math inline">\(\mathcal{D}\)</span>-coordinates of <span class="math inline">\(U([1,0]^\top)\)</span> and <span class="math inline">\(U([0,1]^\top)\)</span>; form the matrix representing <span class="math inline">\(U\)</span></span> <span class="exsub">Use those two output functions as a new basis <span class="math inline">\(\mathcal{F}\)</span>; what matrix now represents <span class="math inline">\(U\)</span>?</span> <span class="exsub">For <span class="math inline">\(a=1\)</span>, <span class="math inline">\(b=0\)</span>, give <span class="math inline">\(y(t)\)</span>, <span class="math inline">\([y]_{\mathcal{D}}\)</span>, and <span class="math inline">\([y]_{\mathcal{F}}\)</span></span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>The input basis is the standard basis of <span class="math inline">\(\reals^2\)</span> <span class="exsub">Find the <span class="math inline">\(\mathcal{D}\)</span>-coordinates of <span class="math inline">\(U\!\left(\begin{bmatrix}1\\0\end{bmatrix}\right)\)</span> and <span class="math inline">\(U\!\left(\begin{bmatrix}0\\1\end{bmatrix}\right)\)</span>; form the matrix representing <span class="math inline">\(U\)</span></span> <span class="exsub">Use those two output functions as a new basis <span class="math inline">\(\mathcal{F}\)</span>; what matrix now represents <span class="math inline">\(U\)</span>?</span> <span class="exsub">For <span class="math inline">\(a=1\)</span>, <span class="math inline">\(b=0\)</span>, give <span class="math inline">\(y(t)\)</span>, <span class="math inline">\([y]_{\mathcal{D}}\)</span>, and <span class="math inline">\([y]_{\mathcal{F}}\)</span></span> </span></p>
 </div>
 <aside class="notes">
 <p>U([1,0]<sup>top)=(1+t)e</sup>(-t), with D-coordinates [1,1]^top. U([0,1]^top)=t e^(-t), with D-coordinates [0,1]^top. The matrix with standard input basis and output basis D is [[1,0],[1,1]], sending [a,b]^top to [a,a+b]^top. F={(1+t)e^(-t),t e^(-t)} is a basis, since the matrix is invertible or because an isomorphism maps a basis to a basis. With output basis F, [U(u)]_F=I_2 u: the same transformation has identity coordinate matrix. For a=1,b=0, y=(1+t)e^(-t), [y]_D=[1,1]^top, [y]_F=[1,0]^top. The inverse D-coordinate matrix [[1,0],[-1,1]] recovers the initial data. The function and transformation stay fixed while the coordinate columns and representing matrices change. Keep these answers in presenter notes.</p>
@@ -2732,7 +2842,7 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 <td>The response, through <span class="math inline">\(\vct{y}\approx\mat{X}\vct{\beta}\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="alert">PCA</span></td>
+<td><span class="alert">Principal Component Analysis (PCA)</span></td>
 <td>The data <span class="math inline">\(\mat{X}\)</span> alone</td>
 <td>The observations, in a basis chosen from their variation</td>
 </tr>
@@ -2864,27 +2974,21 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 <section class="slide level2">
 
 <h3 id="the-pca-basis-changes-every-observations-coordinates">The PCA basis changes every observation’s coordinates</h3>
-<p>PCA selects orthogonal unit directions with the greatest remaining variation</p>
-<div class="columns">
-<div class="column" style="width:47%;">
-<p>For these data, the basis matrix is</p>
+<p>PCA selects <span class="alert">orthogonal unit directions</span> with the greatest remaining variation</p>
 <p><span class="math display">\[
-\mat{Q}=[\vct{q}_1\ \vct{q}_2]
-=\frac1{\sqrt2}\begin{bmatrix}1&amp;-1\\1&amp;1\end{bmatrix}
-\in\reals^{2\times2}
-\]</span></p>
-<p>Its columns form an <span class="alert">orthonormal basis</span> of feature space <span class="math inline">\(\reals^2\)</span></p>
-<p>The <span class="alert">scores</span> are the new coordinates:</p>
-<p><span class="math display">\[
-\underbrace{\mat{X}}_{8\times2}
-\underbrace{\mat{Q}}_{2\times2}
-=\underbrace{\mat{S}}_{8\times2}
-\]</span></p>
-</div><div class="column" style="width:6%;">
-
-</div><div class="column" style="width:47%;">
-<p><span class="math display">\[
-\mat{S}=\sqrt2\begin{bmatrix}
+\underbrace{\begin{bmatrix}
+10&amp;14\\
+-10&amp;-14\\
+11&amp;5\\
+-11&amp;-5\\
+4&amp;4\\
+-4&amp;-4\\
+-2&amp;2\\
+2&amp;-2
+\end{bmatrix}}_{\mat{X}\ (8\times2)}
+\underbrace{\frac1{\sqrt2}\begin{bmatrix}1&amp;-1\\1&amp;1\end{bmatrix}}_{\mat{Q}=[\vct{q}_1\ \vct{q}_2]\ (2\times2)}
+=
+\underbrace{\sqrt2\begin{bmatrix}
 12&amp;2\\
 -12&amp;-2\\
 8&amp;-3\\
@@ -2893,15 +2997,14 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 -4&amp;0\\
 0&amp;2\\
 0&amp;-2
-\end{bmatrix}
+\end{bmatrix}}_{\mat{S}\ (8\times2)}
 \]</span></p>
-</div></div>
 <div class="key-point">
-<p>Row <span class="math inline">\(i\)</span> of <span class="math inline">\(\mat{S}\)</span> is <span class="math inline">\([\vct{z}_i]_{\mathcal{Q}}^\top\)</span>, where <span class="math inline">\(\mathcal{Q}=\{\vct{q}_1,\vct{q}_2\}\)</span></p>
-<p>The first observation has coordinates <span class="math inline">\(\sqrt2[12,2]^\top\)</span></p>
+<p>The <span class="alert">scores</span> in row <span class="math inline">\(i\)</span> of <span class="math inline">\(\mat{S}\)</span> are <span class="math inline">\([\vct{z}_i]_{\mathcal{Q}}^\top\)</span>, where <span class="math inline">\(\mathcal{Q}=\{\vct{q}_1,\vct{q}_2\}\)</span></p>
+<p>The first observation has coordinates <span class="math inline">\(\sqrt2\begin{bmatrix}12\\2\end{bmatrix}\)</span></p>
 </div>
 <aside class="notes">
-<p>We give Q here without deriving the PCA algorithm. Since observations are rows, scores are X Q, whereas one column observation has coordinate column Q^top z_i. Q^top Q=I, so X=S Q^top reconstructs all eight observations. Exactly, X^top X=[[482,414],[414,482]]. Its eigenvectors are the columns of Q, with eigenvalues 896 and 68. Equivalently S^top S=diag(896,68), so the score columns have zero cross product and the first has greater variance. The sample covariance divides these matrices by 7. Eigenvectors and SVD will explain how to find Q later; no response y is used to choose these directions.</p>
+<p>We give Q here without deriving the PCA algorithm. Since observations are rows, scores are X Q, whereas one column observation has coordinate column Q^top z_i. Q^top Q=I, so X=S Q^top reconstructs all eight observations. Exactly, X^top X=[[482,414],[414,482]]. Its eigenvectors are the columns of Q, with eigenvalues 896 and 68. Equivalently S^top S=diag(896,68), so the score columns have zero cross product and the first has greater variance. The sample covariance divides these matrices by 7. Eigenvectors and SVD will explain how to find Q later; no response y is used to choose these directions. X is repeated beside S so their columns can be compared directly, including the square-root-of-two factor multiplying S. The second score column has smaller squared length (68 rather than 482), hence smaller sample variance. This is a comparison of overall variation, not of every individual entry.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2985,7 +3088,7 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 <p><span class="math display">\[
 \vct{z}=12\sqrt2\,\vct{q}_1+2\sqrt2\,\vct{q}_2
 \]</span></p>
-<p>Its coordinate vector <span class="math inline">\(\sqrt2[12,2]^\top\)</span> contains its <span class="alert">scores</span></p>
+<p>Its coordinate vector <span class="math inline">\(\sqrt2\begin{bmatrix}12\\2\end{bmatrix}\)</span> contains its <span class="alert">scores</span></p>
 <div class="key-point">
 <p>Full basis: exact coordinates</p>
 <p>Keep <span class="math inline">\(\vct{q}_1\)</span>: <span class="math inline">\(\vct{z}\approx12\sqrt2\,\vct{q}_1\)</span> in its span</p>
@@ -3011,10 +3114,10 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 <h2>A frame can keep redundant generators</h2>
 <p><span class="alert">Extension</span>: redundancy can protect reach when a generator is lost</p>
 <p>For a subspace of <span class="math inline">\(\reals^n\)</span>, a finite spanning list is a <span class="alert">frame</span></p>
-<p>Independence is optional; for <span class="math inline">\(W=\{[x,y,z]^\top:z=x+y\}\)</span>, use</p>
+<p>Independence is optional; for <span class="math inline">\(W=\left\{\begin{bmatrix}x\\y\\z\end{bmatrix}:z=x+y\right\}\)</span>, use</p>
 <p><span class="math display">\[
-\vct{v}_1=[1,0,1]^\top,\quad \vct{v}_2=2\vct{v}_1,
-\quad \vct{v}_3=[0,1,1]^\top,\quad \vct{v}_4=\vct{v}_1+\vct{v}_3
+\vct{v}_1=\begin{bmatrix}1\\0\\1\end{bmatrix},\quad \vct{v}_2=2\vct{v}_1,
+\quad \vct{v}_3=\begin{bmatrix}0\\1\\1\end{bmatrix},\quad \vct{v}_4=\vct{v}_1+\vct{v}_3
 \]</span></p>
 <p><span class="math display">\[
 \vct{v}_4
