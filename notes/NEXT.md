@@ -15,22 +15,41 @@ checkpoint; remote deployment and live-page verification remain pending.
 For October 27, the instructor aims to finish Bases and Coordinates. The
 October 26 local revisions clarify arbitrary vectors and numerical
 representations across Decks 06 and 07. Deck 06 now has 50 slides; Deck 07
-has 85, with conceptual section outlines, preserved examples/exercises,
+has 88, with conceptual section outlines, preserved examples/exercises,
 highlighted uniqueness, and a separate length-preservation topic. The
 monomial dimension example and practice now follow the dimension definition,
 before the equivalent basis tests; revisit that relocated practice as needed.
-Review these revisions before teaching. They are included in this Checkpoint;
-remote deployment and live-page verification remain pending. The notation
-convention is recorded in AUTHOR_WORKFLOW.md.
+Review these revisions before teaching. The abstract-vector and coordinate-map
+changes are published in `6cebaa2`; the regression/PCA clarification below is
+included in this Checkpoint, with deployment/live verification pending. The
+notation convention is recorded in AUTHOR_WORKFLOW.md.
+
+Regression/PCA clarification: a visible comparison distinguishes using
+explanatory data X and response y to fit y from representing X without using
+a response. Regression now consistently uses X, y, and beta. PCA shows the
+actual eight centered observations as an 8-by-2 matrix, the 2-by-2 orthonormal
+basis, and all eight rows of scores XQ before the preserved geometric picture.
+Three supporting slides make these objects and the variance comparison visible
+without deriving the PCA algorithm. X now contains whole-number observations
+without a common scale factor; scores, variances, and figure labels are scaled
+consistently. Original coordinate variances are 482/7 each; PCA variances are
+128 and 68/7, concentrating 92.9% of total variance in the first score versus
+50% in either original coordinate. A table and generated bar comparison show
+this change while total variance stays fixed. Original feature-space axes are
+e_1,e_2; data columns X_1,X_2 collect the eight coordinate values. Exact
+arithmetic and matching against the plotted points pass. The complete website
+and all twelve decks render; 1,755 local links/assets and changed layouts pass
+checks, including browser review. These latest edits are included in this
+Checkpoint; deployment/live verification remains pending.
 
 Checkpoint validation also corrects the shared navigation reset: explicit
 cross-section links and hash addresses retain the requested child slide,
 while horizontal arrows still open the section overview. This course
 intentionally pins HickernellAcademicLib `5484f82`; other dependencies remain
-unchanged. The complete website and all twelve decks render without warnings;
-1,756 local links/assets, exercise preservation, exact new calculations, and
-browser navigation checks pass. Instructor review remains distinct from these
-local checks.
+unchanged. At that Checkpoint, the complete website and all twelve decks
+rendered without warnings; 1,756 local links/assets, exercise preservation,
+exact new calculations, and browser navigation checks passed. Instructor
+review remains distinct from these local checks.
 
 ### Test 2 — private preparation complete
 
@@ -88,7 +107,7 @@ independence show both expanded sums and matrix products. Its 18/48/34 column
 proportions and compact row spacing pass rendered browser review, with the key
 point clear of the footer. Continue reviewing the remaining layouts.
 
-Review the revised 85-slide flow and visible layouts before teaching. The
+Review the revised 88-slide flow and visible layouts before teaching. The
 October 21 revision organizes the deck by motivating questions, puts visible
 matrix proofs before their applications, moves dimension before the coordinate
 examples, and places enrichment after the foundations. All examples and the

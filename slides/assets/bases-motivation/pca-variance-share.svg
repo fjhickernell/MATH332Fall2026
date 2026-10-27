@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="823.003125pt" height="160.196pt" viewBox="0 0 823.003125 160.196" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 160.196
+L 823.003125 160.196
+L 823.003125 0
+L 0 0
+L 0 160.196
+z
+" style="fill: none"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 81.403125 157.316
+L 820.123125 157.316
+L 820.123125 25.916
+L 81.403125 25.916
+L 81.403125 157.316
+z
+" style="fill: none"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 81.403125 82.856
+L 450.763125 82.856
+L 450.763125 50.318857
+L 81.403125 50.318857
+z
+" clip-path="url(#pe3e94098e2)" style="fill: #168b90"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 81.403125 145.427429
+L 768.014245 145.427429
+L 768.014245 112.890286
+L 81.403125 112.890286
+z
+" clip-path="url(#pe3e94098e2)" style="fill: #168b90"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 450.763125 82.856
+L 820.123125 82.856
+L 820.123125 50.318857
+L 450.763125 50.318857
+z
+" clip-path="url(#pe3e94098e2)" style="fill: #064b76"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 768.014245 145.427429
+L 820.123125 145.427429
+L 820.123125 112.890286
+L 768.014245 112.890286
+z
+" clip-path="url(#pe3e94098e2)" style="fill: #064b76"/>
+   </g>
+   <g id="matplotlib.axis_1"/>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #064b76" x="69.403125" y="73.0461" transform="rotate(-0 69.403125 73.0461)">Original</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #064b76" x="69.403125" y="135.617529" transform="rotate(-0 69.403125 135.617529)">PCA</text>
+     </g>
+    </g>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #ffffff" x="266.083125" y="71.002429" transform="rotate(-0 266.083125 71.002429)">50%</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #ffffff" x="635.443125" y="71.002429" transform="rotate(-0 635.443125 71.002429)">50%</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #ffffff" x="424.708685" y="133.573857" transform="rotate(-0 424.708685 133.573857)">92.9%</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 16px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #ffffff" x="794.068685" y="133.573857" transform="rotate(-0 794.068685 133.573857)">7.1%</text>
+   </g>
+   <g id="legend_1">
+    <g id="patch_7">
+     <path d="M 254.514062 22.597344
+L 274.914062 22.597344
+L 274.914062 10.697344
+L 254.514062 10.697344
+z
+" style="fill: #168b90"/>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: start" x="288.514062" y="22.597344" transform="rotate(-0 288.514062 22.597344)">First coordinate</text>
+    </g>
+    <g id="patch_8">
+     <path d="M 454.367656 22.597344
+L 474.767656 22.597344
+L 474.767656 10.697344
+L 454.367656 10.697344
+z
+" style="fill: #064b76"/>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: start" x="488.367656" y="22.597344" transform="rotate(-0 488.367656 22.597344)">Second coordinate</text>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pe3e94098e2">
+   <rect x="81.403125" y="25.916" width="738.72" height="131.4"/>
+  </clipPath>
+ </defs>
+</svg>
