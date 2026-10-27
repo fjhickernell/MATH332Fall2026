@@ -1,5 +1,19 @@
 # Next task
 
+## Reconcile the October 27 lecture
+
+The October 27 Panopto readiness notice in Illinois Tech Fred identifies an
+11:24 AM recording start and approximately 78 minutes. Recording inspection
+is pending: Safari reached the Illinois Tech sign-in page after starting at
+the portal. Resume `Lecture update 332` after sign-in, verify the actual
+stopping point, and reconcile the schedule, ledger, and next instructional
+calendar occurrence on November 3. October 29 is Test 2 and must not receive
+the continuation note. The ledger remains reconciled through October 22;
+no October 27 coverage or calendar change has been inferred.
+
+The preparation notes below describe the earlier plan, not verified
+October 27 coverage.
+
 ## October 27 coordinate review — ready for teaching
 
 Resume at “Build a basis by adding or removing vectors” (slide 34 of the
