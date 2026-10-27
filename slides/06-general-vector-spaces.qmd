@@ -812,17 +812,16 @@ Use the operations inherited from $V$ in both exercises
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Let $V$ be a vector space over $\reals$
-<span class="exsub">Prove that $V\setminus\{\vct{v}\}$ is not a subspace of $V$ for any $\vct{v}\in V$</span>
-<span class="exsub">Include both $\vct{v}=\vct{0}$ and $\vct{v}\ne\vct{0}$ in your proof</span>
+<span>Let $V$ be a vector space over $\reals$ and $\vct{v}\in V$
+<span class="exsub">Could $V\setminus\{\vct{v}\}$ be a subspace of $V$?</span>
 </span>
 :::
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Now use the scalar field $\mathbb{F}_2=\{0,1\}$, where $1+1=0$
-<span class="exsub">Construct a vector space $V$ over $\mathbb{F}_2$ and a vector $\vct{v}\in V$ such that $V\setminus\{\vct{v}\}$ is a subspace of $V$</span>
-<span class="exsub">Prove that your example satisfies the subspace test</span>
+<span>What changes if $V$ is over $\mathbb{F}_2=\{0,1\}$, where $1+1=0$?
+<span class="exsub">Could removing one vector leave a subspace?</span>
+<span class="exsub">What is $\vct{v}+\vct{v}$?</span>
 </span>
 :::
 
@@ -834,6 +833,10 @@ cancellation, so $2\vct{v}\in V\setminus\{\vct{v}\}$. But multiplying it by
 $1/2$ gives the removed vector. Thus scalar-multiplication closure fails.
 This argument uses only the vector-space axioms and applies to arbitrary
 real vector spaces, including infinite-dimensional ones.
+
+For every vector $\vct{w}$ in a vector space over $\mathbb{F}_2$,
+$\vct{w}+\vct{w}=1\vct{w}+1\vct{w}=(1+1)\vct{w}=0\vct{w}=\vct{0}$.
+Thus every vector, including each nonzero vector, is its own additive inverse.
 
 For binary scalars, take $V=\mathbb{F}_2$ as a vector space over itself, with
 its field operations, and remove $\vct{v}=1$. The remaining set is $\{0\}$.

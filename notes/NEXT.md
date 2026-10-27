@@ -2,6 +2,11 @@
 
 ## October 27 clarity review — ready for teaching
 
+The instructor's vector-removal follow-up is included in this checkpoint:
+both real/F2 prompts are open-ended, without redundant reasoning instructions.
+The binary case adds “What is v+v?”; presenter notes give the derivation.
+Remote deployment and live verification remain pending.
+
 Resume at “Build a basis by adding or removing vectors” (slide 34 of the
 current 89-slide Deck 07), then its independence proof, the scalar-field
 example, and “Coordinates and Their Arithmetic.” Revisit the relocated

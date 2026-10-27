@@ -15,6 +15,15 @@ and matrix representations. It preserves every previous example, the 14
 Deck 06 and 20 Deck 07 exercise sets, and all previous explicit anchors.
 No assessment content or coverage changes are part of this review.
 
+Instructor follow-up: keep the paired real/F2 vector-removal exercises
+open-ended. Ask whether removing a vector could leave a subspace; do not
+disclose either conclusion, prescribe the zero/nonzero case split, or add
+“Explain your reasoning” instructions—the justification is understood.
+The binary case ends with the instructor-requested follow-up “What is v+v?”;
+its derivation and worked answers remain in presenter notes. The revised deck
+renders without warnings; the open-question layout was inspected. The wording
+and follow-up are included in this checkpoint; remote deployment remains pending.
+
 - Rename the closure section to Subspaces and Closure, keeping its old anchor;
   Spans and Membership remains the subsequent construction section. Supply
   the span-closure/minimality justification in presenter notes, and explicitly
