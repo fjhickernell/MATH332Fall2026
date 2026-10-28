@@ -1,18 +1,29 @@
 # Next task
 
-## Reconcile the October 27 lecture
+## November 3 lecture continuation
 
-The October 27 Panopto readiness notice in Illinois Tech Fred identifies an
-11:24 AM recording start and approximately 78 minutes. Recording inspection
-is pending: Safari reached the Illinois Tech sign-in page after starting at
-the portal. Resume `Lecture update 332` after sign-in, verify the actual
-stopping point, and reconcile the schedule, ledger, and next instructional
-calendar occurrence on November 3. October 29 is Test 2 and must not receive
-the continuation note. The ledger remains reconciled through October 22;
-no October 27 coverage or calendar change has been inferred.
+October 27 is reconciled from Panopto captions, the slide-transition index,
+and the visible closing slide. The lecture completed subspace/scalar-field
+review, unique coordinates and arithmetic, basis matrices, and a worked
+change of basis in R² through P_C^{-1} P_B. Resume Deck 07 with a brief recap
+of “Change of basis passes through the vector,” then “Transition columns
+describe the old basis in the new one,” its general rule, and polynomial
+change-of-basis examples. October 29 is Test 2; its coverage is unchanged.
 
-The preparation notes below describe the earlier plan, not verified
-October 27 coverage.
+The November 3 single occurrence was saved with Only This Event and reopened
+in Fantastical: Illinois Tech Fred → Calendar, PH 109, 11:15 AM–12:45 PM
+America/Chicago. The saved note and original title are verified locally;
+Fantastical displays an Illinois Tech sync-error notice, so server
+synchronization is unverified. Schedule and ledger changes are included in
+this Checkpoint; remote deployment and live-page verification remain pending.
+
+The earlier preparation notes below are historical where superseded by this
+recording evidence.
+
+The opening concept table now uses coefficients consistently, with coordinates
+identified as the unique basis coefficients. Deck 07 renders successfully;
+the table and takeaway fit at 1280×720 and 1050×700 without layout or font
+changes. The terminology convention is recorded in AUTHOR_WORKFLOW.md.
 
 ## October 27 coordinate review — ready for teaching
 

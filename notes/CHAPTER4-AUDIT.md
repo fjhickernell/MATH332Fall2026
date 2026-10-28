@@ -9,6 +9,15 @@ not yet had its remote deployment verified.
 
 ## October 27, 2026 — clarity and prerequisite review of Decks 06–07
 
+Terminology follow-up: the opening concept table uses coefficients for the
+scalars in a linear combination and identifies coordinates as unique basis
+coefficients. Its two revised descriptions fit at 1280×720 and 1050×700,
+including the takeaway and content clearance, without font or layout changes.
+The deck render, source-style checks, and browser console check pass; all
+90 slides and the existing examples and exercises remain. The full website
+and all twelve decks render without warnings; 1,705 assembled-site local
+links/assets and browser deck navigation pass.
+
 The complete source review retains the progression from vector-space
 operations and closure to span, independence, bases, dimension, coordinates,
 and matrix representations. It preserves every previous example, the 14

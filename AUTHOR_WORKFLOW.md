@@ -401,6 +401,12 @@ calendar unchanged and check again later.
   coordinate entries while preserving the underlying basis set. Use the same
   order for columns of a basis matrix and for matrix representations of maps.
 
+- In basis and coordinate explanations, use coefficients for the scalars in
+  a general linear combination. Call them coordinates when referring to the
+  unique coefficients in a specified ordered basis. Prefer these two terms
+  over alternating among coefficients, weights, and coordinates without
+  explaining the distinction.
+
 - Whenever an assessed item is finalized or updated on its course website
   page, also put its name and date on exactly one relevant deck title slide,
   following the assessment-specific workflow above. Choose one suitable

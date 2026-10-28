@@ -93,13 +93,13 @@ Use a [row of vectors]{.alert} $[\vct{b}_1\ \cdots\ \vct{b}_k]$ from the vector 
 
 | Concept | Notation | What it does |
 |---|---|---|
-| [Linear combination]{.alert} | $c_1\vct{b}_1+\cdots+c_k\vct{b}_k=[\vct{b}_1\ \cdots\ \vct{b}_k]\vct{c}$ | Builds one vector from chosen weights |
+| [Linear combination]{.alert} | $c_1\vct{b}_1+\cdots+c_k\vct{b}_k=[\vct{b}_1\ \cdots\ \vct{b}_k]\vct{c}$ | Builds one vector from chosen coefficients |
 | [Subspace]{.alert} | $W\subseteq V$ | Contains zero and is closed under linear combinations |
 | [Span]{.alert} | $\operatorname{span}\{\vct{b}_1,\ldots,\vct{b}_k\}$ | Collects all vectors we can build |
 | [Linear independence]{.alert} | $c_1\vct{b}_1+\cdots+c_k\vct{b}_k=[\vct{b}_1\ \cdots\ \vct{b}_k]\vct{c}=\vct{0}$<br>$\implies c_1=\cdots=c_k=0\quad(\vct{c}=\vct{0})$ | Makes the coefficients [unique]{.alert} |
 | [Basis]{.alert} | $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_k\}$ | Builds every vector in $V$ [uniquely]{.alert} |
 | [Dimension]{.alert} | $\dim V=k$ for a basis $\mathcal{B}$ | Counts basis vectors and coordinates |
-| [Coordinates]{.alert} | $[\vct{v}]_{\mathcal{B}}=[c_1,\ldots,c_k]^\top$ | Records the weights as an address |
+| [Coordinates]{.alert} | $[\vct{v}]_{\mathcal{B}}=[c_1,\ldots,c_k]^\top$ | Records the unique basis coefficients as an address |
 
 ::: {.key-point}
 Spanning gives [existence]{.alert}; independence gives [uniqueness]{.alert}

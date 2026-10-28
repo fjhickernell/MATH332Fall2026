@@ -2,7 +2,7 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest reconciled instructional meeting: October 22, 2026
+- Latest reconciled instructional meeting: October 27, 2026
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -17,6 +17,7 @@
 | October 15, 2026 | Reconciled: line-coordinate examples, Fourier-mode independence, homogeneous coefficient tests, and basis extraction by elimination; frames and infinite bases previewed before Quiz 3 | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2de95612-7f46-4253-88e1-b4e40121cfd0) | October 20, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; recap coordinate uniqueness, then “Coordinates in a Chosen Basis” → “A basis gives every vector unique coordinates” | October 18, 2026 |
 | October 20, 2026 | Reconciled (Fantastical read-back completed October 22): matrix and polynomial bases; dimension and coordinate arithmetic; undamped initial-data solution map and complex bases; critically damped spring exercise begun | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=330a3335-a279-49c1-b6a1-b4e9012bbf78) | October 22, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; Finish “A critically damped spring: find the solution map,” then “Choose output coordinates for the damped motion” | October 20, 2026 |
 | October 22, 2026 | Reconciled: critically damped spring in original and initial-data-adapted bases; independence, redundancy and bases; dimension, counting comparison and equivalence of independence/spanning for exactly dim(V) vectors | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=35a56247-4ad0-46cf-a1f6-b4eb012ce87c) | October 27, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; resume Deck 07 at “Build a basis by adding or removing vectors,” remaining dimension examples, then “Coordinates and Their Arithmetic” | October 22, 2026 |
+| October 27, 2026 | Reconciled: subspace/scalar-field review; unique coordinates and arithmetic; basis matrices and worked R² change of basis through P_C^{-1} P_B | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=14061e59-57f5-4280-acdc-b4f0012e71d9) | November 3, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; recap “Change of basis passes through the vector,” then “Transition columns describe the old basis in the new one.” Saved note reopened locally; server synchronization unverified due to account sync-error notice | October 27, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -207,3 +208,32 @@ Resume the remaining dimension construction/examples before systematic coordinat
 Coverage discrepancy resolved by instructor direction on October 22: Test 2 ends at dimension, excluding coordinates, change of basis and transformations. Canvas assignment 105162 and prior announcement 107870 are corrected; all-sections correction announcement 108764 is published and verified. Both website source rows are corrected and included in the October 22 checkpoint; remote deployment/live-page verification remains pending.
 
 Validation: the updated schedule renders successfully in Quarto. The changed October rows and surrounding tables were inspected in Safari at desktop width and a 390-pixel responsive viewport; text and links wrap within their columns. The continuation anchor exists in the deck source. `git diff --check` passes. The temporary preview tab was closed and responsive mode exited. The complete website and all twelve decks also render; the corrected Test 2 rows pass desktop and 390-pixel Safari layout checks. Changes are included in the October 22 checkpoint; remote deployment is pending.
+
+
+## October 27 recording evidence
+
+The Illinois Tech Fred readiness notice and signed-in Panopto folder identify
+an 11:24 AM start and 1:18:21 recording. The transcript covers subspace closure
+and removing one vector over real versus binary scalar fields, then unique
+coordinates, the standard-basis identification, coordinate arithmetic and
+polynomial examples. The transition index places coordinate arithmetic at
+22:06, uniqueness at 22:27, standard-basis identification at 25:15, the
+coordinate map at 26:00, basis-matrix conversion at 1:02:33, and “Change of
+basis passes through the vector” at 1:10:06. The visible closing slide at
+1:15:16 and 1:17:39 is that change-of-basis slide. Closing captions verify the
+worked R² conversion and its coordinates (1, 3/2) through 1:17:54, followed by
+farewell at 1:17:59. The next transition-column slide was not reached.
+
+Saved the November 3 continuation with Only This Event, closed the popover,
+and reopened the occurrence to verify title, PH 109, 11:15 AM–12:45 PM Chicago,
+and persisted note. Calendar selector identifies Illinois Tech Fred → Calendar.
+An Illinois Tech account sync-error notice was visible before and after the
+edit; local persistence is verified, server synchronization is unverified.
+October 29 is assessment-only and was not edited. Playback was paused and
+muted during inspection.
+
+Validation: schedule Quarto render, changed deck-anchor checks, unchanged
+October 29 assessment row, and `git diff --check` pass. Updated October and
+November rows pass browser review at desktop and 390-pixel widths, with no
+horizontal overflow at 390 pixels. Temporary recording/preview tabs were
+closed and Fantastical restored to the current week with the search cleared.

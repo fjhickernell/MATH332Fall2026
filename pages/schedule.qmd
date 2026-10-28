@@ -5,7 +5,7 @@ css: schedule.css
 
 Classes normally meet Tuesdays and Thursdays at 11:25 AM in **PH 109**.
 
-Completed lecture topics through October 22 have been checked against the
+Completed lecture topics through October 27 have been checked against the
 Panopto recordings. Future topics are provisional and will be updated as
 assignments, quizzes, holidays, and examination details are finalized.
 
@@ -48,14 +48,14 @@ assignments, quizzes, holidays, and examination details are finalized.
 | 10 | Tue Oct 20 | Matrix and polynomial bases; dimension and coordinate arithmetic; undamped initial-data solution map and complex bases; critically damped spring exercise begun | [Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html) |
 | | Thu Oct 22 | Critically damped spring solution map in two output bases; independence, redundant generators and bases; dimension and equivalence of independence/spanning tests | [Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html#a-critically-damped-spring-find-the-solution-map) |
 | | Fri Oct 23 | **Assignment 4 due** | [WileyPLUS: General Vector Spaces](../assignments/assignment_4.qmd) |
-| 11 | Tue Oct 27 | Finish dimension: basis construction and examples; coordinate maps and arithmetic | [Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html#build-a-basis-by-adding-or-removing-vectors) |
+| 11 | Tue Oct 27 | Subspaces and scalar fields review; unique coordinates and coordinate arithmetic; basis matrices and a worked change of basis in R² | [Vector Spaces, Subspaces, and Span](../slides/06-general-vector-spaces.html)<br>[Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html#a-basis-gives-every-vector-unique-coordinates) |
 | | Thu Oct 29 | **Test 2** | Covers<br>[Determinants](../slides/04-determinants.html)<br>[Euclidean Vector Spaces](../slides/05-euclidean-vector-spaces.html)<br>[Vector Spaces, Subspaces, and Span](../slides/06-general-vector-spaces.html)<br>[Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html#dimension-and-coordinates)<br>Through dimension only<br>Coordinates, change of basis, and transformations excluded |
 
 ### November
 
 | Week | Date | Topic | Slides / Materials |
 |---:|---|---|---|
-| 12 | Tue Nov 3 | | |
+| 12 | Tue Nov 3 | Change-of-basis recap; transition columns and polynomial coordinate changes | [Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html#transition-columns-describe-the-old-basis-in-the-new-one) |
 | | Thu Nov 5 | | |
 | | Fri Nov 6 | **Assignment 5 due** | Details TBD |
 | 13 | Tue Nov 10 | | |
