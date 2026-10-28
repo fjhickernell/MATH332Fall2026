@@ -73,13 +73,7 @@ assignments, quizzes, holidays, and examination details are finalized.
 | 16 | Tue Dec 1 | **Quiz 5** | Coverage TBD |
 | | Thu Dec 3 | | |
 
-The official last day of classes is Saturday, December 5. Because the course
-meets on Tuesdays and Thursdays, Thursday, December 3 is the final regular
-class meeting.
-
 ### Final examinations
-
-Final-examination times below are America/Chicago (CST).
 
 | Week | Date | Topic | Slides / Materials |
 |---:|---|---|---|
