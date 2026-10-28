@@ -1,5 +1,14 @@
 # Next task
 
+## Final-examination schedule — October 28 update
+
+The Schedule and assessment page now list the Registrar-confirmed in-class
+final: Tuesday, December 8, 2026, 8:00–10:00 AM America/Chicago (CST),
+PH 109. The full website and all 12 decks render without warnings; assembled
+local links resolve and schedule tables pass desktop/phone checks. These changes
+are included in this Checkpoint; remote deployment and live verification remain
+pending.
+
 ## November 3 lecture continuation
 
 October 27 is reconciled from Panopto captions, the slide-transition index,

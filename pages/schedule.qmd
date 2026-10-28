@@ -79,8 +79,8 @@ class meeting.
 
 ### Final examinations
 
-Final examinations occur during the following week.
+Final-examination times below are America/Chicago (CST).
 
 | Week | Date | Topic | Slides / Materials |
 |---:|---|---|---|
-| 17 | TBA | **Final Exam — time and location TBA** | Whole course; greater emphasis on material not covered by Test 1 or Test 2 |
+| 17 | Tue Dec 8 | **Final Exam**<br>8:00–10:00 AM<br>**PH 109** | Whole course; greater emphasis on material not covered by Test 1 or Test 2 |

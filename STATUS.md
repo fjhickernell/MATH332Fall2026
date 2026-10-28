@@ -283,6 +283,9 @@ Mathematical content should be maintained only in the slides.
   - [x] State that the final-examination date will be posted when scheduled by
     the Registrar and that the cumulative examination will emphasize material
     not covered by Test 1 or Test 2.
+  - [x] Replace the final-examination placeholders in the Schedule and
+    assessment page with Tuesday, December 8, 2026, 8:00–10:00 AM
+    America/Chicago (CST), PH 109, confirmed by the Registrar.
   - [x] Announce and add to the course website the remaining quiz dates—Quiz 3
     on October 15, Quiz 4 on November 12, and Quiz 5 on December 1—with
     coverage TBD.
