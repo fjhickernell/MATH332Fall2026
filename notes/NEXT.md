@@ -781,15 +781,15 @@ drops one lowest score and excludes the unchanged 10-point Diagnostic Survey
 with Never Drop. All five quizzes already exist at 20 points with schedule-matching
 dates; the Quizzes group now drops one lowest score.
 
-Assignment 4 now uses the configured External Tool launch described above.
-The remaining Canvas placeholders are saved and verified, **unpublished**,
-with no submission requested yet. Due dates reserve the schedule date at
-11:59 PM America/Chicago. Reuse these IDs during the full assignment setup:
+Assignments 4 and 5 now use their configured External Tool launches; see their
+release records above. Assignment 6 is the remaining saved, verified,
+**unpublished** Canvas placeholder, with no submission requested yet. Its due
+date reserves the schedule date at 11:59 PM America/Chicago. Reuse this ID
+during setup:
 
-- Assignment 5: [106681](https://iit.instructure.com/courses/23913/assignments/106681), due November 6, 2026.
 - Assignment 6: [106682](https://iit.instructure.com/courses/23913/assignments/106682), due November 20, 2026.
 
-When the WileyPLUS launches are configured, replace the placeholder submission
+When the WileyPLUS launch is configured, replace the placeholder submission
 type with External Tool, set the authoritative deadlines in WileyPLUS, and
 clear Canvas Due/Until fields under the existing course workflow. Existing
 Assignments 1–3 retain their WileyPLUS setup and blank Canvas due dates.
