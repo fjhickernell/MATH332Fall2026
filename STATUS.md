@@ -301,3 +301,13 @@ Mathematical content should be maintained only in the slides.
 - [x] Draft QR, least squares, and Fourier prerequisites in Deck 10.
 - [ ] Complete instructor content and visible-layout review of Deck 10.
 - [ ] Build and validate the selected Special Topics demonstrations.
+
+## Assignment 5
+
+- [x] Prepare the instructor-selected four-question Coordinates and Change of
+  Basis assignment with equal 5-point weights and local website/deck updates.
+- [x] Connect the saved WileyPLUS set to Canvas 106681; verify new-tab launch,
+  four 5-point questions, the November 6 deadline, blank Canvas Due/Until,
+  and unpublished/unavailable status.
+- [ ] Deploy/verify the website, obtain combined publication approval, publish
+  and verify WileyPLUS/Canvas and the all-sections announcement.

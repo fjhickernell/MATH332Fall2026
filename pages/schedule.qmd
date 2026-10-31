@@ -55,9 +55,10 @@ assignments, quizzes, holidays, and examination details are finalized.
 
 | Week | Date | Topic | Slides / Materials |
 |---:|---|---|---|
-| 12 | Tue Nov 3 | Change-of-basis recap; transition columns and polynomial coordinate changes | [Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html#transition-columns-describe-the-old-basis-in-the-new-one) |
+| 12 | Mon Nov 2 | **Last day to withdraw from full-semester courses** | [Illinois Tech academic calendar](https://www.iit.edu/registrar/academic-calendar) |
+| | Tue Nov 3 | Change-of-basis recap; transition columns and polynomial coordinate changes | [Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html#transition-columns-describe-the-old-basis-in-the-new-one) |
 | | Thu Nov 5 | | |
-| | Fri Nov 6 | **Assignment 5 due** | Details TBD |
+| | Fri Nov 6 | **Assignment 5 due** | [WileyPLUS: Coordinates and Change of Basis](../assignments/assignment_5.qmd) |
 | 13 | Tue Nov 10 | | |
 | | Thu Nov 12 | **Quiz 4** | Coverage TBD |
 | 14 | Tue Nov 17 | | |
