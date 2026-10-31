@@ -309,5 +309,6 @@ Mathematical content should be maintained only in the slides.
 - [x] Connect the saved WileyPLUS set to Canvas 106681; verify new-tab launch,
   four 5-point questions, the November 6 deadline, blank Canvas Due/Until,
   and unpublished/unavailable status.
-- [ ] Deploy/verify the website, obtain combined publication approval, publish
-  and verify WileyPLUS/Canvas and the all-sections announcement.
+- [x] Deploy/verify the website, obtain combined publication approval, publish
+  and verify WileyPLUS/Canvas and the all-sections announcement (October 31;
+  Canvas announcement 109416).

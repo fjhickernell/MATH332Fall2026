@@ -1,58 +1,37 @@
 # Next task
 
-## Assignment 5 — connected; website deployment and release pending
+## Assignment 5 — released October 31; grading review due November 12
 
-The instructor selected WileyPLUS Chapter 4 §4.5 Q15 and §4.7 Q02b,
-Q16, Q02a, in that order, and directed equal weights: 5 points each,
-20 total. The saved question set is `Assignment 5`, master ID
-`0ad360f4-649f-485b-9c17-d9a9919ebbb2`; reuse it, do not create another set.
-The live Homework profile has three attempts, no score reduction, best score,
-values randomized per student and fixed across attempts, immediate answer
-feedback, textbook always available, hints after the first attempt, and
-answers/solutions after the last. Assistance has no deduction. Auto-submit
-on the due date is enabled; late submissions are disabled; review is after
-the deadline. Class due date was entered as November 6, 2026, 11:59 PM CST,
-with Not available to students; the connected instance was verified.
+Assignment 5 is published in Canvas 106681 and available in WileyPLUS.
+The instructor-approved question set is Chapter 4 §4.5 Q15 and §4.7 Q02b,
+Q16, Q02a, in that order: 5 points each, 20 total. Reuse the saved set
+`0ad360f4-649f-485b-9c17-d9a9919ebbb2` and the existing Canvas item.
+The deadline is November 6, 2026, 11:59 PM America/Chicago (CST).
 
-The Safari selection-return barrier is resolved. Canvas 106681 now uses the
-paired Wiley LTI 1.3 External Tool link to the existing saved set, with
-new-tab launch and the prepared description. Canvas Due/Until are blank;
-20 points and the Assignments group are retained. The saved Canvas launch
-opens the Wiley Assignment 5 dashboard successfully: all four intended
-questions are 5 points each, total 20, due November 6 at 11:59 PM, and
-Not available to students. The dashboard Policies tab confirms the saved
-Homework policies. No publication or announcement occurred. The saved set
-was reused; no duplicate question set was created.
+Verified the live assignment detail and Assignments pages after successful
+site publishing run 41208837461 and Pages deployment 41208940209 for
+checkpoint `96c4101`. Canvas retains the Assignments group, individual
+External Tool submission, new-tab Wiley launch, and blank Due/Until fields.
+Instructor launch reaches the correct Wiley dashboard; Canvas Student View
+shows the 20-point assignment and Wiley launch button. No student answers
+or scores were entered. Wiley verifies Available to students, the four
+5-point questions, deadline, and the unchanged Homework policies: three
+attempts, no deduction, best score, values randomized per student and fixed
+across attempts, immediate feedback, textbook always available, hints after
+the first attempt, answers/solutions after the last, auto-submit on the due
+date, no late submissions, and review after the deadline.
 
-Assignment details, metadata, Assignments table, Schedule link, and Deck 07
-title reminder are included in this checkpoint, together with the verified
-November 2 full-semester withdrawal deadline. Next: verify live deployment,
-then obtain the single combined publication confirmation under
-AUTHOR_WORKFLOW.md. Publish WileyPLUS availability, Canvas Assignment 5, and
-the prepared all-sections announcement only after that approval.
-Grade/Canvas-transfer review is due November 12, six days after submission.
+[Assignment 5 is available in WileyPLUS](https://iit.instructure.com/courses/23913/discussion_topics/109416)
+was published October 31 at 9:14 AM CDT to **All Sections**. Saved text,
+audience, and all three destination links are verified. No further release
+or announcement action remains. Review grading/Canvas transfer by November 12;
+prepare Assignment 6 for its November 13 publication target. The November 3
+lecture continuation below remains the next lecture preparation.
 
-Validation: root website and all twelve decks render successfully; 106 relative
-link targets on affected pages/deck resolve. Assignment page and tables pass
-desktop/390-pixel review; Deck 07 title reminder fits at 1280×720.
-`git diff --check` passes. Temporary local preview closed; Canvas editor and
-Wiley dialogs closed. The connection was subsequently verified in Safari;
-Canvas remains unpublished and WileyPLUS unavailable to students.
-
-Saved Canvas description:
-“Launch this assignment in WileyPLUS and complete it individually. See
-[Assignment 5](https://fjhickernell.github.io/MATH332Fall2026/assignments/assignment_5.html)
-and the [Assignments page](https://fjhickernell.github.io/MATH332Fall2026/pages/assignments.html)
-for the questions, deadline, and grading policies.”
-
-Prepared announcement — **Assignment 5 is available in WileyPLUS**
-(not created or published in Canvas):
-“Assignment 5 is ready. Read the
-[assignment details](https://fjhickernell.github.io/MATH332Fall2026/assignments/assignment_5.html)
-and [course assignment ground rules](https://fjhickernell.github.io/MATH332Fall2026/pages/assignments.html),
-then launch [Assignment 5 in Canvas](https://iit.instructure.com/courses/23913/assignments/106681)
-to complete it individually in WileyPLUS. The assignment page and WileyPLUS
-show the deadline and grading policies.” Intended audience: all course sections.
+Validation: root website and all twelve decks rendered; 106 affected relative
+links resolve; assignment and tables pass desktop/390-pixel layout review,
+and the Deck 07 title reminder fits at 1280×720. This Checkpoint preserves
+the release-closeout documentation; the website is already deployed.
 
 ## Final-examination schedule — October 28 update
 
