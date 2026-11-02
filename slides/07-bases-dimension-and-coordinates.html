@@ -1722,11 +1722,12 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 \]</span></p>
 <p>Every vector has one coordinate column, and every column describes one vector</p>
 <p>This one-to-one, onto linear map is a <span class="alert">linear isomorphism</span></p>
+<p>With an inner product on <span class="math inline">\(V\)</span>: a <span class="alert">linear isometry</span> (distance-preserving) exactly when <span class="math inline">\(\mathcal{B}\)</span> is orthonormal</p>
 <div class="key-point">
 <p>Every <span class="math inline">\(n\)</span>-dimensional real vector space has the same linear structure as <span class="math inline">\(\reals^n\)</span></p>
 </div>
 <aside class="notes">
-<p>This is a statement about linear structure. The ordinary Euclidean length of a coordinate column need not equal the original vector’s length. For the basis {[1,1]<sup>T,[1,-1]</sup>T}, b1 has length sqrt(2), while its coordinate column [1,0]^T has Euclidean length 1. General coordinates preserve algebra; geometry requires the inner product in those coordinates.</p>
+<p>This is a statement about linear structure. The ordinary Euclidean length of a coordinate column need not equal the original vector’s length. For the basis {[1,1]<sup>T,[1,-1]</sup>T}, b1 has length sqrt(2), while its coordinate column [1,0]^T has Euclidean length 1. General coordinates preserve algebra; geometry requires the inner product in those coordinates. If V has an inner product and R^n uses its usual dot product, the coordinate map is a linear isometry exactly when B is an orthonormal basis. A general vector space has no distance until a norm or inner product is specified.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1824,8 +1825,8 @@ q&amp;=1-t+2t^2=2(1)-1(1+t)+2t^2
 \]</span></p>
 <p>For <span class="math inline">\(\vct{c}=\begin{bmatrix}1\\1\end{bmatrix}\)</span>, <span class="math inline">\(\vct{u}=\begin{bmatrix}2\\1\end{bmatrix}\)</span>: <span class="math inline">\(\|\vct{c}\|^2=2\)</span>, but <span class="math inline">\(\|\vct{u}\|^2=5\)</span></p>
 <div class="key-point">
-<p>All lengths are preserved exactly when <span class="math inline">\(\mat{B}^\top\mat{B}=\mat{I}\)</span>: an <span class="alert">orthonormal basis</span></p>
-<p>The basis vectors must be mutually orthogonal and each have length one</p>
+<p>The coordinate map is a <span class="alert">linear isometry</span> exactly when <span class="math inline">\(\mat{B}^\top\mat{B}=\mat{I}\)</span></p>
+<p>It then preserves all distances: an <span class="alert">orthonormal basis</span> of mutually orthogonal unit vectors</p>
 </div>
 <aside class="notes">
 <p>The columns of B are independent, so each vector has unique coordinates in the listed basis. If u=Bc and v=Bd, distributivity constructs alpha u+beta v from the coefficient column alpha c+beta d.&nbsp;Uniqueness identifies that column as the coordinates of the result. For lengths, use the familiar Euclidean dot product: ||u||<sup>2=u</sup>top u. The coordinate column c=[1,1]^top has length sqrt(2), while u=[2,1]^top has length sqrt(5). This counterexample proves length preservation fails; B^top B differing from I does not mean every vector changes length. Indeed the first basis vector retains length 1. For a real square basis matrix, preserving lengths for every c is equivalent to B^top B=I: evaluating the symmetric quadratic form at e_i and e_i+e_j forces its diagonal and off-diagonal entries to match I. Its entries are pairwise dot products of the basis vectors, so the condition means the basis vectors are orthogonal unit vectors. The following exercise uses a different basis with orthogonal vectors that are not unit length.</p>
@@ -1849,7 +1850,7 @@ q&amp;=1-t+2t^2=2(1)-1(1+t)+2t^2
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Separate linear structure from geometry <span class="exsub">Suppose <span class="math inline">\([\vct{u}]_{\mathcal{B}}=\begin{bmatrix}1\\0\end{bmatrix}\)</span> and <span class="math inline">\([\vct{v}]_{\mathcal{B}}=\begin{bmatrix}0\\1\end{bmatrix}\)</span>. Find <span class="math inline">\([2\vct{u}-\vct{v}]_{\mathcal{B}}\)</span> and reconstruct <span class="math inline">\(2\vct{u}-\vct{v}\)</span></span> <span class="exsub">Compare the Euclidean lengths of <span class="math inline">\(\vct{u}\)</span> and <span class="math inline">\([\vct{u}]_{\mathcal{B}}\)</span></span> <span class="exsub">Why does preserving linear combinations not guarantee preserving lengths?</span> </span></p>
 </div>
 <aside class="notes">
-<p>The coordinate calculation gives [2,-1]^. Reconstructing yields 2[1,1]<sup>-[1,-1]</sup>=[1,3]^. Here u=[1,1]^has Euclidean length sqrt(2), whereas [u]_B=[1,0]^has Euclidean length 1. The coordinate map preserves addition and scalar multiplication by matching coefficients in a basis. Those algebraic properties impose no unit-length or orthogonality requirement on the basis. In this example the two basis vectors are orthogonal but have length sqrt(2), so the ordinary Euclidean length of every coordinate column is smaller by that factor. A linear isomorphism need not be an isometry; the latter term is optional enrichment.</p>
+<p>The coordinate calculation gives [2,-1]^. Reconstructing yields 2[1,1]<sup>-[1,-1]</sup>=[1,3]^. Here u=[1,1]^has Euclidean length sqrt(2), whereas [u]_B=[1,0]^has Euclidean length 1. The coordinate map preserves addition and scalar multiplication by matching coefficients in a basis. Those algebraic properties impose no unit-length or orthogonality requirement on the basis. In this example the two basis vectors are orthogonal but have length sqrt(2), so the ordinary Euclidean length of every coordinate column is smaller by that factor. A linear isomorphism need not be a linear isometry. A linear map preserves distances exactly when it preserves lengths, because T(u)-T(v)=T(u-v).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
