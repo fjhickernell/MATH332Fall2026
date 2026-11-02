@@ -313,6 +313,7 @@ Mathematical content should be maintained only in the slides.
   and verify WileyPLUS/Canvas and the all-sections announcement (October 31;
   Canvas announcement 109416).
 
-- [x] Prepare the graded Test 2 answer PDF with its anonymous score distribution
-  and link it from Quizzes and Tests (November 2, 2026); archive/site publication
-  and the instructor-authorized student announcement are in progress.
+- [x] Release the graded Test 2 answer PDF and anonymous regular-sitting score
+  distribution to the course website and canonical archive, verify both live
+  copies, and publish the all-sections Canvas announcement `109562`
+  (November 2, 2026). Makeup grading and physical return remain separate.

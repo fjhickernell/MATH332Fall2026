@@ -155,17 +155,27 @@ rendered without warnings; 1,756 local links/assets, exercise preservation,
 exact new calculations, and browser navigation checks passed. Instructor
 review remains distinct from these local checks.
 
-### Test 2 — regular sitting graded; release in progress
+### Test 2 — regular-sitting grades and answers released November 2
 
 Canvas Test 2 `105162` is out of 100, uses manual posting, and reports
-“All grades posted” on November 2. The answer PDF includes the anonymous
-regular-sitting distribution. Archive commit `cd4e45b` is pushed; the
-identical course copy and archive pointer are ready for deployment.
-The instructor authorized the all-sections grades/solutions announcement;
-publish after verifying the live PDF links. Makeups remain pending; do not
-publish a separate small-cohort score distribution. The November 4 deadline
-applied to regular-sitting grading; calculate makeup grading deadlines from
+“All grades posted.” The anonymous distribution includes only regular-sitting
+participants. Archive commit `cd4e45b` and course release `4501fc0` are pushed;
+the publishing/Pages deployment succeeded, and both live course and archive
+PDFs match the inspected seven-page release byte for byte.
+
+[Test 2 grades and answers are posted](https://iit.instructure.com/courses/23913/discussion_topics/109562)
+was published November 2 at 4:28 PM CST to All Sections. Saved text and the
+live Quizzes and Tests link are verified. No further regular-sitting grade,
+PDF, or announcement release action remains. Physical return remains to
+confirm by November 4. Makeups remain pending; do not publish a separate
+small-cohort score distribution. Calculate makeup grading deadlines from
 the actual makeup date plus six calendar days once scheduled.
+
+Validation: authoritative private-source build, complete seven-page PDF
+inspection, anonymous-score arithmetic, root website and twelve-deck renders,
+127 page links/assets, desktop/390-pixel page layout, and confidentiality
+checks pass. The coordinate-map/isometry slide revisions are included in the
+same course release. Private sources and student records remain outside Git.
 
 ### Test 2 coverage correction — Canvas published, website pending
 
