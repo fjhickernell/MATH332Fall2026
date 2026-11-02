@@ -312,3 +312,7 @@ Mathematical content should be maintained only in the slides.
 - [x] Deploy/verify the website, obtain combined publication approval, publish
   and verify WileyPLUS/Canvas and the all-sections announcement (October 31;
   Canvas announcement 109416).
+
+- [x] Prepare the graded Test 2 answer PDF with its anonymous score distribution
+  and link it from Quizzes and Tests (November 2, 2026); archive/site publication
+  and the instructor-authorized student announcement are in progress.

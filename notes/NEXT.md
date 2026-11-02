@@ -44,6 +44,11 @@ pending.
 
 ## November 3 lecture continuation
 
+Deck 07 now names a distance-preserving linear map as a linear isometry.
+The coordinate-map slides distinguish this from a linear isomorphism and
+state the orthonormal-basis condition for the given inner product and the
+usual Euclidean metric on coordinate columns.
+
 October 27 is reconciled from Panopto captions, the slide-transition index,
 and the visible closing slide. The lecture completed subspace/scalar-field
 review, unique coordinates and arithmetic, basis matrices, and a worked
@@ -150,11 +155,17 @@ rendered without warnings; 1,756 local links/assets, exercise preservation,
 exact new calculations, and browser navigation checks passed. Instructor
 review remains distinct from these local checks.
 
-### Test 2 — private preparation complete
+### Test 2 — regular sitting graded; release in progress
 
-The private draft is complete and reviewed; final printing remains for the
-October 29 test in PH 109. Grading is due November 4. Keep unreleased
-assessment material private.
+Canvas Test 2 `105162` is out of 100, uses manual posting, and reports
+“All grades posted” on November 2. The answer PDF includes the anonymous
+regular-sitting distribution. Archive commit `cd4e45b` is pushed; the
+identical course copy and archive pointer are ready for deployment.
+The instructor authorized the all-sections grades/solutions announcement;
+publish after verifying the live PDF links. Makeups remain pending; do not
+publish a separate small-cohort score distribution. The November 4 deadline
+applied to regular-sitting grading; calculate makeup grading deadlines from
+the actual makeup date plus six calendar days once scheduled.
 
 ### Test 2 coverage correction — Canvas published, website pending
 

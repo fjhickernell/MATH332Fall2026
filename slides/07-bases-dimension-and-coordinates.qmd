@@ -1119,6 +1119,9 @@ Every vector has one coordinate column, and every column describes one vector
 
 This one-to-one, onto linear map is a [linear isomorphism]{.alert}
 
+With an inner product on $V$: a [linear isometry]{.alert} (distance-preserving)
+exactly when $\mathcal{B}$ is orthonormal
+
 ::: {.key-point}
 Every $n$-dimensional real vector space has the same linear structure as
 $\reals^n$
@@ -1129,7 +1132,10 @@ This is a statement about linear structure. The ordinary Euclidean length of
 a coordinate column need not equal the original vector's length. For the
 basis {[1,1]^T,[1,-1]^T}, b1 has length sqrt(2), while its coordinate column
 [1,0]^T has Euclidean length 1. General coordinates preserve algebra;
-geometry requires the inner product in those coordinates.
+geometry requires the inner product in those coordinates. If V has an inner
+product and R^n uses its usual dot product, the coordinate map is a linear
+isometry exactly when B is an orthonormal basis. A general vector space
+has no distance until a norm or inner product is specified.
 :::
 
 ---
@@ -1241,9 +1247,9 @@ $$
 For $\vct{c}=\begin{bmatrix}1\\1\end{bmatrix}$, $\vct{u}=\begin{bmatrix}2\\1\end{bmatrix}$: $\|\vct{c}\|^2=2$, but $\|\vct{u}\|^2=5$
 
 ::: {.key-point}
-All lengths are preserved exactly when $\mat{B}^\top\mat{B}=\mat{I}$: an [orthonormal basis]{.alert}
+The coordinate map is a [linear isometry]{.alert} exactly when $\mat{B}^\top\mat{B}=\mat{I}$
 
-The basis vectors must be mutually orthogonal and each have length one
+It then preserves all distances: an [orthonormal basis]{.alert} of mutually orthogonal unit vectors
 :::
 
 ::: {.notes}
@@ -1288,7 +1294,8 @@ coefficients in a basis. Those algebraic properties impose no unit-length
 or orthogonality requirement on the basis. In this example the two basis
 vectors are orthogonal but have length sqrt(2), so the ordinary Euclidean
 length of every coordinate column is smaller by that factor. A linear
-isomorphism need not be an isometry; the latter term is optional enrichment.
+isomorphism need not be a linear isometry. A linear map preserves distances
+exactly when it preserves lengths, because T(u)-T(v)=T(u-v).
 :::
 
 ## Basis directions locate every solution {#basis-directions-locate-every-solution}
