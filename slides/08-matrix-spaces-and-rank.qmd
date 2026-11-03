@@ -86,6 +86,10 @@ directions collapse to zero; they are not mapped to the left null space.
 The output's m-r left-null directions are perpendicular to every attainable
 output. Thus n=r+(n-r) and m=r+(m-r). The deck develops these claims after
 computing concrete bases and dimensions.
+
+The four-space viewpoint is developed in
+[{{< meta references.strangila.full >}}]({{< meta references.strangila.url >}}),
+§§3.5, 4.1.
 :::
 
 # Matrix Spaces and Rank
@@ -114,6 +118,10 @@ Always identify the ambient space before comparing subspaces
 Transposing exchanges rows and columns; view row-space vectors as columns
 
 $\operatorname{col}(\mat{A})=\operatorname{row}(\mat{A}^\top)$, $\quad\operatorname{row}(\mat{A})=\operatorname{col}(\mat{A}^\top)$
+:::
+
+::: {.small}
+Reference: [{{< meta references.strangila.full >}}]({{< meta references.strangila.url >}}), §3.5
 :::
 
 ## Rank and nullity measure different parts of a matrix {#rank-and-nullity-measure-different-parts-of-a-matrix}
@@ -401,6 +409,10 @@ $$
 \dim(\operatorname{null}(\mat{A}^\top))=m-r
 $$
 
+::: {.small}
+Reference: [{{< meta references.strangila.short >}}]({{< meta references.strangila.url >}}), §§3.5, 4.1
+:::
+
 ::: {.notes}
 A x=0 says that x has zero dot product with every row of A, hence with
 every vector in Row(A). This proves Null(A)=Row(A)^perp directly.
@@ -540,6 +552,10 @@ $$
 The columns of $\mat{C}$ form a basis for $\operatorname{col}(\mat{A})$
 
 The rows of $\mat{R}$ form a basis for $\operatorname{row}(\mat{A})$
+:::
+
+::: {.small}
+Reference: [{{< meta references.strangila.short >}}]({{< meta references.strangila.url >}}), §§1.4, 3.2
 :::
 
 ---
