@@ -227,7 +227,7 @@ Let $P=(1,1)$, $Q=(3,2)$, and $R=(5,3)$
 <span class="exbullet">$\exstar$</span>
 <span>Distinguish locations from displacements
 <span class="exsub">Find $\vct{d}=Q-P$ and determine whether $R$ lies on $L=\{P+t\vct{d}:t\in\reals\}$</span>
-<span class="exsub">Find the midpoint $M=\tfrac12P+\tfrac12Q$; why does this combination of points have an origin-independent meaning?</span>
+<span class="exsub">Find the midpoint $M=(1/2)P+(1/2)Q$; why does this combination of points have an origin-independent meaning?</span>
 <span class="exsub">Choose $P$ as a new origin: find the new position vectors of $P$ and $Q$, and check that $Q-P$ is unchanged</span>
 </span>
 :::
@@ -595,7 +595,7 @@ The result is perpendicular to both inputs:
 :::
 
 ::: {.key-point}
-A normal whose length is parallelogram area; the right-hand rule chooses its direction
+Its length is parallelogram area; when nonzero, it is a normal with direction given by the right-hand rule
 :::
 
 $$

@@ -98,16 +98,16 @@ Symmetry makes linearity hold in both arguments
 ## Weights change the geometry {#weights-change-the-geometry}
 
 \begin{gather*}
-\langle\vct{u},\vct{v}\rangle_{\mat{W}}=\vct{u}^{\mathsf T}\mat{W}\vct{v},\qquad
-\mat{W}=\mat{W}^{\mathsf T}\text{ positive definite}\\
-\mat{W}=\begin{pmatrix}1&0\\0&4\end{pmatrix},\qquad
-\left\|\begin{pmatrix}x_1\\x_2\end{pmatrix}\right\|_{\mat{W}}^2=x_1^2+4x_2^2
+\langle\vct{u},\vct{v}\rangle_{\mat{W}}=\vct{u}^\top\mat{W}\vct{v},\qquad
+\mat{W}=\mat{W}^\top\text{ positive definite}\\
+\mat{W}=\begin{bmatrix}1&0\\0&4\end{bmatrix},\qquad
+\left\|\begin{bmatrix}x_1\\x_2\end{bmatrix}\right\|_{\mat{W}}^2=x_1^2+4x_2^2
 \end{gather*}
 
 The weighted unit circle is an ellipse in standard coordinates
 
-For $\vct{u}=(1,1)^{\mathsf T}$ and $\vct{v}=(4,-1)^{\mathsf T}$:
-$\langle\vct{u},\vct{v}\rangle_{\mat{W}}=0$ but $\vct{u}^{\mathsf T}\vct{v}=3$
+For $\vct{u}=[1,1]^\top$ and $\vct{v}=[4,-1]^\top$:
+$\langle\vct{u},\vct{v}\rangle_{\mat{W}}=0$ but $\vct{u}^\top\vct{v}=3$
 
 
 ## Continuous functions also have geometry {#continuous-functions-also-have-geometry}
@@ -118,7 +118,7 @@ On $C([0,1])$, define
 \end{equation*}
 
 - Symmetry and linearity come from the integral
-- A nonzero continuous function has positive squared integral
+- A nonzero continuous function has a positive integral of its square
 - Similarity compares entire functions, not only their sampled values
 
 For $f(t)=1$, $g(t)=t$: $\langle f,g\rangle=1/2$
@@ -202,7 +202,7 @@ $\vct{p}$ is the unique closest vector on the line
 
 ## Projection onto an orthonormal basis {#projection-onto-an-orthonormal-basis}
 
-Let $(\vct{q}_1,\ldots,\vct{q}_k)$ be an orthonormal basis of a subspace $S$
+Let $\{\vct{q}_1,\ldots,\vct{q}_k\}$ be an orthonormal basis of a subspace $S$
 \begin{gather*}
 \operatorname{proj}_S\vct{v}=\sum_{j=1}^k\langle\vct{q}_j,\vct{v}\rangle\vct{q}_j\\
 \vct{v}=\vct{p}+\vct{r},\qquad \vct{p}\in S,\quad \vct{r}\in S^\perp
@@ -210,15 +210,15 @@ Let $(\vct{q}_1,\ldots,\vct{q}_k)$ be an orthonormal basis of a subspace $S$
 
 Here $S^\perp=\{\vct{r}:\langle\vct{r},\vct{s}\rangle=0\text{ for every }\vct{s}\in S\}$
 
-Orthogonal coordinates require inner products instead of solving a new system
+Orthonormal coordinates require inner products instead of solving a new system
 
 
 ## An orthogonal projector has two signatures {#an-orthogonal-projector-has-two-signatures}
 
 In standard Euclidean coordinates, let $\mat{Q}$ have orthonormal columns spanning $S$
 \begin{gather*}
-\mat{P}=\mat{Q}\mat{Q}^{\mathsf T},\qquad
-\mat{P}^{\mathsf T}=\mat{P},\quad\mat{P}^2=\mat{P}\\
+\mat{P}=\mat{Q}\mat{Q}^\top,\qquad
+\mat{P}^\top=\mat{P},\quad\mat{P}^2=\mat{P}\\
 \mat{P}\vct{v}\in S,\qquad (\mat{I}-\mat{P})\vct{v}\in S^\perp
 \end{gather*}
 
@@ -236,11 +236,11 @@ The symmetry criterion assumes the standard dot product. In a W inner product, t
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Let $S=\operatorname{span}\{(1,1,0)^{\mathsf T},(0,0,1)^{\mathsf T}\}$<br>Choose an orthonormal basis and project $(3,1,2)^{\mathsf T}$ onto $S$<br>Find the distance to $S$</span>
+<span>Let $S=\operatorname{span}\{[1,1,0]^\top,[0,0,1]^\top\}$<br>Choose an orthonormal basis and project $[3,1,2]^\top$ onto $S$<br>Find the distance to $S$</span>
 :::
 
 ::: {.notes}
-Use q_1=(1,1,0)^T/sqrt(2), q_2=(0,0,1)^T. Projection (2,2,2)^T; residual (1,-1,0)^T; distance sqrt(2).
+Use q_1=[1,1,0]^T/sqrt(2), q_2=[0,0,1]^T. Projection [2,2,2]^T; residual [1,-1,0]^T; distance sqrt(2).
 :::
 
 
@@ -269,24 +269,24 @@ $\operatorname{span}\{\vct{q}_1,\ldots,\vct{q}_j\}=\operatorname{span}\{\vct{A}_
 
 ## A worked Gram–Schmidt calculation {#a-worked-gram-schmidt-calculation}
 
-In $\reals^3$, take $\vct{A}_1=(1,1,0)^{\mathsf T}$ and $\vct{A}_2=(1,0,1)^{\mathsf T}$
+In $\reals^3$, take $\vct{A}_1=[1,1,0]^\top$ and $\vct{A}_2=[1,0,1]^\top$
 \begin{align*}
-\vct{q}_1&=\frac1{\sqrt2}(1,1,0)^{\mathsf T}\\
+\vct{q}_1&=\frac1{\sqrt2}[1,1,0]^\top\\
 \langle\vct{q}_1,\vct{A}_2\rangle&=1/\sqrt2\\
-\vct{w}_2&=(1/2,-1/2,1)^{\mathsf T}\\
-\vct{q}_2&=\frac1{\sqrt6}(1,-1,2)^{\mathsf T}
+\vct{w}_2&=[1/2,-1/2,1]^\top\\
+\vct{q}_2&=\frac1{\sqrt6}[1,-1,2]^\top
 \end{align*}
 
-Check $\vct{q}_1^{\mathsf T}\vct{q}_2=0$ and both squared norms equal one
+Check $\vct{q}_1^\top\vct{q}_2=0$ and both squared norms equal one
 
 
 ## The coefficients form a triangular matrix {#the-coefficients-form-a-triangular-matrix}
 
 For a real $m\times n$ matrix with independent columns, $m\ge n$:
 \begin{gather*}
-\mat{A}=\mat{Q}\mat{R},\qquad \mat{Q}^{\mathsf T}\mat{Q}=\mat{I}_n\\
+\mat{A}=\mat{Q}\mat{R},\qquad \mat{Q}^\top\mat{Q}=\mat{I}_n\\
 \mat{Q}=[\vct{q}_1\ \cdots\ \vct{q}_n],\qquad
-(\mat{R})_{ij}=\begin{cases}\vct{q}_i^{\mathsf T}\vct{A}_j,&i\le j\\0,&i>j\end{cases}
+(\mat{R})_{ij}=\begin{cases}\vct{q}_i^\top\vct{A}_j,&i\le j\\0,&i>j\end{cases}
 \end{gather*}
 
 $\mat{Q}$: $m\times n$ orthonormal directions
@@ -303,11 +303,11 @@ This is reduced QR. Here R denotes the triangular QR factor, not the row-space f
 ## Read QR from the worked example {#read-qr-from-the-worked-example}
 
 \begin{gather*}
-\mat{A}=\begin{pmatrix}1&1\\1&0\\0&1\end{pmatrix},\qquad
-\mat{Q}=\begin{pmatrix}
+\mat{A}=\begin{bmatrix}1&1\\1&0\\0&1\end{bmatrix},\qquad
+\mat{Q}=\begin{bmatrix}
 1/\sqrt2&1/\sqrt6\\1/\sqrt2&-1/\sqrt6\\0&2/\sqrt6
-\end{pmatrix}\\
-\mat{R}=\begin{pmatrix}\sqrt2&1/\sqrt2\\0&\sqrt{3/2}\end{pmatrix}
+\end{bmatrix}\\
+\mat{R}=\begin{bmatrix}\sqrt2&1/\sqrt2\\0&\sqrt{3/2}\end{bmatrix}
 \end{gather*}
 
 Column 1 uses only $\vct{q}_1$; column 2 uses $\vct{q}_1$ and $\vct{q}_2$
@@ -338,11 +338,11 @@ Dependence detection in floating point requires a scale-aware tolerance; no univ
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Apply Gram–Schmidt to $(1,0,1)^{\mathsf T}$ and $(1,1,0)^{\mathsf T}$<br>Write the reduced QR factorization<br>Why is $\mat{Q}\mat{Q}^{\mathsf T}$ not $\mat{I}_3$?</span>
+<span>Apply Gram–Schmidt to $[1,0,1]^\top$ and $[1,1,0]^\top$<br>Write the reduced QR factorization<br>Why is $\mat{Q}\mat{Q}^\top$ not $\mat{I}_3$?</span>
 :::
 
 ::: {.notes}
-q_1=(1,0,1)^T/sqrt(2), q_2=(1,2,-1)^T/sqrt(6), R=[[sqrt(2),1/sqrt(2)],[0,sqrt(3/2)]]. Q Q^T has rank two and projects onto the plane spanned by the two columns.
+q_1=[1,0,1]^T/sqrt(2), q_2=[1,2,-1]^T/sqrt(6), R=[[sqrt(2),1/sqrt(2)],[0,sqrt(3/2)]]. Q Q^T has rank two and projects onto the plane spanned by the two columns.
 :::
 
 
@@ -364,8 +364,8 @@ For $\mat{A}\vct{x}\approx\vct{b}$, minimize $\|\mat{A}\vct{x}-\vct{b}\|^2$
 
 The best fitted vector lies in $\operatorname{col}(\mat{A})$ and leaves an orthogonal residual
 \begin{gather*}
-\mat{A}^{\mathsf T}(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}\\
-\mat{A}^{\mathsf T}\mat{A}\widehat{\vct{x}}=\mat{A}^{\mathsf T}\vct{b}
+\mat{A}^\top(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}\\
+\mat{A}^\top\mat{A}\widehat{\vct{x}}=\mat{A}^\top\vct{b}
 \end{gather*}
 
 These are the [normal equations]{.alert}
@@ -378,13 +378,13 @@ The fitted vector is unique; coefficients are unique exactly when columns are in
 With reduced QR and full column rank:
 \begin{gather*}
 \|\mat{A}\vct{x}-\vct{b}\|^2
-=\|\mat{R}\vct{x}-\mat{Q}^{\mathsf T}\vct{b}\|^2
-+\|(\mat{I}-\mat{Q}\mat{Q}^{\mathsf T})\vct{b}\|^2\\
-\mat{R}\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}\\
-\widehat{\vct{b}}=\mat{Q}\mat{Q}^{\mathsf T}\vct{b}
+=\|\mat{R}\vct{x}-\mat{Q}^\top\vct{b}\|^2
++\|(\mat{I}-\mat{Q}\mat{Q}^\top)\vct{b}\|^2\\
+\mat{R}\widehat{\vct{x}}=\mat{Q}^\top\vct{b}\\
+\widehat{\vct{b}}=\mat{Q}\mat{Q}^\top\vct{b}
 \end{gather*}
 
-Compute coordinates with $\mat{Q}^{\mathsf T}$, then back substitute
+Compute coordinates with $\mat{Q}^\top$, then back substitute
 
 The perpendicular part cannot be fitted by any coefficient vector
 
@@ -395,11 +395,11 @@ Data: $(t,b)=(-1,1),(0,0),(1,2)$
 
 Model $b\approx x_1+x_2t$
 \begin{gather*}
-\mat{A}=\begin{pmatrix}1&-1\\1&0\\1&1\end{pmatrix},\quad
-\vct{b}=\begin{pmatrix}1\\0\\2\end{pmatrix},\quad
-\mat{A}^{\mathsf T}\mat{A}=\begin{pmatrix}3&0\\0&2\end{pmatrix},\quad
-\mat{A}^{\mathsf T}\vct{b}=\begin{pmatrix}3\\1\end{pmatrix}\\
-\widehat{\vct{x}}=\begin{pmatrix}1\\1/2\end{pmatrix},\qquad
+\mat{A}=\begin{bmatrix}1&-1\\1&0\\1&1\end{bmatrix},\quad
+\vct{b}=\begin{bmatrix}1\\0\\2\end{bmatrix},\quad
+\mat{A}^\top\mat{A}=\begin{bmatrix}3&0\\0&2\end{bmatrix},\quad
+\mat{A}^\top\vct{b}=\begin{bmatrix}3\\1\end{bmatrix}\\
+\widehat{\vct{x}}=\begin{bmatrix}1\\1/2\end{bmatrix},\qquad
 \widehat b(t)=1+t/2
 \end{gather*}
 
@@ -410,9 +410,9 @@ The feature columns happen to be orthogonal
 
 For the line fit:
 \begin{gather*}
-\widehat{\vct{b}}=\begin{pmatrix}1/2\\1\\3/2\end{pmatrix},\quad
-\vct{r}=\vct{b}-\widehat{\vct{b}}=\begin{pmatrix}1/2\\-1\\1/2\end{pmatrix}\\
-\mat{A}^{\mathsf T}\vct{r}=\begin{pmatrix}0\\0\end{pmatrix},\quad \|\vct{r}\|^2=3/2
+\widehat{\vct{b}}=\begin{bmatrix}1/2\\1\\3/2\end{bmatrix},\quad
+\vct{r}=\vct{b}-\widehat{\vct{b}}=\begin{bmatrix}1/2\\-1\\1/2\end{bmatrix}\\
+\mat{A}^\top\vct{r}=\begin{bmatrix}0\\0\end{bmatrix},\quad \|\vct{r}\|^2=3/2
 \end{gather*}
 
 The residual sums to zero because the model includes a column of ones
@@ -457,9 +457,9 @@ A feature may be nonlinear in t. Least squares alone does not establish causatio
 
 For independent columns:
 \begin{gather*}
-\mat{P}=\mat{A}(\mat{A}^{\mathsf T}\mat{A})^{-1}\mat{A}^{\mathsf T}
-=\mat{Q}\mat{Q}^{\mathsf T}\\
-\mat{P}^2=\mat{P},\quad\mat{P}^{\mathsf T}=\mat{P},\qquad
+\mat{P}=\mat{A}(\mat{A}^\top\mat{A})^{-1}\mat{A}^\top
+=\mat{Q}\mat{Q}^\top\\
+\mat{P}^2=\mat{P},\quad\mat{P}^\top=\mat{P},\qquad
 \widehat{\vct{b}}=\mat{P}\vct{b},\quad\vct{r}=(\mat{I}-\mat{P})\vct{b}
 \end{gather*}
 
@@ -470,11 +470,11 @@ The inverse formula describes the geometry; QR computes the fit without explicit
 
 ## Weights and rank deficiency change the calculation {#weights-and-rank-deficiency-change-the-calculation}
 
-Positive observation weights $w_i$ give
+Positive observation weights $w_i$ and $\mat{W}=\operatorname{diag}(w_1,\ldots,w_m)$ give
 \begin{gather*}
 \min_{\vct{x}}\sum_iw_i((\mat{A}\vct{x})_i-b_i)^2
 =\min_{\vct{x}}\|\mat{W}^{1/2}(\mat{A}\vct{x}-\vct{b})\|^2\\
-\mat{A}^{\mathsf T}\mat{W}(\mat{A}\widehat{\vct{x}}-\vct{b})=\vct{0}
+\mat{A}^\top\mat{W}(\mat{A}\widehat{\vct{x}}-\vct{b})=\vct{0}
 \end{gather*}
 
 Apply QR to the weighted design matrix when it has full column rank
@@ -491,7 +491,7 @@ Dependent or nearly dependent features motivate [SVD and regularization]({{< met
 :::
 
 ::: {.notes}
-Coefficients (2/3,1/2)^T. Fitted values (1/6,2/3,7/6)^T; residuals (-1/6,1/3,-1/6)^T. Sum of residuals and dot product with (-1,0,1)^T are zero. Squared residual norm is 1/6.
+Coefficients [2/3,1/2]^T. Fitted values [1/6,2/3,7/6]^T; residuals [-1/6,1/3,-1/6]^T. Sum of residuals and dot product with [-1,0,1]^T are zero. Squared residual norm is 1/6.
 :::
 
 
@@ -657,13 +657,13 @@ Mean 2. Normalized real coefficients: 2 for constant, 3/sqrt(2) for sqrt(2)cos(2
 ::: {.column width="47%"}
 - [Projection](#projection-onto-an-orthonormal-basis) — split a vector into its closest subspace component and a perpendicular residual
 - [QR](#qr-turns-least-squares-into-a-triangular-solve) — Gram–Schmidt preserves span; $\mat{A}=\mat{Q}\mat{R}$ records orthonormal directions and triangular coordinates
-- [Function approximation](#approximate-a-function-in-a-finite-dimensional-subspace) — polynomials/Fourier modes give finite spans; for orthonormal $q_j$, coefficients are $\langle f,q_j\rangle$
+- [Function approximation](#approximate-a-function-in-a-finite-dimensional-subspace) — polynomials/Fourier modes give finite spans; for orthonormal $q_j$, coefficients are $\langle q_j,f\rangle$
 :::
 :::
 
 ::: {.key-point}
-For real $\mat{A}$ with full column rank: least squares solves $\mat{R}\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}$;
-the residual satisfies $\mat{A}^{\mathsf T}(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}$
+For real $\mat{A}$ with full column rank: least squares solves $\mat{R}\widehat{\vct{x}}=\mat{Q}^\top\vct{b}$;
+the residual satisfies $\mat{A}^\top(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}$
 :::
 
 # What Comes Next

@@ -856,22 +856,22 @@ Symmetry guarantees a real eigenbasis with especially simple geometry
 
 ## Symmetry makes different eigenspaces perpendicular {#symmetry-makes-different-eigenspaces-perpendicular}
 
-Let $\mat{A}=\mat{A}^{\mathsf T}$ be real, with
+Let $\mat{A}=\mat{A}^\top$ be real, with
 $\mat{A}\vct{u}=\lambda\vct{u}$ and $\mat{A}\vct{v}=\mu\vct{v}$
 
 Symmetry lets the action move across the dot product:
 
 $$
-\lambda\vct{u}^{\mathsf T}\vct{v}
-=(\mat{A}\vct{u})^{\mathsf T}\vct{v}
-=\vct{u}^{\mathsf T}\mat{A}\vct{v}
-=\mu\vct{u}^{\mathsf T}\vct{v}
+\lambda\vct{u}^\top\vct{v}
+=(\mat{A}\vct{u})^\top\vct{v}
+=\vct{u}^\top\mat{A}\vct{v}
+=\mu\vct{u}^\top\vct{v}
 $$
 
 Thus
 
 $$
-(\lambda-\mu)\vct{u}^{\mathsf T}\vct{v}=0
+(\lambda-\mu)\vct{u}^\top\vct{v}=0
 $$
 
 ::: {.key-point}
@@ -900,16 +900,16 @@ choose an orthonormal basis without changing the eigenvalue.
 Put its unit eigenvectors in $\mat{Q}$, in the same order as $\mat{D}$:
 
 $$
-\mat{Q}^{\mathsf T}\mat{Q}=\mat{I},\qquad
-\mat{Q}^{-1}=\mat{Q}^{\mathsf T},\qquad
-\boxed{\mat{A}=\mat{Q}\mat{D}\mat{Q}^{\mathsf T}}
+\mat{Q}^\top\mat{Q}=\mat{I},\qquad
+\mat{Q}^{-1}=\mat{Q}^\top,\qquad
+\boxed{\mat{A}=\mat{Q}\mat{D}\mat{Q}^\top}
 $$
 
 This is [orthogonal diagonalization]{.alert}
 
 - All eigenvalues are real; repeated eigenvalues are allowed
-- Coordinates are dot products: $[\vct{x}]_{\mathcal{Q}}=\mat{Q}^{\mathsf T}\vct{x}$
-- Euclidean lengths are preserved: $\|\mat{Q}^{\mathsf T}\vct{x}\|=\|\vct{x}\|$
+- Coordinates are dot products: $[\vct{x}]_{\mathcal{Q}}=\mat{Q}^\top\vct{x}$
+- Euclidean lengths are preserved: $\|\mat{Q}^\top\vct{x}\|=\|\vct{x}\|$
 
 ::: {.key-point}
 A real matrix is orthogonally diagonalizable exactly when it is symmetric
@@ -938,11 +938,11 @@ $$
 $$
 
 $$
-\mat{Q}^{\mathsf T}\mat{A}\mat{Q}=\begin{bmatrix}3&0\\0&1\end{bmatrix},\qquad
-\mat{A}=3\vct{q}_1\vct{q}_1^{\mathsf T}+\vct{q}_2\vct{q}_2^{\mathsf T}
+\mat{Q}^\top\mat{A}\mat{Q}=\begin{bmatrix}3&0\\0&1\end{bmatrix},\qquad
+\mat{A}=3\vct{q}_1\vct{q}_1^\top+\vct{q}_2\vct{q}_2^\top
 $$
 
-Each $\vct{q}_j\vct{q}_j^{\mathsf T}\vct{x}$ projects onto one unit eigendirection
+Each $\vct{q}_j\vct{q}_j^\top\vct{x}$ projects onto one unit eigendirection
 
 ::: {.key-point}
 Resolve the input into perpendicular components, then scale each by its eigenvalue
@@ -970,7 +970,7 @@ $$
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
 <span>Distinguish an eigenbasis from an orthonormal eigenbasis
-<span class="exsub">Find an orthogonal $\mat{Q}$ and diagonal $\mat{D}$ with $\mat{C}=\mat{Q}\mat{D}\mat{Q}^{\mathsf T}$</span>
+<span class="exsub">Find an orthogonal $\mat{Q}$ and diagonal $\mat{D}$ with $\mat{C}=\mat{Q}\mat{D}\mat{Q}^\top$</span>
 <span class="exsub">Write $\mat{C}$ as a sum of scaled orthogonal projectors</span>
 <span class="exsub">The matrix $\mat{B}$ is diagonalizable; can it be orthogonally diagonalized over $\reals$? Explain</span>
 </span>

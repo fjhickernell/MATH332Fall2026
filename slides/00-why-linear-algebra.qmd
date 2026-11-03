@@ -391,7 +391,14 @@ Before multiplying
 :::
 :::
 
+::: {.notes}
+R rotates every vector counterclockwise through 90 degrees. Thus the input
+(2,1)^T becomes (-1,2)^T, as direct multiplication confirms. Length and orientation are preserved.
+:::
+
 ## Composition is multiplication
+
+Linear coordinate maps with a shared origin; orthographic screen projection
 
 ::: {.diagram-flow}
 <div class="diagram-node">object coordinates<br>$\vct{x}_{\text{object}}$</div><div class="diagram-arrow">$\xrightarrow{\mat{A}}$</div>
@@ -404,7 +411,7 @@ Before multiplying
 ::: {.column width="13%"}
 :::
 ::: {.column width="20%" align="center"}
-place and orient the object in the world
+orient the object relative to the world axes
 :::
 ::: {.column width="7%"}
 :::
@@ -414,7 +421,7 @@ express the world relative to the camera
 ::: {.column width="7%"}
 :::
 ::: {.column width="20%" align="center"}
-project camera coordinates onto the screen
+orthographically project onto the screen
 :::
 ::: {.column width="13%"}
 :::
@@ -431,6 +438,15 @@ $$
 [Order]{.alert} of $\left\{\begin{array}{c}\text{transformations}\\[-0.15em]\text{multiplication}\end{array}\right\}$ matters
 :::
 
+
+::: {.notes}
+This example uses linear coordinate maps sharing an origin and orthographic
+projection. Translating the object or moving the camera origin requires an
+affine offset (or homogeneous coordinates); perspective projection also
+requires division by a depth coordinate. Those operations are not represented
+by the plain linear maps displayed here. Multiplication still composes the
+three linear stages in right-to-left order.
+:::
 
 ## What does the system tell us?
 
@@ -907,6 +923,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Linear combination]({{< meta decks.d03.file >}}#given-output-solve-column-weights), $c_1\vct{v}_1+\cdots+c_k\vct{v}_k$
 - [Linear dependence]({{< meta decks.d07.file >}}#independence-means-the-zero-vector-has-one-construction)
 - [Linear independence]({{< meta decks.d07.file >}}#independence-means-the-zero-vector-has-one-construction)
+- [Linear isometry]({{< meta decks.d07.file >}}#example-a-matrix-preserves-combinations-but-changes-lengths)
 - [Linear isomorphism]({{< meta decks.d07.file >}}#the-coordinate-map-preserves-linear-combinations)
 - [Linear system]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations), $\mat{A}\vct{x}=\vct{b}$
 - [Linear transformation]({{< meta decks.d03.file >}}#linear-transformations-preserve-combinations), $T$

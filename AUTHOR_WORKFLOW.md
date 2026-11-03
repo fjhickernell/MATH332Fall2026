@@ -545,6 +545,12 @@ calendar unchanged and check again later.
   filling space or compressing every earlier topic into an abbreviation.
   In the Special Topics draft, distinguish the core SVD/regression connection
   from optional extensions and trim the recap to modules actually selected.
+- Request only the reduction needed for the task. Row echelon form suffices
+  for pivot indices, rank, free variables, row/column bases, and null-space
+  bases by back substitution. Introduce RREF when the next operation uses
+  its additional structure, such as reading off the coefficient factor in
+  the direct `A=CR` recipe. Match worked matrices and follow-up bases to the
+  form requested.
 - In rank factorization, write `A=CR`: `C` contains the original pivot
   columns and `R` the nonzero RREF rows. Write the full reduced matrix as
   `rref(A)=[R;0]`; keep `U` for the upper triangular factor in PLU. These

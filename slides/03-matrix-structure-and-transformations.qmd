@@ -931,7 +931,7 @@ $\vct{b}=\mat{A}\vct{x}\in\reals^3$
 
 $\reals^3$ — real column vectors with three entries
 
-Number of rows $=$ output dimension $3$
+Number of rows $=$ codomain dimension $3$
 :::
 :::
 
@@ -1030,6 +1030,8 @@ not linear unless $\vct{b}=\vct{0}$ because it moves the origin.
 :::
 
 ## Basis images determine the whole transformation {#standard-basis-vectors-reveal-every-column}
+
+For a linear map $T:\reals^n\to\reals^m$:
 
 $j$th [standard basis vector]{.alert} $\vct{e}_j$ — a $1$ in position $j$,
 zeros elsewhere
@@ -1248,6 +1250,12 @@ idea behind QR factorization
 For the Householder matrix $\mat{H}$ defined above, show that $\mat{H}^2=\mat{I}$
 <span class="exsub">Use $\vct{u}^{\mathsf T}\vct{u}=1$</span>
 </span>
+:::
+
+::: {.notes}
+Expand H^2=(I-2uu^T)^2=I-4uu^T+4u(u^T u)u^T=I.
+The last equality uses u^T u=1. Symmetry then also gives H^T H=I,
+so the reflection preserves lengths.
 :::
 
 ---

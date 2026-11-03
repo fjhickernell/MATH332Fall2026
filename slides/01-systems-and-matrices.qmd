@@ -143,7 +143,7 @@ We transform equations in ways that are [reversible]{.alert} and so preserve the
 For the second and third examples, no reversible transformation can isolate $x$: a zero coefficient remains zero
 
 ::: {.key-point}
-A system of $m$ [linear]{.alert} equations in $n$ unknowns has exactly one of three outcomes:
+A system of $m$ [real linear]{.alert} equations in $n$ unknowns has exactly one of three outcomes:
 
 - [one]{.alert} solution
 - [no]{.alert} solutions
@@ -292,7 +292,7 @@ These [elementary row operations]{.alert} preserve the entire solution set becau
 
 - The restriction $c\ne0$ for the last move matters: multiplying an equation by $0$ discards information
 
-- The last move is not really needed for solving equations
+- Normalizing pivot rows is optional for Gaussian elimination and back substitution
 
 ## Reversible—or not?
 
@@ -315,11 +315,21 @@ These [elementary row operations]{.alert} preserve the entire solution set becau
 
 5. $E_1\leftarrow -3E_1$
 
-6. $E_1 \leftarrow E_1^2$
+6. Square both sides of $E_1$
 :::
 :::
 
 For each reversible step, name its inverse
+
+::: {.notes}
+Items 2, 3, and 5 preserve every system's solution set. Their inverses are
+the same row exchange, E_2 <- E_2+2E_1, and E_1 <- (-1/3)E_1.
+Items 1 and 4 can discard constraints: 0x=0 can replace x=1 in item 1;
+with E_1:x=0 and E_2:y=0, item 4 leaves only x+y=0.
+Item 6 can introduce false solutions: squaring both sides of x=-1 gives
+x^2=1, adding x=1. Squaring a zero-residual form (L-R)^2=0 would preserve
+real solutions; the prompt specifically means squaring the two sides.
+:::
 
 # Eliminate on Equations
 
@@ -1161,6 +1171,10 @@ Otherwise skip that column
 <span>After the exchange, which row operation eliminates the $2$ below the new first pivot?</span>
 :::
 
+::: {.notes}
+Use R_3 <- R_3-2R_1. The new third augmented row is (0,-3,3 | 3).
+:::
+
 ## Read the solution set (back substitution) {#read-the-solution-set}
 
 ### Read the unique solution by back substitution
@@ -1361,12 +1375,18 @@ After elimination:
 | consistent; fewer pivots than variables | one or more parameters | infinitely many |
 
 ::: {.key-point}
-A linear system has zero, one, or infinitely many solutions—never exactly two
+A real linear system has zero, one, or infinitely many solutions—never exactly two
 :::
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
 <span>Why would two distinct solutions force infinitely many?</span>
+:::
+
+::: {.notes}
+If x and y are distinct solutions, A(y-x)=0. For every real t,
+A(x+t(y-x))=b. Distinct t give distinct vectors since y-x is nonzero,
+so this is an entire line of solutions.
 :::
 
 ---
@@ -1408,15 +1428,16 @@ If $m<n$, the system has [no solutions]{.alert} or
 ::: {.column width="47%"}
 A $9\,\mathrm{V}$ source drives three coupled current loops
 <svg class="diagram-image" viewBox="0 0 740 500" width="100%" role="img" aria-label="A 9 volt source drives a resistor ladder with three clockwise mesh currents I one, I two, and I three.">
-  <path d="M90 110h100m360 0h70M90 410h530M90 110v95m0 110v95" fill="none" stroke="#333" stroke-width="7"/>
+  <path d="M90 110h100M90 410h530M90 110v95m0 110v95" fill="none" stroke="#333" stroke-width="7"/>
   <path d="M45 235h90M62 285h56M90 205v30m0 50v30" fill="none" stroke="#333" stroke-width="7"/>
   <path d="M190 110l18-25 22 50 22-50 22 50 22-50 18 25" fill="none" stroke="#c62828" stroke-width="7"/>
   <path d="M314 110h52l18-25 22 50 22-50 22 50 22-50 18 25h60" fill="none" stroke="#c62828" stroke-width="7"/>
+  <path d="M550 110l10-20 10 40 10-40 10 40 10-40 10 20h10" fill="none" stroke="#c62828" stroke-width="7"/>
   <path d="M314 110v85l-25 15 50 20-50 20 50 20-25 15v125M490 110v85l-25 15 50 20-50 20 50 20-25 15v125M620 110v85l-25 15 50 20-50 20 50 20-25 15v125" fill="none" stroke="#c62828" stroke-width="7"/>
   <circle cx="190" cy="110" r="10" fill="#007acc"/><circle cx="314" cy="110" r="10" fill="#007acc"/>
   <circle cx="490" cy="110" r="10" fill="#007acc"/><circle cx="620" cy="110" r="10" fill="#007acc"/>
   <text x="22" y="265" font-size="32" font-weight="700">9 V</text>
-  <text x="222" y="72" font-size="26" font-weight="700">1 kΩ</text><text x="392" y="72" font-size="26" font-weight="700">2 kΩ</text><text x="522" y="72" font-size="26" font-weight="700">1 kΩ</text>
+  <text x="222" y="72" font-size="26" font-weight="700">1 kΩ</text><text x="392" y="72" font-size="26" font-weight="700">2 kΩ</text><text x="560" y="72" font-size="26" font-weight="700">1 kΩ</text>
   <text x="215" y="255" font-size="26" font-weight="700">3 kΩ</text><text x="390" y="255" font-size="26" font-weight="700">2 kΩ</text><text x="665" y="255" font-size="26" font-weight="700">1 kΩ</text>
   <path d="M155 335h95M350 335h75M525 335h55" stroke="#007acc" stroke-width="7"/>
   <path d="M143 335l20-12v24zM338 335l20-12v24zM513 335l20-12v24z" fill="#007acc"/>
@@ -1468,14 +1489,15 @@ Set the first top resistance and the left vertical resistance to zero
 ::: {.columns}
 ::: {.column width="47%"}
 <svg class="diagram-image" viewBox="0 0 740 500" width="100%" role="img" aria-label="The same three-loop resistor ladder with the first top resistance and the left vertical resistance replaced by zero-resistance wires, creating a short circuit around the 9 volt source.">
-  <path d="M90 110h100m360 0h70M90 410h530M90 110v95m0 110v95" fill="none" stroke="#333" stroke-width="7"/>
+  <path d="M90 110h100M90 410h530M90 110v95m0 110v95" fill="none" stroke="#333" stroke-width="7"/>
   <path d="M45 235h90M62 285h56M90 205v30m0 50v30" fill="none" stroke="#333" stroke-width="7"/>
   <path d="M314 110h52l18-25 22 50 22-50 22 50 22-50 18 25h60" fill="none" stroke="#c62828" stroke-width="7"/>
+  <path d="M550 110l10-20 10 40 10-40 10 40 10-40 10 20h10" fill="none" stroke="#c62828" stroke-width="7"/>
   <path d="M490 110v85l-25 15 50 20-50 20 50 20-25 15v125M620 110v85l-25 15 50 20-50 20 50 20-25 15v125" fill="none" stroke="#c62828" stroke-width="7"/>
   <circle cx="190" cy="110" r="10" fill="#007acc"/><circle cx="314" cy="110" r="10" fill="#007acc"/>
   <circle cx="490" cy="110" r="10" fill="#007acc"/><circle cx="620" cy="110" r="10" fill="#007acc"/>
   <text x="22" y="265" font-size="32" font-weight="700">9 V</text>
-  <text x="392" y="72" font-size="26" font-weight="700">2 kΩ</text><text x="522" y="72" font-size="26" font-weight="700">1 kΩ</text>
+  <text x="392" y="72" font-size="26" font-weight="700">2 kΩ</text><text x="560" y="72" font-size="26" font-weight="700">1 kΩ</text>
   <text x="390" y="255" font-size="26" font-weight="700">2 kΩ</text><text x="665" y="255" font-size="26" font-weight="700">1 kΩ</text>
   <path d="M155 335h95M350 335h75M525 335h55" stroke="#007acc" stroke-width="7"/>
   <path d="M143 335l20-12v24zM338 335l20-12v24zM513 335l20-12v24z" fill="#007acc"/>

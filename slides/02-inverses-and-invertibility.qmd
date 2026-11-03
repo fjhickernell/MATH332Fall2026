@@ -92,7 +92,7 @@ $$
 :::
 
 ::: {.column width="47%"}
-### [Inverses]({{< meta decks.d02.file >}}): square throughout
+### [Inverses]({{< meta decks.d02.file >}}): square matrices
 
 $$
 \mat{A}\in\reals^{n\times n}
@@ -113,7 +113,7 @@ $$
 $$
 
 ::: {.key-point}
-- This deck — [square matrices]{.alert}
+- Two-sided inverses — [square matrices]{.alert}
 - Rectangular matrices — no two-sided inverse
 - [Pseudoinverses]{.alert} — later
 :::
@@ -221,7 +221,7 @@ $\mat{A}^{-1}$ does not exist
 ::: {.key-point}
 - Pivot test — row-reduce $\mat{A}$ and inspect its pivots
 - [Determinants]({{< meta decks.d04.file >}}) — [deferred]{.alert}; elimination shows pivots directly
-- Near singularity — computed determinants may be unreliable
+- Near singularity — determinant magnitude alone is not a reliable test
 :::
 
 # Inverse Algebra
@@ -878,7 +878,7 @@ $2$. Covariance and precision zeros encode different relationships.
 [From equations to reversible matrix actions]{.alert}
 
 - [{{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#the-augmented-matrix-stores-the-system) — $\mat{A}\vct{x}=\vct{b}$ becomes the augmented matrix $[\,\mat{A}\mid\vct{b}\,]$: coefficients and right-hand side together
-- [Elimination]{.alert} — row operations preserve all solutions; reduced row echelon form reveals inconsistencies (contradictions), [pivots]({{< meta decks.d01.file >}}#pivots-organize-elimination), and free variables
+- [Elimination]{.alert} — row operations preserve all solutions; row echelon form reveals inconsistencies (contradictions), [pivots]({{< meta decks.d01.file >}}#pivots-organize-elimination), and free variables
 - [{{< meta decks.d02.short_title >}}]({{< meta decks.d02.file >}}#an-inverse-undoes-a-matrix-action) — a two-sided inverse undoes a square matrix action: $\mat{A}^{-1}\mat{A}=\mat{I}=\mat{A}\mat{A}^{-1}$
 - [Gauss–Jordan]{.alert} — reduce $[\,\mat{A}\mid\mat{I}\,]$ to $[\,\mat{I}\mid\mat{A}^{-1}\,]$; a missing pivot in $\mat{A}$ means no inverse
 - [Inverse of a product]{.alert} — for invertible $\mat{A},\mat{B}$, undo the factors in reverse order: $(\mat{A}\mat{B})^{-1}=\mat{B}^{-1}\mat{A}^{-1}$

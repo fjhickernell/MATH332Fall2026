@@ -62,7 +62,7 @@ include-after-body:
 <div class="space-detail" style="grid-row:3;grid-column:1;">$\perp$</div>
 <div class="space-detail" style="grid-row:3;grid-column:3;">$\perp$</div>
 <div class="space-card null-card" style="grid-row:4;grid-column:1;">$\operatorname{null}(\mat{A})$<br><span class="space-detail">$n-r$ directions<br>$\mat{A}\vct{x}=\vct{0}$</span></div>
-<div class="space-card null-card" style="grid-row:4;grid-column:3;">$\operatorname{null}(\mat{A}^{\mathsf T})$<br><span class="space-detail">$m-r$ directions<br>$\mat{A}^{\mathsf T}\vct{y}=\vct{0}$</span></div>
+<div class="space-card null-card" style="grid-row:4;grid-column:3;">$\operatorname{null}(\mat{A}^\top)$<br><span class="space-detail">$m-r$ directions<br>$\mat{A}^\top\vct{y}=\vct{0}$</span></div>
 :::
 
 
@@ -92,6 +92,7 @@ computing concrete bases and dimensions.
 
 - [A matrix has four fundamental subspaces](#a-matrix-has-four-fundamental-subspaces)
 - [Rank and nullity measure different parts of a matrix](#rank-and-nullity-measure-different-parts-of-a-matrix)
+- [Rank-nullity counts inputs](#rank-nullity-counts-inputs)
 - [One reduction exposes the structure](#one-reduction-exposes-the-structure)
 - [Column and row bases come from different matrices](#column-and-row-bases-come-from-different-matrices)
 - [Free variables build a basis for the null space](#free-variables-build-a-basis-for-the-null-space)
@@ -105,14 +106,14 @@ For an $m\times n$ matrix $\mat{A}$:
 | $\operatorname{col}(\mat{A})$ | span of the columns of $\mat{A}$ | $\reals^m$ |
 | $\operatorname{null}(\mat{A})$ | solutions of $\mat{A}\vct{x}=\vct{0}$ | $\reals^n$ |
 | $\operatorname{row}(\mat{A})$ | span of the rows of $\mat{A}$ | $\reals^n$ |
-| $\operatorname{null}(\mat{A}^{\mathsf T})$ | solutions of $\mat{A}^{\mathsf T}\vct{y}=\vct{0}$ | $\reals^m$ |
+| $\operatorname{null}(\mat{A}^\top)$ | solutions of $\mat{A}^\top\vct{y}=\vct{0}$ | $\reals^m$ |
 
 ::: {.key-point}
 Always identify the ambient space before comparing subspaces
 
 Transposing exchanges rows and columns; view row-space vectors as columns
 
-$\operatorname{col}(\mat{A})=\operatorname{row}(\mat{A}^{\mathsf T})$, $\quad\operatorname{row}(\mat{A})=\operatorname{col}(\mat{A}^{\mathsf T})$
+$\operatorname{col}(\mat{A})=\operatorname{row}(\mat{A}^\top)$, $\quad\operatorname{row}(\mat{A})=\operatorname{col}(\mat{A}^\top)$
 :::
 
 ## Rank and nullity measure different parts of a matrix {#rank-and-nullity-measure-different-parts-of-a-matrix}
@@ -143,16 +144,51 @@ Rank counts independent output directions; nullity counts lost input directions
 ::: {.notes}
 Rank is defined here using column-space dimension. The row-rank/column-rank
 theorem says the dimensions agree. Pivot columns of the original matrix are
-a column-space basis; the nonzero [RREF]({{< meta decks.d01.file >}}#reduced-row-echelon-form)
-rows are a row-space basis with the
-same number of vectors. Each free variable contributes one independent
-null-space vector. We use real matrices throughout this deck.
+a column-space basis; the nonzero row echelon
+rows are a row-space basis with the same number of vectors. Each free
+variable contributes one independent null-space vector. We use real matrices throughout this deck.
+:::
+
+## Rank-nullity counts inputs {#rank-nullity-counts-inputs}
+
+For an $m\times n$ matrix $\mat{A}$,
+
+$$
+\boxed{\dim(\operatorname{col}(\mat{A}))
++\dim(\operatorname{null}(\mat{A}))=n}
+$$
+
+Equivalently, $\operatorname{rank}(\mat{A})+\operatorname{nullity}(\mat{A})=n$
+
+Every input variable is either a pivot variable or a free variable:
+
+- $r$ pivot columns give $\dim(\operatorname{col}(\mat{A}))=r$
+- $n-r$ free variables give $\dim(\operatorname{null}(\mat{A}))=n-r$
+
+::: {.key-point}
+Column-space dimension + null-space dimension = number of columns
+:::
+
+::: {.notes}
+This is the rank–nullity theorem, immediately after the definitions.
+Every column corresponds to one input variable, so the pivot and free
+variables partition all n columns. The original pivot columns form a
+column-space basis. Solving the homogeneous equations expresses the pivot
+variables in terms of the free ones; setting one free variable to 1 and
+the others to 0 gives a null-space basis. These vectors span every solution
+and are independent because their free-variable entries form an identity
+matrix. Thus the dimensions are r and n-r, including full-rank and zero-rank
+cases. The following running example verifies the count with concrete bases.
+
+This is a dimension identity, not an orthogonal decomposition of the two
+spaces: Col(A) lies in R^m and Null(A) lies in R^n. The orthogonal pair in
+the input space is Row(A) and Null(A), developed later. Rank counts
+independent output directions; nullity counts input directions sent to zero.
 :::
 
 ## One reduction exposes the structure {#one-reduction-exposes-the-structure}
 
-Use one example throughout, recalling
-[pivots and free variables from {{< meta decks.d01.short_title >}}]({{< meta decks.d01.file >}}#pivots-organize-elimination):
+Reduce our running example to [row echelon form]{.alert}:
 
 $$
 \mat{A}=
@@ -162,34 +198,31 @@ $$
 1&2&2&4
 \end{bmatrix}
 \quad\longrightarrow\quad
-\operatorname{rref}(\mat{A})=
-\left[
-\begin{array}{cccc}
-\bbox[3px,border:2px solid teal]{\begin{matrix}1\\0\\0\end{matrix}}
-&\begin{matrix}2\\0\\0\end{matrix}
-&\bbox[3px,border:2px solid teal]{\begin{matrix}0\\1\\0\end{matrix}}
-&\begin{matrix}2\\1\\0\end{matrix}
-\end{array}
-\right]
+\mat{E}=
+\begin{bmatrix}
+1&2&1&3\\
+0&0&1&1\\
+0&0&0&0
+\end{bmatrix}
 $$
-
-The [RREF]({{< meta decks.d01.file >}}#reduced-row-echelon-form) has pivots $1$ and zeros elsewhere in each pivot column
 
 Pivot columns: $1,3$; free variables: $x_2,x_4$
 
-The boxed columns are $\vct{e}_1,\vct{e}_2$: the first two columns of $\mat{I}_3$
+$$
+\operatorname{rank}(\mat{A})=2,
+\qquad \operatorname{nullity}(\mat{A})=2
+$$
 
-$$
-\operatorname{rank}(\mat{A})=2
-$$
+::: {.key-point}
+Row echelon form identifies pivots, rank, and free variables
+:::
 
 ::: {.notes}
 Subtract twice the first row from the second and the first row from the third
-to get $(0,0,-2,-2)$ and $(0,0,1,1)$. Keep the latter as pivot row, eliminate
-the former, then subtract the pivot row from the first row. This gives the
-displayed reduced matrix. The teal outlines mark whole pivot columns,
-including their trailing zero entries. They are the first two columns of I_3;
-the same selected columns in the nonzero-row factor R form I_2.
+to get (0,0,-2,-2) and (0,0,1,1). Swap these two rows, then add twice the
+second row to the third. This gives the displayed row echelon matrix E.
+Its nonzero rows give a row-space basis; original columns 1 and 3 give a
+column-space basis. Back substitution gives the null-space basis.
 :::
 
 ## Column and row bases come from different matrices {#column-and-row-bases-come-from-different-matrices}
@@ -205,11 +238,11 @@ $$
 \right\}
 $$
 
-A basis for the row space uses nonzero rows of the [reduced]{.alert} matrix:
+A basis for the row space uses nonzero rows of the [row echelon]{.alert} matrix:
 
 $$
 \left\{
-\begin{bmatrix}1\\2\\0\\2\end{bmatrix},
+\begin{bmatrix}1\\2\\1\\3\end{bmatrix},
 \begin{bmatrix}0\\0\\1\\1\end{bmatrix}
 \right\}
 $$
@@ -220,9 +253,9 @@ Row reduction preserves the row space but generally changes the column space
 
 ## Free variables build a basis for the null space {#free-variables-build-a-basis-for-the-null-space}
 
-Row operations preserve solutions: $\mat{A}\vct{x}=\vct{0}\iff\operatorname{rref}(\mat{A})\vct{x}=\vct{0}$
+Row operations preserve solutions: $\mat{A}\vct{x}=\vct{0}\iff\mat{E}\vct{x}=\vct{0}$
 
-For the running $3\times4$ matrix, the free variables are $x_2,x_4$:
+Back substitution in $\mat{E}\vct{x}=\vct{0}$, with free variables $x_2,x_4$, gives:
 
 $$
 x_1=-2x_2-2x_4,
@@ -246,40 +279,14 @@ $$
 
 ::: {.key-point}
 Each free variable contributes one independent null-space direction
+
+[Rank–nullity](#rank-nullity-counts-inputs): $2+2=4$ columns
 :::
 
 # Rank and Solution Sets
 
-- [Rank-nullity counts inputs](#rank-nullity-counts-inputs)
 - [Rank separates existence from uniqueness](#rank-separates-existence-from-uniqueness)
 - [Rank-nullity predicts solution sets](#rank-nullity-predicts-solution-sets)
-
-## Rank-nullity counts inputs {#rank-nullity-counts-inputs}
-
-For an $m\times n$ matrix $\mat{A}$,
-
-$$
-\operatorname{rank}(\mat{A})
-+\operatorname{nullity}(\mat{A})=n
-$$
-
-Running $3\times4$ example: two pivots and two free variables
-
-$$
-\underbrace{2}_{\text{rank}}+\underbrace{2}_{\text{nullity}}
-=\underbrace{4}_{\text{input variables}}
-$$
-
-Interpretation:
-
-- rank counts independent input directions that remain visible
-- nullity counts independent input directions sent to zero
-
-::: {.key-point}
-Rank-nullity accounts for every direction in the input space
-:::
-
----
 
 ## Rank separates existence from uniqueness {#rank-separates-existence-from-uniqueness}
 
@@ -342,7 +349,7 @@ solvable for every $\vct{b}\in\reals^3$.
 For a subspace $W\subseteq\reals^d$, its [orthogonal complement]{.alert} is
 
 $$
-W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
+W^\perp=\{\vct{z}\in\reals^d:\vct{z}^\top\vct{w}=0
 \text{ for every }\vct{w}\in W\}
 $$
 
@@ -378,7 +385,7 @@ $$
 
 $$
 \operatorname{col}(\mat{A})^\perp
-=\operatorname{null}(\mat{A}^{\mathsf T})
+=\operatorname{null}(\mat{A}^\top)
 \qquad\text{inside }\reals^m
 $$
 
@@ -391,8 +398,18 @@ $$
 $$
 \dim(\operatorname{null}(\mat{A}))=n-r,
 \qquad
-\dim(\operatorname{null}(\mat{A}^{\mathsf T}))=m-r
+\dim(\operatorname{null}(\mat{A}^\top))=m-r
 $$
+
+::: {.notes}
+A x=0 says that x has zero dot product with every row of A, hence with
+every vector in Row(A). This proves Null(A)=Row(A)^perp directly.
+Apply the same argument to A^top to get Null(A^top)=Col(A)^perp.
+The row and column ranks agree, so rank–nullity for A and A^top gives
+nullities n-r and m-r respectively. Row and null spaces both lie in R^n;
+column and left null spaces both lie in R^m. The column and null spaces
+need not share an ambient space and are not claimed to be orthogonal.
+:::
 
 ---
 
@@ -407,9 +424,9 @@ $$
 Inside $\reals^3$:
 
 $$
-\operatorname{row}(\mat{A})=\operatorname{span}\{(1,2,0)^{\mathsf T}\},
+\operatorname{row}(\mat{A})=\operatorname{span}\{[1,2,0]^\top\},
 \qquad
-\operatorname{null}(\mat{A})=\{(-2s,s,t)^{\mathsf T}:s,t\in\reals\}
+\operatorname{null}(\mat{A})=\{[-2s,s,t]^\top:s,t\in\reals\}
 $$
 
 Their dot product is $-2s+2s=0$
@@ -417,9 +434,9 @@ Their dot product is $-2s+2s=0$
 Inside $\reals^2$:
 
 $$
-\operatorname{col}(\mat{A})=\operatorname{span}\{(1,2)^{\mathsf T}\},
+\operatorname{col}(\mat{A})=\operatorname{span}\{[1,2]^\top\},
 \qquad
-\operatorname{null}(\mat{A}^{\mathsf T})=\operatorname{span}\{(-2,1)^{\mathsf T}\}
+\operatorname{null}(\mat{A}^\top)=\operatorname{span}\{[-2,1]^\top\}
 $$
 
 Their dot product is $-2+2=0$
@@ -443,7 +460,7 @@ $$
 <span class="exbullet">$\exstar$</span>
 <span>Find the two orthogonal pairs
 <span class="exsub">Find a basis for $\operatorname{null}(\mat{B})$; check its dot products with both rows</span>
-<span class="exsub">What are $\operatorname{col}(\mat{B})$ and $\operatorname{null}(\mat{B}^{\mathsf T})$?</span>
+<span class="exsub">What are $\operatorname{col}(\mat{B})$ and $\operatorname{null}(\mat{B}^\top)$?</span>
 <span class="exsub">Check the dimension sums in $\reals^3$ and $\reals^2$</span>
 <span class="exsub">Does it make sense to take the dot product of a row-space vector with a column-space vector here?</span>
 </span>
@@ -462,7 +479,7 @@ column-space vectors have two, so their dot product is not defined.
 - [Check the factorization column by column](#check-the-factorization-column-by-column)
 - [Find the left null space](#find-the-left-null-space)
 
-Return to [our running $3\times4$ example](#one-reduction-exposes-the-structure):
+Continue [our running example](#one-reduction-exposes-the-structure) to [RREF]({{< meta decks.d01.file >}}#reduced-row-echelon-form) for the $\mat{A}=\mat{C}\mat{R}$ recipe:
 
 $$
 \mat{A}=\begin{bmatrix}
@@ -488,8 +505,8 @@ computes the four spaces, compatibility tests, and rank factorization
 
 ## Rank factorization keeps the independent columns and rows {#rank-factorization-keeps-the-independent-columns-and-rows}
 
-For the running $3\times4$ matrix, take original columns $1,3$ for $\mat{C}$
-and the two nonzero RREF rows for $\mat{R}$:
+For the running $3\times4$ matrix, take [original]{.alert} columns $1,3$ for $\mat{C}$
+and the two [nonzero]{.alert} RREF rows for $\mat{R}$:
 
 $$
 \mat{C}=
@@ -642,7 +659,7 @@ $$
 - Remove the zero row from the boxed pivot columns to obtain $\mat{I}_2$ in $\mat{R}$
 
 ::: {.key-point}
-For the direct formula $\mat{A}=\mat{C}\mat{R}$, use the nonzero RREF rows
+For the direct formula $\mat{A}=\mat{C}\mat{R}$, use the [nonzero]{.alert} RREF rows
 :::
 
 ::: {.notes}
@@ -736,18 +753,18 @@ $$
 
 Every column of $\mat{A}$ is a combination of these two columns
 
-Thus $\mat{A}^{\mathsf T}\vct{y}=\vct{0}\iff\mat{C}^{\mathsf T}\vct{y}=\vct{0}$:
+Thus $\mat{A}^\top\vct{y}=\vct{0}\iff\mat{C}^\top\vct{y}=\vct{0}$:
 
 $$
 y_1+2y_2+y_3=0,
 \qquad y_1+2y_3=0
 $$
 
-Taking $y_3=2$ gives $\vct{y}=(-4,1,2)^{\mathsf T}$
+Taking $y_3=2$ gives $\vct{y}=[-4,1,2]^\top$
 
 $$
-\operatorname{null}(\mat{A}^{\mathsf T})
-=\operatorname{span}\{(-4,1,2)^{\mathsf T}\}
+\operatorname{null}(\mat{A}^\top)
+=\operatorname{span}\{[-4,1,2]^\top\}
 $$
 
 This vector is perpendicular to both columns of $\mat{C}$
@@ -756,18 +773,18 @@ This vector is perpendicular to both columns of $\mat{C}$
 
 ### Left-null vectors test compatibility of equations {#left-null-vectors-test-compatibility-of-equations}
 
-If $\mat{A}^{\mathsf T}\vct{y}=\vct{0}$ and $\mat{A}\vct{x}=\vct{b}$, then
+If $\mat{A}^\top\vct{y}=\vct{0}$ and $\mat{A}\vct{x}=\vct{b}$, then
 
 $$
-\vct{y}^{\mathsf T}\vct{b}
-=\vct{y}^{\mathsf T}\mat{A}\vct{x}=0
+\vct{y}^\top\vct{b}
+=\vct{y}^\top\mat{A}\vct{x}=0
 $$
 
 A right-hand side is attainable exactly when it is perpendicular to every
 left-null vector
 
-In our example, $\operatorname{null}(\mat{A}^{\mathsf T})$ has basis
-$\{(-4,1,2)^{\mathsf T}\}$, so consistency is equivalent to
+In our example, $\operatorname{null}(\mat{A}^\top)$ has basis
+$\{[-4,1,2]^\top\}$, so consistency is equivalent to
 
 $$
 -4b_1+b_2+2b_3=0
@@ -775,7 +792,7 @@ $$
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Use this test for $\vct{b}=(0,1,0)^{\mathsf T}$ and $\vct{b}=(1,2,1)^{\mathsf T}$</span>
+<span>Use this test for $\vct{b}=[0,1,0]^\top$ and $\vct{b}=[1,2,1]^\top$</span>
 :::
 
 ::: {.notes}
@@ -803,15 +820,15 @@ $$
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
 <span>Complete the picture of its four fundamental subspaces
-<span class="exsub">Find bases for $\operatorname{null}(\mat{B})$ and $\operatorname{null}(\mat{B}^{\mathsf T})$</span>
+<span class="exsub">Find bases for $\operatorname{null}(\mat{B})$ and $\operatorname{null}(\mat{B}^\top)$</span>
 <span class="exsub">Check that your left-null vector is perpendicular to both columns of $\mat{C}$</span>
 <span class="exsub">Compare the four dimensions with rank–nullity</span>
 </span>
 :::
 
 ::: {.notes}
-For $\mat{B}$, a null-space basis is $\{(-2,1,0)^{\mathsf T}\}$, and a
-left-null basis is $\{(-1,-1,1)^{\mathsf T}\}$. Each is orthogonal to the
+For $\mat{B}$, a null-space basis is $\{(-2,1,0)^\top\}$, and a
+left-null basis is $\{(-1,-1,1)^\top\}$. Each is orthogonal to the
 appropriate row or column basis. The dimensions are $2,1,2,1$ for column,
 null, row, and left null, respectively.
 :::
@@ -962,6 +979,7 @@ Eigenvectors are basis candidates adapted to the action of a matrix
 # Big Ideas {data-state="goldborder"}
 
 - Reduction reveals bases for row, column, and null spaces
+- Rank–nullity: $\dim(\operatorname{col}(\mat{A}))+\dim(\operatorname{null}(\mat{A}))=n$ columns
 - Rank separates attainable outputs from lost input directions
 - Row/null and column/left-null spaces form orthogonal pairs
 - Rank factorization separates independent columns from their combinations
@@ -983,7 +1001,7 @@ Eigenvectors are basis candidates adapted to the action of a matrix
 ::: {.column width="47%"}
 - [Rank factorization](#rank-factorization-keeps-the-independent-columns-and-rows) — $\mat{A}=\mat{C}\mat{R}$; $\mat{C}$'s columns and $\mat{R}$'s rows are column/row-space bases; each has $r=\operatorname{rank}(\mat{A})$ members
 - [Four spaces](#the-four-spaces-pair-through-orthogonality) — column space gives attainable outputs; null space gives lost inputs; row/null and column/left-null are orthogonal pairs
-- [Compatibility](#find-the-left-null-space) — consistent iff $\vct{b}\in\operatorname{col}(\mat{A})$, equivalently $\vct{y}^{\mathsf T}\vct{b}=0$ for every $\vct{y}\in\operatorname{null}(\mat{A}^{\mathsf T})$
+- [Compatibility](#find-the-left-null-space) — consistent iff $\vct{b}\in\operatorname{col}(\mat{A})$, equivalently $\vct{y}^\top\vct{b}=0$ for every $\vct{y}\in\operatorname{null}(\mat{A}^\top)$
 :::
 :::
 

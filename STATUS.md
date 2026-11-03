@@ -44,6 +44,11 @@ Mathematical content should be maintained only in the slides.
 
 ## Later course construction
 
+- [x] Audit all twelve existing decks for mathematical accuracy and clarity,
+  including all 75 exercise sets and presenter answers (November 2).
+  Corrections, computational checks, successful website/twelve-deck renders,
+  and link verification are recorded in `notes/DECK-AUDIT.md`. Visual review
+  remains pending; this does not complete instructor review of the draft decks.
 - [x] Give every deck, including placeholders, a Course Map with consistent
   38% course-deck, 4% gutter, and 58% deck-content proportions, and emphasize
   the current deck with the established larger-link treatment.

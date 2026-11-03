@@ -45,7 +45,7 @@ include-after-body:
 ::: {.key-point}
 Choose coordinates that expose structure
 
-$\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^{\mathsf T}$
+$\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^\top$
 :::
 
 - [Singular Value Decomposition](#singular-value-decomposition)
@@ -109,15 +109,15 @@ Choose orthonormal input and output directions adapted to the map
 
 For a real $m\times n$ matrix of rank $r>0$:
 \begin{gather*}
-\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^{\mathsf T},\qquad
+\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^\top,\qquad
 \mat{\Sigma}_r=\operatorname{diag}(\sigma_1,\ldots,\sigma_r)\\
 \sigma_1\ge\cdots\ge\sigma_r>0,\qquad
-\mat{U}_r^{\mathsf T}\mat{U}_r=\mat{V}_r^{\mathsf T}\mat{V}_r=\mat{I}_r
+\mat{U}_r^\top\mat{U}_r=\mat{V}_r^\top\mat{V}_r=\mat{I}_r
 \end{gather*}
 
 | Factor | Shape | Role |
 |---|---|---|
-| $\mat{V}_r^{\mathsf T}$ | $r\times n$ | input coordinates |
+| $\mat{V}_r^\top$ | $r\times n$ | input coordinates |
 | $\mat{\Sigma}_r$ | $r\times r$ | stretch each coordinate |
 | $\mat{U}_r$ | $m\times r$ | assemble the output |
 
@@ -131,9 +131,9 @@ This is the compact SVD. The zero matrix has no positive singular values and an 
 Write $\vct{U}_j$ and $\vct{V}_j$ for columns of the compact factors
 \begin{gather*}
 \mat{A}\vct{V}_j=\sigma_j\vct{U}_j,\qquad
-\mat{A}^{\mathsf T}\vct{U}_j=\sigma_j\vct{V}_j\\
+\mat{A}^\top\vct{U}_j=\sigma_j\vct{V}_j\\
 \mat{A}\vct{x}=\sum_{j=1}^r\sigma_j\vct{U}_j
-\bigl(\vct{V}_j^{\mathsf T}\vct{x}\bigr)
+\bigl(\vct{V}_j^\top\vct{x}\bigr)
 \end{gather*}
 
 Input perpendicular to every $\vct{V}_j$ is sent to zero
@@ -146,12 +146,12 @@ Singular values measure stretches, not signed eigenvalues
 ## A worked SVD without square roots of large matrices {#a-worked-svd-without-square-roots-of-large-matrices}
 
 \begin{gather*}
-\mat{A}=\begin{pmatrix}3&0\\0&0\\0&2\end{pmatrix},\quad
-\mat{U}_r=\begin{pmatrix}1&0\\0&0\\0&1\end{pmatrix},\quad
-\mat{\Sigma}_r=\begin{pmatrix}3&0\\0&2\end{pmatrix},\quad
+\mat{A}=\begin{bmatrix}3&0\\0&0\\0&2\end{bmatrix},\quad
+\mat{U}_r=\begin{bmatrix}1&0\\0&0\\0&1\end{bmatrix},\quad
+\mat{\Sigma}_r=\begin{bmatrix}3&0\\0&2\end{bmatrix},\quad
 \mat{V}_r=\mat{I}_2\\
-\mat{A}\begin{pmatrix}\cos t\\\sin t\end{pmatrix}
-=\begin{pmatrix}3\cos t\\0\\2\sin t\end{pmatrix}
+\mat{A}\begin{bmatrix}\cos t\\\sin t\end{bmatrix}
+=\begin{bmatrix}3\cos t\\0\\2\sin t\end{bmatrix}
 \end{gather*}
 
 The unit circle becomes an ellipse in the $x_1x_3$ plane
@@ -169,18 +169,18 @@ The ellipse axes are the left singular vectors; their lengths are the singular v
 
 ## Why an SVD exists {#why-an-svd-exists}
 
-$\mat{A}^{\mathsf T}\mat{A}$ is symmetric and positive semidefinite
+$\mat{A}^\top\mat{A}$ is symmetric and positive semidefinite
 \begin{gather*}
-\vct{x}^{\mathsf T}\mat{A}^{\mathsf T}\mat{A}\vct{x}
+\vct{x}^\top\mat{A}^\top\mat{A}\vct{x}
 =\|\mat{A}\vct{x}\|^2\ge0\\
-\mat{A}^{\mathsf T}\mat{A}\vct{V}_j=\sigma_j^2\vct{V}_j,\qquad
+\mat{A}^\top\mat{A}\vct{V}_j=\sigma_j^2\vct{V}_j,\qquad
 \vct{U}_j=\frac{\mat{A}\vct{V}_j}{\sigma_j}\quad(\sigma_j>0)
 \end{gather*}
 
-Orthogonal eigenvectors on the input side produce orthonormal output vectors
+Orthonormal eigenvectors on the input side produce orthonormal output vectors
 
 ::: {.notes}
-For positive singular values, U_i^T U_j = V_i^T A^T A V_j/(sigma_i sigma_j) = delta_ij. Use the real symmetric spectral theorem, developed in the quadratic-forms section. This is an existence argument, not a recommended numerical algorithm: forming A^T A squares the full-column-rank condition number.
+For positive singular values, U_i^T U_j = V_i^T A^T A V_j/(sigma_i sigma_j) = delta_ij. Use the real symmetric spectral theorem from Eigenvalues and Eigenvectors, recalled in the quadratic-forms section. This is an existence argument, not a recommended numerical algorithm: forming A^T A squares the full-column-rank condition number.
 :::
 
 
@@ -191,7 +191,7 @@ For positive singular values, U_i^T U_j = V_i^T A^T A V_j/(sigma_i sigma_j) = de
 | $\operatorname{col}(\mat{A})$ | span of $\vct{U}_1,\ldots,\vct{U}_r$ |
 | $\operatorname{row}(\mat{A})$ | span of $\vct{V}_1,\ldots,\vct{V}_r$ |
 | $\operatorname{null}(\mat{A})$ | perpendicular to all $\vct{V}_j$ |
-| $\operatorname{null}(\mat{A}^{\mathsf T})$ | perpendicular to all $\vct{U}_j$ |
+| $\operatorname{null}(\mat{A}^\top)$ | perpendicular to all $\vct{U}_j$ |
 
 Complete the columns of $\mat{U}_r$ and $\mat{V}_r$ to orthonormal bases to obtain bases of the two null spaces
 
@@ -201,14 +201,14 @@ Complete the columns of $\mat{U}_r$ and $\mat{V}_r$ to orthonormal bases to obta
 ## A matrix is a sum of rank-one maps {#a-matrix-is-a-sum-of-rank-one-maps}
 
 \begin{equation*}
-\mat{A}=\sum_{j=1}^r\sigma_j\vct{U}_j\vct{V}_j^{\mathsf T}
+\mat{A}=\sum_{j=1}^r\sigma_j\vct{U}_j\vct{V}_j^\top
 \end{equation*}
 
 Each term reads one input coordinate and sends it along one output direction
 
 Keep only the first $k$ terms:
 \begin{equation*}
-\mat{A}_k=\sum_{j=1}^k\sigma_j\vct{U}_j\vct{V}_j^{\mathsf T},\qquad 0\le k<r
+\mat{A}_k=\sum_{j=1}^k\sigma_j\vct{U}_j\vct{V}_j^\top,\qquad 0\le k<r
 \end{equation*}
 
 A controlled approximation using fewer directions
@@ -265,7 +265,7 @@ Fit observations $b_i$ using features $a_{ij}$ and coefficients $x_j$
 \begin{gather*}
 \widehat{\vct{b}}=\mat{A}\widehat{\vct{x}},\qquad
 \widehat{\vct{x}}\in\arg\min_{\vct{x}}\|\mat{A}\vct{x}-\vct{b}\|^2\\
-\mat{A}^{\mathsf T}(\vct{b}-\widehat{\vct{b}})=\vct{0}
+\mat{A}^\top(\vct{b}-\widehat{\vct{b}})=\vct{0}
 \end{gather*}
 
 $\widehat{\vct{b}}$ is the orthogonal projection onto $\operatorname{col}(\mat{A})$
@@ -280,12 +280,12 @@ A column of ones supplies an intercept
 For $m\ge n$ and independent columns:
 \begin{gather*}
 \mat{A}=\mat{Q}\mat{R},\quad
-\mat{Q}^{\mathsf T}\mat{Q}=\mat{I}_n,\quad
+\mat{Q}^\top\mat{Q}=\mat{I}_n,\quad
 \mat{R}\text{ upper triangular and invertible}\\
 \|\mat{A}\vct{x}-\vct{b}\|^2
-=\|\mat{R}\vct{x}-\mat{Q}^{\mathsf T}\vct{b}\|^2
-+\|(\mat{I}_m-\mat{Q}\mat{Q}^{\mathsf T})\vct{b}\|^2\\
-\mat{R}\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}
+=\|\mat{R}\vct{x}-\mat{Q}^\top\vct{b}\|^2
++\|(\mat{I}_m-\mat{Q}\mat{Q}^\top)\vct{b}\|^2\\
+\mat{R}\widehat{\vct{x}}=\mat{Q}^\top\vct{b}
 \end{gather*}
 
 Compute orthogonal coordinates, then use back substitution
@@ -298,11 +298,11 @@ Reduced QR: Q is m-by-n, R is n-by-n. This R is the triangular QR factor, differ
 ## The pseudoinverse reverses the nonzero stretches {#the-pseudoinverse-reverses-the-nonzero-stretches}
 
 \begin{gather*}
-\mat{A}^{\dagger}=\mat{V}_r\mat{\Sigma}_r^{-1}\mat{U}_r^{\mathsf T}\\
+\mat{A}^{\dagger}=\mat{V}_r\mat{\Sigma}_r^{-1}\mat{U}_r^\top\\
 \widehat{\vct{x}}=\mat{A}^{\dagger}\vct{b}
-=\sum_{j=1}^r\frac{\vct{U}_j^{\mathsf T}\vct{b}}{\sigma_j}\vct{V}_j\\
+=\sum_{j=1}^r\frac{\vct{U}_j^\top\vct{b}}{\sigma_j}\vct{V}_j\\
 \widehat{\vct{b}}=\mat{A}\widehat{\vct{x}}
-=\mat{U}_r\mat{U}_r^{\mathsf T}\vct{b}
+=\mat{U}_r\mat{U}_r^\top\vct{b}
 \end{gather*}
 
 Works for rectangular and rank-deficient matrices
@@ -332,12 +332,12 @@ Use the orthogonal splitting R^n = row(A) plus null(A). The minimizer is unique 
 ## A regression example with a redundant feature {#a-regression-example-with-a-redundant-feature}
 
 \begin{gather*}
-\mat{A}=\begin{pmatrix}1&1\\1&1\end{pmatrix},\quad
-\vct{b}=\begin{pmatrix}2\\4\end{pmatrix},\quad
-\vct{U}_1=\vct{V}_1=\frac1{\sqrt2}\begin{pmatrix}1\\1\end{pmatrix},\quad\sigma_1=2\\
-\widehat{\vct{x}}=\begin{pmatrix}3/2\\3/2\end{pmatrix},\quad
-\widehat{\vct{b}}=\begin{pmatrix}3\\3\end{pmatrix},\quad
-\vct{b}-\widehat{\vct{b}}=\begin{pmatrix}-1\\1\end{pmatrix}
+\mat{A}=\begin{bmatrix}1&1\\1&1\end{bmatrix},\quad
+\vct{b}=\begin{bmatrix}2\\4\end{bmatrix},\quad
+\vct{U}_1=\vct{V}_1=\frac1{\sqrt2}\begin{bmatrix}1\\1\end{bmatrix},\quad\sigma_1=2\\
+\widehat{\vct{x}}=\begin{bmatrix}3/2\\3/2\end{bmatrix},\quad
+\widehat{\vct{b}}=\begin{bmatrix}3\\3\end{bmatrix},\quad
+\vct{b}-\widehat{\vct{b}}=\begin{bmatrix}-1\\1\end{bmatrix}
 \end{gather*}
 
 Both features are identical: only $x_1+x_2=3$ is identifiable
@@ -350,7 +350,7 @@ The smallest-norm solution divides the total equally
 A perturbation $\delta\vct{b}$ changes the pseudoinverse coefficients by
 \begin{equation*}
 \delta\widehat{\vct{x}}
-=\sum_{j=1}^r\frac{\vct{U}_j^{\mathsf T}\delta\vct{b}}{\sigma_j}\vct{V}_j
+=\sum_{j=1}^r\frac{\vct{U}_j^\top\delta\vct{b}}{\sigma_j}\vct{V}_j
 \end{equation*}
 
 Small positive $\sigma_j$: large coefficient changes in direction $\vct{V}_j$
@@ -371,14 +371,14 @@ Keep rank and conditioning distinct. Exact zero singular values create nonidenti
 Truncated SVD retains only singular values above a chosen threshold $\tau$:
 \begin{equation*}
 \widehat{\vct{x}}_\tau
-=\sum_{\sigma_j>\tau}\frac{\vct{U}_j^{\mathsf T}\vct{b}}{\sigma_j}\vct{V}_j
+=\sum_{\sigma_j>\tau}\frac{\vct{U}_j^\top\vct{b}}{\sigma_j}\vct{V}_j
 \end{equation*}
 
 Ridge minimizes $\|\mat{A}\vct{x}-\vct{b}\|^2+\lambda\|\vct{x}\|^2$, $\lambda>0$:
 \begin{equation*}
 \widehat{\vct{x}}_\lambda
 =\sum_{j=1}^r\frac{\sigma_j}{\sigma_j^2+\lambda}
-(\vct{U}_j^{\mathsf T}\vct{b})\vct{V}_j
+(\vct{U}_j^\top\vct{b})\vct{V}_j
 \end{equation*}
 
 Truncation discards directions; ridge shrinks their contributions
@@ -397,7 +397,7 @@ This ridge formula penalizes every coefficient, including an intercept if presen
 | Sensitivity and numerical rank | Singular values and feature scaling |
 | Noise-sensitive directions | Truncation or ridge |
 
-Forming $\mat{A}^{\mathsf T}\mat{A}$ squares $\kappa_2(\mat{A})$ when $\mat{A}$ has full column rank
+Forming $\mat{A}^\top\mat{A}$ squares $\kappa_2(\mat{A})$ when $\mat{A}$ has full column rank
 
 Prefer an orthogonal factorization to explicitly inverting the normal-equation matrix
 
@@ -407,11 +407,11 @@ Prefer an orthogonal factorization to explicitly inverting the normal-equation m
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>For the redundant-feature example, describe every least-squares solution<br>Verify that the residual is perpendicular to both columns<br>Explain why $(3/2,3/2)^{\mathsf T}$ has the smallest norm</span>
+<span>For the redundant-feature example, describe every least-squares solution<br>Verify that the residual is perpendicular to both columns<br>Explain why $[3/2,3/2]^\top$ has the smallest norm</span>
 :::
 
 ::: {.notes}
-Solutions: $(3/2+t,3/2-t)^{\mathsf T}$, t real. Each column dotted with (-1,1)^T is zero. Squared coefficient norm is 9/2+2t^2, minimized at t=0.
+Solutions: $[3/2+t,3/2-t]^\top$, t real. Each column dotted with [-1,1]^T is zero. Squared coefficient norm is 9/2+2t^2, minimized at t=0.
 :::
 
 
@@ -427,10 +427,10 @@ Solutions: $(3/2+t,3/2-t)^{\mathsf T}$, t real. Each column dotted with (-1,1)^T
 
 For a real symmetric matrix:
 \begin{gather*}
-\mat{A}=\mat{Q}\mat{\Lambda}\mat{Q}^{\mathsf T},\qquad
-\mat{Q}^{\mathsf T}\mat{Q}=\mat{I}\\
+\mat{A}=\mat{Q}\mat{\Lambda}\mat{Q}^\top,\qquad
+\mat{Q}^\top\mat{Q}=\mat{I}\\
 \vct{x}=\mat{Q}\vct{y}\implies
-\vct{x}^{\mathsf T}\mat{A}\vct{x}=\sum_j\lambda_j y_j^2
+\vct{x}^\top\mat{A}\vct{x}=\sum_j\lambda_j y_j^2
 \end{gather*}
 
 The real symmetric spectral theorem: an orthonormal eigenbasis always exists
@@ -445,9 +445,9 @@ Distinct eigenvalues yield perpendicular eigenvectors; repeated eigenspaces admi
 ## A tilted ellipse becomes an axis-aligned ellipse {#a-tilted-ellipse-becomes-an-axis-aligned-ellipse}
 
 \begin{gather*}
-\mat{A}=\begin{pmatrix}2&1\\1&2\end{pmatrix},\quad
-\mat{Q}=\frac1{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix},\quad
-\mat{\Lambda}=\begin{pmatrix}3&0\\0&1\end{pmatrix}\\
+\mat{A}=\begin{bmatrix}2&1\\1&2\end{bmatrix},\quad
+\mat{Q}=\frac1{\sqrt2}\begin{bmatrix}1&1\\1&-1\end{bmatrix},\quad
+\mat{\Lambda}=\begin{bmatrix}3&0\\0&1\end{bmatrix}\\
 2x_1^2+2x_1x_2+2x_2^2=1
 \quad\longleftrightarrow\quad 3y_1^2+y_2^2=1
 \end{gather*}
@@ -455,7 +455,7 @@ Distinct eigenvalues yield perpendicular eigenvectors; repeated eigenspaces admi
 Semiaxis lengths: $1/\sqrt3$ and $1$
 
 ::: {.key-point}
-Eigenvectors give the axes; eigenvalues determine the curvature
+Eigenvectors give the axes; eigenvalues set the quadratic scale
 :::
 
 
@@ -469,15 +469,15 @@ Eigenvectors give the axes; eigenvalues determine the curvature
 
 For symmetric $\mat{A}$:
 
-| Eigenvalues | Quadratic form $\vct{x}^{\mathsf T}\mat{A}\vct{x}$ |
+| Eigenvalues | Quadratic form $\vct{x}^\top\mat{A}\vct{x}$ |
 |---|---|
 | All positive | positive definite: positive for every $\vct{x}\ne\vct{0}$ |
 | All nonnegative | positive semidefinite: never negative |
 | Positive and negative | indefinite: changes sign |
 
-Least-squares curvature: $\mat{A}^{\mathsf T}\mat{A}$
+Least-squares curvature: $\mat{A}^\top\mat{A}$
 
-Ridge curvature: $\mat{A}^{\mathsf T}\mat{A}+\lambda\mat{I}$, positive definite for $\lambda>0$
+Ridge curvature: $\mat{A}^\top\mat{A}+\lambda\mat{I}$, positive definite for $\lambda>0$
 
 
 ## Practice finding the principal directions {#practice-finding-the-principal-directions}
@@ -485,11 +485,11 @@ Ridge curvature: $\mat{A}^{\mathsf T}\mat{A}+\lambda\mat{I}$, positive definite 
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Find orthonormal eigenvectors of $\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$<br>Use them to rewrite $2x_1^2-2x_1x_2+2x_2^2$<br>Is this form positive definite?</span>
+<span>Find orthonormal eigenvectors of $\begin{bmatrix}2&-1\\-1&2\end{bmatrix}$<br>Use them to rewrite $2x_1^2-2x_1x_2+2x_2^2$<br>Is this form positive definite?</span>
 :::
 
 ::: {.notes}
-The vector (1,1)^T/sqrt(2) has eigenvalue 1; (1,-1)^T/sqrt(2) has eigenvalue 3. In that ordered eigenbasis the form is y_1^2+3y_2^2, hence positive definite.
+The vector [1,1]^T/sqrt(2) has eigenvalue 1; [1,-1]^T/sqrt(2) has eigenvalue 3. In that ordered eigenbasis the form is y_1^2+3y_2^2, hence positive definite.
 :::
 
 
@@ -514,7 +514,7 @@ Index samples and frequencies by $0,\ldots,n-1$
 \vct{x}=\frac1n\mat{F}_n^*\vct{X}
 \end{gather*}
 
-$\mat{B}^*=\overline{\mat{B}}^{\mathsf T}$ denotes the conjugate transpose
+$\mat{B}^*=\overline{\mat{B}}^\top$ denotes the conjugate transpose
 
 Frequency coordinates reveal oscillations hidden in the sample values
 
@@ -539,12 +539,12 @@ Frequency indices are in 0,...,n-1. For unequal indices, use the finite geometri
 ## Four samples give a concrete Fourier calculation {#four-samples-give-a-concrete-fourier-calculation}
 
 \begin{gather*}
-\mat{F}_4=\begin{pmatrix}
+\mat{F}_4=\begin{bmatrix}
 1&1&1&1\\1&-\sqrt{-1}&-1&\sqrt{-1}\\
 1&-1&1&-1\\1&\sqrt{-1}&-1&-\sqrt{-1}
-\end{pmatrix}\\
-\vct{x}=\begin{pmatrix}1\\0\\-1\\0\end{pmatrix}
-\implies\vct{X}=\begin{pmatrix}0\\2\\0\\2\end{pmatrix}
+\end{bmatrix}\\
+\vct{x}=\begin{bmatrix}1\\0\\-1\\0\end{bmatrix}
+\implies\vct{X}=\begin{bmatrix}0\\2\\0\\2\end{bmatrix}
 \end{gather*}
 
 A real cosine uses a pair of opposite frequency directions
@@ -598,11 +598,11 @@ Interpret boundary assumptions: circular convolution wraps the signal. Arbitrary
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Compute the DFT of $(1,1,1,1)^{\mathsf T}$ and $(1,-1,1,-1)^{\mathsf T}$<br>Which is constant and which alternates?<br>Why does the FFT leave these answers unchanged?</span>
+<span>Compute the DFT of $[1,1,1,1]^\top$ and $[1,-1,1,-1]^\top$<br>Which is constant and which alternates?<br>Why does the FFT leave these answers unchanged?</span>
 :::
 
 ::: {.notes}
-Answers: (4,0,0,0)^T and (0,0,4,0)^T. Frequencies 0 and 2. FFT changes the computation, not the linear transformation.
+Answers: [4,0,0,0]^T and [0,0,4,0]^T. Frequencies 0 and 2. FFT changes the computation, not the linear transformation.
 :::
 
 
@@ -618,9 +618,9 @@ Answers: (4,0,0,0)^T and (0,0,4,0)^T. Frequencies 0 and 2. FFT changes the compu
 ## An outer product separates two directions {#an-outer-product-separates-two-directions}
 
 \begin{gather*}
-\vct{u}=\begin{pmatrix}1\\2\end{pmatrix},\quad
-\vct{v}=\begin{pmatrix}3\\4\\5\end{pmatrix},\qquad
-\vct{u}\vct{v}^{\mathsf T}=\begin{pmatrix}3&4&5\\6&8&10\end{pmatrix}\\
+\vct{u}=\begin{bmatrix}1\\2\end{bmatrix},\quad
+\vct{v}=\begin{bmatrix}3\\4\\5\end{bmatrix},\qquad
+\vct{u}\vct{v}^\top=\begin{bmatrix}3&4&5\\6&8&10\end{bmatrix}\\
 a_{ij}=u_i v_j
 \end{gather*}
 
@@ -642,7 +642,7 @@ T=\sum_{i,j}t_{ij}\vct{e}_i\otimes\vct{f}_j,\qquad
 
 $\otimes$ is bilinear; a general tensor is a sum of elementary tensors
 
-The elementary tensor $\vct{u}\otimes\vct{v}$ has coordinate matrix $\vct{u}\vct{v}^{\mathsf T}$
+For $\mathcal{E}=\{\vct{e}_i\}$ and $\mathcal{F}=\{\vct{f}_j\}$, the coordinate matrix of $\vct{u}\otimes\vct{v}$ is $[\vct{u}]_{\mathcal{E}}[\vct{v}]_{\mathcal{F}}^\top$
 
 ::: {.key-point}
 The coordinate array uses the listed orders of the chosen bases
@@ -675,13 +675,13 @@ The ordering of tensor-product coordinates matters. This block convention agrees
 
 For an $m\times n$ image matrix $\mat{X}$:
 \begin{gather*}
-\mat{Y}=\mat{B}\mat{X}\mat{C}^{\mathsf T}\\
+\mat{Y}=\mat{B}\mat{X}\mat{C}^\top\\
 \operatorname{vec}(\mat{Y})=(\mat{C}\otimes\mat{B})\operatorname{vec}(\mat{X})
 \end{gather*}
 
 $\operatorname{vec}$ stacks columns; $\mat{B}$ acts on row indices and $\mat{C}$ on column indices
 
-Two-dimensional DFT: $\mat{Y}=\mat{F}_m\mat{X}\mat{F}_n^{\mathsf T}$
+Two-dimensional DFT: $\mat{Y}=\mat{F}_m\mat{X}\mat{F}_n^\top$
 
 ::: {.key-point}
 Apply the smaller transforms separately instead of building a giant Kronecker matrix
@@ -712,11 +712,11 @@ With real Euclidean coordinate spaces, v and w can represent covectors via the c
 
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
-<span>Which matrix is a single outer product?<br>$\mat{X}=\begin{pmatrix}1&2\\3&6\end{pmatrix}$, $\quad\mat{Y}=\begin{pmatrix}1&2\\3&7\end{pmatrix}$<br>For $\dim(V)=2$ and $\dim(W)=3$, how many product-basis vectors are needed?</span>
+<span>Which matrix is a single outer product?<br>$\mat{X}=\begin{bmatrix}1&2\\3&6\end{bmatrix}$, $\quad\mat{Y}=\begin{bmatrix}1&2\\3&7\end{bmatrix}$<br>For $\dim(V)=2$ and $\dim(W)=3$, how many product-basis vectors are needed?</span>
 :::
 
 ::: {.notes}
-X=(1,3)^T(1,2); rank one. Y has determinant 1 and rank two, so it is not a single outer product. The tensor-product dimension is 6.
+X=[1,3]^T(1,2); rank one. Y has determinant 1 and rank two, so it is not a single outer product. The tensor-product dimension is 6.
 :::
 
 
@@ -749,10 +749,10 @@ Require a simple unique eigenvalue of maximal modulus and a starting vector with
 
 Let $\mat{P}$ be column stochastic, with dangling columns replaced by probability vectors
 \begin{gather*}
-\mat{G}=\alpha\mat{P}+(1-\alpha)\vct{v}\vct{1}^{\mathsf T},\qquad
-0<\alpha<1,\quad v_i>0,\quad\vct{1}^{\mathsf T}\vct{v}=1\\
+\mat{G}=\alpha\mat{P}+(1-\alpha)\vct{v}\vct{1}^\top,\qquad
+0<\alpha<1,\quad v_i>0,\quad\vct{1}^\top\vct{v}=1\\
 \vct{p}_{k+1}=\mat{G}\vct{p}_k,\qquad
-\mat{G}\vct{p}=\vct{p},\quad\vct{1}^{\mathsf T}\vct{p}=1
+\mat{G}\vct{p}=\vct{p},\quad\vct{1}^\top\vct{p}=1
 \end{gather*}
 
 Follow a link with probability $\alpha$; restart with probability $1-\alpha$
@@ -770,8 +770,8 @@ For an undirected graph, choose an orientation and let $\mat{D}$ have one row pe
 
 An edge $i\to j$ has $-1$ in column $i$ and $+1$ in column $j$
 \begin{gather*}
-\mat{L}=\mat{D}^{\mathsf T}\mat{D},\qquad
-\vct{x}^{\mathsf T}\mat{L}\vct{x}
+\mat{L}=\mat{D}^\top\mat{D},\qquad
+\vct{x}^\top\mat{L}\vct{x}
 =\sum_{\{i,j\}\text{ edge}}(x_i-x_j)^2
 \end{gather*}
 
@@ -789,7 +789,7 @@ An edge $i\to j$ has $-1$ in column $i$ and $+1$ in column $j$
 :::
 
 ::: {.notes}
-D=[[-1,1,0,0],[0,-1,1,0]]. L=[[1,-1,0,0],[-1,2,-1,0],[0,-1,1,0],[0,0,0,0]]. A null-space basis is (1,1,1,0)^T and (0,0,0,1)^T. Nullity two matches two connected components.
+D=[[-1,1,0,0],[0,-1,1,0]]. L=[[1,-1,0,0],[-1,2,-1,0],[0,-1,1,0],[0,0,0,0]]. A null-space basis is [1,1,1,0]^T and [0,0,0,1]^T. Nullity two matches two connected components.
 :::
 
 
@@ -809,7 +809,7 @@ D=[[-1,1,0,0],[0,-1,1,0]]. L=[[1,-1,0,0],[-1,2,-1,0],[0,-1,1,0],[0,0,0,0]]. A nu
 ::: {.columns}
 ::: {.column width="47%"}
 - [{{< meta decks.d10.short_title >}}]({{< meta decks.d10.file >}}#inconsistent-systems-still-have-a-best-fit) — regression finds best fits; QR solves them in orthogonal coordinates
-- [{{< meta decks.d08.short_title >}}]({{< meta decks.d08.file >}}#rank-factorization-keeps-the-independent-columns-and-rows) — SVD gives directions and stretches; nonzero singular values count rank; truncation gives low-rank approximations
+- [SVD](#the-svd-separates-directions-from-scale) — orthonormal directions and stretches; nonzero singular values count rank; truncation gives low-rank approximations
 - [Minimum-norm fit](#the-pseudoinverse-reverses-the-nonzero-stretches) — $\mat{A}^{\dagger}\vct{b}$ gives the shortest least-squares coefficient vector; null vectors leave the fit unchanged
 :::
 

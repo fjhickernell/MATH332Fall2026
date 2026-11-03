@@ -375,15 +375,15 @@ independent
 ::: {.exitem}
 <span class="exbullet">$\exstar$</span>
 <span>Are $e^{2\pi\sqrt{-1}\,t}$ and $e^{-2\pi\sqrt{-1}\,t}$ linearly independent over $\mathbb{C}$ on $[0,1]$?
-<span class="exsub">Set their linear combination equal to zero for every $t$; evaluate at $t=0$ and $t=\tfrac14$</span>
+<span class="exsub">Set their linear combination equal to zero for every $t$; evaluate at $t=0$ and $t=1/4$</span>
 <span class="exsub">Repeat for $1$ and $e^{4\pi\sqrt{-1}\,t}$, choosing two useful values of $t$</span>
 </span>
 :::
 
 ::: {.notes}
 For $e^{2\pi\sqrt{-1}\,t},e^{-2\pi\sqrt{-1}\,t}$: at $t=0$, $a+b=0$;
-at $t=\tfrac14$, $\sqrt{-1}\,a-\sqrt{-1}\,b=0$, so $a=b=0$.
-For $1,e^{4\pi\sqrt{-1}\,t}$: at $t=0$, $a+b=0$; at $t=\tfrac14$,
+at $t=1/4$, $\sqrt{-1}\,a-\sqrt{-1}\,b=0$, so $a=b=0$.
+For $1,e^{4\pi\sqrt{-1}\,t}$: at $t=0$, $a+b=0$; at $t=1/4$,
 $a-b=0$, so again
 $a=b=0$.
 :::
@@ -2478,7 +2478,7 @@ and projection formulas to Inner Products.
 
 ---
 
-### Example: two features give coordinates for three fitted responses {#two-features-give-coordinates-for-three-fitted-responses}
+### Example: two features describe one fitted response vector {#two-features-give-coordinates-for-three-fitted-responses}
 
 Fit a response $y\approx\beta_1+\beta_2t$ to $(t,y)=(0,1),(1,0),(2,2)$
 
@@ -2616,7 +2616,7 @@ rows, scores are X Q, whereas one column observation has coordinate column
 Q^top z_i. Q^top Q=I, so X=S Q^top reconstructs all eight observations.
 Exactly, X^top X=[[482,414],[414,482]]. Its eigenvectors are the columns
 of Q, with eigenvalues 896 and 68. Equivalently S^top S=diag(896,68), so
-the score columns have zero cross product and the first has greater variance.
+the score columns have zero dot product and the first has greater variance.
 The sample covariance divides these matrices by 7. Eigenvectors and SVD will
 explain how to find Q later; no response y is used to choose these directions.
 X is repeated beside S so their columns can be compared directly, including
@@ -2631,7 +2631,7 @@ This is a comparison of overall variation, not of every individual entry.
 
 Original coordinates use the axes $\vct{e}_1,\vct{e}_2$; PCA coordinates use $\vct{q}_1,\vct{q}_2$
 
-For eight centered values $a_i$, sample variance is $\frac17\sum_{i=1}^8 a_i^2$
+For eight centered values $a_i$, sample variance is $(1/7)\sum_{i=1}^8 a_i^2$
 
 | Coordinates | First variance | Second variance | Total variance |
 |---|---:|---:|---:|

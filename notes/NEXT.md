@@ -1,5 +1,13 @@
 # Next task
 
+## Immediate next work
+
+Prepare the November 3 Deck 07 continuation described below: recap change
+of basis, then transition columns and polynomial coordinate changes. Check
+the revised slide layouts before teaching and bring the graded Test 2 papers
+to return. The all-deck source audit is complete; instructor/visual review
+of the revisions and later draft decks remains open.
+
 ## Assignment 5 — released October 31; grading review due November 12
 
 Assignment 5 is published in Canvas 106681 and available in WileyPLUS.
@@ -191,6 +199,27 @@ corrected assessment and schedule rows pass desktop and 390-pixel Safari
 layout checks, and `git diff --check` passes. Test date/location and grading
 deadline are unchanged:
 October 29, PH 109; grading due November 4.
+
+## All-deck accuracy and clarity audit — local revisions
+
+The complete source audit of Decks 00–11 is finished, including all 75 exercise
+sets, presenter answers, conditions and proof dependencies. Corrections and
+validation are recorded in [the deck audit](DECK-AUDIT.md). The root website
+and all twelve decks render without warnings; 1,240 local deck links/assets,
+explicit-anchor/exercise preservation, computational and source-style checks
+pass. These revisions and the audit record are included in this Checkpoint;
+remote CI/deployment and live verification remain pending.
+
+The instructor's Deck 08 sequence is retained: rank–nullity immediately after
+the definitions; row echelon form for the early running example and bases;
+RREF introduced for the direct A=CR recipe; original columns and nonzero rows
+highlighted. AUTHOR_WORKFLOW.md records the reduction principle.
+
+Visual review remains pending because browser security blocked the local-file
+preview. Check the changed slides/diagrams before teaching; the audit does not
+complete instructor review of the draft later decks. The November 3 Deck 07
+continuation above remains the next lecture preparation. Verify deployment
+and review the changed layouts before classroom use.
 
 ## Decks 07–09 revision and development
 
