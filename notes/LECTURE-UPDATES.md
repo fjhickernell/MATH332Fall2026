@@ -2,7 +2,7 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest reconciled instructional meeting: October 27, 2026
+- Latest reconciled instructional meeting: November 3, 2026
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -18,6 +18,7 @@
 | October 20, 2026 | Reconciled (Fantastical read-back completed October 22): matrix and polynomial bases; dimension and coordinate arithmetic; undamped initial-data solution map and complex bases; critically damped spring exercise begun | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=330a3335-a279-49c1-b6a1-b4e9012bbf78) | October 22, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; Finish “A critically damped spring: find the solution map,” then “Choose output coordinates for the damped motion” | October 20, 2026 |
 | October 22, 2026 | Reconciled: critically damped spring in original and initial-data-adapted bases; independence, redundancy and bases; dimension, counting comparison and equivalence of independence/spanning for exactly dim(V) vectors | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=35a56247-4ad0-46cf-a1f6-b4eb012ce87c) | October 27, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; resume Deck 07 at “Build a basis by adding or removing vectors,” remaining dimension examples, then “Coordinates and Their Arithmetic” | October 22, 2026 |
 | October 27, 2026 | Reconciled: subspace/scalar-field review; unique coordinates and arithmetic; basis matrices and worked R² change of basis through P_C^{-1} P_B | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=14061e59-57f5-4280-acdc-b4f0012e71d9) | November 3, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; recap “Change of basis passes through the vector,” then “Transition columns describe the old basis in the new one.” Saved note reopened locally; server synchronization unverified due to account sync-error notice | October 27, 2026 |
+| November 3, 2026 | Reconciled from visible recording frames and instructor report; captions unavailable: change of basis and inverses, whiteboard Taylor/monomial example, abstract-vector clarification, regression and line fit; first PCA slide only a closing preview | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=67dcfe55-6757-4c1d-80ed-b4f7013ba966) | November 5, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; briefly review the new Taylor-basis round trip and regression data-to-matrix examples, then resume “PCA chooses coordinates adapted to the data” and remaining Applications; saved note reopened and verified in Fantastical | November 3, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -237,3 +238,46 @@ October 29 assessment row, and `git diff --check` pass. Updated October and
 November rows pass browser review at desktop and 390-pixel widths, with no
 horizontal overflow at 390 pixels. Temporary recording/preview tabs were
 closed and Fantastical restored to the current week with the search cleared.
+
+
+## November 3 recording evidence and teaching cleanup
+
+The Illinois Tech Fred readiness notice identifies an 11:25 AM recording,
+lasting 1:12:35: [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=67dcfe55-6757-4c1d-80ed-b4f7013ba966).
+Captions remain unavailable. Reconciliation uses inspected visible recording
+frames and Fred’s explicit account of the whiteboard example; it does not
+claim a verified transcript or a listening-based review.
+
+The visible transition index lists change of basis at 14:30, basis/abstract-vector
+and numerical-matrix distinctions at 15:09–15:18, and transition columns at
+16:03. Fred explicitly reports the quadratic approximation to log(t) near
+one, conversion between shifted Taylor and standard monomial coordinates,
+and inverting the transition matrix to reverse the conversion. Abstract-vector
+clarification appears at 43:57–44:09. The brief Deck 08 title at 51:03 is
+navigation, not evidence that rank material was taught; the recording returns
+to Applications at 51:21 and 1:03:21. Regression is visible at 1:03:27 and
+the existing line-fit example at 1:12:15. The first PCA slide appears at
+1:12:25, with ten seconds remaining, so it is treated as a closing preview.
+
+The conservative November 5 pickup is a brief review of the newly captured
+Taylor-basis round trip and the concrete regression data-to-matrix setup,
+then “PCA chooses coordinates adapted to the data” and the remaining
+Applications. No later rank material or PCA development is inferred from
+slide navigation. Physical return of the graded tests remains unconfirmed.
+
+In Fantastical, saved only the November 5 occurrence using Only This Event,
+then reopened it and verified MATH 332 Linear Algebra, the persisted
+continuation note, November 5 date, 11:15 AM–12:45 PM, PH 109, and Illinois
+Tech Fred → Calendar account.
+The Mac’s named time zone was verified as America/Chicago (CST). The note
+records November 3 change of basis/inverses, Fred’s whiteboard Taylor example,
+abstract-vector clarification, and regression/line fit, with the first PCA
+slide only at the end.
+
+Four Taylor-coordinate slides and two regression setup slides are added to
+Deck 07, with exact-math checks and 1280×720 visual inspection completed.
+The root website, changed deck, and reconciled Schedule page rendered
+successfully; schedule links and preserved assessment rows pass source checks.
+These changes are included in this Checkpoint; remote deployment and live-page
+verification remain pending. Broader instructor review remains open under
+[teaching cleanup issue 2](https://github.com/fjhickernell/MATH332Fall2026/issues/2).

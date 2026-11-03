@@ -96,6 +96,11 @@ Mathematical content should be maintained only in the slides.
     pairs for multivariable polynomials, concrete spans, matrix bases,
     dimension, coordinate arithmetic, orthogonality, and matrix representations
     of linear maps; keep exercise solutions in presenter notes.
+  - [x] Capture the November 3 Taylor example in Deck 07: quadratic log(t)
+    approximation, shifted/monomial coordinates, forward transition columns,
+    row-reduction inverse, and reverse reconstruction; add the concrete
+    polynomial-regression data-to-matrix bridge. All six new slides pass
+    exact-math checks and 1280×720 visual review; local website/deck renders pass.
   - [x] Add the high school line example to Bases and Coordinates: slope and
     intercept versus two sampled values, the constraint on a third point,
     and nonunique coefficients with redundant linear generators.
@@ -117,7 +122,7 @@ Mathematical content should be maintained only in the slides.
     dependencies; justify the dimension equivalence, basis-size comparison,
     pivot-column method, and coordinate/matrix rules while retaining all
     examples and 19 original exercise sets (October 21).
-  - [ ] Review Deck 07's revised 88-slide flow and remaining visible layouts;
+  - [ ] Review Deck 07's revised 96-slide flow and remaining visible layouts;
     the local render and source/link checks pass; opening table review is complete.
   - [x] Clarify vectors as elements of a named vector space with specified
     operations in Decks 06–07; distinguish abstract-vector rows from numerical

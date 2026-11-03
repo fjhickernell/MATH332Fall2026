@@ -1,12 +1,27 @@
 # Next task
 
-## Immediate next work
+## Immediate next work — November 5
 
-Prepare the November 3 Deck 07 continuation described below: recap change
-of basis, then transition columns and polynomial coordinate changes. Check
-the revised slide layouts before teaching and bring the graded Test 2 papers
-to return. The all-deck source audit is complete; instructor/visual review
-of the revisions and later draft decks remains open.
+Resume Bases, Dimension, and Coordinates with a brief review of the Taylor-basis
+round trip and regression data-to-matrix setup, then “PCA chooses coordinates
+adapted to the data” and the remaining Applications. The first PCA slide was
+only a closing preview on November 3; the brief Deck 08 title does not establish
+rank coverage. The November 5 Illinois Tech Fred → Calendar occurrence was
+saved and reopened in Fantastical with this pickup, PH 109, and
+11:15 AM–12:45 PM Chicago.
+Physical return of the graded Test 2 papers remains unconfirmed.
+
+## November 3 teaching follow-up
+
+[Clean up November 3 teaching](https://github.com/fjhickernell/MATH332Fall2026/issues/2):
+four Taylor-coordinate slides and two concrete regression setup slides are
+implemented in the 96-slide Deck 07. Exact mathematics, local rendering, and
+1280×720 layouts have been checked. The November 3 lecture is reconciled from
+visible recording frames and Fred’s whiteboard report; captions were unavailable.
+These changes are included in this Checkpoint; remote deployment, live-page
+verification, and instructor review remain pending. Broader review of the
+Chapter 4 revisions and later draft decks remains open. Earlier
+preparation notes below are historical where this pickup supersedes them.
 
 ## Assignment 5 — released October 31; grading review due November 12
 
@@ -33,8 +48,8 @@ date, no late submissions, and review after the deadline.
 was published October 31 at 9:14 AM CDT to **All Sections**. Saved text,
 audience, and all three destination links are verified. No further release
 or announcement action remains. Review grading/Canvas transfer by November 12;
-prepare Assignment 6 for its November 13 publication target. The November 3
-lecture continuation below remains the next lecture preparation.
+prepare Assignment 6 for its November 13 publication target. The November 5
+pickup above is the next lecture preparation.
 
 Validation: root website and all twelve decks rendered; 106 affected relative
 links resolve; assignment and tables pass desktop/390-pixel layout review,
@@ -215,11 +230,11 @@ the definitions; row echelon form for the early running example and bases;
 RREF introduced for the direct A=CR recipe; original columns and nonzero rows
 highlighted. AUTHOR_WORKFLOW.md records the reduction principle.
 
-Visual review remains pending because browser security blocked the local-file
-preview. Check the changed slides/diagrams before teaching; the audit does not
-complete instructor review of the draft later decks. The November 3 Deck 07
-continuation above remains the next lecture preparation. Verify deployment
-and review the changed layouts before classroom use.
+Broader visual review remains pending; the new Taylor and regression slides
+have been checked through a local HTTP preview. The source audit and those
+focused checks do not complete instructor review of the draft later decks. The November 5 Deck 07
+pickup above supersedes the earlier preparation plan. Verify deployment
+and review the remaining changed layouts before classroom use.
 
 ## Decks 07–09 revision and development
 
