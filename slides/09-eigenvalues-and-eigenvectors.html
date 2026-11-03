@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-02">
+  <meta name="dcterms.date" content="2026-11-03">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 2, 2026</p>
+  <p class="date">November 3, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -1515,17 +1515,17 @@ p_{\mat{A}}(\lambda)=\lambda^2-1.5\lambda+0.5
 </section>
 <section id="symmetry-makes-different-eigenspaces-perpendicular" class="slide level2">
 <h2>Symmetry makes different eigenspaces perpendicular</h2>
-<p>Let <span class="math inline">\(\mat{A}=\mat{A}^{\mathsf T}\)</span> be real, with <span class="math inline">\(\mat{A}\vct{u}=\lambda\vct{u}\)</span> and <span class="math inline">\(\mat{A}\vct{v}=\mu\vct{v}\)</span></p>
+<p>Let <span class="math inline">\(\mat{A}=\mat{A}^\top\)</span> be real, with <span class="math inline">\(\mat{A}\vct{u}=\lambda\vct{u}\)</span> and <span class="math inline">\(\mat{A}\vct{v}=\mu\vct{v}\)</span></p>
 <p>Symmetry lets the action move across the dot product:</p>
 <p><span class="math display">\[
-\lambda\vct{u}^{\mathsf T}\vct{v}
-=(\mat{A}\vct{u})^{\mathsf T}\vct{v}
-=\vct{u}^{\mathsf T}\mat{A}\vct{v}
-=\mu\vct{u}^{\mathsf T}\vct{v}
+\lambda\vct{u}^\top\vct{v}
+=(\mat{A}\vct{u})^\top\vct{v}
+=\vct{u}^\top\mat{A}\vct{v}
+=\mu\vct{u}^\top\vct{v}
 \]</span></p>
 <p>Thus</p>
 <p><span class="math display">\[
-(\lambda-\mu)\vct{u}^{\mathsf T}\vct{v}=0
+(\lambda-\mu)\vct{u}^\top\vct{v}=0
 \]</span></p>
 <div class="key-point">
 <p>Distinct eigenvalues of a real symmetric matrix have perpendicular eigenvectors</p>
@@ -1551,15 +1551,15 @@ p_{\mat{A}}(\lambda)=\lambda^2-1.5\lambda+0.5
 <p><span class="alert">Spectral theorem</span>: every real symmetric <span class="math inline">\(n\times n\)</span> matrix has a real orthonormal eigenbasis</p>
 <p>Put its unit eigenvectors in <span class="math inline">\(\mat{Q}\)</span>, in the same order as <span class="math inline">\(\mat{D}\)</span>:</p>
 <p><span class="math display">\[
-\mat{Q}^{\mathsf T}\mat{Q}=\mat{I},\qquad
-\mat{Q}^{-1}=\mat{Q}^{\mathsf T},\qquad
-\boxed{\mat{A}=\mat{Q}\mat{D}\mat{Q}^{\mathsf T}}
+\mat{Q}^\top\mat{Q}=\mat{I},\qquad
+\mat{Q}^{-1}=\mat{Q}^\top,\qquad
+\boxed{\mat{A}=\mat{Q}\mat{D}\mat{Q}^\top}
 \]</span></p>
 <p>This is <span class="alert">orthogonal diagonalization</span></p>
 <ul>
 <li>All eigenvalues are real; repeated eigenvalues are allowed</li>
-<li>Coordinates are dot products: <span class="math inline">\([\vct{x}]_{\mathcal{Q}}=\mat{Q}^{\mathsf T}\vct{x}\)</span></li>
-<li>Euclidean lengths are preserved: <span class="math inline">\(\|\mat{Q}^{\mathsf T}\vct{x}\|=\|\vct{x}\|\)</span></li>
+<li>Coordinates are dot products: <span class="math inline">\([\vct{x}]_{\mathcal{Q}}=\mat{Q}^\top\vct{x}\)</span></li>
+<li>Euclidean lengths are preserved: <span class="math inline">\(\|\mat{Q}^\top\vct{x}\|=\|\vct{x}\|\)</span></li>
 </ul>
 <div class="key-point">
 <p>A real matrix is orthogonally diagonalizable exactly when it is symmetric</p>
@@ -1587,10 +1587,10 @@ p_{\mat{A}}(\lambda)=\lambda^2-1.5\lambda+0.5
 \mat{Q}=\tfrac1{\sqrt2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}
 \]</span></p>
 <p><span class="math display">\[
-\mat{Q}^{\mathsf T}\mat{A}\mat{Q}=\begin{bmatrix}3&amp;0\\0&amp;1\end{bmatrix},\qquad
-\mat{A}=3\vct{q}_1\vct{q}_1^{\mathsf T}+\vct{q}_2\vct{q}_2^{\mathsf T}
+\mat{Q}^\top\mat{A}\mat{Q}=\begin{bmatrix}3&amp;0\\0&amp;1\end{bmatrix},\qquad
+\mat{A}=3\vct{q}_1\vct{q}_1^\top+\vct{q}_2\vct{q}_2^\top
 \]</span></p>
-<p>Each <span class="math inline">\(\vct{q}_j\vct{q}_j^{\mathsf T}\vct{x}\)</span> projects onto one unit eigendirection</p>
+<p>Each <span class="math inline">\(\vct{q}_j\vct{q}_j^\top\vct{x}\)</span> projects onto one unit eigendirection</p>
 <div class="key-point">
 <p>Resolve the input into perpendicular components, then scale each by its eigenvalue</p>
 </div>
@@ -1616,7 +1616,7 @@ p_{\mat{A}}(\lambda)=\lambda^2-1.5\lambda+0.5
 \mat{B}=\begin{bmatrix}4&amp;1\\0&amp;2\end{bmatrix}
 \]</span></p>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Distinguish an eigenbasis from an orthonormal eigenbasis <span class="exsub">Find an orthogonal <span class="math inline">\(\mat{Q}\)</span> and diagonal <span class="math inline">\(\mat{D}\)</span> with <span class="math inline">\(\mat{C}=\mat{Q}\mat{D}\mat{Q}^{\mathsf T}\)</span></span> <span class="exsub">Write <span class="math inline">\(\mat{C}\)</span> as a sum of scaled orthogonal projectors</span> <span class="exsub">The matrix <span class="math inline">\(\mat{B}\)</span> is diagonalizable; can it be orthogonally diagonalized over <span class="math inline">\(\reals\)</span>? Explain</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Distinguish an eigenbasis from an orthonormal eigenbasis <span class="exsub">Find an orthogonal <span class="math inline">\(\mat{Q}\)</span> and diagonal <span class="math inline">\(\mat{D}\)</span> with <span class="math inline">\(\mat{C}=\mat{Q}\mat{D}\mat{Q}^\top\)</span></span> <span class="exsub">Write <span class="math inline">\(\mat{C}\)</span> as a sum of scaled orthogonal projectors</span> <span class="exsub">The matrix <span class="math inline">\(\mat{B}\)</span> is diagonalizable; can it be orthogonally diagonalized over <span class="math inline">\(\reals\)</span>? Explain</span> </span></p>
 </div>
 <aside class="notes">
 <p>C has eigenvalues 7,3 with unit eigenvectors q1=[1,1]^T/sqrt(2), q2=[1,-1]^T/sqrt(2). Q has those columns and D=diag(7,3). C=7q1q1<sup>T+3q2q2</sup>T. B is not symmetric, so the converse of the real spectral theorem rules out orthogonal diagonalization. Its eigenspaces span the plane but are not perpendicular. Scaling its eigenvectors cannot change the nonzero angle between those lines to a right angle.</p>

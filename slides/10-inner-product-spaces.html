@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-02">
+  <meta name="dcterms.date" content="2026-11-03">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 2, 2026</p>
+  <p class="date">November 3, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -728,13 +728,13 @@ In this deck
 <section id="weights-change-the-geometry" class="slide level2">
 <h2>Weights change the geometry</h2>
 <p><span class="math display">\[\begin{gather*}
-\langle\vct{u},\vct{v}\rangle_{\mat{W}}=\vct{u}^{\mathsf T}\mat{W}\vct{v},\qquad
-\mat{W}=\mat{W}^{\mathsf T}\text{ positive definite}\\
-\mat{W}=\begin{pmatrix}1&amp;0\\0&amp;4\end{pmatrix},\qquad
-\left\|\begin{pmatrix}x_1\\x_2\end{pmatrix}\right\|_{\mat{W}}^2=x_1^2+4x_2^2
+\langle\vct{u},\vct{v}\rangle_{\mat{W}}=\vct{u}^\top\mat{W}\vct{v},\qquad
+\mat{W}=\mat{W}^\top\text{ positive definite}\\
+\mat{W}=\begin{bmatrix}1&amp;0\\0&amp;4\end{bmatrix},\qquad
+\left\|\begin{bmatrix}x_1\\x_2\end{bmatrix}\right\|_{\mat{W}}^2=x_1^2+4x_2^2
 \end{gather*}\]</span></p>
 <p>The weighted unit circle is an ellipse in standard coordinates</p>
-<p>For <span class="math inline">\(\vct{u}=(1,1)^{\mathsf T}\)</span> and <span class="math inline">\(\vct{v}=(4,-1)^{\mathsf T}\)</span>: <span class="math inline">\(\langle\vct{u},\vct{v}\rangle_{\mat{W}}=0\)</span> but <span class="math inline">\(\vct{u}^{\mathsf T}\vct{v}=3\)</span></p>
+<p>For <span class="math inline">\(\vct{u}=[1,1]^\top\)</span> and <span class="math inline">\(\vct{v}=[4,-1]^\top\)</span>: <span class="math inline">\(\langle\vct{u},\vct{v}\rangle_{\mat{W}}=0\)</span> but <span class="math inline">\(\vct{u}^\top\vct{v}=3\)</span></p>
 </section>
 <section id="continuous-functions-also-have-geometry" class="slide level2">
 <h2>Continuous functions also have geometry</h2>
@@ -743,7 +743,7 @@ In this deck
 \end{equation*}\]</span></p>
 <ul>
 <li>Symmetry and linearity come from the integral</li>
-<li>A nonzero continuous function has positive squared integral</li>
+<li>A nonzero continuous function has a positive integral of its square</li>
 <li>Similarity compares entire functions, not only their sampled values</li>
 </ul>
 <p>For <span class="math inline">\(f(t)=1\)</span>, <span class="math inline">\(g(t)=t\)</span>: <span class="math inline">\(\langle f,g\rangle=1/2\)</span></p>
@@ -850,18 +850,18 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 </section>
 <section id="projection-onto-an-orthonormal-basis" class="slide level2">
 <h2>Projection onto an orthonormal basis</h2>
-<p>Let <span class="math inline">\((\vct{q}_1,\ldots,\vct{q}_k)\)</span> be an orthonormal basis of a subspace <span class="math inline">\(S\)</span> <span class="math display">\[\begin{gather*}
+<p>Let <span class="math inline">\(\{\vct{q}_1,\ldots,\vct{q}_k\}\)</span> be an orthonormal basis of a subspace <span class="math inline">\(S\)</span> <span class="math display">\[\begin{gather*}
 \operatorname{proj}_S\vct{v}=\sum_{j=1}^k\langle\vct{q}_j,\vct{v}\rangle\vct{q}_j\\
 \vct{v}=\vct{p}+\vct{r},\qquad \vct{p}\in S,\quad \vct{r}\in S^\perp
 \end{gather*}\]</span></p>
 <p>Here <span class="math inline">\(S^\perp=\{\vct{r}:\langle\vct{r},\vct{s}\rangle=0\text{ for every }\vct{s}\in S\}\)</span></p>
-<p>Orthogonal coordinates require inner products instead of solving a new system</p>
+<p>Orthonormal coordinates require inner products instead of solving a new system</p>
 </section>
 <section id="an-orthogonal-projector-has-two-signatures" class="slide level2">
 <h2>An orthogonal projector has two signatures</h2>
 <p>In standard Euclidean coordinates, let <span class="math inline">\(\mat{Q}\)</span> have orthonormal columns spanning <span class="math inline">\(S\)</span> <span class="math display">\[\begin{gather*}
-\mat{P}=\mat{Q}\mat{Q}^{\mathsf T},\qquad
-\mat{P}^{\mathsf T}=\mat{P},\quad\mat{P}^2=\mat{P}\\
+\mat{P}=\mat{Q}\mat{Q}^\top,\qquad
+\mat{P}^\top=\mat{P},\quad\mat{P}^2=\mat{P}\\
 \mat{P}\vct{v}\in S,\qquad (\mat{I}-\mat{P})\vct{v}\in S^\perp
 \end{gather*}\]</span></p>
 <p>Idempotence alone characterizes a projection; symmetry additionally makes it orthogonal</p>
@@ -883,10 +883,10 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <section id="practice-projecting-onto-a-plane" class="slide level2">
 <h2>Practice projecting onto a plane</h2>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Let <span class="math inline">\(S=\operatorname{span}\{(1,1,0)^{\mathsf T},(0,0,1)^{\mathsf T}\}\)</span><br>Choose an orthonormal basis and project <span class="math inline">\((3,1,2)^{\mathsf T}\)</span> onto <span class="math inline">\(S\)</span><br>Find the distance to <span class="math inline">\(S\)</span></span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Let <span class="math inline">\(S=\operatorname{span}\{[1,1,0]^\top,[0,0,1]^\top\}\)</span><br>Choose an orthonormal basis and project <span class="math inline">\([3,1,2]^\top\)</span> onto <span class="math inline">\(S\)</span><br>Find the distance to <span class="math inline">\(S\)</span></span></p>
 </div>
 <aside class="notes">
-<p>Use q_1=(1,1,0)^T/sqrt(2), q_2=(0,0,1)^T. Projection (2,2,2)^T; residual (1,-1,0)^T; distance sqrt(2).</p>
+<p>Use q_1=[1,1,0]^T/sqrt(2), q_2=[0,0,1]^T. Projection [2,2,2]^T; residual [1,-1,0]^T; distance sqrt(2).</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -923,20 +923,20 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 </section>
 <section id="a-worked-gram-schmidt-calculation" class="slide level2">
 <h2>A worked Gram–Schmidt calculation</h2>
-<p>In <span class="math inline">\(\reals^3\)</span>, take <span class="math inline">\(\vct{A}_1=(1,1,0)^{\mathsf T}\)</span> and <span class="math inline">\(\vct{A}_2=(1,0,1)^{\mathsf T}\)</span> <span class="math display">\[\begin{align*}
-\vct{q}_1&amp;=\frac1{\sqrt2}(1,1,0)^{\mathsf T}\\
+<p>In <span class="math inline">\(\reals^3\)</span>, take <span class="math inline">\(\vct{A}_1=[1,1,0]^\top\)</span> and <span class="math inline">\(\vct{A}_2=[1,0,1]^\top\)</span> <span class="math display">\[\begin{align*}
+\vct{q}_1&amp;=\frac1{\sqrt2}[1,1,0]^\top\\
 \langle\vct{q}_1,\vct{A}_2\rangle&amp;=1/\sqrt2\\
-\vct{w}_2&amp;=(1/2,-1/2,1)^{\mathsf T}\\
-\vct{q}_2&amp;=\frac1{\sqrt6}(1,-1,2)^{\mathsf T}
+\vct{w}_2&amp;=[1/2,-1/2,1]^\top\\
+\vct{q}_2&amp;=\frac1{\sqrt6}[1,-1,2]^\top
 \end{align*}\]</span></p>
-<p>Check <span class="math inline">\(\vct{q}_1^{\mathsf T}\vct{q}_2=0\)</span> and both squared norms equal one</p>
+<p>Check <span class="math inline">\(\vct{q}_1^\top\vct{q}_2=0\)</span> and both squared norms equal one</p>
 </section>
 <section id="the-coefficients-form-a-triangular-matrix" class="slide level2">
 <h2>The coefficients form a triangular matrix</h2>
 <p>For a real <span class="math inline">\(m\times n\)</span> matrix with independent columns, <span class="math inline">\(m\ge n\)</span>: <span class="math display">\[\begin{gather*}
-\mat{A}=\mat{Q}\mat{R},\qquad \mat{Q}^{\mathsf T}\mat{Q}=\mat{I}_n\\
+\mat{A}=\mat{Q}\mat{R},\qquad \mat{Q}^\top\mat{Q}=\mat{I}_n\\
 \mat{Q}=[\vct{q}_1\ \cdots\ \vct{q}_n],\qquad
-(\mat{R})_{ij}=\begin{cases}\vct{q}_i^{\mathsf T}\vct{A}_j,&amp;i\le j\\0,&amp;i&gt;j\end{cases}
+(\mat{R})_{ij}=\begin{cases}\vct{q}_i^\top\vct{A}_j,&amp;i\le j\\0,&amp;i&gt;j\end{cases}
 \end{gather*}\]</span></p>
 <p><span class="math inline">\(\mat{Q}\)</span>: <span class="math inline">\(m\times n\)</span> orthonormal directions</p>
 <p><span class="math inline">\(\mat{R}\)</span>: <span class="math inline">\(n\times n\)</span> upper triangular coordinates, positive diagonal with this construction</p>
@@ -958,11 +958,11 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <section id="read-qr-from-the-worked-example" class="slide level2">
 <h2>Read QR from the worked example</h2>
 <p><span class="math display">\[\begin{gather*}
-\mat{A}=\begin{pmatrix}1&amp;1\\1&amp;0\\0&amp;1\end{pmatrix},\qquad
-\mat{Q}=\begin{pmatrix}
+\mat{A}=\begin{bmatrix}1&amp;1\\1&amp;0\\0&amp;1\end{bmatrix},\qquad
+\mat{Q}=\begin{bmatrix}
 1/\sqrt2&amp;1/\sqrt6\\1/\sqrt2&amp;-1/\sqrt6\\0&amp;2/\sqrt6
-\end{pmatrix}\\
-\mat{R}=\begin{pmatrix}\sqrt2&amp;1/\sqrt2\\0&amp;\sqrt{3/2}\end{pmatrix}
+\end{bmatrix}\\
+\mat{R}=\begin{bmatrix}\sqrt2&amp;1/\sqrt2\\0&amp;\sqrt{3/2}\end{bmatrix}
 \end{gather*}\]</span></p>
 <p>Column 1 uses only <span class="math inline">\(\vct{q}_1\)</span>; column 2 uses <span class="math inline">\(\vct{q}_1\)</span> and <span class="math inline">\(\vct{q}_2\)</span></p>
 <p>Verify <span class="math inline">\(\mat{Q}\mat{R}=\mat{A}\)</span></p>
@@ -996,10 +996,10 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <section id="practice-extracting-qr-coordinates" class="slide level2">
 <h2>Practice extracting QR coordinates</h2>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Apply Gram–Schmidt to <span class="math inline">\((1,0,1)^{\mathsf T}\)</span> and <span class="math inline">\((1,1,0)^{\mathsf T}\)</span><br>Write the reduced QR factorization<br>Why is <span class="math inline">\(\mat{Q}\mat{Q}^{\mathsf T}\)</span> not <span class="math inline">\(\mat{I}_3\)</span>?</span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Apply Gram–Schmidt to <span class="math inline">\([1,0,1]^\top\)</span> and <span class="math inline">\([1,1,0]^\top\)</span><br>Write the reduced QR factorization<br>Why is <span class="math inline">\(\mat{Q}\mat{Q}^\top\)</span> not <span class="math inline">\(\mat{I}_3\)</span>?</span></p>
 </div>
 <aside class="notes">
-<p>q_1=(1,0,1)^T/sqrt(2), q_2=(1,2,-1)^T/sqrt(6), R=[[sqrt(2),1/sqrt(2)],[0,sqrt(3/2)]]. Q Q^T has rank two and projects onto the plane spanned by the two columns.</p>
+<p>q_1=[1,0,1]^T/sqrt(2), q_2=[1,2,-1]^T/sqrt(6), R=[[sqrt(2),1/sqrt(2)],[0,sqrt(3/2)]]. Q Q^T has rank two and projects onto the plane spanned by the two columns.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1031,8 +1031,8 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <h2>Inconsistent systems still have a best fit</h2>
 <p>For <span class="math inline">\(\mat{A}\vct{x}\approx\vct{b}\)</span>, minimize <span class="math inline">\(\|\mat{A}\vct{x}-\vct{b}\|^2\)</span></p>
 <p>The best fitted vector lies in <span class="math inline">\(\operatorname{col}(\mat{A})\)</span> and leaves an orthogonal residual <span class="math display">\[\begin{gather*}
-\mat{A}^{\mathsf T}(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}\\
-\mat{A}^{\mathsf T}\mat{A}\widehat{\vct{x}}=\mat{A}^{\mathsf T}\vct{b}
+\mat{A}^\top(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}\\
+\mat{A}^\top\mat{A}\widehat{\vct{x}}=\mat{A}^\top\vct{b}
 \end{gather*}\]</span></p>
 <p>These are the <span class="alert">normal equations</span></p>
 <p>The fitted vector is unique; coefficients are unique exactly when columns are independent</p>
@@ -1041,23 +1041,23 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <h2>QR turns least squares into a triangular solve</h2>
 <p>With reduced QR and full column rank: <span class="math display">\[\begin{gather*}
 \|\mat{A}\vct{x}-\vct{b}\|^2
-=\|\mat{R}\vct{x}-\mat{Q}^{\mathsf T}\vct{b}\|^2
-+\|(\mat{I}-\mat{Q}\mat{Q}^{\mathsf T})\vct{b}\|^2\\
-\mat{R}\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}\\
-\widehat{\vct{b}}=\mat{Q}\mat{Q}^{\mathsf T}\vct{b}
+=\|\mat{R}\vct{x}-\mat{Q}^\top\vct{b}\|^2
++\|(\mat{I}-\mat{Q}\mat{Q}^\top)\vct{b}\|^2\\
+\mat{R}\widehat{\vct{x}}=\mat{Q}^\top\vct{b}\\
+\widehat{\vct{b}}=\mat{Q}\mat{Q}^\top\vct{b}
 \end{gather*}\]</span></p>
-<p>Compute coordinates with <span class="math inline">\(\mat{Q}^{\mathsf T}\)</span>, then back substitute</p>
+<p>Compute coordinates with <span class="math inline">\(\mat{Q}^\top\)</span>, then back substitute</p>
 <p>The perpendicular part cannot be fitted by any coefficient vector</p>
 </section>
 <section id="fit-a-line-to-three-observations" class="slide level2">
 <h2>Fit a line to three observations</h2>
 <p>Data: <span class="math inline">\((t,b)=(-1,1),(0,0),(1,2)\)</span></p>
 <p>Model <span class="math inline">\(b\approx x_1+x_2t\)</span> <span class="math display">\[\begin{gather*}
-\mat{A}=\begin{pmatrix}1&amp;-1\\1&amp;0\\1&amp;1\end{pmatrix},\quad
-\vct{b}=\begin{pmatrix}1\\0\\2\end{pmatrix},\quad
-\mat{A}^{\mathsf T}\mat{A}=\begin{pmatrix}3&amp;0\\0&amp;2\end{pmatrix},\quad
-\mat{A}^{\mathsf T}\vct{b}=\begin{pmatrix}3\\1\end{pmatrix}\\
-\widehat{\vct{x}}=\begin{pmatrix}1\\1/2\end{pmatrix},\qquad
+\mat{A}=\begin{bmatrix}1&amp;-1\\1&amp;0\\1&amp;1\end{bmatrix},\quad
+\vct{b}=\begin{bmatrix}1\\0\\2\end{bmatrix},\quad
+\mat{A}^\top\mat{A}=\begin{bmatrix}3&amp;0\\0&amp;2\end{bmatrix},\quad
+\mat{A}^\top\vct{b}=\begin{bmatrix}3\\1\end{bmatrix}\\
+\widehat{\vct{x}}=\begin{bmatrix}1\\1/2\end{bmatrix},\qquad
 \widehat b(t)=1+t/2
 \end{gather*}\]</span></p>
 <p>The feature columns happen to be orthogonal</p>
@@ -1065,9 +1065,9 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <section id="inspect-the-fit-and-residual" class="slide level2">
 <h2>Inspect the fit and residual</h2>
 <p>For the line fit: <span class="math display">\[\begin{gather*}
-\widehat{\vct{b}}=\begin{pmatrix}1/2\\1\\3/2\end{pmatrix},\quad
-\vct{r}=\vct{b}-\widehat{\vct{b}}=\begin{pmatrix}1/2\\-1\\1/2\end{pmatrix}\\
-\mat{A}^{\mathsf T}\vct{r}=\begin{pmatrix}0\\0\end{pmatrix},\quad \|\vct{r}\|^2=3/2
+\widehat{\vct{b}}=\begin{bmatrix}1/2\\1\\3/2\end{bmatrix},\quad
+\vct{r}=\vct{b}-\widehat{\vct{b}}=\begin{bmatrix}1/2\\-1\\1/2\end{bmatrix}\\
+\mat{A}^\top\vct{r}=\begin{bmatrix}0\\0\end{bmatrix},\quad \|\vct{r}\|^2=3/2
 \end{gather*}\]</span></p>
 <p>The residual sums to zero because the model includes a column of ones</p>
 <p>Residuals are also perpendicular to the sampled <span class="math inline">\(t\)</span> values</p>
@@ -1122,9 +1122,9 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <section id="the-projection-formula-reconnects-earlier-geometry" class="slide level2">
 <h2>The projection formula reconnects earlier geometry</h2>
 <p>For independent columns: <span class="math display">\[\begin{gather*}
-\mat{P}=\mat{A}(\mat{A}^{\mathsf T}\mat{A})^{-1}\mat{A}^{\mathsf T}
-=\mat{Q}\mat{Q}^{\mathsf T}\\
-\mat{P}^2=\mat{P},\quad\mat{P}^{\mathsf T}=\mat{P},\qquad
+\mat{P}=\mat{A}(\mat{A}^\top\mat{A})^{-1}\mat{A}^\top
+=\mat{Q}\mat{Q}^\top\\
+\mat{P}^2=\mat{P},\quad\mat{P}^\top=\mat{P},\qquad
 \widehat{\vct{b}}=\mat{P}\vct{b},\quad\vct{r}=(\mat{I}-\mat{P})\vct{b}
 \end{gather*}\]</span></p>
 <p><span class="math inline">\(\mat{P}\)</span> preserves the column space; <span class="math inline">\(\mat{I}-\mat{P}\)</span> preserves its orthogonal complement</p>
@@ -1132,10 +1132,10 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 </section>
 <section id="weights-and-rank-deficiency-change-the-calculation" class="slide level2">
 <h2>Weights and rank deficiency change the calculation</h2>
-<p>Positive observation weights <span class="math inline">\(w_i\)</span> give <span class="math display">\[\begin{gather*}
+<p>Positive observation weights <span class="math inline">\(w_i\)</span> and <span class="math inline">\(\mat{W}=\operatorname{diag}(w_1,\ldots,w_m)\)</span> give <span class="math display">\[\begin{gather*}
 \min_{\vct{x}}\sum_iw_i((\mat{A}\vct{x})_i-b_i)^2
 =\min_{\vct{x}}\|\mat{W}^{1/2}(\mat{A}\vct{x}-\vct{b})\|^2\\
-\mat{A}^{\mathsf T}\mat{W}(\mat{A}\widehat{\vct{x}}-\vct{b})=\vct{0}
+\mat{A}^\top\mat{W}(\mat{A}\widehat{\vct{x}}-\vct{b})=\vct{0}
 \end{gather*}\]</span></p>
 <p>Apply QR to the weighted design matrix when it has full column rank</p>
 <p>Dependent or nearly dependent features motivate <a href="11-special-topics.html#regression-through-qr-and-svd">SVD and regularization</a></p>
@@ -1146,7 +1146,7 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Fit <span class="math inline">\(b\approx x_1+x_2t\)</span> to <span class="math inline">\((-1,0),(0,1),(1,1)\)</span><br>Find coefficients, fitted values, and residuals<br>Check both normal equations</span></p>
 </div>
 <aside class="notes">
-<p>Coefficients (2/3,1/2)^T. Fitted values (1/6,2/3,7/6)^T; residuals (-1/6,1/3,-1/6)^T. Sum of residuals and dot product with (-1,0,1)^T are zero. Squared residual norm is 1/6.</p>
+<p>Coefficients [2/3,1/2]^T. Fitted values [1/6,2/3,7/6]^T; residuals [-1/6,1/3,-1/6]^T. Sum of residuals and dot product with [-1,0,1]^T are zero. Squared residual norm is 1/6.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1340,11 +1340,11 @@ c_k=\langle q_k,f\rangle
 <ul>
 <li><a href="#/projection-onto-an-orthonormal-basis">Projection</a> — split a vector into its closest subspace component and a perpendicular residual</li>
 <li><a href="#/qr-turns-least-squares-into-a-triangular-solve">QR</a> — Gram–Schmidt preserves span; <span class="math inline">\(\mat{A}=\mat{Q}\mat{R}\)</span> records orthonormal directions and triangular coordinates</li>
-<li><a href="#/approximate-a-function-in-a-finite-dimensional-subspace">Function approximation</a> — polynomials/Fourier modes give finite spans; for orthonormal <span class="math inline">\(q_j\)</span>, coefficients are <span class="math inline">\(\langle f,q_j\rangle\)</span></li>
+<li><a href="#/approximate-a-function-in-a-finite-dimensional-subspace">Function approximation</a> — polynomials/Fourier modes give finite spans; for orthonormal <span class="math inline">\(q_j\)</span>, coefficients are <span class="math inline">\(\langle q_j,f\rangle\)</span></li>
 </ul>
 </div></div>
 <div class="key-point">
-<p>For real <span class="math inline">\(\mat{A}\)</span> with full column rank: least squares solves <span class="math inline">\(\mat{R}\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}\)</span>; the residual satisfies <span class="math inline">\(\mat{A}^{\mathsf T}(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}\)</span></p>
+<p>For real <span class="math inline">\(\mat{A}\)</span> with full column rank: least squares solves <span class="math inline">\(\mat{R}\widehat{\vct{x}}=\mat{Q}^\top\vct{b}\)</span>; the residual satisfies <span class="math inline">\(\mat{A}^\top(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}\)</span></p>
 </div>
 </section>
 

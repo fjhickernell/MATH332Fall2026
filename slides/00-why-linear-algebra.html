@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-02">
+  <meta name="dcterms.date" content="2026-11-03">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -644,7 +644,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 2, 2026</p>
+  <p class="date">November 3, 2026</p>
 </section>
 <section id="we-begin-this-semester-amid-significant-change" class="slide level2">
 <h2>We begin this semester amid significant change</h2>
@@ -1136,9 +1136,23 @@ c_0+c_1x_n&amp;\approx y_n
 </div>
 </div>
 </div></div>
+<aside class="notes">
+<p>R rotates every vector counterclockwise through 90 degrees. Thus the input (2,1)^T becomes (-1,2)^T, as direct multiplication confirms. Length and orientation are preserved.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="composition-is-multiplication" class="slide level2">
 <h2>Composition is multiplication</h2>
+<p>Linear coordinate maps with a shared origin; orthographic screen projection</p>
 <div class="diagram-flow">
 <div class="diagram-node">
 object coordinates<br><span class="math inline">\(\vct{x}_{\text{object}}\)</span>
@@ -1166,7 +1180,7 @@ screen coordinates<br><span class="math inline">\(\vct{x}_{\text{screen}}\)</spa
 <div class="column" style="width:13%;">
 
 </div><div class="column" data-align="center" style="width:20%;">
-<p>place and orient the object in the world</p>
+<p>orient the object relative to the world axes</p>
 </div><div class="column" style="width:7%;">
 
 </div><div class="column" data-align="center" style="width:20%;">
@@ -1174,7 +1188,7 @@ screen coordinates<br><span class="math inline">\(\vct{x}_{\text{screen}}\)</spa
 </div><div class="column" style="width:7%;">
 
 </div><div class="column" data-align="center" style="width:20%;">
-<p>project camera coordinates onto the screen</p>
+<p>orthographically project onto the screen</p>
 </div><div class="column" style="width:13%;">
 
 </div></div>
@@ -1186,6 +1200,19 @@ screen coordinates<br><span class="math inline">\(\vct{x}_{\text{screen}}\)</spa
 <div class="key-point">
 <p><span class="alert">Order</span> of <span class="math inline">\(\left\{\begin{array}{c}\text{transformations}\\[-0.15em]\text{multiplication}\end{array}\right\}\)</span> matters</p>
 </div>
+<aside class="notes">
+<p>This example uses linear coordinate maps sharing an origin and orthographic projection. Translating the object or moving the camera origin requires an affine offset (or homogeneous coordinates); perspective projection also requires division by a depth coordinate. Those operations are not represented by the plain linear maps displayed here. Multiplication still composes the three linear stages in right-to-left order.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="what-does-the-system-tell-us" class="slide level2">
 <h2>What does the system tell us?</h2>
@@ -1925,6 +1952,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <li><a href="03-matrix-structure-and-transformations.html#given-output-solve-column-weights">Linear combination</a>, <span class="math inline">\(c_1\vct{v}_1+\cdots+c_k\vct{v}_k\)</span></li>
 <li><a href="07-bases-dimension-and-coordinates.html#independence-means-the-zero-vector-has-one-construction">Linear dependence</a></li>
 <li><a href="07-bases-dimension-and-coordinates.html#independence-means-the-zero-vector-has-one-construction">Linear independence</a></li>
+<li><a href="07-bases-dimension-and-coordinates.html#example-a-matrix-preserves-combinations-but-changes-lengths">Linear isometry</a></li>
 <li><a href="07-bases-dimension-and-coordinates.html#the-coordinate-map-preserves-linear-combinations">Linear isomorphism</a></li>
 <li><a href="01-systems-and-matrices.html#from-one-equation-to-systems-of-equations">Linear system</a>, <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span></li>
 <li><a href="03-matrix-structure-and-transformations.html#linear-transformations-preserve-combinations">Linear transformation</a>, <span class="math inline">\(T\)</span></li>

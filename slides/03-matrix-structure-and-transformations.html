@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-02">
+  <meta name="dcterms.date" content="2026-11-03">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 2, 2026</p>
+  <p class="date">November 3, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -1437,7 +1437,7 @@ T_{\mat{A}}(\vct{x})=\mat{A}\vct{x}
 <h3 id="output-codomain">Output: codomain</h3>
 <p><span class="math inline">\(\vct{b}=\mat{A}\vct{x}\in\reals^3\)</span></p>
 <p><span class="math inline">\(\reals^3\)</span> — real column vectors with three entries</p>
-<p>Number of rows <span class="math inline">\(=\)</span> output dimension <span class="math inline">\(3\)</span></p>
+<p>Number of rows <span class="math inline">\(=\)</span> codomain dimension <span class="math inline">\(3\)</span></p>
 </div></div>
 <div class="key-point">
 <p><span class="math inline">\(\mat{A}\in\reals^{3\times2}\)</span> — two-entry inputs to three-entry outputs</p>
@@ -1527,6 +1527,7 @@ T_{\mat{A}}(\vct{x})=\mat{A}\vct{x}
 </section>
 <section id="standard-basis-vectors-reveal-every-column" class="slide level2">
 <h2>Basis images determine the whole transformation</h2>
+<p>For a linear map <span class="math inline">\(T:\reals^n\to\reals^m\)</span>:</p>
 <p><span class="math inline">\(j\)</span>th <span class="alert">standard basis vector</span> <span class="math inline">\(\vct{e}_j\)</span> — a <span class="math inline">\(1\)</span> in position <span class="math inline">\(j\)</span>, zeros elsewhere</p>
 <p>Every vector — a linear combination of the standard basis vectors</p>
 <p><span class="math display">\[
@@ -1714,6 +1715,19 @@ T(\vct{x})=\mat{A}\vct{x}
 <div class="exitem">
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span> For the Householder matrix <span class="math inline">\(\mat{H}\)</span> defined above, show that <span class="math inline">\(\mat{H}^2=\mat{I}\)</span> <span class="exsub">Use <span class="math inline">\(\vct{u}^{\mathsf T}\vct{u}=1\)</span></span> </span></p>
 </div>
+<aside class="notes">
+<p>Expand H<sup>2=(I-2uu</sup>T)<sup>2=I-4uu</sup>T+4u(u^T u)u^T=I. The last equality uses u^T u=1. Symmetry then also gives H^T H=I, so the reflection preserves lengths.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section class="slide level2">
 

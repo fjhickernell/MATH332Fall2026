@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-02">
+  <meta name="dcterms.date" content="2026-11-03">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 2, 2026</p>
+  <p class="date">November 3, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -711,7 +711,7 @@ Output: <span class="math inline">\(\reals^m\)</span>
 <span class="math inline">\(\operatorname{null}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(n-r\)</span> directions<br><span class="math inline">\(\mat{A}\vct{x}=\vct{0}\)</span></span>
 </div>
 <div class="space-card null-card" style="grid-row:4;grid-column:3;">
-<span class="math inline">\(\operatorname{null}(\mat{A}^{\mathsf T})\)</span><br><span class="space-detail"><span class="math inline">\(m-r\)</span> directions<br><span class="math inline">\(\mat{A}^{\mathsf T}\vct{y}=\vct{0}\)</span></span>
+<span class="math inline">\(\operatorname{null}(\mat{A}^\top)\)</span><br><span class="space-detail"><span class="math inline">\(m-r\)</span> directions<br><span class="math inline">\(\mat{A}^\top\vct{y}=\vct{0}\)</span></span>
 </div>
 </div>
 <div style="font-size: 0.9em;">
@@ -746,6 +746,7 @@ Output: <span class="math inline">\(\reals^m\)</span>
 <ul>
 <li><a href="#/a-matrix-has-four-fundamental-subspaces">A matrix has four fundamental subspaces</a></li>
 <li><a href="#/rank-and-nullity-measure-different-parts-of-a-matrix">Rank and nullity measure different parts of a matrix</a></li>
+<li><a href="#/rank-nullity-counts-inputs">Rank-nullity counts inputs</a></li>
 <li><a href="#/one-reduction-exposes-the-structure">One reduction exposes the structure</a></li>
 <li><a href="#/column-and-row-bases-come-from-different-matrices">Column and row bases come from different matrices</a></li>
 <li><a href="#/free-variables-build-a-basis-for-the-null-space">Free variables build a basis for the null space</a></li>
@@ -784,8 +785,8 @@ Output: <span class="math inline">\(\reals^m\)</span>
 <td><span class="math inline">\(\reals^n\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(\operatorname{null}(\mat{A}^{\mathsf T})\)</span></td>
-<td>solutions of <span class="math inline">\(\mat{A}^{\mathsf T}\vct{y}=\vct{0}\)</span></td>
+<td><span class="math inline">\(\operatorname{null}(\mat{A}^\top)\)</span></td>
+<td>solutions of <span class="math inline">\(\mat{A}^\top\vct{y}=\vct{0}\)</span></td>
 <td><span class="math inline">\(\reals^m\)</span></td>
 </tr>
 </tbody>
@@ -793,7 +794,7 @@ Output: <span class="math inline">\(\reals^m\)</span>
 <div class="key-point">
 <p>Always identify the ambient space before comparing subspaces</p>
 <p>Transposing exchanges rows and columns; view row-space vectors as columns</p>
-<p><span class="math inline">\(\operatorname{col}(\mat{A})=\operatorname{row}(\mat{A}^{\mathsf T})\)</span>, <span class="math inline">\(\quad\operatorname{row}(\mat{A})=\operatorname{col}(\mat{A}^{\mathsf T})\)</span></p>
+<p><span class="math inline">\(\operatorname{col}(\mat{A})=\operatorname{row}(\mat{A}^\top)\)</span>, <span class="math inline">\(\quad\operatorname{row}(\mat{A})=\operatorname{col}(\mat{A}^\top)\)</span></p>
 </div>
 </section>
 <section id="rank-and-nullity-measure-different-parts-of-a-matrix" class="slide level2">
@@ -817,7 +818,38 @@ Output: <span class="math inline">\(\reals^m\)</span>
 <p>Rank counts independent output directions; nullity counts lost input directions</p>
 </div>
 <aside class="notes">
-<p>Rank is defined here using column-space dimension. The row-rank/column-rank theorem says the dimensions agree. Pivot columns of the original matrix are a column-space basis; the nonzero <a href="01-systems-and-matrices.html#reduced-row-echelon-form">RREF</a> rows are a row-space basis with the same number of vectors. Each free variable contributes one independent null-space vector. We use real matrices throughout this deck.</p>
+<p>Rank is defined here using column-space dimension. The row-rank/column-rank theorem says the dimensions agree. Pivot columns of the original matrix are a column-space basis; the nonzero row echelon rows are a row-space basis with the same number of vectors. Each free variable contributes one independent null-space vector. We use real matrices throughout this deck.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="rank-nullity-counts-inputs" class="slide level2">
+<h2>Rank-nullity counts inputs</h2>
+<p>For an <span class="math inline">\(m\times n\)</span> matrix <span class="math inline">\(\mat{A}\)</span>,</p>
+<p><span class="math display">\[
+\boxed{\dim(\operatorname{col}(\mat{A}))
++\dim(\operatorname{null}(\mat{A}))=n}
+\]</span></p>
+<p>Equivalently, <span class="math inline">\(\operatorname{rank}(\mat{A})+\operatorname{nullity}(\mat{A})=n\)</span></p>
+<p>Every input variable is either a pivot variable or a free variable:</p>
+<ul>
+<li><span class="math inline">\(r\)</span> pivot columns give <span class="math inline">\(\dim(\operatorname{col}(\mat{A}))=r\)</span></li>
+<li><span class="math inline">\(n-r\)</span> free variables give <span class="math inline">\(\dim(\operatorname{null}(\mat{A}))=n-r\)</span></li>
+</ul>
+<div class="key-point">
+<p>Column-space dimension + null-space dimension = number of columns</p>
+</div>
+<aside class="notes">
+<p>This is the rank–nullity theorem, immediately after the definitions. Every column corresponds to one input variable, so the pivot and free variables partition all n columns. The original pivot columns form a column-space basis. Solving the homogeneous equations expresses the pivot variables in terms of the free ones; setting one free variable to 1 and the others to 0 gives a null-space basis. These vectors span every solution and are independent because their free-variable entries form an identity matrix. Thus the dimensions are r and n-r, including full-rank and zero-rank cases. The following running example verifies the count with concrete bases.</p>
+<p>This is a dimension identity, not an orthogonal decomposition of the two spaces: Col(A) lies in R^m and Null(A) lies in R^n.&nbsp;The orthogonal pair in the input space is Row(A) and Null(A), developed later. Rank counts independent output directions; nullity counts input directions sent to zero.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -832,7 +864,7 @@ Output: <span class="math inline">\(\reals^m\)</span>
 </section>
 <section id="one-reduction-exposes-the-structure" class="slide level2">
 <h2>One reduction exposes the structure</h2>
-<p>Use one example throughout, recalling <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivots and free variables from Systems and Matrices</a>:</p>
+<p>Reduce our running example to <span class="alert">row echelon form</span>:</p>
 <p><span class="math display">\[
 \mat{A}=
 \begin{bmatrix}
@@ -841,24 +873,23 @@ Output: <span class="math inline">\(\reals^m\)</span>
 1&amp;2&amp;2&amp;4
 \end{bmatrix}
 \quad\longrightarrow\quad
-\operatorname{rref}(\mat{A})=
-\left[
-\begin{array}{cccc}
-\bbox[3px,border:2px solid teal]{\begin{matrix}1\\0\\0\end{matrix}}
-&amp;\begin{matrix}2\\0\\0\end{matrix}
-&amp;\bbox[3px,border:2px solid teal]{\begin{matrix}0\\1\\0\end{matrix}}
-&amp;\begin{matrix}2\\1\\0\end{matrix}
-\end{array}
-\right]
+\mat{E}=
+\begin{bmatrix}
+1&amp;2&amp;1&amp;3\\
+0&amp;0&amp;1&amp;1\\
+0&amp;0&amp;0&amp;0
+\end{bmatrix}
 \]</span></p>
-<p>The <a href="01-systems-and-matrices.html#reduced-row-echelon-form">RREF</a> has pivots <span class="math inline">\(1\)</span> and zeros elsewhere in each pivot column</p>
 <p>Pivot columns: <span class="math inline">\(1,3\)</span>; free variables: <span class="math inline">\(x_2,x_4\)</span></p>
-<p>The boxed columns are <span class="math inline">\(\vct{e}_1,\vct{e}_2\)</span>: the first two columns of <span class="math inline">\(\mat{I}_3\)</span></p>
 <p><span class="math display">\[
-\operatorname{rank}(\mat{A})=2
+\operatorname{rank}(\mat{A})=2,
+\qquad \operatorname{nullity}(\mat{A})=2
 \]</span></p>
+<div class="key-point">
+<p>Row echelon form identifies pivots, rank, and free variables</p>
+</div>
 <aside class="notes">
-<p>Subtract twice the first row from the second and the first row from the third to get <span class="math inline">\((0,0,-2,-2)\)</span> and <span class="math inline">\((0,0,1,1)\)</span>. Keep the latter as pivot row, eliminate the former, then subtract the pivot row from the first row. This gives the displayed reduced matrix. The teal outlines mark whole pivot columns, including their trailing zero entries. They are the first two columns of I_3; the same selected columns in the nonzero-row factor R form I_2.</p>
+<p>Subtract twice the first row from the second and the first row from the third to get (0,0,-2,-2) and (0,0,1,1). Swap these two rows, then add twice the second row to the third. This gives the displayed row echelon matrix E. Its nonzero rows give a row-space basis; original columns 1 and 3 give a column-space basis. Back substitution gives the null-space basis.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -881,10 +912,10 @@ Output: <span class="math inline">\(\reals^m\)</span>
 \begin{bmatrix}1\\0\\2\end{bmatrix}
 \right\}
 \]</span></p>
-<p>A basis for the row space uses nonzero rows of the <span class="alert">reduced</span> matrix:</p>
+<p>A basis for the row space uses nonzero rows of the <span class="alert">row echelon</span> matrix:</p>
 <p><span class="math display">\[
 \left\{
-\begin{bmatrix}1\\2\\0\\2\end{bmatrix},
+\begin{bmatrix}1\\2\\1\\3\end{bmatrix},
 \begin{bmatrix}0\\0\\1\\1\end{bmatrix}
 \right\}
 \]</span></p>
@@ -894,8 +925,8 @@ Output: <span class="math inline">\(\reals^m\)</span>
 </section>
 <section id="free-variables-build-a-basis-for-the-null-space" class="slide level2">
 <h2>Free variables build a basis for the null space</h2>
-<p>Row operations preserve solutions: <span class="math inline">\(\mat{A}\vct{x}=\vct{0}\iff\operatorname{rref}(\mat{A})\vct{x}=\vct{0}\)</span></p>
-<p>For the running <span class="math inline">\(3\times4\)</span> matrix, the free variables are <span class="math inline">\(x_2,x_4\)</span>:</p>
+<p>Row operations preserve solutions: <span class="math inline">\(\mat{A}\vct{x}=\vct{0}\iff\mat{E}\vct{x}=\vct{0}\)</span></p>
+<p>Back substitution in <span class="math inline">\(\mat{E}\vct{x}=\vct{0}\)</span>, with free variables <span class="math inline">\(x_2,x_4\)</span>, gives:</p>
 <p><span class="math display">\[
 x_1=-2x_2-2x_4,
 \qquad
@@ -913,37 +944,16 @@ x_3=-x_4
 \]</span></p>
 <div class="key-point">
 <p>Each free variable contributes one independent null-space direction</p>
+<p><a href="#/rank-nullity-counts-inputs">Rank–nullity</a>: <span class="math inline">\(2+2=4\)</span> columns</p>
 </div>
 </section></section>
 <section>
 <section id="rank-and-solution-sets" class="title-slide slide level1 center">
 <h1>Rank and Solution Sets</h1>
 <ul>
-<li><a href="#/rank-nullity-counts-inputs">Rank-nullity counts inputs</a></li>
 <li><a href="#/rank-separates-existence-from-uniqueness">Rank separates existence from uniqueness</a></li>
 <li><a href="#/rank-nullity-predicts-solution-sets">Rank-nullity predicts solution sets</a></li>
 </ul>
-</section>
-<section id="rank-nullity-counts-inputs" class="slide level2">
-<h2>Rank-nullity counts inputs</h2>
-<p>For an <span class="math inline">\(m\times n\)</span> matrix <span class="math inline">\(\mat{A}\)</span>,</p>
-<p><span class="math display">\[
-\operatorname{rank}(\mat{A})
-+\operatorname{nullity}(\mat{A})=n
-\]</span></p>
-<p>Running <span class="math inline">\(3\times4\)</span> example: two pivots and two free variables</p>
-<p><span class="math display">\[
-\underbrace{2}_{\text{rank}}+\underbrace{2}_{\text{nullity}}
-=\underbrace{4}_{\text{input variables}}
-\]</span></p>
-<p>Interpretation:</p>
-<ul>
-<li>rank counts independent input directions that remain visible</li>
-<li>nullity counts independent input directions sent to zero</li>
-</ul>
-<div class="key-point">
-<p>Rank-nullity accounts for every direction in the input space</p>
-</div>
 </section>
 <section id="rank-separates-existence-from-uniqueness" class="slide level2">
 <h2>Rank separates existence from uniqueness</h2>
@@ -1029,7 +1039,7 @@ x_3=-x_4
 <h2>An orthogonal complement contains all perpendicular directions</h2>
 <p>For a subspace <span class="math inline">\(W\subseteq\reals^d\)</span>, its <span class="alert">orthogonal complement</span> is</p>
 <p><span class="math display">\[
-W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
+W^\perp=\{\vct{z}\in\reals^d:\vct{z}^\top\vct{w}=0
 \text{ for every }\vct{w}\in W\}
 \]</span></p>
 <p>It is enough to check the dot product with each vector in a basis of <span class="math inline">\(W\)</span></p>
@@ -1064,7 +1074,7 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 \]</span></p>
 <p><span class="math display">\[
 \operatorname{col}(\mat{A})^\perp
-=\operatorname{null}(\mat{A}^{\mathsf T})
+=\operatorname{null}(\mat{A}^\top)
 \qquad\text{inside }\reals^m
 \]</span></p>
 <p>The dimensions balance:</p>
@@ -1074,8 +1084,21 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 <p><span class="math display">\[
 \dim(\operatorname{null}(\mat{A}))=n-r,
 \qquad
-\dim(\operatorname{null}(\mat{A}^{\mathsf T}))=m-r
+\dim(\operatorname{null}(\mat{A}^\top))=m-r
 \]</span></p>
+<aside class="notes">
+<p>A x=0 says that x has zero dot product with every row of A, hence with every vector in Row(A). This proves Null(A)=Row(A)^perp directly. Apply the same argument to A^top to get Null(A<sup>top)=Col(A)</sup>perp. The row and column ranks agree, so rank–nullity for A and A^top gives nullities n-r and m-r respectively. Row and null spaces both lie in R^n; column and left null spaces both lie in R^m. The column and null spaces need not share an ambient space and are not claimed to be orthogonal.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="worked-example-see-both-orthogonal-pairs" class="slide level2">
 <h2>Example: see both orthogonal pairs</h2>
@@ -1085,16 +1108,16 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 \]</span></p>
 <p>Inside <span class="math inline">\(\reals^3\)</span>:</p>
 <p><span class="math display">\[
-\operatorname{row}(\mat{A})=\operatorname{span}\{(1,2,0)^{\mathsf T}\},
+\operatorname{row}(\mat{A})=\operatorname{span}\{[1,2,0]^\top\},
 \qquad
-\operatorname{null}(\mat{A})=\{(-2s,s,t)^{\mathsf T}:s,t\in\reals\}
+\operatorname{null}(\mat{A})=\{[-2s,s,t]^\top:s,t\in\reals\}
 \]</span></p>
 <p>Their dot product is <span class="math inline">\(-2s+2s=0\)</span></p>
 <p>Inside <span class="math inline">\(\reals^2\)</span>:</p>
 <p><span class="math display">\[
-\operatorname{col}(\mat{A})=\operatorname{span}\{(1,2)^{\mathsf T}\},
+\operatorname{col}(\mat{A})=\operatorname{span}\{[1,2]^\top\},
 \qquad
-\operatorname{null}(\mat{A}^{\mathsf T})=\operatorname{span}\{(-2,1)^{\mathsf T}\}
+\operatorname{null}(\mat{A}^\top)=\operatorname{span}\{[-2,1]^\top\}
 \]</span></p>
 <p>Their dot product is <span class="math inline">\(-2+2=0\)</span></p>
 <div class="key-point">
@@ -1109,7 +1132,7 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 \mat{B}=\begin{bmatrix}1&amp;0&amp;1\\0&amp;1&amp;1\end{bmatrix}
 \]</span></p>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find the two orthogonal pairs <span class="exsub">Find a basis for <span class="math inline">\(\operatorname{null}(\mat{B})\)</span>; check its dot products with both rows</span> <span class="exsub">What are <span class="math inline">\(\operatorname{col}(\mat{B})\)</span> and <span class="math inline">\(\operatorname{null}(\mat{B}^{\mathsf T})\)</span>?</span> <span class="exsub">Check the dimension sums in <span class="math inline">\(\reals^3\)</span> and <span class="math inline">\(\reals^2\)</span></span> <span class="exsub">Does it make sense to take the dot product of a row-space vector with a column-space vector here?</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find the two orthogonal pairs <span class="exsub">Find a basis for <span class="math inline">\(\operatorname{null}(\mat{B})\)</span>; check its dot products with both rows</span> <span class="exsub">What are <span class="math inline">\(\operatorname{col}(\mat{B})\)</span> and <span class="math inline">\(\operatorname{null}(\mat{B}^\top)\)</span>?</span> <span class="exsub">Check the dimension sums in <span class="math inline">\(\reals^3\)</span> and <span class="math inline">\(\reals^2\)</span></span> <span class="exsub">Does it make sense to take the dot product of a row-space vector with a column-space vector here?</span> </span></p>
 </div>
 <aside class="notes">
 <p>The null space has basis {(-1,-1,1)^T}; its dot product with each row is zero. The column space is R^2 and the left null space is {0}. The dimension sums are 2+1=3 and 2+0=2. Row-space vectors have three coordinates and column-space vectors have two, so their dot product is not defined.</p>
@@ -1133,7 +1156,7 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 <li><a href="#/check-the-factorization-column-by-column">Check the factorization column by column</a></li>
 <li><a href="#/find-the-left-null-space">Find the left null space</a></li>
 </ul>
-<p>Return to <a href="#/one-reduction-exposes-the-structure">our running <span class="math inline">\(3\times4\)</span> example</a>:</p>
+<p>Continue <a href="#/one-reduction-exposes-the-structure">our running example</a> to <a href="01-systems-and-matrices.html#reduced-row-echelon-form">RREF</a> for the <span class="math inline">\(\mat{A}=\mat{C}\mat{R}\)</span> recipe:</p>
 <p><span class="math display">\[
 \mat{A}=\begin{bmatrix}
 1&amp;2&amp;1&amp;3\\
@@ -1155,7 +1178,7 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 </section>
 <section id="rank-factorization-keeps-the-independent-columns-and-rows" class="slide level2">
 <h2>Rank factorization keeps the independent columns and rows</h2>
-<p>For the running <span class="math inline">\(3\times4\)</span> matrix, take original columns <span class="math inline">\(1,3\)</span> for <span class="math inline">\(\mat{C}\)</span> and the two nonzero RREF rows for <span class="math inline">\(\mat{R}\)</span>:</p>
+<p>For the running <span class="math inline">\(3\times4\)</span> matrix, take <span class="alert">original</span> columns <span class="math inline">\(1,3\)</span> for <span class="math inline">\(\mat{C}\)</span> and the two <span class="alert">nonzero</span> RREF rows for <span class="math inline">\(\mat{R}\)</span>:</p>
 <p><span class="math display">\[
 \mat{C}=
 \begin{bmatrix}
@@ -1281,7 +1304,7 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 <li>Remove the zero row from the boxed pivot columns to obtain <span class="math inline">\(\mat{I}_2\)</span> in <span class="math inline">\(\mat{R}\)</span></li>
 </ul>
 <div class="key-point">
-<p>For the direct formula <span class="math inline">\(\mat{A}=\mat{C}\mat{R}\)</span>, use the nonzero RREF rows</p>
+<p>For the direct formula <span class="math inline">\(\mat{A}=\mat{C}\mat{R}\)</span>, use the <span class="alert">nonzero</span> RREF rows</p>
 </div>
 <aside class="notes">
 <p>Echelon form is enough for both pivot-column extraction and a nonzero-row basis. Back substitution also finds null-space bases. RREF is not necessary for the existence of rank factorization. It is necessary for the particular shortcut used here: choose C as the original pivot columns and take R directly from the reduced rows. E’s pivot columns in its first two rows form the matrix [[1,1],[0,1]], whereas R’s form I_2. Thus the nonzero rows E_r are not the coefficient matrix for these selected original columns. One can instead use E_p^{-1} E_r, where E_p is that invertible pivot-column block; clearing above the pivots performs exactly that normalization here.</p>
@@ -1359,33 +1382,33 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^{\mathsf T}\vct{w}=0
 \mat{C}=\begin{bmatrix}1&amp;1\\2&amp;0\\1&amp;2\end{bmatrix}
 \]</span></p>
 <p>Every column of <span class="math inline">\(\mat{A}\)</span> is a combination of these two columns</p>
-<p>Thus <span class="math inline">\(\mat{A}^{\mathsf T}\vct{y}=\vct{0}\iff\mat{C}^{\mathsf T}\vct{y}=\vct{0}\)</span>:</p>
+<p>Thus <span class="math inline">\(\mat{A}^\top\vct{y}=\vct{0}\iff\mat{C}^\top\vct{y}=\vct{0}\)</span>:</p>
 <p><span class="math display">\[
 y_1+2y_2+y_3=0,
 \qquad y_1+2y_3=0
 \]</span></p>
-<p>Taking <span class="math inline">\(y_3=2\)</span> gives <span class="math inline">\(\vct{y}=(-4,1,2)^{\mathsf T}\)</span></p>
+<p>Taking <span class="math inline">\(y_3=2\)</span> gives <span class="math inline">\(\vct{y}=[-4,1,2]^\top\)</span></p>
 <p><span class="math display">\[
-\operatorname{null}(\mat{A}^{\mathsf T})
-=\operatorname{span}\{(-4,1,2)^{\mathsf T}\}
+\operatorname{null}(\mat{A}^\top)
+=\operatorname{span}\{[-4,1,2]^\top\}
 \]</span></p>
 <p>This vector is perpendicular to both columns of <span class="math inline">\(\mat{C}\)</span></p>
 </section>
 <section class="slide level2">
 
 <h3 id="left-null-vectors-test-compatibility-of-equations">Left-null vectors test compatibility of equations</h3>
-<p>If <span class="math inline">\(\mat{A}^{\mathsf T}\vct{y}=\vct{0}\)</span> and <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>, then</p>
+<p>If <span class="math inline">\(\mat{A}^\top\vct{y}=\vct{0}\)</span> and <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span>, then</p>
 <p><span class="math display">\[
-\vct{y}^{\mathsf T}\vct{b}
-=\vct{y}^{\mathsf T}\mat{A}\vct{x}=0
+\vct{y}^\top\vct{b}
+=\vct{y}^\top\mat{A}\vct{x}=0
 \]</span></p>
 <p>A right-hand side is attainable exactly when it is perpendicular to every left-null vector</p>
-<p>In our example, <span class="math inline">\(\operatorname{null}(\mat{A}^{\mathsf T})\)</span> has basis <span class="math inline">\(\{(-4,1,2)^{\mathsf T}\}\)</span>, so consistency is equivalent to</p>
+<p>In our example, <span class="math inline">\(\operatorname{null}(\mat{A}^\top)\)</span> has basis <span class="math inline">\(\{[-4,1,2]^\top\}\)</span>, so consistency is equivalent to</p>
 <p><span class="math display">\[
 -4b_1+b_2+2b_3=0
 \]</span></p>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use this test for <span class="math inline">\(\vct{b}=(0,1,0)^{\mathsf T}\)</span> and <span class="math inline">\(\vct{b}=(1,2,1)^{\mathsf T}\)</span></span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Use this test for <span class="math inline">\(\vct{b}=[0,1,0]^\top\)</span> and <span class="math inline">\(\vct{b}=[1,2,1]^\top\)</span></span></p>
 </div>
 <aside class="notes">
 <p>For (0,1,0)^T, y^T b=1, so there is no solution. For (1,2,1)^T, the condition holds, and b is the first column of A, so x=(1,0,0,0)^T solves it. The sufficiency comes from Col(A)=Null(A<sup>T)</sup>perp. The same y also describes a linear dependence among the equations; a consistent right-hand side must obey that relation. This is a concrete solvability certificate, not just another dimension count.</p>
@@ -1412,10 +1435,10 @@ y_1+2y_2+y_3=0,
 \quad\text{(original columns $1,3$)}
 \]</span></p>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Complete the picture of its four fundamental subspaces <span class="exsub">Find bases for <span class="math inline">\(\operatorname{null}(\mat{B})\)</span> and <span class="math inline">\(\operatorname{null}(\mat{B}^{\mathsf T})\)</span></span> <span class="exsub">Check that your left-null vector is perpendicular to both columns of <span class="math inline">\(\mat{C}\)</span></span> <span class="exsub">Compare the four dimensions with rank–nullity</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Complete the picture of its four fundamental subspaces <span class="exsub">Find bases for <span class="math inline">\(\operatorname{null}(\mat{B})\)</span> and <span class="math inline">\(\operatorname{null}(\mat{B}^\top)\)</span></span> <span class="exsub">Check that your left-null vector is perpendicular to both columns of <span class="math inline">\(\mat{C}\)</span></span> <span class="exsub">Compare the four dimensions with rank–nullity</span> </span></p>
 </div>
 <aside class="notes">
-<p>For <span class="math inline">\(\mat{B}\)</span>, a null-space basis is <span class="math inline">\(\{(-2,1,0)^{\mathsf T}\}\)</span>, and a left-null basis is <span class="math inline">\(\{(-1,-1,1)^{\mathsf T}\}\)</span>. Each is orthogonal to the appropriate row or column basis. The dimensions are <span class="math inline">\(2,1,2,1\)</span> for column, null, row, and left null, respectively.</p>
+<p>For <span class="math inline">\(\mat{B}\)</span>, a null-space basis is <span class="math inline">\(\{(-2,1,0)^\top\}\)</span>, and a left-null basis is <span class="math inline">\(\{(-1,-1,1)^\top\}\)</span>. Each is orthogonal to the appropriate row or column basis. The dimensions are <span class="math inline">\(2,1,2,1\)</span> for column, null, row, and left null, respectively.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1567,6 +1590,7 @@ T(p)=\begin{bmatrix}p(0)\\p(1)\end{bmatrix}
 <h1>Big Ideas</h1>
 <ul>
 <li>Reduction reveals bases for row, column, and null spaces</li>
+<li>Rank–nullity: <span class="math inline">\(\dim(\operatorname{col}(\mat{A}))+\dim(\operatorname{null}(\mat{A}))=n\)</span> columns</li>
 <li>Rank separates attainable outputs from lost input directions</li>
 <li>Row/null and column/left-null spaces form orthogonal pairs</li>
 <li>Rank factorization separates independent columns from their combinations</li>
@@ -1590,7 +1614,7 @@ T(p)=\begin{bmatrix}p(0)\\p(1)\end{bmatrix}
 <ul>
 <li><a href="#/rank-factorization-keeps-the-independent-columns-and-rows">Rank factorization</a> — <span class="math inline">\(\mat{A}=\mat{C}\mat{R}\)</span>; <span class="math inline">\(\mat{C}\)</span>’s columns and <span class="math inline">\(\mat{R}\)</span>’s rows are column/row-space bases; each has <span class="math inline">\(r=\operatorname{rank}(\mat{A})\)</span> members</li>
 <li><a href="#/the-four-spaces-pair-through-orthogonality">Four spaces</a> — column space gives attainable outputs; null space gives lost inputs; row/null and column/left-null are orthogonal pairs</li>
-<li><a href="#/find-the-left-null-space">Compatibility</a> — consistent iff <span class="math inline">\(\vct{b}\in\operatorname{col}(\mat{A})\)</span>, equivalently <span class="math inline">\(\vct{y}^{\mathsf T}\vct{b}=0\)</span> for every <span class="math inline">\(\vct{y}\in\operatorname{null}(\mat{A}^{\mathsf T})\)</span></li>
+<li><a href="#/find-the-left-null-space">Compatibility</a> — consistent iff <span class="math inline">\(\vct{b}\in\operatorname{col}(\mat{A})\)</span>, equivalently <span class="math inline">\(\vct{y}^\top\vct{b}=0\)</span> for every <span class="math inline">\(\vct{y}\in\operatorname{null}(\mat{A}^\top)\)</span></li>
 </ul>
 </div></div>
 <div class="key-point">

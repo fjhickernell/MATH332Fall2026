@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-02">
+  <meta name="dcterms.date" content="2026-11-03">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 2, 2026</p>
+  <p class="date">November 3, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -1059,10 +1059,10 @@ t=\tfrac12&amp;:&amp;a-b=0
 
 <h3 id="are-two-fourier-modes-independent">Are two Fourier modes independent?</h3>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Are <span class="math inline">\(e^{2\pi\sqrt{-1}\,t}\)</span> and <span class="math inline">\(e^{-2\pi\sqrt{-1}\,t}\)</span> linearly independent over <span class="math inline">\(\mathbb{C}\)</span> on <span class="math inline">\([0,1]\)</span>? <span class="exsub">Set their linear combination equal to zero for every <span class="math inline">\(t\)</span>; evaluate at <span class="math inline">\(t=0\)</span> and <span class="math inline">\(t=\tfrac14\)</span></span> <span class="exsub">Repeat for <span class="math inline">\(1\)</span> and <span class="math inline">\(e^{4\pi\sqrt{-1}\,t}\)</span>, choosing two useful values of <span class="math inline">\(t\)</span></span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Are <span class="math inline">\(e^{2\pi\sqrt{-1}\,t}\)</span> and <span class="math inline">\(e^{-2\pi\sqrt{-1}\,t}\)</span> linearly independent over <span class="math inline">\(\mathbb{C}\)</span> on <span class="math inline">\([0,1]\)</span>? <span class="exsub">Set their linear combination equal to zero for every <span class="math inline">\(t\)</span>; evaluate at <span class="math inline">\(t=0\)</span> and <span class="math inline">\(t=1/4\)</span></span> <span class="exsub">Repeat for <span class="math inline">\(1\)</span> and <span class="math inline">\(e^{4\pi\sqrt{-1}\,t}\)</span>, choosing two useful values of <span class="math inline">\(t\)</span></span> </span></p>
 </div>
 <aside class="notes">
-<p>For <span class="math inline">\(e^{2\pi\sqrt{-1}\,t},e^{-2\pi\sqrt{-1}\,t}\)</span>: at <span class="math inline">\(t=0\)</span>, <span class="math inline">\(a+b=0\)</span>; at <span class="math inline">\(t=\tfrac14\)</span>, <span class="math inline">\(\sqrt{-1}\,a-\sqrt{-1}\,b=0\)</span>, so <span class="math inline">\(a=b=0\)</span>. For <span class="math inline">\(1,e^{4\pi\sqrt{-1}\,t}\)</span>: at <span class="math inline">\(t=0\)</span>, <span class="math inline">\(a+b=0\)</span>; at <span class="math inline">\(t=\tfrac14\)</span>, <span class="math inline">\(a-b=0\)</span>, so again <span class="math inline">\(a=b=0\)</span>.</p>
+<p>For <span class="math inline">\(e^{2\pi\sqrt{-1}\,t},e^{-2\pi\sqrt{-1}\,t}\)</span>: at <span class="math inline">\(t=0\)</span>, <span class="math inline">\(a+b=0\)</span>; at <span class="math inline">\(t=1/4\)</span>, <span class="math inline">\(\sqrt{-1}\,a-\sqrt{-1}\,b=0\)</span>, so <span class="math inline">\(a=b=0\)</span>. For <span class="math inline">\(1,e^{4\pi\sqrt{-1}\,t}\)</span>: at <span class="math inline">\(t=0\)</span>, <span class="math inline">\(a+b=0\)</span>; at <span class="math inline">\(t=1/4\)</span>, <span class="math inline">\(a-b=0\)</span>, so again <span class="math inline">\(a=b=0\)</span>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2891,7 +2891,7 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 </section>
 <section class="slide level2">
 
-<h3 id="two-features-give-coordinates-for-three-fitted-responses">Example: two features give coordinates for three fitted responses</h3>
+<h3 id="two-features-give-coordinates-for-three-fitted-responses">Example: two features describe one fitted response vector</h3>
 <p>Fit a response <span class="math inline">\(y\approx\beta_1+\beta_2t\)</span> to <span class="math inline">\((t,y)=(0,1),(1,0),(2,2)\)</span></p>
 <p><span class="math display">\[
 \mat{X}=\begin{bmatrix}1&amp;0\\1&amp;1\\1&amp;2\end{bmatrix},\qquad
@@ -3005,7 +3005,7 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 <p>The first observation has coordinates <span class="math inline">\(\sqrt2\begin{bmatrix}12\\2\end{bmatrix}\)</span></p>
 </div>
 <aside class="notes">
-<p>We give Q here without deriving the PCA algorithm. Since observations are rows, scores are X Q, whereas one column observation has coordinate column Q^top z_i. Q^top Q=I, so X=S Q^top reconstructs all eight observations. Exactly, X^top X=[[482,414],[414,482]]. Its eigenvectors are the columns of Q, with eigenvalues 896 and 68. Equivalently S^top S=diag(896,68), so the score columns have zero cross product and the first has greater variance. The sample covariance divides these matrices by 7. Eigenvectors and SVD will explain how to find Q later; no response y is used to choose these directions. X is repeated beside S so their columns can be compared directly, including the square-root-of-two factor multiplying S. The second score column has smaller squared length (68 rather than 482), hence smaller sample variance. This is a comparison of overall variation, not of every individual entry.</p>
+<p>We give Q here without deriving the PCA algorithm. Since observations are rows, scores are X Q, whereas one column observation has coordinate column Q^top z_i. Q^top Q=I, so X=S Q^top reconstructs all eight observations. Exactly, X^top X=[[482,414],[414,482]]. Its eigenvectors are the columns of Q, with eigenvalues 896 and 68. Equivalently S^top S=diag(896,68), so the score columns have zero dot product and the first has greater variance. The sample covariance divides these matrices by 7. Eigenvectors and SVD will explain how to find Q later; no response y is used to choose these directions. X is repeated beside S so their columns can be compared directly, including the square-root-of-two factor multiplying S. The second score column has smaller squared length (68 rather than 482), hence smaller sample variance. This is a comparison of overall variation, not of every individual entry.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -3022,7 +3022,7 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 
 <h3 id="pca-concentrates-variance-in-the-first-coordinate">PCA concentrates variance in the first coordinate</h3>
 <p>Original coordinates use the axes <span class="math inline">\(\vct{e}_1,\vct{e}_2\)</span>; PCA coordinates use <span class="math inline">\(\vct{q}_1,\vct{q}_2\)</span></p>
-<p>For eight centered values <span class="math inline">\(a_i\)</span>, sample variance is <span class="math inline">\(\frac17\sum_{i=1}^8 a_i^2\)</span></p>
+<p>For eight centered values <span class="math inline">\(a_i\)</span>, sample variance is <span class="math inline">\((1/7)\sum_{i=1}^8 a_i^2\)</span></p>
 <table class="caption-top">
 <colgroup>
 <col style="width: 20%">

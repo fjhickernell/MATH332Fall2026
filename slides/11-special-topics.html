@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-02">
+  <meta name="dcterms.date" content="2026-11-03">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 2, 2026</p>
+  <p class="date">November 3, 2026</p>
 </section>
 <section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
@@ -677,7 +677,7 @@ In this deck
 </h3>
 <div class="key-point">
 <p>Choose coordinates that expose structure</p>
-<p><span class="math inline">\(\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^{\mathsf T}\)</span></p>
+<p><span class="math inline">\(\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^\top\)</span></p>
 </div>
 <ul>
 <li><a href="#/singular-value-decomposition">Singular Value Decomposition</a></li>
@@ -756,10 +756,10 @@ In this deck
 <section id="the-svd-separates-directions-from-scale" class="slide level2">
 <h2>The SVD separates directions from scale</h2>
 <p>For a real <span class="math inline">\(m\times n\)</span> matrix of rank <span class="math inline">\(r&gt;0\)</span>: <span class="math display">\[\begin{gather*}
-\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^{\mathsf T},\qquad
+\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^\top,\qquad
 \mat{\Sigma}_r=\operatorname{diag}(\sigma_1,\ldots,\sigma_r)\\
 \sigma_1\ge\cdots\ge\sigma_r&gt;0,\qquad
-\mat{U}_r^{\mathsf T}\mat{U}_r=\mat{V}_r^{\mathsf T}\mat{V}_r=\mat{I}_r
+\mat{U}_r^\top\mat{U}_r=\mat{V}_r^\top\mat{V}_r=\mat{I}_r
 \end{gather*}\]</span></p>
 <table class="caption-top">
 <thead>
@@ -771,7 +771,7 @@ In this deck
 </thead>
 <tbody>
 <tr class="odd">
-<td><span class="math inline">\(\mat{V}_r^{\mathsf T}\)</span></td>
+<td><span class="math inline">\(\mat{V}_r^\top\)</span></td>
 <td><span class="math inline">\(r\times n\)</span></td>
 <td>input coordinates</td>
 </tr>
@@ -805,9 +805,9 @@ In this deck
 <h2>Each singular direction has its own stretch</h2>
 <p>Write <span class="math inline">\(\vct{U}_j\)</span> and <span class="math inline">\(\vct{V}_j\)</span> for columns of the compact factors <span class="math display">\[\begin{gather*}
 \mat{A}\vct{V}_j=\sigma_j\vct{U}_j,\qquad
-\mat{A}^{\mathsf T}\vct{U}_j=\sigma_j\vct{V}_j\\
+\mat{A}^\top\vct{U}_j=\sigma_j\vct{V}_j\\
 \mat{A}\vct{x}=\sum_{j=1}^r\sigma_j\vct{U}_j
-\bigl(\vct{V}_j^{\mathsf T}\vct{x}\bigr)
+\bigl(\vct{V}_j^\top\vct{x}\bigr)
 \end{gather*}\]</span></p>
 <p>Input perpendicular to every <span class="math inline">\(\vct{V}_j\)</span> is sent to zero</p>
 <div class="key-point">
@@ -817,12 +817,12 @@ In this deck
 <section id="a-worked-svd-without-square-roots-of-large-matrices" class="slide level2">
 <h2>A worked SVD without square roots of large matrices</h2>
 <p><span class="math display">\[\begin{gather*}
-\mat{A}=\begin{pmatrix}3&amp;0\\0&amp;0\\0&amp;2\end{pmatrix},\quad
-\mat{U}_r=\begin{pmatrix}1&amp;0\\0&amp;0\\0&amp;1\end{pmatrix},\quad
-\mat{\Sigma}_r=\begin{pmatrix}3&amp;0\\0&amp;2\end{pmatrix},\quad
+\mat{A}=\begin{bmatrix}3&amp;0\\0&amp;0\\0&amp;2\end{bmatrix},\quad
+\mat{U}_r=\begin{bmatrix}1&amp;0\\0&amp;0\\0&amp;1\end{bmatrix},\quad
+\mat{\Sigma}_r=\begin{bmatrix}3&amp;0\\0&amp;2\end{bmatrix},\quad
 \mat{V}_r=\mat{I}_2\\
-\mat{A}\begin{pmatrix}\cos t\\\sin t\end{pmatrix}
-=\begin{pmatrix}3\cos t\\0\\2\sin t\end{pmatrix}
+\mat{A}\begin{bmatrix}\cos t\\\sin t\end{bmatrix}
+=\begin{bmatrix}3\cos t\\0\\2\sin t\end{bmatrix}
 \end{gather*}\]</span></p>
 <p>The unit circle becomes an ellipse in the <span class="math inline">\(x_1x_3\)</span> plane</p>
 <div class="key-point">
@@ -837,15 +837,15 @@ In this deck
 </section>
 <section id="why-an-svd-exists" class="slide level2">
 <h2>Why an SVD exists</h2>
-<p><span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}\)</span> is symmetric and positive semidefinite <span class="math display">\[\begin{gather*}
-\vct{x}^{\mathsf T}\mat{A}^{\mathsf T}\mat{A}\vct{x}
+<p><span class="math inline">\(\mat{A}^\top\mat{A}\)</span> is symmetric and positive semidefinite <span class="math display">\[\begin{gather*}
+\vct{x}^\top\mat{A}^\top\mat{A}\vct{x}
 =\|\mat{A}\vct{x}\|^2\ge0\\
-\mat{A}^{\mathsf T}\mat{A}\vct{V}_j=\sigma_j^2\vct{V}_j,\qquad
+\mat{A}^\top\mat{A}\vct{V}_j=\sigma_j^2\vct{V}_j,\qquad
 \vct{U}_j=\frac{\mat{A}\vct{V}_j}{\sigma_j}\quad(\sigma_j&gt;0)
 \end{gather*}\]</span></p>
-<p>Orthogonal eigenvectors on the input side produce orthonormal output vectors</p>
+<p>Orthonormal eigenvectors on the input side produce orthonormal output vectors</p>
 <aside class="notes">
-<p>For positive singular values, U_i^T U_j = V_i^T A^T A V_j/(sigma_i sigma_j) = delta_ij. Use the real symmetric spectral theorem, developed in the quadratic-forms section. This is an existence argument, not a recommended numerical algorithm: forming A^T A squares the full-column-rank condition number.</p>
+<p>For positive singular values, U_i^T U_j = V_i^T A^T A V_j/(sigma_i sigma_j) = delta_ij. Use the real symmetric spectral theorem from Eigenvalues and Eigenvectors, recalled in the quadratic-forms section. This is an existence argument, not a recommended numerical algorithm: forming A^T A squares the full-column-rank condition number.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -885,7 +885,7 @@ In this deck
 <td>perpendicular to all <span class="math inline">\(\vct{V}_j\)</span></td>
 </tr>
 <tr class="even">
-<td><span class="math inline">\(\operatorname{null}(\mat{A}^{\mathsf T})\)</span></td>
+<td><span class="math inline">\(\operatorname{null}(\mat{A}^\top)\)</span></td>
 <td>perpendicular to all <span class="math inline">\(\vct{U}_j\)</span></td>
 </tr>
 </tbody>
@@ -896,11 +896,11 @@ In this deck
 <section id="a-matrix-is-a-sum-of-rank-one-maps" class="slide level2">
 <h2>A matrix is a sum of rank-one maps</h2>
 <p><span class="math display">\[\begin{equation*}
-\mat{A}=\sum_{j=1}^r\sigma_j\vct{U}_j\vct{V}_j^{\mathsf T}
+\mat{A}=\sum_{j=1}^r\sigma_j\vct{U}_j\vct{V}_j^\top
 \end{equation*}\]</span></p>
 <p>Each term reads one input coordinate and sends it along one output direction</p>
 <p>Keep only the first <span class="math inline">\(k\)</span> terms: <span class="math display">\[\begin{equation*}
-\mat{A}_k=\sum_{j=1}^k\sigma_j\vct{U}_j\vct{V}_j^{\mathsf T},\qquad 0\le k&lt;r
+\mat{A}_k=\sum_{j=1}^k\sigma_j\vct{U}_j\vct{V}_j^\top,\qquad 0\le k&lt;r
 \end{equation*}\]</span></p>
 <p>A controlled approximation using fewer directions</p>
 </section>
@@ -967,7 +967,7 @@ In this deck
 <p>Fit observations <span class="math inline">\(b_i\)</span> using features <span class="math inline">\(a_{ij}\)</span> and coefficients <span class="math inline">\(x_j\)</span> <span class="math display">\[\begin{gather*}
 \widehat{\vct{b}}=\mat{A}\widehat{\vct{x}},\qquad
 \widehat{\vct{x}}\in\arg\min_{\vct{x}}\|\mat{A}\vct{x}-\vct{b}\|^2\\
-\mat{A}^{\mathsf T}(\vct{b}-\widehat{\vct{b}})=\vct{0}
+\mat{A}^\top(\vct{b}-\widehat{\vct{b}})=\vct{0}
 \end{gather*}\]</span></p>
 <p><span class="math inline">\(\widehat{\vct{b}}\)</span> is the orthogonal projection onto <span class="math inline">\(\operatorname{col}(\mat{A})\)</span></p>
 <p>A column of ones supplies an intercept</p>
@@ -977,12 +977,12 @@ In this deck
 <h2>QR solves full-column-rank least squares</h2>
 <p>For <span class="math inline">\(m\ge n\)</span> and independent columns: <span class="math display">\[\begin{gather*}
 \mat{A}=\mat{Q}\mat{R},\quad
-\mat{Q}^{\mathsf T}\mat{Q}=\mat{I}_n,\quad
+\mat{Q}^\top\mat{Q}=\mat{I}_n,\quad
 \mat{R}\text{ upper triangular and invertible}\\
 \|\mat{A}\vct{x}-\vct{b}\|^2
-=\|\mat{R}\vct{x}-\mat{Q}^{\mathsf T}\vct{b}\|^2
-+\|(\mat{I}_m-\mat{Q}\mat{Q}^{\mathsf T})\vct{b}\|^2\\
-\mat{R}\widehat{\vct{x}}=\mat{Q}^{\mathsf T}\vct{b}
+=\|\mat{R}\vct{x}-\mat{Q}^\top\vct{b}\|^2
++\|(\mat{I}_m-\mat{Q}\mat{Q}^\top)\vct{b}\|^2\\
+\mat{R}\widehat{\vct{x}}=\mat{Q}^\top\vct{b}
 \end{gather*}\]</span></p>
 <p>Compute orthogonal coordinates, then use back substitution</p>
 <aside class="notes">
@@ -1002,11 +1002,11 @@ In this deck
 <section id="the-pseudoinverse-reverses-the-nonzero-stretches" class="slide level2">
 <h2>The pseudoinverse reverses the nonzero stretches</h2>
 <p><span class="math display">\[\begin{gather*}
-\mat{A}^{\dagger}=\mat{V}_r\mat{\Sigma}_r^{-1}\mat{U}_r^{\mathsf T}\\
+\mat{A}^{\dagger}=\mat{V}_r\mat{\Sigma}_r^{-1}\mat{U}_r^\top\\
 \widehat{\vct{x}}=\mat{A}^{\dagger}\vct{b}
-=\sum_{j=1}^r\frac{\vct{U}_j^{\mathsf T}\vct{b}}{\sigma_j}\vct{V}_j\\
+=\sum_{j=1}^r\frac{\vct{U}_j^\top\vct{b}}{\sigma_j}\vct{V}_j\\
 \widehat{\vct{b}}=\mat{A}\widehat{\vct{x}}
-=\mat{U}_r\mat{U}_r^{\mathsf T}\vct{b}
+=\mat{U}_r\mat{U}_r^\top\vct{b}
 \end{gather*}\]</span></p>
 <p>Works for rectangular and rank-deficient matrices</p>
 <div class="key-point">
@@ -1041,12 +1041,12 @@ In this deck
 <section id="a-regression-example-with-a-redundant-feature" class="slide level2">
 <h2>A regression example with a redundant feature</h2>
 <p><span class="math display">\[\begin{gather*}
-\mat{A}=\begin{pmatrix}1&amp;1\\1&amp;1\end{pmatrix},\quad
-\vct{b}=\begin{pmatrix}2\\4\end{pmatrix},\quad
-\vct{U}_1=\vct{V}_1=\frac1{\sqrt2}\begin{pmatrix}1\\1\end{pmatrix},\quad\sigma_1=2\\
-\widehat{\vct{x}}=\begin{pmatrix}3/2\\3/2\end{pmatrix},\quad
-\widehat{\vct{b}}=\begin{pmatrix}3\\3\end{pmatrix},\quad
-\vct{b}-\widehat{\vct{b}}=\begin{pmatrix}-1\\1\end{pmatrix}
+\mat{A}=\begin{bmatrix}1&amp;1\\1&amp;1\end{bmatrix},\quad
+\vct{b}=\begin{bmatrix}2\\4\end{bmatrix},\quad
+\vct{U}_1=\vct{V}_1=\frac1{\sqrt2}\begin{bmatrix}1\\1\end{bmatrix},\quad\sigma_1=2\\
+\widehat{\vct{x}}=\begin{bmatrix}3/2\\3/2\end{bmatrix},\quad
+\widehat{\vct{b}}=\begin{bmatrix}3\\3\end{bmatrix},\quad
+\vct{b}-\widehat{\vct{b}}=\begin{bmatrix}-1\\1\end{bmatrix}
 \end{gather*}\]</span></p>
 <p>Both features are identical: only <span class="math inline">\(x_1+x_2=3\)</span> is identifiable</p>
 <p>The smallest-norm solution divides the total equally</p>
@@ -1055,7 +1055,7 @@ In this deck
 <h2>Small singular values amplify data perturbations</h2>
 <p>A perturbation <span class="math inline">\(\delta\vct{b}\)</span> changes the pseudoinverse coefficients by <span class="math display">\[\begin{equation*}
 \delta\widehat{\vct{x}}
-=\sum_{j=1}^r\frac{\vct{U}_j^{\mathsf T}\delta\vct{b}}{\sigma_j}\vct{V}_j
+=\sum_{j=1}^r\frac{\vct{U}_j^\top\delta\vct{b}}{\sigma_j}\vct{V}_j
 \end{equation*}\]</span></p>
 <p>Small positive <span class="math inline">\(\sigma_j\)</span>: large coefficient changes in direction <span class="math inline">\(\vct{V}_j\)</span></p>
 <p>For full column rank, <span class="math inline">\(\kappa_2(\mat{A})=\sigma_1/\sigma_n\)</span></p>
@@ -1080,12 +1080,12 @@ In this deck
 <h2>Truncation and ridge control small stretches</h2>
 <p>Truncated SVD retains only singular values above a chosen threshold <span class="math inline">\(\tau\)</span>: <span class="math display">\[\begin{equation*}
 \widehat{\vct{x}}_\tau
-=\sum_{\sigma_j&gt;\tau}\frac{\vct{U}_j^{\mathsf T}\vct{b}}{\sigma_j}\vct{V}_j
+=\sum_{\sigma_j&gt;\tau}\frac{\vct{U}_j^\top\vct{b}}{\sigma_j}\vct{V}_j
 \end{equation*}\]</span></p>
 <p>Ridge minimizes <span class="math inline">\(\|\mat{A}\vct{x}-\vct{b}\|^2+\lambda\|\vct{x}\|^2\)</span>, <span class="math inline">\(\lambda&gt;0\)</span>: <span class="math display">\[\begin{equation*}
 \widehat{\vct{x}}_\lambda
 =\sum_{j=1}^r\frac{\sigma_j}{\sigma_j^2+\lambda}
-(\vct{U}_j^{\mathsf T}\vct{b})\vct{V}_j
+(\vct{U}_j^\top\vct{b})\vct{V}_j
 \end{equation*}\]</span></p>
 <p>Truncation discards directions; ridge shrinks their contributions</p>
 <aside class="notes">
@@ -1134,16 +1134,16 @@ In this deck
 </tr>
 </tbody>
 </table>
-<p>Forming <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}\)</span> squares <span class="math inline">\(\kappa_2(\mat{A})\)</span> when <span class="math inline">\(\mat{A}\)</span> has full column rank</p>
+<p>Forming <span class="math inline">\(\mat{A}^\top\mat{A}\)</span> squares <span class="math inline">\(\kappa_2(\mat{A})\)</span> when <span class="math inline">\(\mat{A}\)</span> has full column rank</p>
 <p>Prefer an orthogonal factorization to explicitly inverting the normal-equation matrix</p>
 </section>
 <section id="practice-separating-fit-from-coefficients" class="slide level2">
 <h2>Practice separating fit from coefficients</h2>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>For the redundant-feature example, describe every least-squares solution<br>Verify that the residual is perpendicular to both columns<br>Explain why <span class="math inline">\((3/2,3/2)^{\mathsf T}\)</span> has the smallest norm</span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>For the redundant-feature example, describe every least-squares solution<br>Verify that the residual is perpendicular to both columns<br>Explain why <span class="math inline">\([3/2,3/2]^\top\)</span> has the smallest norm</span></p>
 </div>
 <aside class="notes">
-<p>Solutions: <span class="math inline">\((3/2+t,3/2-t)^{\mathsf T}\)</span>, t real. Each column dotted with (-1,1)^T is zero. Squared coefficient norm is 9/2+2t^2, minimized at t=0.</p>
+<p>Solutions: <span class="math inline">\([3/2+t,3/2-t]^\top\)</span>, t real. Each column dotted with [-1,1]^T is zero. Squared coefficient norm is 9/2+2t^2, minimized at t=0.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1170,10 +1170,10 @@ In this deck
 <section id="symmetry-gives-orthogonal-eigenvectors" class="slide level2">
 <h2>Symmetry gives orthogonal eigenvectors</h2>
 <p>For a real symmetric matrix: <span class="math display">\[\begin{gather*}
-\mat{A}=\mat{Q}\mat{\Lambda}\mat{Q}^{\mathsf T},\qquad
-\mat{Q}^{\mathsf T}\mat{Q}=\mat{I}\\
+\mat{A}=\mat{Q}\mat{\Lambda}\mat{Q}^\top,\qquad
+\mat{Q}^\top\mat{Q}=\mat{I}\\
 \vct{x}=\mat{Q}\vct{y}\implies
-\vct{x}^{\mathsf T}\mat{A}\vct{x}=\sum_j\lambda_j y_j^2
+\vct{x}^\top\mat{A}\vct{x}=\sum_j\lambda_j y_j^2
 \end{gather*}\]</span></p>
 <p>The real symmetric spectral theorem: an orthonormal eigenbasis always exists</p>
 <p>Principal-axis coordinates remove mixed terms</p>
@@ -1194,15 +1194,15 @@ In this deck
 <section id="a-tilted-ellipse-becomes-an-axis-aligned-ellipse" class="slide level2">
 <h2>A tilted ellipse becomes an axis-aligned ellipse</h2>
 <p><span class="math display">\[\begin{gather*}
-\mat{A}=\begin{pmatrix}2&amp;1\\1&amp;2\end{pmatrix},\quad
-\mat{Q}=\frac1{\sqrt2}\begin{pmatrix}1&amp;1\\1&amp;-1\end{pmatrix},\quad
-\mat{\Lambda}=\begin{pmatrix}3&amp;0\\0&amp;1\end{pmatrix}\\
+\mat{A}=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix},\quad
+\mat{Q}=\frac1{\sqrt2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix},\quad
+\mat{\Lambda}=\begin{bmatrix}3&amp;0\\0&amp;1\end{bmatrix}\\
 2x_1^2+2x_1x_2+2x_2^2=1
 \quad\longleftrightarrow\quad 3y_1^2+y_2^2=1
 \end{gather*}\]</span></p>
 <p>Semiaxis lengths: <span class="math inline">\(1/\sqrt3\)</span> and <span class="math inline">\(1\)</span></p>
 <div class="key-point">
-<p>Eigenvectors give the axes; eigenvalues determine the curvature</p>
+<p>Eigenvectors give the axes; eigenvalues set the quadratic scale</p>
 </div>
 </section>
 <section id="principal-axis-geometry" class="slide level2">
@@ -1222,7 +1222,7 @@ In this deck
 <thead>
 <tr class="header">
 <th>Eigenvalues</th>
-<th>Quadratic form <span class="math inline">\(\vct{x}^{\mathsf T}\mat{A}\vct{x}\)</span></th>
+<th>Quadratic form <span class="math inline">\(\vct{x}^\top\mat{A}\vct{x}\)</span></th>
 </tr>
 </thead>
 <tbody>
@@ -1240,16 +1240,16 @@ In this deck
 </tr>
 </tbody>
 </table>
-<p>Least-squares curvature: <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}\)</span></p>
-<p>Ridge curvature: <span class="math inline">\(\mat{A}^{\mathsf T}\mat{A}+\lambda\mat{I}\)</span>, positive definite for <span class="math inline">\(\lambda&gt;0\)</span></p>
+<p>Least-squares curvature: <span class="math inline">\(\mat{A}^\top\mat{A}\)</span></p>
+<p>Ridge curvature: <span class="math inline">\(\mat{A}^\top\mat{A}+\lambda\mat{I}\)</span>, positive definite for <span class="math inline">\(\lambda&gt;0\)</span></p>
 </section>
 <section id="practice-finding-the-principal-directions" class="slide level2">
 <h2>Practice finding the principal directions</h2>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find orthonormal eigenvectors of <span class="math inline">\(\begin{pmatrix}2&amp;-1\\-1&amp;2\end{pmatrix}\)</span><br>Use them to rewrite <span class="math inline">\(2x_1^2-2x_1x_2+2x_2^2\)</span><br>Is this form positive definite?</span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find orthonormal eigenvectors of <span class="math inline">\(\begin{bmatrix}2&amp;-1\\-1&amp;2\end{bmatrix}\)</span><br>Use them to rewrite <span class="math inline">\(2x_1^2-2x_1x_2+2x_2^2\)</span><br>Is this form positive definite?</span></p>
 </div>
 <aside class="notes">
-<p>The vector (1,1)^T/sqrt(2) has eigenvalue 1; (1,-1)^T/sqrt(2) has eigenvalue 3. In that ordered eigenbasis the form is y_1<sup>2+3y_2</sup>2, hence positive definite.</p>
+<p>The vector [1,1]^T/sqrt(2) has eigenvalue 1; [1,-1]^T/sqrt(2) has eigenvalue 3. In that ordered eigenbasis the form is y_1<sup>2+3y_2</sup>2, hence positive definite.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1283,7 +1283,7 @@ In this deck
 \vct{X}=\mat{F}_n\vct{x},\qquad
 \vct{x}=\frac1n\mat{F}_n^*\vct{X}
 \end{gather*}\]</span></p>
-<p><span class="math inline">\(\mat{B}^*=\overline{\mat{B}}^{\mathsf T}\)</span> denotes the conjugate transpose</p>
+<p><span class="math inline">\(\mat{B}^*=\overline{\mat{B}}^\top\)</span> denotes the conjugate transpose</p>
 <p>Frequency coordinates reveal oscillations hidden in the sample values</p>
 </section>
 <section id="fourier-directions-are-orthogonal-over-the-complex-field" class="slide level2">
@@ -1311,12 +1311,12 @@ In this deck
 <section id="four-samples-give-a-concrete-fourier-calculation" class="slide level2">
 <h2>Four samples give a concrete Fourier calculation</h2>
 <p><span class="math display">\[\begin{gather*}
-\mat{F}_4=\begin{pmatrix}
+\mat{F}_4=\begin{bmatrix}
 1&amp;1&amp;1&amp;1\\1&amp;-\sqrt{-1}&amp;-1&amp;\sqrt{-1}\\
 1&amp;-1&amp;1&amp;-1\\1&amp;\sqrt{-1}&amp;-1&amp;-\sqrt{-1}
-\end{pmatrix}\\
-\vct{x}=\begin{pmatrix}1\\0\\-1\\0\end{pmatrix}
-\implies\vct{X}=\begin{pmatrix}0\\2\\0\\2\end{pmatrix}
+\end{bmatrix}\\
+\vct{x}=\begin{bmatrix}1\\0\\-1\\0\end{bmatrix}
+\implies\vct{X}=\begin{bmatrix}0\\2\\0\\2\end{bmatrix}
 \end{gather*}\]</span></p>
 <p>A real cosine uses a pair of opposite frequency directions</p>
 <aside class="notes">
@@ -1373,10 +1373,10 @@ y_j=\sum_{\ell=0}^{n-1}h_\ell x_{(j-\ell)\bmod n}\\
 <section id="practice-recognizing-frequency-directions" class="slide level2">
 <h2>Practice recognizing frequency directions</h2>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Compute the DFT of <span class="math inline">\((1,1,1,1)^{\mathsf T}\)</span> and <span class="math inline">\((1,-1,1,-1)^{\mathsf T}\)</span><br>Which is constant and which alternates?<br>Why does the FFT leave these answers unchanged?</span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Compute the DFT of <span class="math inline">\([1,1,1,1]^\top\)</span> and <span class="math inline">\([1,-1,1,-1]^\top\)</span><br>Which is constant and which alternates?<br>Why does the FFT leave these answers unchanged?</span></p>
 </div>
 <aside class="notes">
-<p>Answers: (4,0,0,0)^T and (0,0,4,0)^T. Frequencies 0 and 2. FFT changes the computation, not the linear transformation.</p>
+<p>Answers: [4,0,0,0]^T and [0,0,4,0]^T. Frequencies 0 and 2. FFT changes the computation, not the linear transformation.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1404,9 +1404,9 @@ y_j=\sum_{\ell=0}^{n-1}h_\ell x_{(j-\ell)\bmod n}\\
 <section id="an-outer-product-separates-two-directions" class="slide level2">
 <h2>An outer product separates two directions</h2>
 <p><span class="math display">\[\begin{gather*}
-\vct{u}=\begin{pmatrix}1\\2\end{pmatrix},\quad
-\vct{v}=\begin{pmatrix}3\\4\\5\end{pmatrix},\qquad
-\vct{u}\vct{v}^{\mathsf T}=\begin{pmatrix}3&amp;4&amp;5\\6&amp;8&amp;10\end{pmatrix}\\
+\vct{u}=\begin{bmatrix}1\\2\end{bmatrix},\quad
+\vct{v}=\begin{bmatrix}3\\4\\5\end{bmatrix},\qquad
+\vct{u}\vct{v}^\top=\begin{bmatrix}3&amp;4&amp;5\\6&amp;8&amp;10\end{bmatrix}\\
 a_{ij}=u_i v_j
 \end{gather*}\]</span></p>
 <p>One pattern down the rows, one across the columns</p>
@@ -1421,7 +1421,7 @@ T=\sum_{i,j}t_{ij}\vct{e}_i\otimes\vct{f}_j,\qquad
 \dim(V\otimes W)=\dim(V)\dim(W)
 \end{gather*}\]</span></p>
 <p><span class="math inline">\(\otimes\)</span> is bilinear; a general tensor is a sum of elementary tensors</p>
-<p>The elementary tensor <span class="math inline">\(\vct{u}\otimes\vct{v}\)</span> has coordinate matrix <span class="math inline">\(\vct{u}\vct{v}^{\mathsf T}\)</span></p>
+<p>For <span class="math inline">\(\mathcal{E}=\{\vct{e}_i\}\)</span> and <span class="math inline">\(\mathcal{F}=\{\vct{f}_j\}\)</span>, the coordinate matrix of <span class="math inline">\(\vct{u}\otimes\vct{v}\)</span> is <span class="math inline">\([\vct{u}]_{\mathcal{E}}[\vct{v}]_{\mathcal{F}}^\top\)</span></p>
 <div class="key-point">
 <p>The coordinate array uses the listed orders of the chosen bases</p>
 </div>
@@ -1465,11 +1465,11 @@ T=\sum_{i,j}t_{ij}\vct{e}_i\otimes\vct{f}_j,\qquad
 <section id="transform-an-image-along-rows-and-columns" class="slide level2">
 <h2>Transform an image along rows and columns</h2>
 <p>For an <span class="math inline">\(m\times n\)</span> image matrix <span class="math inline">\(\mat{X}\)</span>: <span class="math display">\[\begin{gather*}
-\mat{Y}=\mat{B}\mat{X}\mat{C}^{\mathsf T}\\
+\mat{Y}=\mat{B}\mat{X}\mat{C}^\top\\
 \operatorname{vec}(\mat{Y})=(\mat{C}\otimes\mat{B})\operatorname{vec}(\mat{X})
 \end{gather*}\]</span></p>
 <p><span class="math inline">\(\operatorname{vec}\)</span> stacks columns; <span class="math inline">\(\mat{B}\)</span> acts on row indices and <span class="math inline">\(\mat{C}\)</span> on column indices</p>
-<p>Two-dimensional DFT: <span class="math inline">\(\mat{Y}=\mat{F}_m\mat{X}\mat{F}_n^{\mathsf T}\)</span></p>
+<p>Two-dimensional DFT: <span class="math inline">\(\mat{Y}=\mat{F}_m\mat{X}\mat{F}_n^\top\)</span></p>
 <div class="key-point">
 <p>Apply the smaller transforms separately instead of building a giant Kronecker matrix</p>
 </div>
@@ -1500,10 +1500,10 @@ y_i=\sum_{j,k}t_{ijk}v_j w_k
 <section id="practice-spotting-separability" class="slide level2">
 <h2>Practice spotting separability</h2>
 <div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Which matrix is a single outer product?<br><span class="math inline">\(\mat{X}=\begin{pmatrix}1&amp;2\\3&amp;6\end{pmatrix}\)</span>, <span class="math inline">\(\quad\mat{Y}=\begin{pmatrix}1&amp;2\\3&amp;7\end{pmatrix}\)</span><br>For <span class="math inline">\(\dim(V)=2\)</span> and <span class="math inline">\(\dim(W)=3\)</span>, how many product-basis vectors are needed?</span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Which matrix is a single outer product?<br><span class="math inline">\(\mat{X}=\begin{bmatrix}1&amp;2\\3&amp;6\end{bmatrix}\)</span>, <span class="math inline">\(\quad\mat{Y}=\begin{bmatrix}1&amp;2\\3&amp;7\end{bmatrix}\)</span><br>For <span class="math inline">\(\dim(V)=2\)</span> and <span class="math inline">\(\dim(W)=3\)</span>, how many product-basis vectors are needed?</span></p>
 </div>
 <aside class="notes">
-<p>X=(1,3)^T(1,2); rank one. Y has determinant 1 and rank two, so it is not a single outer product. The tensor-product dimension is 6.</p>
+<p>X=[1,3]^T(1,2); rank one. Y has determinant 1 and rank two, so it is not a single outer product. The tensor-product dimension is 6.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1554,10 +1554,10 @@ y_i=\sum_{j,k}t_{ijk}v_j w_k
 <section id="pagerank-makes-a-random-walk-converge" class="slide level2">
 <h2>PageRank makes a random walk converge</h2>
 <p>Let <span class="math inline">\(\mat{P}\)</span> be column stochastic, with dangling columns replaced by probability vectors <span class="math display">\[\begin{gather*}
-\mat{G}=\alpha\mat{P}+(1-\alpha)\vct{v}\vct{1}^{\mathsf T},\qquad
-0&lt;\alpha&lt;1,\quad v_i&gt;0,\quad\vct{1}^{\mathsf T}\vct{v}=1\\
+\mat{G}=\alpha\mat{P}+(1-\alpha)\vct{v}\vct{1}^\top,\qquad
+0&lt;\alpha&lt;1,\quad v_i&gt;0,\quad\vct{1}^\top\vct{v}=1\\
 \vct{p}_{k+1}=\mat{G}\vct{p}_k,\qquad
-\mat{G}\vct{p}=\vct{p},\quad\vct{1}^{\mathsf T}\vct{p}=1
+\mat{G}\vct{p}=\vct{p},\quad\vct{1}^\top\vct{p}=1
 \end{gather*}\]</span></p>
 <p>Follow a link with probability <span class="math inline">\(\alpha\)</span>; restart with probability <span class="math inline">\(1-\alpha\)</span></p>
 <p>Positivity gives a unique stationary distribution and convergence from any probability vector</p>
@@ -1579,8 +1579,8 @@ y_i=\sum_{j,k}t_{ijk}v_j w_k
 <h2>A graph Laplacian measures disagreement</h2>
 <p>For an undirected graph, choose an orientation and let <span class="math inline">\(\mat{D}\)</span> have one row per edge</p>
 <p>An edge <span class="math inline">\(i\to j\)</span> has <span class="math inline">\(-1\)</span> in column <span class="math inline">\(i\)</span> and <span class="math inline">\(+1\)</span> in column <span class="math inline">\(j\)</span> <span class="math display">\[\begin{gather*}
-\mat{L}=\mat{D}^{\mathsf T}\mat{D},\qquad
-\vct{x}^{\mathsf T}\mat{L}\vct{x}
+\mat{L}=\mat{D}^\top\mat{D},\qquad
+\vct{x}^\top\mat{L}\vct{x}
 =\sum_{\{i,j\}\text{ edge}}(x_i-x_j)^2
 \end{gather*}\]</span></p>
 <ul>
@@ -1595,7 +1595,7 @@ y_i=\sum_{j,k}t_{ijk}v_j w_k
 <p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>A graph has edges <span class="math inline">\(\{1,2\}\)</span> and <span class="math inline">\(\{2,3\}\)</span> and isolated vertex <span class="math inline">\(4\)</span><br>Build its incidence matrix and Laplacian<br>Find a basis for the Laplacian null space</span></p>
 </div>
 <aside class="notes">
-<p>D=[[-1,1,0,0],[0,-1,1,0]]. L=[[1,-1,0,0],[-1,2,-1,0],[0,-1,1,0],[0,0,0,0]]. A null-space basis is (1,1,1,0)^T and (0,0,0,1)^T. Nullity two matches two connected components.</p>
+<p>D=[[-1,1,0,0],[0,-1,1,0]]. L=[[1,-1,0,0],[-1,2,-1,0],[0,-1,1,0],[0,0,0,0]]. A null-space basis is [1,1,1,0]^T and [0,0,0,1]^T. Nullity two matches two connected components.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1627,7 +1627,7 @@ y_i=\sum_{j,k}t_{ijk}v_j w_k
 <div class="column" style="width:47%;">
 <ul>
 <li><a href="10-inner-product-spaces.html#inconsistent-systems-still-have-a-best-fit">Inner Products</a> — regression finds best fits; QR solves them in orthogonal coordinates</li>
-<li><a href="08-matrix-spaces-and-rank.html#rank-factorization-keeps-the-independent-columns-and-rows">Matrix Spaces and Rank</a> — SVD gives directions and stretches; nonzero singular values count rank; truncation gives low-rank approximations</li>
+<li><a href="#/the-svd-separates-directions-from-scale">SVD</a> — orthonormal directions and stretches; nonzero singular values count rank; truncation gives low-rank approximations</li>
 <li><a href="#/the-pseudoinverse-reverses-the-nonzero-stretches">Minimum-norm fit</a> — <span class="math inline">\(\mat{A}^{\dagger}\vct{b}\)</span> gives the shortest least-squares coefficient vector; null vectors leave the fit unchanged</li>
 </ul>
 </div><div class="column" style="width:6%;">
