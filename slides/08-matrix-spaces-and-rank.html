@@ -727,6 +727,7 @@ Output: <span class="math inline">\(\reals^m\)</span>
 </div></div>
 <aside class="notes">
 <p>Preview for a real m-by-n matrix of rank r. The input splits orthogonally into Row(A) and Null(A); the output splits into Col(A) and Null(A^T). The displayed arrow is A restricted to the row space: it maps that space one-to-one onto the column space. Both have dimension r. The n-r null-space directions collapse to zero; they are not mapped to the left null space. The output’s m-r left-null directions are perpendicular to every attainable output. Thus n=r+(n-r) and m=r+(m-r). The deck develops these claims after computing concrete bases and dimensions.</p>
+<p>The four-space viewpoint is developed in <a href="https://math.mit.edu/~gs/linearalgebra/ila6/indexila6.html">G. Strang, <em>Introduction to Linear Algebra</em>, 6th ed., Wellesley-Cambridge Press (2023)</a>, §§3.5, 4.1.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -795,6 +796,9 @@ Output: <span class="math inline">\(\reals^m\)</span>
 <p>Always identify the ambient space before comparing subspaces</p>
 <p>Transposing exchanges rows and columns; view row-space vectors as columns</p>
 <p><span class="math inline">\(\operatorname{col}(\mat{A})=\operatorname{row}(\mat{A}^\top)\)</span>, <span class="math inline">\(\quad\operatorname{row}(\mat{A})=\operatorname{col}(\mat{A}^\top)\)</span></p>
+</div>
+<div class="small">
+<p>Reference: <a href="https://math.mit.edu/~gs/linearalgebra/ila6/indexila6.html">G. Strang, <em>Introduction to Linear Algebra</em>, 6th ed., Wellesley-Cambridge Press (2023)</a>, §3.5</p>
 </div>
 </section>
 <section id="rank-and-nullity-measure-different-parts-of-a-matrix" class="slide level2">
@@ -1086,6 +1090,9 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^\top\vct{w}=0
 \qquad
 \dim(\operatorname{null}(\mat{A}^\top))=m-r
 \]</span></p>
+<div class="small">
+<p>Reference: <a href="https://math.mit.edu/~gs/linearalgebra/ila6/indexila6.html">Strang</a>, §§3.5, 4.1</p>
+</div>
 <aside class="notes">
 <p>A x=0 says that x has zero dot product with every row of A, hence with every vector in Row(A). This proves Null(A)=Row(A)^perp directly. Apply the same argument to A^top to get Null(A<sup>top)=Col(A)</sup>perp. The row and column ranks agree, so rank–nullity for A and A^top gives nullities n-r and m-r respectively. Row and null spaces both lie in R^n; column and left null spaces both lie in R^m. The column and null spaces need not share an ambient space and are not claimed to be orthogonal.</p>
 <style type="text/css">
@@ -1206,6 +1213,9 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^\top\vct{w}=0
 <div class="key-point">
 <p>The columns of <span class="math inline">\(\mat{C}\)</span> form a basis for <span class="math inline">\(\operatorname{col}(\mat{A})\)</span></p>
 <p>The rows of <span class="math inline">\(\mat{R}\)</span> form a basis for <span class="math inline">\(\operatorname{row}(\mat{A})\)</span></p>
+</div>
+<div class="small">
+<p>Reference: <a href="https://math.mit.edu/~gs/linearalgebra/ila6/indexila6.html">Strang</a>, §§1.4, 3.2</p>
 </div>
 </section>
 <section class="slide level2">
