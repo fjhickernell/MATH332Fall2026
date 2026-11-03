@@ -2398,6 +2398,166 @@ p=\begin{bmatrix}1&amp;1+t&amp;t^2\end{bmatrix}
 </section>
 <section class="slide level2">
 
+<h3 id="taylor-coordinates-for-log-near-one">Taylor coordinates for a quadratic approximation</h3>
+<p>For <span class="math inline">\(t&gt;0\)</span> near <span class="math inline">\(1\)</span>, the quadratic Taylor approximation is</p>
+<p><span class="math display">\[
+\log(t)\approx p_2(t)=(t-1)-\frac12(t-1)^2
+\]</span></p>
+<p>Compare two bases of <span class="math inline">\(\mathbb{P}_2\)</span>, using their listed orders</p>
+<p><span class="math display">\[
+\mathcal{B}=\{1,t-1,(t-1)^2\},\qquad \mathcal{C}=\{1,t,t^2\}
+\]</span></p>
+<p>The <span class="alert">Taylor coordinates</span> are the coefficients of the shifted powers</p>
+<p><span class="math display">\[
+p_2(t)=\begin{bmatrix}1&amp;t-1&amp;(t-1)^2\end{bmatrix}
+\underbrace{\begin{bmatrix}0\\1\\-1/2\end{bmatrix}}_{[p_2]_{\mathcal{B}}}
+\]</span></p>
+<aside class="notes">
+<p>This records the instructor’s November 3 whiteboard example. For f(t)=log(t), f(1)=0, f’(1)=1, and f’‘(1)=-1. Thus p_2(t)=f(1)+f’(1)(t-1)+ f’’(1)(t-1)^2/2. The stated Taylor basis uses unscaled shifted powers; the factorial is part of the coefficient -1/2. The bases contain whole polynomials, and the coordinate column contains three real numbers. The approximation log(t) approximately p_2(t) applies near one. The coordinate conversions of p_2 in the following slides are exact; log itself is not an element of P_2. The Taylor remainder is O((t-1)^3) as t approaches one; no quantitative error guarantee is needed for the coordinate example.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="taylor-to-monomial-coordinates">Convert Taylor coordinates to monomial coordinates</h3>
+<p>Expand each <span class="math inline">\(\mathcal{B}\)</span> polynomial in the standard basis <span class="math inline">\(\mathcal{C}=\{1,t,t^2\}\)</span></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Old basis polynomial</th>
+<th>Expansion in <span class="math inline">\(\mathcal{C}\)</span></th>
+<th><span class="math inline">\(\mathcal{C}\)</span>-coordinates</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1+0t+0t^2\)</span></td>
+<td><span class="math inline">\([1,0,0]^\top\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(t-1\)</span></td>
+<td><span class="math inline">\(-1+t+0t^2\)</span></td>
+<td><span class="math inline">\([-1,1,0]^\top\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\((t-1)^2\)</span></td>
+<td><span class="math inline">\(1-2t+t^2\)</span></td>
+<td><span class="math inline">\([1,-2,1]^\top\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>These numerical columns give the <span class="alert">forward transition matrix</span></p>
+<p><span class="math display">\[
+\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}
+=\begin{bmatrix}1&amp;-1&amp;1\\0&amp;1&amp;-2\\0&amp;0&amp;1\end{bmatrix},\qquad
+[p_2]_{\mathcal{C}}
+=\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}
+\begin{bmatrix}0\\1\\-1/2\end{bmatrix}
+=\begin{bmatrix}-3/2\\2\\-1/2\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<p><span class="math inline">\(p_2(t)=-3/2+2t-t^2/2\)</span>: <span class="alert">the same polynomial</span>, expressed in powers of <span class="math inline">\(t\)</span></p>
+</div>
+<aside class="notes">
+<p>Read the input basis B on the right of the transition-matrix subscript and output basis C on the left. Each table entry in the final column is a whole three-entry coordinate column, written as a transposed row to keep the table compact. The matrix is numerical; its columns are [1]_C, [t-1]_C, and [(t-1)^2]_C. Multiplication gives -1-1/2=-3/2, 1+1=2, and -1/2.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="invert-the-taylor-transition-matrix">Invert the numerical transition matrix</h3>
+<p>For <span class="math inline">\(\mat{Q}=\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}\)</span>, reduce <span class="math inline">\([\,\mat{Q}\mid\mat{I}_3\,]\)</span></p>
+<p><span class="math display">\[
+\left[\begin{array}{ccc|ccc}
+1&amp;-1&amp;1&amp;1&amp;0&amp;0\\0&amp;1&amp;-2&amp;0&amp;1&amp;0\\0&amp;0&amp;1&amp;0&amp;0&amp;1
+\end{array}\right]
+\xrightarrow{R_2\gets R_2+2R_3}
+\left[\begin{array}{ccc|ccc}
+1&amp;-1&amp;1&amp;1&amp;0&amp;0\\0&amp;1&amp;0&amp;0&amp;1&amp;2\\0&amp;0&amp;1&amp;0&amp;0&amp;1
+\end{array}\right]
+\]</span></p>
+<p>Then use the updated <span class="math inline">\(R_2\)</span> in <span class="math inline">\(R_1\gets R_1+R_2\)</span>, followed by <span class="math inline">\(R_1\gets R_1-R_3\)</span></p>
+<p><span class="math display">\[
+\left[\begin{array}{ccc|ccc}
+1&amp;0&amp;0&amp;1&amp;1&amp;1\\0&amp;1&amp;0&amp;0&amp;1&amp;2\\0&amp;0&amp;1&amp;0&amp;0&amp;1
+\end{array}\right]
+=[\,\mat{I}_3\mid\mat{Q}^{-1}\,]
+\]</span></p>
+<div class="key-point">
+<p>The right block is <span class="math inline">\(\mat{Q}_{\mathcal{B}\leftarrow\mathcal{C}}=\mat{Q}^{-1}\)</span>: <span class="alert">the reverse coordinate change</span></p>
+</div>
+<aside class="notes">
+<p>The row operations are applied to both blocks. Their order is R2 &lt;- R2+2R3, R1 &lt;- R1+R2 using the updated R2, then R1 &lt;- R1-R3. After the first operation, the right rows are [1,0,0], [0,1,2], and [0,0,1]. The last two operations make the first right row [1,1,1]. Thus Q^{-1}=[[1,1,1],[0,1,2],[0,0,1]], and both products with Q give I_3. We invert the 3-by-3 numerical transition matrix, not the row of polynomials.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="monomial-to-taylor-coordinates">Reverse the coordinate change</h3>
+<p>Convert from <span class="math inline">\(\mathcal{C}=\{1,t,t^2\}\)</span> back to <span class="math inline">\(\mathcal{B}=\{1,t-1,(t-1)^2\}\)</span></p>
+<p><span class="math display">\[
+[p_2]_{\mathcal{B}}
+=\underbrace{\begin{bmatrix}1&amp;1&amp;1\\0&amp;1&amp;2\\0&amp;0&amp;1\end{bmatrix}}_{\mat{Q}_{\mathcal{B}\leftarrow\mathcal{C}}}
+\underbrace{\begin{bmatrix}-3/2\\2\\-1/2\end{bmatrix}}_{[p_2]_{\mathcal{C}}}
+=\begin{bmatrix}0\\1\\-1/2\end{bmatrix}
+\]</span></p>
+<p>Reconstruct the same quadratic in either basis</p>
+<p><span class="math display">\[\begin{align*}
+p_2(t)&amp;=0(1)+1(t-1)-\tfrac12(t-1)^2\\
+&amp;=-\tfrac32+2t-\tfrac12t^2
+\end{align*}\]</span></p>
+<div class="key-point">
+<p>Changing coordinates and changing them back leaves <span class="alert">the polynomial unchanged</span></p>
+</div>
+<aside class="notes">
+<p>The first recovered coordinate is -3/2+2-1/2=0, the second is 2-1=1, and the third is -1/2. As a second way to construct the inverse, write the C basis vectors in B: 1=1, t=1+(t-1), and t<sup>2=1+2(t-1)+(t-1)</sup>2. Those B-coordinate columns are exactly the inverse matrix’s columns. The approximation to log is unchanged by either exact coordinate conversion.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
 <h3 id="two-coordinate-systems-describe-one-vector">Example: change between polynomial bases</h3>
 <p>In <span class="math inline">\(\mathbb{P}_2\)</span>, choose</p>
 <p><span class="math display">\[
@@ -2851,22 +3011,120 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 </table>
 <p>Frames and infinite bases extend the finite-basis picture</p>
 <ul>
+<li><a href="#/data-give-a-polynomial-regression-model">Data give a polynomial regression model</a></li>
 <li><a href="#/regression-chooses-the-closest-vector-we-can-build">Regression chooses the closest vector we can build</a></li>
 <li><a href="#/pca-chooses-coordinates-adapted-to-the-data">PCA chooses coordinates adapted to the data</a></li>
 <li><a href="#/a-frame-can-keep-redundant-generators">A frame can keep redundant generators</a></li>
 <li><a href="#/bases-need-not-be-finite">Bases need not be finite</a></li>
 </ul>
 </section>
+<section id="data-give-a-polynomial-regression-model" class="slide level2">
+<h2>Data give a polynomial regression model</h2>
+<p>Five <span class="alert">synthetic observations</span> of a predictor <span class="math inline">\(t\)</span> and response <span class="math inline">\(y\)</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Observation <span class="math inline">\(i\)</span></th>
+<th style="text-align: right;">1</th>
+<th style="text-align: right;">2</th>
+<th style="text-align: right;">3</th>
+<th style="text-align: right;">4</th>
+<th style="text-align: right;">5</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(t_i\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(-1\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(3\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(y_i\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(9\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(25\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Choose the <span class="alert">features</span> <span class="math inline">\(1,t,t^2,t^3\)</span> and allow discrepancies <span class="math inline">\(e_i\)</span></p>
+<p><span class="math display">\[
+y_i=\beta_0+\beta_1t_i+\beta_2t_i^2+\beta_3t_i^3+e_i
+\]</span></p>
+<p>For observation 4, substitute <span class="math inline">\(t_4=2\)</span> and <span class="math inline">\(y_4=9\)</span></p>
+<p><span class="math display">\[
+9=\beta_0+2\beta_1+4\beta_2+8\beta_3+e_4
+\]</span></p>
+<p>The four feature values <span class="math inline">\([1\ \ 2\ \ 4\ \ 8]\)</span> become <span class="alert">one matrix row</span></p>
+<aside class="notes">
+<p>This is a synthetic illustrative dataset, not measured or student data. The residual term e_i permits response data to differ from the chosen cubic model; no distribution, independence, or mean-zero assumption is imposed here. At this stage beta is any candidate coefficient vector. After choosing betahat by least squares, ehat=y-X betahat is the fitted residual vector. The model is linear in the four unknown coefficients even though it is cubic in t. Keep the construction separate from the later geometry and algorithms for finding the best coefficients.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="stack-polynomial-regression-observations">Stack the observations in matrix form</h3>
+<p>Keep the observation order and the feature order <span class="math inline">\(1,t,t^2,t^3\)</span></p>
+<p><span class="math display">\[
+\underbrace{\begin{bmatrix}2\\1\\2\\9\\25\end{bmatrix}}_{\vct{y}}
+=
+\underbrace{\begin{bmatrix}
+1&amp;-1&amp;1&amp;-1\\
+1&amp;0&amp;0&amp;0\\
+1&amp;1&amp;1&amp;1\\
+1&amp;2&amp;4&amp;8\\
+1&amp;3&amp;9&amp;27
+\end{bmatrix}}_{\mat{X}}
+\underbrace{\begin{bmatrix}\beta_0\\\beta_1\\\beta_2\\\beta_3\end{bmatrix}}_{\vct{\beta}}
++
+\underbrace{\begin{bmatrix}e_1\\e_2\\e_3\\e_4\\e_5\end{bmatrix}}_{\vct{e}}
+\]</span></p>
+<ul>
+<li>Each <span class="alert">row</span> evaluates all four features at one predictor value</li>
+<li>Each <span class="alert">column</span> collects one feature across all five observations</li>
+<li>The first column of ones supplies the <span class="alert">intercept</span> <span class="math inline">\(\beta_0\)</span></li>
+</ul>
+<div class="key-point">
+<p>The data determine <span class="math inline">\(\mat{X}\)</span> and <span class="math inline">\(\vct{y}\)</span>; regression chooses <span class="math inline">\(\widehat{\vct{\beta}}\)</span></p>
+<p><span class="math inline">\(\vct{y}\approx\mat{X}\widehat{\vct{\beta}}\)</span> need not be an exact fit</p>
+</div>
+<aside class="notes">
+<p>X is 5-by-4; y and e are 5-by-1; beta is 4-by-1. Multiplication reproduces the five scalar regression equations in the same observation order. The predictor values are distinct, so the sampled polynomial columns are independent: the first four rows form a Vandermonde matrix with determinant 12. These particular responses cannot all lie on one cubic: the fourth forward difference across equally spaced predictors is -1, whereas a cubic has zero fourth difference. Thus the overdetermined least-squares fit here has a nonzero residual and unique coefficients. The existence and uniqueness facts support the following geometric slide; do not solve this example yet. Only the fitted response X betahat has beta coordinates in the column basis; the observed y generally lies outside the column space.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
 <section id="regression-chooses-the-closest-vector-we-can-build" class="slide level2">
 <h2>Regression chooses the closest vector we can build</h2>
-<p><span class="alert">Explanatory data</span>: <span class="math inline">\(\mat{X}\in\reals^{m\times n}\)</span>, with <span class="math inline">\(m\)</span> observations and <span class="math inline">\(n\)</span> feature columns <span class="math inline">\(\vct{X}_1,\ldots,\vct{X}_n\)</span></p>
+<p><span class="alert">Explanatory data</span>: <span class="math inline">\(\mat{X}\in\reals^{m\times n}\)</span>, with <span class="math inline">\(m\)</span> observations and <span class="math inline">\(n\)</span> feature columns <span class="math inline">\(\vct{X}_0,\ldots,\vct{X}_{n-1}\)</span></p>
 <p><span class="alert">Response</span>: <span class="math inline">\(\vct{y}\in\reals^m\)</span>, one observed response for each observation</p>
 <p><span class="math display">\[
 \widehat{\vct{y}}=\mat{X}\widehat{\vct{\beta}}
-=\widehat{\beta}_1\vct{X}_1+\cdots+\widehat{\beta}_n\vct{X}_n
+=\widehat{\beta}_0\vct{X}_0+\cdots+\widehat{\beta}_{n-1}\vct{X}_{n-1}
 \]</span></p>
 <ul>
-<li><span class="alert">Span</span>: <span class="math inline">\(W=\operatorname{span}\{\vct{X}_1,\ldots,\vct{X}_n\}\)</span> contains every possible fitted response</li>
+<li><span class="alert">Span</span>: <span class="math inline">\(W=\operatorname{span}\{\vct{X}_0,\ldots,\vct{X}_{n-1}\}\)</span> contains every possible fitted response</li>
 <li><span class="alert">Closest fit</span>: choose <span class="math inline">\(\widehat{\vct{y}}\in W\)</span> minimizing <span class="math inline">\(\|\vct{y}-\widehat{\vct{y}}\|^2\)</span></li>
 <li><span class="alert">When columns are independent</span>: the ordered columns form a basis of <span class="math inline">\(W\)</span>; <span class="math inline">\(\widehat{\vct{\beta}}\)</span> gives the fitted response’s coordinates</li>
 </ul>
@@ -2892,7 +3150,7 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 <section class="slide level2">
 
 <h3 id="two-features-give-coordinates-for-three-fitted-responses">Example: two features describe one fitted response vector</h3>
-<p>Fit a response <span class="math inline">\(y\approx\beta_1+\beta_2t\)</span> to <span class="math inline">\((t,y)=(0,1),(1,0),(2,2)\)</span></p>
+<p>Fit a response <span class="math inline">\(y\approx\beta_0+\beta_1t\)</span> to <span class="math inline">\((t,y)=(0,1),(1,0),(2,2)\)</span></p>
 <p><span class="math display">\[
 \mat{X}=\begin{bmatrix}1&amp;0\\1&amp;1\\1&amp;2\end{bmatrix},\qquad
 \vct{y}=\begin{bmatrix}1\\0\\2\end{bmatrix},\qquad

@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../classlib/classlib/quarto/website/hickernell-website.css">
 <link rel="stylesheet" href="schedule.css">
@@ -228,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Classes normally meet Tuesdays and Thursdays at 11:25 AM in <strong>PH 109</strong>.</p>
-<p>Completed lecture topics through October 27 have been checked against the Panopto recordings. Future topics are provisional and will be updated as assignments, quizzes, holidays, and examination details are finalized.</p>
+<p>Completed lecture topics through November 3 have been checked against the Panopto recordings. Future topics are provisional and will be updated as assignments, quizzes, holidays, and examination details are finalized.</p>
 <section id="august" class="level3">
 <h3 class="anchored" data-anchor-id="august">August</h3>
 <table class="caption-top table">
@@ -457,14 +486,14 @@ ul.task-list li input[type="checkbox"] {
 <tr class="even">
 <td style="text-align: right;"></td>
 <td>Tue Nov 3</td>
-<td>Change-of-basis recap; transition columns and polynomial coordinate changes</td>
-<td><a href="../slides/07-bases-dimension-and-coordinates.html#transition-columns-describe-the-old-basis-in-the-new-one">Bases, Dimension, and Coordinates</a></td>
+<td>Change of basis and inverse transitions; quadratic Taylor approximation to <span class="math inline">\(\log(t)\)</span> near one in shifted and standard polynomial bases; abstract-vector clarification; regression and a line-fit example; PCA introduced only at the end</td>
+<td><a href="../slides/07-bases-dimension-and-coordinates.html#taylor-coordinates-for-log-near-one">Bases, Dimension, and Coordinates: Taylor coordinates</a><br><a href="../slides/07-bases-dimension-and-coordinates.html#regression-chooses-the-closest-vector-we-can-build">Regression</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: right;"></td>
 <td>Thu Nov 5</td>
-<td></td>
-<td></td>
+<td>Brief review of the Taylor-basis round trip and regression data-to-matrix setup; PCA coordinates and remaining applications</td>
+<td><a href="../slides/07-bases-dimension-and-coordinates.html#pca-chooses-coordinates-adapted-to-the-data">Bases, Dimension, and Coordinates: PCA</a><br><a href="../slides/07-bases-dimension-and-coordinates.html#taylor-coordinates-for-log-near-one">Taylor coordinates</a> · <a href="../slides/07-bases-dimension-and-coordinates.html#data-give-a-polynomial-regression-model">Regression setup</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: right;"></td>
