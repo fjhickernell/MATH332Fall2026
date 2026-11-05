@@ -71,8 +71,8 @@ assignments, quizzes, holidays, and examination details are finalized.
 
 | Week | Date | Topic | Slides / Materials |
 |---:|---|---|---|
-| 16 | Tue Dec 1 | **Quiz 5** | Coverage TBD |
-| | Thu Dec 3 | | |
+| 16 | Tue Dec 1 | Review, bring your questions (tentative)<span class="assessment-divider" aria-hidden="true"></span>**Quiz 5** | Coverage TBD |
+| | Thu Dec 3 | Review, bring your questions (tentative) | |
 
 ### Final examinations
 
