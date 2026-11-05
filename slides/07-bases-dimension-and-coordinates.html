@@ -2490,7 +2490,7 @@ p_2(t)=\begin{bmatrix}1&amp;t-1&amp;(t-1)^2\end{bmatrix}
 <section class="slide level2">
 
 <h3 id="invert-the-taylor-transition-matrix">Invert the numerical transition matrix</h3>
-<p>For <span class="math inline">\(\mat{Q}=\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}\)</span>, reduce <span class="math inline">\([\,\mat{Q}\mid\mat{I}_3\,]\)</span></p>
+<p>Reduce <span class="math inline">\([\,\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}\mid\mat{I}_3\,]\)</span></p>
 <p><span class="math display">\[
 \left[\begin{array}{ccc|ccc}
 1&amp;-1&amp;1&amp;1&amp;0&amp;0\\0&amp;1&amp;-2&amp;0&amp;1&amp;0\\0&amp;0&amp;1&amp;0&amp;0&amp;1
@@ -2505,13 +2505,15 @@ p_2(t)=\begin{bmatrix}1&amp;t-1&amp;(t-1)^2\end{bmatrix}
 \left[\begin{array}{ccc|ccc}
 1&amp;0&amp;0&amp;1&amp;1&amp;1\\0&amp;1&amp;0&amp;0&amp;1&amp;2\\0&amp;0&amp;1&amp;0&amp;0&amp;1
 \end{array}\right]
-=[\,\mat{I}_3\mid\mat{Q}^{-1}\,]
+=[\,\mat{I}_3\mid\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}^{-1}\,]
 \]</span></p>
 <div class="key-point">
-<p>The right block is <span class="math inline">\(\mat{Q}_{\mathcal{B}\leftarrow\mathcal{C}}=\mat{Q}^{-1}\)</span>: <span class="alert">the reverse coordinate change</span></p>
+<p>The right block is <span class="math inline">\(\mat{Q}_{\mathcal{B}\leftarrow\mathcal{C}}=\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}^{-1}\)</span>: <span class="alert">the reverse coordinate change</span></p>
 </div>
 <aside class="notes">
-<p>The row operations are applied to both blocks. Their order is R2 &lt;- R2+2R3, R1 &lt;- R1+R2 using the updated R2, then R1 &lt;- R1-R3. After the first operation, the right rows are [1,0,0], [0,1,2], and [0,0,1]. The last two operations make the first right row [1,1,1]. Thus Q^{-1}=[[1,1,1],[0,1,2],[0,0,1]], and both products with Q give I_3. We invert the 3-by-3 numerical transition matrix, not the row of polynomials.</p>
+<p>The row operations are applied to both blocks. Their order is R2 &lt;- R2+2R3, R1 &lt;- R1+R2 using the updated R2, then R1 &lt;- R1-R3. After the first operation, the right rows are [1,0,0], [0,1,2], and [0,0,1]. The last two operations make the first right row [1,1,1]. Thus <span class="math inline">\(\mat{Q}_{\mathcal{B}\leftarrow\mathcal{C}}
+=\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}^{-1}
+=\begin{bmatrix}1&amp;1&amp;1\\0&amp;1&amp;2\\0&amp;0&amp;1\end{bmatrix}\)</span>; both products with <span class="math inline">\(\mat{Q}_{\mathcal{C}\leftarrow\mathcal{B}}\)</span> give <span class="math inline">\(\mat{I}_3\)</span>. We invert the 3-by-3 numerical transition matrix, not the row of polynomials.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -3011,7 +3013,7 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 </table>
 <p>Frames and infinite bases extend the finite-basis picture</p>
 <ul>
-<li><a href="#/data-give-a-polynomial-regression-model">Data give a polynomial regression model</a></li>
+<li><a href="#/data-give-a-polynomial-regression-model">Regression fits a linear combination of functions</a></li>
 <li><a href="#/regression-chooses-the-closest-vector-we-can-build">Regression chooses the closest vector we can build</a></li>
 <li><a href="#/pca-chooses-coordinates-adapted-to-the-data">PCA chooses coordinates adapted to the data</a></li>
 <li><a href="#/a-frame-can-keep-redundant-generators">A frame can keep redundant generators</a></li>
@@ -3019,8 +3021,8 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 </ul>
 </section>
 <section id="data-give-a-polynomial-regression-model" class="slide level2">
-<h2>Data give a polynomial regression model</h2>
-<p>Five <span class="alert">synthetic observations</span> of a predictor <span class="math inline">\(t\)</span> and response <span class="math inline">\(y\)</span></p>
+<h2>Regression fits a linear combination of functions</h2>
+<p>Five <span class="alert">synthetic observations</span> of predictors <span class="math inline">\(t,u\)</span> and response <span class="math inline">\(y\)</span></p>
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -3035,33 +3037,43 @@ y''+2y'+y=0,\qquad y(0)=a,\qquad y'(0)=b
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(t_i\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(-1\)</span></td>
 <td style="text-align: right;"><span class="math inline">\(0\)</span></td>
 <td style="text-align: right;"><span class="math inline">\(1\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(2\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(3\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(-1\)</span></td>
 </tr>
 <tr class="even">
+<td style="text-align: left;"><span class="math inline">\(u_i\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="odd">
 <td style="text-align: left;"><span class="math inline">\(y_i\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(2\)</span></td>
 <td style="text-align: right;"><span class="math inline">\(1\)</span></td>
 <td style="text-align: right;"><span class="math inline">\(2\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(9\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(25\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(2\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(5\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(0\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>Choose the <span class="alert">features</span> <span class="math inline">\(1,t,t^2,t^3\)</span> and allow discrepancies <span class="math inline">\(e_i\)</span></p>
+<p>Choose the <span class="alert">feature functions</span> <span class="math inline">\(1,t,u,\exp(tu)\)</span> and allow discrepancies <span class="math inline">\(e_i\)</span></p>
 <p><span class="math display">\[
-y_i=\beta_0+\beta_1t_i+\beta_2t_i^2+\beta_3t_i^3+e_i
+y_i=\beta_0+\beta_1t_i+\beta_2u_i+\beta_3\exp(t_i u_i)+e_i
 \]</span></p>
-<p>For observation 4, substitute <span class="math inline">\(t_4=2\)</span> and <span class="math inline">\(y_4=9\)</span></p>
+<p>For observation 4, substitute <span class="math inline">\((t_4,u_4)=(1,1)\)</span> and <span class="math inline">\(y_4=5\)</span></p>
 <p><span class="math display">\[
-9=\beta_0+2\beta_1+4\beta_2+8\beta_3+e_4
+5=\beta_0+\beta_1+\beta_2+\exp(1)\beta_3+e_4
 \]</span></p>
-<p>The four feature values <span class="math inline">\([1\ \ 2\ \ 4\ \ 8]\)</span> become <span class="alert">one matrix row</span></p>
+<div class="key-point">
+<p>The functions may be nonlinear in <span class="math inline">\(t,u\)</span>; the <span class="alert">unknown coefficients enter linearly</span></p>
+</div>
 <aside class="notes">
-<p>This is a synthetic illustrative dataset, not measured or student data. The residual term e_i permits response data to differ from the chosen cubic model; no distribution, independence, or mean-zero assumption is imposed here. At this stage beta is any candidate coefficient vector. After choosing betahat by least squares, ehat=y-X betahat is the fitted residual vector. The model is linear in the four unknown coefficients even though it is cubic in t. Keep the construction separate from the later geometry and algorithms for finding the best coefficients.</p>
+<p>This is a synthetic illustrative dataset, not measured or student data. The residual term e_i permits response data to differ from the chosen function model; no distribution, independence, or mean-zero assumption is imposed here. At this stage beta is any candidate coefficient vector. After choosing betahat by least squares, ehat=y-X betahat is the fitted residual vector. The feature functions are fixed before fitting. Their dependence on the predictors can be nonlinear and can include interactions such as exp(tu). Only their linear-combination coefficients are unknown. Observation 4 gives the numerical feature row [1,1,1,exp(1)]. Keep the construction separate from the later geometry and algorithms for finding the best coefficients.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -3077,24 +3089,24 @@ y_i=\beta_0+\beta_1t_i+\beta_2t_i^2+\beta_3t_i^3+e_i
 <section class="slide level2">
 
 <h3 id="stack-polynomial-regression-observations">Stack the observations in matrix form</h3>
-<p>Keep the observation order and the feature order <span class="math inline">\(1,t,t^2,t^3\)</span></p>
+<p>Keep the observation order and the feature order <span class="math inline">\(1,t,u,\exp(tu)\)</span></p>
 <p><span class="math display">\[
-\underbrace{\begin{bmatrix}2\\1\\2\\9\\25\end{bmatrix}}_{\vct{y}}
+\underbrace{\begin{bmatrix}1\\2\\2\\5\\0\end{bmatrix}}_{\vct{y}}
 =
 \underbrace{\begin{bmatrix}
-1&amp;-1&amp;1&amp;-1\\
-1&amp;0&amp;0&amp;0\\
-1&amp;1&amp;1&amp;1\\
-1&amp;2&amp;4&amp;8\\
-1&amp;3&amp;9&amp;27
+1&amp;0&amp;0&amp;1\\
+1&amp;1&amp;0&amp;1\\
+1&amp;0&amp;1&amp;1\\
+1&amp;1&amp;1&amp;\exp(1)\\
+1&amp;-1&amp;1&amp;\exp(-1)
 \end{bmatrix}}_{\mat{X}}
 \underbrace{\begin{bmatrix}\beta_0\\\beta_1\\\beta_2\\\beta_3\end{bmatrix}}_{\vct{\beta}}
 +
 \underbrace{\begin{bmatrix}e_1\\e_2\\e_3\\e_4\\e_5\end{bmatrix}}_{\vct{e}}
 \]</span></p>
 <ul>
-<li>Each <span class="alert">row</span> evaluates all four features at one predictor value</li>
-<li>Each <span class="alert">column</span> collects one feature across all five observations</li>
+<li>Each <span class="alert">row</span> evaluates all four functions at one predictor pair <span class="math inline">\((t_i,u_i)\)</span></li>
+<li>Each <span class="alert">column</span> collects one function’s values across all five observations</li>
 <li>The first column of ones supplies the <span class="alert">intercept</span> <span class="math inline">\(\beta_0\)</span></li>
 </ul>
 <div class="key-point">
@@ -3102,7 +3114,7 @@ y_i=\beta_0+\beta_1t_i+\beta_2t_i^2+\beta_3t_i^3+e_i
 <p><span class="math inline">\(\vct{y}\approx\mat{X}\widehat{\vct{\beta}}\)</span> need not be an exact fit</p>
 </div>
 <aside class="notes">
-<p>X is 5-by-4; y and e are 5-by-1; beta is 4-by-1. Multiplication reproduces the five scalar regression equations in the same observation order. The predictor values are distinct, so the sampled polynomial columns are independent: the first four rows form a Vandermonde matrix with determinant 12. These particular responses cannot all lie on one cubic: the fourth forward difference across equally spaced predictors is -1, whereas a cubic has zero fourth difference. Thus the overdetermined least-squares fit here has a nonzero residual and unique coefficients. The existence and uniqueness facts support the following geometric slide; do not solve this example yet. Only the fitted response X betahat has beta coordinates in the column basis; the observed y generally lies outside the column space.</p>
+<p>X is 5-by-4; y and e are 5-by-1; beta is 4-by-1. Multiplication reproduces the five scalar regression equations in the same observation order. The four sampled feature columns are independent: the first four rows have determinant exp(1)-1, which is nonzero. Matching the first four responses would force beta_1=beta_2=1, beta_3=2/(exp(1)-1), and beta_0=1-beta_3. Those coefficients predict 1-2/exp(1) at the fifth pair, rather than zero, so these responses cannot all lie in the span of the feature columns. Thus the least-squares fit has a nonzero residual and unique coefficients. These facts support the following geometric slide; do not solve this example yet. Only the fitted response X betahat has beta coordinates in the column basis; the observed y generally lies outside the column space.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

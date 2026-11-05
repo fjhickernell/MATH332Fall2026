@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 560" role="img" aria-labelledby="title desc">
+  <title id="title">Four fundamental subspaces in two orthogonal pairs</title>
+  <desc id="desc">An original geometric schematic after Gilbert Strang. Row and null spaces are perpendicular complements in the input space. Column and left null spaces are perpendicular complements in the output space. Each pair meets at zero. The matrix maps row space onto column space. Dimensions are given by labels, not the schematic shapes.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="14" markerHeight="12" refX="12" refY="6" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0 0 L12 6 L0 12 Z" fill="#2479ad"/>
+    </marker>
+  </defs>
+  <g font-family="Arial, sans-serif" font-size="30" fill="#173e59" text-anchor="middle">
+    <text x="130" y="38">Input space</text>
+    <text x="850" y="38">Output space</text>
+  </g>
+  <g stroke-width="3" stroke-linejoin="round">
+    <path d="M330 295 L460 165 L310 15 L180 145 Z" fill="#eaf5fc" stroke="#2479ad"/>
+    <path d="M330 295 L480 445 L400 525 L250 375 Z" fill="#fff5d9" stroke="#aa791b"/>
+    <path d="M1050 295 L1230 205 L1140 25 L960 115 Z" fill="#eaf5fc" stroke="#2479ad"/>
+    <path d="M1050 295 L1130 455 L980 530 L900 370 Z" fill="#fff5d9" stroke="#aa791b"/>
+    <path d="M350 275 L370 295 L350 315" fill="none" stroke="#173e59"/>
+    <path d="M1072.36 283.82 L1083.54 306.18 L1061.18 317.36" fill="none" stroke="#173e59"/>
+  </g>
+  <g fill="#173e59" font-family="Arial, sans-serif" font-size="29" text-anchor="middle">
+    <text x="320" y="124">Row space</text>
+    <text x="368" y="395">Null space</text>
+    <text x="1095" y="140">Column space</text>
+    <text x="1008" y="410" font-size="27">Left null space</text>
+  </g>
+  <g fill="#222" font-family="Times New Roman, serif" font-size="36" text-anchor="middle">
+    <text x="320" y="170">row(<tspan font-family="Arial, sans-serif">A</tspan>)</text>
+    <text x="368" y="438">null(<tspan font-family="Arial, sans-serif">A</tspan>)</text>
+    <text x="1095" y="187">col(<tspan font-family="Arial, sans-serif">A</tspan>)</text>
+    <text x="1015" y="454">null(<tspan font-family="Arial, sans-serif">A</tspan><tspan baseline-shift="super" font-size="24">⊤</tspan>)</text>
+    <text x="205" y="310">ℝ<tspan baseline-shift="super" font-size="24" font-style="italic">n</tspan></text>
+    <text x="1240" y="310">ℝ<tspan baseline-shift="super" font-size="24" font-style="italic">m</tspan></text>
+  </g>
+  <g fill="#333" font-family="Times New Roman, serif" font-size="32" text-anchor="middle">
+    <text x="520" y="90">dim <tspan font-style="italic">r</tspan></text>
+    <text x="180" y="455">dim <tspan font-style="italic">n − r</tspan></text>
+    <text x="1300" y="105">dim <tspan font-style="italic">r</tspan></text>
+    <text x="1220" y="455">dim <tspan font-style="italic">m − r</tspan></text>
+  </g>
+  <g fill="#173e59" font-family="Times New Roman, serif" font-size="31">
+    <circle cx="330" cy="295" r="5"/>
+    <circle cx="1050" cy="295" r="5"/>
+    <text x="304" y="330">0</text>
+    <text x="1024" y="330">0</text>
+  </g>
+  <path d="M525 180 L875 180" stroke="#2479ad" stroke-width="3.5" marker-end="url(#arrow)"/>
+  <text x="700" y="154" fill="#2479ad" text-anchor="middle" font-family="Arial, sans-serif" font-size="38">A</text>
+  <text x="700" y="222" fill="#333" text-anchor="middle" font-family="Arial, sans-serif" font-size="26">one-to-one and onto</text>
+  <text x="700" y="545" fill="#555" text-anchor="middle" font-family="Arial, sans-serif" font-size="24">Schematic; dimensions are labeled</text>
+</svg>

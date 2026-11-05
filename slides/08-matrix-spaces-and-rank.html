@@ -717,8 +717,8 @@ Output: <span class="math inline">\(\reals^m\)</span>
 <div style="font-size: 0.9em;">
 <ul>
 <li><a href="#/matrix-spaces-and-rank">Matrix Spaces and Rank</a></li>
-<li><a href="#/rank-and-solution-sets">Rank and Solution Sets</a></li>
 <li><a href="#/orthogonal-pairs">Orthogonal Pairs</a></li>
+<li><a href="#/rank-and-solution-sets">Rank and Solution Sets</a></li>
 <li><a href="#/rank-factorization-and-the-left-null-space">Rank Factorization and the Left Null Space</a></li>
 <li><a href="#/what-the-structure-buys-us">What the Structure Buys Us</a></li>
 <li><a href="#/big-ideas">Big Ideas</a></li>
@@ -950,6 +950,262 @@ x_3=-x_4
 <p>Each free variable contributes one independent null-space direction</p>
 <p><a href="#/rank-nullity-counts-inputs">Rank–nullity</a>: <span class="math inline">\(2+2=4\)</span> columns</p>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="practice-find-three-spaces-from-one-reduction">Find three spaces from one reduction</h3>
+<p><span class="math display">\[
+\mat{H}=\begin{bmatrix}1&amp;1&amp;2&amp;0\\0&amp;1&amp;1&amp;1\\1&amp;2&amp;3&amp;1\end{bmatrix}
+\]</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find the structure of <span class="math inline">\(\mat{H}\)</span> <span class="exsub">Reduce to row echelon form and identify the pivot columns</span> <span class="exsub">Give bases for the column, row, and null spaces; state their ambient spaces</span> <span class="exsub">Find the rank and nullity, and check rank–nullity</span> </span></p>
+</div>
+<aside class="notes">
+<p>Subtract rows 1 and 2 from row 3. The echelon rows are [1,1,2,0], [0,1,1,1], and zero, with pivots in columns 1 and 2. The original columns [1,0,1]^top and [1,1,2]^top form a basis of Col(H) inside R^3. Transposing the two nonzero echelon rows gives a basis of Row(H) inside R^4. With x_3=s and x_4=t, back substitution gives x_2=-s-t and x_1=-s+t. A basis of Null(H) inside R^4 is {[-1,-1,1,0]^top, [1,-1,0,1]^top}. The rank and nullity are both 2, so 2+2=4 columns. Row echelon form is sufficient; do not request RREF.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="orthogonal-pairs" class="title-slide slide level1 center">
+<h1>Orthogonal Pairs</h1>
+<ul>
+<li><a href="#/the-four-spaces-form-two-perpendicular-pairs">The four spaces form two perpendicular pairs</a></li>
+<li><a href="#/an-orthogonal-complement-contains-all-perpendicular-directions">An orthogonal complement contains all perpendicular directions</a></li>
+<li><a href="#/the-four-spaces-pair-through-orthogonality">The four spaces pair through orthogonality</a></li>
+<li><a href="#/worked-example-see-both-orthogonal-pairs">Example: see both orthogonal pairs</a></li>
+</ul>
+</section>
+<section id="the-four-spaces-form-two-perpendicular-pairs" class="slide level2">
+<h2>The four spaces form two perpendicular pairs</h2>
+<p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span> of rank <span class="math inline">\(r\)</span></p>
+<p><img data-src="assets/four-fundamental-subspaces.svg" class="" style="width:100.0%" alt="A geometric schematic after Strang. In the input space R n, row space of dimension r and null space of dimension n minus r meet at zero and are perpendicular. In the output space R m, column space of dimension r and left null space of dimension m minus r meet at zero and are perpendicular. A maps the row space bijectively to the column space. Dimensions are given by the labels, not the drawn shapes."></p>
+<div class="key-point">
+<p>Each perpendicular pair accounts for every direction in its own ambient space</p>
+</div>
+<div class="small">
+<p>Geometric arrangement after <a href="https://web.mit.edu/18.06/www/Essays/newpaper_ver3.pdf">G. Strang, “The Four Fundamental Subspaces: 4 Lines,” Fig. 1</a></p>
+</div>
+<aside class="notes">
+<p>This is an original course drawing of the four-space arrangement, after Figure 1 of Gilbert Strang’s essay. The subspaces share their ambient space’s zero vector. Right-angle marks indicate orthogonality; the shapes are schematic and do not assert that every space has dimension two. The labels r, n-r, and m-r give the actual dimensions, including zero. The arrow denotes A restricted to Row(A), which maps bijectively onto Col(A). Null(A) maps to the output zero, not to Null(A^top). The next continuation explains the one-to-one and onto claim; the following definition and proof explain the perpendicular pairing.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="why-this-map-is-one-to-one-and-onto">Why this map is one-to-one and onto</h3>
+<p><span class="math display">\[
+\mat{A}:\operatorname{row}(\mat{A})\longrightarrow\operatorname{col}(\mat{A}),
+\qquad \vct{x}\longmapsto\mat{A}\vct{x}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><span class="alert">One-to-one</span></p>
+<p>Suppose <span class="math inline">\(\vct{x}\in\operatorname{row}(\mat{A})\)</span> and <span class="math inline">\(\mat{A}\vct{x}=\vct{0}\)</span></p>
+<p>Then <span class="math inline">\(\vct{x}\)</span> is perpendicular to every row, hence to their span and to itself</p>
+<p><span class="math display">\[
+\vct{x}^\top\vct{x}=0\implies\vct{x}=\vct{0}
+\]</span></p>
+<p>Apply this to <span class="math inline">\(\vct{x}_1-\vct{x}_2\)</span>:</p>
+<p><span class="math display">\[
+\mat{A}\vct{x}_1=\mat{A}\vct{x}_2\implies\vct{x}_1=\vct{x}_2
+\]</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><span class="alert">Onto</span></p>
+<p>Take <span class="math inline">\(\vct{b}\in\operatorname{col}(\mat{A})\)</span>, so <span class="math inline">\(\vct{b}=\mat{A}\vct{z}\)</span></p>
+<p>Split <span class="math inline">\(\vct{z}\)</span> into its row-space projection and perpendicular part:</p>
+<p><span class="math display">\[\begin{gather*}
+\vct{z}=\vct{x}+\vct{w},\\
+\vct{x}\in\operatorname{row}(\mat{A}),\quad
+\vct{w}\perp\operatorname{row}(\mat{A})
+\end{gather*}\]</span></p>
+<p>Every row has zero dot product with <span class="math inline">\(\vct{w}\)</span>, so <span class="math inline">\(\mat{A}\vct{w}=\vct{0}\)</span> and</p>
+<p><span class="math display">\[
+\vct{b}=\mat{A}(\vct{x}+\vct{w})=\mat{A}\vct{x}
+\]</span></p>
+</div></div>
+<aside class="notes">
+<p>The domain is the row space, not all of R^n; row-space vectors are written as columns. Multiplying A by any vector gives a combination of its columns. For injectivity, x_1-x_2 remains in the row space, so the zero-kernel argument applies to two inputs having the same output. For surjectivity, x is the Euclidean orthogonal projection of z onto the row space. The next slide states this decomposition for an arbitrary subspace. A kills the perpendicular part because its entries are dot products with the rows. This gives exactly one row-space input for every attainable output, including the zero-rank case. It does not claim that A is invertible as a map from all of R^n to all of R^m.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="an-orthogonal-complement-contains-all-perpendicular-directions" class="slide level2">
+<h2>An orthogonal complement contains all perpendicular directions</h2>
+<p>For a subspace <span class="math inline">\(W\subseteq\reals^d\)</span>, its <span class="alert">orthogonal complement</span> is</p>
+<p><span class="math display">\[
+W^\perp=\{\vct{z}\in\reals^d:\vct{z}^\top\vct{w}=0
+\text{ for every }\vct{w}\in W\}
+\]</span></p>
+<p>It is enough to check the dot product with each vector in a basis of <span class="math inline">\(W\)</span></p>
+<p>Every <span class="math inline">\(\vct{x}\in\reals^d\)</span> has a unique decomposition</p>
+<p><span class="math display">\[
+\vct{x}=\vct{w}+\vct{z},\qquad \vct{w}\in W,\quad \vct{z}\in W^\perp
+\]</span></p>
+<div class="key-point">
+<p><span class="math inline">\(\dim(W)+\dim(W^\perp)=d\)</span>: the two subspaces account for every direction</p>
+</div>
+<aside class="notes">
+<p>This is Euclidean orthogonality using the dot product from Euclidean Spaces. If z is perpendicular to the basis vectors, linearity makes it perpendicular to every combination. The Euclidean orthogonal-decomposition theorem gives existence. Uniqueness follows because W intersects W^perp only in zero: a vector perpendicular to itself has zero squared length.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="the-four-spaces-pair-through-orthogonality" class="slide level2">
+<h2>The four spaces pair through orthogonality</h2>
+<p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span> with <span class="math inline">\(r=\operatorname{rank}(\mat{A})\)</span>,</p>
+<p><span class="math display">\[
+\operatorname{row}(\mat{A})^\perp
+=\operatorname{null}(\mat{A})
+\qquad\text{inside }\reals^n
+\]</span></p>
+<p><span class="math display">\[
+\operatorname{col}(\mat{A})^\perp
+=\operatorname{null}(\mat{A}^\top)
+\qquad\text{inside }\reals^m
+\]</span></p>
+<p>The dimensions balance:</p>
+<p><span class="math display">\[
+\dim(\operatorname{row}(\mat{A}))=\dim(\operatorname{col}(\mat{A}))=r
+\]</span></p>
+<p><span class="math display">\[
+\dim(\operatorname{null}(\mat{A}))=n-r,
+\qquad
+\dim(\operatorname{null}(\mat{A}^\top))=m-r
+\]</span></p>
+<div class="small">
+<p>Reference: <a href="https://math.mit.edu/~gs/linearalgebra/ila6/indexila6.html">Strang</a>, §§3.5, 4.1</p>
+</div>
+<aside class="notes">
+<p>The next continuation proves both orthogonal-complement identities visibly. The row and column ranks agree, so rank–nullity for A and A^top gives nullities n-r and m-r respectively. Row and null spaces both lie in R^n; column and left null spaces both lie in R^m. The column and null spaces need not share an ambient space and are not claimed to be orthogonal.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="why-the-orthogonal-pairs-are-complements">Why the orthogonal pairs are complements</h3>
+<p>Write the rows of <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span> as <span class="math inline">\(\vct{a}_1^\top,\ldots,\vct{a}_m^\top\)</span></p>
+<p><span class="math display">\[\begin{align*}
+\vct{x}\in\operatorname{null}(\mat{A})
+&amp;\iff \mat{A}\vct{x}=\vct{0}\\
+&amp;\iff \vct{a}_i^\top\vct{x}=0\quad\text{for every }i\\
+&amp;\iff \vct{x}\in\operatorname{row}(\mat{A})^\perp
+\end{align*}\]</span></p>
+<p>Zero dot products with every row give zero dot products with <span class="alert">all their linear combinations</span></p>
+<p>Apply the same argument to <span class="math inline">\(\mat{A}^\top\)</span>, whose rows are the columns of <span class="math inline">\(\mat{A}\)</span>, transposed</p>
+<p><span class="math display">\[
+\operatorname{null}(\mat{A}^\top)
+=\operatorname{row}(\mat{A}^\top)^\perp
+=\operatorname{col}(\mat{A})^\perp
+\]</span></p>
+<div class="key-point">
+<p>The equivalences characterize every perpendicular vector, giving the entire orthogonal complement</p>
+</div>
+<aside class="notes">
+<p>The last equivalence uses both directions: perpendicularity to all rows extends to their span by linearity; conversely, every row belongs to that span. Thus this proves equality directly, without a dimension argument. Applying the established statement to A^top proves the second relationship. We use real matrices and the Euclidean dot product throughout.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="worked-example-see-both-orthogonal-pairs" class="slide level2">
+<h2>Example: see both orthogonal pairs</h2>
+<p>Take the rank-one matrix</p>
+<p><span class="math display">\[
+\mat{A}=\begin{bmatrix}1&amp;2&amp;0\\2&amp;4&amp;0\end{bmatrix}
+\]</span></p>
+<p>Inside <span class="math inline">\(\reals^3\)</span>:</p>
+<p><span class="math display">\[
+\operatorname{row}(\mat{A})=\operatorname{span}\{[1,2,0]^\top\},
+\qquad
+\operatorname{null}(\mat{A})=\{[-2s,s,t]^\top:s,t\in\reals\}
+\]</span></p>
+<p>Their dot product is <span class="math inline">\(-2s+2s=0\)</span></p>
+<p>Inside <span class="math inline">\(\reals^2\)</span>:</p>
+<p><span class="math display">\[
+\operatorname{col}(\mat{A})=\operatorname{span}\{[1,2]^\top\},
+\qquad
+\operatorname{null}(\mat{A}^\top)=\operatorname{span}\{[-2,1]^\top\}
+\]</span></p>
+<p>Their dot product is <span class="math inline">\(-2+2=0\)</span></p>
+<div class="key-point">
+<p>Row–null orthogonality and column–left-null orthogonality use different ambient spaces</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="practice-orthogonality-and-ambient-spaces">Orthogonality and ambient spaces</h3>
+<p>Let</p>
+<p><span class="math display">\[
+\mat{B}=\begin{bmatrix}1&amp;0&amp;1\\0&amp;1&amp;1\end{bmatrix}
+\]</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find the two orthogonal pairs <span class="exsub">Find a basis for <span class="math inline">\(\operatorname{null}(\mat{B})\)</span>; check its dot products with both rows</span> <span class="exsub">What are <span class="math inline">\(\operatorname{col}(\mat{B})\)</span> and <span class="math inline">\(\operatorname{null}(\mat{B}^\top)\)</span>?</span> <span class="exsub">Check the dimension sums in <span class="math inline">\(\reals^3\)</span> and <span class="math inline">\(\reals^2\)</span></span> <span class="exsub">Does it make sense to take the dot product of a row-space vector with a column-space vector here?</span> </span></p>
+</div>
+<aside class="notes">
+<p>The null space has basis {(-1,-1,1)^T}; its dot product with each row is zero. The column space is R^2 and the left null space is {0}. The dimension sums are 2+1=3 and 2+0=2. Row-space vectors have three coordinates and column-space vectors have two, so their dot product is not defined.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section></section>
 <section>
 <section id="rank-and-solution-sets" class="title-slide slide level1 center">
@@ -1018,131 +1274,6 @@ x_3=-x_4
 </div>
 <aside class="notes">
 <p>Use <span class="math inline">\(\mat{A}\)</span> on the board and leave <span class="math inline">\(\mat{B}\)</span> for students. The nullities are <span class="math inline">\(3\)</span> and <span class="math inline">\(2\)</span>. Neither system can have exactly one solution when consistent, because each null space contains nonzero directions. Only <span class="math inline">\(\mat{B}\)</span> has rank <span class="math inline">\(3\)</span> and hence column space <span class="math inline">\(\reals^3\)</span>, so only <span class="math inline">\(\mat{B}\vct{x}=\vct{b}\)</span> is solvable for every <span class="math inline">\(\vct{b}\in\reals^3\)</span>.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="orthogonal-pairs" class="title-slide slide level1 center">
-<h1>Orthogonal Pairs</h1>
-<ul>
-<li><a href="#/an-orthogonal-complement-contains-all-perpendicular-directions">An orthogonal complement contains all perpendicular directions</a></li>
-<li><a href="#/the-four-spaces-pair-through-orthogonality">The four spaces pair through orthogonality</a></li>
-<li><a href="#/worked-example-see-both-orthogonal-pairs">Example: see both orthogonal pairs</a></li>
-</ul>
-</section>
-<section id="an-orthogonal-complement-contains-all-perpendicular-directions" class="slide level2">
-<h2>An orthogonal complement contains all perpendicular directions</h2>
-<p>For a subspace <span class="math inline">\(W\subseteq\reals^d\)</span>, its <span class="alert">orthogonal complement</span> is</p>
-<p><span class="math display">\[
-W^\perp=\{\vct{z}\in\reals^d:\vct{z}^\top\vct{w}=0
-\text{ for every }\vct{w}\in W\}
-\]</span></p>
-<p>It is enough to check the dot product with each vector in a basis of <span class="math inline">\(W\)</span></p>
-<p>Every <span class="math inline">\(\vct{x}\in\reals^d\)</span> has a unique decomposition</p>
-<p><span class="math display">\[
-\vct{x}=\vct{w}+\vct{z},\qquad \vct{w}\in W,\quad \vct{z}\in W^\perp
-\]</span></p>
-<div class="key-point">
-<p><span class="math inline">\(\dim(W)+\dim(W^\perp)=d\)</span>: the two subspaces account for every direction</p>
-</div>
-<aside class="notes">
-<p>This is Euclidean orthogonality using the dot product from Euclidean Spaces. If z is perpendicular to the basis vectors, linearity makes it perpendicular to every combination. The Euclidean orthogonal-decomposition theorem gives existence. Uniqueness follows because W intersects W^perp only in zero: a vector perpendicular to itself has zero squared length.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="the-four-spaces-pair-through-orthogonality" class="slide level2">
-<h2>The four spaces pair through orthogonality</h2>
-<p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span> with <span class="math inline">\(r=\operatorname{rank}(\mat{A})\)</span>,</p>
-<p><span class="math display">\[
-\operatorname{row}(\mat{A})^\perp
-=\operatorname{null}(\mat{A})
-\qquad\text{inside }\reals^n
-\]</span></p>
-<p><span class="math display">\[
-\operatorname{col}(\mat{A})^\perp
-=\operatorname{null}(\mat{A}^\top)
-\qquad\text{inside }\reals^m
-\]</span></p>
-<p>The dimensions balance:</p>
-<p><span class="math display">\[
-\dim(\operatorname{row}(\mat{A}))=\dim(\operatorname{col}(\mat{A}))=r
-\]</span></p>
-<p><span class="math display">\[
-\dim(\operatorname{null}(\mat{A}))=n-r,
-\qquad
-\dim(\operatorname{null}(\mat{A}^\top))=m-r
-\]</span></p>
-<div class="small">
-<p>Reference: <a href="https://math.mit.edu/~gs/linearalgebra/ila6/indexila6.html">Strang</a>, §§3.5, 4.1</p>
-</div>
-<aside class="notes">
-<p>A x=0 says that x has zero dot product with every row of A, hence with every vector in Row(A). This proves Null(A)=Row(A)^perp directly. Apply the same argument to A^top to get Null(A<sup>top)=Col(A)</sup>perp. The row and column ranks agree, so rank–nullity for A and A^top gives nullities n-r and m-r respectively. Row and null spaces both lie in R^n; column and left null spaces both lie in R^m. The column and null spaces need not share an ambient space and are not claimed to be orthogonal.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="worked-example-see-both-orthogonal-pairs" class="slide level2">
-<h2>Example: see both orthogonal pairs</h2>
-<p>Take the rank-one matrix</p>
-<p><span class="math display">\[
-\mat{A}=\begin{bmatrix}1&amp;2&amp;0\\2&amp;4&amp;0\end{bmatrix}
-\]</span></p>
-<p>Inside <span class="math inline">\(\reals^3\)</span>:</p>
-<p><span class="math display">\[
-\operatorname{row}(\mat{A})=\operatorname{span}\{[1,2,0]^\top\},
-\qquad
-\operatorname{null}(\mat{A})=\{[-2s,s,t]^\top:s,t\in\reals\}
-\]</span></p>
-<p>Their dot product is <span class="math inline">\(-2s+2s=0\)</span></p>
-<p>Inside <span class="math inline">\(\reals^2\)</span>:</p>
-<p><span class="math display">\[
-\operatorname{col}(\mat{A})=\operatorname{span}\{[1,2]^\top\},
-\qquad
-\operatorname{null}(\mat{A}^\top)=\operatorname{span}\{[-2,1]^\top\}
-\]</span></p>
-<p>Their dot product is <span class="math inline">\(-2+2=0\)</span></p>
-<div class="key-point">
-<p>Row–null orthogonality and column–left-null orthogonality use different ambient spaces</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="practice-orthogonality-and-ambient-spaces">Orthogonality and ambient spaces</h3>
-<p>Let</p>
-<p><span class="math display">\[
-\mat{B}=\begin{bmatrix}1&amp;0&amp;1\\0&amp;1&amp;1\end{bmatrix}
-\]</span></p>
-<div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Find the two orthogonal pairs <span class="exsub">Find a basis for <span class="math inline">\(\operatorname{null}(\mat{B})\)</span>; check its dot products with both rows</span> <span class="exsub">What are <span class="math inline">\(\operatorname{col}(\mat{B})\)</span> and <span class="math inline">\(\operatorname{null}(\mat{B}^\top)\)</span>?</span> <span class="exsub">Check the dimension sums in <span class="math inline">\(\reals^3\)</span> and <span class="math inline">\(\reals^2\)</span></span> <span class="exsub">Does it make sense to take the dot product of a row-space vector with a column-space vector here?</span> </span></p>
-</div>
-<aside class="notes">
-<p>The null space has basis {(-1,-1,1)^T}; its dot product with each row is zero. The column space is R^2 and the left null space is {0}. The dimension sums are 2+1=3 and 2+0=2. Row-space vectors have three coordinates and column-space vectors have two, so their dot product is not defined.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
