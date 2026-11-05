@@ -326,4 +326,7 @@ Mathematical content should be maintained only in the slides.
 - [x] Release the graded Test 2 answer PDF and anonymous regular-sitting score
   distribution to the course website and canonical archive, verify both live
   copies, and publish the all-sections Canvas announcement `109562`
-  (November 2, 2026). Makeup grading and physical return remain separate.
+  (November 2, 2026). Regular-sitting papers were returned November 4;
+  makeup administration and grading remain.
+- [x] Finalize the private makeup for administration; printing is reported
+  complete November 4. Keep the assessment private through grading.

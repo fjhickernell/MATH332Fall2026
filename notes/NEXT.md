@@ -9,7 +9,14 @@ only a closing preview on November 3; the brief Deck 08 title does not establish
 rank coverage. The November 5 Illinois Tech Fred → Calendar occurrence was
 saved and reopened in Fantastical with this pickup, PH 109, and
 11:15 AM–12:45 PM Chicago.
-Physical return of the graded Test 2 papers remains unconfirmed.
+
+## November 5 makeup
+
+The private makeup is approved and printed. Administration and grading remain.
+Grade the planned November 5 sitting by November 11; recalculate from the
+actual administration date plus six calendar days if it changes. Keep the
+assessment private until grading is complete; no separate small-cohort score
+distribution.
 
 ## November 3 teaching follow-up
 
@@ -189,10 +196,9 @@ PDFs match the inspected seven-page release byte for byte.
 [Test 2 grades and answers are posted](https://iit.instructure.com/courses/23913/discussion_topics/109562)
 was published November 2 at 4:28 PM CST to All Sections. Saved text and the
 live Quizzes and Tests link are verified. No further regular-sitting grade,
-PDF, or announcement release action remains. Physical return remains to
-confirm by November 4. Makeups remain pending; do not publish a separate
-small-cohort score distribution. Calculate makeup grading deadlines from
-the actual makeup date plus six calendar days once scheduled.
+PDF, or announcement release action remains. The regular-sitting papers were
+returned November 4. Makeup administration and grading remain; see the
+November 5 makeup handoff above.
 
 Validation: authoritative private-source build, complete seven-page PDF
 inspection, anonymous-score arithmetic, root website and twelve-deck renders,
