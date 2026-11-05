@@ -2,7 +2,7 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest reconciled instructional meeting: November 3, 2026
+- Latest reconciled instructional meeting: November 5, 2026
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -19,6 +19,7 @@
 | October 22, 2026 | Reconciled: critically damped spring in original and initial-data-adapted bases; independence, redundancy and bases; dimension, counting comparison and equivalence of independence/spanning for exactly dim(V) vectors | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=35a56247-4ad0-46cf-a1f6-b4eb012ce87c) | October 27, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; resume Deck 07 at “Build a basis by adding or removing vectors,” remaining dimension examples, then “Coordinates and Their Arithmetic” | October 22, 2026 |
 | October 27, 2026 | Reconciled: subspace/scalar-field review; unique coordinates and arithmetic; basis matrices and worked R² change of basis through P_C^{-1} P_B | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=14061e59-57f5-4280-acdc-b4f0012e71d9) | November 3, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; recap “Change of basis passes through the vector,” then “Transition columns describe the old basis in the new one.” Saved note reopened locally; server synchronization unverified due to account sync-error notice | October 27, 2026 |
 | November 3, 2026 | Reconciled from visible recording frames and instructor report; captions unavailable: change of basis and inverses, whiteboard Taylor/monomial example, abstract-vector clarification, regression and line fit; first PCA slide only a closing preview | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=67dcfe55-6757-4c1d-80ed-b4f7013ba966) | November 5, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; briefly review the new Taylor-basis round trip and regression data-to-matrix examples, then resume “PCA chooses coordinates adapted to the data” and remaining Applications; saved note reopened and verified in Fantastical | November 3, 2026 |
+| November 5, 2026 | Reconciled from captions and visible closing exercise: regression and PCA; four matrix subspaces, rank/nullity, echelon-based column/row/null bases and completed three-space practice; orthogonal pairs introduced informally; frames and infinite bases passed over | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=609c8ac7-5d8d-4afd-a5ae-b4f901399af0) | November 10, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; recap three-space basis extraction and “Rank-nullity counts inputs,” then “Orthogonal Pairs” → “The four spaces form two perpendicular pairs” and orthogonal complements; saved with Only This Event and reopened to verify the persisted note | November 5, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -281,3 +282,54 @@ successfully; schedule links and preserved assessment rows pass source checks.
 These changes are included in this Checkpoint; remote deployment and live-page
 verification remain pending. Broader instructor review remains open under
 [teaching cleanup issue 2](https://github.com/fjhickernell/MATH332Fall2026/issues/2).
+
+## November 5 recording evidence
+
+The Illinois Tech readiness notice identifies an 11:25 AM recording lasting
+1:16:00: [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=609c8ac7-5d8d-4afd-a5ae-b4f901399af0).
+The downloaded captions, slide-transition index and visible closing exercise
+establish the stopping point. Regression begins at 7:12 and the stacked
+data-to-matrix setup at 17:18. The discussion distinguishes linearity in the
+unknown coefficients from nonlinear predictor functions and explains the
+closest-vector fit. PCA at 33:09–36:18 changes observation coordinates and
+concentrates variance; construction of the PCA basis is deferred. Frames and
+infinite bases at 38:39–38:51 are explicitly passed over for time.
+
+Deck 08 begins at 39:24. Instruction defines the four subspaces, their ambient
+spaces, rank and nullity, and introduces the perpendicular pairs informally.
+The running echelon example begins at 53:54; column/row bases appear at
+1:01:21 and null-space construction at 1:02:24. The three-space exercise at
+1:02:54 is worked through at the board: original pivot columns, nonzero
+echelon rows and two free-variable null vectors. The visible closing slide
+at 1:15:10 is “Find three spaces from one reduction.” Closing captions verify
+the bases and explain why row/null dot products vanish; the instructor says
+more practice is needed. A brief rank–nullity slide visit does not establish
+the later systematic orthogonal-complement treatment or its proofs.
+
+The November 10 single occurrence was saved using Only This Event, closed
+and reopened to verify the complete persisted continuation note, retained
+MATH 332 title, PH 109, and 11:15 AM–12:45 PM Central Time (GMT−6).
+The calendar selector identifies Calendar under Illinois Tech Fred.
+Resume with the three-space exercise/rank–nullity recap, then Orthogonal
+Pairs and complements. Assessment coverage statements remain unchanged.
+
+Deck 07 is complete for classroom pacing, with frames and infinite bases
+left as optional enrichment. Its Course Outline estimate is eight 50-minute
+hours. The approximate allocation is 36 minutes on October 8, 57 before
+Quiz 3 on October 15, 79 on October 20, 79 on October 22, 56 after the
+subspace recap on October 27, 72 on November 3, and 32 before the Deck 08
+transition on November 5: about 411 minutes, rounded to eight classroom
+hours. These are pacing estimates, not exact attendance or contact-time data.
+
+Checkpoint validation: the full website and all twelve decks render without
+warnings. The assembled site passes 1,771 local-reference and 816 anchor checks
+across 23 course-page/deck outputs; explicit schedule anchors exist,
+assessment/assignment/holiday rows are unchanged, and `git diff --check` passes.
+The full Schedule and welcome page pass browser inspection at 1280- and
+390-pixel widths: all six schedule tables fit without clipped cells or
+document overflow, and the expanded Deck 07 outline wraps cleanly.
+Fantastical was restored to the November 5 week with no search results or
+event editor; paused/muted recording tabs were closed and Safari returned to
+the original Zoom grant tab; Mail was left in All Inboxes without the task
+search. Changes are included in this Checkpoint; remote deployment and
+live-page verification remain pending.

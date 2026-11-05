@@ -1,14 +1,30 @@
 # Next task
 
-## Immediate next work — November 5
+## Immediate next work — November 10
 
-Resume Bases, Dimension, and Coordinates with a brief review of the Taylor-basis
-round trip and regression data-to-matrix setup, then “PCA chooses coordinates
-adapted to the data” and the remaining Applications. The first PCA slide was
-only a closing preview on November 3; the brief Deck 08 title does not establish
-rank coverage. The November 5 Illinois Tech Fred → Calendar occurrence was
-saved and reopened in Fantastical with this pickup, PH 109, and
-11:15 AM–12:45 PM Chicago.
+Resume Matrix Spaces and Rank with a brief recap of the three-space
+basis-extraction exercise and “Rank-nullity counts inputs,” then
+“Orthogonal Pairs” → “The four spaces form two perpendicular pairs” and
+orthogonal complements. The November 5 recording completes regression and
+PCA, then develops the four matrix subspaces, rank/nullity, echelon-based
+column/row/null-space bases, and the worked three-space exercise. Perpendicular
+pairs are introduced informally; their systematic treatment and proofs remain.
+Frames and infinite bases were explicitly passed over, not completed units.
+
+The Schedule and completed Deck 07 Course Outline entry are included in this
+Checkpoint.
+The November 10 single occurrence was saved with Only This Event and reopened
+to verify the complete persisted note, Illinois Tech Fred → Calendar,
+11:15 AM–12:45 PM Central Time (GMT−6), and PH 109. The lecture ledger is
+reconciled through November 5. Both affected pages render and local links pass;
+the full Schedule and welcome page, including the expanded Deck 07 outline,
+pass 1280- and 390-pixel browser review. Remote deployment and live-page
+verification remain pending.
+
+Brief teaching correction for the next class: the 2-norm condition number is
+the largest/smallest singular-value ratio, including for square matrices.
+An eigenvalue ratio needs additional assumptions; do not present it as the
+general square-matrix rule.
 
 November 4 preparation review: the Taylor inverse slide now retains the
 full transition subscripts, and the regression setup uses nonlinear feature
