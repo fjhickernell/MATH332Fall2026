@@ -85,6 +85,15 @@ Mathematical content should be maintained only in the slides.
     Verification and scope are recorded in `notes/CHAPTER4-AUDIT.md`.
   - [ ] Complete instructor-led content and visible-layout review of these
     three Chapter 4 decks.
+  - [x] Recheck and refine Deck 08 for November 5 preparation: add the visible
+    orthogonality proof, an original geometric four-space drawing after Strang,
+    and early basis-extraction practice. Move Orthogonal Pairs directly after
+    the first worked spaces and their practice. Immediately after the picture,
+    explain why the restriction from row space to column space is one-to-one
+    and onto. The deck now has 39 slides and seven exercise sets; exact checks,
+    rendering, and links pass. Earlier revised layouts pass at
+    1280×720/1600×1000; the new continuation's browser review remains pending.
+    Instructor review remains open.
   - [x] Clarify Deck 07 coordinates, standard-basis identification and
     transition columns; pair sums with products, prefer full columns, and
     display the complete numerical PCA product XQ=S for direct comparison.

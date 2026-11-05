@@ -10,6 +10,25 @@ rank coverage. The November 5 Illinois Tech Fred → Calendar occurrence was
 saved and reopened in Fantastical with this pickup, PH 109, and
 11:15 AM–12:45 PM Chicago.
 
+November 4 preparation review: the Taylor inverse slide now retains the
+full transition subscripts, and the regression setup uses nonlinear feature
+functions of two predictors to emphasize linearity in the coefficients.
+The revised slides pass exact checks, rendering, and 1280×720/1600×1000
+visual review. Deck 08 now has 39 slides and seven exercise sets: an early
+row/column/null-space basis exercise, a geometric four-space drawing after
+Strang, and a visible proof of both orthogonal-complement identities are
+added. Orthogonal Pairs follows the first worked spaces and their practice,
+before Rank and Solution Sets. A continuation immediately after the four-space
+picture now proves that the matrix restricted to the row space is one-to-one
+and onto the column space. Rank–nullity retains its position immediately
+after the definitions. Exact checks, rendering, links, and the revised
+1280×720/1600×1000 layouts pass for the preceding revisions; local preview
+outputs are refreshed. The added one-to-one/onto continuation passes rendering
+and source checks; its browser layout review remains pending.
+Instructor review of Deck 08 and its companion remains open. See
+`notes/DECK-AUDIT.md`; these latest edits are included in this Checkpoint.
+Remote deployment and live verification remain pending.
+
 ## November 5 makeup
 
 The private makeup is approved and printed. Administration and grading remain.

@@ -68,8 +68,8 @@ include-after-body:
 
 ::: {style="font-size: 0.9em;"}
 - [Matrix Spaces and Rank](#matrix-spaces-and-rank)
-- [Rank and Solution Sets](#rank-and-solution-sets)
 - [Orthogonal Pairs](#orthogonal-pairs)
+- [Rank and Solution Sets](#rank-and-solution-sets)
 - [Rank Factorization and the Left Null Space](#rank-factorization-and-the-left-null-space)
 - [What the Structure Buys Us](#what-the-structure-buys-us)
 - [Big Ideas](#big-ideas)
@@ -291,66 +291,131 @@ Each free variable contributes one independent null-space direction
 [Rank–nullity](#rank-nullity-counts-inputs): $2+2=4$ columns
 :::
 
-# Rank and Solution Sets
+---
 
-- [Rank separates existence from uniqueness](#rank-separates-existence-from-uniqueness)
-- [Rank-nullity predicts solution sets](#rank-nullity-predicts-solution-sets)
-
-## Rank separates existence from uniqueness {#rank-separates-existence-from-uniqueness}
-
-For $\mat{A}\in\reals^{m\times n}$ and $\mat{A}\vct{x}=\vct{b}$:
-
-| Question | Condition |
-|---|---|
-| Does this $\vct{b}$ have a solution? | $\vct{b}\in\operatorname{col}(\mat{A})$ |
-| Is a solution unique, when it exists? | $\operatorname{null}(\mat{A})=\{\vct{0}\}$, or rank $=n$ |
-| Does every $\vct{b}\in\reals^m$ have a solution? | $\operatorname{col}(\mat{A})=\reals^m$, or rank $=m$ |
-
-Two inputs produce the same output exactly when
+### Find three spaces from one reduction {#practice-find-three-spaces-from-one-reduction}
 
 $$
-\mat{A}\vct{x}=\mat{A}\vct{x}'
-\quad\Longleftrightarrow\quad
-\vct{x}-\vct{x}'\in\operatorname{null}(\mat{A})
+\mat{H}=\begin{bmatrix}1&1&2&0\\0&1&1&1\\1&2&3&1\end{bmatrix}
 $$
 
-::: {.key-point}
-For a square matrix, full rank gives existence and uniqueness for every right-hand side
-:::
-
-::: {.notes}
-Full column rank gives at most one solution; it does not guarantee existence
-for every right-hand side in a taller system. Full row rank guarantees every
-right-hand side is attainable; a wider system can still have many solutions.
-The square case reconnects these statements to the invertible-matrix results
-in Inverses. Whenever a solution x_p exists, all solutions are
-x_p + Null(A); choosing a null-space basis supplies the independent parameters.
-:::
-
-## Rank-nullity predicts solution sets {#rank-nullity-predicts-solution-sets}
-
-::: {.exitem}
+::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
-<span>Compare two $3\times5$ matrices: $\operatorname{rank}(\mat{A})=2$ and $\operatorname{rank}(\mat{B})=3$
-<span class="exsub">Find each nullity</span>
-<span class="exsub">Could either system $\mat{A}\vct{x}=\vct{b}$ or $\mat{B}\vct{x}=\vct{b}$ have exactly one solution?</span>
-<span class="exsub">Which system is solvable for every $\vct{b}\in\reals^3$?</span>
+<span>Find the structure of $\mat{H}$
+<span class="exsub">Reduce to row echelon form and identify the pivot columns</span>
+<span class="exsub">Give bases for the column, row, and null spaces; state their ambient spaces</span>
+<span class="exsub">Find the rank and nullity, and check rank–nullity</span>
 </span>
 :::
 
 ::: {.notes}
-Use $\mat{A}$ on the board and leave $\mat{B}$ for students. The nullities
-are $3$ and $2$. Neither system can have exactly one solution when consistent,
-because each null space contains nonzero directions. Only $\mat{B}$ has rank
-$3$ and hence column space $\reals^3$, so only $\mat{B}\vct{x}=\vct{b}$ is
-solvable for every $\vct{b}\in\reals^3$.
+Subtract rows 1 and 2 from row 3. The echelon rows are
+[1,1,2,0], [0,1,1,1], and zero, with pivots in columns 1 and 2.
+The original columns [1,0,1]^top and [1,1,2]^top form a basis of Col(H)
+inside R^3. Transposing the two nonzero echelon rows gives a basis of
+Row(H) inside R^4. With x_3=s and x_4=t, back substitution gives
+x_2=-s-t and x_1=-s+t. A basis of Null(H) inside R^4 is
+{[-1,-1,1,0]^top, [1,-1,0,1]^top}. The rank and nullity are both 2,
+so 2+2=4 columns. Row echelon form is sufficient; do not request RREF.
 :::
 
 # Orthogonal Pairs
 
+- [The four spaces form two perpendicular pairs](#the-four-spaces-form-two-perpendicular-pairs)
 - [An orthogonal complement contains all perpendicular directions](#an-orthogonal-complement-contains-all-perpendicular-directions)
 - [The four spaces pair through orthogonality](#the-four-spaces-pair-through-orthogonality)
 - [Example: see both orthogonal pairs](#worked-example-see-both-orthogonal-pairs)
+
+## The four spaces form two perpendicular pairs {#the-four-spaces-form-two-perpendicular-pairs}
+
+For $\mat{A}\in\reals^{m\times n}$ of rank $r$
+
+![](assets/four-fundamental-subspaces.svg){fig-alt="A geometric schematic after Strang. In the input space R n, row space of dimension r and null space of dimension n minus r meet at zero and are perpendicular. In the output space R m, column space of dimension r and left null space of dimension m minus r meet at zero and are perpendicular. A maps the row space bijectively to the column space. Dimensions are given by the labels, not the drawn shapes." width="100%" .nostretch}
+
+::: {.key-point}
+Each perpendicular pair accounts for every direction in its own ambient space
+:::
+
+::: {.small}
+Geometric arrangement after [G. Strang, “The Four Fundamental Subspaces: 4 Lines,” Fig. 1](https://web.mit.edu/18.06/www/Essays/newpaper_ver3.pdf)
+:::
+
+::: {.notes}
+This is an original course drawing of the four-space arrangement, after
+Figure 1 of Gilbert Strang's essay. The subspaces share their ambient
+space's zero vector. Right-angle marks indicate orthogonality; the shapes
+are schematic and do not assert that every space has dimension two.
+The labels r, n-r, and m-r give the actual dimensions, including zero.
+The arrow denotes A restricted to Row(A), which maps bijectively onto Col(A).
+Null(A) maps to the output zero, not to Null(A^top). The next continuation
+explains the one-to-one and onto claim; the following definition and proof
+explain the perpendicular pairing.
+:::
+
+---
+
+### Why this map is one-to-one and onto {#why-this-map-is-one-to-one-and-onto}
+
+$$
+\mat{A}:\operatorname{row}(\mat{A})\longrightarrow\operatorname{col}(\mat{A}),
+\qquad \vct{x}\longmapsto\mat{A}\vct{x}
+$$
+
+::: {.columns}
+::: {.column width="47%"}
+[One-to-one]{.alert}
+
+Suppose $\vct{x}\in\operatorname{row}(\mat{A})$ and $\mat{A}\vct{x}=\vct{0}$
+
+Then $\vct{x}$ is perpendicular to every row, hence to their span and to itself
+
+$$
+\vct{x}^\top\vct{x}=0\implies\vct{x}=\vct{0}
+$$
+
+Apply this to $\vct{x}_1-\vct{x}_2$:
+
+$$
+\mat{A}\vct{x}_1=\mat{A}\vct{x}_2\implies\vct{x}_1=\vct{x}_2
+$$
+:::
+
+::: {.column width="6%"}
+:::
+
+::: {.column width="47%"}
+[Onto]{.alert}
+
+Take $\vct{b}\in\operatorname{col}(\mat{A})$, so $\vct{b}=\mat{A}\vct{z}$
+
+Split $\vct{z}$ into its row-space projection and perpendicular part:
+
+\begin{gather*}
+\vct{z}=\vct{x}+\vct{w},\\
+\vct{x}\in\operatorname{row}(\mat{A}),\quad
+\vct{w}\perp\operatorname{row}(\mat{A})
+\end{gather*}
+
+Every row has zero dot product with $\vct{w}$, so $\mat{A}\vct{w}=\vct{0}$ and
+
+$$
+\vct{b}=\mat{A}(\vct{x}+\vct{w})=\mat{A}\vct{x}
+$$
+:::
+:::
+
+::: {.notes}
+The domain is the row space, not all of R^n; row-space vectors are written
+as columns. Multiplying A by any vector gives a combination of its columns.
+For injectivity, x_1-x_2 remains in the row space, so the zero-kernel
+argument applies to two inputs having the same output. For surjectivity,
+x is the Euclidean orthogonal projection of z onto the row space. The next
+slide states this decomposition for an arbitrary subspace. A kills the
+perpendicular part because its entries are dot products with the rows.
+This gives exactly one row-space input for every attainable output,
+including the zero-rank case. It does not claim that A is invertible as a
+map from all of R^n to all of R^m.
+:::
 
 ## An orthogonal complement contains all perpendicular directions {#an-orthogonal-complement-contains-all-perpendicular-directions}
 
@@ -414,13 +479,46 @@ Reference: [{{< meta references.strangila.short >}}]({{< meta references.strangi
 :::
 
 ::: {.notes}
-A x=0 says that x has zero dot product with every row of A, hence with
-every vector in Row(A). This proves Null(A)=Row(A)^perp directly.
-Apply the same argument to A^top to get Null(A^top)=Col(A)^perp.
+The next continuation proves both orthogonal-complement identities visibly.
 The row and column ranks agree, so rank–nullity for A and A^top gives
 nullities n-r and m-r respectively. Row and null spaces both lie in R^n;
 column and left null spaces both lie in R^m. The column and null spaces
 need not share an ambient space and are not claimed to be orthogonal.
+:::
+
+---
+
+### Why the orthogonal pairs are complements {#why-the-orthogonal-pairs-are-complements}
+
+Write the rows of $\mat{A}\in\reals^{m\times n}$ as $\vct{a}_1^\top,\ldots,\vct{a}_m^\top$
+
+\begin{align*}
+\vct{x}\in\operatorname{null}(\mat{A})
+&\iff \mat{A}\vct{x}=\vct{0}\\
+&\iff \vct{a}_i^\top\vct{x}=0\quad\text{for every }i\\
+&\iff \vct{x}\in\operatorname{row}(\mat{A})^\perp
+\end{align*}
+
+Zero dot products with every row give zero dot products with [all their linear combinations]{.alert}
+
+Apply the same argument to $\mat{A}^\top$, whose rows are the columns of $\mat{A}$, transposed
+
+$$
+\operatorname{null}(\mat{A}^\top)
+=\operatorname{row}(\mat{A}^\top)^\perp
+=\operatorname{col}(\mat{A})^\perp
+$$
+
+::: {.key-point}
+The equivalences characterize every perpendicular vector, giving the entire orthogonal complement
+:::
+
+::: {.notes}
+The last equivalence uses both directions: perpendicularity to all rows
+extends to their span by linearity; conversely, every row belongs to that
+span. Thus this proves equality directly, without a dimension argument.
+Applying the established statement to A^top proves the second relationship.
+We use real matrices and the Euclidean dot product throughout.
 :::
 
 ---
@@ -483,6 +581,61 @@ The null space has basis {(-1,-1,1)^T}; its dot product with each row is
 zero. The column space is R^2 and the left null space is {0}. The dimension
 sums are 2+1=3 and 2+0=2. Row-space vectors have three coordinates and
 column-space vectors have two, so their dot product is not defined.
+:::
+
+# Rank and Solution Sets
+
+- [Rank separates existence from uniqueness](#rank-separates-existence-from-uniqueness)
+- [Rank-nullity predicts solution sets](#rank-nullity-predicts-solution-sets)
+
+## Rank separates existence from uniqueness {#rank-separates-existence-from-uniqueness}
+
+For $\mat{A}\in\reals^{m\times n}$ and $\mat{A}\vct{x}=\vct{b}$:
+
+| Question | Condition |
+|---|---|
+| Does this $\vct{b}$ have a solution? | $\vct{b}\in\operatorname{col}(\mat{A})$ |
+| Is a solution unique, when it exists? | $\operatorname{null}(\mat{A})=\{\vct{0}\}$, or rank $=n$ |
+| Does every $\vct{b}\in\reals^m$ have a solution? | $\operatorname{col}(\mat{A})=\reals^m$, or rank $=m$ |
+
+Two inputs produce the same output exactly when
+
+$$
+\mat{A}\vct{x}=\mat{A}\vct{x}'
+\quad\Longleftrightarrow\quad
+\vct{x}-\vct{x}'\in\operatorname{null}(\mat{A})
+$$
+
+::: {.key-point}
+For a square matrix, full rank gives existence and uniqueness for every right-hand side
+:::
+
+::: {.notes}
+Full column rank gives at most one solution; it does not guarantee existence
+for every right-hand side in a taller system. Full row rank guarantees every
+right-hand side is attainable; a wider system can still have many solutions.
+The square case reconnects these statements to the invertible-matrix results
+in Inverses. Whenever a solution x_p exists, all solutions are
+x_p + Null(A); choosing a null-space basis supplies the independent parameters.
+:::
+
+## Rank-nullity predicts solution sets {#rank-nullity-predicts-solution-sets}
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>Compare two $3\times5$ matrices: $\operatorname{rank}(\mat{A})=2$ and $\operatorname{rank}(\mat{B})=3$
+<span class="exsub">Find each nullity</span>
+<span class="exsub">Could either system $\mat{A}\vct{x}=\vct{b}$ or $\mat{B}\vct{x}=\vct{b}$ have exactly one solution?</span>
+<span class="exsub">Which system is solvable for every $\vct{b}\in\reals^3$?</span>
+</span>
+:::
+
+::: {.notes}
+Use $\mat{A}$ on the board and leave $\mat{B}$ for students. The nullities
+are $3$ and $2$. Neither system can have exactly one solution when consistent,
+because each null space contains nonzero directions. Only $\mat{B}$ has rank
+$3$ and hence column space $\reals^3$, so only $\mat{B}\vct{x}=\vct{b}$ is
+solvable for every $\vct{b}\in\reals^3$.
 :::
 
 # Rank Factorization and the Left Null Space

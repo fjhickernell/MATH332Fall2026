@@ -73,3 +73,78 @@ rank–nullity/CR sequence and tensor-coordinate explanation.
 The corrections and this record are included in the November 2 Checkpoint.
 Remote CI/deployment and live verification remain pending. The recorded
 November 3 Deck 07 lecture continuation is unchanged.
+
+## November 4, 2026 — Deck 08 classroom-preparation review
+
+Rechecked the complete 35-slide Matrix Spaces and Rank deck, including all
+six exercise sets and presenter answers. Sixteen exact-arithmetic checks
+confirm the running echelon/RREF example, four-space bases and dimensions,
+rank factors, compatibility conditions, factorization and orthogonality
+exercises, and polynomial differentiation/evaluation maps. No new
+mathematical correction was needed; preserve the instructor's existing
+rank–nullity, echelon-form, and direct CR sequence.
+
+Inspected every slide at 1280×720, including the four-space Course Map,
+factorization proofs, exercises, and cumulative summary. Content clears the
+footer, and no MathJax or browser-console errors were found. The coefficient
+interpretation also fits at 1600×1000. Course Map and section links were
+followed in the browser. This completes this agent review, not instructor
+approval of the deck or companion notebook.
+
+During Fred's parallel Deck 07 review, retained full transition subscripts
+throughout the Taylor inverse slide and replaced the polynomial-only
+regression setup with fixed nonlinear functions of two predictors. Updated
+the observation table, matrix, outline label, and presenter explanations
+together. Exact checks confirm the feature evaluations, independent sampled
+columns, and nonzero fitting residual; the three revised slides fit at
+1280×720 and 1600×1000. Existing anchors remain for previously published links.
+
+The isolated root website and all twelve decks render without warnings or
+errors. All 175 local links/resources from Decks 07–08 resolve, including
+destination fragments; explicit anchors and all 20/6 exercise sets are
+preserved. Visible prose style and `git diff --check` pass. Changes remain
+local pending Checkpoint; no new deployment or instructor approval is claimed.
+
+### Instructor follow-up: visible orthogonality and practice
+
+The deck now has 38 slides and seven exercise sets. Added a visible proof of
+both orthogonal-complement identities: the homogeneous equations are exactly
+the zero dot products with all rows, hence with their span; apply the same
+equivalence to the transpose for the column/left-null pair. The proof does
+not depend on a separate dimension argument.
+
+Moved Orthogonal Pairs to follow the first row/column/null-space calculation
+and its new starred basis-extraction exercise, before Rank and Solution Sets.
+This brings the geometry directly after concrete spaces while retaining the
+instructor's rank–nullity placement immediately after the definitions. The
+new exercise fills the early computational-practice gap; retain the six
+existing multi-part sets and their presenter answers.
+
+Added an original SVG of the orthogonally placed four spaces, with a visible
+attribution/link to Figure 1 in Strang's MIT-hosted essay. The two ambient
+spaces have separate zeros, right-angle markers, and labeled dimensions;
+the row-to-column arrow represents the restriction of the matrix. Shapes
+are explicitly schematic. This is a course drawing, not an embedded book scan.
+
+The new exercise and right-angle geometry pass exact checks. The diagram,
+proof, and exercise fit at 1280×720 and 1600×1000; the revised Course Map
+order was inspected. The website and affected deck render cleanly; all
+176 local links/resources from Decks 07–08 resolve, IDs are unique, existing
+anchors survive, and visible-source style checks pass. Refreshed the
+validated generated Decks 07–08 in the existing local preview locations.
+No publication or instructor approval is inferred.
+
+### Instructor follow-up: the row-space restriction
+
+A continuation immediately after the four-space picture now proves the
+one-to-one and onto claim visibly. The first argument shows that a row-space
+vector in the kernel is perpendicular to itself and hence zero, then applies
+this to the difference of two inputs. The second projects a preimage onto
+the row space; its perpendicular component is killed by the matrix, so the
+projected vector gives the same output. The domain restriction, real scalar
+field, and column representation of row-space vectors are explicit.
+
+The deck now has 39 slides and retains seven exercise sets. Local rendering
+and source checks pass; browser layout review of the new continuation remains
+pending. These changes are included in the course Checkpoint; remote
+deployment and live verification remain pending.
