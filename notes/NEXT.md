@@ -1,5 +1,34 @@
 # Next task
 
+## Quiz 4 coverage — announced November 6
+
+Quiz 4 is Thursday, November 12, and covers the full **Bases, Dimension,
+and Coordinates** deck. Schedule and Quizzes and Tests coverage rows are
+included in this Checkpoint; Deck 07's title notice now says Quiz 4 · November 12
+and retains the November 6 Assignment 5 deadline. Remote deployment and
+live-page verification remain pending.
+
+[Quiz 4 coverage announcement](https://iit.instructure.com/courses/23913/discussion_topics/109873)
+is published to **All Sections**, November 6 at 12:37 PM CST. Saved text and
+audience are verified. It is self-contained, states the full-deck coverage,
+date, last-15-minutes timing, PH 109, 20 points, and existing permitted-material
+and accommodation rules. Do not repost. Canvas Quiz 4 [105752](https://iit.instructure.com/courses/23913/assignments/105752)
+also states the full-deck coverage; reopened verification confirms Published,
+20 points, On Paper, Everyone, and November 12 at 12:40 PM. Existing settings
+were preserved. Grading completion is due November 18
+(November 12 plus six calendar days).
+
+Validation: the full website and all twelve decks render with the restored
+`qmcpy` environment on M5. Assembled local links/assets resolve; the affected
+page tables pass 1280- and 390-pixel browser checks without horizontal
+overflow, and the Deck 07 title notice fits at 1280×900. `git diff --check`
+passes. Shared slide-resource warnings concern optional files; required
+assembled shared pages and all linked assets are present. The latest prior
+course publishing and Pages deployment runs succeeded.
+Dashboard closeout and recording the November 18 grading task await the
+separate Daily Scan being handled by Derf, per instructor direction. Do not
+run a duplicate scan from this course task.
+
 ## Immediate next work — November 10
 
 Resume Matrix Spaces and Rank with a brief recap of the three-space
