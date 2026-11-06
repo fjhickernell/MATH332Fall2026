@@ -92,8 +92,15 @@ Mathematical content should be maintained only in the slides.
     explain why the restriction from row space to column space is one-to-one
     and onto. The deck now has 39 slides and seven exercise sets; exact checks,
     rendering, and links pass. Earlier revised layouts pass at
-    1280×720/1600×1000; the new continuation's browser review remains pending.
+    1280×720/1600×1000; the one-to-one/onto continuation now also passes
+    1280×720 visible review.
     Instructor review remains open.
+  - [x] Add practical four-space interpretations and a Matrix Spaces in
+    Applications section after Orthogonal Pairs: regression, camera/sensor
+    measurements, PCA, network flows, and chemical balancing. The November 6
+    revision has 56 slides and eight exercise sets; exact symbolic checks,
+    full website/twelve-deck rendering, and local link checks pass. Instructor
+    review remains open; these additions are included in this Checkpoint.
   - [x] Clarify Deck 07 coordinates, standard-basis identification and
     transition columns; pair sums with products, prefer full columns, and
     display the complete numerical PCA product XQ=S for direct comparison.

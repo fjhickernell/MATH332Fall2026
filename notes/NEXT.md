@@ -30,20 +30,28 @@ November 4 preparation review: the Taylor inverse slide now retains the
 full transition subscripts, and the regression setup uses nonlinear feature
 functions of two predictors to emphasize linearity in the coefficients.
 The revised slides pass exact checks, rendering, and 1280×720/1600×1000
-visual review. Deck 08 now has 39 slides and seven exercise sets: an early
-row/column/null-space basis exercise, a geometric four-space drawing after
-Strang, and a visible proof of both orthogonal-complement identities are
-added. Orthogonal Pairs follows the first worked spaces and their practice,
-before Rank and Solution Sets. A continuation immediately after the four-space
-picture now proves that the matrix restricted to the row space is one-to-one
-and onto the column space. Rank–nullity retains its position immediately
-after the definitions. Exact checks, rendering, links, and the revised
-1280×720/1600×1000 layouts pass for the preceding revisions; local preview
-outputs are refreshed. The added one-to-one/onto continuation passes rendering
-and source checks; its browser layout review remains pending.
-Instructor review of Deck 08 and its companion remains open. See
-`notes/DECK-AUDIT.md`; these latest edits are included in this Checkpoint.
-Remote deployment and live verification remain pending.
+visual review. Deck 08 retains the early basis-extraction exercise, geometric
+four-space drawing after Strang, visible orthogonal-complement proofs, and
+the proof that the row-space restriction maps one-to-one onto column space.
+Rank–nullity remains immediately after the definitions.
+
+November 6 additions bring Deck 08 to 56 slides and eight exercise sets.
+Slide 7 gives the practical meaning of the four spaces and links to the
+applications for a quick preview. New slides 20–35,
+after Orthogonal Pairs and before Rank and Solution Sets, develop regression,
+camera/sensor measurements, PCA, network flows, and chemical balancing.
+PCA occupies slides 29–32, distinguishing feature directions, observation
+scores, zero sample variation, and component truncation. The regression
+sequence includes worked examples and starred practice with presenter answers.
+All six regression slides use one four-observation, rank-deficient design
+with features 1, t, and 1+t at t=0,1,2,3. The same imperfect fit connects
+all four spaces; observed responses and fitted values are distinguished.
+Row space identifies the determined intercept/slope combinations and new
+predictions despite ambiguous individual coefficients.
+Review these examples for the November 10 class; the recorded lecture pickup
+and calendar note above are unchanged. Instructor review of Deck 08 and its
+companion remains open. These additions are included in this Checkpoint;
+validation is recorded in `notes/DECK-AUDIT.md`.
 
 ## November 5 makeup
 

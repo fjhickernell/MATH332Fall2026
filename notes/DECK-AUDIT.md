@@ -148,3 +148,35 @@ The deck now has 39 slides and retains seven exercise sets. Local rendering
 and source checks pass; browser layout review of the new continuation remains
 pending. These changes are included in the course Checkpoint; remote
 deployment and live verification remain pending.
+
+
+## November 6, 2026 — matrix-space intuition and applications
+
+Deck 08 now has 56 slides and eight exercise sets. A practical four-space
+table follows rank–nullity and links to the new Applications section after
+Orthogonal Pairs. Its examples cover regression, camera/sensor measurements,
+PCA, network flows, and chemical balancing. Existing examples, exercises,
+and explicit anchors are preserved. The cumulative terminology index already
+contains the important terms introduced here.
+
+The six regression slides retain one instructor-selected four-row,
+three-column design throughout: features 1, t, and 1+t for t=0,1,2,3.
+One imperfect least-squares fit connects column space, coefficient ambiguity,
+the determined intercept/slope combinations in row space, new predictions,
+and the nonzero left-null residual. The design remains fixed; hats distinguish
+fitted responses from observed responses. PCA distinguishes positive sample
+variation, zero-variation directions, observation scores, and truncation.
+
+Exact symbolic checks verify the final regression fit, all four-space bases,
+row combinations and predictions; separate checks verify the PCA variance
+split and reconstruction, sensor recovery, network balances, and chemistry.
+The complete website and twelve-deck project render without warnings or
+errors; the final revised deck also renders. New application layouts and
+the final regression explanations pass 1280×720 visible review. The prior
+row-space-restriction continuation also passes visible review. All 1,849
+local references and 826 destination anchors pass, as do source-style checks.
+The Course Map spacing is tightened to accommodate the added section link.
+
+These changes are included in this Checkpoint. Instructor review remains
+open; remote deployment and live-page verification are separate from the
+completed local validation.

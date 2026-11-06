@@ -43,7 +43,7 @@ include-after-body:
 
 ```{=html}
 <style>
-.reveal .four-space-preview { display:grid; grid-template-columns:minmax(0,1fr) 0.6fr minmax(0,1fr); gap:0.16em 0.25em; align-items:center; text-align:center; margin:0.2em 0 0.45em; }
+.reveal .four-space-preview { display:grid; grid-template-columns:minmax(0,1fr) 0.6fr minmax(0,1fr); gap:0.16em 0.25em; align-items:center; text-align:center; margin:0.1em 0 0.15em; }
 .reveal .four-space-preview .space-heading { color:var(--header-blue); font-size:0.8em; }
 .reveal .four-space-preview .space-card { padding:0.22em 0.3em; border:3px solid #2e78b7; border-radius:12px; background:#f5fbff; }
 .reveal .four-space-preview .null-card { border-color:#bd8e20; background:#fff9e9; }
@@ -69,6 +69,7 @@ include-after-body:
 ::: {style="font-size: 0.9em;"}
 - [Matrix Spaces and Rank](#matrix-spaces-and-rank)
 - [Orthogonal Pairs](#orthogonal-pairs)
+- [Matrix Spaces in Applications](#matrix-spaces-in-applications)
 - [Rank and Solution Sets](#rank-and-solution-sets)
 - [Rank Factorization and the Left Null Space](#rank-factorization-and-the-left-null-space)
 - [What the Structure Buys Us](#what-the-structure-buys-us)
@@ -97,6 +98,7 @@ The four-space viewpoint is developed in
 - [A matrix has four fundamental subspaces](#a-matrix-has-four-fundamental-subspaces)
 - [Rank and nullity measure different parts of a matrix](#rank-and-nullity-measure-different-parts-of-a-matrix)
 - [Rank-nullity counts inputs](#rank-nullity-counts-inputs)
+- [Four spaces answer four practical questions](#four-spaces-answer-four-practical-questions)
 - [One reduction exposes the structure](#one-reduction-exposes-the-structure)
 - [Column and row bases come from different matrices](#column-and-row-bases-come-from-different-matrices)
 - [Free variables build a basis for the null space](#free-variables-build-a-basis-for-the-null-space)
@@ -192,6 +194,40 @@ This is a dimension identity, not an orthogonal decomposition of the two
 spaces: Col(A) lies in R^m and Null(A) lies in R^n. The orthogonal pair in
 the input space is Row(A) and Null(A), developed later. Rank counts
 independent output directions; nullity counts input directions sent to zero.
+:::
+
+## Four spaces answer four practical questions {#four-spaces-answer-four-practical-questions}
+
+Think of $\mat{A}\vct{x}=\vct{b}$ as a model, a measurement, or a physical balance
+
+| Space | Practical meaning |
+|---|---|
+| $\operatorname{col}(\mat{A})\subseteq\reals^m$ | All outputs $\vct{b}$ the model can produce |
+| $\operatorname{null}(\mat{A})\subseteq\reals^n$ | Input changes that leave the output unchanged |
+| $\operatorname{row}(\mat{A})\subseteq\reals^n$ | Vectors $\vct{c}$ whose input combination $\vct{c}^\top\vct{x}$ is determined by exact outputs |
+| $\operatorname{null}(\mat{A}^\top)\subseteq\reals^m$ | Relations every attainable output must satisfy |
+
+[Peek at Matrix Spaces in Applications](#matrix-spaces-in-applications)
+
+::: {.key-point}
+Column space describes what can happen; null space describes what can change invisibly
+
+&nbsp;
+
+Row space describes what we can learn about the input
+:::
+
+::: {.notes}
+Inputs are unrestricted real vectors, and recovery means exact algebraic
+recovery from b=A x with A known, not statistical certainty from noisy data.
+An input change z is invisible iff A z=0. A scalar c^top x is determined
+by b for every x iff c is in Row(A): if c=A^top w, then c^top x=w^top b.
+Conversely, a component of c in Null(A) would change this quantity along
+an invisible input direction. For every left-null vector w, w^top b=0
+is necessary and sufficient collectively for b to be attainable. The
+orthogonal-pair section justifies these statements; applications follow it.
+Nonnegativity, capacity limits, or other constraints can restrict the
+physically feasible outputs to a proper subset of the column space.
 :::
 
 ## One reduction exposes the structure {#one-reduction-exposes-the-structure}
@@ -581,6 +617,544 @@ The null space has basis {(-1,-1,1)^T}; its dot product with each row is
 zero. The column space is R^2 and the left null space is {0}. The dimension
 sums are 2+1=3 and 2+0=2. Row-space vectors have three coordinates and
 column-space vectors have two, so their dot product is not defined.
+:::
+
+# Matrix Spaces in Applications
+
+The same four spaces describe fitting, measurement, variation, and conservation
+
+- [Regression: column space contains every fitted response](#regression-column-space-contains-every-exact-response)
+- [Measurements reveal some quantities and hide others](#measurements-reveal-some-quantities-and-hide-others)
+- [PCA separates sample variation from zero-variation directions](#pca-separates-sample-variation-from-zero-variation-directions)
+- [Network flows separate transfers from circulation](#network-flows-separate-transfers-from-circulation)
+- [Chemical balances are null-space vectors](#chemical-balances-are-null-space-vectors)
+
+## Regression: column space contains every fitted response {#regression-column-space-contains-every-exact-response}
+
+One synthetic dataset throughout: features $1,t,1+t$ at $t=0,1,2,3$
+
+$$
+\mat{X}=\begin{bmatrix}1&0&1\\1&1&2\\1&2&3\\1&3&4\end{bmatrix},\qquad
+\vct{y}=\begin{bmatrix}2\\2\\4\\8\end{bmatrix},\qquad
+\widehat{\vct{y}}=\mat{X}\widehat{\vct{\beta}}=\begin{bmatrix}1\\3\\5\\7\end{bmatrix}
+$$
+
+The ordinary least-squares fit lies in the space of sampled straight-line responses
+
+$$
+\operatorname{col}(\mat{X})
+=\operatorname{span}\left\{\begin{bmatrix}1\\1\\1\\1\end{bmatrix},
+\begin{bmatrix}0\\1\\2\\3\end{bmatrix}\right\}
+$$
+
+::: {.key-point}
+The observed $\vct{y}$ lies outside column space; the fitted $\widehat{\vct{y}}$ lies inside
+:::
+
+::: {.notes}
+Keep this same four-by-three X, observed y, and fitted yhat through all
+six regression slides. Rows index observations at t=0,1,2,3; columns index
+the features 1,t,1+t. The third column is the sum of the first two.
+The observed responses are synthetic and are not fitted perfectly.
+Ordinary unweighted, unpenalized least squares with unrestricted real
+coefficients is used throughout. The fitted response is unique, while
+coefficient estimates need not be unique.
+
+Every possible model response has the form alpha*1+gamma*t. Least squares
+gives alpha=1, gamma=2, hence yhat=[1,3,5,7]^top. The residual is
+[1,-1,-1,1]^top, perpendicular to both independent columns, as checked
+later. Column space is all responses this fixed design could fit exactly;
+the actual observed y is not one of them. Hats denote fitted values and
+coefficients; observed y=yhat+e throughout this example.
+:::
+
+---
+
+### Null space gives coefficient changes that preserve predictions {#regression-null-space-preserves-predictions}
+
+For the same $\mat{X}$, the derived feature $1+t$ makes rank $2<3$ columns
+
+$$
+\mat{X}\begin{bmatrix}-1\\-1\\1\end{bmatrix}=\vct{0},\qquad
+\operatorname{null}(\mat{X})
+=\operatorname{span}\left\{\begin{bmatrix}-1\\-1\\1\end{bmatrix}\right\}
+$$
+
+Two coefficient estimates give the same [imperfect fit]{.alert}
+
+$$
+\mat{X}\begin{bmatrix}1\\2\\0\end{bmatrix}
+=\mat{X}\begin{bmatrix}0\\1\\1\end{bmatrix}
+=\begin{bmatrix}1\\3\\5\\7\end{bmatrix}
+$$
+
+::: {.key-point}
+Including a derived feature alongside its source columns can make individual coefficient estimates [nonunique]{.alert}
+:::
+
+::: {.notes}
+The fitted coefficients [1,2,0]^top and [0,1,1]^top reproduce yhat,
+not the observed y=[2,2,4,8]^top. Every least-squares coefficient vector
+is [1-c,2-c,c]^top. The design matrix stays fixed: no columns are
+recombined or replaced. A null-space shift changes the three coefficients
+without changing any fitted response or the residual. Rank is two and
+nullity one. The third feature adds a coefficient without expanding the
+space of possible fitted responses. Its separate effect cannot be
+identified from these features without a constraint or reparameterization.
+:::
+
+---
+
+### Row space identifies the combinations in the fitted line {#regression-row-space-gives-recoverable-combinations}
+
+Keep the same model and data; collect the intercept and slope
+
+\begin{align*}
+\widehat y(t)
+&=\widehat\beta_0+\widehat\beta_1t+\widehat\beta_2(1+t)\\
+&=(\widehat\beta_0+\widehat\beta_2)+(\widehat\beta_1+\widehat\beta_2)t
+\end{align*}
+
+The fitted line is $1+2t$, so its determined coefficient combinations are
+
+$$
+\widehat\beta_0+\widehat\beta_2=1,\qquad
+\widehat\beta_1+\widehat\beta_2=2
+$$
+
+Their coefficient vectors form a basis of row space
+
+$$
+\operatorname{row}(\mat{X})
+=\operatorname{span}\left\{\begin{bmatrix}1\\0\\1\end{bmatrix},
+\begin{bmatrix}0\\1\\1\end{bmatrix}\right\}
+$$
+
+::: {.key-point}
+The fitted responses determine the intercept and slope, while the three separate coefficients remain ambiguous
+:::
+
+::: {.notes}
+Row-space vectors are written as columns. Their dot products with betahat
+are, respectively, the effective intercept and effective slope. Thus
+Row(X) collects coefficient vectors of the linear quantities determined
+by the fitted responses. It is not the set of possible fitted beta vectors.
+The basis comes directly from the observed rows: with r1=[1,0,1]^top
+and r2=[1,1,2]^top, r1=[1,0,1]^top and r2-r1=[0,1,1]^top.
+Conversely every row [1,t,1+t]^top is the first basis vector plus t times
+the second. The two vectors are independent, proving the claimed basis.
+Both coefficient fits on the preceding slide have intercept 1 and slope 2.
+:::
+
+---
+
+### Row combinations give determined predictions at new inputs {#regression-row-space-collects-recoverable-combinations}
+
+Write the observed rows as columns $\vct{r}_1=[1,0,1]^\top$ and $\vct{r}_2=[1,1,2]^\top$
+
+Combining these rows combines their fitted responses
+
+\begin{align*}
+\vct{r}_1^\top\widehat{\vct{\beta}}
+&=\widehat y_1=1\quad\text{(intercept)}\\
+(\vct{r}_2-\vct{r}_1)^\top\widehat{\vct{\beta}}
+&=\widehat y_2-\widehat y_1=2\quad\text{(slope)}
+\end{align*}
+
+At $t=4$, the new feature profile is another row-space vector
+
+$$
+\begin{bmatrix}1\\4\\5\end{bmatrix}
+=\begin{bmatrix}1\\0\\1\end{bmatrix}
++4\begin{bmatrix}0\\1\\1\end{bmatrix},\qquad
+\widehat y(4)=1+4(2)=9
+$$
+
+::: {.key-point}
+Every coefficient fit giving the same $\widehat{\vct{y}}$ also gives this same new prediction
+:::
+
+::: {.notes}
+The observed responses are still [2,2,4,8]^top; the combinations here
+use the fitted responses [1,3,5,7]^top. This matters because a least-squares
+fit need not reproduce individual observed responses. For any fixed
+fitted vector yhat, c^top betahat is determined across all coefficient
+fits iff c is in Row(X). If c=X^top w, the quantity is w^top yhat;
+otherwise a nonzero null-space component of c supplies a coefficient
+shift that changes it without changing the fit.
+
+All valid feature profiles [1,t,1+t]^top lie in this row space by the
+feature definition. An arbitrary vector outside the plane c2=c0+c1
+would violate that definition, so do not present it as another observation
+of this same model. The individual coefficient beta2 is undetermined:
+its coefficient vector [0,0,1]^top lies outside the row space. Adding
+more observations with these same feature definitions cannot remove the
+structural dependence. With full column rank, Row(X)=R^n and fitted
+coefficients are unique. Unambiguous model predictions do not guarantee
+accuracy on unseen data; no statistical noise model is assumed here.
+:::
+
+---
+
+### Left null space contains the least-squares residual {#regression-left-null-space-contains-the-residual}
+
+For the same observed $\vct{y}$ and fitted $\widehat{\vct{y}}$, the residual is nonzero
+
+$$
+\vct{e}=\vct{y}-\widehat{\vct{y}}=\begin{bmatrix}1\\-1\\-1\\1\end{bmatrix},\qquad
+\mat{X}^\top\vct{e}=\vct{0}
+$$
+
+It belongs to the left null space
+
+$$
+\operatorname{null}(\mat{X}^\top)
+=\operatorname{span}\left\{\begin{bmatrix}1\\-2\\1\\0\end{bmatrix},
+\begin{bmatrix}0\\1\\-2\\1\end{bmatrix}\right\}
+$$
+
+::: {.key-point}
+$\vct{y}=\widehat{\vct{y}}+\vct{e}$: attainable fit plus perpendicular discrepancy
+:::
+
+::: {.notes}
+The residual is the sum of the two displayed left-null basis vectors.
+Its dot product with the column of ones is 1-1-1+1=0; with the t column
+it is 0-1-2+3=0. Thus it is also perpendicular to their sum, column 3.
+Both basis vectors satisfy these same zero dot products, are independent,
+and the left nullity is 4-rank(X)=2. Since yhat is in Col(X) and e is
+perpendicular to it, the displayed yhat is the ordinary Euclidean
+least-squares fit. It is unique even though the coefficients are not.
+The two left-null vectors also give the second-difference relations
+satisfied by every attainable fitted response. No cause for the observed
+discrepancy is inferred, and no distributional assumption is imposed.
+:::
+
+---
+
+### Interpret the same regression through its four spaces {#practice-interpret-regression-spaces}
+
+Keep $\mat{X}$ with features $1,t,1+t$, observed $\vct{y}=[2,2,4,8]^\top$, and fitted $\widehat{\vct{y}}=[1,3,5,7]^\top$
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>Explain what each space tells us about this same imperfect fit
+<span class="exsub">Give another coefficient vector producing $\widehat{\vct{y}}$</span>
+<span class="exsub">Is the fitted coefficient of $1+t$ determined? Is the predicted response at $t=4$ determined?</span>
+<span class="exsub">Check that the residual is perpendicular to every column of $\mat{X}$</span>
+<span class="exsub">Could more observations using these same three features make the coefficients unique?</span>
+</span>
+:::
+
+::: {.notes}
+For example [2,3,-1]^top produces [1,3,5,7]^top. The coefficient of
+1+t is arbitrary, but all coefficient fits have effective intercept 1
+and slope 2, so prediction at t=4 is 9. The residual has zero dot
+product with ones and t, hence also with 1+t. More observations cannot
+remove the identity between the third feature and the sum of the first
+two. Remove a redundant feature or impose an explicit identifying
+constraint to choose a unique coefficient representation. The four
+space dimensions are column 2, null 1, row 2, and left null 2.
+:::
+
+## Measurements reveal some quantities and hide others {#measurements-reveal-some-quantities-and-hide-others}
+
+An idealized camera keeps horizontal and vertical coordinates, dropping depth
+
+$$
+\mat{A}=\begin{bmatrix}1&0&0\\0&1&0\end{bmatrix},\qquad
+\mat{A}\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
+=\begin{bmatrix}x_1\\x_2\end{bmatrix}
+$$
+
+| Space | Meaning for the camera |
+|---|---|
+| $\operatorname{col}(\mat{A})=\reals^2$ | Every screen position is attainable |
+| $\operatorname{null}(\mat{A})=\operatorname{span}\{[0,0,1]^\top\}$ | Changing depth leaves the image unchanged |
+| $\operatorname{row}(\mat{A})=\{[a,b,0]^\top\}$ | Exactly the quantities $ax_1+bx_2$ can be recovered |
+| $\operatorname{null}(\mat{A}^\top)=\{\vct{0}\}$ | No nontrivial linear restriction on screen positions |
+
+::: {.key-point}
+A visible position can correspond to an entire line of invisible depth changes
+:::
+
+::: {.notes}
+This is orthographic projection with a fixed camera orientation, no
+occlusion, and no perspective division. It is a linear map of coordinates;
+an ordinary perspective camera is not this linear map of R^3 into R^2.
+The row and null spaces are a plane and its perpendicular axis inside
+R^3. The column space is a different plane, the output R^2. Two points
+with identical x1,x2 produce the same output regardless of x3.
+:::
+
+---
+
+### Two sensors can determine a difference without determining each input {#two-sensors-determine-a-difference}
+
+Two sensors measure overlapping sums of three unknown quantities
+
+$$
+\vct{b}=\underbrace{\begin{bmatrix}1&1&0\\0&1&1\end{bmatrix}}_{\mat{A}}
+\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
+=\begin{bmatrix}x_1+x_2\\x_2+x_3\end{bmatrix}
+$$
+
+- $\operatorname{col}(\mat{A})=\reals^2$: every pair of real readings is possible
+- $\operatorname{null}(\mat{A})=\operatorname{span}\{[-1,1,-1]^\top\}$: a hidden change shared by both sensors
+- $[1,0,-1]^\top=[1,1,0]^\top-[0,1,1]^\top\in\operatorname{row}(\mat{A})$
+
+$$
+x_1-x_3=b_1-b_2
+$$
+
+::: {.key-point}
+Neither sensor measures the difference directly, but their [row space]{.alert} makes it recoverable
+:::
+
+::: {.notes}
+Assume unrestricted real inputs and exact linear sensor readings. None of
+the individual x_i is recoverable: each changes along the displayed
+null-space vector. The difference x1-x3 is recoverable because its
+coefficient vector is a difference of the rows. The total x1+x2+x3 is not:
+its coefficient vector has nonzero dot product with the null vector.
+Full row rank makes every b attainable and the left null space trivial.
+Nonnegative inputs or other physical constraints would require additional
+feasibility conditions; they are not imposed in this example.
+:::
+
+## PCA separates sample variation from zero-variation directions {#pca-separates-sample-variation-from-zero-variation-directions}
+
+Let $\mat{X}\in\reals^{m\times n}$ have observations in rows and [centered feature columns]{.alert}
+
+For a unit feature direction $\vct{q}\in\reals^n$, its score vector is $\mat{X}\vct{q}\in\reals^m$
+
+$$
+\text{sample variance along }\vct{q}
+=\frac{\|\mat{X}\vct{q}\|^2}{m-1}\qquad(m>1)
+$$
+
+| Space | PCA interpretation |
+|---|---|
+| $\operatorname{row}(\mat{X})$ | Span of all principal directions with positive sample variance |
+| $\operatorname{null}(\mat{X})$ | Feature directions with zero sample variance |
+| $\operatorname{col}(\mat{X})$ | All score vectors obtainable by linear combinations of features |
+| $\operatorname{null}(\mat{X}^\top)$ | Observation combinations perpendicular to every feature column |
+
+::: {.notes}
+This is covariance PCA on real centered data with the Euclidean metric,
+without an additional standardization step. Principal directions are
+orthonormal eigenvectors of X^top X. If the eigenvalue lambda is positive,
+q=X^top(Xq)/lambda is in Row(X); these r directions form its basis.
+Zero eigenvalues correspond exactly to Null(X). Nonzero principal score
+vectors Xq span Col(X), and are mutually orthogonal. Unit q is needed to
+compare variance across directions fairly. Centering makes every score
+mean zero and puts the all-ones observation vector in Null(X^top).
+Zero variation here concerns this observed sample, not all future data.
+:::
+
+---
+
+### A redundant feature creates a zero-variance direction {#pca-redundant-feature-creates-zero-variance}
+
+Four synthetic centered observations of three features, with feature 3 = feature 1 + feature 2
+
+$$
+\mat{X}=\begin{bmatrix}1&0&1\\-1&0&-1\\0&1&1\\0&-1&-1\end{bmatrix},\qquad
+\vct{q}_0=\frac1{\sqrt3}\begin{bmatrix}1\\1\\-1\end{bmatrix},\qquad
+\mat{X}\vct{q}_0=\vct{0}
+$$
+
+- Row space: the feature plane $\{\vct{z}\in\reals^3:z_3=z_1+z_2\}$ containing every observation
+- Null space: $\operatorname{span}\{\vct{q}_0\}$, perpendicular to that plane
+- Rank $2$: only two principal directions can have positive sample variance
+
+::: {.key-point}
+Every observation has zero component in the null-space direction
+:::
+
+::: {.notes}
+Each feature column sums to zero, so the data are already centered.
+X has rank two and X^top X=[[2,0,2],[0,2,2],[2,2,4]]. Every observed row,
+viewed as a feature-space column, lies in z3=z1+z2. For the original
+uncentered observations, zero scores after centering mean a constant
+feature combination, not necessarily a combination equal to zero.
+The exact feature relation is deliberately synthetic. In real data, small
+positive variation is different from membership in the exact null space.
+:::
+
+---
+
+### Principal directions and scores live in different spaces {#pca-directions-and-scores-live-in-different-spaces}
+
+For the same centered $\mat{X}$, two unit principal directions are
+
+$$
+\vct{q}_1=\frac1{\sqrt6}\begin{bmatrix}1\\1\\2\end{bmatrix},\qquad
+\vct{q}_2=\frac1{\sqrt2}\begin{bmatrix}1\\-1\\0\end{bmatrix}
+\quad\in\operatorname{row}(\mat{X})\subseteq\reals^3
+$$
+
+Their score vectors are
+
+$$
+\vct{s}_1=\mat{X}\vct{q}_1=\frac1{\sqrt6}\begin{bmatrix}3\\-3\\3\\-3\end{bmatrix},\qquad
+\vct{s}_2=\mat{X}\vct{q}_2=\frac1{\sqrt2}\begin{bmatrix}1\\-1\\-1\\1\end{bmatrix}
+\quad\in\operatorname{col}(\mat{X})\subseteq\reals^4
+$$
+
+::: {.key-point}
+Directions combine features; scores give one value per observation
+
+The squared score lengths are $6$ and $2$: [75% and 25%]{.alert} of the sample variation
+:::
+
+::: {.notes}
+The eigenvalues of X^top X are 6,2,0 for q1,q2,q0 respectively. The sample
+covariance eigenvalues divide these by m-1=3, giving 2,2/3,0; the variance
+fractions remain 3/4 and 1/4. The displayed vectors are orthonormal in
+feature space; their nonzero score vectors are orthogonal and form a
+basis of Col(X). Their normalized versions are left singular vectors.
+The left null space is span{[1,1,0,0]^top,[0,0,1,1]^top}; each opposite
+observation pair cancels. In particular [1,1,1,1]^top is left-null from
+centering, so all scores sum to zero.
+:::
+
+---
+
+### Keeping fewer principal components discards directions {#pca-rotation-versus-truncation}
+
+A full PCA basis $\mat{Q}=[\vct{q}_1\ \vct{q}_2\ \vct{q}_0]$ is orthogonal
+
+$$
+\mat{S}=\mat{X}\mat{Q}=[\vct{s}_1\ \vct{s}_2\ \vct{0}],\qquad
+\mat{X}=\mat{S}\mat{Q}^\top
+$$
+
+Keeping only the leading component projects each observation onto $\operatorname{span}\{\vct{q}_1\}$
+
+$$
+\mat{P}=\vct{q}_1\vct{q}_1^\top,\qquad
+\mat{X}_1=\mat{X}\mat{P}=\vct{s}_1\vct{q}_1^\top
+$$
+
+- $\operatorname{col}(\mat{P})=\operatorname{row}(\mat{P})=\operatorname{span}\{\vct{q}_1\}$: retained feature direction
+- $\operatorname{null}(\mat{P})=\operatorname{span}\{\vct{q}_2,\vct{q}_0\}$: discarded feature directions
+
+::: {.key-point}
+The full rotation preserves the data; one-component reconstruction retains 75% of this sample's variation
+:::
+
+::: {.notes}
+All Q columns are retained in the first display, including a zero-variance
+direction, so Q is a square invertible coordinate change. Retaining the
+two positive-variance components also reconstructs this particular sample
+exactly. Keeping only q1 discards the nonzero q2 component, whose squared
+Frobenius contribution is 2 out of total 8. Null(P) is larger than Null(X):
+q2 has observed variation but the chosen compression discards it. The
+projection matrix P acts on feature columns; X P applies its transpose
+(equal to P) to each row. The row and column spaces just displayed belong
+to P, not to X. This distinction prevents confusing data null directions
+with directions discarded by a low-rank approximation.
+:::
+
+## Network flows separate transfers from circulation {#network-flows-separate-transfers-from-circulation}
+
+Signed flows around three nodes: $1\xrightarrow{f_1}2\xrightarrow{f_2}3\xrightarrow{f_3}1$
+
+The incidence matrix gives net [inflow minus outflow]{.alert} at each node
+
+$$
+\vct{b}=\underbrace{\begin{bmatrix}-1&0&1\\1&-1&0\\0&1&-1\end{bmatrix}}_{\mat{B}}
+\begin{bmatrix}f_1\\f_2\\f_3\end{bmatrix}
+=\begin{bmatrix}f_3-f_1\\f_1-f_2\\f_2-f_3\end{bmatrix}
+$$
+
+- $\operatorname{col}(\mat{B})=\{\vct{b}:b_1+b_2+b_3=0\}$: all possible net transfers
+- $\operatorname{null}(\mat{B})=\operatorname{span}\{[1,1,1]^\top\}$: circulation changes no node balance
+- $[1,1,1]^\top\in\operatorname{null}(\mat{B}^\top)$: the total net transfer must be zero
+
+::: {.key-point}
+Node balances detect transfers, but cannot detect an added trip around the cycle
+:::
+
+::: {.notes}
+Column j records minus one at the tail and plus one at the head of edge j.
+Negative flow is permitted and means flow against the drawn orientation.
+No capacities or one-way restrictions are imposed. Rank is two, so the
+sum-zero column plane and one-dimensional null space have the claimed
+dimensions. Every sum-zero b is attained, for example by f1=0,
+f2=-b2,f3=b1. For the displayed directed cycle, nonnegative flows could
+also realize any such b after adding a sufficiently large circulation;
+do not generalize that claim to arbitrary constrained networks.
+:::
+
+---
+
+### Network row space gives flow combinations determined by balances {#network-row-space-gives-recoverable-flows}
+
+For the same cycle, exact node balances determine flow differences
+
+| Coefficient vector | Flow combination | From node balances |
+|---|---|---|
+| $[1,-1,0]^\top$ | $f_1-f_2$ | $b_2$ |
+| $[0,1,-1]^\top$ | $f_2-f_3$ | $b_3$ |
+| $[1,0,-1]^\top$ | $f_1-f_3$ | $b_2+b_3$ |
+
+The third coefficient vector is the sum of the first two
+
+$$
+\operatorname{row}(\mat{B})
+=\{\vct{c}\in\reals^3:c_1+c_2+c_3=0\}
+$$
+
+::: {.key-point}
+Flow differences are determined, while adding the same amount to every flow leaves the balances unchanged
+:::
+
+::: {.notes}
+Row(B)=Col(B^top) is the space of potential differences on edges, often
+called the cut space. Adding a constant to all node potentials does not
+change those differences: constants form Null(B^top). The edge circulation
+[1,1,1]^top is perpendicular to every row-space vector. Adding t to
+every flow leaves any sum-zero coefficient combination unchanged, but
+changes f1+f2+f3 by 3t. Thus node balances alone do not determine total
+circulation or the individual flows. This is the same recoverability
+argument used for regression and sensors, now with a physical interpretation.
+For an optional potential example, p=[0,2,5]^top gives edge differences
+B^top p=[2,3,-5]^top. The corresponding recoverable flow combination is
+2f1+3f2-5f3=p^top b=2b2+5b3. The visible table starts with simpler
+differences before this general potential construction.
+:::
+
+## Chemical balances are null-space vectors {#chemical-balances-are-null-space-vectors}
+
+Balance $x_1\mathrm{H}_2+x_2\mathrm{O}_2\longrightarrow x_3\mathrm{H}_2\mathrm{O}$
+
+Rows count hydrogen and oxygen atoms, with products carrying a minus sign
+
+$$
+\underbrace{\begin{bmatrix}2&0&-2\\0&2&-1\end{bmatrix}}_{\mat{A}}
+\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}=\vct{0},\qquad
+\operatorname{null}(\mat{A})
+=\operatorname{span}\left\{\begin{bmatrix}2\\1\\2\end{bmatrix}\right\}
+$$
+
+- Null space: all signed real coefficient lists that conserve both elements
+- Row space: all linear combinations of the hydrogen and oxygen balance checks
+- Column space: all algebraically possible hydrogen/oxygen imbalance vectors
+
+::: {.key-point}
+The smallest positive integer null vector gives $2\mathrm{H}_2+\mathrm{O}_2\longrightarrow2\mathrm{H}_2\mathrm{O}$
+:::
+
+::: {.notes}
+Rank is two, nullity one, Col(A)=R^2, and Null(A^top)={0}. For balancing
+this fixed reaction orientation, chemistry requires positive integer
+coefficients, selecting positive integer multiples of the primitive
+null vector. The entire real null space also contains zero and negative
+multiples; those are algebraic solutions rather than the specified
+reaction recipe. This example does not claim that every mathematical
+imbalance is physically feasible with nonnegative molecular quantities.
 :::
 
 # Rank and Solution Sets
