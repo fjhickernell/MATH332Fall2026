@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-05">
+  <meta name="dcterms.date" content="2026-11-06">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 5, 2026</p>
+  <p class="date">November 6, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -675,7 +675,7 @@ Course decks
 In this deck
 </h3>
 <style>
-.reveal .four-space-preview { display:grid; grid-template-columns:minmax(0,1fr) 0.6fr minmax(0,1fr); gap:0.16em 0.25em; align-items:center; text-align:center; margin:0.2em 0 0.45em; }
+.reveal .four-space-preview { display:grid; grid-template-columns:minmax(0,1fr) 0.6fr minmax(0,1fr); gap:0.16em 0.25em; align-items:center; text-align:center; margin:0.1em 0 0.15em; }
 .reveal .four-space-preview .space-heading { color:var(--header-blue); font-size:0.8em; }
 .reveal .four-space-preview .space-card { padding:0.22em 0.3em; border:3px solid #2e78b7; border-radius:12px; background:#f5fbff; }
 .reveal .four-space-preview .null-card { border-color:#bd8e20; background:#fff9e9; }
@@ -718,6 +718,7 @@ Output: <span class="math inline">\(\reals^m\)</span>
 <ul>
 <li><a href="#/matrix-spaces-and-rank">Matrix Spaces and Rank</a></li>
 <li><a href="#/orthogonal-pairs">Orthogonal Pairs</a></li>
+<li><a href="#/matrix-spaces-in-applications">Matrix Spaces in Applications</a></li>
 <li><a href="#/rank-and-solution-sets">Rank and Solution Sets</a></li>
 <li><a href="#/rank-factorization-and-the-left-null-space">Rank Factorization and the Left Null Space</a></li>
 <li><a href="#/what-the-structure-buys-us">What the Structure Buys Us</a></li>
@@ -748,6 +749,7 @@ Output: <span class="math inline">\(\reals^m\)</span>
 <li><a href="#/a-matrix-has-four-fundamental-subspaces">A matrix has four fundamental subspaces</a></li>
 <li><a href="#/rank-and-nullity-measure-different-parts-of-a-matrix">Rank and nullity measure different parts of a matrix</a></li>
 <li><a href="#/rank-nullity-counts-inputs">Rank-nullity counts inputs</a></li>
+<li><a href="#/four-spaces-answer-four-practical-questions">Four spaces answer four practical questions</a></li>
 <li><a href="#/one-reduction-exposes-the-structure">One reduction exposes the structure</a></li>
 <li><a href="#/column-and-row-bases-come-from-different-matrices">Column and row bases come from different matrices</a></li>
 <li><a href="#/free-variables-build-a-basis-for-the-null-space">Free variables build a basis for the null space</a></li>
@@ -854,6 +856,59 @@ Output: <span class="math inline">\(\reals^m\)</span>
 <aside class="notes">
 <p>This is the rank–nullity theorem, immediately after the definitions. Every column corresponds to one input variable, so the pivot and free variables partition all n columns. The original pivot columns form a column-space basis. Solving the homogeneous equations expresses the pivot variables in terms of the free ones; setting one free variable to 1 and the others to 0 gives a null-space basis. These vectors span every solution and are independent because their free-variable entries form an identity matrix. Thus the dimensions are r and n-r, including full-rank and zero-rank cases. The following running example verifies the count with concrete bases.</p>
 <p>This is a dimension identity, not an orthogonal decomposition of the two spaces: Col(A) lies in R^m and Null(A) lies in R^n.&nbsp;The orthogonal pair in the input space is Row(A) and Null(A), developed later. Rank counts independent output directions; nullity counts input directions sent to zero.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="four-spaces-answer-four-practical-questions" class="slide level2">
+<h2>Four spaces answer four practical questions</h2>
+<p>Think of <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> as a model, a measurement, or a physical balance</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Space</th>
+<th>Practical meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\operatorname{col}(\mat{A})\subseteq\reals^m\)</span></td>
+<td>All outputs <span class="math inline">\(\vct{b}\)</span> the model can produce</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\operatorname{null}(\mat{A})\subseteq\reals^n\)</span></td>
+<td>Input changes that leave the output unchanged</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\operatorname{row}(\mat{A})\subseteq\reals^n\)</span></td>
+<td>Vectors <span class="math inline">\(\vct{c}\)</span> whose input combination <span class="math inline">\(\vct{c}^\top\vct{x}\)</span> is determined by exact outputs</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\operatorname{null}(\mat{A}^\top)\subseteq\reals^m\)</span></td>
+<td>Relations every attainable output must satisfy</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#/matrix-spaces-in-applications">Peek at Matrix Spaces in Applications</a></p>
+<div class="key-point">
+<p>Column space describes what can happen; null space describes what can change invisibly</p>
+<p>&nbsp;</p>
+<p>Row space describes what we can learn about the input</p>
+</div>
+<aside class="notes">
+<p>Inputs are unrestricted real vectors, and recovery means exact algebraic recovery from b=A x with A known, not statistical certainty from noisy data. An input change z is invisible iff A z=0. A scalar c^top x is determined by b for every x iff c is in Row(A): if c=A^top w, then c^top x=w^top b. Conversely, a component of c in Null(A) would change this quantity along an invisible input direction. For every left-null vector w, w^top b=0 is necessary and sufficient collectively for b to be attainable. The orthogonal-pair section justifies these statements; applications follow it. Nonnegativity, capacity limits, or other constraints can restrict the physically feasible outputs to a proper subset of the column space.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1195,6 +1250,561 @@ W^\perp=\{\vct{z}\in\reals^d:\vct{z}^\top\vct{w}=0
 </div>
 <aside class="notes">
 <p>The null space has basis {(-1,-1,1)^T}; its dot product with each row is zero. The column space is R^2 and the left null space is {0}. The dimension sums are 2+1=3 and 2+0=2. Row-space vectors have three coordinates and column-space vectors have two, so their dot product is not defined.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="matrix-spaces-in-applications" class="title-slide slide level1 center">
+<h1>Matrix Spaces in Applications</h1>
+<p>The same four spaces describe fitting, measurement, variation, and conservation</p>
+<ul>
+<li><a href="#/regression-column-space-contains-every-exact-response">Regression: column space contains every fitted response</a></li>
+<li><a href="#/measurements-reveal-some-quantities-and-hide-others">Measurements reveal some quantities and hide others</a></li>
+<li><a href="#/pca-separates-sample-variation-from-zero-variation-directions">PCA separates sample variation from zero-variation directions</a></li>
+<li><a href="#/network-flows-separate-transfers-from-circulation">Network flows separate transfers from circulation</a></li>
+<li><a href="#/chemical-balances-are-null-space-vectors">Chemical balances are null-space vectors</a></li>
+</ul>
+</section>
+<section id="regression-column-space-contains-every-exact-response" class="slide level2">
+<h2>Regression: column space contains every fitted response</h2>
+<p>One synthetic dataset throughout: features <span class="math inline">\(1,t,1+t\)</span> at <span class="math inline">\(t=0,1,2,3\)</span></p>
+<p><span class="math display">\[
+\mat{X}=\begin{bmatrix}1&amp;0&amp;1\\1&amp;1&amp;2\\1&amp;2&amp;3\\1&amp;3&amp;4\end{bmatrix},\qquad
+\vct{y}=\begin{bmatrix}2\\2\\4\\8\end{bmatrix},\qquad
+\widehat{\vct{y}}=\mat{X}\widehat{\vct{\beta}}=\begin{bmatrix}1\\3\\5\\7\end{bmatrix}
+\]</span></p>
+<p>The ordinary least-squares fit lies in the space of sampled straight-line responses</p>
+<p><span class="math display">\[
+\operatorname{col}(\mat{X})
+=\operatorname{span}\left\{\begin{bmatrix}1\\1\\1\\1\end{bmatrix},
+\begin{bmatrix}0\\1\\2\\3\end{bmatrix}\right\}
+\]</span></p>
+<div class="key-point">
+<p>The observed <span class="math inline">\(\vct{y}\)</span> lies outside column space; the fitted <span class="math inline">\(\widehat{\vct{y}}\)</span> lies inside</p>
+</div>
+<aside class="notes">
+<p>Keep this same four-by-three X, observed y, and fitted yhat through all six regression slides. Rows index observations at t=0,1,2,3; columns index the features 1,t,1+t. The third column is the sum of the first two. The observed responses are synthetic and are not fitted perfectly. Ordinary unweighted, unpenalized least squares with unrestricted real coefficients is used throughout. The fitted response is unique, while coefficient estimates need not be unique.</p>
+<p>Every possible model response has the form alpha<em>1+gamma</em>t. Least squares gives alpha=1, gamma=2, hence yhat=[1,3,5,7]^top. The residual is [1,-1,-1,1]^top, perpendicular to both independent columns, as checked later. Column space is all responses this fixed design could fit exactly; the actual observed y is not one of them. Hats denote fitted values and coefficients; observed y=yhat+e throughout this example.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="regression-null-space-preserves-predictions">Null space gives coefficient changes that preserve predictions</h3>
+<p>For the same <span class="math inline">\(\mat{X}\)</span>, the derived feature <span class="math inline">\(1+t\)</span> makes rank <span class="math inline">\(2&lt;3\)</span> columns</p>
+<p><span class="math display">\[
+\mat{X}\begin{bmatrix}-1\\-1\\1\end{bmatrix}=\vct{0},\qquad
+\operatorname{null}(\mat{X})
+=\operatorname{span}\left\{\begin{bmatrix}-1\\-1\\1\end{bmatrix}\right\}
+\]</span></p>
+<p>Two coefficient estimates give the same <span class="alert">imperfect fit</span></p>
+<p><span class="math display">\[
+\mat{X}\begin{bmatrix}1\\2\\0\end{bmatrix}
+=\mat{X}\begin{bmatrix}0\\1\\1\end{bmatrix}
+=\begin{bmatrix}1\\3\\5\\7\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<p>Including a derived feature alongside its source columns can make individual coefficient estimates <span class="alert">nonunique</span></p>
+</div>
+<aside class="notes">
+<p>The fitted coefficients [1,2,0]^top and [0,1,1]^top reproduce yhat, not the observed y=[2,2,4,8]^top. Every least-squares coefficient vector is [1-c,2-c,c]^top. The design matrix stays fixed: no columns are recombined or replaced. A null-space shift changes the three coefficients without changing any fitted response or the residual. Rank is two and nullity one. The third feature adds a coefficient without expanding the space of possible fitted responses. Its separate effect cannot be identified from these features without a constraint or reparameterization.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="regression-row-space-gives-recoverable-combinations">Row space identifies the combinations in the fitted line</h3>
+<p>Keep the same model and data; collect the intercept and slope</p>
+<p><span class="math display">\[\begin{align*}
+\widehat y(t)
+&amp;=\widehat\beta_0+\widehat\beta_1t+\widehat\beta_2(1+t)\\
+&amp;=(\widehat\beta_0+\widehat\beta_2)+(\widehat\beta_1+\widehat\beta_2)t
+\end{align*}\]</span></p>
+<p>The fitted line is <span class="math inline">\(1+2t\)</span>, so its determined coefficient combinations are</p>
+<p><span class="math display">\[
+\widehat\beta_0+\widehat\beta_2=1,\qquad
+\widehat\beta_1+\widehat\beta_2=2
+\]</span></p>
+<p>Their coefficient vectors form a basis of row space</p>
+<p><span class="math display">\[
+\operatorname{row}(\mat{X})
+=\operatorname{span}\left\{\begin{bmatrix}1\\0\\1\end{bmatrix},
+\begin{bmatrix}0\\1\\1\end{bmatrix}\right\}
+\]</span></p>
+<div class="key-point">
+<p>The fitted responses determine the intercept and slope, while the three separate coefficients remain ambiguous</p>
+</div>
+<aside class="notes">
+<p>Row-space vectors are written as columns. Their dot products with betahat are, respectively, the effective intercept and effective slope. Thus Row(X) collects coefficient vectors of the linear quantities determined by the fitted responses. It is not the set of possible fitted beta vectors. The basis comes directly from the observed rows: with r1=[1,0,1]^top and r2=[1,1,2]^top, r1=[1,0,1]^top and r2-r1=[0,1,1]^top. Conversely every row [1,t,1+t]^top is the first basis vector plus t times the second. The two vectors are independent, proving the claimed basis. Both coefficient fits on the preceding slide have intercept 1 and slope 2.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="regression-row-space-collects-recoverable-combinations">Row combinations give determined predictions at new inputs</h3>
+<p>Write the observed rows as columns <span class="math inline">\(\vct{r}_1=[1,0,1]^\top\)</span> and <span class="math inline">\(\vct{r}_2=[1,1,2]^\top\)</span></p>
+<p>Combining these rows combines their fitted responses</p>
+<p><span class="math display">\[\begin{align*}
+\vct{r}_1^\top\widehat{\vct{\beta}}
+&amp;=\widehat y_1=1\quad\text{(intercept)}\\
+(\vct{r}_2-\vct{r}_1)^\top\widehat{\vct{\beta}}
+&amp;=\widehat y_2-\widehat y_1=2\quad\text{(slope)}
+\end{align*}\]</span></p>
+<p>At <span class="math inline">\(t=4\)</span>, the new feature profile is another row-space vector</p>
+<p><span class="math display">\[
+\begin{bmatrix}1\\4\\5\end{bmatrix}
+=\begin{bmatrix}1\\0\\1\end{bmatrix}
++4\begin{bmatrix}0\\1\\1\end{bmatrix},\qquad
+\widehat y(4)=1+4(2)=9
+\]</span></p>
+<div class="key-point">
+<p>Every coefficient fit giving the same <span class="math inline">\(\widehat{\vct{y}}\)</span> also gives this same new prediction</p>
+</div>
+<aside class="notes">
+<p>The observed responses are still [2,2,4,8]^top; the combinations here use the fitted responses [1,3,5,7]^top. This matters because a least-squares fit need not reproduce individual observed responses. For any fixed fitted vector yhat, c^top betahat is determined across all coefficient fits iff c is in Row(X). If c=X^top w, the quantity is w^top yhat; otherwise a nonzero null-space component of c supplies a coefficient shift that changes it without changing the fit.</p>
+<p>All valid feature profiles [1,t,1+t]^top lie in this row space by the feature definition. An arbitrary vector outside the plane c2=c0+c1 would violate that definition, so do not present it as another observation of this same model. The individual coefficient beta2 is undetermined: its coefficient vector [0,0,1]^top lies outside the row space. Adding more observations with these same feature definitions cannot remove the structural dependence. With full column rank, Row(X)=R^n and fitted coefficients are unique. Unambiguous model predictions do not guarantee accuracy on unseen data; no statistical noise model is assumed here.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="regression-left-null-space-contains-the-residual">Left null space contains the least-squares residual</h3>
+<p>For the same observed <span class="math inline">\(\vct{y}\)</span> and fitted <span class="math inline">\(\widehat{\vct{y}}\)</span>, the residual is nonzero</p>
+<p><span class="math display">\[
+\vct{e}=\vct{y}-\widehat{\vct{y}}=\begin{bmatrix}1\\-1\\-1\\1\end{bmatrix},\qquad
+\mat{X}^\top\vct{e}=\vct{0}
+\]</span></p>
+<p>It belongs to the left null space</p>
+<p><span class="math display">\[
+\operatorname{null}(\mat{X}^\top)
+=\operatorname{span}\left\{\begin{bmatrix}1\\-2\\1\\0\end{bmatrix},
+\begin{bmatrix}0\\1\\-2\\1\end{bmatrix}\right\}
+\]</span></p>
+<div class="key-point">
+<p><span class="math inline">\(\vct{y}=\widehat{\vct{y}}+\vct{e}\)</span>: attainable fit plus perpendicular discrepancy</p>
+</div>
+<aside class="notes">
+<p>The residual is the sum of the two displayed left-null basis vectors. Its dot product with the column of ones is 1-1-1+1=0; with the t column it is 0-1-2+3=0. Thus it is also perpendicular to their sum, column 3. Both basis vectors satisfy these same zero dot products, are independent, and the left nullity is 4-rank(X)=2. Since yhat is in Col(X) and e is perpendicular to it, the displayed yhat is the ordinary Euclidean least-squares fit. It is unique even though the coefficients are not. The two left-null vectors also give the second-difference relations satisfied by every attainable fitted response. No cause for the observed discrepancy is inferred, and no distributional assumption is imposed.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="practice-interpret-regression-spaces">Interpret the same regression through its four spaces</h3>
+<p>Keep <span class="math inline">\(\mat{X}\)</span> with features <span class="math inline">\(1,t,1+t\)</span>, observed <span class="math inline">\(\vct{y}=[2,2,4,8]^\top\)</span>, and fitted <span class="math inline">\(\widehat{\vct{y}}=[1,3,5,7]^\top\)</span></p>
+<div class="exitem lettered">
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Explain what each space tells us about this same imperfect fit <span class="exsub">Give another coefficient vector producing <span class="math inline">\(\widehat{\vct{y}}\)</span></span> <span class="exsub">Is the fitted coefficient of <span class="math inline">\(1+t\)</span> determined? Is the predicted response at <span class="math inline">\(t=4\)</span> determined?</span> <span class="exsub">Check that the residual is perpendicular to every column of <span class="math inline">\(\mat{X}\)</span></span> <span class="exsub">Could more observations using these same three features make the coefficients unique?</span> </span></p>
+</div>
+<aside class="notes">
+<p>For example [2,3,-1]^top produces [1,3,5,7]^top. The coefficient of 1+t is arbitrary, but all coefficient fits have effective intercept 1 and slope 2, so prediction at t=4 is 9. The residual has zero dot product with ones and t, hence also with 1+t. More observations cannot remove the identity between the third feature and the sum of the first two. Remove a redundant feature or impose an explicit identifying constraint to choose a unique coefficient representation. The four space dimensions are column 2, null 1, row 2, and left null 2.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="measurements-reveal-some-quantities-and-hide-others" class="slide level2">
+<h2>Measurements reveal some quantities and hide others</h2>
+<p>An idealized camera keeps horizontal and vertical coordinates, dropping depth</p>
+<p><span class="math display">\[
+\mat{A}=\begin{bmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\end{bmatrix},\qquad
+\mat{A}\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
+=\begin{bmatrix}x_1\\x_2\end{bmatrix}
+\]</span></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Space</th>
+<th>Meaning for the camera</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\operatorname{col}(\mat{A})=\reals^2\)</span></td>
+<td>Every screen position is attainable</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\operatorname{null}(\mat{A})=\operatorname{span}\{[0,0,1]^\top\}\)</span></td>
+<td>Changing depth leaves the image unchanged</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\operatorname{row}(\mat{A})=\{[a,b,0]^\top\}\)</span></td>
+<td>Exactly the quantities <span class="math inline">\(ax_1+bx_2\)</span> can be recovered</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\operatorname{null}(\mat{A}^\top)=\{\vct{0}\}\)</span></td>
+<td>No nontrivial linear restriction on screen positions</td>
+</tr>
+</tbody>
+</table>
+<div class="key-point">
+<p>A visible position can correspond to an entire line of invisible depth changes</p>
+</div>
+<aside class="notes">
+<p>This is orthographic projection with a fixed camera orientation, no occlusion, and no perspective division. It is a linear map of coordinates; an ordinary perspective camera is not this linear map of R^3 into R^2. The row and null spaces are a plane and its perpendicular axis inside R^3. The column space is a different plane, the output R^2. Two points with identical x1,x2 produce the same output regardless of x3.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="two-sensors-determine-a-difference">Two sensors can determine a difference without determining each input</h3>
+<p>Two sensors measure overlapping sums of three unknown quantities</p>
+<p><span class="math display">\[
+\vct{b}=\underbrace{\begin{bmatrix}1&amp;1&amp;0\\0&amp;1&amp;1\end{bmatrix}}_{\mat{A}}
+\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}
+=\begin{bmatrix}x_1+x_2\\x_2+x_3\end{bmatrix}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\operatorname{col}(\mat{A})=\reals^2\)</span>: every pair of real readings is possible</li>
+<li><span class="math inline">\(\operatorname{null}(\mat{A})=\operatorname{span}\{[-1,1,-1]^\top\}\)</span>: a hidden change shared by both sensors</li>
+<li><span class="math inline">\([1,0,-1]^\top=[1,1,0]^\top-[0,1,1]^\top\in\operatorname{row}(\mat{A})\)</span></li>
+</ul>
+<p><span class="math display">\[
+x_1-x_3=b_1-b_2
+\]</span></p>
+<div class="key-point">
+<p>Neither sensor measures the difference directly, but their <span class="alert">row space</span> makes it recoverable</p>
+</div>
+<aside class="notes">
+<p>Assume unrestricted real inputs and exact linear sensor readings. None of the individual x_i is recoverable: each changes along the displayed null-space vector. The difference x1-x3 is recoverable because its coefficient vector is a difference of the rows. The total x1+x2+x3 is not: its coefficient vector has nonzero dot product with the null vector. Full row rank makes every b attainable and the left null space trivial. Nonnegative inputs or other physical constraints would require additional feasibility conditions; they are not imposed in this example.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="pca-separates-sample-variation-from-zero-variation-directions" class="slide level2">
+<h2>PCA separates sample variation from zero-variation directions</h2>
+<p>Let <span class="math inline">\(\mat{X}\in\reals^{m\times n}\)</span> have observations in rows and <span class="alert">centered feature columns</span></p>
+<p>For a unit feature direction <span class="math inline">\(\vct{q}\in\reals^n\)</span>, its score vector is <span class="math inline">\(\mat{X}\vct{q}\in\reals^m\)</span></p>
+<p><span class="math display">\[
+\text{sample variance along }\vct{q}
+=\frac{\|\mat{X}\vct{q}\|^2}{m-1}\qquad(m&gt;1)
+\]</span></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Space</th>
+<th>PCA interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\operatorname{row}(\mat{X})\)</span></td>
+<td>Span of all principal directions with positive sample variance</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\operatorname{null}(\mat{X})\)</span></td>
+<td>Feature directions with zero sample variance</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\operatorname{col}(\mat{X})\)</span></td>
+<td>All score vectors obtainable by linear combinations of features</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\operatorname{null}(\mat{X}^\top)\)</span></td>
+<td>Observation combinations perpendicular to every feature column</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes">
+<p>This is covariance PCA on real centered data with the Euclidean metric, without an additional standardization step. Principal directions are orthonormal eigenvectors of X^top X. If the eigenvalue lambda is positive, q=X^top(Xq)/lambda is in Row(X); these r directions form its basis. Zero eigenvalues correspond exactly to Null(X). Nonzero principal score vectors Xq span Col(X), and are mutually orthogonal. Unit q is needed to compare variance across directions fairly. Centering makes every score mean zero and puts the all-ones observation vector in Null(X^top). Zero variation here concerns this observed sample, not all future data.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="pca-redundant-feature-creates-zero-variance">A redundant feature creates a zero-variance direction</h3>
+<p>Four synthetic centered observations of three features, with feature 3 = feature 1 + feature 2</p>
+<p><span class="math display">\[
+\mat{X}=\begin{bmatrix}1&amp;0&amp;1\\-1&amp;0&amp;-1\\0&amp;1&amp;1\\0&amp;-1&amp;-1\end{bmatrix},\qquad
+\vct{q}_0=\frac1{\sqrt3}\begin{bmatrix}1\\1\\-1\end{bmatrix},\qquad
+\mat{X}\vct{q}_0=\vct{0}
+\]</span></p>
+<ul>
+<li>Row space: the feature plane <span class="math inline">\(\{\vct{z}\in\reals^3:z_3=z_1+z_2\}\)</span> containing every observation</li>
+<li>Null space: <span class="math inline">\(\operatorname{span}\{\vct{q}_0\}\)</span>, perpendicular to that plane</li>
+<li>Rank <span class="math inline">\(2\)</span>: only two principal directions can have positive sample variance</li>
+</ul>
+<div class="key-point">
+<p>Every observation has zero component in the null-space direction</p>
+</div>
+<aside class="notes">
+<p>Each feature column sums to zero, so the data are already centered. X has rank two and X^top X=[[2,0,2],[0,2,2],[2,2,4]]. Every observed row, viewed as a feature-space column, lies in z3=z1+z2. For the original uncentered observations, zero scores after centering mean a constant feature combination, not necessarily a combination equal to zero. The exact feature relation is deliberately synthetic. In real data, small positive variation is different from membership in the exact null space.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="pca-directions-and-scores-live-in-different-spaces">Principal directions and scores live in different spaces</h3>
+<p>For the same centered <span class="math inline">\(\mat{X}\)</span>, two unit principal directions are</p>
+<p><span class="math display">\[
+\vct{q}_1=\frac1{\sqrt6}\begin{bmatrix}1\\1\\2\end{bmatrix},\qquad
+\vct{q}_2=\frac1{\sqrt2}\begin{bmatrix}1\\-1\\0\end{bmatrix}
+\quad\in\operatorname{row}(\mat{X})\subseteq\reals^3
+\]</span></p>
+<p>Their score vectors are</p>
+<p><span class="math display">\[
+\vct{s}_1=\mat{X}\vct{q}_1=\frac1{\sqrt6}\begin{bmatrix}3\\-3\\3\\-3\end{bmatrix},\qquad
+\vct{s}_2=\mat{X}\vct{q}_2=\frac1{\sqrt2}\begin{bmatrix}1\\-1\\-1\\1\end{bmatrix}
+\quad\in\operatorname{col}(\mat{X})\subseteq\reals^4
+\]</span></p>
+<div class="key-point">
+<p>Directions combine features; scores give one value per observation</p>
+<p>The squared score lengths are <span class="math inline">\(6\)</span> and <span class="math inline">\(2\)</span>: <span class="alert">75% and 25%</span> of the sample variation</p>
+</div>
+<aside class="notes">
+<p>The eigenvalues of X^top X are 6,2,0 for q1,q2,q0 respectively. The sample covariance eigenvalues divide these by m-1=3, giving 2,2/3,0; the variance fractions remain 3/4 and 1/4. The displayed vectors are orthonormal in feature space; their nonzero score vectors are orthogonal and form a basis of Col(X). Their normalized versions are left singular vectors. The left null space is span{[1,1,0,0]<sup>top,[0,0,1,1]</sup>top}; each opposite observation pair cancels. In particular [1,1,1,1]^top is left-null from centering, so all scores sum to zero.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="pca-rotation-versus-truncation">Keeping fewer principal components discards directions</h3>
+<p>A full PCA basis <span class="math inline">\(\mat{Q}=[\vct{q}_1\ \vct{q}_2\ \vct{q}_0]\)</span> is orthogonal</p>
+<p><span class="math display">\[
+\mat{S}=\mat{X}\mat{Q}=[\vct{s}_1\ \vct{s}_2\ \vct{0}],\qquad
+\mat{X}=\mat{S}\mat{Q}^\top
+\]</span></p>
+<p>Keeping only the leading component projects each observation onto <span class="math inline">\(\operatorname{span}\{\vct{q}_1\}\)</span></p>
+<p><span class="math display">\[
+\mat{P}=\vct{q}_1\vct{q}_1^\top,\qquad
+\mat{X}_1=\mat{X}\mat{P}=\vct{s}_1\vct{q}_1^\top
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\operatorname{col}(\mat{P})=\operatorname{row}(\mat{P})=\operatorname{span}\{\vct{q}_1\}\)</span>: retained feature direction</li>
+<li><span class="math inline">\(\operatorname{null}(\mat{P})=\operatorname{span}\{\vct{q}_2,\vct{q}_0\}\)</span>: discarded feature directions</li>
+</ul>
+<div class="key-point">
+<p>The full rotation preserves the data; one-component reconstruction retains 75% of this sample’s variation</p>
+</div>
+<aside class="notes">
+<p>All Q columns are retained in the first display, including a zero-variance direction, so Q is a square invertible coordinate change. Retaining the two positive-variance components also reconstructs this particular sample exactly. Keeping only q1 discards the nonzero q2 component, whose squared Frobenius contribution is 2 out of total 8. Null(P) is larger than Null(X): q2 has observed variation but the chosen compression discards it. The projection matrix P acts on feature columns; X P applies its transpose (equal to P) to each row. The row and column spaces just displayed belong to P, not to X. This distinction prevents confusing data null directions with directions discarded by a low-rank approximation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="network-flows-separate-transfers-from-circulation" class="slide level2">
+<h2>Network flows separate transfers from circulation</h2>
+<p>Signed flows around three nodes: <span class="math inline">\(1\xrightarrow{f_1}2\xrightarrow{f_2}3\xrightarrow{f_3}1\)</span></p>
+<p>The incidence matrix gives net <span class="alert">inflow minus outflow</span> at each node</p>
+<p><span class="math display">\[
+\vct{b}=\underbrace{\begin{bmatrix}-1&amp;0&amp;1\\1&amp;-1&amp;0\\0&amp;1&amp;-1\end{bmatrix}}_{\mat{B}}
+\begin{bmatrix}f_1\\f_2\\f_3\end{bmatrix}
+=\begin{bmatrix}f_3-f_1\\f_1-f_2\\f_2-f_3\end{bmatrix}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(\operatorname{col}(\mat{B})=\{\vct{b}:b_1+b_2+b_3=0\}\)</span>: all possible net transfers</li>
+<li><span class="math inline">\(\operatorname{null}(\mat{B})=\operatorname{span}\{[1,1,1]^\top\}\)</span>: circulation changes no node balance</li>
+<li><span class="math inline">\([1,1,1]^\top\in\operatorname{null}(\mat{B}^\top)\)</span>: the total net transfer must be zero</li>
+</ul>
+<div class="key-point">
+<p>Node balances detect transfers, but cannot detect an added trip around the cycle</p>
+</div>
+<aside class="notes">
+<p>Column j records minus one at the tail and plus one at the head of edge j. Negative flow is permitted and means flow against the drawn orientation. No capacities or one-way restrictions are imposed. Rank is two, so the sum-zero column plane and one-dimensional null space have the claimed dimensions. Every sum-zero b is attained, for example by f1=0, f2=-b2,f3=b1. For the displayed directed cycle, nonnegative flows could also realize any such b after adding a sufficiently large circulation; do not generalize that claim to arbitrary constrained networks.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="network-row-space-gives-recoverable-flows">Network row space gives flow combinations determined by balances</h3>
+<p>For the same cycle, exact node balances determine flow differences</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Coefficient vector</th>
+<th>Flow combination</th>
+<th>From node balances</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\([1,-1,0]^\top\)</span></td>
+<td><span class="math inline">\(f_1-f_2\)</span></td>
+<td><span class="math inline">\(b_2\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\([0,1,-1]^\top\)</span></td>
+<td><span class="math inline">\(f_2-f_3\)</span></td>
+<td><span class="math inline">\(b_3\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\([1,0,-1]^\top\)</span></td>
+<td><span class="math inline">\(f_1-f_3\)</span></td>
+<td><span class="math inline">\(b_2+b_3\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The third coefficient vector is the sum of the first two</p>
+<p><span class="math display">\[
+\operatorname{row}(\mat{B})
+=\{\vct{c}\in\reals^3:c_1+c_2+c_3=0\}
+\]</span></p>
+<div class="key-point">
+<p>Flow differences are determined, while adding the same amount to every flow leaves the balances unchanged</p>
+</div>
+<aside class="notes">
+<p>Row(B)=Col(B^top) is the space of potential differences on edges, often called the cut space. Adding a constant to all node potentials does not change those differences: constants form Null(B^top). The edge circulation [1,1,1]^top is perpendicular to every row-space vector. Adding t to every flow leaves any sum-zero coefficient combination unchanged, but changes f1+f2+f3 by 3t. Thus node balances alone do not determine total circulation or the individual flows. This is the same recoverability argument used for regression and sensors, now with a physical interpretation. For an optional potential example, p=[0,2,5]^top gives edge differences B^top p=[2,3,-5]^top. The corresponding recoverable flow combination is 2f1+3f2-5f3=p^top b=2b2+5b3. The visible table starts with simpler differences before this general potential construction.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="chemical-balances-are-null-space-vectors" class="slide level2">
+<h2>Chemical balances are null-space vectors</h2>
+<p>Balance <span class="math inline">\(x_1\mathrm{H}_2+x_2\mathrm{O}_2\longrightarrow x_3\mathrm{H}_2\mathrm{O}\)</span></p>
+<p>Rows count hydrogen and oxygen atoms, with products carrying a minus sign</p>
+<p><span class="math display">\[
+\underbrace{\begin{bmatrix}2&amp;0&amp;-2\\0&amp;2&amp;-1\end{bmatrix}}_{\mat{A}}
+\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix}=\vct{0},\qquad
+\operatorname{null}(\mat{A})
+=\operatorname{span}\left\{\begin{bmatrix}2\\1\\2\end{bmatrix}\right\}
+\]</span></p>
+<ul>
+<li>Null space: all signed real coefficient lists that conserve both elements</li>
+<li>Row space: all linear combinations of the hydrogen and oxygen balance checks</li>
+<li>Column space: all algebraically possible hydrogen/oxygen imbalance vectors</li>
+</ul>
+<div class="key-point">
+<p>The smallest positive integer null vector gives <span class="math inline">\(2\mathrm{H}_2+\mathrm{O}_2\longrightarrow2\mathrm{H}_2\mathrm{O}\)</span></p>
+</div>
+<aside class="notes">
+<p>Rank is two, nullity one, Col(A)=R^2, and Null(A^top)={0}. For balancing this fixed reaction orientation, chemistry requires positive integer coefficients, selecting positive integer multiples of the primitive null vector. The entire real null space also contains zero and negative multiples; those are algebraic solutions rather than the specified reaction recipe. This example does not claim that every mathematical imbalance is physically feasible with nonnegative molecular quantities.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
