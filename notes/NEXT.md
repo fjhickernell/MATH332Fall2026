@@ -53,6 +53,11 @@ and calendar note above are unchanged. Instructor review of Deck 08 and its
 companion remains open. These additions are included in this Checkpoint;
 validation is recorded in `notes/DECK-AUDIT.md`.
 
+Candidate for this same applications sequence: Netflix-style user/movie
+ratings to illustrate row and column spaces and predicting an unobserved
+rating. Review the idea and its distinction from Google PageRank in
+`notes/IDEAS.md`; no slide implementation yet.
+
 ## November 5 makeup
 
 The private makeup is approved and printed. Administration and grading remain.
