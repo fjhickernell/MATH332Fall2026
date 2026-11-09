@@ -116,8 +116,9 @@ The website and all twelve decks render locally; all 1,831 local references
 and 817 anchors across 23 assembled outputs resolve. The Notebooks page fits
 at 1280- and 390-pixel widths; the three new deck callouts and tensor-scope
 revisions fit at 1280×720. The frames link navigates to its intended slide.
-The notebook links and scope decision are included in this Checkpoint;
-remote deployment and live-page verification remain pending.
+The notebook links and scope decision are preserved in `10d2675`.
+Publishing and Pages deployment succeeded for that commit, verified
+November 9; live-page verification and instructor review remain pending.
 
 ## November 5 makeup
 
