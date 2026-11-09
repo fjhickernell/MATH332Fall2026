@@ -343,6 +343,9 @@ Mathematical content should be maintained only in the slides.
   distribution to the course website and canonical archive, verify both live
   copies, and publish the all-sections Canvas announcement `109562`
   (November 2, 2026). Regular-sitting papers were returned November 4;
-  makeup administration and grading remain.
+  makeup grading remains.
 - [x] Finalize the private makeup for administration; printing is reported
   complete November 4. Keep the assessment private through grading.
+- [x] Administer the November 5 makeup sitting; instructor confirmation
+  received November 8. Grade by November 9 for return November 10; the
+  six-day grading deadline remains November 11.

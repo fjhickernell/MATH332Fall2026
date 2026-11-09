@@ -3,10 +3,10 @@
 ## Quiz 4 coverage — announced November 6
 
 Quiz 4 is Thursday, November 12, and covers the full **Bases, Dimension,
-and Coordinates** deck. Schedule and Quizzes and Tests coverage rows are
-included in this Checkpoint; Deck 07's title notice now says Quiz 4 · November 12
-and retains the November 6 Assignment 5 deadline. Remote deployment and
-live-page verification remain pending.
+and Coordinates** deck. The Schedule and Quizzes and Tests coverage rows and
+Deck 07's Quiz 4 · November 12 title notice are published. Publishing and
+Pages deployment succeeded for `9d94cfd`; the three live pages were verified
+November 9. The deck retains the November 6 Assignment 5 deadline.
 
 [Quiz 4 coverage announcement](https://iit.instructure.com/courses/23913/discussion_topics/109873)
 is published to **All Sections**, November 6 at 12:37 PM CST. Saved text and
@@ -25,9 +25,8 @@ overflow, and the Deck 07 title notice fits at 1280×900. `git diff --check`
 passes. Shared slide-resource warnings concern optional files; required
 assembled shared pages and all linked assets are present. The latest prior
 course publishing and Pages deployment runs succeeded.
-Dashboard closeout and recording the November 18 grading task await the
-separate Daily Scan being handled by Derf, per instructor direction. Do not
-run a duplicate scan from this course task.
+The Dashboard already records the November 18 Quiz 4 grading task and the
+November 10 lecture preparation. No duplicate scan is needed.
 
 ## Immediate next work — November 10
 
@@ -89,11 +88,11 @@ rating. Review the idea and its distinction from Google PageRank in
 
 ## November 5 makeup
 
-The private makeup is approved and printed. Administration and grading remain.
-Grade the planned November 5 sitting by November 11; recalculate from the
-actual administration date plus six calendar days if it changes. Keep the
-assessment private until grading is complete; no separate small-cohort score
-distribution.
+The November 5 makeup sitting has been administered, confirmed by the
+instructor November 8. Finish grading and Canvas entry by November 9 for
+return on November 10; the six-day grading deadline remains November 11.
+Keep the assessment private until grading is complete; no separate
+small-cohort score distribution.
 
 ## November 3 teaching follow-up
 
@@ -274,7 +273,7 @@ PDFs match the inspected seven-page release byte for byte.
 was published November 2 at 4:28 PM CST to All Sections. Saved text and the
 live Quizzes and Tests link are verified. No further regular-sitting grade,
 PDF, or announcement release action remains. The regular-sitting papers were
-returned November 4. Makeup administration and grading remain; see the
+returned November 4. Makeup grading remains; see the
 November 5 makeup handoff above.
 
 Validation: authoritative private-source build, complete seven-page PDF
