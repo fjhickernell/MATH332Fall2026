@@ -59,9 +59,11 @@ website:
     right:
       - text: Related
         menu:
-          - text: MATH 565 — Fall 2026
+          - text: MATH 574 — Bayesian Computational Statistics — Spring 2027
+            href: https://fjhickernell.github.io/MATH574Spring2027/
+          - text: MATH 565 — Monte Carlo — Fall 2026
             href: https://fjhickernell.github.io/MATH565Fall2026/
-          - text: MATH 565 — Fall 2025
+          - text: MATH 565 — Monte Carlo — Fall 2025
             href: https://qmcsoftware.github.io/MATH565Fall2025/
           - text: MATH 476 — Statistics
             href: https://fjhickernell.github.io/MATH476Spring2026/
