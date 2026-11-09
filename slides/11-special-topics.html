@@ -633,7 +633,7 @@
 
 <section id="title-slide" data-background-color="#f5f7fb" data-background-image="https://fjhickernell.github.io/MATH332Fall2026/classlib/classlib/quarto/assets/images/normal-scatter.png" data-background-position="top left" data-background-size="55%" class="quarto-title-block center">
   <h1 class="title">MATH 332 — Fall 2026</h1>
-  <p class="subtitle"><span class="deck-title">Special Topics</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul Selected Chs. 7–10</span><br> <span class="deck-meta">FFT and tensor enrichment</span></p>
+  <p class="subtitle"><span class="deck-title">Special Topics</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul Selected Chs. 7–10</span><br> <span class="deck-meta">Optional FFT enrichment</span></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -684,13 +684,12 @@ In this deck
 <li><a href="#/regression-through-qr-and-svd">Regression Through QR and SVD</a></li>
 <li><a href="#/quadratic-forms-and-principal-axes">Quadratic Forms and Principal Axes</a></li>
 <li><a href="#/fourier-coordinates-and-the-fft">Fourier Coordinates and the FFT</a></li>
-<li><a href="#/tensor-products-and-structured-data">Tensor Products and Structured Data</a></li>
 <li><a href="#/networks-and-iterative-eigenvectors">Networks and Iterative Eigenvectors</a></li>
 <li><a href="#/big-ideas">Big Ideas</a></li>
 </ul>
 </div></div>
 <aside class="notes">
-<p>Instructor draft: modular sections, not a commitment to cover every topic. SVD and regression are the priority. QR/least squares and complex inner products are drafted in Inner Product Spaces (Anton §§6.3–6.6); review and teach that foundation first. Quadratic forms can precede SVD if the spectral theorem needs development first. FFT and tensors supplement Anton; networks and iterative eigenvectors are optional. Suggested demonstrations remain to be built, not linked as existing notebooks.</p>
+<p>Instructor draft: modular sections, not a commitment to cover every topic. SVD and regression are the priority. QR/least squares and complex inner products are drafted in Inner Product Spaces (Anton §§6.3–6.6); review and teach that foundation first. Quadratic forms can precede SVD if the spectral theorem needs development first. FFT supplements Anton; networks and iterative eigenvectors are optional. Tensors are limited to the single optional product-bases/frames slide in the SVD section, about two minutes; do not expand them into a separate unit or demonstration. The SVD/regression companion is locally executed and linked from the closing slide. Optional FFT and network demonstrations have not been built.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -710,7 +709,6 @@ In this deck
 <ul>
 <li>Quadratic forms and principal axes</li>
 <li>Fourier transforms and FFT</li>
-<li>Tensors and structured images</li>
 <li>Power iteration and PageRank</li>
 <li>Graph Laplacians and networks</li>
 </ul>
@@ -741,6 +739,7 @@ In this deck
 <li><a href="#/why-an-svd-exists">Why an SVD exists</a></li>
 <li><a href="#/the-four-spaces-reappear-in-orthonormal-coordinates">The four spaces reappear in orthonormal coordinates</a></li>
 <li><a href="#/a-matrix-is-a-sum-of-rank-one-maps">A matrix is a sum of rank-one maps</a></li>
+<li><a href="#/a-tensor-has-coordinates-after-choosing-bases">A tensor glimpse: product bases and frames</a></li>
 <li><a href="#/the-best-low-rank-approximation-has-a-measurable-error">The best low-rank approximation has a measurable error</a></li>
 <li><a href="#/practice-reading-singular-values">Practice reading singular values</a></li>
 </ul>
@@ -903,6 +902,34 @@ In this deck
 \mat{A}_k=\sum_{j=1}^k\sigma_j\vct{U}_j\vct{V}_j^\top,\qquad 0\le k&lt;r
 \end{equation*}\]</span></p>
 <p>A controlled approximation using fewer directions</p>
+</section>
+<section id="a-tensor-has-coordinates-after-choosing-bases" class="slide level2">
+<h2>A tensor glimpse: product bases and frames</h2>
+<p><span class="alert">Optional · two minutes</span>: combine one direction from each space</p>
+<p>In real Euclidean coordinates, <span class="math inline">\(\vct{u}\otimes\vct{v}\)</span> has array <span class="math inline">\(\vct{u}\vct{v}^\top\)</span>; for example <span class="math display">\[\begin{equation*}
+\begin{bmatrix}1\\2\end{bmatrix}\begin{bmatrix}3&amp;4\end{bmatrix}
+=\begin{bmatrix}3&amp;4\\6&amp;8\end{bmatrix}
+\end{equation*}\]</span></p>
+<p>Bases <span class="math inline">\(\{\vct{b}_i\}_{i=1}^m\)</span> of <span class="math inline">\(\reals^m\)</span> and <span class="math inline">\(\{\vct{c}_j\}_{j=1}^n\)</span> of <span class="math inline">\(\reals^n\)</span> give <span class="math display">\[\begin{equation*}
+\mat{X}=\sum_{i=1}^m\sum_{j=1}^n z_{ij}\vct{b}_i\vct{c}_j^\top
+\end{equation*}\]</span></p>
+<ul>
+<li>Product basis: <span class="math inline">\(mn\)</span> matrix patterns, unique coefficients <span class="math inline">\(z_{ij}\)</span></li>
+<li>Finite <a href="07-bases-dimension-and-coordinates.html#a-frame-can-keep-redundant-generators">frames</a> in both spaces: products still span; redundancy gives nonunique coefficients</li>
+</ul>
+<aside class="notes">
+<p>This is the entire tensor coverage, an optional two-minute connection to the preceding SVD outer products and the earlier finite-frame preview. A single outer product need not represent a general matrix; sums of product patterns do. Under the standard coordinate identification R^m tensor R^n with m-by-n arrays, elementary tensors have the displayed outer-product arrays. General abstract tensors are not canonically linear maps W to V; that interpretation uses a dual space or a chosen inner product. For basis matrices B and C, X=B Z C^T and Z=B^{-1} X C^{-T}, so all mn coefficients are unique. Finite frames are finite spanning lists in these Euclidean spaces. Their pairwise products span the matrix space because each standard coordinate vector is a linear combination of the corresponding list. If a factor list is redundant and the other space is nonzero, multiply its nontrivial zero relation by any nonzero vector from the other list to obtain a product dependence. Do not add Kronecker maps, contractions, higher-order tensor ranks, or a separate tensor notebook this semester.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="the-best-low-rank-approximation-has-a-measurable-error" class="slide level2">
 <h2>The best low-rank approximation has a measurable error</h2>
@@ -1390,133 +1417,6 @@ y_j=\sum_{\ell=0}^{n-1}h_\ell x_{(j-\ell)\bmod n}\\
       }</style></aside>
 </section></section>
 <section>
-<section id="tensor-products-and-structured-data" class="title-slide slide level1 center">
-<h1>Tensor Products and Structured Data</h1>
-<ul>
-<li><a href="#/an-outer-product-separates-two-directions">An outer product separates two directions</a></li>
-<li><a href="#/a-tensor-has-coordinates-after-choosing-bases">A tensor has coordinates after choosing bases</a></li>
-<li><a href="#/kronecker-products-apply-maps-to-both-factors">Kronecker products apply maps to both factors</a></li>
-<li><a href="#/transform-an-image-along-rows-and-columns">Transform an image along rows and columns</a></li>
-<li><a href="#/more-indices-describe-more-modes">More indices describe more modes</a></li>
-<li><a href="#/practice-spotting-separability">Practice spotting separability</a></li>
-</ul>
-</section>
-<section id="an-outer-product-separates-two-directions" class="slide level2">
-<h2>An outer product separates two directions</h2>
-<p><span class="math display">\[\begin{gather*}
-\vct{u}=\begin{bmatrix}1\\2\end{bmatrix},\quad
-\vct{v}=\begin{bmatrix}3\\4\\5\end{bmatrix},\qquad
-\vct{u}\vct{v}^\top=\begin{bmatrix}3&amp;4&amp;5\\6&amp;8&amp;10\end{bmatrix}\\
-a_{ij}=u_i v_j
-\end{gather*}\]</span></p>
-<p>One pattern down the rows, one across the columns</p>
-<p>A nonzero outer product has rank one</p>
-<p>SVD builds matrices by summing such separated patterns</p>
-</section>
-<section id="a-tensor-has-coordinates-after-choosing-bases" class="slide level2">
-<h2>A tensor has coordinates after choosing bases</h2>
-<p>For finite-dimensional real spaces <span class="math inline">\(V\)</span> and <span class="math inline">\(W\)</span> with bases <span class="math inline">\(\{\vct{e}_i\}\)</span> and <span class="math inline">\(\{\vct{f}_j\}\)</span>: <span class="math display">\[\begin{gather*}
-V\otimes W\text{ has basis }\{\vct{e}_i\otimes\vct{f}_j\}_{i,j}\\
-T=\sum_{i,j}t_{ij}\vct{e}_i\otimes\vct{f}_j,\qquad
-\dim(V\otimes W)=\dim(V)\dim(W)
-\end{gather*}\]</span></p>
-<p><span class="math inline">\(\otimes\)</span> is bilinear; a general tensor is a sum of elementary tensors</p>
-<p>For <span class="math inline">\(\mathcal{E}=\{\vct{e}_i\}\)</span> and <span class="math inline">\(\mathcal{F}=\{\vct{f}_j\}\)</span>, the coordinate matrix of <span class="math inline">\(\vct{u}\otimes\vct{v}\)</span> is <span class="math inline">\([\vct{u}]_{\mathcal{E}}[\vct{v}]_{\mathcal{F}}^\top\)</span></p>
-<div class="key-point">
-<p>The coordinate array uses the listed orders of the chosen bases</p>
-</div>
-<aside class="notes">
-<p>This is an introductory finite-dimensional description. Tensor products can be characterized by a universal property for bilinear maps; defer that abstraction. V tensor W is not canonically the space of maps W to V: that identification uses W’s dual, or an explicitly chosen inner product. Avoid equating every two-index tensor with a linear operator without this distinction.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="kronecker-products-apply-maps-to-both-factors" class="slide level2">
-<h2>Kronecker products apply maps to both factors</h2>
-<p>For matrices <span class="math inline">\(\mat{B}\)</span> and <span class="math inline">\(\mat{C}\)</span>: <span class="math display">\[\begin{gather*}
-\mat{B}\otimes\mat{C}=[b_{ij}\mat{C}]_{i,j}\\
-(\mat{B}\otimes\mat{C})(\vct{u}\otimes\vct{v})
-=(\mat{B}\vct{u})\otimes(\mat{C}\vct{v})
-\end{gather*}\]</span></p>
-<p>If <span class="math inline">\(\mat{B}\)</span> is <span class="math inline">\(p\times m\)</span> and <span class="math inline">\(\mat{C}\)</span> is <span class="math inline">\(q\times n\)</span>, their Kronecker product is <span class="math inline">\(pq\times mn\)</span></p>
-<p>Here the coordinate vector for <span class="math inline">\(\vct{u}\otimes\vct{v}\)</span> lists one block <span class="math inline">\(u_i\vct{v}\)</span> per <span class="math inline">\(i\)</span></p>
-<aside class="notes">
-<p>The ordering of tensor-product coordinates matters. This block convention agrees with NumPy kron(u,v). The next slide separately specifies column stacking for vectorization; there is no implicit claim that these two listings use the same order.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="transform-an-image-along-rows-and-columns" class="slide level2">
-<h2>Transform an image along rows and columns</h2>
-<p>For an <span class="math inline">\(m\times n\)</span> image matrix <span class="math inline">\(\mat{X}\)</span>: <span class="math display">\[\begin{gather*}
-\mat{Y}=\mat{B}\mat{X}\mat{C}^\top\\
-\operatorname{vec}(\mat{Y})=(\mat{C}\otimes\mat{B})\operatorname{vec}(\mat{X})
-\end{gather*}\]</span></p>
-<p><span class="math inline">\(\operatorname{vec}\)</span> stacks columns; <span class="math inline">\(\mat{B}\)</span> acts on row indices and <span class="math inline">\(\mat{C}\)</span> on column indices</p>
-<p>Two-dimensional DFT: <span class="math inline">\(\mat{Y}=\mat{F}_m\mat{X}\mat{F}_n^\top\)</span></p>
-<div class="key-point">
-<p>Apply the smaller transforms separately instead of building a giant Kronecker matrix</p>
-</div>
-</section>
-<section id="more-indices-describe-more-modes" class="slide level2">
-<h2>More indices describe more modes</h2>
-<p>An image with color channels has coordinates <span class="math inline">\(t_{ijk}\)</span></p>
-<p>An elementary three-factor tensor has <span class="math inline">\(t_{ijk}=u_i v_j w_k\)</span> <span class="math display">\[\begin{equation*}
-\mathcal{T}=\sum_{\ell=1}^s\vct{u}_\ell\otimes\vct{v}_\ell\otimes\vct{w}_\ell
-\end{equation*}\]</span></p>
-<p>A contraction sums matching indices, for example <span class="math display">\[\begin{equation*}
-y_i=\sum_{j,k}t_{ijk}v_j w_k
-\end{equation*}\]</span></p>
-<aside class="notes">
-<p>With real Euclidean coordinate spaces, v and w can represent covectors via the chosen inner products. General contractions pair a space with its dual. For tensors of order three or more, the smallest number of elementary terms is tensor rank; matrix SVD does not directly supply an analogous universal orthogonal decomposition. Avoid claiming that truncating a tensor decomposition is always a best approximation.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="practice-spotting-separability" class="slide level2">
-<h2>Practice spotting separability</h2>
-<div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Which matrix is a single outer product?<br><span class="math inline">\(\mat{X}=\begin{bmatrix}1&amp;2\\3&amp;6\end{bmatrix}\)</span>, <span class="math inline">\(\quad\mat{Y}=\begin{bmatrix}1&amp;2\\3&amp;7\end{bmatrix}\)</span><br>For <span class="math inline">\(\dim(V)=2\)</span> and <span class="math inline">\(\dim(W)=3\)</span>, how many product-basis vectors are needed?</span></p>
-</div>
-<aside class="notes">
-<p>X=[1,3]^T(1,2); rank one. Y has determinant 1 and rank two, so it is not a single outer product. The tensor-product dimension is 6.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
 <section id="networks-and-iterative-eigenvectors" class="title-slide slide level1 center">
 <h1>Networks and Iterative Eigenvectors</h1>
 <ul>
@@ -1615,7 +1515,7 @@ y_i=\sum_{j,k}t_{ijk}v_j w_k
 <li><span class="alert">Regression</span>: projection, coefficient sensitivity, and regularization</li>
 <li><span class="alert">Principal axes</span>: diagonal coordinates reveal quadratic geometry</li>
 <li><span class="alert">FFT</span>: exploit structure to compute Fourier coordinates efficiently</li>
-<li><span class="alert">Tensor products</span>: combine spaces and apply separate maps</li>
+<li><span class="alert">Optional tensor glimpse</span>: product bases and frames build matrix patterns</li>
 <li><span class="alert">Networks</span>: eigenvectors and null spaces explain global behavior</li>
 </ul>
 </section>
@@ -1636,7 +1536,7 @@ y_i=\sum_{j,k}t_{ijk}v_j w_k
 <ul>
 <li><a href="#/symmetry-gives-orthogonal-eigenvectors">Principal axes</a> — real symmetric matrices have orthonormal eigenvectors; eigenvalue signs classify shape</li>
 <li><a href="#/the-fft-reuses-the-even-and-odd-calculations">Fourier coordinates</a> — FFT reuses smaller DFTs to compute frequency coordinates</li>
-<li><a href="#/a-tensor-has-coordinates-after-choosing-bases">Tensor products</a> — factor bases give array coordinates; <span class="math inline">\(\mat{B}\otimes\mat{C}\)</span> acts on both factors</li>
+<li><a href="#/a-tensor-has-coordinates-after-choosing-bases">Optional tensor glimpse</a> — products of basis vectors give unique matrix coefficients; redundant frames give alternatives</li>
 <li><a href="#/networks-and-iterative-eigenvectors">Networks</a> — repeated actions drive power iteration/PageRank; undirected Laplacian nullity counts components</li>
 </ul>
 </div></div>
@@ -1668,6 +1568,7 @@ y_i=\sum_{j,k}t_{ijk}v_j w_k
 <li>The error, sensitivity, and cost that matter</li>
 </ul>
 <p><a href="10-inner-product-spaces.html">Revisit inner products</a></p>
+<p>The <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/11-special-topics.ipynb">SVD and Regression companion notebook</a> explores low-rank approximation, minimum-norm fits, and sensitivity · <a href="https://colab.research.google.com/github/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/11-special-topics.ipynb">Open in Colab</a></p>
 </section>
 
 <section>
@@ -1689,7 +1590,6 @@ y_i=\sum_{j,k}t_{ijk}v_j w_k
 <li><a href="#/the-fft-reuses-the-even-and-odd-calculations">FFT</a></li>
 <li><a href="#/convolution-becomes-componentwise-multiplication">Circular convolution</a></li>
 <li><a href="#/a-tensor-has-coordinates-after-choosing-bases">Tensor product</a></li>
-<li><a href="#/kronecker-products-apply-maps-to-both-factors">Kronecker product</a></li>
 <li><a href="#/power-iteration-finds-a-dominant-direction">Power iteration</a></li>
 <li><a href="#/pagerank-makes-a-random-walk-converge">PageRank</a></li>
 <li><a href="#/a-graph-laplacian-measures-disagreement">Graph Laplacian</a></li>
@@ -1700,7 +1600,7 @@ y_i=\sum_{j,k}t_{ijk}v_j w_k
 <p>Selected Anton Chapters 7–10: quadratic forms, transformations, SVD, compression, iterative methods, and networks</p>
 <p>Supplementary Fourier and tensor material: <a href="https://math.mit.edu/~gs/LectureNotes/">Strang’s Lecture Notes for Linear Algebra</a>, Parts 7, 9, and 10</p>
 <aside class="notes">
-<p>Anton 12th Applications crosswalk: §§7.1–7.4 orthogonal matrices, orthogonal diagonalization, quadratic forms and optimization; §§8.4–8.5 matrix representations and similarity provide supporting coordinate concepts; §§9.2, 9.4–9.5 power method, SVD and compression; §§10.4–10.5 Markov chains and graph theory, §10.19 search engines. QR and regression prerequisites are §§6.3–6.5. DFT/FFT and tensor products are supplementary. Verify reading selections against the instructor’s live textbook before assigning exercises. Companion notebook candidates: low-rank image approximation, nearly collinear regression with QR/SVD/ridge, FFT filtering, Kronecker/vec identity, PageRank and disconnected-graph Laplacians.</p>
+<p>Anton 12th Applications crosswalk: §§7.1–7.4 orthogonal matrices, orthogonal diagonalization, quadratic forms and optimization; §§8.4–8.5 matrix representations and similarity provide supporting coordinate concepts; §§9.2, 9.4–9.5 power method, SVD and compression; §§10.4–10.5 Markov chains and graph theory, §10.19 search engines. QR and regression prerequisites are §§6.3–6.5. DFT/FFT and tensor products are supplementary. Verify reading selections against the instructor’s live textbook before assigning exercises. The companion notebook implements low-rank image approximation and nearly collinear regression with SVD, truncated SVD and ridge. FFT filtering, PageRank and disconnected-graph Laplacian demonstrations remain optional future work.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
