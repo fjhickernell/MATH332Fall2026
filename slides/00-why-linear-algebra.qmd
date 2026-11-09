@@ -911,7 +911,6 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Inverse matrix]({{< meta decks.d02.file >}}#an-inverse-undoes-a-matrix-action), $\mat{A}^{-1}$
 - [Invertibility theorem]({{< meta decks.d02.file >}}#one-theorem-many-viewpoints)
 - [Jacobian]({{< meta decks.d04.file >}}#a-jacobian-is-the-local-linear-map)
-- [Kronecker product]({{< meta decks.d11.file >}}#kronecker-products-apply-maps-to-both-factors)
 - [Law of Cosines]({{< meta decks.d01.file >}}#why-the-cosine-appears)
 - [Least squares](#when-the-constraints-cannot-all-be-satisfied)
 :::
@@ -975,7 +974,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Orthogonal projection]({{< meta decks.d03.file >}}#projection-onto-a-plane)
 - [Orthogonal vectors]({{< meta decks.d01.file >}}#measures-alignment), $\vct{u}^{\mathsf T}\vct{v}=0$
 - [Orthonormal basis / list]({{< meta decks.d03.file >}}#orthogonal-matrices-have-orthonormal-rows-and-columns)
-- [Outer product]({{< meta decks.d11.file >}}#an-outer-product-separates-two-directions)
+- [Outer product]({{< meta decks.d11.file >}}#a-tensor-has-coordinates-after-choosing-bases)
 - [PageRank]({{< meta decks.d11.file >}}#pagerank-makes-a-random-walk-converge)
 - [Parallel vectors]({{< meta decks.d01.file >}}#parallel-vectors-point-along-one-line), $\vct{u}=c\vct{v}$
 - [PCA scores]({{< meta decks.d07.file >}}#pca-chooses-coordinates-adapted-to-the-data)

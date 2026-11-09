@@ -249,6 +249,9 @@ Mathematical content should be maintained only in the slides.
   Resources page, and Assignments page.
 - [x] Save and publish the matching required-resource statement on the live
   Canvas Welcome page.
+- [x] Publish and verify the live Canvas Welcome page's Instructor and Course
+  resources sections, retained contact details and office-hours booking link
+  (November 9, 2026).
 - [x] Enable Wiley Course Resources in Canvas navigation, verify the Anton
   textbook and Practice resources, and add its direct Canvas launch link to
   the published Canvas Welcome page and the website Welcome and Resources sources.
@@ -324,9 +327,17 @@ Mathematical content should be maintained only in the slides.
 - [x] Draft Deck 11 with SVD and regression as priorities, quadratic forms,
   FFT, tensor products, and optional network/eigenvector applications.
 - [ ] Complete instructor content and visible-layout review of Deck 11.
+- [x] Limit tensors to one optional two-minute slide connecting SVD outer
+  products, product bases and finite frames (November 9); remove the separate
+  tensor module and its demonstration plan.
 - [x] Draft QR, least squares, and Fourier prerequisites in Deck 10.
 - [ ] Complete instructor content and visible-layout review of Deck 10.
-- [ ] Build and validate the selected Special Topics demonstrations.
+- [x] Build and locally execute the Eigenvalues, Inner Products/QR and
+  SVD/regression companion notebooks (09–11); all 38 code cells pass in the
+  qmcpy kernel, with eleven inspected plots and saved outputs. Link them from
+  their decks and the Notebooks page. A tensor demonstration is outside this
+  semester's scope.
+- [ ] Review the Deck 09–11 companion notebooks with the instructor.
 
 ## Assignment 5
 

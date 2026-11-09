@@ -192,8 +192,9 @@ Detailed pacing is **TBD**.
 <summary><strong>Special Topics</strong></summary>
 
 [Lecture slides](slides/11-special-topics.html). A draft capstone: SVD and
-regression, quadratic forms, FFT, tensor products, and network applications.
-Selected Anton Chapters 7–10 plus supplementary Fourier and tensor material.
+regression, quadratic forms, FFT, and network applications.
+Selected Anton Chapters 7–10, optional Fourier enrichment, and a single brief
+tensor connection to product bases and frames.
 Topics and pacing will be selected as time permits.
 
 </details>

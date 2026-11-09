@@ -86,6 +86,39 @@ ratings to illustrate row and column spaces and predicting an unobserved
 rating. Review the idea and its distinction from Google PageRank in
 `notes/IDEAS.md`; no slide implementation yet.
 
+## Remaining-material readiness — November 9
+
+Deck 08 and its companion exist; the November 10 pickup above remains the
+immediate teaching preparation. Decks 09 (Eigenvalues), 10 (Inner Products,
+QR and least squares), and 11 (Special Topics, prioritizing SVD/regression)
+are substantive mathematically audited drafts, with instructor and visible
+review still open. Their companion notebooks 09–11 are now implemented and
+locally executed: Eigenvalues (13 code cells, 11.4 seconds), Inner Products/QR
+(13 code cells, 6.8 seconds), and SVD/regression (12 code cells, 1.4 seconds). All 38
+code cells pass with saved outputs and eleven visually inspected plots.
+These are instructor-review drafts, linked from their decks and the Notebooks
+page. They use the established pinned-classlib Colab setup and final timing
+cell; a separate clean-Colab run is not required.
+
+The 08 notebook covers the four-space/rank spine; the newer sensor, network
+and chemistry slide applications remain outside it. The new QR/SVD companions
+provide regression and low-rank computational examples. Instructor content
+review and selection of the later optional modules remain open.
+
+The instructor has ruled out a tensor unit this semester. Deck 11 now has
+one optional two-minute tensor slide after SVD outer products, connecting
+product bases to finite frames; Kronecker maps, contractions and tensor
+practice are removed. No tensor notebook is planned. Updated summaries,
+term links and the capstone plan follow this scope. Historical construction
+notes below describe the earlier broader draft.
+
+The website and all twelve decks render locally; all 1,831 local references
+and 817 anchors across 23 assembled outputs resolve. The Notebooks page fits
+at 1280- and 390-pixel widths; the three new deck callouts and tensor-scope
+revisions fit at 1280×720. The frames link navigates to its intended slide.
+The notebook links and scope decision are included in this Checkpoint;
+remote deployment and live-page verification remain pending.
+
 ## November 5 makeup
 
 The November 5 makeup sitting has been administered, confirmed by the
@@ -138,6 +171,15 @@ Validation: root website and all twelve decks rendered; 106 affected relative
 links resolve; assignment and tables pass desktop/390-pixel layout review,
 and the Deck 07 title reminder fits at 1280×720. This Checkpoint preserves
 the release-closeout documentation; the website is already deployed.
+
+## Canvas Welcome — published November 9
+
+The published [Canvas Welcome page](https://iit.instructure.com/courses/23913/pages/welcome)
+now places **Instructor** after the introduction and before **Course resources**,
+with both sections using level-two headings. Existing instructor contact
+details are retained, with an **Office hours: Book an office-hours appointment**
+link to the existing Bookings page. The saved published page and course
+homepage are verified.
 
 ## Final-examination schedule — October 28 update
 
@@ -707,8 +749,8 @@ address reported Colab problems.
   Test 1 or Test 2.
 - Later projection/rank-factorization material and next-offering Deck 00
   revisions remain deferred in `notes/TODO-LATER.md`.
-- Tensor products are drafted in Deck 11; review their scope alongside the
-  other optional topics and develop a companion demonstration.
+- Tensor coverage is limited to the optional two-minute product-bases/frames
+  glimpse in Deck 11; no tensor companion is planned this semester.
 
 ## Current state
 

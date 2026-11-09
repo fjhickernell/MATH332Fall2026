@@ -41,10 +41,10 @@ state why the work was deferred when that context will matter later.
   the proposed Deck 07 reprise before polynomial coordinates. Preserve the
   distinction between a basis of the direction space and affine coordinates
   of points in a shifted solution set; use *hyperplane* only in codimension one.
-- Tensor products are now drafted in Special Topics after Inner Product
-  Spaces, with product bases, outer products, Kronecker maps, and contractions.
-  Instructor review and a companion demonstration remain; retain the
-  distinction between tensors and their coordinate arrays.
+- Tensor scope is capped at one optional two-minute slide in Special Topics,
+  connecting SVD outer products with product bases and finite frames
+  (instructor direction, November 9). Do not build a separate tensor
+  demonstration or restore the longer module for Fall 2026.
 - When revisiting Deck 07, decide whether to add Wronskians now that function
   spaces and linear independence have been established. Define the general $n\times n$
   Wronskian using derivatives through order $n-1$; distinguish the always-valid

@@ -672,9 +672,14 @@ the residual satisfies $\mat{A}^\top(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}$
 
 - SVD: orthonormal input and output directions for every matrix
 - Regression with redundant or sensitive features
-- Quadratic forms, FFT, tensors, and network applications
+- Optional quadratic forms, FFT, and network applications
+- A single optional tensor glimpse through product bases and frames
 
 Choose later topics according to class preferences and remaining time
+
+
+The [Inner Products companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/10-inner-product-spaces.ipynb)
+explores projection, QR, regression, and Fourier coordinates · [Open in Colab](https://colab.research.google.com/github/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/10-inner-product-spaces.ipynb)
 
 # Terms to Know {#terms-to-know}
 
@@ -695,5 +700,5 @@ Choose later topics according to class preferences and remaining time
 - [Fourier coefficients](#complex-exponentials-package-the-fourier-pairs)
 
 ::: {.notes}
-Instructor draft. Anton Chapter 6 crosswalk: §§6.1–6.2 inner products, angle and orthogonality; §6.3 Gram–Schmidt/QR; §§6.4–6.5 best approximation, least squares and modeling; §6.6 function approximation/Fourier series. Complex inner products support the later DFT. Companion candidates: weighted geometry, projection, QR residuals, line regression, polynomial integral projection and finite Fourier approximations. Student-facing mathematical exposition remains in this deck. Demonstrations and full instructor review remain.
+Instructor draft. Anton Chapter 6 crosswalk: §§6.1–6.2 inner products, angle and orthogonality; §6.3 Gram–Schmidt/QR; §§6.4–6.5 best approximation, least squares and modeling; §6.6 function approximation/Fourier series. Complex inner products support the later DFT. The companion notebook implements weighted geometry, projection, QR residuals, line regression, polynomial integral projection and finite Fourier approximations, with saved local execution results. Student-facing mathematical exposition remains in this deck. Full instructor review remains.
 :::

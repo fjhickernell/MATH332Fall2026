@@ -6,7 +6,7 @@ deck_short_title: "{{< meta decks.d11.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
   <span class="deck-meta">{{< meta texts.anton.short >}} Selected Chs. 7–10</span><br>
-  <span class="deck-meta">FFT and tensor enrichment</span>
+  <span class="deck-meta">Optional FFT enrichment</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">
@@ -52,7 +52,6 @@ $\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^\top$
 - [Regression Through QR and SVD](#regression-through-qr-and-svd)
 - [Quadratic Forms and Principal Axes](#quadratic-forms-and-principal-axes)
 - [Fourier Coordinates and the FFT](#fourier-coordinates-and-the-fft)
-- [Tensor Products and Structured Data](#tensor-products-and-structured-data)
 - [Networks and Iterative Eigenvectors](#networks-and-iterative-eigenvectors)
 - [Big Ideas](#big-ideas)
 
@@ -60,7 +59,7 @@ $\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^\top$
 :::
 
 ::: {.notes}
-Instructor draft: modular sections, not a commitment to cover every topic. SVD and regression are the priority. QR/least squares and complex inner products are drafted in Inner Product Spaces (Anton §§6.3–6.6); review and teach that foundation first. Quadratic forms can precede SVD if the spectral theorem needs development first. FFT and tensors supplement Anton; networks and iterative eigenvectors are optional. Suggested demonstrations remain to be built, not linked as existing notebooks.
+Instructor draft: modular sections, not a commitment to cover every topic. SVD and regression are the priority. QR/least squares and complex inner products are drafted in Inner Product Spaces (Anton §§6.3–6.6); review and teach that foundation first. Quadratic forms can precede SVD if the spectral theorem needs development first. FFT supplements Anton; networks and iterative eigenvectors are optional. Tensors are limited to the single optional product-bases/frames slide in the SVD section, about two minutes; do not expand them into a separate unit or demonstration. The SVD/regression companion is locally executed and linked from the closing slide. Optional FFT and network demonstrations have not been built.
 :::
 
 ## Which topics would you like to explore? {#class-topic-preferences}
@@ -71,7 +70,6 @@ Rank your next two choices and give a question or application you want to explor
 
 - Quadratic forms and principal axes
 - Fourier transforms and FFT
-- Tensors and structured images
 - Power iteration and PageRank
 - Graph Laplacians and networks
 
@@ -91,6 +89,7 @@ Ask for an informal show of hands or a short ranked response in class. No extern
 - [Why an SVD exists](#why-an-svd-exists)
 - [The four spaces reappear in orthonormal coordinates](#the-four-spaces-reappear-in-orthonormal-coordinates)
 - [A matrix is a sum of rank-one maps](#a-matrix-is-a-sum-of-rank-one-maps)
+- [A tensor glimpse: product bases and frames](#a-tensor-has-coordinates-after-choosing-bases)
 - [The best low-rank approximation has a measurable error](#the-best-low-rank-approximation-has-a-measurable-error)
 - [Practice reading singular values](#practice-reading-singular-values)
 
@@ -212,6 +211,30 @@ Keep only the first $k$ terms:
 \end{equation*}
 
 A controlled approximation using fewer directions
+
+
+## A tensor glimpse: product bases and frames {#a-tensor-has-coordinates-after-choosing-bases}
+
+[Optional · two minutes]{.alert}: combine one direction from each space
+
+In real Euclidean coordinates, $\vct{u}\otimes\vct{v}$ has array $\vct{u}\vct{v}^\top$; for example
+\begin{equation*}
+\begin{bmatrix}1\\2\end{bmatrix}\begin{bmatrix}3&4\end{bmatrix}
+=\begin{bmatrix}3&4\\6&8\end{bmatrix}
+\end{equation*}
+
+Bases $\{\vct{b}_i\}_{i=1}^m$ of $\reals^m$ and $\{\vct{c}_j\}_{j=1}^n$ of $\reals^n$ give
+\begin{equation*}
+\mat{X}=\sum_{i=1}^m\sum_{j=1}^n z_{ij}\vct{b}_i\vct{c}_j^\top
+\end{equation*}
+
+- Product basis: $mn$ matrix patterns, unique coefficients $z_{ij}$
+- Finite [frames]({{< meta decks.d07.file >}}#a-frame-can-keep-redundant-generators) in both spaces: products still span; redundancy gives nonunique coefficients
+
+::: {.notes}
+This is the entire tensor coverage, an optional two-minute connection to the preceding SVD outer products and the earlier finite-frame preview. A single outer product need not represent a general matrix; sums of product patterns do. Under the standard coordinate identification R^m tensor R^n with m-by-n arrays, elementary tensors have the displayed outer-product arrays. General abstract tensors are not canonically linear maps W to V; that interpretation uses a dual space or a chosen inner product.
+For basis matrices B and C, X=B Z C^T and Z=B^{-1} X C^{-T}, so all mn coefficients are unique. Finite frames are finite spanning lists in these Euclidean spaces. Their pairwise products span the matrix space because each standard coordinate vector is a linear combination of the corresponding list. If a factor list is redundant and the other space is nonzero, multiply its nontrivial zero relation by any nonzero vector from the other list to obtain a product dependence. Do not add Kronecker maps, contractions, higher-order tensor ranks, or a separate tensor notebook this semester.
+:::
 
 
 ## The best low-rank approximation has a measurable error {#the-best-low-rank-approximation-has-a-measurable-error}
@@ -606,120 +629,6 @@ Answers: [4,0,0,0]^T and [0,0,4,0]^T. Frequencies 0 and 2. FFT changes the compu
 :::
 
 
-# Tensor Products and Structured Data {#tensor-products-and-structured-data}
-
-- [An outer product separates two directions](#an-outer-product-separates-two-directions)
-- [A tensor has coordinates after choosing bases](#a-tensor-has-coordinates-after-choosing-bases)
-- [Kronecker products apply maps to both factors](#kronecker-products-apply-maps-to-both-factors)
-- [Transform an image along rows and columns](#transform-an-image-along-rows-and-columns)
-- [More indices describe more modes](#more-indices-describe-more-modes)
-- [Practice spotting separability](#practice-spotting-separability)
-
-## An outer product separates two directions {#an-outer-product-separates-two-directions}
-
-\begin{gather*}
-\vct{u}=\begin{bmatrix}1\\2\end{bmatrix},\quad
-\vct{v}=\begin{bmatrix}3\\4\\5\end{bmatrix},\qquad
-\vct{u}\vct{v}^\top=\begin{bmatrix}3&4&5\\6&8&10\end{bmatrix}\\
-a_{ij}=u_i v_j
-\end{gather*}
-
-One pattern down the rows, one across the columns
-
-A nonzero outer product has rank one
-
-SVD builds matrices by summing such separated patterns
-
-
-## A tensor has coordinates after choosing bases {#a-tensor-has-coordinates-after-choosing-bases}
-
-For finite-dimensional real spaces $V$ and $W$ with bases $\{\vct{e}_i\}$ and $\{\vct{f}_j\}$:
-\begin{gather*}
-V\otimes W\text{ has basis }\{\vct{e}_i\otimes\vct{f}_j\}_{i,j}\\
-T=\sum_{i,j}t_{ij}\vct{e}_i\otimes\vct{f}_j,\qquad
-\dim(V\otimes W)=\dim(V)\dim(W)
-\end{gather*}
-
-$\otimes$ is bilinear; a general tensor is a sum of elementary tensors
-
-For $\mathcal{E}=\{\vct{e}_i\}$ and $\mathcal{F}=\{\vct{f}_j\}$, the coordinate matrix of $\vct{u}\otimes\vct{v}$ is $[\vct{u}]_{\mathcal{E}}[\vct{v}]_{\mathcal{F}}^\top$
-
-::: {.key-point}
-The coordinate array uses the listed orders of the chosen bases
-:::
-
-::: {.notes}
-This is an introductory finite-dimensional description. Tensor products can be characterized by a universal property for bilinear maps; defer that abstraction. V tensor W is not canonically the space of maps W to V: that identification uses W's dual, or an explicitly chosen inner product. Avoid equating every two-index tensor with a linear operator without this distinction.
-:::
-
-
-## Kronecker products apply maps to both factors {#kronecker-products-apply-maps-to-both-factors}
-
-For matrices $\mat{B}$ and $\mat{C}$:
-\begin{gather*}
-\mat{B}\otimes\mat{C}=[b_{ij}\mat{C}]_{i,j}\\
-(\mat{B}\otimes\mat{C})(\vct{u}\otimes\vct{v})
-=(\mat{B}\vct{u})\otimes(\mat{C}\vct{v})
-\end{gather*}
-
-If $\mat{B}$ is $p\times m$ and $\mat{C}$ is $q\times n$, their Kronecker product is $pq\times mn$
-
-Here the coordinate vector for $\vct{u}\otimes\vct{v}$ lists one block $u_i\vct{v}$ per $i$
-
-::: {.notes}
-The ordering of tensor-product coordinates matters. This block convention agrees with NumPy kron(u,v). The next slide separately specifies column stacking for vectorization; there is no implicit claim that these two listings use the same order.
-:::
-
-
-## Transform an image along rows and columns {#transform-an-image-along-rows-and-columns}
-
-For an $m\times n$ image matrix $\mat{X}$:
-\begin{gather*}
-\mat{Y}=\mat{B}\mat{X}\mat{C}^\top\\
-\operatorname{vec}(\mat{Y})=(\mat{C}\otimes\mat{B})\operatorname{vec}(\mat{X})
-\end{gather*}
-
-$\operatorname{vec}$ stacks columns; $\mat{B}$ acts on row indices and $\mat{C}$ on column indices
-
-Two-dimensional DFT: $\mat{Y}=\mat{F}_m\mat{X}\mat{F}_n^\top$
-
-::: {.key-point}
-Apply the smaller transforms separately instead of building a giant Kronecker matrix
-:::
-
-
-## More indices describe more modes {#more-indices-describe-more-modes}
-
-An image with color channels has coordinates $t_{ijk}$
-
-An elementary three-factor tensor has $t_{ijk}=u_i v_j w_k$
-\begin{equation*}
-\mathcal{T}=\sum_{\ell=1}^s\vct{u}_\ell\otimes\vct{v}_\ell\otimes\vct{w}_\ell
-\end{equation*}
-
-A contraction sums matching indices, for example
-\begin{equation*}
-y_i=\sum_{j,k}t_{ijk}v_j w_k
-\end{equation*}
-
-::: {.notes}
-With real Euclidean coordinate spaces, v and w can represent covectors via the chosen inner products. General contractions pair a space with its dual. For tensors of order three or more, the smallest number of elementary terms is tensor rank; matrix SVD does not directly supply an analogous universal orthogonal decomposition. Avoid claiming that truncating a tensor decomposition is always a best approximation.
-:::
-
-
-## Practice spotting separability {#practice-spotting-separability}
-
-
-::: {.exitem}
-<span class="exbullet">$\exstar$</span>
-<span>Which matrix is a single outer product?<br>$\mat{X}=\begin{bmatrix}1&2\\3&6\end{bmatrix}$, $\quad\mat{Y}=\begin{bmatrix}1&2\\3&7\end{bmatrix}$<br>For $\dim(V)=2$ and $\dim(W)=3$, how many product-basis vectors are needed?</span>
-:::
-
-::: {.notes}
-X=[1,3]^T(1,2); rank one. Y has determinant 1 and rank two, so it is not a single outer product. The tensor-product dimension is 6.
-:::
-
-
 # Networks and Iterative Eigenvectors {#networks-and-iterative-eigenvectors}
 
 - [Power iteration finds a dominant direction](#power-iteration-finds-a-dominant-direction)
@@ -799,7 +708,7 @@ D=[[-1,1,0,0],[0,-1,1,0]]. L=[[1,-1,0,0],[-1,2,-1,0],[0,-1,1,0],[0,0,0,0]]. A nu
 - [Regression]{.alert}: projection, coefficient sensitivity, and regularization
 - [Principal axes]{.alert}: diagonal coordinates reveal quadratic geometry
 - [FFT]{.alert}: exploit structure to compute Fourier coordinates efficiently
-- [Tensor products]{.alert}: combine spaces and apply separate maps
+- [Optional tensor glimpse]{.alert}: product bases and frames build matrix patterns
 - [Networks]{.alert}: eigenvectors and null spaces explain global behavior
 
 # How Far We Have Come
@@ -819,7 +728,7 @@ D=[[-1,1,0,0],[0,-1,1,0]]. L=[[1,-1,0,0],[-1,2,-1,0],[0,-1,1,0],[0,0,0,0]]. A nu
 ::: {.column width="47%"}
 - [Principal axes](#symmetry-gives-orthogonal-eigenvectors) — real symmetric matrices have orthonormal eigenvectors; eigenvalue signs classify shape
 - [Fourier coordinates](#the-fft-reuses-the-even-and-odd-calculations) — FFT reuses smaller DFTs to compute frequency coordinates
-- [Tensor products](#a-tensor-has-coordinates-after-choosing-bases) — factor bases give array coordinates; $\mat{B}\otimes\mat{C}$ acts on both factors
+- [Optional tensor glimpse](#a-tensor-has-coordinates-after-choosing-bases) — products of basis vectors give unique matrix coefficients; redundant frames give alternatives
 - [Networks](#networks-and-iterative-eigenvectors) — repeated actions drive power iteration/PageRank; undirected Laplacian nullity counts components
 :::
 :::
@@ -843,6 +752,10 @@ Choose an application and identify:
 
 [Revisit inner products]({{< meta decks.d10.file >}})
 
+
+The [SVD and Regression companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/11-special-topics.ipynb)
+explores low-rank approximation, minimum-norm fits, and sensitivity · [Open in Colab](https://colab.research.google.com/github/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/11-special-topics.ipynb)
+
 # Terms to Know {#terms-to-know}
 
 - [Compact SVD; singular values](#the-svd-separates-directions-from-scale)
@@ -858,7 +771,6 @@ Choose an application and identify:
 - [FFT](#the-fft-reuses-the-even-and-odd-calculations)
 - [Circular convolution](#convolution-becomes-componentwise-multiplication)
 - [Tensor product](#a-tensor-has-coordinates-after-choosing-bases)
-- [Kronecker product](#kronecker-products-apply-maps-to-both-factors)
 - [Power iteration](#power-iteration-finds-a-dominant-direction)
 - [PageRank](#pagerank-makes-a-random-walk-converge)
 - [Graph Laplacian](#a-graph-laplacian-measures-disagreement)
@@ -871,5 +783,5 @@ Supplementary Fourier and tensor material:
 [Strang's Lecture Notes for Linear Algebra](https://math.mit.edu/~gs/LectureNotes/), Parts 7, 9, and 10
 
 ::: {.notes}
-Anton 12th Applications crosswalk: §§7.1–7.4 orthogonal matrices, orthogonal diagonalization, quadratic forms and optimization; §§8.4–8.5 matrix representations and similarity provide supporting coordinate concepts; §§9.2, 9.4–9.5 power method, SVD and compression; §§10.4–10.5 Markov chains and graph theory, §10.19 search engines. QR and regression prerequisites are §§6.3–6.5. DFT/FFT and tensor products are supplementary. Verify reading selections against the instructor's live textbook before assigning exercises. Companion notebook candidates: low-rank image approximation, nearly collinear regression with QR/SVD/ridge, FFT filtering, Kronecker/vec identity, PageRank and disconnected-graph Laplacians.
+Anton 12th Applications crosswalk: §§7.1–7.4 orthogonal matrices, orthogonal diagonalization, quadratic forms and optimization; §§8.4–8.5 matrix representations and similarity provide supporting coordinate concepts; §§9.2, 9.4–9.5 power method, SVD and compression; §§10.4–10.5 Markov chains and graph theory, §10.19 search engines. QR and regression prerequisites are §§6.3–6.5. DFT/FFT and tensor products are supplementary. Verify reading selections against the instructor's live textbook before assigning exercises. The companion notebook implements low-rank image approximation and nearly collinear regression with SVD, truncated SVD and ridge. FFT filtering, PageRank and disconnected-graph Laplacian demonstrations remain optional future work.
 :::

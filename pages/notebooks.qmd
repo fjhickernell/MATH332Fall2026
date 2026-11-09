@@ -38,6 +38,17 @@ algebraic calculations with geometric interpretation.
 - [Matrix Spaces and Rank](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/08-matrix-spaces-and-rank.ipynb)
   — a locally validated draft companion exploring the four fundamental spaces, rank factorization, compatibility, all solutions, and matrices of linear maps
 
+- [Eigenvalues and Eigenvectors](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/09-eigenvalues-and-eigenvectors.ipynb)
+  — a locally validated draft companion exploring eigenspaces, diagonalization,
+  repeated actions, complex eigenvalues, and orthogonal eigenvector coordinates
+- [Inner Product Spaces](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/10-inner-product-spaces.ipynb)
+  — a locally validated draft companion exploring weighted geometry, projection,
+  Gram–Schmidt and QR, regression, conditioning, and function/Fourier approximation
+- [SVD and Regression](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/11-special-topics.ipynb)
+  — a locally validated draft companion to the Special Topics core exploring
+  singular directions, four spaces, low-rank approximation, minimum-norm fits,
+  sensitivity, truncated SVD, and ridge
+
 ## Exercises
 
 Student exercises will provide opportunities to explore matrices, vector

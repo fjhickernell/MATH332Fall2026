@@ -1032,3 +1032,6 @@ How do we measure lengths and angles for abstract vectors, and choose perpendicu
 
 Inner products lead to orthogonal projection, Gram–Schmidt, QR, and least squares
 :::
+
+The [Eigenvalues companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/09-eigenvalues-and-eigenvectors.ipynb)
+explores eigenspaces, coordinates, and repeated matrix actions · [Open in Colab](https://colab.research.google.com/github/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/09-eigenvalues-and-eigenvectors.ipynb)

@@ -63,7 +63,7 @@ The planned sequence is:
 | 08 | Matrix Spaces and Rank | Sections 4.8–4.9; closing preview of 8.1 and 8.4 |
 | 09 | Eigenvalues and Eigenvectors | Chapter 5 |
 | 10 | Inner Product Spaces | Chapter 6, including QR and least squares |
-| 11 | Special Topics | Selected Chapters 7–10; supplementary FFT and tensors |
+| 11 | Special Topics | Selected Chapters 7–10; optional FFT and one-slide tensor glimpse |
 
 Section numbers follow Anton's 12th Applications edition, which gives
 Spanning Sets its own Section 4.3. Finite fields, frames, multivariable
@@ -125,9 +125,11 @@ here.
 
 Deck 11 is a modular capstone draft. Prioritize SVD, low-rank approximation,
 and regression through QR, pseudoinverses, sensitivity, and regularization.
-Other sections cover quadratic forms, DFT/FFT, tensor products and Kronecker
-structure, power iteration/PageRank, and graph Laplacians. QR and least
-squares belong first in Deck 10; its foundation is drafted for instructor
-review.
-FFT and tensors are supplementary enrichment. Select coverage according to
-remaining class time; no meeting dates or assessment coverage are assigned.
+Other sections cover quadratic forms, DFT/FFT, power iteration/PageRank,
+and graph Laplacians. Tensors are limited to one optional two-minute slide
+on product bases and finite frames, following SVD outer products. No separate
+tensor unit or notebook is planned for Fall 2026. QR and least squares belong
+first in Deck 10; its foundation is drafted for instructor review.
+FFT and the single tensor glimpse are supplementary enrichment. Select
+coverage according to remaining class time; no meeting dates or assessment
+coverage are assigned.
