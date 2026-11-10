@@ -1,33 +1,5 @@
 # Next task
 
-## Quiz 4 coverage — announced November 6
-
-Quiz 4 is Thursday, November 12, and covers the full **Bases, Dimension,
-and Coordinates** deck. The Schedule and Quizzes and Tests coverage rows and
-Deck 07's Quiz 4 · November 12 title notice are published. Publishing and
-Pages deployment succeeded for `9d94cfd`; the three live pages were verified
-November 9. The deck retains the November 6 Assignment 5 deadline.
-
-[Quiz 4 coverage announcement](https://iit.instructure.com/courses/23913/discussion_topics/109873)
-is published to **All Sections**, November 6 at 12:37 PM CST. Saved text and
-audience are verified. It is self-contained, states the full-deck coverage,
-date, last-15-minutes timing, PH 109, 20 points, and existing permitted-material
-and accommodation rules. Do not repost. Canvas Quiz 4 [105752](https://iit.instructure.com/courses/23913/assignments/105752)
-also states the full-deck coverage; reopened verification confirms Published,
-20 points, On Paper, Everyone, and November 12 at 12:40 PM. Existing settings
-were preserved. Grading completion is due November 18
-(November 12 plus six calendar days).
-
-Validation: the full website and all twelve decks render with the restored
-`qmcpy` environment on M5. Assembled local links/assets resolve; the affected
-page tables pass 1280- and 390-pixel browser checks without horizontal
-overflow, and the Deck 07 title notice fits at 1280×900. `git diff --check`
-passes. Shared slide-resource warnings concern optional files; required
-assembled shared pages and all linked assets are present. The latest prior
-course publishing and Pages deployment runs succeeded.
-The Dashboard already records the November 18 Quiz 4 grading task and the
-November 12 lecture preparation. No duplicate scan is needed.
-
 ## Immediate next work — November 12
 
 Briefly recap the determinant/null-space eigenvalue recipe and the
@@ -62,8 +34,8 @@ were retained. Both pages render, all four new schedule anchors resolve,
 and git diff --check passes. Browser review at 1280- and 390-pixel widths
 confirms that all six schedule tables fit without horizontal overflow and
 the expanded Deck 08 outline and optional-reading note wrap cleanly.
-These lecture-update changes are included in this Checkpoint; remote
-CI/deployment and live-page verification remain pending.
+The lecture-update changes are committed in `85c8390`; publishing and Pages
+deployment succeeded. Live-page verification remains unconfirmed.
 
 Keep a brief spoken condition-number reminder for the next class: during
 the November 5 discussion
@@ -109,6 +81,49 @@ Candidate for this same applications sequence: Netflix-style user/movie
 ratings to illustrate row and column spaces and predicting an unobserved
 rating. Review the idea and its distinction from Google PageRank in
 `notes/IDEAS.md`; no slide implementation yet.
+
+## Quiz 4 coverage — announced November 6
+
+Quiz 4 is Thursday, November 12, and covers the full **Bases, Dimension,
+and Coordinates** deck. The Schedule and Quizzes and Tests coverage rows and
+Deck 07's Quiz 4 · November 12 title notice are published. Publishing and
+Pages deployment succeeded for `9d94cfd`; the three live pages were verified
+November 9. The deck retains the November 6 Assignment 5 deadline.
+
+[Quiz 4 coverage announcement](https://iit.instructure.com/courses/23913/discussion_topics/109873)
+is published to **All Sections**, November 6 at 12:37 PM CST. Saved text and
+audience are verified. It is self-contained, states the full-deck coverage,
+date, last-15-minutes timing, PH 109, 20 points, and existing permitted-material
+and accommodation rules. Do not repost. Canvas Quiz 4 [105752](https://iit.instructure.com/courses/23913/assignments/105752)
+also states the full-deck coverage; reopened verification confirms Published,
+20 points, On Paper, Everyone, and November 12 at 12:40 PM. Existing settings
+were preserved. Grading completion is due November 18
+(November 12 plus six calendar days).
+
+Validation: the full website and all twelve decks render with the restored
+`qmcpy` environment on M5. Assembled local links/assets resolve; the affected
+page tables pass 1280- and 390-pixel browser checks without horizontal
+overflow, and the Deck 07 title notice fits at 1280×900. `git diff --check`
+passes. Shared slide-resource warnings concern optional files; required
+assembled shared pages and all linked assets are present. The latest prior
+course publishing and Pages deployment runs succeeded.
+The Dashboard already records the November 18 Quiz 4 grading task and the
+November 12 lecture preparation. No duplicate scan is needed.
+
+## Thanksgiving invitation — completed reference
+
+[Canvas announcement](https://iit.instructure.com/courses/23913/discussion_topics/110138)
+was published by Fred to All Sections on November 10, 2026 at 4:31 PM CST.
+The exact six invitation bullets, Friday, November 13 RSVP request, event details,
+flyer image and PDF are verified. Do not repost. The
+[local HTML reference](drafts/2026-11-19-prayer-service-announcement.html)
+preserves the announcement copy.
+
+Fred approved the flyer lead in
+[Eigenvalues and Eigenvectors](../slides/09-eigenvalues-and-eigenvectors.qmd),
+which retains the original title and Course Map. Edit `prayer_invitation: |`
+near the top of that QMD to revise the invitation. Original PDF/PNG assets are in
+`slides/assets/announcements/`; standalone and assembled previews are verified.
 
 ## Remaining-material readiness — November 9
 

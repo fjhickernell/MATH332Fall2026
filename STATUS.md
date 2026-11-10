@@ -296,7 +296,9 @@ Mathematical content should be maintained only in the slides.
     distribution in the course and archive, verify live deployment, and post
     the all-sections Canvas announcement (October 22, 2026).
   - [x] Publish and verify Quizzes 3–5 for their announced October 15,
-    November 12, and December 1 dates; Quiz 4 and Quiz 5 coverage remains TBD. Both tests are
+    November 12, and December 1 dates. Quiz 4 covers the full Bases, Dimension,
+    and Coordinates deck (Deck 07), announced November 6 and verified in
+    Canvas announcement `109873`; Quiz 5 coverage remains TBD. Both tests are
     published. Grades remain for later entry.
   - [x] Narrow Test 2 coverage through dimension; exclude coordinates and
     transformations; correct the Canvas assignment and prior notice, and
