@@ -101,6 +101,12 @@ Mathematical content should be maintained only in the slides.
     revision has 56 slides and eight exercise sets; exact symbolic checks,
     full website/twelve-deck rendering, and local link checks pass. Instructor
     review remains open; these additions are included in this Checkpoint.
+  - [x] Conclude selected Deck 08 classroom coverage on November 10 and
+    record approximately two 50-minute hours in the Course Outline. Preserve
+    omitted proofs, additional applications, rank factorization and abstract-map
+    extensions as optional reading rather than completed classroom coverage.
+    Begin Deck 09 through the worked determinant/null-space eigenvalue example;
+    November 12 resumes eigenspaces before the unchanged Quiz 4 coverage.
   - [x] Clarify Deck 07 coordinates, standard-basis identification and
     transition columns; pair sums with products, prefer full columns, and
     display the complete numerical PCA product XQ=S for direct comparison.
@@ -163,7 +169,7 @@ Mathematical content should be maintained only in the slides.
     diagonalization, complex eigenvalues, powers and discrete dynamics, and
     orthogonal diagonalization of real symmetric matrices; include worked
     examples, a geometric figure, and seven starred exercise sets.
-  - [ ] Review Deck 09 with the instructor before classroom use.
+  - [ ] Continue instructor review of the remaining Deck 09 material.
   - [x] Use V for eigenvector matrices and Q for orthonormal eigenvectors in
     Deck 09 and its companion; add an optional two-slide generalized-eigenvector
     chain example and matching locally executed notebook cell.

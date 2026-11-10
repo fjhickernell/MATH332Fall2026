@@ -2,7 +2,7 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest reconciled instructional meeting: November 5, 2026
+- Latest reconciled instructional meeting: November 10, 2026
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -20,6 +20,7 @@
 | October 27, 2026 | Reconciled: subspace/scalar-field review; unique coordinates and arithmetic; basis matrices and worked R² change of basis through P_C^{-1} P_B | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=14061e59-57f5-4280-acdc-b4f0012e71d9) | November 3, 2026, 11:15 AM–12:45 PM America/Chicago, PH 109; Illinois Tech Fred → Calendar occurrence only; recap “Change of basis passes through the vector,” then “Transition columns describe the old basis in the new one.” Saved note reopened locally; server synchronization unverified due to account sync-error notice | October 27, 2026 |
 | November 3, 2026 | Reconciled from visible recording frames and instructor report; captions unavailable: change of basis and inverses, whiteboard Taylor/monomial example, abstract-vector clarification, regression and line fit; first PCA slide only a closing preview | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=67dcfe55-6757-4c1d-80ed-b4f7013ba966) | November 5, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; briefly review the new Taylor-basis round trip and regression data-to-matrix examples, then resume “PCA chooses coordinates adapted to the data” and remaining Applications; saved note reopened and verified in Fantastical | November 3, 2026 |
 | November 5, 2026 | Reconciled from captions and visible closing exercise: regression and PCA; four matrix subspaces, rank/nullity, echelon-based column/row/null bases and completed three-space practice; orthogonal pairs introduced informally; frames and infinite bases passed over | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=609c8ac7-5d8d-4afd-a5ae-b4f901399af0) | November 10, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; recap three-space basis extraction and “Rank-nullity counts inputs,” then “Orthogonal Pairs” → “The four spaces form two perpendicular pairs” and orthogonal complements; saved with Only This Event and reopened to verify the persisted note | November 5, 2026 |
+| November 10, 2026 | Reconciled: four-space bases and dimensions, orthogonal-pair examples, regression residual geometry, and existence/uniqueness; selected Deck 08 coverage concluded with omitted slides optional. Deck 09 introduced eigenvalues/eigenvectors and completed the determinant/null-space worked example; repeated eigenvalues only previewed | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5e553d20-166c-403a-af1f-b4fe01387557) | November 12, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; briefly recap the eigenvalue recipe/worked example, then “An eigenspace includes all vectors for one eigenvalue,” followed by diagonalization as time permits; Quiz 4 remains in the last 15 minutes with unchanged coverage. Saved with Only This Event, reopened in Apple Calendar and independently verified in Fantastical | November 10, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -341,3 +342,55 @@ event editor; paused/muted recording tabs were closed and Safari returned to
 the original Zoom grant tab; Mail was left in All Inboxes without the task
 search. Changes are included in this Checkpoint; remote deployment and
 live-page verification remain pending.
+
+## November 10 recording evidence
+
+The authenticated Panopto recording starts at 11:24 AM and lasts 1:15:26:
+[Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5e553d20-166c-403a-af1f-b4fe01387557).
+The complete downloaded auto-generated captions establish the sequence and
+explicit omissions; that text has no timestamps. The times below come from
+visible playback/caption checks rather than inferred transcript positions.
+
+The lecture works a rank-one rectangular example through all four spaces,
+bases and dimension sums. Orthogonal-pair examples connect the row and null
+spaces and the column and left-null spaces. Regression identifies fitted
+responses in the column space and least-squares residuals in the left null
+space. The rectangular-matrix exercise checks the two ambient spaces and
+their dimension sums. Existence and uniqueness are separated, including the
+proof that two solutions differ by a null-space vector.
+
+The instructor explicitly omits remaining slides to prioritize eigenvalues
+and states that slides not discussed are optional. This concludes selected
+Deck 08 classroom coverage, not every slide. The formal complement and
+row-space-to-column-space proofs, expanded applications, rank factorization
+and abstract-map extensions are not established as taught. The Course Outline
+records approximately two 50-minute hours: about 36.6 recorded Deck 08 minutes
+on November 5 plus about 50 minutes on November 10 before the eigenvalue
+introduction. These are approximate instructional pacing allocations.
+
+At about 49:30–50:00, differential-equation applications motivate the next
+topic. At 50:10 the instructor asks about prior exposure to eigenvalues and
+eigenvectors; at 50:26 the relation Av=lambda v is introduced. The previous
+four-space board remains visible at 50:55, so the transition is identified
+from the spoken instruction rather than a precise slide change.
+Deck 09 develops the definition, scalar/diagonal recognition examples,
+and the characteristic-polynomial/null-space recipe. The worked matrix
+[[2,1],[1,2]] yields eigenvalues 3 and 1 with eigenvectors (1,1) and (1,-1).
+The instructor stops at about 1:13:34 after that calculation. The repeated-root
+issue at about 1:14:36 is a brief preview; diagonalization and generalized
+eigenvectors are not completed topics. The next new slide is “An eigenspace
+includes all vectors for one eigenvalue,” following a brief recipe recap.
+
+November 12 remains an instructional class with Quiz 4 in the last 15 minutes;
+the existing full-Deck-07 quiz coverage is unchanged. The November 12
+continuation note was saved for Only This Event, closed and reopened in Apple
+Calendar, and independently read back in Fantastical. The original event title,
+PH 109, 11:15 AM–12:45 PM Central Time, and Illinois Tech Fred → Calendar
+account were verified; the pre-existing planning note was retained.
+
+The Schedule and welcome page render locally, the four new schedule anchors
+resolve, and git diff --check passes. Browser review at 1280- and 390-pixel
+widths confirms that all six schedule tables fit without horizontal overflow
+and the expanded Deck 08 outline and optional-reading note wrap cleanly.
+These lecture-update changes are included in this Checkpoint; remote
+CI/deployment and live-page verification remain pending.

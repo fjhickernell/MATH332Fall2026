@@ -26,30 +26,47 @@ passes. Shared slide-resource warnings concern optional files; required
 assembled shared pages and all linked assets are present. The latest prior
 course publishing and Pages deployment runs succeeded.
 The Dashboard already records the November 18 Quiz 4 grading task and the
-November 10 lecture preparation. No duplicate scan is needed.
+November 12 lecture preparation. No duplicate scan is needed.
 
-## Immediate next work — November 10
+## Immediate next work — November 12
 
-Resume Matrix Spaces and Rank with a brief recap of the three-space
-basis-extraction exercise and “Rank-nullity counts inputs,” then
-“Orthogonal Pairs” → “The four spaces form two perpendicular pairs” and
-orthogonal complements. The November 5 recording completes regression and
-PCA, then develops the four matrix subspaces, rank/nullity, echelon-based
-column/row/null-space bases, and the worked three-space exercise. Perpendicular
-pairs are introduced informally; their systematic treatment and proofs remain.
-Frames and infinite bases were explicitly passed over, not completed units.
+Briefly recap the determinant/null-space eigenvalue recipe and the
+[worked example](../slides/09-eigenvalues-and-eigenvectors.qmd#find-eigenvalues-then-eigenvectors),
+then resume Deck 09 at
+[An eigenspace includes all vectors for one eigenvalue](../slides/09-eigenvalues-and-eigenvectors.qmd#an-eigenspace-includes-all-vectors-for-one-eigenvalue).
+Continue the eigenspace sequence before Quiz 4 in the last 15 minutes;
+its announced full-Deck-07 coverage is unchanged.
 
-The Schedule and completed Deck 07 Course Outline entry are included in this
-Checkpoint.
-The November 10 single occurrence was saved with Only This Event and reopened
-to verify the complete persisted note, Illinois Tech Fred → Calendar,
-11:15 AM–12:45 PM Central Time (GMT−6), and PH 109. The lecture ledger is
-reconciled through November 5. Both affected pages render and local links pass;
-the full Schedule and welcome page, including the expanded Deck 07 outline,
-pass 1280- and 390-pixel browser review. Remote deployment and live-page
-verification remain pending.
+The November 10 recording completed the worked example with eigenvalues
+3 and 1 and eigenvectors $(1,1)^\top$ and $(1,-1)^\top$. The eigenvector-basis
+factorization was introduced as a goal; repeated eigenvalues and their
+possible shortage of independent eigenvectors were only previewed. These
+topics are not completed units.
 
-Brief spoken correction for the next class: during the November 5 discussion
+Selected Deck 08 classroom coverage concluded November 10: four-space bases
+and dimensions, orthogonal-pair examples, regression fitted responses and
+residuals, and existence/uniqueness with the null-space proof. The instructor
+explicitly made omitted slides optional to prioritize eigenvalues. Do not
+count the formal complement/isomorphism proofs, additional applications,
+rank factorization or abstract-map extensions as taught.
+The welcome-page outline records about two 50-minute classroom hours:
+about 36.6 minutes on November 5 plus about 50 minutes on November 10,
+before the eigenvalue introduction at approximately 50:10–50:26.
+
+The Schedule and outline are updated locally, and the lecture ledger is
+reconciled through November 10. The November 12 continuation was saved with
+Only This Event, closed and reopened in Apple Calendar, and independently
+verified in Fantastical: Illinois Tech Fred → Calendar, PH 109,
+11:15 AM–12:45 PM Central Time. The original title and prior planning note
+were retained. Both pages render, all four new schedule anchors resolve,
+and git diff --check passes. Browser review at 1280- and 390-pixel widths
+confirms that all six schedule tables fit without horizontal overflow and
+the expanded Deck 08 outline and optional-reading note wrap cleanly.
+These lecture-update changes are included in this Checkpoint; remote
+CI/deployment and live-page verification remain pending.
+
+Keep a brief spoken condition-number reminder for the next class: during
+the November 5 discussion
 of nearly dependent regression columns, the square-matrix condition number
 was described as an eigenvalue ratio. The 2-norm condition number is the
 largest/smallest singular-value ratio, including for square matrices; an
@@ -57,6 +74,9 @@ eigenvalue ratio needs additional assumptions. Use $\kappa$, without a norm
 subscript. The reminder came from that recording's downloaded captions during
 the lecture reconciliation in `148732d`; see the
 [recording evidence](LECTURE-UPDATES.md#november-5-recording-evidence).
+The November 10 eigenvalue-ratio calculation was for a symmetric
+positive-definite example, where that ratio is valid; it does not replace
+the general singular-value definition.
 
 November 4 preparation review: the Taylor inverse slide now retains the
 full transition subscripts, and the regression setup uses nonlinear feature
@@ -80,10 +100,10 @@ with features 1, t, and 1+t at t=0,1,2,3. The same imperfect fit connects
 all four spaces; observed responses and fitted values are distinguished.
 Row space identifies the determined intercept/slope combinations and new
 predictions despite ambiguous individual coefficients.
-Review these examples for the November 10 class; the recorded lecture pickup
-and calendar note above are unchanged. Instructor review of Deck 08 and its
-companion remains open. These additions are included in this Checkpoint;
-validation is recorded in `notes/DECK-AUDIT.md`.
+These additional examples remain optional after the November 10 classroom
+scope decision; their construction does not establish that they were taught.
+Broader instructor review of Deck 08 and its companion remains open.
+Validation is recorded in `notes/DECK-AUDIT.md`.
 
 Candidate for this same applications sequence: Netflix-style user/movie
 ratings to illustrate row and column spaces and predicting an unobserved
@@ -92,8 +112,8 @@ rating. Review the idea and its distinction from Google PageRank in
 
 ## Remaining-material readiness — November 9
 
-Deck 08 and its companion exist; the November 10 pickup above remains the
-immediate teaching preparation. Decks 09 (Eigenvalues), 10 (Inner Products,
+Selected Deck 08 classroom coverage concluded November 10; the November 12
+Deck 09 pickup above is the immediate teaching preparation. Decks 09 (Eigenvalues), 10 (Inner Products,
 QR and least squares), and 11 (Special Topics, prioritizing SVD/regression)
 are substantive mathematically audited drafts, with instructor and visible
 review still open. Their companion notebooks 09–11 are now implemented and
