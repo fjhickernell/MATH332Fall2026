@@ -503,6 +503,11 @@ calendar unchanged and check again later.
 - Use lowercase mathematical operators `col`, `row`, and `null` in course
   slides and notebooks. Represent row-space vectors as columns, so
   `col(A) = row(A^T)` and `row(A) = col(A^T)` are equalities of subspaces.
+- Write the 2-norm condition number as `\kappa(A)`, without a norm subscript,
+  in MATH 332 slides and notebooks. State the norm explicitly when defining it.
+- In Eigenvalues and Eigenvectors and its companion notebook, use `V` for a
+  matrix whose columns are eigenvectors, and `Q` for an orthonormal eigenvector
+  matrix. Retain `P` for a general change of basis in the similarity discussion.
 - Chapter 4 uses three named decks: Vector Spaces, Subspaces, and Span;
   Bases, Dimension, and Coordinates; and Matrix Spaces and Rank. Number
   them consecutively as Decks 06, 07, and 08, followed by

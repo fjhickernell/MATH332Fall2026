@@ -164,6 +164,9 @@ Mathematical content should be maintained only in the slides.
     orthogonal diagonalization of real symmetric matrices; include worked
     examples, a geometric figure, and seven starred exercise sets.
   - [ ] Review Deck 09 with the instructor before classroom use.
+  - [x] Use V for eigenvector matrices and Q for orthonormal eigenvectors in
+    Deck 09 and its companion; add an optional two-slide generalized-eigenvector
+    chain example and matching locally executed notebook cell.
   - [x] Draft Deck 10 with QR, regression, and Fourier approximation.
 - [x] Renumber the split Chapter 4 decks as 06–08 and the later placeholders
   as 09–10; update metadata, course maps, navigation, links, and author guidance.
@@ -358,5 +361,6 @@ Mathematical content should be maintained only in the slides.
 - [x] Finalize the private makeup for administration; printing is reported
   complete November 4. Keep the assessment private through grading.
 - [x] Administer the November 5 makeup sitting; instructor confirmation
-  received November 8. Grade by November 9 for return November 10; the
-  six-day grading deadline remains November 11.
+  received November 8. Grading and Canvas entry remain open after the original
+  November 9 target; possibly grade November 11, with return date to confirm.
+  The six-day grading deadline remains November 11.

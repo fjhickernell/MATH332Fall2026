@@ -1,5 +1,23 @@
 # MATH 332 deck accuracy and clarity audit
 
+## November 10, 2026 — eigenvector notation and optional chains
+
+Deck 09 and its companion use V for ordinary eigenvector matrices and Q for
+orthonormal eigenvectors; P remains a general similarity change of basis.
+Two explicitly optional slides define generalized eigenvectors and work a
+length-two chain for the existing defective 2-by-2 example. G denotes the
+generalized basis. The terms index links to both new concepts; a matching
+notebook cell verifies the chain, basis, and coupled Jordan-block identities.
+No general Jordan algorithm or defective-matrix power formula is included.
+
+The Eigenvalues companion passes all 14 code cells in a fresh qmcpy run
+(13.2 seconds), with saved outputs and no errors. The root website and all
+twelve decks render successfully. All 1,834 local references and 820 anchors
+across 23 assembled outputs resolve. The optional slides, V diagonalization
+slide, and both modified terms-index slides pass visible browser review;
+both new index links navigate to their intended slides. Source-style and
+diff checks pass. Instructor review and optional-topic selection remain open.
+
 ## November 2, 2026 — all existing decks
 
 Reviewed the complete current Quarto sources for Decks 00–11, including

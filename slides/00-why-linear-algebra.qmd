@@ -877,6 +877,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Function space]({{< meta decks.d06.file >}}#functions-can-be-vectors)
 - [Gauss–Jordan reduction]({{< meta decks.d02.file >}}#reduce-beside-the-identity)
 - [Gaussian elimination]({{< meta decks.d01.file >}}#elimination)
+- [Generalized eigenvector]({{< meta decks.d09.file >}}#optional-generalized-eigenvectors)
 - [Givens rotation]({{< meta decks.d03.file >}}#givens-rotations), $\mat{G}(i,j,\theta)$
 - [Gram–Schmidt process]({{< meta decks.d10.file >}}#build-perpendicular-directions-without-changing-the-span)
 - [Graph Laplacian]({{< meta decks.d11.file >}}#a-graph-laplacian-measures-disagreement)
@@ -911,6 +912,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Inverse matrix]({{< meta decks.d02.file >}}#an-inverse-undoes-a-matrix-action), $\mat{A}^{-1}$
 - [Invertibility theorem]({{< meta decks.d02.file >}}#one-theorem-many-viewpoints)
 - [Jacobian]({{< meta decks.d04.file >}}#a-jacobian-is-the-local-linear-map)
+- [Jordan block]({{< meta decks.d09.file >}}#a-chain-supplies-the-missing-second-direction)
 - [Law of Cosines]({{< meta decks.d01.file >}}#why-the-cosine-appears)
 - [Least squares](#when-the-constraints-cannot-all-be-satisfied)
 :::

@@ -46,8 +46,8 @@ Choose directions that turn a matrix action into separate scalar actions
 
 &nbsp;
 
-$\mat{A}\mat{P}=\mat{P}\mat{D},\qquad
-\vct{x}=\mat{P}\vct{c}\longmapsto\mat{A}\vct{x}=\mat{P}\mat{D}\vct{c}$
+$\mat{A}\mat{V}=\mat{V}\mat{D},\qquad
+\vct{x}=\mat{V}\vct{c}\longmapsto\mat{A}\vct{x}=\mat{V}\mat{D}\vct{c}$
 :::
 
 - [Preserved Directions](#preserved-directions)
@@ -311,29 +311,30 @@ When do preserved directions provide enough coordinates for every vector?
 - [Count eigenspace dimensions before building a basis](#count-eigenspace-dimensions-before-building-a-basis)
 - [A diagonalization recipe](#a-diagonalization-recipe)
 - [Practice deciding whether diagonalization is possible](#practice-deciding-whether-diagonalization-is-possible)
+- [Optional: generalized eigenvectors](#optional-generalized-eigenvectors)
 - [Similarity changes coordinates, not the operator](#similarity-changes-coordinates-not-the-operator)
 
 ## An eigenvector basis makes the matrix diagonal {#an-eigenvector-basis-makes-the-matrix-diagonal}
 
-Put $n$ independent eigenvectors into $\mat{P}$, with matching eigenvalues in $\mat{D}$:
+Put $n$ independent eigenvectors into $\mat{V}$, with matching eigenvalues in $\mat{D}$:
 
 $$
-\mat{P}=[\vct{v}_1\ \cdots\ \vct{v}_n],\qquad
+\mat{V}=[\vct{v}_1\ \cdots\ \vct{v}_n],\qquad
 \mat{D}=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)
 $$
 
 Multiplication by columns gives
 
 $$
-\mat{A}\mat{P}=[\lambda_1\vct{v}_1\ \cdots\ \lambda_n\vct{v}_n]
-=\mat{P}\mat{D}
+\mat{A}\mat{V}=[\lambda_1\vct{v}_1\ \cdots\ \lambda_n\vct{v}_n]
+=\mat{V}\mat{D}
 $$
 
-Independence makes $\mat{P}$ invertible:
+Independence makes $\mat{V}$ invertible:
 
 $$
-\boxed{\mat{P}^{-1}\mat{A}\mat{P}=\mat{D}},\qquad
-\mat{A}=\mat{P}\mat{D}\mat{P}^{-1}
+\boxed{\mat{V}^{-1}\mat{A}\mat{V}=\mat{D}},\qquad
+\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}
 $$
 
 ::: {.key-point}
@@ -341,12 +342,12 @@ $\mat{A}$ is [diagonalizable]{.alert} over the chosen field exactly when it has 
 :::
 
 ::: {.notes}
-The converse is equally important. If P^{-1} A P=D is diagonal and P is
-invertible, multiply by P to obtain AP=PD. Column j says A v_j=lambda_j v_j.
-The columns of invertible P form a basis, so this is an eigenvector basis.
+The converse is equally important. If V^{-1} A V=D is diagonal and V is
+invertible, multiply by V to obtain AV=VD. Column j says A v_j=lambda_j v_j.
+The columns of invertible V form a basis, so this is an eigenvector basis.
 The order of eigenvalues must match the order of columns. Scaling a column
-by a nonzero constant gives another valid P with the same D. A matrix with
-an eigenvalue zero may still be diagonalizable; P, not D, must be invertible.
+by a nonzero constant gives another valid V with the same D. A matrix with
+an eigenvalue zero may still be diagonalizable; V, not D, must be invertible.
 :::
 
 ## Example: diagonalize and read the coordinates {#diagonalize-and-read-the-coordinates}
@@ -354,19 +355,19 @@ an eigenvalue zero may still be diagonalizable; P, not D, must be invertible.
 For $\mat{A}=\begin{bmatrix}2&1\\1&2\end{bmatrix}$, choose
 
 $$
-\mat{P}=\begin{bmatrix}1&1\\1&-1\end{bmatrix},\qquad
-\mat{P}^{-1}=\tfrac12\begin{bmatrix}1&1\\1&-1\end{bmatrix},\qquad
+\mat{V}=\begin{bmatrix}1&1\\1&-1\end{bmatrix},\qquad
+\mat{V}^{-1}=\tfrac12\begin{bmatrix}1&1\\1&-1\end{bmatrix},\qquad
 \mat{D}=\begin{bmatrix}3&0\\0&1\end{bmatrix}
 $$
 
 For $\vct{x}=[4,2]^\top$:
 
 $$
-\underbrace{\mat{P}^{-1}\vct{x}}_{\text{eigenbasis coordinates}}
+\underbrace{\mat{V}^{-1}\vct{x}}_{\text{eigenbasis coordinates}}
 =\begin{bmatrix}3\\1\end{bmatrix}
 \quad\xrightarrow{\mat{D}}\quad
 \begin{bmatrix}9\\1\end{bmatrix}
-\quad\xrightarrow{\mat{P}}\quad
+\quad\xrightarrow{\mat{V}}\quad
 \mat{A}\vct{x}=\begin{bmatrix}10\\8\end{bmatrix}
 $$
 
@@ -375,9 +376,9 @@ Read coordinates, scale them separately, then reconstruct the output
 :::
 
 ::: {.notes}
-Check P D P^{-1}=A and P^{-1}P=I. The input x is 3v1+v2; the output
-is 9v1+v2. Direct multiplication gives [10,8]^T. P maps eigenbasis
-coordinates to standard coordinates; P^{-1} goes the reverse way.
+Check V D V^{-1}=A and V^{-1}V=I. The input x is 3v1+v2; the output
+is 9v1+v2. Direct multiplication gives [10,8]^T. V maps eigenbasis
+coordinates to standard coordinates; V^{-1} goes the reverse way.
 This is the same coordinate route taught in Bases and Coordinates.
 :::
 
@@ -489,15 +490,15 @@ For a square matrix over the chosen field:
 1. Factor $p_{\mat{A}}(\lambda)$ and list its distinct roots and multiplicities
 2. For each root, solve $(\mat{A}-\lambda\mat{I})\vct{v}=\vct{0}$ and find an eigenspace basis
 3. Count all independent eigenvectors obtained; fewer than $n$ means no eigenvector basis
-4. If there are $n$, put them into $\mat{P}$ and their matching eigenvalues into $\mat{D}$
-5. Check $\mat{A}\mat{P}=\mat{P}\mat{D}$ and that $\mat{P}$ is invertible
+4. If there are $n$, put them into $\mat{V}$ and their matching eigenvalues into $\mat{D}$
+5. Check $\mat{A}\mat{V}=\mat{V}\mat{D}$ and that $\mat{V}$ is invertible
 
 ::: {.key-point}
 If the characteristic polynomial does not split in the field, diagonalization there is impossible
 
 &nbsp;
 
-Verification by $\mat{A}\mat{P}=\mat{P}\mat{D}$ avoids computing an inverse
+Verification by $\mat{A}\mat{V}=\mat{V}\mat{D}$ avoids computing an inverse
 :::
 
 ## Practice deciding whether diagonalization is possible {#practice-deciding-whether-diagonalization-is-possible}
@@ -510,17 +511,17 @@ $$
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
 <span>Build and verify eigenvector bases
-<span class="exsub">Use the eigenspaces already found for $\mat{B}$ to construct $\mat{P},\mat{D}$; verify $\mat{B}\mat{P}=\mat{P}\mat{D}$</span>
+<span class="exsub">Use the eigenspaces already found for $\mat{B}$ to construct $\mat{V},\mat{D}$; verify $\mat{B}\mat{V}=\mat{V}\mat{D}$</span>
 <span class="exsub">For $\mat{C}$, give both multiplicities for each eigenvalue and construct an eigenvector basis</span>
 <span class="exsub">Explain why $\mat{C}$ disproves “diagonalizable means all eigenvalues are distinct”</span>
 </span>
 :::
 
 ::: {.notes}
-For B use P=[[1,1],[0,-2]], D=diag(4,2), P^{-1}=[[1,1/2],[0,-1/2]].
-Both sides BP=PD=[[4,2],[0,-4]]. For C, lambda=2 has algebraic and
+For B use V=[[1,1],[0,-2]], D=diag(4,2), V^{-1}=[[1,1/2],[0,-1/2]].
+Both sides BV=VD=[[4,2],[0,-4]]. For C, lambda=2 has algebraic and
 geometric multiplicity 2, E_2=span{e1,e2}; lambda=3 has both
-multiplicities 1, E_3=span{e3}. P=I_3, D=C is a diagonalization.
+multiplicities 1, E_3=span{e3}. V=I_3, D=C is a diagonalization.
 Any basis within E_2 works, together with a nonzero vector from E_3.
 :::
 
@@ -548,6 +549,83 @@ For lambda=3, F-3I has rows [-1,1,0], [0,-1,0], [0,0,0], so
 E_3=span{e3}, with both multiplicities 1. Only two independent
 eigenvectors are available in dimension three. No change of basis within
 these eigenspaces can increase their dimensions, so F is not diagonalizable.
+:::
+
+## Optional: generalized eigenvectors {#optional-generalized-eigenvectors}
+
+Optional enrichment; may be skipped
+
+For an eigenvalue $\lambda$, a [generalized eigenvector]{.alert} is a nonzero vector $\vct{w}$ satisfying
+
+$$
+(\mat{A}-\lambda\mat{I})^k\vct{w}=\vct{0}
+\qquad\text{for some integer }k\ge1
+$$
+
+The case $k=1$ gives an ordinary eigenvector
+
+A length-two [chain]{.alert} satisfies
+
+$$
+(\mat{A}-\lambda\mat{I})\vct{v}=\vct{0},\qquad
+(\mat{A}-\lambda\mat{I})\vct{w}=\vct{v}\ne\vct{0}
+$$
+
+::: {.key-point}
+$\mat{A}\vct{v}=\lambda\vct{v}$, but $\mat{A}\vct{w}=\lambda\vct{w}+\vct{v}$
+
+The second direction feeds into the first instead of scaling independently
+:::
+
+::: {.notes}
+This is optional enrichment, not a commitment to cover Jordan theory.
+The integer k need not be minimal in the definition. In the displayed
+length-two chain, w is not an ordinary eigenvector because (A-lambda I)w
+is nonzero, but (A-lambda I)^2 w=0. The vectors v,w are independent:
+apply A-lambda I to av+bw=0 to obtain bv=0, hence b=0 and then a=0.
+Use G for this generalized basis, V for a basis of ordinary eigenvectors,
+and Q for an orthonormal eigenvector matrix. No general Jordan algorithm
+or existence theorem is required for the example.
+:::
+
+---
+
+### A chain supplies the missing second direction {#a-chain-supplies-the-missing-second-direction}
+
+Return to the matrix with only one independent eigenvector:
+
+$$
+\mat{J}=\begin{bmatrix}2&1\\0&2\end{bmatrix},\qquad
+\vct{v}=\begin{bmatrix}1\\0\end{bmatrix},\quad
+\vct{w}=\begin{bmatrix}0\\1\end{bmatrix}
+$$
+
+$$
+(\mat{J}-2\mat{I})\vct{v}=\vct{0},\qquad
+(\mat{J}-2\mat{I})\vct{w}=\vct{v},\qquad
+(\mat{J}-2\mat{I})^2\vct{w}=\vct{0}
+$$
+
+The two vectors form a basis $\mat{G}=[\vct{v}\ \vct{w}]$, with
+
+$$
+\mat{J}\mat{G}
+=\mat{G}\underbrace{\begin{bmatrix}2&1\\0&2\end{bmatrix}}_{\text{Jordan block}}
+$$
+
+::: {.key-point}
+The missing eigenvector is replaced by a generalized eigenvector
+
+The off-diagonal $1$ records the coupling; the matrix is still not diagonalizable
+:::
+
+::: {.notes}
+Here G=I because J is already a Jordan block. The basis still illustrates
+the distinction: its second column is generalized, not an ordinary
+eigenvector. A vector av+bw is sent to (2a+b)v+2bw. Thus the diagonal
+entries scale coefficients while the off-diagonal entry mixes them.
+The nonzero off-diagonal entry cannot be removed by choosing a different
+ordinary eigenvector basis, because the eigenspace has dimension one.
 :::
 
 ## Similarity changes coordinates, not the operator {#similarity-changes-coordinates-not-the-operator}
@@ -638,9 +716,9 @@ $$
 Thus, over $\mathbb{C}$,
 
 $$
-\mat{P}=\begin{bmatrix}1&1\\-i&i\end{bmatrix},\qquad
+\mat{V}=\begin{bmatrix}1&1\\-i&i\end{bmatrix},\qquad
 \mat{D}=\begin{bmatrix}i&0\\0&-i\end{bmatrix},\qquad
-\mat{R}=\mat{P}\mat{D}\mat{P}^{-1}
+\mat{R}=\mat{V}\mat{D}\mat{V}^{-1}
 $$
 
 For real $x,y$:
@@ -656,7 +734,7 @@ Conjugate coefficients and eigenvectors reconstruct a real vector
 :::
 
 ::: {.notes}
-The determinant of P is 2i, so P is invertible. Its inverse is
+The determinant of V is 2i, so V is invertible. Its inverse is
 (1/2)[[1,i],[1,-i]]. The coordinate formula follows by multiplication.
 Applying R multiplies the first coefficient by i and the second by -i;
 they remain conjugates, and their reconstruction is real. Do not draw the
@@ -733,10 +811,10 @@ Repeated matrix actions become repeated scalar actions in an eigenvector basis
 
 ## Powers act separately on eigenbasis coordinates {#powers-act-separately-on-eigenbasis-coordinates}
 
-If $\mat{A}=\mat{P}\mat{D}\mat{P}^{-1}$, cancellation gives, for integers $k\ge0$,
+If $\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}$, cancellation gives, for integers $k\ge0$,
 
 $$
-\mat{A}^k=\mat{P}\mat{D}^k\mat{P}^{-1},\qquad
+\mat{A}^k=\mat{V}\mat{D}^k\mat{V}^{-1},\qquad
 \mat{D}^k=\operatorname{diag}(\lambda_1^k,\ldots,\lambda_n^k)
 $$
 
@@ -759,7 +837,9 @@ ordinary scalar powers. Negative powers require A invertible. Complex
 components include phase changes; their magnitudes scale by |lambda|^k.
 This formula assumes an eigenvector basis. A missing initial component
 c_j=0 stays absent, so a large eigenvalue does not make every initial vector
-grow. Jordan methods for defective matrices are outside this deck's scope.
+grow. The optional generalized-eigenvector topic introduces a coupled Jordan
+block; powers of defective matrices and a general Jordan algorithm are not
+developed here.
 :::
 
 ## Example: a two-group population exchange {#a-two-group-population-exchange}

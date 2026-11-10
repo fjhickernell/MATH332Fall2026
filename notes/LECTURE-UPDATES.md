@@ -306,6 +306,14 @@ the bases and explain why row/null dot products vanish; the instructor says
 more practice is needed. A brief rank–nullity slide visit does not establish
 the later systematic orthogonal-complement treatment or its proofs.
 
+Condition-number correction provenance: in the downloaded captions, the
+near-dependence/regression discussion immediately before the running echelon
+example gives the singular-value ratio for rectangular matrices, then states
+an eigenvalue ratio for square matrices without additional assumptions. This
+spoken claim prompted the reminder added to `notes/NEXT.md` in `148732d`;
+the written slides already used singular values. The downloaded transcript
+has no timestamps, so the exact utterance time is unverified.
+
 The November 10 single occurrence was saved using Only This Event, closed
 and reopened to verify the complete persisted continuation note, retained
 MATH 332 title, PH 109, and 11:15 AM–12:45 PM Central Time (GMT−6).

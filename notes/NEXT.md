@@ -49,10 +49,14 @@ the full Schedule and welcome page, including the expanded Deck 07 outline,
 pass 1280- and 390-pixel browser review. Remote deployment and live-page
 verification remain pending.
 
-Brief teaching correction for the next class: the 2-norm condition number is
-the largest/smallest singular-value ratio, including for square matrices.
-An eigenvalue ratio needs additional assumptions; do not present it as the
-general square-matrix rule.
+Brief spoken correction for the next class: during the November 5 discussion
+of nearly dependent regression columns, the square-matrix condition number
+was described as an eigenvalue ratio. The 2-norm condition number is the
+largest/smallest singular-value ratio, including for square matrices; an
+eigenvalue ratio needs additional assumptions. Use $\kappa$, without a norm
+subscript. The reminder came from that recording's downloaded captions during
+the lecture reconciliation in `148732d`; see the
+[recording evidence](LECTURE-UPDATES.md#november-5-recording-evidence).
 
 November 4 preparation review: the Taylor inverse slide now retains the
 full transition subscripts, and the regression setup uses nonlinear feature
@@ -93,8 +97,8 @@ immediate teaching preparation. Decks 09 (Eigenvalues), 10 (Inner Products,
 QR and least squares), and 11 (Special Topics, prioritizing SVD/regression)
 are substantive mathematically audited drafts, with instructor and visible
 review still open. Their companion notebooks 09–11 are now implemented and
-locally executed: Eigenvalues (13 code cells, 11.4 seconds), Inner Products/QR
-(13 code cells, 6.8 seconds), and SVD/regression (12 code cells, 1.4 seconds). All 38
+locally executed: Eigenvalues (14 code cells, 13.2 seconds), Inner Products/QR
+(13 code cells, 6.8 seconds), and SVD/regression (12 code cells, 1.4 seconds). All 39
 code cells pass with saved outputs and eleven visually inspected plots.
 These are instructor-review drafts, linked from their decks and the Notebooks
 page. They use the established pinned-classlib Colab setup and final timing
@@ -120,11 +124,20 @@ The notebook links and scope decision are preserved in `10d2675`.
 Publishing and Pages deployment succeeded for that commit, verified
 November 9; live-page verification and instructor review remain pending.
 
+Deck 09 and its companion now use $V$ for eigenvector matrices and retain
+$Q$ for orthonormal eigenvectors; $P$ remains the general change-of-basis
+matrix in the similarity discussion.
+An optional two-slide generalized-eigenvector topic follows the repeated-root
+practice, with a matching notebook example. It introduces a length-two chain
+and its coupled Jordan block; coverage is optional, and no general Jordan
+algorithm or defective-matrix power formula is planned.
+
 ## November 5 makeup
 
 The November 5 makeup sitting has been administered, confirmed by the
-instructor November 8. Finish grading and Canvas entry by November 9 for
-return on November 10; the six-day grading deadline remains November 11.
+instructor November 8. Grading and Canvas entry remain open. The original
+target was November 9; possible grading November 11 and return date remain
+to confirm. The six-day grading deadline remains November 11.
 Keep the assessment private until grading is complete; no separate
 small-cohort score distribution.
 

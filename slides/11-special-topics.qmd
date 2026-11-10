@@ -378,7 +378,7 @@ A perturbation $\delta\vct{b}$ changes the pseudoinverse coefficients by
 
 Small positive $\sigma_j$: large coefficient changes in direction $\vct{V}_j$
 
-For full column rank, $\kappa_2(\mat{A})=\sigma_1/\sigma_n$
+For full column rank, the 2-norm condition number is $\kappa(\mat{A})=\sigma_1/\sigma_n$
 
 ::: {.key-point}
 An accurate fit can coexist with poorly determined coefficients
@@ -420,7 +420,7 @@ This ridge formula penalizes every coefficient, including an intercept if presen
 | Sensitivity and numerical rank | Singular values and feature scaling |
 | Noise-sensitive directions | Truncation or ridge |
 
-Forming $\mat{A}^\top\mat{A}$ squares $\kappa_2(\mat{A})$ when $\mat{A}$ has full column rank
+Forming $\mat{A}^\top\mat{A}$ squares $\kappa(\mat{A})$ when $\mat{A}$ has full column rank
 
 Prefer an orthogonal factorization to explicitly inverting the normal-equation matrix
 
