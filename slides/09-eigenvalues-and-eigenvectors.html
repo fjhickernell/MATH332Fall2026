@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-09">
+  <meta name="dcterms.date" content="2026-11-10">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 9, 2026</p>
+  <p class="date">November 10, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -677,8 +677,8 @@ In this deck
 <div class="key-point">
 <p>Choose directions that turn a matrix action into separate scalar actions</p>
 <p>&nbsp;</p>
-<p><span class="math inline">\(\mat{A}\mat{P}=\mat{P}\mat{D},\qquad
-\vct{x}=\mat{P}\vct{c}\longmapsto\mat{A}\vct{x}=\mat{P}\mat{D}\vct{c}\)</span></p>
+<p><span class="math inline">\(\mat{A}\mat{V}=\mat{V}\mat{D},\qquad
+\vct{x}=\mat{V}\vct{c}\longmapsto\mat{A}\vct{x}=\mat{V}\mat{D}\vct{c}\)</span></p>
 </div>
 <ul>
 <li><a href="#/preserved-directions">Preserved Directions</a></li>
@@ -978,31 +978,32 @@ p_{\mat{U}}(\lambda)=\prod_{j=1}^n(\lambda-u_{jj})
 <li><a href="#/count-eigenspace-dimensions-before-building-a-basis">Count eigenspace dimensions before building a basis</a></li>
 <li><a href="#/a-diagonalization-recipe">A diagonalization recipe</a></li>
 <li><a href="#/practice-deciding-whether-diagonalization-is-possible">Practice deciding whether diagonalization is possible</a></li>
+<li><a href="#/optional-generalized-eigenvectors">Optional: generalized eigenvectors</a></li>
 <li><a href="#/similarity-changes-coordinates-not-the-operator">Similarity changes coordinates, not the operator</a></li>
 </ul>
 </section>
 <section id="an-eigenvector-basis-makes-the-matrix-diagonal" class="slide level2">
 <h2>An eigenvector basis makes the matrix diagonal</h2>
-<p>Put <span class="math inline">\(n\)</span> independent eigenvectors into <span class="math inline">\(\mat{P}\)</span>, with matching eigenvalues in <span class="math inline">\(\mat{D}\)</span>:</p>
+<p>Put <span class="math inline">\(n\)</span> independent eigenvectors into <span class="math inline">\(\mat{V}\)</span>, with matching eigenvalues in <span class="math inline">\(\mat{D}\)</span>:</p>
 <p><span class="math display">\[
-\mat{P}=[\vct{v}_1\ \cdots\ \vct{v}_n],\qquad
+\mat{V}=[\vct{v}_1\ \cdots\ \vct{v}_n],\qquad
 \mat{D}=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)
 \]</span></p>
 <p>Multiplication by columns gives</p>
 <p><span class="math display">\[
-\mat{A}\mat{P}=[\lambda_1\vct{v}_1\ \cdots\ \lambda_n\vct{v}_n]
-=\mat{P}\mat{D}
+\mat{A}\mat{V}=[\lambda_1\vct{v}_1\ \cdots\ \lambda_n\vct{v}_n]
+=\mat{V}\mat{D}
 \]</span></p>
-<p>Independence makes <span class="math inline">\(\mat{P}\)</span> invertible:</p>
+<p>Independence makes <span class="math inline">\(\mat{V}\)</span> invertible:</p>
 <p><span class="math display">\[
-\boxed{\mat{P}^{-1}\mat{A}\mat{P}=\mat{D}},\qquad
-\mat{A}=\mat{P}\mat{D}\mat{P}^{-1}
+\boxed{\mat{V}^{-1}\mat{A}\mat{V}=\mat{D}},\qquad
+\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}
 \]</span></p>
 <div class="key-point">
 <p><span class="math inline">\(\mat{A}\)</span> is <span class="alert">diagonalizable</span> over the chosen field exactly when it has an eigenvector basis there</p>
 </div>
 <aside class="notes">
-<p>The converse is equally important. If P^{-1} A P=D is diagonal and P is invertible, multiply by P to obtain AP=PD. Column j says A v_j=lambda_j v_j. The columns of invertible P form a basis, so this is an eigenvector basis. The order of eigenvalues must match the order of columns. Scaling a column by a nonzero constant gives another valid P with the same D. A matrix with an eigenvalue zero may still be diagonalizable; P, not D, must be invertible.</p>
+<p>The converse is equally important. If V^{-1} A V=D is diagonal and V is invertible, multiply by V to obtain AV=VD. Column j says A v_j=lambda_j v_j. The columns of invertible V form a basis, so this is an eigenvector basis. The order of eigenvalues must match the order of columns. Scaling a column by a nonzero constant gives another valid V with the same D. A matrix with an eigenvalue zero may still be diagonalizable; V, not D, must be invertible.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1019,24 +1020,24 @@ p_{\mat{U}}(\lambda)=\prod_{j=1}^n(\lambda-u_{jj})
 <h2>Example: diagonalize and read the coordinates</h2>
 <p>For <span class="math inline">\(\mat{A}=\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}\)</span>, choose</p>
 <p><span class="math display">\[
-\mat{P}=\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix},\qquad
-\mat{P}^{-1}=\tfrac12\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix},\qquad
+\mat{V}=\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix},\qquad
+\mat{V}^{-1}=\tfrac12\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix},\qquad
 \mat{D}=\begin{bmatrix}3&amp;0\\0&amp;1\end{bmatrix}
 \]</span></p>
 <p>For <span class="math inline">\(\vct{x}=[4,2]^\top\)</span>:</p>
 <p><span class="math display">\[
-\underbrace{\mat{P}^{-1}\vct{x}}_{\text{eigenbasis coordinates}}
+\underbrace{\mat{V}^{-1}\vct{x}}_{\text{eigenbasis coordinates}}
 =\begin{bmatrix}3\\1\end{bmatrix}
 \quad\xrightarrow{\mat{D}}\quad
 \begin{bmatrix}9\\1\end{bmatrix}
-\quad\xrightarrow{\mat{P}}\quad
+\quad\xrightarrow{\mat{V}}\quad
 \mat{A}\vct{x}=\begin{bmatrix}10\\8\end{bmatrix}
 \]</span></p>
 <div class="key-point">
 <p>Read coordinates, scale them separately, then reconstruct the output</p>
 </div>
 <aside class="notes">
-<p>Check P D P^{-1}=A and P^{-1}P=I. The input x is 3v1+v2; the output is 9v1+v2. Direct multiplication gives [10,8]^T. P maps eigenbasis coordinates to standard coordinates; P^{-1} goes the reverse way. This is the same coordinate route taught in Bases and Coordinates.</p>
+<p>Check V D V^{-1}=A and V^{-1}V=I. The input x is 3v1+v2; the output is 9v1+v2. Direct multiplication gives [10,8]^T. V maps eigenbasis coordinates to standard coordinates; V^{-1} goes the reverse way. This is the same coordinate route taught in Bases and Coordinates.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1159,13 +1160,13 @@ c_1\lambda_1\vct{v}_1+c_2\lambda_2\vct{v}_2=\vct{0}
 <li>Factor <span class="math inline">\(p_{\mat{A}}(\lambda)\)</span> and list its distinct roots and multiplicities</li>
 <li>For each root, solve <span class="math inline">\((\mat{A}-\lambda\mat{I})\vct{v}=\vct{0}\)</span> and find an eigenspace basis</li>
 <li>Count all independent eigenvectors obtained; fewer than <span class="math inline">\(n\)</span> means no eigenvector basis</li>
-<li>If there are <span class="math inline">\(n\)</span>, put them into <span class="math inline">\(\mat{P}\)</span> and their matching eigenvalues into <span class="math inline">\(\mat{D}\)</span></li>
-<li>Check <span class="math inline">\(\mat{A}\mat{P}=\mat{P}\mat{D}\)</span> and that <span class="math inline">\(\mat{P}\)</span> is invertible</li>
+<li>If there are <span class="math inline">\(n\)</span>, put them into <span class="math inline">\(\mat{V}\)</span> and their matching eigenvalues into <span class="math inline">\(\mat{D}\)</span></li>
+<li>Check <span class="math inline">\(\mat{A}\mat{V}=\mat{V}\mat{D}\)</span> and that <span class="math inline">\(\mat{V}\)</span> is invertible</li>
 </ol>
 <div class="key-point">
 <p>If the characteristic polynomial does not split in the field, diagonalization there is impossible</p>
 <p>&nbsp;</p>
-<p>Verification by <span class="math inline">\(\mat{A}\mat{P}=\mat{P}\mat{D}\)</span> avoids computing an inverse</p>
+<p>Verification by <span class="math inline">\(\mat{A}\mat{V}=\mat{V}\mat{D}\)</span> avoids computing an inverse</p>
 </div>
 </section>
 <section id="practice-deciding-whether-diagonalization-is-possible" class="slide level2">
@@ -1175,10 +1176,10 @@ c_1\lambda_1\vct{v}_1+c_2\lambda_2\vct{v}_2=\vct{0}
 \mat{C}=\begin{bmatrix}2&amp;0&amp;0\\0&amp;2&amp;0\\0&amp;0&amp;3\end{bmatrix}
 \]</span></p>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Build and verify eigenvector bases <span class="exsub">Use the eigenspaces already found for <span class="math inline">\(\mat{B}\)</span> to construct <span class="math inline">\(\mat{P},\mat{D}\)</span>; verify <span class="math inline">\(\mat{B}\mat{P}=\mat{P}\mat{D}\)</span></span> <span class="exsub">For <span class="math inline">\(\mat{C}\)</span>, give both multiplicities for each eigenvalue and construct an eigenvector basis</span> <span class="exsub">Explain why <span class="math inline">\(\mat{C}\)</span> disproves “diagonalizable means all eigenvalues are distinct”</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Build and verify eigenvector bases <span class="exsub">Use the eigenspaces already found for <span class="math inline">\(\mat{B}\)</span> to construct <span class="math inline">\(\mat{V},\mat{D}\)</span>; verify <span class="math inline">\(\mat{B}\mat{V}=\mat{V}\mat{D}\)</span></span> <span class="exsub">For <span class="math inline">\(\mat{C}\)</span>, give both multiplicities for each eigenvalue and construct an eigenvector basis</span> <span class="exsub">Explain why <span class="math inline">\(\mat{C}\)</span> disproves “diagonalizable means all eigenvalues are distinct”</span> </span></p>
 </div>
 <aside class="notes">
-<p>For B use P=[[1,1],[0,-2]], D=diag(4,2), P^{-1}=[[1,1/2],[0,-1/2]]. Both sides BP=PD=[[4,2],[0,-4]]. For C, lambda=2 has algebraic and geometric multiplicity 2, E_2=span{e1,e2}; lambda=3 has both multiplicities 1, E_3=span{e3}. P=I_3, D=C is a diagonalization. Any basis within E_2 works, together with a nonzero vector from E_3.</p>
+<p>For B use V=[[1,1],[0,-2]], D=diag(4,2), V^{-1}=[[1,1/2],[0,-1/2]]. Both sides BV=VD=[[4,2],[0,-4]]. For C, lambda=2 has algebraic and geometric multiplicity 2, E_2=span{e1,e2}; lambda=3 has both multiplicities 1, E_3=span{e3}. V=I_3, D=C is a diagonalization. Any basis within E_2 works, together with a nonzero vector from E_3.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1202,6 +1203,75 @@ c_1\lambda_1\vct{v}_1+c_2\lambda_2\vct{v}_2=\vct{0}
 </div>
 <aside class="notes">
 <p>For lambda=2, F-2I has rows [0,1,0], [0,0,0], [0,0,1], so E_2=span{e1}, algebraic multiplicity 2, geometric multiplicity 1. For lambda=3, F-3I has rows [-1,1,0], [0,-1,0], [0,0,0], so E_3=span{e3}, with both multiplicities 1. Only two independent eigenvectors are available in dimension three. No change of basis within these eigenspaces can increase their dimensions, so F is not diagonalizable.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="optional-generalized-eigenvectors" class="slide level2">
+<h2>Optional: generalized eigenvectors</h2>
+<p>Optional enrichment; may be skipped</p>
+<p>For an eigenvalue <span class="math inline">\(\lambda\)</span>, a <span class="alert">generalized eigenvector</span> is a nonzero vector <span class="math inline">\(\vct{w}\)</span> satisfying</p>
+<p><span class="math display">\[
+(\mat{A}-\lambda\mat{I})^k\vct{w}=\vct{0}
+\qquad\text{for some integer }k\ge1
+\]</span></p>
+<p>The case <span class="math inline">\(k=1\)</span> gives an ordinary eigenvector</p>
+<p>A length-two <span class="alert">chain</span> satisfies</p>
+<p><span class="math display">\[
+(\mat{A}-\lambda\mat{I})\vct{v}=\vct{0},\qquad
+(\mat{A}-\lambda\mat{I})\vct{w}=\vct{v}\ne\vct{0}
+\]</span></p>
+<div class="key-point">
+<p><span class="math inline">\(\mat{A}\vct{v}=\lambda\vct{v}\)</span>, but <span class="math inline">\(\mat{A}\vct{w}=\lambda\vct{w}+\vct{v}\)</span></p>
+<p>The second direction feeds into the first instead of scaling independently</p>
+</div>
+<aside class="notes">
+<p>This is optional enrichment, not a commitment to cover Jordan theory. The integer k need not be minimal in the definition. In the displayed length-two chain, w is not an ordinary eigenvector because (A-lambda I)w is nonzero, but (A-lambda I)^2 w=0. The vectors v,w are independent: apply A-lambda I to av+bw=0 to obtain bv=0, hence b=0 and then a=0. Use G for this generalized basis, V for a basis of ordinary eigenvectors, and Q for an orthonormal eigenvector matrix. No general Jordan algorithm or existence theorem is required for the example.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="a-chain-supplies-the-missing-second-direction">A chain supplies the missing second direction</h3>
+<p>Return to the matrix with only one independent eigenvector:</p>
+<p><span class="math display">\[
+\mat{J}=\begin{bmatrix}2&amp;1\\0&amp;2\end{bmatrix},\qquad
+\vct{v}=\begin{bmatrix}1\\0\end{bmatrix},\quad
+\vct{w}=\begin{bmatrix}0\\1\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+(\mat{J}-2\mat{I})\vct{v}=\vct{0},\qquad
+(\mat{J}-2\mat{I})\vct{w}=\vct{v},\qquad
+(\mat{J}-2\mat{I})^2\vct{w}=\vct{0}
+\]</span></p>
+<p>The two vectors form a basis <span class="math inline">\(\mat{G}=[\vct{v}\ \vct{w}]\)</span>, with</p>
+<p><span class="math display">\[
+\mat{J}\mat{G}
+=\mat{G}\underbrace{\begin{bmatrix}2&amp;1\\0&amp;2\end{bmatrix}}_{\text{Jordan block}}
+\]</span></p>
+<div class="key-point">
+<p>The missing eigenvector is replaced by a generalized eigenvector</p>
+<p>The off-diagonal <span class="math inline">\(1\)</span> records the coupling; the matrix is still not diagonalizable</p>
+</div>
+<aside class="notes">
+<p>Here G=I because J is already a Jordan block. The basis still illustrates the distinction: its second column is generalized, not an ordinary eigenvector. A vector av+bw is sent to (2a+b)v+2bw. Thus the diagonal entries scale coefficients while the off-diagonal entry mixes them. The nonzero off-diagonal entry cannot be removed by choosing a different ordinary eigenvector basis, because the eigenspace has dimension one.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1303,9 +1373,9 @@ p_{\mat{R}}(\lambda)=\lambda^2+1
 \]</span></p>
 <p>Thus, over <span class="math inline">\(\mathbb{C}\)</span>,</p>
 <p><span class="math display">\[
-\mat{P}=\begin{bmatrix}1&amp;1\\-i&amp;i\end{bmatrix},\qquad
+\mat{V}=\begin{bmatrix}1&amp;1\\-i&amp;i\end{bmatrix},\qquad
 \mat{D}=\begin{bmatrix}i&amp;0\\0&amp;-i\end{bmatrix},\qquad
-\mat{R}=\mat{P}\mat{D}\mat{P}^{-1}
+\mat{R}=\mat{V}\mat{D}\mat{V}^{-1}
 \]</span></p>
 <p>For real <span class="math inline">\(x,y\)</span>:</p>
 <p><span class="math display">\[
@@ -1317,7 +1387,7 @@ p_{\mat{R}}(\lambda)=\lambda^2+1
 <p>Conjugate coefficients and eigenvectors reconstruct a real vector</p>
 </div>
 <aside class="notes">
-<p>The determinant of P is 2i, so P is invertible. Its inverse is (1/2)[[1,i],[1,-i]]. The coordinate formula follows by multiplication. Applying R multiplies the first coefficient by i and the second by -i; they remain conjugates, and their reconstruction is real. Do not draw the complex eigenvectors as real planar arrows. The actual real motion is still a quarter turn, not two real stretches.</p>
+<p>The determinant of V is 2i, so V is invertible. Its inverse is (1/2)[[1,i],[1,-i]]. The coordinate formula follows by multiplication. Applying R multiplies the first coefficient by i and the second by -i; they remain conjugates, and their reconstruction is real. Do not draw the complex eigenvectors as real planar arrows. The actual real motion is still a quarter turn, not two real stretches.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1395,9 +1465,9 @@ p_{\mat{R}}(\lambda)=\lambda^2+1
 </section>
 <section id="powers-act-separately-on-eigenbasis-coordinates" class="slide level2">
 <h2>Powers act separately on eigenbasis coordinates</h2>
-<p>If <span class="math inline">\(\mat{A}=\mat{P}\mat{D}\mat{P}^{-1}\)</span>, cancellation gives, for integers <span class="math inline">\(k\ge0\)</span>,</p>
+<p>If <span class="math inline">\(\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}\)</span>, cancellation gives, for integers <span class="math inline">\(k\ge0\)</span>,</p>
 <p><span class="math display">\[
-\mat{A}^k=\mat{P}\mat{D}^k\mat{P}^{-1},\qquad
+\mat{A}^k=\mat{V}\mat{D}^k\mat{V}^{-1},\qquad
 \mat{D}^k=\operatorname{diag}(\lambda_1^k,\ldots,\lambda_n^k)
 \]</span></p>
 <p>If <span class="math inline">\(\vct{x}_0=\sum_{j=1}^n c_j\vct{v}_j\)</span>, then</p>
@@ -1412,7 +1482,7 @@ p_{\mat{R}}(\lambda)=\lambda^2+1
 <li><span class="math inline">\(|\lambda_j|&gt;1\)</span>: a nonzero component grows in magnitude</li>
 </ul>
 <aside class="notes">
-<p>A^0=I and D^0=I by definition, including when an eigenvalue is zero; avoid interpreting the k=0 case as a scalar 0^0 limit. For k&gt;=1 the powers are ordinary scalar powers. Negative powers require A invertible. Complex components include phase changes; their magnitudes scale by |lambda|^k. This formula assumes an eigenvector basis. A missing initial component c_j=0 stays absent, so a large eigenvalue does not make every initial vector grow. Jordan methods for defective matrices are outside this deck’s scope.</p>
+<p>A^0=I and D^0=I by definition, including when an eigenvalue is zero; avoid interpreting the k=0 case as a scalar 0^0 limit. For k&gt;=1 the powers are ordinary scalar powers. Negative powers require A invertible. Complex components include phase changes; their magnitudes scale by |lambda|^k. This formula assumes an eigenvector basis. A missing initial component c_j=0 stays absent, so a large eigenvalue does not make every initial vector grow. The optional generalized-eigenvector topic introduces a coupled Jordan block; powers of defective matrices and a general Jordan algorithm are not developed here.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
