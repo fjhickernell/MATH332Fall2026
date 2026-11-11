@@ -300,6 +300,8 @@ Mathematical content should be maintained only in the slides.
     and Coordinates deck (Deck 07), announced November 6 and verified in
     Canvas announcement `109873`; Quiz 5 coverage remains TBD. Both tests are
     published. Grades remain for later entry.
+  - [x] Prepare and validate the private Quiz 4 draft for November 12;
+    instructor review, final printing and CDR delivery remain.
   - [x] Narrow Test 2 coverage through dimension; exclude coordinates and
     transformations; correct the Canvas assignment and prior notice, and
     publish the all-sections correction announcement `108764` (October 22).
@@ -360,6 +362,9 @@ Mathematical content should be maintained only in the slides.
 - [x] Deploy/verify the website, obtain combined publication approval, publish
   and verify WileyPLUS/Canvas and the all-sections announcement (October 31;
   Canvas announcement 109416).
+- [x] Review WileyPLUS grade passback and post the instructor-approved Canvas
+  corrections (November 11); an individual extension and its remaining grading
+  follow-up are tracked privately.
 
 - [x] Release the graded Test 2 answer PDF and anonymous regular-sitting score
   distribution to the course website and canonical archive, verify both live

@@ -84,6 +84,10 @@ rating. Review the idea and its distinction from Google PageRank in
 
 ## Quiz 4 coverage — announced November 6
 
+The private draft is prepared and validated. Instructor review, final printing,
+and delivery to the Center for Disability Resources remain. Keep the assessment
+private until grading is complete.
+
 Quiz 4 is Thursday, November 12, and covers the full **Bases, Dimension,
 and Coordinates** deck. The Schedule and Quizzes and Tests coverage rows and
 Deck 07's Quiz 4 · November 12 title notice are published. Publishing and
@@ -188,7 +192,13 @@ verification, and instructor review remain pending. Broader review of the
 Chapter 4 revisions and later draft decks remains open. Earlier
 preparation notes below are historical where this pickup supersedes them.
 
-## Assignment 5 — released October 31; grading review due November 12
+## Assignment 5 — released October 31; grading follow-up open
+
+Canvas/WileyPLUS grade passback was reviewed November 11, and the
+instructor-directed corrections are saved and posted after explicit approval
+on November 11. Assignment 5 retains manual posting for future scores.
+An individual extension and its grading follow-up are tracked privately.
+Preserve the saved Canvas overrides when reconciling future WileyPLUS scores.
 
 Assignment 5 is published in Canvas 106681 and available in WileyPLUS.
 The instructor-approved question set is Chapter 4 §4.5 Q15 and §4.7 Q02b,
