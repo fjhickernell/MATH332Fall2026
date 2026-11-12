@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-11">
+  <meta name="dcterms.date" content="2026-11-12">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -644,7 +644,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 11, 2026</p>
+  <p class="date">November 12, 2026</p>
 </section>
 <section id="we-begin-this-semester-amid-significant-change" class="slide level2">
 <h2>We begin this semester amid significant change</h2>
@@ -1840,7 +1840,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <li><a href="10-inner-product-spaces.html#complex-inner-products-use-conjugation">Complex inner product</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#composition-is-matrix-multiplication">Composition of transformations</a></li>
 <li><a href="#/a-correct-computation-can-still-cost-too-much">Computational cost</a></li>
-<li><a href="11-special-topics.html#small-singular-values-amplify-data-perturbations">Condition number</a></li>
+<li><a href="10-inner-product-spaces.html#small-singular-values-amplify-data-perturbations">Condition number</a></li>
 <li><a href="10-inner-product-spaces.html#complex-inner-products-use-conjugation">Conjugate transpose</a></li>
 <li><a href="01-systems-and-matrices.html#read-the-solution-set">Consistent / inconsistent system</a></li>
 <li><a href="07-bases-dimension-and-coordinates.html#the-coordinate-map-preserves-linear-combinations">Coordinate map</a>, <span class="math inline">\(\vct{v}\mapsto[\vct{v}]_{\mathcal{B}}\)</span></li>
@@ -1903,7 +1903,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <ul>
 <li><a href="07-bases-dimension-and-coordinates.html#a-frame-can-keep-redundant-generators">Frame</a></li>
 <li><a href="01-systems-and-matrices.html#a-free-variable-produces-infinitely-many-solutions">Free variable</a></li>
-<li><a href="11-special-topics.html#the-best-low-rank-approximation-has-a-measurable-error">Frobenius norm</a></li>
+<li><a href="10-inner-product-spaces.html#the-best-low-rank-approximation-has-a-measurable-error">Frobenius norm</a></li>
 <li><a href="06-general-vector-spaces.html#functions-can-be-vectors">Function space</a></li>
 <li><a href="02-inverses-and-invertibility.html#reduce-beside-the-identity">Gauss–Jordan reduction</a></li>
 <li><a href="01-systems-and-matrices.html#elimination">Gaussian elimination</a></li>
@@ -1967,14 +1967,14 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <div class="columns" style="font-size: 0.92em;">
 <div class="column" style="width:50%;">
 <ul>
-<li><a href="11-special-topics.html#the-best-low-rank-approximation-has-a-measurable-error">Low-rank approximation</a></li>
+<li><a href="10-inner-product-spaces.html#the-best-low-rank-approximation-has-a-measurable-error">Low-rank approximation</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#lower-triangular">Lower-triangular matrix</a>, <span class="math inline">\(\mat{L}\)</span></li>
 <li><a href="03-matrix-structure-and-transformations.html#undoing-the-stages-produces-matl">LU factorization</a></li>
 <li><a href="#/represent-objects-numerically">Matrix</a>, <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span></li>
 <li><a href="01-systems-and-matrices.html#matrix-matrix-multiplication-collects-dot-products">Matrix–matrix multiplication</a>, <span class="math inline">\(\mat{A}\mat{B}\)</span></li>
 <li><a href="07-bases-dimension-and-coordinates.html#transform-coordinates-to-obtain-output-coordinates">Matrix representation of a linear map</a></li>
 <li><a href="01-systems-and-matrices.html#each-equation-is-one-dot-product">Matrix–vector multiplication</a>, <span class="math inline">\(\mat{A}\vct{x}\)</span></li>
-<li><a href="11-special-topics.html#the-pseudoinverse-reverses-the-nonzero-stretches">Minimum-norm least-squares solution</a></li>
+<li><a href="10-inner-product-spaces.html#the-pseudoinverse-reverses-the-nonzero-stretches">Minimum-norm least-squares solution</a></li>
 <li><a href="06-general-vector-spaces.html#polynomials-in-several-variables-total-degree">Monomial</a></li>
 <li><a href="05-euclidean-vector-spaces.html#nonhomogeneous-systems-translate-those-directions">Nonhomogeneous solution set</a></li>
 </ul>
@@ -2021,7 +2021,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <li><a href="11-special-topics.html#symmetry-gives-orthogonal-eigenvectors">Principal axes</a></li>
 <li><a href="07-bases-dimension-and-coordinates.html#pca-chooses-coordinates-adapted-to-the-data">Principal component analysis (PCA)</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#projections-discard-information">Projection</a>, <span class="math inline">\(\mat{Q}\)</span></li>
-<li><a href="11-special-topics.html#the-pseudoinverse-reverses-the-nonzero-stretches">Pseudoinverse</a></li>
+<li><a href="10-inner-product-spaces.html#the-pseudoinverse-reverses-the-nonzero-stretches">Pseudoinverse</a></li>
 </ul>
 </div></div>
 </section>
@@ -2046,14 +2046,14 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <ul>
 <li><a href="07-bases-dimension-and-coordinates.html#two-features-give-coordinates-for-three-fitted-responses">Residual</a></li>
 <li><a href="01-systems-and-matrices.html#three-reversible-moves">Reversible transformation</a></li>
-<li><a href="11-special-topics.html#truncation-and-ridge-control-small-stretches">Ridge regression / regularization</a></li>
+<li><a href="10-inner-product-spaces.html#truncation-and-ridge-control-small-stretches">Ridge regression / regularization</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#rotation-matrix-from-rotated-basis-vectors">Rotation</a>, <span class="math inline">\(\mat{R}_{\theta}\)</span></li>
 <li><a href="01-systems-and-matrices.html#pivots-organize-elimination">Row echelon form</a></li>
 <li><a href="08-matrix-spaces-and-rank.html#a-matrix-has-four-fundamental-subspaces">Row space</a>, <span class="math inline">\(\operatorname{row}(\mat{A})\)</span></li>
 <li><a href="#/represent-objects-numerically">Scalar</a>, <span class="math inline">\(c\in\reals\)</span></li>
 <li><a href="06-general-vector-spaces.html#a-vector-space-starts-with-objects-and-two-operations">Scalar multiplication</a></li>
 <li><a href="05-euclidean-vector-spaces.html#the-triple-product-reconnects-to-determinants">Scalar triple product</a>, <span class="math inline">\(\vct{u}^{\mathsf T}(\vct{v}\times\vct{w})\)</span></li>
-<li><a href="11-special-topics.html#the-svd-separates-directions-from-scale">Singular value</a></li>
+<li><a href="10-inner-product-spaces.html#the-svd-separates-directions-from-scale">Singular value</a></li>
 </ul>
 </div></div>
 </section>
@@ -2063,13 +2063,13 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <div class="columns" style="font-size: 0.92em;">
 <div class="column" style="width:50%;">
 <ul>
-<li><a href="11-special-topics.html#the-svd-separates-directions-from-scale">Singular value decomposition (SVD)</a>, <span class="math inline">\(\mat{A}=\mat{U}\mat{\Sigma}\mat{V}^\top\)</span></li>
-<li><a href="11-special-topics.html#each-singular-direction-has-its-own-stretch">Singular vectors</a></li>
+<li><a href="10-inner-product-spaces.html#the-svd-separates-directions-from-scale">Singular value decomposition (SVD)</a>, <span class="math inline">\(\mat{A}=\mat{U}\mat{\Sigma}\mat{V}^\top\)</span></li>
+<li><a href="10-inner-product-spaces.html#each-singular-direction-has-its-own-stretch">Singular vectors</a></li>
 <li><a href="07-bases-dimension-and-coordinates.html#practice-bases-for-other-matrix-spaces">Skew-symmetric matrix</a>, <span class="math inline">\(\mat{A}^{\mathsf T}=-\mat{A}\)</span></li>
 <li><a href="01-systems-and-matrices.html#from-one-equation-to-systems-of-equations">Solution / solution set</a></li>
 <li><a href="07-bases-dimension-and-coordinates.html#initial-data-map-linearly-to-a-solution-function">Solution map</a></li>
 <li><a href="06-general-vector-spaces.html#span-is-the-subspace-generated-by-chosen-vectors">Span</a>, <span class="math inline">\(\operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}\)</span></li>
-<li><a href="11-special-topics.html#the-best-low-rank-approximation-has-a-measurable-error">Spectral norm</a></li>
+<li><a href="10-inner-product-spaces.html#the-best-low-rank-approximation-has-a-measurable-error">Spectral norm</a></li>
 <li><a href="09-eigenvalues-and-eigenvectors.html#the-spectral-theorem-supplies-an-orthonormal-eigenbasis">Spectral theorem (real symmetric)</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#standard-basis-vectors-reveal-every-column">Standard basis</a>, <span class="math inline">\(\{\vct{e}_1,\ldots,\vct{e}_n\}\)</span></li>
 <li><a href="03-matrix-structure-and-transformations.html#standard-basis-vectors-reveal-every-column">Standard matrix</a>, <span class="math inline">\(\mat{A}\)</span></li>
@@ -2085,7 +2085,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <li><a href="03-matrix-structure-and-transformations.html#transpose-exchanges-rows-and-columns">Transpose</a>, <span class="math inline">\(\mat{A}^{\mathsf T}\)</span></li>
 <li><a href="10-inner-product-spaces.html#norms-distances-and-angles-follow">Triangle inequality</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#tridiagonal-matrices-couple-neighboring-grid-values">Tridiagonal matrix</a></li>
-<li><a href="11-special-topics.html#truncation-and-ridge-control-small-stretches">Truncated SVD</a></li>
+<li><a href="10-inner-product-spaces.html#truncation-and-ridge-control-small-stretches">Truncated SVD</a></li>
 </ul>
 </div></div>
 </section>

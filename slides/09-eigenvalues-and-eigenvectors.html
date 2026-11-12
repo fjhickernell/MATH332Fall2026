@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-11">
+  <meta name="dcterms.date" content="2026-11-12">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -666,7 +666,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 11, 2026</p>
+  <p class="date">November 12, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -859,11 +859,12 @@ In this deck
 <p><span class="math display">\[
 p_{\mat{A}}(\lambda)=\det(\lambda\mat{I}_n-\mat{A})
 \]</span></p>
+<p>Some sources use <span class="math inline">\(\det(\mat{A}-\lambda\mat{I}_n)\)</span> — the same roots and multiplicities</p>
 <div class="key-point">
 <p>First solve the scalar polynomial equation; then solve a homogeneous system for each root</p>
 </div>
 <aside class="notes">
-<p>We use the monic convention det(lambda I-A). The alternative det(A-lambda I) differs by (-1)^n and has exactly the same roots with the same multiplicities. The equivalence uses the invertibility/determinant results already taught. To find eigenvectors after finding a root, reduce A-lambda I and solve its homogeneous system. A root guarantees at least one free variable, not a unique eigenvector. Never divide a vector equation by a vector.</p>
+<p>We follow Anton’s monic convention det(lambda I-A), with leading coefficient 1 and constant term (-1)^n det(A). The alternative det(A-lambda I) differs by (-1)^n and has exactly the same roots with the same multiplicities. The two polynomials agree in even dimensions and have opposite signs in odd dimensions. A characteristic equation may be multiplied by a nonzero constant without changing its solutions. The equivalence uses the invertibility/determinant results already taught. To find eigenvectors after finding a root, reduce A-lambda I and solve its homogeneous system. A root guarantees at least one free variable, not a unique eigenvector. Never divide a vector equation by a vector.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -918,6 +919,19 @@ p_{\mat{A}}(\lambda)
 <div class="key-point">
 <p>The determinant finds the scale factors; null spaces find their directions</p>
 </div>
+<aside class="notes">
+<p>Teaching reminder for the November 12 recap: correct the earlier general square-matrix condition-number claim. The 2-norm condition number uses the largest/smallest singular values, including for square matrices. This example is symmetric positive definite, so its singular values equal its positive eigenvalues and kappa(A)=3/1=3 is valid. Do not extend that eigenvalue ratio to an arbitrary square matrix. Use kappa without a norm subscript.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="an-eigenspace-includes-all-vectors-for-one-eigenvalue" class="slide level2">
 <h2>An eigenspace includes all vectors for one eigenvalue</h2>

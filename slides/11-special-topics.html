@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-11">
+  <meta name="dcterms.date" content="2026-11-12">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 11, 2026</p>
+  <p class="date">November 12, 2026</p>
 </section>
 <section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
@@ -676,20 +676,18 @@ Course decks
 In this deck
 </h3>
 <div class="key-point">
-<p>Choose coordinates that expose structure</p>
-<p><span class="math inline">\(\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^\top\)</span></p>
+<p>Explore further applications of coordinates and structure</p>
 </div>
 <ul>
-<li><a href="#/singular-value-decomposition">Singular Value Decomposition</a></li>
-<li><a href="#/regression-through-qr-and-svd">Regression Through QR and SVD</a></li>
 <li><a href="#/quadratic-forms-and-principal-axes">Quadratic Forms and Principal Axes</a></li>
 <li><a href="#/fourier-coordinates-and-the-fft">Fourier Coordinates and the FFT</a></li>
 <li><a href="#/networks-and-iterative-eigenvectors">Networks and Iterative Eigenvectors</a></li>
+<li><a href="#/product-bases-and-frames">Product Bases and Frames</a></li>
 <li><a href="#/big-ideas">Big Ideas</a></li>
 </ul>
 </div></div>
 <aside class="notes">
-<p>Instructor draft: modular sections, not a commitment to cover every topic. SVD and regression are the priority. QR/least squares and complex inner products are drafted in Inner Product Spaces (Anton §§6.3–6.6); review and teach that foundation first. Quadratic forms can precede SVD if the spectral theorem needs development first. FFT supplements Anton; networks and iterative eigenvectors are optional. Tensors are limited to the single optional product-bases/frames slide in the SVD section, about two minutes; do not expand them into a separate unit or demonstration. The SVD/regression companion is locally executed and linked from the closing slide. Optional FFT and network demonstrations have not been built.</p>
+<p>Instructor draft: all sections are optional and may be skipped this semester. SVD, low-rank approximation, pseudoinverses, sensitivity and regularization now belong to Inner Product Spaces; this deck preserves the extensions. For FFT, teach the complex-inner-product foundation in Inner Product Spaces first. Tensors remain one optional two-minute product-bases/frames slide; the deliberately short section is the entire tensor scope, with no separate unit or demonstration. Optional FFT and network demonstrations have not been built.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -704,473 +702,18 @@ In this deck
 </section>
 <section id="class-topic-preferences" class="slide level2">
 <h2>Which topics would you like to explore?</h2>
-<p>SVD and its regression connection are our priority</p>
+<p><a href="10-inner-product-spaces.html#singular-value-decomposition">SVD and regression</a> are in Inner Products</p>
 <p>Rank your next two choices and give a question or application you want to explore</p>
 <ul>
 <li>Quadratic forms and principal axes</li>
 <li>Fourier transforms and FFT</li>
 <li>Power iteration and PageRank</li>
 <li>Graph Laplacians and networks</li>
+<li>A brief product-bases and frames connection</li>
 </ul>
 <p>Selections depend on class interest and remaining time</p>
 <aside class="notes">
 <p>Ask for an informal show of hands or a short ranked response in class. No external poll has been created. Treat preferences as guidance for optional coverage, not a promise to cover everything.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="singular-value-decomposition" class="title-slide slide level1 center">
-<h1>Singular Value Decomposition</h1>
-<ul>
-<li><a href="#/what-can-a-rectangular-matrix-do">What can a rectangular matrix do?</a></li>
-<li><a href="#/the-svd-separates-directions-from-scale">The SVD separates directions from scale</a></li>
-<li><a href="#/each-singular-direction-has-its-own-stretch">Each singular direction has its own stretch</a></li>
-<li><a href="#/a-worked-svd-without-square-roots-of-large-matrices">A worked SVD without square roots of large matrices</a></li>
-<li><a href="#/svd-geometry">See the singular stretches</a></li>
-<li><a href="#/why-an-svd-exists">Why an SVD exists</a></li>
-<li><a href="#/the-four-spaces-reappear-in-orthonormal-coordinates">The four spaces reappear in orthonormal coordinates</a></li>
-<li><a href="#/a-matrix-is-a-sum-of-rank-one-maps">A matrix is a sum of rank-one maps</a></li>
-<li><a href="#/a-tensor-has-coordinates-after-choosing-bases">A tensor glimpse: product bases and frames</a></li>
-<li><a href="#/the-best-low-rank-approximation-has-a-measurable-error">The best low-rank approximation has a measurable error</a></li>
-<li><a href="#/practice-reading-singular-values">Practice reading singular values</a></li>
-</ul>
-</section>
-<section id="what-can-a-rectangular-matrix-do" class="slide level2">
-<h2>What can a rectangular matrix do?</h2>
-<p><span class="math inline">\(\mat{A}:\reals^n\to\reals^m\)</span> may stretch, turn, and collapse directions</p>
-<p>Eigenvectors require a square matrix; singular vectors work for every shape</p>
-<div class="key-point">
-<p>Choose orthonormal input and output directions adapted to the map</p>
-</div>
-</section>
-<section id="the-svd-separates-directions-from-scale" class="slide level2">
-<h2>The SVD separates directions from scale</h2>
-<p>For a real <span class="math inline">\(m\times n\)</span> matrix of rank <span class="math inline">\(r&gt;0\)</span>: <span class="math display">\[\begin{gather*}
-\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^\top,\qquad
-\mat{\Sigma}_r=\operatorname{diag}(\sigma_1,\ldots,\sigma_r)\\
-\sigma_1\ge\cdots\ge\sigma_r&gt;0,\qquad
-\mat{U}_r^\top\mat{U}_r=\mat{V}_r^\top\mat{V}_r=\mat{I}_r
-\end{gather*}\]</span></p>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Factor</th>
-<th>Shape</th>
-<th>Role</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\mat{V}_r^\top\)</span></td>
-<td><span class="math inline">\(r\times n\)</span></td>
-<td>input coordinates</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\mat{\Sigma}_r\)</span></td>
-<td><span class="math inline">\(r\times r\)</span></td>
-<td>stretch each coordinate</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\mat{U}_r\)</span></td>
-<td><span class="math inline">\(m\times r\)</span></td>
-<td>assemble the output</td>
-</tr>
-</tbody>
-</table>
-<aside class="notes">
-<p>This is the compact SVD. The zero matrix has no positive singular values and an empty compact factorization; its pseudoinverse is zero. Orthogonal completions give the full SVD with U m-by-m, V n-by-n, and rectangular Sigma.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="each-singular-direction-has-its-own-stretch" class="slide level2">
-<h2>Each singular direction has its own stretch</h2>
-<p>Write <span class="math inline">\(\vct{U}_j\)</span> and <span class="math inline">\(\vct{V}_j\)</span> for columns of the compact factors <span class="math display">\[\begin{gather*}
-\mat{A}\vct{V}_j=\sigma_j\vct{U}_j,\qquad
-\mat{A}^\top\vct{U}_j=\sigma_j\vct{V}_j\\
-\mat{A}\vct{x}=\sum_{j=1}^r\sigma_j\vct{U}_j
-\bigl(\vct{V}_j^\top\vct{x}\bigr)
-\end{gather*}\]</span></p>
-<p>Input perpendicular to every <span class="math inline">\(\vct{V}_j\)</span> is sent to zero</p>
-<div class="key-point">
-<p>Singular values measure stretches, not signed eigenvalues</p>
-</div>
-</section>
-<section id="a-worked-svd-without-square-roots-of-large-matrices" class="slide level2">
-<h2>A worked SVD without square roots of large matrices</h2>
-<p><span class="math display">\[\begin{gather*}
-\mat{A}=\begin{bmatrix}3&amp;0\\0&amp;0\\0&amp;2\end{bmatrix},\quad
-\mat{U}_r=\begin{bmatrix}1&amp;0\\0&amp;0\\0&amp;1\end{bmatrix},\quad
-\mat{\Sigma}_r=\begin{bmatrix}3&amp;0\\0&amp;2\end{bmatrix},\quad
-\mat{V}_r=\mat{I}_2\\
-\mat{A}\begin{bmatrix}\cos t\\\sin t\end{bmatrix}
-=\begin{bmatrix}3\cos t\\0\\2\sin t\end{bmatrix}
-\end{gather*}\]</span></p>
-<p>The unit circle becomes an ellipse in the <span class="math inline">\(x_1x_3\)</span> plane</p>
-<div class="key-point">
-<p>The ellipse axes are the left singular vectors; their lengths are the singular values</p>
-</div>
-</section>
-<section id="svd-geometry" class="slide level2">
-<h2>See the singular stretches</h2>
-<div style="text-align: center;">
-<p><img data-src="assets/special-topics/svd-circle-ellipse.svg" class="" style="width:90.0%" alt="The unit input circle maps to an ellipse with semiaxes three and two in the output x1 x3 plane"></p>
-</div>
-</section>
-<section id="why-an-svd-exists" class="slide level2">
-<h2>Why an SVD exists</h2>
-<p><span class="math inline">\(\mat{A}^\top\mat{A}\)</span> is symmetric and positive semidefinite <span class="math display">\[\begin{gather*}
-\vct{x}^\top\mat{A}^\top\mat{A}\vct{x}
-=\|\mat{A}\vct{x}\|^2\ge0\\
-\mat{A}^\top\mat{A}\vct{V}_j=\sigma_j^2\vct{V}_j,\qquad
-\vct{U}_j=\frac{\mat{A}\vct{V}_j}{\sigma_j}\quad(\sigma_j&gt;0)
-\end{gather*}\]</span></p>
-<p>Orthonormal eigenvectors on the input side produce orthonormal output vectors</p>
-<aside class="notes">
-<p>For positive singular values, U_i^T U_j = V_i^T A^T A V_j/(sigma_i sigma_j) = delta_ij. Use the real symmetric spectral theorem from Eigenvalues and Eigenvectors, recalled in the quadratic-forms section. This is an existence argument, not a recommended numerical algorithm: forming A^T A squares the full-column-rank condition number.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="the-four-spaces-reappear-in-orthonormal-coordinates" class="slide level2">
-<h2>The four spaces reappear in orthonormal coordinates</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Space</th>
-<th>SVD description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(\operatorname{col}(\mat{A})\)</span></td>
-<td>span of <span class="math inline">\(\vct{U}_1,\ldots,\vct{U}_r\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\operatorname{row}(\mat{A})\)</span></td>
-<td>span of <span class="math inline">\(\vct{V}_1,\ldots,\vct{V}_r\)</span></td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(\operatorname{null}(\mat{A})\)</span></td>
-<td>perpendicular to all <span class="math inline">\(\vct{V}_j\)</span></td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(\operatorname{null}(\mat{A}^\top)\)</span></td>
-<td>perpendicular to all <span class="math inline">\(\vct{U}_j\)</span></td>
-</tr>
-</tbody>
-</table>
-<p>Complete the columns of <span class="math inline">\(\mat{U}_r\)</span> and <span class="math inline">\(\mat{V}_r\)</span> to orthonormal bases to obtain bases of the two null spaces</p>
-<p><a href="08-matrix-spaces-and-rank.html#orthogonal-pairs">Recall matrix spaces</a></p>
-</section>
-<section id="a-matrix-is-a-sum-of-rank-one-maps" class="slide level2">
-<h2>A matrix is a sum of rank-one maps</h2>
-<p><span class="math display">\[\begin{equation*}
-\mat{A}=\sum_{j=1}^r\sigma_j\vct{U}_j\vct{V}_j^\top
-\end{equation*}\]</span></p>
-<p>Each term reads one input coordinate and sends it along one output direction</p>
-<p>Keep only the first <span class="math inline">\(k\)</span> terms: <span class="math display">\[\begin{equation*}
-\mat{A}_k=\sum_{j=1}^k\sigma_j\vct{U}_j\vct{V}_j^\top,\qquad 0\le k&lt;r
-\end{equation*}\]</span></p>
-<p>A controlled approximation using fewer directions</p>
-</section>
-<section id="a-tensor-has-coordinates-after-choosing-bases" class="slide level2">
-<h2>A tensor glimpse: product bases and frames</h2>
-<p><span class="alert">Optional · two minutes</span>: combine one direction from each space</p>
-<p>In real Euclidean coordinates, <span class="math inline">\(\vct{u}\otimes\vct{v}\)</span> has array <span class="math inline">\(\vct{u}\vct{v}^\top\)</span>; for example <span class="math display">\[\begin{equation*}
-\begin{bmatrix}1\\2\end{bmatrix}\begin{bmatrix}3&amp;4\end{bmatrix}
-=\begin{bmatrix}3&amp;4\\6&amp;8\end{bmatrix}
-\end{equation*}\]</span></p>
-<p>Bases <span class="math inline">\(\{\vct{b}_i\}_{i=1}^m\)</span> of <span class="math inline">\(\reals^m\)</span> and <span class="math inline">\(\{\vct{c}_j\}_{j=1}^n\)</span> of <span class="math inline">\(\reals^n\)</span> give <span class="math display">\[\begin{equation*}
-\mat{X}=\sum_{i=1}^m\sum_{j=1}^n z_{ij}\vct{b}_i\vct{c}_j^\top
-\end{equation*}\]</span></p>
-<ul>
-<li>Product basis: <span class="math inline">\(mn\)</span> matrix patterns, unique coefficients <span class="math inline">\(z_{ij}\)</span></li>
-<li>Finite <a href="07-bases-dimension-and-coordinates.html#a-frame-can-keep-redundant-generators">frames</a> in both spaces: products still span; redundancy gives nonunique coefficients</li>
-</ul>
-<aside class="notes">
-<p>This is the entire tensor coverage, an optional two-minute connection to the preceding SVD outer products and the earlier finite-frame preview. A single outer product need not represent a general matrix; sums of product patterns do. Under the standard coordinate identification R^m tensor R^n with m-by-n arrays, elementary tensors have the displayed outer-product arrays. General abstract tensors are not canonically linear maps W to V; that interpretation uses a dual space or a chosen inner product. For basis matrices B and C, X=B Z C^T and Z=B^{-1} X C^{-T}, so all mn coefficients are unique. Finite frames are finite spanning lists in these Euclidean spaces. Their pairwise products span the matrix space because each standard coordinate vector is a linear combination of the corresponding list. If a factor list is redundant and the other space is nonzero, multiply its nontrivial zero relation by any nonzero vector from the other list to obtain a product dependence. Do not add Kronecker maps, contractions, higher-order tensor ranks, or a separate tensor notebook this semester.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="the-best-low-rank-approximation-has-a-measurable-error" class="slide level2">
-<h2>The best low-rank approximation has a measurable error</h2>
-<p>Define <span class="math inline">\(\|\mat{B}\|_F^2=\sum_{i,j}|b_{ij}|^2\)</span> and <span class="math inline">\(\|\mat{B}\|_2=\max_{\|\vct{x}\|=1}\|\mat{B}\vct{x}\|\)</span> <span class="math display">\[\begin{gather*}
-\|\mat{A}-\mat{A}_k\|_2=\sigma_{k+1}\\
-\|\mat{A}-\mat{A}_k\|_F^2=\sum_{j=k+1}^r\sigma_j^2
-\end{gather*}\]</span></p>
-<p><span class="math inline">\(\mat{A}_k\)</span> minimizes either error over matrices of rank at most <span class="math inline">\(k\)</span></p>
-<div class="key-point">
-<p>Choose the rank by the accuracy needed, not only by the appearance of the image</p>
-</div>
-<aside class="notes">
-<p>Eckart–Young–Mirsky theorem; statement without proof. Approximation need not be unique when singular values tie. For an m-by-n grayscale image, storing compact factors uses k(m+n+1) scalar entries instead of mn, before file-format overhead or quantization.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="practice-reading-singular-values" class="slide level2">
-<h2>Practice reading singular values</h2>
-<div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>A matrix has singular values <span class="math inline">\(8,3,1\)</span><br>Find the rank-one spectral error and rank-two Frobenius error<br>How many rank-one terms reproduce the matrix exactly?</span></p>
-</div>
-<aside class="notes">
-<p>Answers: 3; 1; three terms. Distinguish the two error norms.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section></section>
-<section>
-<section id="regression-through-qr-and-svd" class="title-slide slide level1 center">
-<h1>Regression Through QR and SVD</h1>
-<ul>
-<li><a href="#/regression-asks-for-the-closest-attainable-data">Regression asks for the closest attainable data</a></li>
-<li><a href="#/qr-solves-full-column-rank-least-squares">QR solves full-column-rank least squares</a></li>
-<li><a href="#/the-pseudoinverse-reverses-the-nonzero-stretches">The pseudoinverse reverses the nonzero stretches</a></li>
-<li><a href="#/rank-deficiency-changes-coefficients-not-the-fitted-vector">Rank deficiency changes coefficients, not the fitted vector</a></li>
-<li><a href="#/a-regression-example-with-a-redundant-feature">A regression example with a redundant feature</a></li>
-<li><a href="#/small-singular-values-amplify-data-perturbations">Small singular values amplify data perturbations</a></li>
-<li><a href="#/truncation-and-ridge-control-small-stretches">Truncation and ridge control small stretches</a></li>
-<li><a href="#/which-factorization-serves-the-regression-question">Which factorization serves the regression question?</a></li>
-<li><a href="#/practice-separating-fit-from-coefficients">Practice separating fit from coefficients</a></li>
-</ul>
-</section>
-<section id="regression-asks-for-the-closest-attainable-data" class="slide level2">
-<h2>Regression asks for the closest attainable data</h2>
-<p>Fit observations <span class="math inline">\(b_i\)</span> using features <span class="math inline">\(a_{ij}\)</span> and coefficients <span class="math inline">\(x_j\)</span> <span class="math display">\[\begin{gather*}
-\widehat{\vct{b}}=\mat{A}\widehat{\vct{x}},\qquad
-\widehat{\vct{x}}\in\arg\min_{\vct{x}}\|\mat{A}\vct{x}-\vct{b}\|^2\\
-\mat{A}^\top(\vct{b}-\widehat{\vct{b}})=\vct{0}
-\end{gather*}\]</span></p>
-<p><span class="math inline">\(\widehat{\vct{b}}\)</span> is the orthogonal projection onto <span class="math inline">\(\operatorname{col}(\mat{A})\)</span></p>
-<p>A column of ones supplies an intercept</p>
-<p><a href="10-inner-product-spaces.html">Prerequisite: inner products and least squares</a></p>
-</section>
-<section id="qr-solves-full-column-rank-least-squares" class="slide level2">
-<h2>QR solves full-column-rank least squares</h2>
-<p>For <span class="math inline">\(m\ge n\)</span> and independent columns: <span class="math display">\[\begin{gather*}
-\mat{A}=\mat{Q}\mat{R},\quad
-\mat{Q}^\top\mat{Q}=\mat{I}_n,\quad
-\mat{R}\text{ upper triangular and invertible}\\
-\|\mat{A}\vct{x}-\vct{b}\|^2
-=\|\mat{R}\vct{x}-\mat{Q}^\top\vct{b}\|^2
-+\|(\mat{I}_m-\mat{Q}\mat{Q}^\top)\vct{b}\|^2\\
-\mat{R}\widehat{\vct{x}}=\mat{Q}^\top\vct{b}
-\end{gather*}\]</span></p>
-<p>Compute orthogonal coordinates, then use back substitution</p>
-<aside class="notes">
-<p>Reduced QR: Q is m-by-n, R is n-by-n.&nbsp;This R is the triangular QR factor, different from R in A=C R; reused matrix letters are defined by the current factorization. Gram–Schmidt explains the factorization; Householder QR is the standard practical method. Full development belongs in Anton §6.3 in Inner Product Spaces; this is a refresher.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="the-pseudoinverse-reverses-the-nonzero-stretches" class="slide level2">
-<h2>The pseudoinverse reverses the nonzero stretches</h2>
-<p><span class="math display">\[\begin{gather*}
-\mat{A}^{\dagger}=\mat{V}_r\mat{\Sigma}_r^{-1}\mat{U}_r^\top\\
-\widehat{\vct{x}}=\mat{A}^{\dagger}\vct{b}
-=\sum_{j=1}^r\frac{\vct{U}_j^\top\vct{b}}{\sigma_j}\vct{V}_j\\
-\widehat{\vct{b}}=\mat{A}\widehat{\vct{x}}
-=\mat{U}_r\mat{U}_r^\top\vct{b}
-\end{gather*}\]</span></p>
-<p>Works for rectangular and rank-deficient matrices</p>
-<div class="key-point">
-<p>The pseudoinverse selects the least-squares solution with smallest Euclidean norm</p>
-</div>
-</section>
-<section id="rank-deficiency-changes-coefficients-not-the-fitted-vector" class="slide level2">
-<h2>Rank deficiency changes coefficients, not the fitted vector</h2>
-<p>Every least-squares minimizer has the form <span class="math display">\[\begin{equation*}
-\vct{x}=\mat{A}^{\dagger}\vct{b}+\vct{z},\qquad
-\vct{z}\in\operatorname{null}(\mat{A})
-\end{equation*}\]</span></p>
-<ul>
-<li>All give the same fitted vector <span class="math inline">\(\widehat{\vct{b}}\)</span></li>
-<li>The pseudoinverse solution lies in <span class="math inline">\(\operatorname{row}(\mat{A})\)</span></li>
-<li>Adding a perpendicular null-space component increases the coefficient norm</li>
-</ul>
-<aside class="notes">
-<p>Use the orthogonal splitting R^n = row(A) plus null(A). The minimizer is unique exactly when A has full column rank. This also covers underdetermined consistent systems.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="a-regression-example-with-a-redundant-feature" class="slide level2">
-<h2>A regression example with a redundant feature</h2>
-<p><span class="math display">\[\begin{gather*}
-\mat{A}=\begin{bmatrix}1&amp;1\\1&amp;1\end{bmatrix},\quad
-\vct{b}=\begin{bmatrix}2\\4\end{bmatrix},\quad
-\vct{U}_1=\vct{V}_1=\frac1{\sqrt2}\begin{bmatrix}1\\1\end{bmatrix},\quad\sigma_1=2\\
-\widehat{\vct{x}}=\begin{bmatrix}3/2\\3/2\end{bmatrix},\quad
-\widehat{\vct{b}}=\begin{bmatrix}3\\3\end{bmatrix},\quad
-\vct{b}-\widehat{\vct{b}}=\begin{bmatrix}-1\\1\end{bmatrix}
-\end{gather*}\]</span></p>
-<p>Both features are identical: only <span class="math inline">\(x_1+x_2=3\)</span> is identifiable</p>
-<p>The smallest-norm solution divides the total equally</p>
-</section>
-<section id="small-singular-values-amplify-data-perturbations" class="slide level2">
-<h2>Small singular values amplify data perturbations</h2>
-<p>A perturbation <span class="math inline">\(\delta\vct{b}\)</span> changes the pseudoinverse coefficients by <span class="math display">\[\begin{equation*}
-\delta\widehat{\vct{x}}
-=\sum_{j=1}^r\frac{\vct{U}_j^\top\delta\vct{b}}{\sigma_j}\vct{V}_j
-\end{equation*}\]</span></p>
-<p>Small positive <span class="math inline">\(\sigma_j\)</span>: large coefficient changes in direction <span class="math inline">\(\vct{V}_j\)</span></p>
-<p>For full column rank, the 2-norm condition number is <span class="math inline">\(\kappa(\mat{A})=\sigma_1/\sigma_n\)</span></p>
-<div class="key-point">
-<p>An accurate fit can coexist with poorly determined coefficients</p>
-</div>
-<aside class="notes">
-<p>Keep rank and conditioning distinct. Exact zero singular values create nonidentifiability; small positive ones create sensitivity. Feature scaling affects these values and the meaning of a coefficient-norm penalty.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="truncation-and-ridge-control-small-stretches" class="slide level2">
-<h2>Truncation and ridge control small stretches</h2>
-<p>Truncated SVD retains only singular values above a chosen threshold <span class="math inline">\(\tau\)</span>: <span class="math display">\[\begin{equation*}
-\widehat{\vct{x}}_\tau
-=\sum_{\sigma_j&gt;\tau}\frac{\vct{U}_j^\top\vct{b}}{\sigma_j}\vct{V}_j
-\end{equation*}\]</span></p>
-<p>Ridge minimizes <span class="math inline">\(\|\mat{A}\vct{x}-\vct{b}\|^2+\lambda\|\vct{x}\|^2\)</span>, <span class="math inline">\(\lambda&gt;0\)</span>: <span class="math display">\[\begin{equation*}
-\widehat{\vct{x}}_\lambda
-=\sum_{j=1}^r\frac{\sigma_j}{\sigma_j^2+\lambda}
-(\vct{U}_j^\top\vct{b})\vct{V}_j
-\end{equation*}\]</span></p>
-<p>Truncation discards directions; ridge shrinks their contributions</p>
-<aside class="notes">
-<p>This ridge formula penalizes every coefficient, including an intercept if present. In typical regression, center features and response or explicitly exempt the intercept; then the formula must be applied to the corresponding centered or weighted-penalty problem. Parameter choice requires a noise model or validation data; this deck introduces the algebra only.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="which-factorization-serves-the-regression-question" class="slide level2">
-<h2>Which factorization serves the regression question?</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Question</th>
-<th>Useful tool</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Full-column-rank least-squares coefficients</td>
-<td>QR and a triangular solve</td>
-</tr>
-<tr class="even">
-<td>Rank deficiency and minimum-norm coefficients</td>
-<td>SVD and pseudoinverse</td>
-</tr>
-<tr class="odd">
-<td>Sensitivity and numerical rank</td>
-<td>Singular values and feature scaling</td>
-</tr>
-<tr class="even">
-<td>Noise-sensitive directions</td>
-<td>Truncation or ridge</td>
-</tr>
-</tbody>
-</table>
-<p>Forming <span class="math inline">\(\mat{A}^\top\mat{A}\)</span> squares <span class="math inline">\(\kappa(\mat{A})\)</span> when <span class="math inline">\(\mat{A}\)</span> has full column rank</p>
-<p>Prefer an orthogonal factorization to explicitly inverting the normal-equation matrix</p>
-</section>
-<section id="practice-separating-fit-from-coefficients" class="slide level2">
-<h2>Practice separating fit from coefficients</h2>
-<div class="exitem">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>For the redundant-feature example, describe every least-squares solution<br>Verify that the residual is perpendicular to both columns<br>Explain why <span class="math inline">\([3/2,3/2]^\top\)</span> has the smallest norm</span></p>
-</div>
-<aside class="notes">
-<p>Solutions: <span class="math inline">\([3/2+t,3/2-t]^\top\)</span>, t real. Each column dotted with [-1,1]^T is zero. Squared coefficient norm is 9/2+2t^2, minimized at t=0.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1508,11 +1051,45 @@ y_j=\sum_{\ell=0}^{n-1}h_\ell x_{(j-\ell)\bmod n}\\
           display:block!important;
       }</style></aside>
 </section></section>
+<section>
+<section id="product-bases-and-frames" class="title-slide slide level1 center">
+<h1>Product Bases and Frames</h1>
+<ul>
+<li><a href="#/a-tensor-has-coordinates-after-choosing-bases">A tensor glimpse: product bases and frames</a></li>
+</ul>
+</section>
+<section id="a-tensor-has-coordinates-after-choosing-bases" class="slide level2">
+<h2>A tensor glimpse: product bases and frames</h2>
+<p><span class="alert">Optional · two minutes</span>: combine one direction from each space</p>
+<p><a href="10-inner-product-spaces.html#a-matrix-is-a-sum-of-rank-one-maps">Recall SVD outer products</a></p>
+<p>In real Euclidean coordinates, <span class="math inline">\(\vct{u}\otimes\vct{v}\)</span> has array <span class="math inline">\(\vct{u}\vct{v}^\top\)</span>; for example <span class="math display">\[\begin{equation*}
+\begin{bmatrix}1\\2\end{bmatrix}\begin{bmatrix}3&amp;4\end{bmatrix}
+=\begin{bmatrix}3&amp;4\\6&amp;8\end{bmatrix}
+\end{equation*}\]</span></p>
+<p>Bases <span class="math inline">\(\{\vct{b}_i\}_{i=1}^m\)</span> of <span class="math inline">\(\reals^m\)</span> and <span class="math inline">\(\{\vct{c}_j\}_{j=1}^n\)</span> of <span class="math inline">\(\reals^n\)</span> give <span class="math display">\[\begin{equation*}
+\mat{X}=\sum_{i=1}^m\sum_{j=1}^n z_{ij}\vct{b}_i\vct{c}_j^\top
+\end{equation*}\]</span></p>
+<ul>
+<li>Product basis: <span class="math inline">\(mn\)</span> matrix patterns, unique coefficients <span class="math inline">\(z_{ij}\)</span></li>
+<li>Finite <a href="07-bases-dimension-and-coordinates.html#a-frame-can-keep-redundant-generators">frames</a> in both spaces: products still span; redundancy gives nonunique coefficients</li>
+</ul>
+<aside class="notes">
+<p>This is the entire tensor coverage, an optional two-minute connection to the SVD outer products in Inner Product Spaces and the earlier finite-frame preview. A single outer product need not represent a general matrix; sums of product patterns do. Under the standard coordinate identification R^m tensor R^n with m-by-n arrays, elementary tensors have the displayed outer-product arrays. General abstract tensors are not canonically linear maps W to V; that interpretation uses a dual space or a chosen inner product. For basis matrices B and C, X=B Z C^T and Z=B^{-1} X C^{-T}, so all mn coefficients are unique. Finite frames are finite spanning lists in these Euclidean spaces. Their pairwise products span the matrix space because each standard coordinate vector is a linear combination of the corresponding list. If a factor list is redundant and the other space is nonzero, multiply its nontrivial zero relation by any nonzero vector from the other list to obtain a product dependence. Do not add Kronecker maps, contractions, higher-order tensor ranks, or a separate tensor notebook this semester.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
 <section id="big-ideas" class="title-slide slide level1 center" data-state="goldborder">
 <h1>Big Ideas</h1>
 <ul>
-<li><span class="alert">SVD</span>: orthonormal directions and their stretches</li>
-<li><span class="alert">Regression</span>: projection, coefficient sensitivity, and regularization</li>
 <li><span class="alert">Principal axes</span>: diagonal coordinates reveal quadratic geometry</li>
 <li><span class="alert">FFT</span>: exploit structure to compute Fourier coordinates efficiently</li>
 <li><span class="alert">Optional tensor glimpse</span>: product bases and frames build matrix patterns</li>
@@ -1522,13 +1099,13 @@ y_j=\sum_{\ell=0}^{n-1}h_\ell x_{(j-\ell)\bmod n}\\
 
 <section id="how-far-we-have-come" class="title-slide slide level1 center">
 <h1>How Far We Have Come</h1>
-<p><span class="alert">SVD and regression are core; extensions can follow the class’s interests</span></p>
+<p><span class="alert">Optional extensions build on the eigenvalue, inner-product, and SVD core</span></p>
 <div class="columns">
 <div class="column" style="width:47%;">
 <ul>
 <li><a href="10-inner-product-spaces.html#inconsistent-systems-still-have-a-best-fit">Inner Products</a> — regression finds best fits; QR solves them in orthogonal coordinates</li>
-<li><a href="#/the-svd-separates-directions-from-scale">SVD</a> — orthonormal directions and stretches; nonzero singular values count rank; truncation gives low-rank approximations</li>
-<li><a href="#/the-pseudoinverse-reverses-the-nonzero-stretches">Minimum-norm fit</a> — <span class="math inline">\(\mat{A}^{\dagger}\vct{b}\)</span> gives the shortest least-squares coefficient vector; null vectors leave the fit unchanged</li>
+<li><a href="10-inner-product-spaces.html#the-svd-separates-directions-from-scale">Inner Products: SVD</a> — orthonormal directions and stretches reveal rank and low-rank approximations</li>
+<li><a href="10-inner-product-spaces.html#the-pseudoinverse-reverses-the-nonzero-stretches">Inner Products: minimum-norm fit</a> — <span class="math inline">\(\mat{A}^{\dagger}\vct{b}\)</span> selects the shortest least-squares coefficient vector</li>
 </ul>
 </div><div class="column" style="width:6%;">
 
@@ -1544,7 +1121,7 @@ y_j=\sum_{\ell=0}^{n-1}h_\ell x_{(j-\ell)\bmod n}\\
 <p>Choose bases and factorizations to reveal attainable outputs, lost directions, and useful structure</p>
 </div>
 <aside class="notes">
-<p>This is a modular recap for the draft’s possible coverage, not a promise to teach every extension. Keep the SVD/regression connection; retain the principal-axis, Fourier, tensor, and network bullets for modules actually selected with the class. The SVD compression statement refers to truncating to the largest singular values; the first omitted singular value gives the spectral-norm error. Power-iteration convergence requires the assumptions stated in its own slide. The graph component statement is for the undirected combinatorial Laplacian used here. Singular-vector coordinates use different input and output bases; they are not generally an eigenbasis of A.</p>
+<p>This is a modular recap for optional coverage. SVD/regression is developed in Inner Product Spaces; retain principal-axis, Fourier, tensor and network bullets for extensions actually selected with the class. Power-iteration convergence requires the assumptions stated in its own slide. The graph component statement is for the undirected combinatorial Laplacian used here.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1568,24 +1145,14 @@ y_j=\sum_{\ell=0}^{n-1}h_\ell x_{(j-\ell)\bmod n}\\
 <li>The error, sensitivity, and cost that matter</li>
 </ul>
 <p><a href="10-inner-product-spaces.html">Revisit inner products</a></p>
-<p>The <a href="https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/11-special-topics.ipynb">SVD and Regression companion notebook</a> explores low-rank approximation, minimum-norm fits, and sensitivity · <a href="https://colab.research.google.com/github/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/11-special-topics.ipynb">Open in Colab</a></p>
+<p><a href="10-inner-product-spaces.html#singular-value-decomposition">Revisit SVD and regression</a></p>
 </section>
 
 <section>
 <section id="terms-to-know" class="title-slide slide level1 center">
 <h1>Terms to Know</h1>
 <ul>
-<li><a href="#/the-svd-separates-directions-from-scale">Compact SVD; singular values</a></li>
-<li><a href="#/the-best-low-rank-approximation-has-a-measurable-error">Low-rank approximation</a></li>
-<li><a href="#/qr-solves-full-column-rank-least-squares">QR factorization</a></li>
-<li><a href="#/the-pseudoinverse-reverses-the-nonzero-stretches">Pseudoinverse</a></li>
-<li><a href="#/truncation-and-ridge-control-small-stretches">Ridge regression</a></li>
 <li><a href="#/symmetry-gives-orthogonal-eigenvectors">Quadratic form; principal axes</a></li>
-</ul>
-</section>
-<section id="terms-to-know-fourier-tensors-and-networks" class="slide level2">
-<h2>Terms to know: Fourier, tensors, and networks</h2>
-<ul>
 <li><a href="#/sampled-signals-are-vectors">DFT; conjugate transpose</a></li>
 <li><a href="#/the-fft-reuses-the-even-and-odd-calculations">FFT</a></li>
 <li><a href="#/convolution-becomes-componentwise-multiplication">Circular convolution</a></li>
@@ -1597,10 +1164,10 @@ y_j=\sum_{\ell=0}^{n-1}h_\ell x_{(j-\ell)\bmod n}\\
 </section>
 <section id="reading-and-exploration" class="slide level2">
 <h2>Reading and exploration</h2>
-<p>Selected Anton Chapters 7–10: quadratic forms, transformations, SVD, compression, iterative methods, and networks</p>
+<p>Selected Anton Chapters 7–10: quadratic forms, iterative methods, and networks</p>
 <p>Supplementary Fourier and tensor material: <a href="https://math.mit.edu/~gs/LectureNotes/">Strang’s Lecture Notes for Linear Algebra</a>, Parts 7, 9, and 10</p>
 <aside class="notes">
-<p>Anton 12th Applications crosswalk: §§7.1–7.4 orthogonal matrices, orthogonal diagonalization, quadratic forms and optimization; §§8.4–8.5 matrix representations and similarity provide supporting coordinate concepts; §§9.2, 9.4–9.5 power method, SVD and compression; §§10.4–10.5 Markov chains and graph theory, §10.19 search engines. QR and regression prerequisites are §§6.3–6.5. DFT/FFT and tensor products are supplementary. Verify reading selections against the instructor’s live textbook before assigning exercises. The companion notebook implements low-rank image approximation and nearly collinear regression with SVD, truncated SVD and ridge. FFT filtering, PageRank and disconnected-graph Laplacian demonstrations remain optional future work.</p>
+<p>Anton 12th Applications crosswalk: §§7.1–7.4 orthogonal matrices, orthogonal diagonalization, quadratic forms and optimization; §§8.4–8.5 coordinate concepts; §9.2 power method; §§10.4–10.5 Markov chains and graph theory, §10.19 search engines. SVD/compression (§§9.4–9.5) now belongs to Inner Product Spaces. DFT/FFT and tensor products are supplementary. Verify reading selections against the instructor’s live textbook before assigning exercises. FFT filtering, PageRank and disconnected-graph Laplacian demonstrations remain optional future work.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

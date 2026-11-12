@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-11">
+  <meta name="dcterms.date" content="2026-11-12">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 11, 2026</p>
+  <p class="date">November 12, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -3364,7 +3364,7 @@ y_i=\beta_0+\beta_1t_i+\beta_2u_i+\beta_3\exp(t_i u_i)+e_i
 <p>Full basis: exact coordinates</p>
 <p>Keep <span class="math inline">\(\vct{q}_1\)</span>: <span class="math inline">\(\vct{z}\approx12\sqrt2\,\vct{q}_1\)</span> in its span</p>
 </div>
-<p><a href="11-special-topics.html#a-matrix-is-a-sum-of-rank-one-maps">Later: Special Topics — low-rank approximation</a></p>
+<p><a href="10-inner-product-spaces.html#a-matrix-is-a-sum-of-rank-one-maps">Later: Inner Products — low-rank approximation</a></p>
 </div></div>
 <aside class="notes">
 <p>Preview, not a PCA algorithm lesson. Subtract the sample mean before describing observations as vectors from the origin. Feature scaling is a modeling choice. PCA chooses orthonormal directions successively maximizing variance, with each new direction perpendicular to the preceding ones. A full orthonormal basis represents every centered observation exactly; the retained k directions are a basis only of their k-dimensional span. The scores are the coordinates of the projection in that retained basis. Add the mean back to reconstruct an observation in the original feature coordinates. Tied eigenvalues permit different equally valid choices of directions; uniqueness is relative to the chosen ordered basis. The synthetic figure has score pairs plus/minus sqrt(2) times (12,2), (8,-3), (4,0), and (0,2). Their cross moment is zero and the first variance is larger, so the displayed q_1 and q_2 really are principal directions. Its highlighted z uses the first pair.</p>
