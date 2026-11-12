@@ -962,11 +962,14 @@ e^{t\mat{A}}=\sum_{k=0}^{\infty}\frac{t^k\mat{A}^k}{k!}
 =\mat{I}+t\mat{A}+\frac{t^2}{2}\mat{A}^2+\cdots
 \end{equation*}
 
-With an eigenvector basis,
+For a [Taylor series]{.alert} $f(z)=\sum_{k=0}^{\infty}a_kz^k$ converging at every eigenvalue, with $\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}$:
 
 \begin{equation*}
-e^{t\mat{A}}=\mat{V}\operatorname{diag}(e^{t\lambda_1},\ldots,e^{t\lambda_n})\mat{V}^{-1}
+f(\mat{A})=\sum_{k=0}^{\infty}a_k\mat{A}^k
+=\mat{V}\operatorname{diag}\bigl(f(\lambda_1),\ldots,f(\lambda_n)\bigr)\mat{V}^{-1}
 \end{equation*}
+
+Other examples: $\sin(\mat{A})$ and $\cos(\mat{A})$
 
 For the [linear differential system]({{< meta decks.d06.file >}}#homogeneous-linear-des-give-vector-spaces) $\vct{x}'=\mat{A}\vct{x}$, $\vct{x}(0)=\vct{x}_0$:
 
@@ -989,6 +992,12 @@ are the initial coordinates V^{-1}x0, and each scalar coordinate evolves by
 z_j'(t)=lambda_j z_j(t), z_j(0)=c_j. Real parts of eigenvalues determine
 exponential growth/decay for complex modes; no general stability theory is
 required here. The identity at t=0 is I, not a matrix of entrywise exponentials.
+For a Taylor series centered at a, replace scalar powers (z-a)^k by
+(A-aI)^k and use the same coefficients. Respect its convergence domain;
+for a diagonalizable matrix it suffices that the scalar series converge
+at every eigenvalue. The exponential, sine and cosine series converge for
+every square matrix. For example, sin(A)=A-A^3/3!+A^5/5!-... and
+cos(A)=I-A^2/2!+A^4/4!-... . This is a matrix series, not entrywise evaluation.
 :::
 
 ## Example: two exponential modes {#example-two-exponential-modes}

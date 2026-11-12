@@ -1,5 +1,27 @@
 # MATH 332 deck accuracy and clarity audit
 
+## November 12, 2026 — queued slide navigation and Taylor-series connection
+
+The shared navigation helper now reads the current hash rather than replaying
+obsolete queued URLs. It also recognizes a direct child target when Reveal's
+earlier hash listener reaches the slide before the helper. Horizontal arrows
+still start a new section at its overview.
+
+The new regression distinguishes the original infinite replay and an
+incomplete fix that lost the requested child. All five Node tests pass.
+In an actual browser fixture, the original code reaches the 43-event safety
+cutoff; the refined fix settles on the intended child after two events and
+remains there while idle. Links, horizontal arrows and browser back/forward
+are verified. All twelve decks render with the shared fix. Canonical library
+commit `87811e3` is published and intentionally adopted by this course;
+deployment verification and issue 3 closeout follow course publication.
+
+The matrix-exponential slide now shows the full equality from a convergent
+Taylor series to the eigenbasis formula for f(A). Diagonalizability and
+convergence of the scalar series at every eigenvalue are explicit. Sine and
+cosine are examples; notes explain centered series and their convergence
+domain. The revised slide renders and fits at 1600×1000 and 1280×800.
+
 ## November 12, 2026 — matrix functions and practical eigenvalue computation
 
 Deck 09 adds practical eigensolver guidance and three slides after matrix
@@ -202,8 +224,18 @@ columns, and nonzero fitting residual; the three revised slides fit at
 The isolated root website and all twelve decks render without warnings or
 errors. All 175 local links/resources from Decks 07–08 resolve, including
 destination fragments; explicit anchors and all 20/6 exercise sets are
-preserved. Visible prose style and `git diff --check` pass. Changes remain
-local pending Checkpoint; no new deployment or instructor approval is claimed.
+preserved. Visible prose style and `git diff --check` pass. At this review,
+changes remained local pending Checkpoint; no deployment or instructor approval
+was claimed.
+
+November 12 closeout of [teaching cleanup issue 2](https://github.com/fjhickernell/MATH332Fall2026/issues/2):
+Fred confirmed the November 3 cleanup complete. The four Taylor-coordinate
+slides and two regression setup slides are accepted; the cleanup and lecture
+reconciliation were published in `731e2b8`, with the coordinate/regression
+refinements in `10f1505`. The November 3 lecture and November 5 calendar
+continuation are reconciled in `notes/LECTURE-UPDATES.md`; later reconciled
+meetings supersede that pickup. Broader review of the Chapter 4 decks and
+companion notebooks remains separate and open.
 
 ### Instructor follow-up: visible orthogonality and practice
 

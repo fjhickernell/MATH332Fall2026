@@ -280,9 +280,11 @@ Four Taylor-coordinate slides and two regression setup slides are added to
 Deck 07, with exact-math checks and 1280×720 visual inspection completed.
 The root website, changed deck, and reconciled Schedule page rendered
 successfully; schedule links and preserved assessment rows pass source checks.
-These changes are included in this Checkpoint; remote deployment and live-page
-verification remain pending. Broader instructor review remains open under
+These changes were published in the November 3 cleanup, with subsequent
+coordinate/regression refinements. Fred confirmed the specific cleanup
+complete November 12, closing
 [teaching cleanup issue 2](https://github.com/fjhickernell/MATH332Fall2026/issues/2).
+Broader Chapter 4 review remains separate.
 
 ## November 5 recording evidence
 

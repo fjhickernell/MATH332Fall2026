@@ -121,8 +121,10 @@ Mathematical content should be maintained only in the slides.
   - [x] Capture the November 3 Taylor example in Deck 07: quadratic log(t)
     approximation, shifted/monomial coordinates, forward transition columns,
     row-reduction inverse, and reverse reconstruction; add the concrete
-    polynomial-regression data-to-matrix bridge. All six new slides pass
-    exact-math checks and 1280×720 visual review; local website/deck renders pass.
+    regression data-to-matrix bridge. All six new slides pass exact-math checks
+    and 1280×720 visual review; local website/deck renders pass. Published in
+    `731e2b8` and refined in `10f1505`; Fred confirmed this specific cleanup
+    complete on November 12 ([issue 2](https://github.com/fjhickernell/MATH332Fall2026/issues/2)).
   - [x] Add the high school line example to Bases and Coordinates: slope and
     intercept versus two sampled values, the constraint on a third point,
     and nonunique coefficients with redundant linear generators.

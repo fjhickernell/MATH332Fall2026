@@ -74,6 +74,9 @@ new visible convention note passes 1280×720 layout review.
 
 ## Eigenvalue additions — November 12 review
 
+The matrix-exponential slide also connects other convergent Taylor series
+with matrix functions, using sine and cosine as examples.
+
 Deck 09 now includes practical eigensolver guidance, general matrix functions,
 the matrix exponential and a worked linear differential system after matrix
 powers. Its spectral theorem explicitly guarantees orthogonal diagonalization
@@ -82,6 +85,19 @@ the November 12 pickup above remains the current lecture plan. The companion's
 16 code cells pass in qmcpy with saved outputs, including symbolic checks of
 the exponential, derivative and initial conditions. Deck 00's terminology index
 and the course/notebook descriptions link to the new material.
+
+## Slide navigation — published library fix
+
+[Issue 3](https://github.com/fjhickernell/MATH332Fall2026/issues/3) remains open
+pending deployment/verification or the student's reply. A queued-hash loop is
+reproduced in the actual browser: the original helper reaches a 43-event safety
+cutoff, while the fix settles on the latest requested child after two events.
+Five Node regressions pass; direct links, horizontal arrows and browser
+back/forward are verified in the rendered Bases deck.
+
+The canonical library fix is published as `87811e3` and intentionally pinned
+by this course. Verify the course deployment before closing issue 3.
+Other consumers retain their pins.
 
 ## Remaining course sequence — November 11 decision
 
@@ -223,18 +239,6 @@ An optional two-slide generalized-eigenvector topic follows the repeated-root
 practice, with a matching notebook example. It introduces a length-two chain
 and its coupled Jordan block; coverage is optional, and no general Jordan
 algorithm or defective-matrix power formula is planned.
-
-## November 3 teaching follow-up
-
-[Clean up November 3 teaching](https://github.com/fjhickernell/MATH332Fall2026/issues/2):
-four Taylor-coordinate slides and two concrete regression setup slides are
-implemented in the 96-slide Deck 07. Exact mathematics, local rendering, and
-1280×720 layouts have been checked. The November 3 lecture is reconciled from
-visible recording frames and Fred’s whiteboard report; captions were unavailable.
-These changes are included in this Checkpoint; remote deployment, live-page
-verification, and instructor review remain pending. Broader review of the
-Chapter 4 revisions and later draft decks remains open. Earlier
-preparation notes below are historical where this pickup supersedes them.
 
 ## Assignment 5 — released October 31; grading follow-up open
 
