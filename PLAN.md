@@ -62,8 +62,8 @@ The planned sequence is:
 | 07 | Bases, Dimension, and Coordinates | Sections 4.4–4.7; basis extraction connects to 4.8 |
 | 08 | Matrix Spaces and Rank | Sections 4.8–4.9; closing preview of 8.1 and 8.4 |
 | 09 | Eigenvalues and Eigenvectors | Chapter 5 |
-| 10 | Inner Product Spaces | Chapter 6, including QR and least squares |
-| 11 | Special Topics | Selected Chapters 7–10; optional FFT and one-slide tensor glimpse |
+| 10 | Inner Product Spaces | Chapter 6, including QR and least squares; §§9.4–9.5 SVD and low-rank approximation |
+| 11 | Special Topics (optional) | Selected Chapters 7–10 applications; FFT and one-slide tensor glimpse |
 
 Section numbers follow Anton's 12th Applications edition, which gives
 Spanning Sets its own Section 4.3. Finite fields, frames, multivariable
@@ -123,13 +123,17 @@ here.
 
 ## Special Topics scope
 
-Deck 11 is a modular capstone draft. Prioritize SVD, low-rank approximation,
-and regression through QR, pseudoinverses, sensitivity, and regularization.
-Other sections cover quadratic forms, DFT/FFT, power iteration/PageRank,
-and graph Laplacians. Tensors are limited to one optional two-minute slide
-on product bases and finite frames, following SVD outer products. No separate
-tensor unit or notebook is planned for Fall 2026. QR and least squares belong
-first in Deck 10; its foundation is drafted for instructor review.
-FFT and the single tensor glimpse are supplementary enrichment. Select
-coverage according to remaining class time; no meeting dates or assessment
-coverage are assigned.
+Prioritize SVD, low-rank approximation, and regression through QR,
+pseudoinverses, sensitivity, and regularization in Deck 10, immediately after
+QR and least squares and before the function/Fourier extension. Its SVD
+development uses the spectral theorem in Deck 09 and does not depend on
+Deck 11. Both existing Inner Products and SVD/Regression notebooks accompany
+Deck 10; retain their filenames and saved computational examples.
+
+Deck 11 remains a modular, entirely optional capstone: quadratic forms,
+DFT/FFT, power iteration/PageRank, graph Laplacians, and one optional
+two-minute product-bases/frames slide linked back to Deck 10's SVD outer
+products. No separate tensor unit or notebook is planned for Fall 2026.
+Preserve these extensions even if the entire deck is skipped. Select coverage
+according to remaining class time; no meeting dates or assessment coverage
+are assigned.

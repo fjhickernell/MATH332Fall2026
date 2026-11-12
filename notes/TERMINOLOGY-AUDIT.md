@@ -17,8 +17,11 @@ geometry, approximation, Fourier methods, SVD, regularization, tensors, and
 networks. Incidental narrative words are not separate index entries.
 
 The matrix-representation entry now points to the substantive explanation
-in Bases and Coordinates; SVD points to its developed treatment in Special
-Topics rather than the intro teaser. The commutativity cue now states that
+in Bases and Coordinates; SVD originally pointed to its developed treatment in
+Special Topics rather than the intro teaser. On November 11, SVD, low-rank,
+pseudoinverse, conditioning and regularization links were retargeted to their
+new authoritative location in Inner Product Spaces, preserving the terms and
+alphabetical order. The commutativity cue now states that
 matrix multiplication generally fails to commute. Deck 09 was a
 placeholder in the October 20 audit. With its October 24 development,
 eigenvalue/eigenvector, diagonalization/similarity, orthogonal diagonalization,

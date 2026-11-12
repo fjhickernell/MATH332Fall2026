@@ -205,13 +205,19 @@ $$
 p_{\mat{A}}(\lambda)=\det(\lambda\mat{I}_n-\mat{A})
 $$
 
+Some sources use $\det(\mat{A}-\lambda\mat{I}_n)$ — the same roots and multiplicities
+
 ::: {.key-point}
 First solve the scalar polynomial equation; then solve a homogeneous system for each root
 :::
 
 ::: {.notes}
-We use the monic convention det(lambda I-A). The alternative det(A-lambda I)
-differs by (-1)^n and has exactly the same roots with the same multiplicities.
+We follow Anton's monic convention det(lambda I-A), with leading coefficient
+1 and constant term (-1)^n det(A). The alternative det(A-lambda I) differs
+by (-1)^n and has exactly the same roots with the same multiplicities.
+The two polynomials agree in even dimensions and have opposite signs in odd
+dimensions. A characteristic equation may be multiplied by a nonzero
+constant without changing its solutions.
 The equivalence uses the invertibility/determinant results already taught.
 To find eigenvectors after finding a root, reduce A-lambda I and solve its
 homogeneous system. A root guarantees at least one free variable, not a
@@ -237,6 +243,15 @@ For each eigenvalue, solve a different homogeneous system:
 
 ::: {.key-point}
 The determinant finds the scale factors; null spaces find their directions
+:::
+
+::: {.notes}
+Teaching reminder for the November 12 recap: correct the earlier general
+square-matrix condition-number claim. The 2-norm condition number uses the
+largest/smallest singular values, including for square matrices. This
+example is symmetric positive definite, so its singular values equal its
+positive eigenvalues and kappa(A)=3/1=3 is valid. Do not extend that eigenvalue
+ratio to an arbitrary square matrix. Use kappa without a norm subscript.
 :::
 
 ## An eigenspace includes all vectors for one eigenvalue {#an-eigenspace-includes-all-vectors-for-one-eigenvalue}

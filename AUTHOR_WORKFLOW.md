@@ -505,6 +505,11 @@ calendar unchanged and check again later.
   `col(A) = row(A^T)` and `row(A) = col(A^T)` are equalities of subspaces.
 - Write the 2-norm condition number as `\kappa(A)`, without a norm subscript,
   in MATH 332 slides and notebooks. State the norm explicitly when defining it.
+- Follow Anton's monic characteristic polynomial `p_A(\lambda)=det(\lambda I-A)`
+  in MATH 332 slides and notebooks. Note on the definition slide that some
+  sources use `det(A-\lambda I)`: the two differ by `(-1)^n`, with identical
+  roots and multiplicities. Keep examples and triangular products consistent
+  with Anton; SymPy's `charpoly` already uses this monic convention.
 - In Eigenvalues and Eigenvectors and its companion notebook, use `V` for a
   matrix whose columns are eigenvectors, and `Q` for an orthonormal eigenvector
   matrix. Retain `P` for a general change of basis in the similarity discussion.
@@ -515,6 +520,12 @@ calendar unchanged and check again later.
   Special Topics (11). Continue sequentially at 12 for future decks; do not
   introduce letter suffixes.
   The twelve-deck course-map list uses 0.86em text within its existing column.
+- Keep SVD, low-rank approximation, pseudoinverses and regression sensitivity
+  in Inner Product Spaces after QR/least squares and before the function/Fourier
+  extension. Special Topics preserves optional quadratic forms, FFT, networks
+  and the single tensor glimpse; it may be skipped without losing SVD.
+  Both existing Inner Products and SVD/Regression companion notebooks belong
+  with Inner Product Spaces; preserve their existing filenames and links.
 - Follow the shared [deck-reference convention](classlib/docs/slide-style.md#deck-references)
   for named links to other teaching decks.
 - For Fourier modes, write the imaginary unit as `\sqrt{-1}` so `i` remains
@@ -548,8 +559,8 @@ calendar unchanged and check again later.
   conditions on formulas and explain unfamiliar symbols. Expand sparse
   summaries and reorganize dense ones; keep ordinary type size rather than
   filling space or compressing every earlier topic into an abbreviation.
-  In the Special Topics draft, distinguish the core SVD/regression connection
-  from optional extensions and trim the recap to modules actually selected.
+  In the Special Topics draft, link back to Inner Product Spaces for the core
+  SVD/regression connection and trim the recap to extensions actually selected.
 - Request only the reduction needed for the task. Row echelon form suffices
   for pivot indices, rank, free variables, row/column bases, and null-space
   bases by back substitution. Introduce RREF when the next operation uses

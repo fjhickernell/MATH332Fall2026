@@ -45,7 +45,7 @@ algebraic calculations with geometric interpretation.
   — a locally validated draft companion exploring weighted geometry, projection,
   Gram–Schmidt and QR, regression, conditioning, and function/Fourier approximation
 - [SVD and Regression](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/11-special-topics.ipynb)
-  — a locally validated draft companion to the Special Topics core exploring
+  — a second locally validated draft companion to Inner Product Spaces exploring
   singular directions, four spaces, low-rank approximation, minimum-norm fits,
   sensitivity, truncated SVD, and ridge
 

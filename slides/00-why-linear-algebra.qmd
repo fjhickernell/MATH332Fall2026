@@ -808,7 +808,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Complex inner product]({{< meta decks.d10.file >}}#complex-inner-products-use-conjugation)
 - [Composition of transformations]({{< meta decks.d03.file >}}#composition-is-matrix-multiplication)
 - [Computational cost](#a-correct-computation-can-still-cost-too-much)
-- [Condition number]({{< meta decks.d11.file >}}#small-singular-values-amplify-data-perturbations)
+- [Condition number]({{< meta decks.d10.file >}}#small-singular-values-amplify-data-perturbations)
 - [Conjugate transpose]({{< meta decks.d10.file >}}#complex-inner-products-use-conjugation)
 - [Consistent / inconsistent system]({{< meta decks.d01.file >}}#read-the-solution-set)
 - [Coordinate map]({{< meta decks.d07.file >}}#the-coordinate-map-preserves-linear-combinations), $\vct{v}\mapsto[\vct{v}]_{\mathcal{B}}$
@@ -873,7 +873,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 ::: {.column width="50%"}
 - [Frame]({{< meta decks.d07.file >}}#a-frame-can-keep-redundant-generators)
 - [Free variable]({{< meta decks.d01.file >}}#a-free-variable-produces-infinitely-many-solutions)
-- [Frobenius norm]({{< meta decks.d11.file >}}#the-best-low-rank-approximation-has-a-measurable-error)
+- [Frobenius norm]({{< meta decks.d10.file >}}#the-best-low-rank-approximation-has-a-measurable-error)
 - [Function space]({{< meta decks.d06.file >}}#functions-can-be-vectors)
 - [Gauss–Jordan reduction]({{< meta decks.d02.file >}}#reduce-beside-the-identity)
 - [Gaussian elimination]({{< meta decks.d01.file >}}#elimination)
@@ -939,14 +939,14 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 
 ::: {.columns style="font-size: 0.92em;"}
 ::: {.column width="50%"}
-- [Low-rank approximation]({{< meta decks.d11.file >}}#the-best-low-rank-approximation-has-a-measurable-error)
+- [Low-rank approximation]({{< meta decks.d10.file >}}#the-best-low-rank-approximation-has-a-measurable-error)
 - [Lower-triangular matrix]({{< meta decks.d03.file >}}#lower-triangular), $\mat{L}$
 - [LU factorization]({{< meta decks.d03.file >}}#undoing-the-stages-produces-matl)
 - [Matrix](#represent-objects-numerically), $\mat{A}\in\reals^{m\times n}$
 - [Matrix–matrix multiplication]({{< meta decks.d01.file >}}#matrix-matrix-multiplication-collects-dot-products), $\mat{A}\mat{B}$
 - [Matrix representation of a linear map]({{< meta decks.d07.file >}}#transform-coordinates-to-obtain-output-coordinates)
 - [Matrix–vector multiplication]({{< meta decks.d01.file >}}#each-equation-is-one-dot-product), $\mat{A}\vct{x}$
-- [Minimum-norm least-squares solution]({{< meta decks.d11.file >}}#the-pseudoinverse-reverses-the-nonzero-stretches)
+- [Minimum-norm least-squares solution]({{< meta decks.d10.file >}}#the-pseudoinverse-reverses-the-nonzero-stretches)
 - [Monomial]({{< meta decks.d06.file >}}#polynomials-in-several-variables-total-degree)
 - [Nonhomogeneous solution set]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions)
 :::
@@ -994,7 +994,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Principal axes]({{< meta decks.d11.file >}}#symmetry-gives-orthogonal-eigenvectors)
 - [Principal component analysis (PCA)]({{< meta decks.d07.file >}}#pca-chooses-coordinates-adapted-to-the-data)
 - [Projection]({{< meta decks.d03.file >}}#projections-discard-information), $\mat{Q}$
-- [Pseudoinverse]({{< meta decks.d11.file >}}#the-pseudoinverse-reverses-the-nonzero-stretches)
+- [Pseudoinverse]({{< meta decks.d10.file >}}#the-pseudoinverse-reverses-the-nonzero-stretches)
 :::
 
 :::
@@ -1020,14 +1020,14 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 ::: {.column width="50%"}
 - [Residual]({{< meta decks.d07.file >}}#two-features-give-coordinates-for-three-fitted-responses)
 - [Reversible transformation]({{< meta decks.d01.file >}}#three-reversible-moves)
-- [Ridge regression / regularization]({{< meta decks.d11.file >}}#truncation-and-ridge-control-small-stretches)
+- [Ridge regression / regularization]({{< meta decks.d10.file >}}#truncation-and-ridge-control-small-stretches)
 - [Rotation]({{< meta decks.d03.file >}}#rotation-matrix-from-rotated-basis-vectors), $\mat{R}_{\theta}$
 - [Row echelon form]({{< meta decks.d01.file >}}#pivots-organize-elimination)
 - [Row space]({{< meta decks.d08.file >}}#a-matrix-has-four-fundamental-subspaces), $\operatorname{row}(\mat{A})$
 - [Scalar](#represent-objects-numerically), $c\in\reals$
 - [Scalar multiplication]({{< meta decks.d06.file >}}#a-vector-space-starts-with-objects-and-two-operations)
 - [Scalar triple product]({{< meta decks.d05.file >}}#the-triple-product-reconnects-to-determinants), $\vct{u}^{\mathsf T}(\vct{v}\times\vct{w})$
-- [Singular value]({{< meta decks.d11.file >}}#the-svd-separates-directions-from-scale)
+- [Singular value]({{< meta decks.d10.file >}}#the-svd-separates-directions-from-scale)
 :::
 
 :::
@@ -1038,13 +1038,13 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 
 ::: {.columns style="font-size: 0.92em;"}
 ::: {.column width="50%"}
-- [Singular value decomposition (SVD)]({{< meta decks.d11.file >}}#the-svd-separates-directions-from-scale), $\mat{A}=\mat{U}\mat{\Sigma}\mat{V}^\top$
-- [Singular vectors]({{< meta decks.d11.file >}}#each-singular-direction-has-its-own-stretch)
+- [Singular value decomposition (SVD)]({{< meta decks.d10.file >}}#the-svd-separates-directions-from-scale), $\mat{A}=\mat{U}\mat{\Sigma}\mat{V}^\top$
+- [Singular vectors]({{< meta decks.d10.file >}}#each-singular-direction-has-its-own-stretch)
 - [Skew-symmetric matrix]({{< meta decks.d07.file >}}#practice-bases-for-other-matrix-spaces), $\mat{A}^{\mathsf T}=-\mat{A}$
 - [Solution / solution set]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
 - [Solution map]({{< meta decks.d07.file >}}#initial-data-map-linearly-to-a-solution-function)
 - [Span]({{< meta decks.d06.file >}}#span-is-the-subspace-generated-by-chosen-vectors), $\operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}$
-- [Spectral norm]({{< meta decks.d11.file >}}#the-best-low-rank-approximation-has-a-measurable-error)
+- [Spectral norm]({{< meta decks.d10.file >}}#the-best-low-rank-approximation-has-a-measurable-error)
 - [Spectral theorem (real symmetric)]({{< meta decks.d09.file >}}#the-spectral-theorem-supplies-an-orthonormal-eigenbasis)
 - [Standard basis]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column), $\{\vct{e}_1,\ldots,\vct{e}_n\}$
 - [Standard matrix]({{< meta decks.d03.file >}}#standard-basis-vectors-reveal-every-column), $\mat{A}$
@@ -1060,7 +1060,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Transpose]({{< meta decks.d03.file >}}#transpose-exchanges-rows-and-columns), $\mat{A}^{\mathsf T}$
 - [Triangle inequality]({{< meta decks.d10.file >}}#norms-distances-and-angles-follow)
 - [Tridiagonal matrix]({{< meta decks.d03.file >}}#tridiagonal-matrices-couple-neighboring-grid-values)
-- [Truncated SVD]({{< meta decks.d11.file >}}#truncation-and-ridge-control-small-stretches)
+- [Truncated SVD]({{< meta decks.d10.file >}}#truncation-and-ridge-control-small-stretches)
 :::
 
 :::

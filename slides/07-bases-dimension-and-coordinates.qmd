@@ -2924,7 +2924,7 @@ Full basis: exact coordinates
 Keep $\vct{q}_1$: $\vct{z}\approx12\sqrt2\,\vct{q}_1$ in its span
 :::
 
-[Later: {{< meta decks.d11.short_title >}} — low-rank approximation]({{< meta decks.d11.file >}}#a-matrix-is-a-sum-of-rank-one-maps)
+[Later: {{< meta decks.d10.short_title >}} — low-rank approximation]({{< meta decks.d10.file >}}#a-matrix-is-a-sum-of-rank-one-maps)
 :::
 :::
 

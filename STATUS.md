@@ -173,6 +173,9 @@ Mathematical content should be maintained only in the slides.
   - [x] Use V for eigenvector matrices and Q for orthonormal eigenvectors in
     Deck 09 and its companion; add an optional two-slide generalized-eigenvector
     chain example and matching locally executed notebook cell.
+  - [x] Follow Anton's monic `det(lambda I-A)` characteristic polynomial in
+    Deck 09 and its companion; note the alternative sign convention on the
+    definition slide and explain the identical roots in presenter notes.
   - [x] Draft Deck 10 with QR, regression, and Fourier approximation.
 - [x] Renumber the split Chapter 4 decks as 06–08 and the later placeholders
   as 09–10; update metadata, course maps, navigation, links, and author guidance.
@@ -301,7 +304,9 @@ Mathematical content should be maintained only in the slides.
     Canvas announcement `109873`; Quiz 5 coverage remains TBD. Both tests are
     published. Grades remain for later entry.
   - [x] Prepare and validate the private Quiz 4 draft for November 12;
-    instructor review, final printing and CDR delivery remain.
+    instructor review is not separately recorded.
+  - [x] Print Quiz 4 and send it to the Center for Disability Resources,
+    confirmed November 11 in the Dashboard; retain confidentiality through grading.
   - [x] Narrow Test 2 coverage through dimension; exclude coordinates and
     transformations; correct the Canvas assignment and prior notice, and
     publish the all-sections correction announcement `108764` (October 22).
@@ -337,6 +342,12 @@ Mathematical content should be maintained only in the slides.
 
 ## Special Topics capstone
 
+- [x] Move SVD, low-rank approximation and regression through QR/SVD into
+  Deck 10 before function/Fourier approximation; preserve Deck 11 as optional
+  extensions and retain the single tensor glimpse there. Update course maps,
+  summaries, cumulative terminology, notebook links and course-outline sources.
+- [x] Put the singular-value condition-number correction in the presenter
+  notes beside Deck 09's recap example and Deck 10's sensitivity discussion.
 - [x] Draft Deck 11 with SVD and regression as priorities, quadratic forms,
   FFT, tensor products, and optional network/eigenvector applications.
 - [ ] Complete instructor content and visible-layout review of Deck 11.

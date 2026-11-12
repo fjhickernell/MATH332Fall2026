@@ -6,6 +6,28 @@ would benefit from understanding why a choice was made.
 
 ## Decision log
 
+### 2026-11-11 — Follow Anton's characteristic-polynomial convention
+
+- **Decision:** Define `p_A(lambda)=det(lambda I-A)` in Deck 09 and its
+  companion to follow Anton. Add a short visible note that some sources use
+  `det(A-lambda I)`, with the same roots and algebraic multiplicities.
+- **Consequences:** The polynomial is monic, its constant term is
+  `(-1)^n det(A)`, and a triangular matrix gives `product_j(lambda-a_jj)`.
+  Presenter notes explain the sign factor; SymPy's `charpoly` matches Anton.
+
+### 2026-11-11 — Put SVD in Inner Product Spaces
+
+- **Decision:** Move the SVD and regression-through-QR/SVD sections from
+  Deck 11 to Deck 10, after least squares and before function/Fourier
+  approximation. Include low-rank approximation, pseudoinverses, sensitivity
+  and regularization; retain both computational companions and their filenames.
+- **Rationale:** SVD extends orthonormal-coordinate geometry and must remain
+  available even if remaining class time does not permit Special Topics.
+- **Consequences:** Deck 11 preserves quadratic forms, FFT, networks and the
+  single optional two-minute product-bases/frames slide. It is entirely optional.
+  SVD relies on Deck 09's symmetric spectral theorem, not Deck 11. Update
+  course-outline, index and notebook links when moving the authoritative slides.
+
 ### 2026-09-04 — Route the mutable tutoring schedule through Canvas
 
 - **Decision:** The public course website tells enrolled students that Fall

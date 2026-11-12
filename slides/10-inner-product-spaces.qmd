@@ -5,7 +5,7 @@ deck_title: "{{< meta decks.d10.title >}}"
 deck_short_title: "{{< meta decks.d10.short_title >}}"
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 6</span>
+  <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 6 · §§9.4–9.5</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">
@@ -42,15 +42,17 @@ include-after-body:
 <h3>In this deck</h3>
 
 ::: {.key-point}
-Orthogonal directions separate what we can fit from what remains
+Orthonormal coordinates expose fits and stretches
 
-$\vct{b}=\widehat{\vct{b}}+\vct{r},\qquad\widehat{\vct{b}}\perp\vct{r}$
+$\mat{A}=\mat{Q}\mat{R}\qquad\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^\top$
 :::
 
 - [Inner Products and Geometry](#inner-products-and-geometry)
 - [Orthogonality and Projection](#orthogonality-and-projection)
 - [Gram–Schmidt and QR](#gram-schmidt-and-qr)
 - [Least Squares and Regression](#least-squares-and-regression)
+- [Singular Value Decomposition](#singular-value-decomposition)
+- [Regression Through QR and SVD](#regression-through-qr-and-svd)
 - [Function Approximation and Fourier Coordinates](#function-approximation-and-fourier-coordinates)
 - [Big Ideas](#big-ideas)
 
@@ -479,7 +481,7 @@ Positive observation weights $w_i$ and $\mat{W}=\operatorname{diag}(w_1,\ldots,w
 
 Apply QR to the weighted design matrix when it has full column rank
 
-Dependent or nearly dependent features motivate [SVD and regularization]({{< meta decks.d11.file >}}#regression-through-qr-and-svd)
+Dependent or nearly dependent features motivate [SVD and regularization]({{< meta decks.d10.file >}}#regression-through-qr-and-svd)
 
 
 ## Practice checking a regression fit {#practice-checking-a-regression-fit}
@@ -495,7 +497,349 @@ Coefficients [2/3,1/2]^T. Fitted values [1/6,2/3,7/6]^T; residuals [-1/6,1/3,-1/
 :::
 
 
+# Singular Value Decomposition {#singular-value-decomposition}
+
+Orthogonal input and output coordinates extend the eigenvector idea to rectangular matrices
+
+- [What can a rectangular matrix do?](#what-can-a-rectangular-matrix-do)
+- [The SVD separates directions from scale](#the-svd-separates-directions-from-scale)
+- [Each singular direction has its own stretch](#each-singular-direction-has-its-own-stretch)
+- [A worked SVD without square roots of large matrices](#a-worked-svd-without-square-roots-of-large-matrices)
+- [See the singular stretches](#svd-geometry)
+- [Why an SVD exists](#why-an-svd-exists)
+- [The four spaces reappear in orthonormal coordinates](#the-four-spaces-reappear-in-orthonormal-coordinates)
+- [A matrix is a sum of rank-one maps](#a-matrix-is-a-sum-of-rank-one-maps)
+- [The best low-rank approximation has a measurable error](#the-best-low-rank-approximation-has-a-measurable-error)
+- [Practice reading singular values](#practice-reading-singular-values)
+
+## What can a rectangular matrix do? {#what-can-a-rectangular-matrix-do}
+
+$\mat{A}:\reals^n\to\reals^m$ may stretch, turn, and collapse directions
+
+Eigenvectors require a square matrix; singular vectors work for every shape
+
+::: {.key-point}
+Choose orthonormal input and output directions adapted to the map
+:::
+
+
+## The SVD separates directions from scale {#the-svd-separates-directions-from-scale}
+
+For a real $m\times n$ matrix of rank $r>0$:
+\begin{gather*}
+\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^\top,\qquad
+\mat{\Sigma}_r=\operatorname{diag}(\sigma_1,\ldots,\sigma_r)\\
+\sigma_1\ge\cdots\ge\sigma_r>0,\qquad
+\mat{U}_r^\top\mat{U}_r=\mat{V}_r^\top\mat{V}_r=\mat{I}_r
+\end{gather*}
+
+| Factor | Shape | Role |
+|---|---|---|
+| $\mat{V}_r^\top$ | $r\times n$ | input coordinates |
+| $\mat{\Sigma}_r$ | $r\times r$ | stretch each coordinate |
+| $\mat{U}_r$ | $m\times r$ | assemble the output |
+
+::: {.notes}
+This is the compact SVD. The zero matrix has no positive singular values and an empty compact factorization; its pseudoinverse is zero. Orthogonal completions give the full SVD with U m-by-m, V n-by-n, and rectangular Sigma.
+:::
+
+
+## Each singular direction has its own stretch {#each-singular-direction-has-its-own-stretch}
+
+Write $\vct{U}_j$ and $\vct{V}_j$ for columns of the compact factors
+\begin{gather*}
+\mat{A}\vct{V}_j=\sigma_j\vct{U}_j,\qquad
+\mat{A}^\top\vct{U}_j=\sigma_j\vct{V}_j\\
+\mat{A}\vct{x}=\sum_{j=1}^r\sigma_j\vct{U}_j
+\bigl(\vct{V}_j^\top\vct{x}\bigr)
+\end{gather*}
+
+Input perpendicular to every $\vct{V}_j$ is sent to zero
+
+::: {.key-point}
+Singular values measure stretches, not signed eigenvalues
+:::
+
+
+## A worked SVD without square roots of large matrices {#a-worked-svd-without-square-roots-of-large-matrices}
+
+\begin{gather*}
+\mat{A}=\begin{bmatrix}3&0\\0&0\\0&2\end{bmatrix},\quad
+\mat{U}_r=\begin{bmatrix}1&0\\0&0\\0&1\end{bmatrix},\quad
+\mat{\Sigma}_r=\begin{bmatrix}3&0\\0&2\end{bmatrix},\quad
+\mat{V}_r=\mat{I}_2\\
+\mat{A}\begin{bmatrix}\cos t\\\sin t\end{bmatrix}
+=\begin{bmatrix}3\cos t\\0\\2\sin t\end{bmatrix}
+\end{gather*}
+
+The unit circle becomes an ellipse in the $x_1x_3$ plane
+
+::: {.key-point}
+The ellipse axes are the left singular vectors; their lengths are the singular values
+:::
+
+
+## See the singular stretches {#svd-geometry}
+
+::: {style="text-align: center;"}
+![](assets/special-topics/svd-circle-ellipse.svg){fig-alt="The unit input circle maps to an ellipse with semiaxes three and two in the output x1 x3 plane" width="90%" .nostretch}
+:::
+
+## Why an SVD exists {#why-an-svd-exists}
+
+$\mat{A}^\top\mat{A}$ is symmetric and positive semidefinite
+\begin{gather*}
+\vct{x}^\top\mat{A}^\top\mat{A}\vct{x}
+=\|\mat{A}\vct{x}\|^2\ge0\\
+\mat{A}^\top\mat{A}\vct{V}_j=\sigma_j^2\vct{V}_j,\qquad
+\vct{U}_j=\frac{\mat{A}\vct{V}_j}{\sigma_j}\quad(\sigma_j>0)
+\end{gather*}
+
+Orthonormal eigenvectors on the input side produce orthonormal output vectors
+
+::: {.notes}
+For positive singular values, U_i^T U_j = V_i^T A^T A V_j/(sigma_i sigma_j) = delta_ij. Use the real symmetric spectral theorem from Eigenvalues and Eigenvectors; the optional quadratic-forms section is not a prerequisite. This is an existence argument, not a recommended numerical algorithm: forming A^T A squares the full-column-rank condition number.
+:::
+
+
+## The four spaces reappear in orthonormal coordinates {#the-four-spaces-reappear-in-orthonormal-coordinates}
+
+| Space | SVD description |
+|---|---|
+| $\operatorname{col}(\mat{A})$ | span of $\vct{U}_1,\ldots,\vct{U}_r$ |
+| $\operatorname{row}(\mat{A})$ | span of $\vct{V}_1,\ldots,\vct{V}_r$ |
+| $\operatorname{null}(\mat{A})$ | perpendicular to all $\vct{V}_j$ |
+| $\operatorname{null}(\mat{A}^\top)$ | perpendicular to all $\vct{U}_j$ |
+
+Complete the columns of $\mat{U}_r$ and $\mat{V}_r$ to orthonormal bases to obtain bases of the two null spaces
+
+[Recall matrix spaces]({{< meta decks.d08.file >}}#orthogonal-pairs)
+
+
+## A matrix is a sum of rank-one maps {#a-matrix-is-a-sum-of-rank-one-maps}
+
+\begin{equation*}
+\mat{A}=\sum_{j=1}^r\sigma_j\vct{U}_j\vct{V}_j^\top
+\end{equation*}
+
+Each term reads one input coordinate and sends it along one output direction
+
+Keep only the first $k$ terms:
+\begin{equation*}
+\mat{A}_k=\sum_{j=1}^k\sigma_j\vct{U}_j\vct{V}_j^\top,\qquad 0\le k<r
+\end{equation*}
+
+A controlled approximation using fewer directions
+
+
+## The best low-rank approximation has a measurable error {#the-best-low-rank-approximation-has-a-measurable-error}
+
+Define $\|\mat{B}\|_F^2=\sum_{i,j}|b_{ij}|^2$ and
+$\|\mat{B}\|_2=\max_{\|\vct{x}\|=1}\|\mat{B}\vct{x}\|$
+\begin{gather*}
+\|\mat{A}-\mat{A}_k\|_2=\sigma_{k+1}\\
+\|\mat{A}-\mat{A}_k\|_F^2=\sum_{j=k+1}^r\sigma_j^2
+\end{gather*}
+
+$\mat{A}_k$ minimizes either error over matrices of rank at most $k$
+
+::: {.key-point}
+Choose the rank by the accuracy needed, not only by the appearance of the image
+:::
+
+::: {.notes}
+Eckart–Young–Mirsky theorem; statement without proof. Approximation need not be unique when singular values tie. For an m-by-n grayscale image, storing compact factors uses k(m+n+1) scalar entries instead of mn, before file-format overhead or quantization.
+:::
+
+
+## Practice reading singular values {#practice-reading-singular-values}
+
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>A matrix has singular values $8,3,1$<br>Find the rank-one spectral error and rank-two Frobenius error<br>How many rank-one terms reproduce the matrix exactly?</span>
+:::
+
+::: {.notes}
+Answers: 3; 1; three terms. Distinguish the two error norms.
+:::
+
+
+# Regression Through QR and SVD {#regression-through-qr-and-svd}
+
+- [Regression asks for the closest attainable data](#regression-asks-for-the-closest-attainable-data)
+- [QR solves full-column-rank least squares](#qr-solves-full-column-rank-least-squares)
+- [The pseudoinverse reverses the nonzero stretches](#the-pseudoinverse-reverses-the-nonzero-stretches)
+- [Rank deficiency changes coefficients, not the fitted vector](#rank-deficiency-changes-coefficients-not-the-fitted-vector)
+- [A regression example with a redundant feature](#a-regression-example-with-a-redundant-feature)
+- [Small singular values amplify data perturbations](#small-singular-values-amplify-data-perturbations)
+- [Truncation and ridge control small stretches](#truncation-and-ridge-control-small-stretches)
+- [Which factorization serves the regression question?](#which-factorization-serves-the-regression-question)
+- [Practice separating fit from coefficients](#practice-separating-fit-from-coefficients)
+
+## Regression asks for the closest attainable data {#regression-asks-for-the-closest-attainable-data}
+
+Fit observations $b_i$ using features $a_{ij}$ and coefficients $x_j$
+\begin{gather*}
+\widehat{\vct{b}}=\mat{A}\widehat{\vct{x}},\qquad
+\widehat{\vct{x}}\in\arg\min_{\vct{x}}\|\mat{A}\vct{x}-\vct{b}\|^2\\
+\mat{A}^\top(\vct{b}-\widehat{\vct{b}})=\vct{0}
+\end{gather*}
+
+$\widehat{\vct{b}}$ is the orthogonal projection onto $\operatorname{col}(\mat{A})$
+
+A column of ones supplies an intercept
+
+[Recall least squares](#least-squares-and-regression)
+
+
+## QR solves full-column-rank least squares {#qr-solves-full-column-rank-least-squares}
+
+For $m\ge n$ and independent columns:
+\begin{gather*}
+\mat{A}=\mat{Q}\mat{R},\quad
+\mat{Q}^\top\mat{Q}=\mat{I}_n,\quad
+\mat{R}\text{ upper triangular and invertible}\\
+\|\mat{A}\vct{x}-\vct{b}\|^2
+=\|\mat{R}\vct{x}-\mat{Q}^\top\vct{b}\|^2
++\|(\mat{I}_m-\mat{Q}\mat{Q}^\top)\vct{b}\|^2\\
+\mat{R}\widehat{\vct{x}}=\mat{Q}^\top\vct{b}
+\end{gather*}
+
+Compute orthogonal coordinates, then use back substitution
+
+::: {.notes}
+Reduced QR: Q is m-by-n, R is n-by-n. This R is the triangular QR factor, different from R in A=C R; reused matrix letters are defined by the current factorization. Gram–Schmidt explains the factorization; Householder QR is the standard practical method. This is an optional refresher of the earlier QR section; skip these two recap slides when proceeding directly to the pseudoinverse.
+:::
+
+
+## The pseudoinverse reverses the nonzero stretches {#the-pseudoinverse-reverses-the-nonzero-stretches}
+
+\begin{gather*}
+\mat{A}^{\dagger}=\mat{V}_r\mat{\Sigma}_r^{-1}\mat{U}_r^\top\\
+\widehat{\vct{x}}=\mat{A}^{\dagger}\vct{b}
+=\sum_{j=1}^r\frac{\vct{U}_j^\top\vct{b}}{\sigma_j}\vct{V}_j\\
+\widehat{\vct{b}}=\mat{A}\widehat{\vct{x}}
+=\mat{U}_r\mat{U}_r^\top\vct{b}
+\end{gather*}
+
+Works for rectangular and rank-deficient matrices
+
+::: {.key-point}
+The pseudoinverse selects the least-squares solution with smallest Euclidean norm
+:::
+
+
+## Rank deficiency changes coefficients, not the fitted vector {#rank-deficiency-changes-coefficients-not-the-fitted-vector}
+
+Every least-squares minimizer has the form
+\begin{equation*}
+\vct{x}=\mat{A}^{\dagger}\vct{b}+\vct{z},\qquad
+\vct{z}\in\operatorname{null}(\mat{A})
+\end{equation*}
+
+- All give the same fitted vector $\widehat{\vct{b}}$
+- The pseudoinverse solution lies in $\operatorname{row}(\mat{A})$
+- Adding a perpendicular null-space component increases the coefficient norm
+
+::: {.notes}
+Use the orthogonal splitting R^n = row(A) plus null(A). The minimizer is unique exactly when A has full column rank. This also covers underdetermined consistent systems.
+:::
+
+
+## A regression example with a redundant feature {#a-regression-example-with-a-redundant-feature}
+
+\begin{gather*}
+\mat{A}=\begin{bmatrix}1&1\\1&1\end{bmatrix},\quad
+\vct{b}=\begin{bmatrix}2\\4\end{bmatrix},\quad
+\vct{U}_1=\vct{V}_1=\frac1{\sqrt2}\begin{bmatrix}1\\1\end{bmatrix},\quad\sigma_1=2\\
+\widehat{\vct{x}}=\begin{bmatrix}3/2\\3/2\end{bmatrix},\quad
+\widehat{\vct{b}}=\begin{bmatrix}3\\3\end{bmatrix},\quad
+\vct{b}-\widehat{\vct{b}}=\begin{bmatrix}-1\\1\end{bmatrix}
+\end{gather*}
+
+Both features are identical: only $x_1+x_2=3$ is identifiable
+
+The smallest-norm solution divides the total equally
+
+
+## Small singular values amplify data perturbations {#small-singular-values-amplify-data-perturbations}
+
+A perturbation $\delta\vct{b}$ changes the pseudoinverse coefficients by
+\begin{equation*}
+\delta\widehat{\vct{x}}
+=\sum_{j=1}^r\frac{\vct{U}_j^\top\delta\vct{b}}{\sigma_j}\vct{V}_j
+\end{equation*}
+
+Small positive $\sigma_j$: large coefficient changes in direction $\vct{V}_j$
+
+For full column rank, the 2-norm condition number is $\kappa(\mat{A})=\sigma_1/\sigma_n$
+
+::: {.key-point}
+An accurate fit can coexist with poorly determined coefficients
+:::
+
+::: {.notes}
+For a general square matrix, use singular values, not eigenvalues, in the 2-norm condition number. For a real symmetric positive-definite matrix, singular values equal its positive eigenvalues, so the largest/smallest eigenvalue ratio is valid. Keep rank and conditioning distinct. Exact zero singular values create nonidentifiability; small positive ones create sensitivity. Feature scaling affects these values and the meaning of a coefficient-norm penalty.
+:::
+
+
+## Truncation and ridge control small stretches {#truncation-and-ridge-control-small-stretches}
+
+Truncated SVD retains only singular values above a chosen threshold $\tau$:
+\begin{equation*}
+\widehat{\vct{x}}_\tau
+=\sum_{\sigma_j>\tau}\frac{\vct{U}_j^\top\vct{b}}{\sigma_j}\vct{V}_j
+\end{equation*}
+
+Ridge minimizes $\|\mat{A}\vct{x}-\vct{b}\|^2+\lambda\|\vct{x}\|^2$, $\lambda>0$:
+\begin{equation*}
+\widehat{\vct{x}}_\lambda
+=\sum_{j=1}^r\frac{\sigma_j}{\sigma_j^2+\lambda}
+(\vct{U}_j^\top\vct{b})\vct{V}_j
+\end{equation*}
+
+Truncation discards directions; ridge shrinks their contributions
+
+::: {.notes}
+This ridge formula penalizes every coefficient, including an intercept if present. In typical regression, center features and response or explicitly exempt the intercept; then the formula must be applied to the corresponding centered or weighted-penalty problem. Parameter choice requires a noise model or validation data; this deck introduces the algebra only.
+:::
+
+
+## Which factorization serves the regression question? {#which-factorization-serves-the-regression-question}
+
+| Question | Useful tool |
+|---|---|
+| Full-column-rank least-squares coefficients | QR and a triangular solve |
+| Rank deficiency and minimum-norm coefficients | SVD and pseudoinverse |
+| Sensitivity and numerical rank | Singular values and feature scaling |
+| Noise-sensitive directions | Truncation or ridge |
+
+Forming $\mat{A}^\top\mat{A}$ squares $\kappa(\mat{A})$ when $\mat{A}$ has full column rank
+
+Prefer an orthogonal factorization to explicitly inverting the normal-equation matrix
+
+
+## Practice separating fit from coefficients {#practice-separating-fit-from-coefficients}
+
+
+::: {.exitem}
+<span class="exbullet">$\exstar$</span>
+<span>For the redundant-feature example, describe every least-squares solution<br>Verify that the residual is perpendicular to both columns<br>Explain why $[3/2,3/2]^\top$ has the smallest norm</span>
+:::
+
+::: {.notes}
+Solutions: $[3/2+t,3/2-t]^\top$, t real. Each column dotted with [-1,1]^T is zero. Squared coefficient norm is 9/2+2t^2, minimized at t=0.
+:::
+
+
 # Function Approximation and Fourier Coordinates {#function-approximation-and-fourier-coordinates}
+
+::: {.notes}
+Teach the finite-dimensional SVD core before this function/Fourier extension
+when time is short. No result in the SVD or regression sections depends on
+this section or on the optional Special Topics deck.
+:::
 
 - [Approximate a function in a finite-dimensional subspace](#approximate-a-function-in-a-finite-dimensional-subspace)
 - [Orthogonalize the first two polynomial directions](#orthogonalize-the-first-two-polynomial-directions)
@@ -638,6 +982,8 @@ Mean 2. Normalized real coefficients: 2 for constant, 3/sqrt(2) for sqrt(2)cos(2
 - [Gram–Schmidt]{.alert} produces orthonormal directions with the same span
 - [QR]{.alert} records those directions and triangular coordinates
 - [Least squares]{.alert} fits the column-space component of the data
+- [SVD]{.alert} separates orthonormal directions from stretches for every matrix
+- [Pseudoinverses]{.alert} select minimum-norm fits; small singular values reveal sensitivity
 - [Fourier approximation]{.alert} projects onto oscillatory directions
 
 # How Far We Have Come
@@ -657,7 +1003,8 @@ Mean 2. Normalized real coefficients: 2 for constant, 3/sqrt(2) for sqrt(2)cos(2
 ::: {.column width="47%"}
 - [Projection](#projection-onto-an-orthonormal-basis) — split a vector into its closest subspace component and a perpendicular residual
 - [QR](#qr-turns-least-squares-into-a-triangular-solve) — Gram–Schmidt preserves span; $\mat{A}=\mat{Q}\mat{R}$ records orthonormal directions and triangular coordinates
-- [Function approximation](#approximate-a-function-in-a-finite-dimensional-subspace) — polynomials/Fourier modes give finite spans; for orthonormal $q_j$, coefficients are $\langle q_j,f\rangle$
+- [SVD](#the-svd-separates-directions-from-scale) — orthonormal input/output directions reveal rank and controlled low-rank approximations
+- [Minimum-norm fit](#the-pseudoinverse-reverses-the-nonzero-stretches) — pseudoinverses reverse nonzero stretches; small singular values amplify data errors
 :::
 :::
 
@@ -668,18 +1015,22 @@ the residual satisfies $\mat{A}^\top(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}$
 
 # What Comes Next
 
-[Special Topics]({{< meta decks.d11.file >}})
+[Optional: {{< meta decks.d11.short_title >}}]({{< meta decks.d11.file >}})
 
-- SVD: orthonormal input and output directions for every matrix
-- Regression with redundant or sensitive features
-- Optional quadratic forms, FFT, and network applications
+- Quadratic forms and principal axes
+- Fourier transforms, FFT, and network applications
 - A single optional tensor glimpse through product bases and frames
 
-Choose later topics according to class preferences and remaining time
+The SVD and regression core is complete within this deck
+
+Choose extensions according to class preferences and remaining time
 
 
 The [Inner Products companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/10-inner-product-spaces.ipynb)
 explores projection, QR, regression, and Fourier coordinates · [Open in Colab](https://colab.research.google.com/github/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/10-inner-product-spaces.ipynb)
+
+The [SVD and Regression companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/11-special-topics.ipynb)
+explores singular directions, low-rank approximation, and minimum-norm fits · [Open in Colab](https://colab.research.google.com/github/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/11-special-topics.ipynb)
 
 # Terms to Know {#terms-to-know}
 
@@ -699,6 +1050,24 @@ explores projection, QR, regression, and Fourier coordinates · [Open in Colab](
 - [Conjugate transpose; complex inner product](#complex-inner-products-use-conjugation)
 - [Fourier coefficients](#complex-exponentials-package-the-fourier-pairs)
 
+## Terms to know: SVD and sensitivity
+
+- [Compact SVD; singular values](#the-svd-separates-directions-from-scale)
+- [Singular vectors](#each-singular-direction-has-its-own-stretch)
+- [Low-rank approximation; spectral and Frobenius norms](#the-best-low-rank-approximation-has-a-measurable-error)
+- [Pseudoinverse; minimum-norm least-squares solution](#the-pseudoinverse-reverses-the-nonzero-stretches)
+- [Condition number](#small-singular-values-amplify-data-perturbations)
+- [Truncated SVD; ridge regression](#truncation-and-ridge-control-small-stretches)
+
 ::: {.notes}
-Instructor draft. Anton Chapter 6 crosswalk: §§6.1–6.2 inner products, angle and orthogonality; §6.3 Gram–Schmidt/QR; §§6.4–6.5 best approximation, least squares and modeling; §6.6 function approximation/Fourier series. Complex inner products support the later DFT. The companion notebook implements weighted geometry, projection, QR residuals, line regression, polynomial integral projection and finite Fourier approximations, with saved local execution results. Student-facing mathematical exposition remains in this deck. Full instructor review remains.
+Instructor draft. Prioritize inner products, projection, QR/least squares,
+then SVD and its regression connection before the function/Fourier extension.
+Anton crosswalk: §§6.1–6.2 inner products, angle and orthogonality; §6.3
+Gram–Schmidt/QR; §§6.4–6.5 best approximation, least squares and modeling;
+§§9.4–9.5 SVD and compression; §6.6 function approximation/Fourier series.
+Complex inner products support the optional DFT in Special Topics. The
+Inner Products and SVD/Regression companions are both locally executed and
+linked above; the latter retains its existing filename to preserve notebook
+links. Student-facing mathematical exposition remains in this deck.
+Instructor review remains open.
 :::

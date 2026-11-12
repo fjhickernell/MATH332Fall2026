@@ -1,5 +1,58 @@
 # MATH 332 deck accuracy and clarity audit
 
+## November 11, 2026 — characteristic-polynomial convention
+
+Deck 09 and its companion follow Anton's monic
+`p_A(lambda)=det(lambda I-A)`. The definition slide visibly notes that some
+sources use `det(A-lambda I)`, with the same roots and multiplicities.
+Presenter notes explain the `(-1)^n` factor, the monic leading coefficient
+and the constant term `(-1)^n det(A)`. The worked determinant, triangular
+product and similarity identity retain the monic convention. SymPy's
+`charpoly` matches it directly; the companion's code is unchanged from the
+previously validated monic version, with the convention note added in Markdown.
+
+The seven exercise sets and their answers are retained. This Checkpoint
+includes the clarification; remote deployment remains unverified.
+
+The final monic companion passes all 14 code cells in a fresh qmcpy run,
+with saved outputs and no errors. Deck 09 renders, and the definition plus
+alternative-convention note fits at 1280×720 with no browser warnings/errors.
+The visible-prose and diff checks pass. The latest completed main-branch
+publishing workflow, run 43078470941 for 638e543, succeeded.
+Its separate Pages deployment run 43078769945 failed while creating the
+deployment with GitHub HTTP 502; no local rendering failure was reported.
+The next publication must not be described as live until deployment is verified.
+
+## November 11, 2026 — SVD in Inner Product Spaces
+
+Moved the existing SVD and regression-through-QR/SVD sections to Deck 10,
+after least squares and before function/Fourier approximation. Deck 10 has
+68 slides; Deck 11 retains 28 slides of optional quadratic forms, FFT,
+networks and the single tensor glimpse. Every original instructional slide
+is preserved across the two decks; only the reference-term lists were
+regrouped. Both companion notebooks retain their existing filenames.
+The SVD notebook changes only Markdown links and introductory routing;
+its code cells and saved outputs are unchanged.
+
+Course maps, closing summaries, terminology-index links, the Deck 07 PCA
+forward link, notebook links and the welcome-page outline now follow the new
+location. Deck 09's recap example has a presenter reminder that the 2-norm
+condition number uses singular values; the symmetric-positive-definite
+eigenvalue-ratio exception is explicit there and in Deck 10's sensitivity notes.
+
+The root website and all twelve decks render successfully; 1,311 local
+links/assets, including destination fragments, pass across the assembled
+welcome page, Notebooks page and twelve decks. Source-style and diff checks
+pass, with no new duplicate anchors. At 1280×720, the revised course maps,
+SVD outline, Deck 10 cumulative recap and next-deck handoff, sensitivity slide
+and retained tensor slide fit and typeset correctly. The tensor-to-SVD link
+opens the intended child slide in Deck 10. Both presenter corrections are
+present in the rendered notes; no browser warnings/errors were reported in
+the reviewed deck. The expanded course outline fits at 1280 and 390 pixels;
+the revised notebook listing fits at 390 pixels without horizontal overflow.
+Instructor content review remains open; this Checkpoint includes the changes.
+Remote deployment remains unverified.
+
 ## November 10, 2026 — eigenvector notation and optional chains
 
 Deck 09 and its companion use V for ordinary eigenvector matrices and Q for

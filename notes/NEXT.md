@@ -50,6 +50,38 @@ The November 10 eigenvalue-ratio calculation was for a symmetric
 positive-definite example, where that ratio is valid; it does not replace
 the general singular-value definition.
 
+The correction is now also in the presenter notes on Deck 09's worked
+eigenvalue example, exactly where the November 12 recap begins. Deck 10's
+singular-value sensitivity slide retains the correct formula and explains
+the symmetric-positive-definite exception in its presenter notes.
+
+Deck 09 and its companion follow Anton's monic characteristic polynomial
+`det(lambda I-A)`. The definition slide visibly notes that some sources use
+`det(A-lambda I)`, with the same roots and multiplicities; presenter notes
+explain the factor `(-1)^n`. Eigenspaces can still be computed from
+`A-lambda I`. This clarification is included in this Checkpoint.
+The restored monic companion passes all 14 cells; the deck renders and its
+new visible convention note passes 1280×720 layout review.
+
+## Remaining course sequence — November 11 decision
+
+SVD and its regression connection now belong to **Deck 10: Inner Product
+Spaces**, after QR/least squares and before the function/Fourier extension.
+Review its moved SVD, low-rank approximation, pseudoinverse, sensitivity and
+regularization material as part of Deck 10. Both existing Inner Products and
+SVD/Regression companions are linked there; their filenames are preserved.
+**Deck 11 remains entirely optional:** quadratic forms, FFT, networks and
+the single two-minute product-bases/frames slide. Preserve it even if skipped.
+The SVD existence argument uses Deck 09's spectral theorem; Deck 11 is not
+a prerequisite. November 12 still resumes eigenspaces before Quiz 4.
+
+The website and all twelve decks render; 1,311 assembled local links/assets
+pass. Revised deck layouts, cross-deck SVD navigation and both rendered
+presenter reminders are verified; the course outline and notebook listing
+fit at narrow widths. See `notes/DECK-AUDIT.md` for scope. Instructor content
+review remains open. These sequence changes are included in this Checkpoint;
+remote deployment and live-site verification remain unconfirmed.
+
 November 4 preparation review: the Taylor inverse slide now retains the
 full transition subscripts, and the regression setup uses nonlinear feature
 functions of two predictors to emphasize linearity in the coefficients.
@@ -84,9 +116,10 @@ rating. Review the idea and its distinction from Google PageRank in
 
 ## Quiz 4 coverage — announced November 6
 
-The private draft is prepared and validated. Instructor review, final printing,
-and delivery to the Center for Disability Resources remain. Keep the assessment
-private until grading is complete.
+The private draft is prepared and validated. Printing and delivery to the
+Center for Disability Resources are confirmed November 11 in the Dashboard;
+instructor review is not separately recorded. Keep the assessment private
+until grading is complete.
 
 Quiz 4 is Thursday, November 12, and covers the full **Bases, Dimension,
 and Coordinates** deck. The Schedule and Quizzes and Tests coverage rows and
@@ -133,7 +166,7 @@ near the top of that QMD to revise the invitation. Original PDF/PNG assets are i
 
 Selected Deck 08 classroom coverage concluded November 10; the November 12
 Deck 09 pickup above is the immediate teaching preparation. Decks 09 (Eigenvalues), 10 (Inner Products,
-QR and least squares), and 11 (Special Topics, prioritizing SVD/regression)
+QR, least squares and SVD/regression), and 11 (optional Special Topics)
 are substantive mathematically audited drafts, with instructor and visible
 review still open. Their companion notebooks 09–11 are now implemented and
 locally executed: Eigenvalues (14 code cells, 13.2 seconds), Inner Products/QR
@@ -149,8 +182,8 @@ provide regression and low-rank computational examples. Instructor content
 review and selection of the later optional modules remain open.
 
 The instructor has ruled out a tensor unit this semester. Deck 11 now has
-one optional two-minute tensor slide after SVD outer products, connecting
-product bases to finite frames; Kronecker maps, contractions and tensor
+one optional two-minute tensor slide linking back to Deck 10's SVD outer
+products and connecting product bases to finite frames; Kronecker maps, contractions and tensor
 practice are removed. No tensor notebook is planned. Updated summaries,
 term links and the capstone plan follow this scope. Historical construction
 notes below describe the earlier broader draft.
