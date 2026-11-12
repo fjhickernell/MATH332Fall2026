@@ -22,23 +22,6 @@ include-after-body:
       </script>
 ---
 
-{{< include ../classlib/classlib/quarto/slides/shared/general/illinois-tech-academic-transformation.qmd >}}
-
-## How I use AI to support this course
-
-- ChatGPT and Codex help me explore explanations, critique drafts, write and
-  test code, and maintain course materials
-- I choose the learning objectives, mathematical content, assessments, and
-  grading standards
-- I review and revise AI output and verify the mathematics, code, sources, and
-  published materials
-
-::: {.key-point}
-[AI assists; responsibility remains mine]{.alert}
-
-[Full statement and course AI policy](../classlib/classlib/quarto/pages/policies.html#academic-integrity-technology-and-ai-usage)
-:::
-
 # Course Map {.deck-course-map}
 
 ::: {.columns}
@@ -71,12 +54,37 @@ include-after-body:
 <span role="img" aria-label="Clapperboard">🎬</span> [Teaser Trailer]{.alert}
 :::
 
+- [Before We Begin](#before-we-begin)
 - [A Common Language for Representation and Action](#a-common-language-for-representation-and-action)
 - [Represent](#represent)
 - [Act](#act)
 - [Compute Responsibly](#compute-responsibly)
 - [The Course Ahead](#the-course-ahead)
 :::
+:::
+
+# Before We Begin
+
+- [We begin this semester amid significant change](#we-begin-this-semester-amid-significant-change)
+- [The new structure connects depth, disciplines, and practice](#the-new-structure-connects-depth-disciplines-and-practice)
+- [Further significant changes](#further-significant-changes)
+- [How I use AI to support this course](#how-i-use-ai-to-support-this-course)
+
+{{< include ../classlib/classlib/quarto/slides/shared/general/illinois-tech-academic-transformation.qmd >}}
+
+## How I use AI to support this course
+
+- ChatGPT and Codex help me explore explanations, critique drafts, write and
+  test code, and maintain course materials
+- I choose the learning objectives, mathematical content, assessments, and
+  grading standards
+- I review and revise AI output and verify the mathematics, code, sources, and
+  published materials
+
+::: {.key-point}
+[AI assists; responsibility remains mine]{.alert}
+
+[Full statement and course AI policy](../classlib/classlib/quarto/pages/policies.html#academic-integrity-technology-and-ai-usage)
 :::
 
 # A Common Language for Representation and Action
@@ -943,15 +951,17 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Lower-triangular matrix]({{< meta decks.d03.file >}}#lower-triangular), $\mat{L}$
 - [LU factorization]({{< meta decks.d03.file >}}#undoing-the-stages-produces-matl)
 - [Matrix](#represent-objects-numerically), $\mat{A}\in\reals^{m\times n}$
+- [Matrix exponential]({{< meta decks.d09.file >}}#the-matrix-exponential-solves-a-linear-differential-system), $e^{t\mat{A}}$
+- [Matrix function]({{< meta decks.d09.file >}}#functions-act-separately-on-eigenbasis-coordinates), $f(\mat{A})$
 - [Matrix–matrix multiplication]({{< meta decks.d01.file >}}#matrix-matrix-multiplication-collects-dot-products), $\mat{A}\mat{B}$
 - [Matrix representation of a linear map]({{< meta decks.d07.file >}}#transform-coordinates-to-obtain-output-coordinates)
 - [Matrix–vector multiplication]({{< meta decks.d01.file >}}#each-equation-is-one-dot-product), $\mat{A}\vct{x}$
 - [Minimum-norm least-squares solution]({{< meta decks.d10.file >}}#the-pseudoinverse-reverses-the-nonzero-stretches)
 - [Monomial]({{< meta decks.d06.file >}}#polynomials-in-several-variables-total-degree)
-- [Nonhomogeneous solution set]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions)
 :::
 
 ::: {.column width="50%"}
+- [Nonhomogeneous solution set]({{< meta decks.d05.file >}}#nonhomogeneous-systems-translate-those-directions)
 - [Nonsingular / singular matrix]({{< meta decks.d02.file >}}#invertible-or-singular)
 - [Norm]({{< meta decks.d10.file >}}#norms-distances-and-angles-follow)
 - [Normal equations]({{< meta decks.d10.file >}}#inconsistent-systems-still-have-a-best-fit)

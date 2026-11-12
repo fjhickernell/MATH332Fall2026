@@ -1,5 +1,34 @@
 # MATH 332 deck accuracy and clarity audit
 
+## November 12, 2026 — matrix functions and practical eigenvalue computation
+
+Deck 09 adds practical eigensolver guidance and three slides after matrix
+powers: general matrix functions, the matrix exponential and linear
+differential systems, and a worked two-mode example. The diagonalizable
+hypothesis and scalar-function domain are explicit; the exponential's series
+definition applies to every square matrix. The existing exercise now contrasts
+discrete multiplication with continuous exponential evolution.
+
+The spectral theorem now directly says every real symmetric matrix is
+orthogonally diagonalizable. The opening direction heading is dimension
+independent, the definition highlights the nonzero requirement, and the
+invariant-span statement uses inclusion with equality for nonzero eigenvalues.
+Deck 00's alphabetical index and the course/notebook descriptions include the
+new matrix-function topics.
+
+All 16 companion code cells pass in qmcpy in 12.9 seconds, with saved outputs.
+Symbolic checks verify a polynomial of the running matrix, its exponential,
+the differential equation and initial conditions. The root website and all
+twelve decks render without warnings or errors. Across 23 primary assembled
+pages/decks, 1,858 local references and 841 fragments resolve. Representative
+layouts pass 1600×1000 and 1280×800 browser review, and the new index and section
+links reach their intended slides. The reviewed browser reports no warnings
+or errors. Visible-source style and diff checks pass; bold “nonzero” is the
+instructor's explicit emphasis request.
+
+These are prepared teaching additions; their construction does not establish
+classroom coverage. Instructor review remains open.
+
 ## November 11, 2026 — characteristic-polynomial convention
 
 Deck 09 and its companion follow Anton's monic

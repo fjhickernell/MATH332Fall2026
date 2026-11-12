@@ -170,6 +170,9 @@ Mathematical content should be maintained only in the slides.
     orthogonal diagonalization of real symmetric matrices; include worked
     examples, a geometric figure, and seven starred exercise sets.
   - [ ] Continue instructor review of the remaining Deck 09 material.
+  - [x] Add practical eigensolver guidance, matrix functions and exponentials,
+    a worked linear differential system and discrete/continuous practice;
+    state the symmetric-matrix diagonalization guarantee explicitly.
   - [x] Use V for eigenvector matrices and Q for orthonormal eigenvectors in
     Deck 09 and its companion; add an optional two-slide generalized-eigenvector
     chain example and matching locally executed notebook cell.

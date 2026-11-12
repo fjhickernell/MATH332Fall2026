@@ -81,13 +81,13 @@ $\mat{A}\mat{V}=\mat{V}\mat{D},\qquad
 Which lines through the origin does a matrix send into themselves?
 
 - [An eigenvector stays on its own line](#an-eigenvector-stays-on-its-own-line)
-- [Two directions reveal the action](#two-directions-reveal-the-action)
+- [Chosen directions reveal the action](#two-directions-reveal-the-action)
 - [An eigenvalue describes a scalar action](#an-eigenvalue-describes-a-scalar-action)
 - [Recognize eigenvectors before computing](#recognize-eigenvectors-before-computing)
 
 ## An eigenvector stays on its own line {#an-eigenvector-stays-on-its-own-line}
 
-For a square matrix $\mat{A}$, an [eigenvector]{.alert} is a nonzero vector $\vct{v}$ satisfying
+For a square matrix $\mat{A}$, an [eigenvector]{.alert} is a [**nonzero**]{.alert} vector $\vct{v}$ satisfying
 
 $$
 \mat{A}\vct{v}=\lambda\vct{v},\qquad \vct{v}\ne\vct{0}
@@ -95,7 +95,13 @@ $$
 
 The scalar $\lambda$ is its [eigenvalue]{.alert}
 
-- Every multiple of $\vct{v}$ is mapped into $\operatorname{span}\{\vct{v}\}$
+- Every multiple of $\vct{v}$ is mapped into its span
+
+\begin{equation*}
+\mat{A}\operatorname{span}\{\vct{v}\}\subseteq\operatorname{span}\{\vct{v}\},
+\qquad \text{equality when }\lambda\ne0
+\end{equation*}
+
 - A nonzero multiple is another eigenvector for the same eigenvalue
 - The zero vector satisfies the equation for every $\lambda$, so it is excluded
 
@@ -112,7 +118,7 @@ eigenvalue, but the zero vector is never an eigenvector. The real/complex
 field distinction becomes essential in the complex-eigenvalue section.
 :::
 
-## Two directions reveal the action {#two-directions-reveal-the-action}
+## Chosen directions reveal the action {#two-directions-reveal-the-action}
 
 $$
 \mat{A}=\begin{bmatrix}2&1\\1&2\end{bmatrix},\qquad
@@ -183,6 +189,7 @@ Turn the preserved-direction question into a homogeneous system
 - [An eigenspace includes all vectors for one eigenvalue](#an-eigenspace-includes-all-vectors-for-one-eigenvalue)
 - [Compute and check an eigenspace](#compute-and-check-an-eigenspace)
 - [Trace and determinant check the eigenvalues](#trace-and-determinant-check-the-eigenvalues)
+- [Use software for practical eigenvalue problems](#use-software-for-practical-eigenvalue-problems)
 
 ## A nonzero null vector identifies an eigenvalue {#a-nonzero-null-vector-identifies-an-eigenvalue}
 
@@ -329,6 +336,38 @@ The identities do not generally determine all eigenvalues when n>2.
 For a triangular matrix, lambda I-U remains triangular, so its determinant
 is the product of its diagonal entries. A real matrix may have nonreal roots;
 that topic is developed below rather than excluded by the real entries.
+:::
+
+## Use software for practical eigenvalue problems {#use-software-for-practical-eigenvalue-problems}
+
+Hand calculations reveal the ideas; software handles practical matrix sizes
+
+- Diagonal or triangular matrices: read eigenvalues from the diagonal
+- General matrices: use an eigenvalue solver rather than expand a characteristic determinant
+- Python: `numpy.linalg.eig(A)`; for real symmetric matrices, `numpy.linalg.eigh(A)`
+
+For a computed eigenpair, check
+
+\begin{equation*}
+\mat{A}\widehat{\vct{v}}\approx\widehat{\lambda}\widehat{\vct{v}},
+\qquad \widehat{\vct{v}}\ne\vct{0}
+\end{equation*}
+
+::: {.key-point}
+Understand the eigenvalue equation and interpret the directions; let software do the larger computations
+:::
+
+::: {.notes}
+The characteristic polynomial defines the eigenvalues, but numerical eigensolvers
+normally work directly with the matrix rather than expand that polynomial and
+find its roots. Use small or structured examples for exact hand calculations.
+Once an exact eigenvalue is known, row reduction of A-lambda I finds its
+eigenspace. Row reduction of A itself does not preserve its eigenvalues.
+Numerical eigenvectors are approximate and may be rescaled or reordered;
+check the corresponding eigenvalue/vector pair together. Interpret the residual
+relative to the scales of A and v. A small residual alone does not guarantee
+small forward errors for a sensitive nonsymmetric eigenvalue problem.
+The companion demonstrates eigh, residual checks and orthonormality.
 :::
 
 # Eigenvector Bases and Diagonalization {#eigenvector-bases-and-diagonalization}
@@ -833,12 +872,15 @@ for every real vector, not just the axes.
 
 # Powers and Dynamics {#powers-and-dynamics}
 
-Repeated matrix actions become repeated scalar actions in an eigenvector basis
+Powers and matrix functions become scalar actions in an eigenvector basis
 
 - [Powers act separately on eigenbasis coordinates](#powers-act-separately-on-eigenbasis-coordinates)
+- [Functions act separately on eigenbasis coordinates](#functions-act-separately-on-eigenbasis-coordinates)
+- [The matrix exponential solves a linear differential system](#the-matrix-exponential-solves-a-linear-differential-system)
+- [Example: two exponential modes](#example-two-exponential-modes)
 - [Example: a two-group population exchange](#a-two-group-population-exchange)
 - [Separate the equilibrium from the changing part](#separate-the-equilibrium-from-the-changing-part)
-- [Practice predicting repeated actions](#practice-predicting-repeated-actions)
+- [Practice predicting discrete and continuous actions](#practice-predicting-repeated-actions)
 
 ## Powers act separately on eigenbasis coordinates {#powers-act-separately-on-eigenbasis-coordinates}
 
@@ -871,6 +913,117 @@ c_j=0 stays absent, so a large eigenvalue does not make every initial vector
 grow. The optional generalized-eigenvector topic introduces a coupled Jordan
 block; powers of defective matrices and a general Jordan algorithm are not
 developed here.
+:::
+
+## Functions act separately on eigenbasis coordinates {#functions-act-separately-on-eigenbasis-coordinates}
+
+Suppose $\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}$ and $f$ is defined at every eigenvalue
+
+\begin{equation*}
+f(\mat{A})=\mat{V}f(\mat{D})\mat{V}^{-1},
+\qquad
+f(\mat{D})=\operatorname{diag}\bigl(f(\lambda_1),\ldots,f(\lambda_n)\bigr)
+\end{equation*}
+
+Each eigenvector is scaled by the corresponding scalar value:
+
+\begin{equation*}
+f(\mat{A})\vct{v}_j=f(\lambda_j)\vct{v}_j
+\end{equation*}
+
+| Scalar function | Matrix function |
+|---|---|
+| $f(z)=z^k$, integer $k\ge0$ | $\mat{A}^k$ |
+| $f(z)=1/z$, no zero eigenvalue | $\mat{A}^{-1}$ |
+| $f(z)=e^{tz}$ | $e^{t\mat{A}}$ |
+
+::: {.key-point}
+Apply $f$ to the eigenvalues, then change back — not to the individual matrix entries
+:::
+
+::: {.notes}
+This definition assumes a complete eigenvector basis over the chosen scalar
+field, and f must be defined at all eigenvalues. It is independent of the
+eigenvector ordering, scaling and choice of basis within a repeated eigenspace.
+For a polynomial p, cancellation in powers gives the usual p(A). A convergent
+power series similarly agrees with this formula. Do not claim this prescription
+defines arbitrary matrix functions for defective matrices; the exponential on
+the next slide is defined for all square matrices by its convergent series.
+For k=0, use the constant function f(z)=1, including at zero.
+The companion checks p(A)=A^2-2A for the running example.
+:::
+
+## The matrix exponential solves a linear differential system {#the-matrix-exponential-solves-a-linear-differential-system}
+
+For any square matrix, define the [matrix exponential]{.alert}
+
+\begin{equation*}
+e^{t\mat{A}}=\sum_{k=0}^{\infty}\frac{t^k\mat{A}^k}{k!}
+=\mat{I}+t\mat{A}+\frac{t^2}{2}\mat{A}^2+\cdots
+\end{equation*}
+
+With an eigenvector basis,
+
+\begin{equation*}
+e^{t\mat{A}}=\mat{V}\operatorname{diag}(e^{t\lambda_1},\ldots,e^{t\lambda_n})\mat{V}^{-1}
+\end{equation*}
+
+For the [linear differential system]({{< meta decks.d06.file >}}#homogeneous-linear-des-give-vector-spaces) $\vct{x}'=\mat{A}\vct{x}$, $\vct{x}(0)=\vct{x}_0$:
+
+\begin{equation*}
+\vct{x}(t)=e^{t\mat{A}}\vct{x}_0
+=\sum_{j=1}^n c_j e^{t\lambda_j}\vct{v}_j,
+\qquad \vct{x}_0=\sum_{j=1}^n c_j\vct{v}_j
+\end{equation*}
+
+::: {.key-point}
+Discrete steps use $\lambda_j^k$; continuous time uses $e^{t\lambda_j}$
+:::
+
+::: {.notes}
+A is constant and t is real. The series converges for every finite square A
+and every finite t. Termwise differentiation gives E'(t)=A E(t) and E(0)=I,
+so E(t)x0 solves the initial-value problem, even if A is not diagonalizable.
+Only the eigenbasis formulas require diagonalizability. The coefficients c_j
+are the initial coordinates V^{-1}x0, and each scalar coordinate evolves by
+z_j'(t)=lambda_j z_j(t), z_j(0)=c_j. Real parts of eigenvalues determine
+exponential growth/decay for complex modes; no general stability theory is
+required here. The identity at t=0 is I, not a matrix of entrywise exponentials.
+:::
+
+## Example: two exponential modes {#example-two-exponential-modes}
+
+Return to $\mat{A}=\begin{bmatrix}2&1\\1&2\end{bmatrix}$ and $\vct{x}(0)=\begin{bmatrix}1\\0\end{bmatrix}$
+
+The eigenvectors $\vct{v}_1=[1,1]^\top$, $\vct{v}_2=[1,-1]^\top$ have eigenvalues $3,1$
+
+\begin{equation*}
+e^{t\mat{A}}=\frac12
+\begin{bmatrix}
+e^{3t}+e^t&e^{3t}-e^t\\
+e^{3t}-e^t&e^{3t}+e^t
+\end{bmatrix}
+\end{equation*}
+
+Since $\vct{x}(0)=(\vct{v}_1+\vct{v}_2)/2$,
+
+\begin{equation*}
+\vct{x}(t)=\frac12 e^{3t}\begin{bmatrix}1\\1\end{bmatrix}
++\frac12 e^t\begin{bmatrix}1\\-1\end{bmatrix}
+=\frac12\begin{bmatrix}e^{3t}+e^t\\e^{3t}-e^t\end{bmatrix}
+\end{equation*}
+
+::: {.key-point}
+Split the initial vector into eigenvectors; evolve each scalar coordinate
+:::
+
+::: {.notes}
+Use V=[[1,1],[1,-1]], D=diag(3,1), V^{-1}=V/2.
+At t=0 the exponential matrix is I and x(0)=[1,0]^T. Differentiating gives
+x'(t)=[(3e^(3t)+e^t)/2,(3e^(3t)-e^t)/2]^T=A x(t).
+The companion verifies the full matrix identity, derivative, and initial data.
+Both modes grow for increasing t; the rate-3 mode dominates this initial
+condition. Do not infer every solution contains that mode.
 :::
 
 ## Example: a two-group population exchange {#a-two-group-population-exchange}
@@ -937,14 +1090,15 @@ $$
 The eigenvalue 1 gives the equilibrium proportions; $1/2$ gives the decay factor per step
 :::
 
-## Practice predicting repeated actions {#practice-predicting-repeated-actions}
+## Practice predicting discrete and continuous actions {#practice-predicting-repeated-actions}
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
-<span>Use the eigenvectors before multiplying matrices repeatedly
+<span>Use the eigenvectors to separate the scalar actions
 <span class="exsub">For the population matrix, start with $[0,100]^\top$; find $\vct{x}_k$ and its limit</span>
 <span class="exsub">For $\mat{A}=\begin{bmatrix}2&1\\1&2\end{bmatrix}$ and $\vct{x}_0=[1,0]^\top$, find $\mat{A}^k\vct{x}_0$</span>
 <span class="exsub">For that same $\mat{A}$, why does $\vct{x}_0=[1,-1]^\top$ stay fixed even though 3 is an eigenvalue?</span>
+<span class="exsub">For that same $\mat{A}$, solve $\vct{x}'=\mat{A}\vct{x}$ from $\vct{x}(0)=[1,-1]^\top$; compare with the discrete steps</span>
 </span>
 :::
 
@@ -954,6 +1108,9 @@ Population: x0=20[3,2]^T-60[1,-1]^T, so xk=[60-60(1/2)^k,
 matrix, e1=(v1+v2)/2, so A^k e1=[(3^k+1)/2,(3^k-1)/2]^T.
 For x0=v2 the v1 coefficient is zero, so no growing component is present.
 At k=0 the formula returns e1, and k=1 gives [2,1]^T.
+For the differential system with x(0)=v2, x(t)=e^t v2 since lambda2=1;
+the discrete system instead has A^k v2=1^k v2=v2. The same eigenvalue is
+a per-step multiplier in one model and an exponential rate in the other.
 :::
 
 # Symmetric Matrices {#symmetric-matrices}
@@ -1006,7 +1163,9 @@ choose an orthonormal basis without changing the eigenvalue.
 
 ## The spectral theorem supplies an orthonormal eigenbasis {#the-spectral-theorem-supplies-an-orthonormal-eigenbasis}
 
-[Spectral theorem]{.alert}: every real symmetric $n\times n$ matrix has a real orthonormal eigenbasis
+[Spectral theorem]{.alert}: every real symmetric matrix is [orthogonally diagonalizable]{.alert}
+
+It has a real orthonormal eigenbasis
 
 Put its unit eigenvectors in $\mat{Q}$, in the same order as $\mat{D}$:
 
@@ -1015,8 +1174,6 @@ $$
 \mat{Q}^{-1}=\mat{Q}^\top,\qquad
 \boxed{\mat{A}=\mat{Q}\mat{D}\mat{Q}^\top}
 $$
-
-This is [orthogonal diagonalization]{.alert}
 
 - All eigenvalues are real; repeated eigenvalues are allowed
 - Coordinates are dot products: $[\vct{x}]_{\mathcal{Q}}=\mat{Q}^\top\vct{x}$
@@ -1103,7 +1260,8 @@ cannot change the nonzero angle between those lines to a right angle.
 - An eigenvector basis makes the matrix diagonal
 - Distinct eigenvalues guarantee independence; repeated roots require an eigenspace count
 - The scalar field matters: real matrices can have nonreal eigenvalues
-- Powers scale each eigenbasis component by $\lambda_j^k$
+- Matrix functions apply $f(\lambda_j)$ to each eigenbasis component
+- Powers use $\lambda_j^k$; the differential system $\vct{x}'=\mat{A}\vct{x}$ uses $e^{t\lambda_j}$
 - Real symmetric matrices have real orthonormal eigenbases
 
 # How Far We Have Come
@@ -1129,7 +1287,7 @@ $\mat{A}\vct{x}=\sum_j\lambda_jc_j\vct{v}_j$
 
 &nbsp;
 
-The coordinate method now explains both a single action and its repeated effects
+The coordinate method explains single actions, repeated steps, and continuous evolution
 :::
 
 # What Comes Next
@@ -1145,4 +1303,4 @@ Inner products lead to orthogonal projection, Gram–Schmidt, QR, and least squa
 :::
 
 The [Eigenvalues companion notebook](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/09-eigenvalues-and-eigenvectors.ipynb)
-explores eigenspaces, coordinates, and repeated matrix actions · [Open in Colab](https://colab.research.google.com/github/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/09-eigenvalues-and-eigenvectors.ipynb)
+explores eigenspaces, matrix functions, and discrete and continuous evolution · [Open in Colab](https://colab.research.google.com/github/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/09-eigenvalues-and-eigenvectors.ipynb)

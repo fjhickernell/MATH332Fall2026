@@ -40,7 +40,8 @@ algebraic calculations with geometric interpretation.
 
 - [Eigenvalues and Eigenvectors](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/09-eigenvalues-and-eigenvectors.ipynb)
   — a locally validated draft companion exploring eigenspaces, diagonalization,
-  repeated actions, complex eigenvalues, and orthogonal eigenvector coordinates
+  matrix functions and exponentials, discrete and continuous evolution,
+  complex eigenvalues, and orthogonal eigenvector coordinates
 - [Inner Product Spaces](https://github.com/fjhickernell/MATH332Fall2026/blob/main/notebooks/demonstrations/10-inner-product-spaces.ipynb)
   — a locally validated draft companion exploring weighted geometry, projection,
   Gram–Schmidt and QR, regression, conditioning, and function/Fourier approximation

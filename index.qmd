@@ -175,8 +175,9 @@ and abstract linear-map examples that preview §§8.1 and 8.4.
 <summary><strong>Eigenvalues and Eigenvectors</strong></summary>
 
 [Lecture slides](slides/09-eigenvalues-and-eigenvectors.html). Anton, Chapter 5:
-eigenvalues and eigenspaces, diagonalization, complex eigenvalues, powers and
-discrete dynamics, and orthogonal diagonalization of real symmetric matrices.
+eigenvalues and eigenspaces, diagonalization, complex eigenvalues, matrix
+functions and exponentials, discrete and continuous dynamics, and orthogonal
+diagonalization of real symmetric matrices.
 Detailed pacing is **TBD**.
 
 </details>

@@ -1,5 +1,14 @@
 # Next task
 
+## Sample exam questions — announced November 12
+
+The [Canvas announcement](https://iit.instructure.com/courses/23913/discussion_topics/110261)
+is published to All Sections, November 12 at 7:54 AM CST. Prepare and provide
+sample exam questions covering the whole course by Monday, November 30
+(planned target). Preparation and release remain open. The
+[HTML reference](drafts/2026-11-30-sample-exam-announcement.html)
+preserves the published text.
+
 ## Immediate next work — November 12
 
 Briefly recap the determinant/null-space eigenvalue recipe and the
@@ -62,6 +71,17 @@ explain the factor `(-1)^n`. Eigenspaces can still be computed from
 `A-lambda I`. This clarification is included in this Checkpoint.
 The restored monic companion passes all 14 cells; the deck renders and its
 new visible convention note passes 1280×720 layout review.
+
+## Eigenvalue additions — November 12 review
+
+Deck 09 now includes practical eigensolver guidance, general matrix functions,
+the matrix exponential and a worked linear differential system after matrix
+powers. Its spectral theorem explicitly guarantees orthogonal diagonalization
+for every real symmetric matrix. Review these additions before teaching them;
+the November 12 pickup above remains the current lecture plan. The companion's
+16 code cells pass in qmcpy with saved outputs, including symbolic checks of
+the exponential, derivative and initial conditions. Deck 00's terminology index
+and the course/notebook descriptions link to the new material.
 
 ## Remaining course sequence — November 11 decision
 
@@ -203,15 +223,6 @@ An optional two-slide generalized-eigenvector topic follows the repeated-root
 practice, with a matching notebook example. It introduces a length-two chain
 and its coupled Jordan block; coverage is optional, and no general Jordan
 algorithm or defective-matrix power formula is planned.
-
-## November 5 makeup
-
-The November 5 makeup sitting has been administered, confirmed by the
-instructor November 8. Grading and Canvas entry remain open. The original
-target was November 9; possible grading November 11 and return date remain
-to confirm. The six-day grading deadline remains November 11.
-Keep the assessment private until grading is complete; no separate
-small-cohort score distribution.
 
 ## November 3 teaching follow-up
 
@@ -407,8 +418,8 @@ PDFs match the inspected seven-page release byte for byte.
 was published November 2 at 4:28 PM CST to All Sections. Saved text and the
 live Quizzes and Tests link are verified. No further regular-sitting grade,
 PDF, or announcement release action remains. The regular-sitting papers were
-returned November 4. Makeup grading remains; see the
-November 5 makeup handoff above.
+returned November 4. The instructor confirmed makeup grading and Canvas
+entry complete November 12.
 
 Validation: authoritative private-source build, complete seven-page PDF
 inspection, anonymous-score arithmetic, root website and twelve-deck renders,
