@@ -86,18 +86,13 @@ the November 12 pickup above remains the current lecture plan. The companion's
 the exponential, derivative and initial conditions. Deck 00's terminology index
 and the course/notebook descriptions link to the new material.
 
-## Slide navigation — published library fix
+## Slide navigation — deployed November 12
 
-[Issue 3](https://github.com/fjhickernell/MATH332Fall2026/issues/3) remains open
-pending deployment/verification or the student's reply. A queued-hash loop is
-reproduced in the actual browser: the original helper reaches a 43-event safety
-cutoff, while the fix settles on the latest requested child after two events.
-Five Node regressions pass; direct links, horizontal arrows and browser
-back/forward are verified in the rendered Bases deck.
-
-The canonical library fix is published as `87811e3` and intentionally pinned
-by this course. Verify the course deployment before closing issue 3.
-Other consumers retain their pins.
+The queued-hash navigation fix uses classlib `87811e3`, published in course
+`5fd74d0`. Publishing, Pages deployment and live verification passed;
+[issue 3](https://github.com/fjhickernell/MATH332Fall2026/issues/3) is closed.
+See `notes/DECK-AUDIT.md` for the regression and browser checks.
+Other consumers retain their intentional pins.
 
 ## Remaining course sequence — November 11 decision
 

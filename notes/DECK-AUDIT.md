@@ -13,14 +13,19 @@ In an actual browser fixture, the original code reaches the 43-event safety
 cutoff; the refined fix settles on the intended child after two events and
 remains there while idle. Links, horizontal arrows and browser back/forward
 are verified. All twelve decks render with the shared fix. Canonical library
-commit `87811e3` is published and intentionally adopted by this course;
-deployment verification and issue 3 closeout follow course publication.
+commit `87811e3` is published and intentionally adopted by course `5fd74d0`.
+Its [publishing run](https://github.com/fjhickernell/MATH332Fall2026/actions/runs/43248359747)
+and [Pages deployment](https://github.com/fjhickernell/MATH332Fall2026/actions/runs/43248605853)
+succeeded. Live verification confirms the current-hash helper and child-target
+guard are present, the deep link reaches its child, and horizontal navigation
+starts at the next section overview. Issue 3 is closed after this verification.
 
 The matrix-exponential slide now shows the full equality from a convergent
 Taylor series to the eigenbasis formula for f(A). Diagonalizability and
 convergence of the scalar series at every eigenvalue are explicit. Sine and
 cosine are examples; notes explain centered series and their convergence
-domain. The revised slide renders and fits at 1600×1000 and 1280×800.
+domain. The revised slide renders and fits at 1600×1000 and 1280×800; the final
+Taylor-series identity and convergence condition are also verified live.
 
 ## November 12, 2026 — matrix functions and practical eigenvalue computation
 
