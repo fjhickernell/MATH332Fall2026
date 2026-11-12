@@ -1630,10 +1630,12 @@ f(\mat{A})\vct{v}_j=f(\lambda_j)\vct{v}_j
 e^{t\mat{A}}=\sum_{k=0}^{\infty}\frac{t^k\mat{A}^k}{k!}
 =\mat{I}+t\mat{A}+\frac{t^2}{2}\mat{A}^2+\cdots
 \end{equation*}\]</span></p>
-<p>With an eigenvector basis,</p>
+<p>For a <span class="alert">Taylor series</span> <span class="math inline">\(f(z)=\sum_{k=0}^{\infty}a_kz^k\)</span> converging at every eigenvalue, with <span class="math inline">\(\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}\)</span>:</p>
 <p><span class="math display">\[\begin{equation*}
-e^{t\mat{A}}=\mat{V}\operatorname{diag}(e^{t\lambda_1},\ldots,e^{t\lambda_n})\mat{V}^{-1}
+f(\mat{A})=\sum_{k=0}^{\infty}a_k\mat{A}^k
+=\mat{V}\operatorname{diag}\bigl(f(\lambda_1),\ldots,f(\lambda_n)\bigr)\mat{V}^{-1}
 \end{equation*}\]</span></p>
+<p>Other examples: <span class="math inline">\(\sin(\mat{A})\)</span> and <span class="math inline">\(\cos(\mat{A})\)</span></p>
 <p>For the <a href="06-general-vector-spaces.html#homogeneous-linear-des-give-vector-spaces">linear differential system</a> <span class="math inline">\(\vct{x}'=\mat{A}\vct{x}\)</span>, <span class="math inline">\(\vct{x}(0)=\vct{x}_0\)</span>:</p>
 <p><span class="math display">\[\begin{equation*}
 \vct{x}(t)=e^{t\mat{A}}\vct{x}_0
@@ -1644,7 +1646,7 @@ e^{t\mat{A}}=\mat{V}\operatorname{diag}(e^{t\lambda_1},\ldots,e^{t\lambda_n})\ma
 <p>Discrete steps use <span class="math inline">\(\lambda_j^k\)</span>; continuous time uses <span class="math inline">\(e^{t\lambda_j}\)</span></p>
 </div>
 <aside class="notes">
-<p>A is constant and t is real. The series converges for every finite square A and every finite t. Termwise differentiation gives E’(t)=A E(t) and E(0)=I, so E(t)x0 solves the initial-value problem, even if A is not diagonalizable. Only the eigenbasis formulas require diagonalizability. The coefficients c_j are the initial coordinates V^{-1}x0, and each scalar coordinate evolves by z_j’(t)=lambda_j z_j(t), z_j(0)=c_j. Real parts of eigenvalues determine exponential growth/decay for complex modes; no general stability theory is required here. The identity at t=0 is I, not a matrix of entrywise exponentials.</p>
+<p>A is constant and t is real. The series converges for every finite square A and every finite t. Termwise differentiation gives E’(t)=A E(t) and E(0)=I, so E(t)x0 solves the initial-value problem, even if A is not diagonalizable. Only the eigenbasis formulas require diagonalizability. The coefficients c_j are the initial coordinates V^{-1}x0, and each scalar coordinate evolves by z_j’(t)=lambda_j z_j(t), z_j(0)=c_j. Real parts of eigenvalues determine exponential growth/decay for complex modes; no general stability theory is required here. The identity at t=0 is I, not a matrix of entrywise exponentials. For a Taylor series centered at a, replace scalar powers (z-a)^k by (A-aI)^k and use the same coefficients. Respect its convergence domain; for a diagonalizable matrix it suffices that the scalar series converge at every eigenvalue. The exponential, sine and cosine series converge for every square matrix. For example, sin(A)=A-A<sup>3/3!+A</sup>5/5!-… and cos(A)=I-A<sup>2/2!+A</sup>4/4!-… . This is a matrix series, not entrywise evaluation.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2232,11 +2234,13 @@ p_{\mat{A}}(\lambda)=\lambda^2-1.5\lambda+0.5
           lockUntil = nowMs() + ms;
         }
 
-        function preserveHashTarget(requestedHash) {
+        function preserveHashTarget(requestedHash, matchingIndices) {
           // Named headings can be inside a continuation slide rather than on
           // its section element. Resolve the containing slide before navigation.
           const isHashChange = requestedHash && typeof requestedHash.newURL === "string";
-          const requested = isHashChange ? new URL(requestedHash.newURL).hash : requestedHash;
+          // Queued hash events may describe an obsolete URL. Replaying newURL
+          // makes Reveal write it again and can sustain a slide-navigation loop.
+          const requested = isHashChange ? window.location.hash : requestedHash;
           const hash = (typeof requested === "string" ? requested : window.location.hash).replace(/^#\/?/, "");
           if (!hash) return;
           let destination;
@@ -2251,9 +2255,12 @@ p_{\mat{A}}(\lambda)=\lambda^2-1.5\lambda+0.5
             if (!slide) return;
             destination = Reveal.getIndices(slide);
           }
+          if (matchingIndices && (destination.h !== matchingIndices.h ||
+              (destination.v || 0) !== (matchingIndices.v || 0))) return false;
           linkedTarget = { h: destination.h, v: destination.v || 0, until: nowMs() + 1000 };
           lockH = null;
           if (isHashChange) Reveal.slide(destination.h, destination.v || 0, destination.f);
+          return true;
         }
 
         function snapTopIfNeeded(tag) {
@@ -2281,7 +2288,10 @@ p_{\mat{A}}(\lambda)=\lambda^2-1.5\lambda+0.5
             prevH = idx.h;
           } else if (idx.h !== prevH) {
             prevH = idx.h;
-            startLock(idx.h, 350);
+            // Reveal may read a changed URL before our hash listener runs. Its
+            // slidechanged event already has the requested child; preserve it.
+            // Arrow moves still have the old URL here and must reset to the top.
+            if (!preserveHashTarget(window.location.hash, idx)) startLock(idx.h, 350);
           }
 
           // While locked, force v=0 (and reset fragments) if needed.
@@ -2306,8 +2316,9 @@ p_{\mat{A}}(\lambda)=\lambda^2-1.5\lambda+0.5
           Reveal.on("ready", function () { snapTopIfNeeded("ready"); });
         }
 
-        // Capture runs before Reveal reads the new hash, including browser
-        // back/forward and same-document links to another section's child slide.
+        // Preserve explicit URLs for browser back/forward and direct hash changes.
+        // The slidechanged handler also recognizes a requested child when Reveal's
+        // earlier listener reaches that destination before this listener runs.
         window.addEventListener("hashchange", preserveHashTarget, true);
         window.addEventListener("hashchange", function () { snapTopIfNeeded("hashchange"); });
         document.addEventListener("click", function (event) {

@@ -2620,11 +2620,13 @@ x+2y+z&amp;=4
           lockUntil = nowMs() + ms;
         }
 
-        function preserveHashTarget(requestedHash) {
+        function preserveHashTarget(requestedHash, matchingIndices) {
           // Named headings can be inside a continuation slide rather than on
           // its section element. Resolve the containing slide before navigation.
           const isHashChange = requestedHash && typeof requestedHash.newURL === "string";
-          const requested = isHashChange ? new URL(requestedHash.newURL).hash : requestedHash;
+          // Queued hash events may describe an obsolete URL. Replaying newURL
+          // makes Reveal write it again and can sustain a slide-navigation loop.
+          const requested = isHashChange ? window.location.hash : requestedHash;
           const hash = (typeof requested === "string" ? requested : window.location.hash).replace(/^#\/?/, "");
           if (!hash) return;
           let destination;
@@ -2639,9 +2641,12 @@ x+2y+z&amp;=4
             if (!slide) return;
             destination = Reveal.getIndices(slide);
           }
+          if (matchingIndices && (destination.h !== matchingIndices.h ||
+              (destination.v || 0) !== (matchingIndices.v || 0))) return false;
           linkedTarget = { h: destination.h, v: destination.v || 0, until: nowMs() + 1000 };
           lockH = null;
           if (isHashChange) Reveal.slide(destination.h, destination.v || 0, destination.f);
+          return true;
         }
 
         function snapTopIfNeeded(tag) {
@@ -2669,7 +2674,10 @@ x+2y+z&amp;=4
             prevH = idx.h;
           } else if (idx.h !== prevH) {
             prevH = idx.h;
-            startLock(idx.h, 350);
+            // Reveal may read a changed URL before our hash listener runs. Its
+            // slidechanged event already has the requested child; preserve it.
+            // Arrow moves still have the old URL here and must reset to the top.
+            if (!preserveHashTarget(window.location.hash, idx)) startLock(idx.h, 350);
           }
 
           // While locked, force v=0 (and reset fragments) if needed.
@@ -2694,8 +2702,9 @@ x+2y+z&amp;=4
           Reveal.on("ready", function () { snapTopIfNeeded("ready"); });
         }
 
-        // Capture runs before Reveal reads the new hash, including browser
-        // back/forward and same-document links to another section's child slide.
+        // Preserve explicit URLs for browser back/forward and direct hash changes.
+        // The slidechanged handler also recognizes a requested child when Reveal's
+        // earlier listener reaches that destination before this listener runs.
         window.addEventListener("hashchange", preserveHashTarget, true);
         window.addEventListener("hashchange", function () { snapTopIfNeeded("hashchange"); });
         document.addEventListener("click", function (event) {
