@@ -2,7 +2,9 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest reconciled instructional meeting: November 10, 2026
+- Latest fully reconciled instructional meeting: November 10, 2026
+- November 12 coverage and schedule: recording-audited; November 17 calendar
+  notes saved locally, with server/Fantastical synchronization pending
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -21,6 +23,7 @@
 | November 3, 2026 | Reconciled from visible recording frames and instructor report; captions unavailable: change of basis and inverses, whiteboard Taylor/monomial example, abstract-vector clarification, regression and line fit; first PCA slide only a closing preview | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=67dcfe55-6757-4c1d-80ed-b4f7013ba966) | November 5, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; briefly review the new Taylor-basis round trip and regression data-to-matrix examples, then resume “PCA chooses coordinates adapted to the data” and remaining Applications; saved note reopened and verified in Fantastical | November 3, 2026 |
 | November 5, 2026 | Reconciled from captions and visible closing exercise: regression and PCA; four matrix subspaces, rank/nullity, echelon-based column/row/null bases and completed three-space practice; orthogonal pairs introduced informally; frames and infinite bases passed over | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=609c8ac7-5d8d-4afd-a5ae-b4f901399af0) | November 10, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; recap three-space basis extraction and “Rank-nullity counts inputs,” then “Orthogonal Pairs” → “The four spaces form two perpendicular pairs” and orthogonal complements; saved with Only This Event and reopened to verify the persisted note | November 5, 2026 |
 | November 10, 2026 | Reconciled: four-space bases and dimensions, orthogonal-pair examples, regression residual geometry, and existence/uniqueness; selected Deck 08 coverage concluded with omitted slides optional. Deck 09 introduced eigenvalues/eigenvectors and completed the determinant/null-space worked example; repeated eigenvalues only previewed | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5e553d20-166c-403a-af1f-b4fe01387557) | November 12, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; briefly recap the eigenvalue recipe/worked example, then “An eigenspace includes all vectors for one eigenvalue,” followed by diagonalization as time permits; Quiz 4 remains in the last 15 minutes with unchanged coverage. Saved with Only This Event, reopened in Apple Calendar and independently verified in Fantastical | November 10, 2026 |
+| November 12, 2026 | Coverage reconciled: eigenvalue recipe, triangular eigenspace calculations, eigenspaces, trace/determinant and software; introduced AV=VD and diagonalization; final worked example begun before Quiz 4. Calendar synchronization pending | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e7c27e84-3dfc-4d8f-95c7-b5000137a6b3) | November 17, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; Finish “Example: diagonalize and read the coordinates,” including product verification and the coordinate route, then “Distinct eigenvalues supply independent eigenvectors”. Saved with Only This Event and reopened in Apple Calendar; unchanged notes in Fantastical, so server synchronization remains unverified | November 12, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -396,3 +399,44 @@ widths confirms that all six schedule tables fit without horizontal overflow
 and the expanded Deck 08 outline and optional-reading note wrap cleanly.
 These lecture-update changes are included in this Checkpoint; remote
 CI/deployment and live-page verification remain pending.
+
+## November 12 recording evidence and calendar synchronization gap
+
+The November 12 recording starts at 11:22 AM and lasts 1:04:40. Its complete
+auto-generated transcript and visible closing slide were inspected. The
+transcript recaps the eigenvalue equation and characteristic/null-space
+recipe, works selected eigenspaces of a triangular 4×4 board example,
+explains eigenspaces using the zero matrix, and discusses trace/determinant
+checks and practical software. It then introduces AV=VD and diagonalization,
+including matching diagonal entries to eigenvector columns.
+
+At 58:45 the visible slide is “Example: diagonalize and read the coordinates”;
+the instructor says this problem will precede the quiz. It remains visible at
+1:02:34. The multiplication check is begun, but the transcript does not
+establish completion before the quiz; the coordinate route is not discussed.
+Finish that example on November 17 before the distinct-eigenvalue theorem.
+The new racket example was added after this class, not established as taught.
+No spoken condition-number correction was found; keep that brief reminder.
+
+The November 17 occurrence was verified in Illinois Tech Fred → Calendar,
+PH 109, 11:15 AM–12:45 PM America/Chicago (CST). The continuation note was
+saved with Only This Event, closed and reopened in Apple Calendar. Existing
+planning text was preserved; no dates, times, calendar destinations or
+recurrence rules were changed. Fantastical still displayed the old planning
+note. Both apps showed pre-existing account connection/sync errors. The local save is verified; server delivery and the independent
+Fantastical read-back are not. Reuse this recording audit and retry only the
+calendar synchronization/read-back when access recovers. No duplicate event
+or second write through Fantastical was created.
+
+The read-only Outlook recording-notice query returned an internal error;
+Outlook web did not load, and Mail had a pre-existing send-error dialog that
+was left untouched. Recordings were discovered directly in authenticated
+Panopto after beginning at the Illinois Tech portal.
+
+Validation: the Schedule renders without warnings. Browser inspection at
+1280- and 390-pixel widths confirms that all six tables fit without horizontal
+overflow and that the revised November 12/17 rows remain readable. Affected
+slide anchors resolve and git diff --check passes. Temporary recording and
+preview tabs were closed; Safari returned to the original QMCPy page,
+Calendar to today’s week, and Fantastical to today’s normal week with its
+search-results panel gone. No repository changes were committed or published.

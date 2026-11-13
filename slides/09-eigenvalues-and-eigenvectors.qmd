@@ -87,7 +87,7 @@ Which lines through the origin does a matrix send into themselves?
 
 ## An eigenvector stays on its own line {#an-eigenvector-stays-on-its-own-line}
 
-For a square matrix $\mat{A}$, an [eigenvector]{.alert} is a [**nonzero**]{.alert} vector $\vct{v}$ satisfying
+For a square matrix $\mat{A}$, an [eigenvector]{.alert} is a [nonzero]{.alert} vector $\vct{v}$ satisfying
 
 $$
 \mat{A}\vct{v}=\lambda\vct{v},\qquad \vct{v}\ne\vct{0}
@@ -187,6 +187,7 @@ Turn the preserved-direction question into a homogeneous system
 - [A nonzero null vector identifies an eigenvalue](#a-nonzero-null-vector-identifies-an-eigenvalue)
 - [Example: find eigenvalues, then eigenvectors](#find-eigenvalues-then-eigenvectors)
 - [An eigenspace includes all vectors for one eigenvalue](#an-eigenspace-includes-all-vectors-for-one-eigenvalue)
+- [Example: a spinning tennis racket](#a-spinning-tennis-racket)
 - [Compute and check an eigenspace](#compute-and-check-an-eigenspace)
 - [Trace and determinant check the eigenvalues](#trace-and-determinant-check-the-eigenvalues)
 - [Use software for practical eigenvalue problems](#use-software-for-practical-eigenvalue-problems)
@@ -281,6 +282,44 @@ $$
 
 ::: {.key-point}
 Eigenvectors exclude zero; the eigenspace includes zero
+:::
+
+## Example: a spinning tennis racket {#a-spinning-tennis-racket}
+
+The [inertia tensor]{.alert} $\mat{J}=\mat{J}^\top\in\reals^{3\times3}$ describes rotation about the center of mass
+
+\begin{equation*}
+\mat{J}\vct{v}_j=I_j\vct{v}_j,\qquad 0<I_1<I_2<I_3
+\end{equation*}
+
+- Principal-axis directions $\vct{v}_j$: [eigenvectors]{.alert}; principal moments $I_j$: [eigenvalues]{.alert}
+- Each eigenspace is a line: $E_{I_j}=\operatorname{span}\{\vct{v}_j\}$
+
+| Axis through the center of mass | Moment | Rotation without external torque |
+|---|---|---|
+| Along the handle | Smallest | Stable |
+| Across the racket, in its plane | Intermediate | Unstable |
+| Perpendicular to the racket face | Largest | Stable |
+
+::: {.key-point}
+Rotation about the intermediate axis is possible, but small disturbances grow and make the racket tumble
+:::
+
+::: {.notes}
+Demonstration: mark one face of the racket, compare tosses about the three
+principal axes, and watch the extra face flip for the intermediate-axis toss.
+Treat the racket as a rigid, approximately symmetric flat body. All axes pass
+through its center of mass, and external torque about that point is neglected.
+The tensor maps angular velocity to angular momentum; principal-axis rotation
+makes those vectors parallel. The tensor is not the matrix of a spatial
+rotation. Its three distinct principal moments make these eigenspaces
+one-dimensional. Exact steady rotation about the intermediate axis is a valid
+motion; instability means small off-axis disturbances grow, not that the
+motion is impossible. The stability assertion is a result of rigid-body
+dynamics, not a consequence of the eigenvalue definition alone.
+
+Sources: [UT Austin: principal axes of rotation](https://farside.ph.utexas.edu/teaching/336k/lectures/node67.html)
+and [Harvard: tennis racquet flip](https://sciencedemonstrations.fas.harvard.edu/presentations/tennis-racquet-flip).
 :::
 
 ## Compute and check an eigenspace {#compute-and-check-an-eigenspace}

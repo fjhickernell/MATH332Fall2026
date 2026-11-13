@@ -1,28 +1,34 @@
 # Next task
 
-## Sample exam questions — announced November 12
+## Review Questions — announced November 12
 
 The [Canvas announcement](https://iit.instructure.com/courses/23913/discussion_topics/110261)
 is published to All Sections, November 12 at 7:54 AM CST. Prepare and provide
 sample exam questions covering the whole course by Monday, November 30
-(planned target). Preparation and release remain open. The
+(planned target). The private review-material draft is complete and validated;
+instructor review and student release remain open. The
 [HTML reference](drafts/2026-11-30-sample-exam-announcement.html)
 preserves the published text.
 
-## Immediate next work — November 12
+## Immediate next work — November 17
 
-Briefly recap the determinant/null-space eigenvalue recipe and the
-[worked example](../slides/09-eigenvalues-and-eigenvectors.qmd#find-eigenvalues-then-eigenvectors),
-then resume Deck 09 at
-[An eigenspace includes all vectors for one eigenvalue](../slides/09-eigenvalues-and-eigenvectors.qmd#an-eigenspace-includes-all-vectors-for-one-eigenvalue).
-Continue the eigenspace sequence before Quiz 4 in the last 15 minutes;
-its announced full-Deck-07 coverage is unchanged.
+Finish Deck 09's
+[Example: diagonalize and read the coordinates](../slides/09-eigenvalues-and-eigenvectors.qmd#diagonalize-and-read-the-coordinates),
+including the matrix-product check and the coordinate route for
+$\vct{x}=[4,2]^\top$. Briefly show the newly added
+[spinning-tennis-racket example](../slides/09-eigenvalues-and-eigenvectors.qmd#a-spinning-tennis-racket),
+then continue at
+[Distinct eigenvalues supply independent eigenvectors](../slides/09-eigenvalues-and-eigenvectors.qmd#distinct-eigenvalues-supply-independent-eigenvectors).
 
-The November 10 recording completed the worked example with eigenvalues
-3 and 1 and eigenvectors $(1,1)^\top$ and $(1,-1)^\top$. The eigenvector-basis
-factorization was introduced as a goal; repeated eigenvalues and their
-possible shortage of independent eigenvectors were only previewed. These
-topics are not completed units.
+The November 12 recording recapped the eigenvalue recipe, worked eigenspaces
+for eigenvalues 0, 2 and 3 of a triangular 4×4 board example (−1 was skipped),
+and used the zero 2×2 matrix to illustrate its full eigenspace. Trace and
+determinant checks, software guidance, $\mat{A}\mat{V}=\mat{V}\mat{D}$,
+$\mat{V}^{-1}\mat{A}\mat{V}=\mat{D}$ and matching eigenvalue/column order were
+covered. The worked 2×2 diagonalization began, but completion of its product
+and coordinate route is not established before the quiz. Repeated-eigenvalue
+criteria, complex eigenvalues, dynamics and symmetric-matrix results remain
+ahead. Quiz 4's announced full-Deck-07 coverage is unchanged.
 
 Selected Deck 08 classroom coverage concluded November 10: four-space bases
 and dimensions, orthogonal-pair examples, regression fitted responses and
@@ -34,19 +40,19 @@ The welcome-page outline records about two 50-minute classroom hours:
 about 36.6 minutes on November 5 plus about 50 minutes on November 10,
 before the eigenvalue introduction at approximately 50:10–50:26.
 
-The Schedule and outline are updated locally, and the lecture ledger is
-reconciled through November 10. The November 12 continuation was saved with
-Only This Event, closed and reopened in Apple Calendar, and independently
-verified in Fantastical: Illinois Tech Fred → Calendar, PH 109,
-11:15 AM–12:45 PM Central Time. The original title and prior planning note
-were retained. Both pages render, all four new schedule anchors resolve,
-and git diff --check passes. Browser review at 1280- and 390-pixel widths
-confirms that all six schedule tables fit without horizontal overflow and
-the expanded Deck 08 outline and optional-reading note wrap cleanly.
-The lecture-update changes are committed in `85c8390`; publishing and Pages
-deployment succeeded. Live-page verification remains unconfirmed.
+The Schedule now records November 12's actual coverage and the November 17
+pickup. November 12 recording coverage is audited in the ledger. The
+November 17 continuation was saved with Only This Event and reopened in Apple
+Calendar on Illinois Tech Fred → Calendar, PH 109, 11:15 AM–12:45 PM CST.
+Fantastical still shows the old note amid existing account errors; server
+synchronization and independent read-back remain pending. Reuse the saved
+recording evidence rather than repeat the lecture audit. The earlier November 10
+lecture-update changes are committed in `85c8390`; publishing and Pages
+deployment succeeded. Live-page verification of that release remains
+unconfirmed.
 
-Keep a brief spoken condition-number reminder for the next class: during
+Keep a brief spoken condition-number reminder for November 17; it was not
+found in the November 12 transcript. During
 the November 5 discussion
 of nearly dependent regression columns, the square-matrix condition number
 was described as an eigenvalue ratio. The 2-norm condition number is the
@@ -59,8 +65,8 @@ The November 10 eigenvalue-ratio calculation was for a symmetric
 positive-definite example, where that ratio is valid; it does not replace
 the general singular-value definition.
 
-The correction is now also in the presenter notes on Deck 09's worked
-eigenvalue example, exactly where the November 12 recap begins. Deck 10's
+The correction is also in the presenter notes on Deck 09's worked
+eigenvalue example. Deck 10's
 singular-value sensitivity slide retains the correct formula and explains
 the symmetric-positive-definite exception in its presenter notes.
 
@@ -74,6 +80,14 @@ new visible convention note passes 1280×720 layout review.
 
 ## Eigenvalue additions — November 12 review
 
+The concise spinning-tennis-racket example follows the eigenspace definition,
+with principal axes as inertia-tensor eigenvectors, moments as eigenvalues,
+three one-dimensional eigenspaces and the stable/unstable rotation distinction.
+It includes a marked-face toss demonstration in presenter notes. It was added
+after the November 12 class and has not been taught. The deck renders without
+warnings, its source-text checks pass, and visible layout/navigation review is
+complete. Show it briefly on November 17 before continuing diagonalization.
+
 The matrix-exponential slide also connects other convergent Taylor series
 with matrix functions, using sine and cosine as examples.
 
@@ -81,7 +95,7 @@ Deck 09 now includes practical eigensolver guidance, general matrix functions,
 the matrix exponential and a worked linear differential system after matrix
 powers. Its spectral theorem explicitly guarantees orthogonal diagonalization
 for every real symmetric matrix. Review these additions before teaching them;
-the November 12 pickup above remains the current lecture plan. The companion's
+the November 17 pickup above remains the current lecture plan. The companion's
 16 code cells pass in qmcpy with saved outputs, including symbolic checks of
 the exponential, derivative and initial conditions. Deck 00's terminology index
 and the course/notebook descriptions link to the new material.
@@ -104,7 +118,7 @@ SVD/Regression companions are linked there; their filenames are preserved.
 **Deck 11 remains entirely optional:** quadratic forms, FFT, networks and
 the single two-minute product-bases/frames slide. Preserve it even if skipped.
 The SVD existence argument uses Deck 09's spectral theorem; Deck 11 is not
-a prerequisite. November 12 still resumes eigenspaces before Quiz 4.
+a prerequisite. The November 17 pickup above is the current lecture plan.
 
 The website and all twelve decks render; 1,311 assembled local links/assets
 pass. Revised deck layouts, cross-deck SVD navigation and both rendered
@@ -195,7 +209,7 @@ near the top of that QMD to revise the invitation. Original PDF/PNG assets are i
 
 ## Remaining-material readiness — November 9
 
-Selected Deck 08 classroom coverage concluded November 10; the November 12
+Selected Deck 08 classroom coverage concluded November 10; the November 17
 Deck 09 pickup above is the immediate teaching preparation. Decks 09 (Eigenvalues), 10 (Inner Products,
 QR, least squares and SVD/regression), and 11 (optional Special Topics)
 are substantive mathematically audited drafts, with instructor and visible

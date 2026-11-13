@@ -181,6 +181,10 @@ Mathematical content should be maintained only in the slides.
   - [x] Follow Anton's monic `det(lambda I-A)` characteristic polynomial in
     Deck 09 and its companion; note the alternative sign convention on the
     definition slide and explain the identical roots in presenter notes.
+  - [x] Add the concise spinning-tennis-racket example after the eigenspace
+    definition, connecting principal axes and moments to eigenpairs and
+    distinguishing stable extreme-axis rotation from unstable intermediate-axis
+    rotation; include a marked-face demonstration suggestion in presenter notes.
   - [x] Draft Deck 10 with QR, regression, and Fourier approximation.
 - [x] Renumber the split Chapter 4 decks as 06–08 and the later placeholders
   as 09–10; update metadata, course maps, navigation, links, and author guidance.
@@ -338,6 +342,10 @@ Mathematical content should be maintained only in the slides.
   - [x] Replace the final-examination placeholders in the Schedule and
     assessment page with Tuesday, December 8, 2026, 8:00–10:00 AM
     America/Chicago (CST), PH 109, confirmed by the Registrar.
+  - [x] Prepare and validate the private Review Questions draft for the
+    announced whole-course review materials.
+  - [ ] Complete instructor review and release the Review Questions to
+    students; planned target November 30.
   - [x] Announce and add to the course website the remaining quiz dates—Quiz 3
     on October 15, Quiz 4 on November 12, and Quiz 5 on December 1—with
     coverage TBD.
