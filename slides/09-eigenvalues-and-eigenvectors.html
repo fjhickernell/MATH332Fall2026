@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-12">
+  <meta name="dcterms.date" content="2026-11-13">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -666,7 +666,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 12, 2026</p>
+  <p class="date">November 13, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -728,7 +728,7 @@ In this deck
 </section>
 <section id="an-eigenvector-stays-on-its-own-line" class="slide level2">
 <h2>An eigenvector stays on its own line</h2>
-<p>For a square matrix <span class="math inline">\(\mat{A}\)</span>, an <span class="alert">eigenvector</span> is a <span class="alert"><strong>nonzero</strong></span> vector <span class="math inline">\(\vct{v}\)</span> satisfying</p>
+<p>For a square matrix <span class="math inline">\(\mat{A}\)</span>, an <span class="alert">eigenvector</span> is a <span class="alert">nonzero</span> vector <span class="math inline">\(\vct{v}\)</span> satisfying</p>
 <p><span class="math display">\[
 \mat{A}\vct{v}=\lambda\vct{v},\qquad \vct{v}\ne\vct{0}
 \]</span></p>
@@ -846,6 +846,7 @@ In this deck
 <li><a href="#/a-nonzero-null-vector-identifies-an-eigenvalue">A nonzero null vector identifies an eigenvalue</a></li>
 <li><a href="#/find-eigenvalues-then-eigenvectors">Example: find eigenvalues, then eigenvectors</a></li>
 <li><a href="#/an-eigenspace-includes-all-vectors-for-one-eigenvalue">An eigenspace includes all vectors for one eigenvalue</a></li>
+<li><a href="#/a-spinning-tennis-racket">Example: a spinning tennis racket</a></li>
 <li><a href="#/compute-and-check-an-eigenspace">Compute and check an eigenspace</a></li>
 <li><a href="#/trace-and-determinant-check-the-eigenvalues">Trace and determinant check the eigenvalues</a></li>
 <li><a href="#/use-software-for-practical-eigenvalue-problems">Use software for practical eigenvalue problems</a></li>
@@ -958,6 +959,65 @@ E_\lambda=\operatorname{null}(\mat{A}-\lambda\mat{I})
 <div class="key-point">
 <p>Eigenvectors exclude zero; the eigenspace includes zero</p>
 </div>
+</section>
+<section id="a-spinning-tennis-racket" class="slide level2">
+<h2>Example: a spinning tennis racket</h2>
+<p>The <span class="alert">inertia tensor</span> <span class="math inline">\(\mat{J}=\mat{J}^\top\in\reals^{3\times3}\)</span> describes rotation about the center of mass</p>
+<p><span class="math display">\[\begin{equation*}
+\mat{J}\vct{v}_j=I_j\vct{v}_j,\qquad 0&lt;I_1&lt;I_2&lt;I_3
+\end{equation*}\]</span></p>
+<ul>
+<li>Principal-axis directions <span class="math inline">\(\vct{v}_j\)</span>: <span class="alert">eigenvectors</span>; principal moments <span class="math inline">\(I_j\)</span>: <span class="alert">eigenvalues</span></li>
+<li>Each eigenspace is a line: <span class="math inline">\(E_{I_j}=\operatorname{span}\{\vct{v}_j\}\)</span></li>
+</ul>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Axis through the center of mass</th>
+<th>Moment</th>
+<th>Rotation without external torque</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Along the handle</td>
+<td>Smallest</td>
+<td>Stable</td>
+</tr>
+<tr class="even">
+<td>Across the racket, in its plane</td>
+<td>Intermediate</td>
+<td>Unstable</td>
+</tr>
+<tr class="odd">
+<td>Perpendicular to the racket face</td>
+<td>Largest</td>
+<td>Stable</td>
+</tr>
+</tbody>
+</table>
+<div class="key-point">
+<p>Rotation about the intermediate axis is possible, but small disturbances grow and make the racket tumble</p>
+</div>
+<aside class="notes">
+<p>Demonstration: mark one face of the racket, compare tosses about the three principal axes, and watch the extra face flip for the intermediate-axis toss. Treat the racket as a rigid, approximately symmetric flat body. All axes pass through its center of mass, and external torque about that point is neglected. The tensor maps angular velocity to angular momentum; principal-axis rotation makes those vectors parallel. The tensor is not the matrix of a spatial rotation. Its three distinct principal moments make these eigenspaces one-dimensional. Exact steady rotation about the intermediate axis is a valid motion; instability means small off-axis disturbances grow, not that the motion is impossible. The stability assertion is a result of rigid-body dynamics, not a consequence of the eigenvalue definition alone.</p>
+<p>Sources: <a href="https://farside.ph.utexas.edu/teaching/336k/lectures/node67.html">UT Austin: principal axes of rotation</a> and <a href="https://sciencedemonstrations.fas.harvard.edu/presentations/tennis-racquet-flip">Harvard: tennis racquet flip</a>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="compute-and-check-an-eigenspace" class="slide level2">
 <h2>Compute and check an eigenspace</h2>
