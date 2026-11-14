@@ -21,7 +21,8 @@ format:
       - _partials/prayer-service/prayer-service.css
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
-  <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 5</span>
+  <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 5</span><br>
+  <span class="deck-meta">[Assignment 6](../assignments/assignment_6.html) due November 23</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">

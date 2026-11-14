@@ -1,0 +1,54 @@
+---
+title: "Assignment 6: WileyPLUS — Matrix Spaces, Rank, and Eigenvalues"
+metadata-files:
+  - ../classlib/classlib/quarto/website/hickernell-website.yml
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    include-in-header:
+      - ../classlib/classlib/quarto/slides/hickernell-latex-macros.js
+---
+
+## Due date
+
+**Due:** Monday, November 23, 2026, at 11:59 PM Chicago Time
+
+The deadline in WileyPLUS is authoritative; Canvas's Due and Until fields
+are intentionally blank.
+
+## Assignment
+
+Complete these five WileyPLUS questions in the order listed. Each is worth
+**4 points**, for **20 points** total.
+
+1. Chapter 4, Section 4.8 Supplementary Question 01 — column-space membership
+2. Chapter 4, Section 4.8, Question 09a — bases for the null space and row space
+3. Chapter 5, Section 5.1, Question 03 — verifying an eigenvector and its eigenvalue
+4. Chapter 4, Section 4.9, Question 21 — rank–nullity and transpose relationships
+5. Chapter 5, Supplementary Exercises, Question 15 — reconstructing a matrix from eigenpairs
+
+These are the question identifiers shown in WileyPLUS. Review the
+[Matrix Spaces and Rank slides](../slides/08-matrix-spaces-and-rank.html)
+and the
+[Eigenvalues and Eigenvectors slides](../slides/09-eigenvalues-and-eigenvectors.html).
+
+## Submission and grading
+
+Launch [Assignment 6 in Canvas]({{< meta canvas.assignment_6 >}}) and complete
+it **individually** in WileyPLUS. Follow the
+[course assignment ground rules](../pages/assignments.qmd#individual-assignments).
+
+- The assignment is automatically graded, with **three attempts per question**,
+  **no score reduction**, and the **best score** retained.
+- WileyPLUS randomizes values for each student while keeping that student's
+  values fixed across attempts. Multiple-choice answer order is shuffled.
+- Answer feedback is available as answers are submitted. Textbook resources
+  are always available; hints become available after the first attempt, and
+  correct answers and solutions after the last attempt. Assistance carries
+  no score deduction.
+- Work is automatically submitted to the Canvas gradebook on the due date.
+  WileyPLUS notes that auto-submission uses one attempt and may take up to
+  ten minutes. Submit your answers before the deadline.
+- Late submissions are not enabled. Assignment review becomes available
+  after the deadline.

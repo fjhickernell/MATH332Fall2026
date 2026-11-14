@@ -291,6 +291,21 @@ Mathematical content should be maintained only in the slides.
 - [ ] Create assignments, quizzes, tests, and review materials.
   - [x] Reserve Assignment 3–6 due dates on October 9, October 23,
     November 6, and November 20 with details pending.
+  - [x] Extend Assignment 6 to November 23 at 11:59 PM America/Chicago;
+    update the Schedule source and verify the saved, unpublished Canvas
+    placeholder (November 14).
+  - [x] Prepare Assignment 6 with the five instructor-selected WileyPLUS
+    questions at four points each; verify the saved unavailable set, Homework
+    policies, November 23 deadline, and existing unpublished Canvas External
+    Tool launch with blank Due/Until fields (November 14).
+  - [x] Prepare Assignment 6's course page, table/Schedule links, one Deck 09
+    title reminder and announcement draft; render the website and all twelve
+    decks, verify 270 affected local references, and inspect desktop/phone
+    page layouts and the title slide.
+  - [ ] Deploy and verify Assignment 6's public pages, obtain the final
+    combined publication approval, enable WileyPLUS, publish Canvas and the
+    all-sections announcement, and verify student access. Grading review is
+    due November 29.
   - [x] Release Test 1 grades, post the all-sections Canvas announcement, and
     publish the worked-answer PDF with its anonymous score distribution on the
     course site and in the test archive.

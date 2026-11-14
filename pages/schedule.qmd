@@ -63,8 +63,8 @@ assignments, quizzes, holidays, and examination details are finalized.
 | | Thu Nov 12 | Eigenvalue/eigenspace recap; trace and determinant checks; practical eigensolvers; eigenvector bases and diagonalization; worked 2×2 diagonalization begun<span class="assessment-divider" aria-hidden="true"></span>**Quiz 4** | [Eigenvalues and Eigenspaces](../slides/09-eigenvalues-and-eigenvectors.html#an-eigenspace-includes-all-vectors-for-one-eigenvalue)<br>[Eigenvector bases and diagonalization](../slides/09-eigenvalues-and-eigenvectors.html#an-eigenvector-basis-makes-the-matrix-diagonal)<span class="assessment-divider" aria-hidden="true"></span>Covers<br>&nbsp;&nbsp;&nbsp;&nbsp;[Bases, Dimension, and Coordinates](../slides/07-bases-dimension-and-coordinates.html) |
 | 14 | Tue Nov 17 | Finish the worked diagonalization and eigenbasis-coordinate example; tennis-racket illustration; independence of eigenvectors for distinct eigenvalues | [Finish the worked example](../slides/09-eigenvalues-and-eigenvectors.html#diagonalize-and-read-the-coordinates)<br>[A spinning tennis racket](../slides/09-eigenvalues-and-eigenvectors.html#a-spinning-tennis-racket)<br>[Distinct eigenvalues and independence](../slides/09-eigenvalues-and-eigenvectors.html#distinct-eigenvalues-supply-independent-eigenvectors) |
 | | Thu Nov 19 | | |
-| | Fri Nov 20 | **Assignment 6 due** | Details TBD |
-| 15 | Tue Nov 24 | | |
+| 15 | Mon Nov 23 | **Assignment 6 due** | [WileyPLUS: Matrix Spaces, Rank, and Eigenvalues](../assignments/assignment_6.qmd) |
+| | Tue Nov 24 | | |
 | | Thu Nov 26 | **No Class — Thanksgiving holiday** | |
 
 ### December
