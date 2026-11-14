@@ -1,6 +1,6 @@
 # Next task
 
-## Assignment 6 — prepared; deployment verification and publication remain
+## Assignment 6 — website live; combined publication approval remains
 
 Fred selected five WileyPLUS questions and approved **4 points each, 20 total**.
 The saved set is `66a94ba3-7c6d-4b21-b30b-16643d73ea3b`; reuse it and the existing
@@ -30,18 +30,20 @@ reminder are prepared. The website and all twelve decks render successfully;
 Safari desktop/390-pixel page checks and the 1280×720 title-slide check pass;
 the title reminder opens the correct assignment page.
 
-Fred authorized website publication with `Checkpoint 332` on November 14.
-Next: finish that checkpoint and verify the deployed public links, then obtain
-the single combined WileyPLUS/Canvas/announcement publication approval.
+The November 14 website checkpoint deployed successfully. The public assignment
+page, Assignments table, Schedule and Deck 09 notice return HTTP 200 and show
+the new assignment links and November 23 deadline.
+Next: obtain the single combined WileyPLUS/Canvas/announcement publication approval.
 No existing Assignment 6 announcement was found in Canvas's title search.
 The [announcement draft](drafts/2026-11-14-assignment-6-announcement.html) is
-local and unpublished. Nothing has been released to students. Grading/Canvas-
-transfer review is due **November 29** (student deadline plus six calendar days).
+local and unpublished. WileyPLUS and Canvas remain unpublished; no course
+announcement has been posted. Grading/Canvas-transfer review is due
+**November 29** (student deadline plus six calendar days).
 A focused Fantastical search did not identify a matching reminder in reviewed
 results; no reminder was changed, reconciliation remains unverified, and its
 original week view is restored.
-Temporary preview and search tabs are closed; Safari's original RSVP workbook
-view is restored, with the saved Canvas assignment retained in its own tab.
+Temporary preview and search tabs are closed; the saved Canvas assignment is
+retained in its own Safari tab.
 
 ## Review Questions — announced November 12
 

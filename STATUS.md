@@ -302,10 +302,11 @@ Mathematical content should be maintained only in the slides.
     title reminder and announcement draft; render the website and all twelve
     decks, verify 270 affected local references, and inspect desktop/phone
     page layouts and the title slide.
-  - [ ] Deploy and verify Assignment 6's public pages, obtain the final
-    combined publication approval, enable WileyPLUS, publish Canvas and the
-    all-sections announcement, and verify student access. Grading review is
-    due November 29.
+  - [x] Deploy and verify Assignment 6's public assignment page, Assignments
+    table, Schedule and Deck 09 notice (November 14).
+  - [ ] Obtain the final combined publication approval, enable WileyPLUS,
+    publish Canvas and the all-sections announcement, and verify student
+    access. Grading review is due November 29.
   - [x] Release Test 1 grades, post the all-sections Canvas announcement, and
     publish the worked-answer PDF with its anonymous score distribution on the
     course site and in the test archive.
