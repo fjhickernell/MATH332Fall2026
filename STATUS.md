@@ -304,9 +304,13 @@ Mathematical content should be maintained only in the slides.
     page layouts and the title slide.
   - [x] Deploy and verify Assignment 6's public assignment page, Assignments
     table, Schedule and Deck 09 notice (November 14).
-  - [ ] Obtain the final combined publication approval, enable WileyPLUS,
-    publish Canvas and the all-sections announcement, and verify student
-    access. Grading review is due November 29.
+  - [x] Obtain the final combined publication approval, enable WileyPLUS,
+    publish Canvas and the [all-sections announcement](https://iit.instructure.com/courses/23913/discussion_topics/110395),
+    and verify the WileyPLUS overview through Canvas Student View
+    (November 14, 12:58 PM CST announcement).
+  - [ ] Review Assignment 6's WileyPLUS grading and actual Canvas score
+    transfer by November 29; no test answers or scores were entered during
+    publication verification.
   - [x] Release Test 1 grades, post the all-sections Canvas announcement, and
     publish the worked-answer PDF with its anonymous score distribution on the
     course site and in the test archive.

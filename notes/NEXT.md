@@ -1,6 +1,6 @@
 # Next task
 
-## Assignment 6 — website live; combined publication approval remains
+## Assignment 6 — released November 14
 
 Fred selected five WileyPLUS questions and approved **4 points each, 20 total**.
 The saved set is `66a94ba3-7c6d-4b21-b30b-16643d73ea3b`; reuse it and the existing
@@ -11,18 +11,23 @@ The exact order and coverage are on the [assignment page](../assignments/assignm
 The deadline is **Monday, November 23, 2026, 11:59 PM America/Chicago (CST)**,
 extended from November 20 because publication is late. The saved WileyPLUS
 dashboard verifies five questions, four points each, 20 total, that deadline,
-and **Not available to students**. The live Homework profile was inspected:
+and **Available to students**, saved after Fred's combined publication approval.
+The live Homework profile was inspected:
 three attempts, no deduction, best score, student-specific values fixed across
 attempts, shuffled choices, immediate feedback, textbook always available,
 hints after the first attempt, answers/solutions after the last, auto-submit
 on the due date, no late work, and review after the deadline.
 
-Canvas is saved and reopened/verified: **Not Published**, 20 points,
+Canvas is saved and reopened/verified: **Published**, 20 points,
 Assignments group, individual External Tool, the matching paired Wiley deep
 link, new-tab launch, Everyone, and blank Due/Until fields. Its instructor
-launch reaches the correct saved WileyPLUS dashboard. Student View and actual
-graded passback remain for final release verification. Chrome is reserved for
-Fred's independent work; continue external course work in Safari.
+launch reaches the correct saved WileyPLUS dashboard. Canvas Student View
+successfully opens the WileyPLUS student overview, showing five questions,
+20 possible points, November 23 at 11:59 PM CST, three attempts, best-score
+grading and due-date auto-submission. No test answers or scores were entered;
+actual score transfer remains for the post-deadline grading review. Student
+View was exited. Chrome is reserved for Fred's independent work; continue
+external course work in Safari.
 
 The assignment page, Assignments table, Schedule link and one Deck 09 title
 reminder are prepared. The website and all twelve decks render successfully;
@@ -33,17 +38,19 @@ the title reminder opens the correct assignment page.
 The November 14 website checkpoint deployed successfully. The public assignment
 page, Assignments table, Schedule and Deck 09 notice return HTTP 200 and show
 the new assignment links and November 23 deadline.
-Next: obtain the single combined WileyPLUS/Canvas/announcement publication approval.
-No existing Assignment 6 announcement was found in Canvas's title search.
-The [announcement draft](drafts/2026-11-14-assignment-6-announcement.html) is
-local and unpublished. WileyPLUS and Canvas remain unpublished; no course
-announcement has been posted. Grading/Canvas-transfer review is due
-**November 29** (student deadline plus six calendar days).
+The [Canvas announcement](https://iit.instructure.com/courses/23913/discussion_topics/110395)
+is published to **All Sections**, November 14 at **12:58 PM CST**. Its three
+links match the verified assignment details, Assignments page and Canvas item.
+A title search found no duplicate before publication. The
+[HTML reference](drafts/2026-11-14-assignment-6-announcement.html) preserves the
+published text; do not repost. Publication is complete. Grading/Canvas-transfer
+review remains due **November 29** (student deadline plus six calendar days).
 A focused Fantastical search did not identify a matching reminder in reviewed
 results; no reminder was changed, reconciliation remains unverified, and its
 original week view is restored.
-Temporary preview and search tabs are closed; the saved Canvas assignment is
-retained in its own Safari tab.
+Temporary WileyPLUS tabs are closed, searches/editors are clear, and Safari's
+pre-existing Start Page is restored. The published Canvas assignment remains
+in its own tab.
 
 ## Review Questions — announced November 12
 
@@ -1131,9 +1138,9 @@ drops one lowest score and excludes the unchanged 10-point Diagnostic Survey
 with Never Drop. All five quizzes already exist at 20 points with schedule-matching
 dates; the Quizzes group now drops one lowest score.
 
-Assignments 4 and 5 use their configured External Tool launches; see their
-release records above. Assignment 6's existing **unpublished** Canvas item is
-now configured for WileyPLUS; its current prepared state is recorded above.
+Assignments 4–6 use their configured External Tool launches; see their
+release records above. Assignment 6's existing Canvas item is **published**
+and configured for WileyPLUS; its verified release is recorded above.
 Reuse this ID:
 
 - Assignment 6: [106682](https://iit.instructure.com/courses/23913/assignments/106682), due November 23, 2026 (extended and saved November 14).
