@@ -1,0 +1,61 @@
+# Collaborator reference catalog (schema version 1).
+# Names and stable IDs only; not an exhaustive historical collaborator list.
+# Sources: existing MCQMC26 roster and StrategicSamplingColloquium portraits,
+# reconciled November 14, 2026. Existing person slugs are preserved as IDs.
+#
+# Each collaborators.<id>.name is a display name. Keep IDs stable when a name
+# changes. Do not add contact details, roles, or portrait rights by inference.
+# This file is not loaded automatically and supplies no default talk roster.
+# Each consumer must explicitly select its own ordered list of IDs; adding a
+# catalog entry must never add a person to an existing talk automatically.
+# Example consumer selection: collaborator_ids: [choi-sou-cheng, millet-megan]
+# Portraits and rendering are deliberately outside this names-only catalog.
+
+schema_version: 1
+collaborators:
+  choi-sou-cheng:
+    name: Sou-Cheng Choi
+  dave-karm:
+    name: Karm Dave
+  ding-yuhan:
+    name: Yuhan Ding
+  herman-joshua:
+    name: Joshua Herman
+  jagadeeswaran-rathinavel:
+    name: R. Jagadeeswaran
+  jain-aadit:
+    name: Aadit Jain
+  kang-jiangrui:
+    name: Jiangrui Kang
+  keller-alex:
+    name: Alex Keller
+  kirk-nathan:
+    name: Nathan Kirk
+  kritzer-peter:
+    name: Peter Kritzer
+  kuo-frances:
+    name: Frances Kuo
+  mak-simon:
+    name: Simon Mak
+  matiukha-larysa:
+    name: Larysa Matiukha
+  millet-megan:
+    name: Megan Millet
+  nuyens-dirk:
+    name: Dirk Nuyens
+  owen-art:
+    name: Art Owen
+  pride-anders:
+    name: Anders Pride
+  robbe-pieterjan:
+    name: Pieterjan Robbe
+  sharp-brandon:
+    name: Brandon Sharp
+  sorokin-aleksei:
+    name: Aleksei Sorokin
+  varela-richard:
+    name: Richard Varela
+  vemuri-laasya-priya:
+    name: Laasya Priya Vemuri
+  xiong-yifei:
+    name: Yifei Xiong
