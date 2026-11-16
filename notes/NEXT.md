@@ -110,12 +110,12 @@ Apple Calendar showed only the earlier planning note; the November 17
 continuation was restored with Only This Event, closed and reopened to verify
 the complete saved note on Illinois Tech Fred → Calendar, PH 109,
 11:15 AM–12:45 PM CST. The earlier planning note is preserved verbatim.
-Independent Fantastical read-back was not completed because app input/search
-was unreliable.
-Server delivery remains unverified. Retry only that calendar verification
-when app control is reliable; reuse the saved recording evidence rather than
-repeat the lecture audit. The latest fully reconciled meeting remains
-November 10. The earlier November 10
+The complete continuation, November 12 summary and earlier planning note were
+subsequently read back independently in Fantastical on November 16, with the
+same date, hours, location and Illinois Tech Fred → Calendar account.
+Fantastical's normal Week view was restored with no search results or popover.
+The November 12 lecture reconciliation is complete; the November 17 lecture
+preparation above remains open. The earlier November 10
 lecture-update changes are committed in `85c8390`; publishing and Pages
 deployment succeeded. Live-page verification of that release remains
 unconfirmed.
