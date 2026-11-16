@@ -89,6 +89,24 @@ grades.
 
 </details>
 
+## Course Objectives
+
+1. Students will learn how to solve systems of equations through various
+   techniques, especially through row reduction of matrices.
+2. Students will learn properties of matrices, especially invertibility, and
+   matrix algebra.
+3. Students will learn general vector spaces and linear transformations. The
+   primary vector spaces studied are Euclidean, matrix and polynomial spaces.
+   Topics include linear independence, column and row spaces, nullspace,
+   basis and dimension (including rank and nullity).
+4. Students will explore eigenvectors and eigenvalues and learn how to
+   diagonalize a matrix.
+5. Students will learn about inner product spaces and orthogonality. Topics
+   include orthonormal bases, the Gram-Schmidt process, best approximation,
+   and their applications to QR-decomposition and least squares-fitting.
+6. Students will learn about applications of linear systems in sciences and
+   engineering.
+
 ## Course Outline
 
 <details>
