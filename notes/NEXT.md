@@ -105,12 +105,17 @@ about 36.6 minutes on November 5 plus about 50 minutes on November 10,
 before the eigenvalue introduction at approximately 50:10–50:26.
 
 The Schedule now records November 12's actual coverage and the November 17
-pickup. November 12 recording coverage is audited in the ledger. The
-November 17 continuation was saved with Only This Event and reopened in Apple
-Calendar on Illinois Tech Fred → Calendar, PH 109, 11:15 AM–12:45 PM CST.
-Fantastical still shows the old note amid existing account errors; server
-synchronization and independent read-back remain pending. Reuse the saved
-recording evidence rather than repeat the lecture audit. The earlier November 10
+pickup. November 12 recording coverage is audited in the ledger. On November 16,
+Apple Calendar showed only the earlier planning note; the November 17
+continuation was restored with Only This Event, closed and reopened to verify
+the complete saved note on Illinois Tech Fred → Calendar, PH 109,
+11:15 AM–12:45 PM CST. The earlier planning note is preserved verbatim.
+Independent Fantastical read-back was not completed because app input/search
+was unreliable.
+Server delivery remains unverified. Retry only that calendar verification
+when app control is reliable; reuse the saved recording evidence rather than
+repeat the lecture audit. The latest fully reconciled meeting remains
+November 10. The earlier November 10
 lecture-update changes are committed in `85c8390`; publishing and Pages
 deployment succeeded. Live-page verification of that release remains
 unconfirmed.

@@ -4,7 +4,8 @@
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
 - Latest fully reconciled instructional meeting: November 10, 2026
 - November 12 coverage and schedule: recording-audited; November 17 calendar
-  notes saved locally, with server/Fantastical synchronization pending
+  continuation restored and verified locally November 16; server delivery and
+  independent Fantastical read-back remain pending
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -23,7 +24,7 @@
 | November 3, 2026 | Reconciled from visible recording frames and instructor report; captions unavailable: change of basis and inverses, whiteboard Taylor/monomial example, abstract-vector clarification, regression and line fit; first PCA slide only a closing preview | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=67dcfe55-6757-4c1d-80ed-b4f7013ba966) | November 5, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; briefly review the new Taylor-basis round trip and regression data-to-matrix examples, then resume “PCA chooses coordinates adapted to the data” and remaining Applications; saved note reopened and verified in Fantastical | November 3, 2026 |
 | November 5, 2026 | Reconciled from captions and visible closing exercise: regression and PCA; four matrix subspaces, rank/nullity, echelon-based column/row/null bases and completed three-space practice; orthogonal pairs introduced informally; frames and infinite bases passed over | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=609c8ac7-5d8d-4afd-a5ae-b4f901399af0) | November 10, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; recap three-space basis extraction and “Rank-nullity counts inputs,” then “Orthogonal Pairs” → “The four spaces form two perpendicular pairs” and orthogonal complements; saved with Only This Event and reopened to verify the persisted note | November 5, 2026 |
 | November 10, 2026 | Reconciled: four-space bases and dimensions, orthogonal-pair examples, regression residual geometry, and existence/uniqueness; selected Deck 08 coverage concluded with omitted slides optional. Deck 09 introduced eigenvalues/eigenvectors and completed the determinant/null-space worked example; repeated eigenvalues only previewed | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5e553d20-166c-403a-af1f-b4fe01387557) | November 12, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; briefly recap the eigenvalue recipe/worked example, then “An eigenspace includes all vectors for one eigenvalue,” followed by diagonalization as time permits; Quiz 4 remains in the last 15 minutes with unchanged coverage. Saved with Only This Event, reopened in Apple Calendar and independently verified in Fantastical | November 10, 2026 |
-| November 12, 2026 | Coverage reconciled: eigenvalue recipe, triangular eigenspace calculations, eigenspaces, trace/determinant and software; introduced AV=VD and diagonalization; final worked example begun before Quiz 4. Calendar synchronization pending | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e7c27e84-3dfc-4d8f-95c7-b5000137a6b3) | November 17, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; Finish “Example: diagonalize and read the coordinates,” including product verification and the coordinate route, then “Distinct eigenvalues supply independent eigenvectors”. Saved with Only This Event and reopened in Apple Calendar; unchanged notes in Fantastical, so server synchronization remains unverified | November 12, 2026 |
+| November 12, 2026 | Coverage reconciled: eigenvalue recipe, triangular eigenspace calculations, eigenspaces, trace/determinant and software; introduced AV=VD and diagonalization; final worked example begun before Quiz 4. Calendar verification pending | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e7c27e84-3dfc-4d8f-95c7-b5000137a6b3) | November 17, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; finish “Example: diagonalize and read the coordinates,” including product verification and the coordinate route, show the racket example, then “Distinct eigenvalues supply independent eigenvectors”; retain the condition-number reminder. Continuation restored November 16 with Only This Event and reopened in Apple Calendar; earlier planning text preserved. Server delivery and independent Fantastical read-back remain unverified | November 16, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -440,3 +441,21 @@ slide anchors resolve and git diff --check passes. Temporary recording and
 preview tabs were closed; Safari returned to the original QMCPy page,
 Calendar to today’s week, and Fantastical to today’s normal week with its
 search-results panel gone. No repository changes were committed or published.
+
+### November 16 calendar follow-up
+
+Apple Calendar showed only the earlier “Notebook for geometry, then
+determinants” planning note on the November 17 occurrence. Restored the
+Deck 09 continuation: finish the diagonalization product check and coordinate
+route for x=[4,2]ᵀ, show the racket example, then distinct-eigenvalue
+independence; include the brief singular-value condition-number reminder and
+November 12 coverage summary. Preserved the earlier planning note verbatim
+at the end. Chose Only This Event, closed and reopened the occurrence, and
+verified the complete saved note, original title, Illinois Tech Fred → Calendar
+account, PH 109 and 11:15 AM–12:45 PM CST hours.
+
+Independent Fantastical read-back was not completed because app input and
+search state were unreliable. Server delivery remains unverified. The latest
+fully reconciled meeting stays November 10. Reuse the existing recording audit and retry only
+the outstanding calendar verification when app control is reliable; no newer
+instructional meeting has occurred by November 16.
