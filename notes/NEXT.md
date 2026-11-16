@@ -313,13 +313,22 @@ practice, with a matching notebook example. It introduces a length-two chain
 and its coupled Jordan block; coverage is optional, and no general Jordan
 algorithm or defective-matrix power formula is planned.
 
-## Assignment 5 — released October 31; grading follow-up open
+## Assignment 5 — released October 31; grading follow-up complete
 
 Canvas/WileyPLUS grade passback was reviewed November 11, and the
 instructor-directed corrections are saved and posted after explicit approval
 on November 11. Assignment 5 retains manual posting for future scores.
-An individual extension and its grading follow-up are tracked privately.
-Preserve the saved Canvas overrides when reconciling future WileyPLUS scores.
+The individual extension follow-up is complete: the adjusted score was saved
+and independently verified posted on November 16 after explicit approval.
+Preserve the saved Canvas overrides when reconciling future WileyPLUS scores;
+do not repeat the transfer or bulk-sync over them. Private records hold details.
+
+The November 16 Gradebook completeness audit of completed Assignments 1–5 and
+Quizzes 1–3 is complete; required corrections were saved and verified posted
+after instructor approval. Assignment 2 now uses manual posting, preserving
+previously posted scores. Assignment 6 and Quizzes 4–5 were not changed because
+their deadline or grading is still pending. Student details and the audit
+export remain in the private course workspace.
 
 Assignment 5 is published in Canvas 106681 and available in WileyPLUS.
 The instructor-approved question set is Chapter 4 §4.5 Q15 and §4.7 Q02b,
