@@ -2,10 +2,10 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest fully reconciled instructional meeting: November 12, 2026
-- November 12 coverage and schedule: recording-audited; November 17 calendar
-  continuation restored in Apple Calendar and independently verified in
-  Fantastical November 16
+- Latest fully reconciled instructional meeting: November 17, 2026
+- November 17 coverage and schedule: recording-audited; existing November 19
+  calendar continuation independently verified in Apple Calendar and
+  Fantastical November 17; no calendar edit needed
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -25,6 +25,7 @@
 | November 5, 2026 | Reconciled from captions and visible closing exercise: regression and PCA; four matrix subspaces, rank/nullity, echelon-based column/row/null bases and completed three-space practice; orthogonal pairs introduced informally; frames and infinite bases passed over | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=609c8ac7-5d8d-4afd-a5ae-b4f901399af0) | November 10, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; recap three-space basis extraction and “Rank-nullity counts inputs,” then “Orthogonal Pairs” → “The four spaces form two perpendicular pairs” and orthogonal complements; saved with Only This Event and reopened to verify the persisted note | November 5, 2026 |
 | November 10, 2026 | Reconciled: four-space bases and dimensions, orthogonal-pair examples, regression residual geometry, and existence/uniqueness; selected Deck 08 coverage concluded with omitted slides optional. Deck 09 introduced eigenvalues/eigenvectors and completed the determinant/null-space worked example; repeated eigenvalues only previewed | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5e553d20-166c-403a-af1f-b4fe01387557) | November 12, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; briefly recap the eigenvalue recipe/worked example, then “An eigenspace includes all vectors for one eigenvalue,” followed by diagonalization as time permits; Quiz 4 remains in the last 15 minutes with unchanged coverage. Saved with Only This Event, reopened in Apple Calendar and independently verified in Fantastical | November 10, 2026 |
 | November 12, 2026 | Reconciled: eigenvalue recipe, triangular eigenspace calculations, eigenspaces, trace/determinant and software; introduced AV=VD and diagonalization; final worked example begun before Quiz 4. Independent Fantastical read-back completed November 16 | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e7c27e84-3dfc-4d8f-95c7-b5000137a6b3) | November 17, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; finish “Example: diagonalize and read the coordinates,” including product verification and the coordinate route, show the racket example, then “Distinct eigenvalues supply independent eigenvectors”; retain the condition-number reminder. Continuation restored November 16 with Only This Event and reopened in Apple Calendar; complete note and retained earlier planning text independently verified in Fantastical | November 16, 2026 |
+| November 17, 2026 | Reconciled: diagonalization product and coordinate interpretation; distinct-eigenvalue independence; repeated roots, diagonalization criteria and a brief generalized-eigenvector introduction; complex eigenvalues, conjugate pairs and rotation/scaling practice. Powers previewed only; racket demonstration deferred | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d7309470-7c79-4ab3-b0d8-b505013e4a77) | November 19, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; resume Deck 09, Powers and Dynamics → “Powers act separately on eigenbasis coordinates.” Existing continuation and preceding-lecture summary independently verified in Apple Calendar and Fantastical; retained earlier planning text; no calendar edit needed | November 17, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -463,3 +464,41 @@ edit was needed for this check. Cleared the search and closed the popover;
 Fantastical's normal Week view was verified with no results panel. The
 November 12 reconciliation is complete; no newer instructional meeting has
 occurred by November 16.
+
+## November 17 recording evidence and existing calendar continuation
+
+The Illinois Tech readiness notice arrived at 1:19 PM. The
+[recording](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d7309470-7c79-4ab3-b0d8-b505013e4a77)
+starts at 11:23 AM and lasts 1:19:03. The complete auto-generated transcript,
+transition index and visible closing slides were inspected. The downloaded
+transcript has no timestamps; times below come from visible playback checks.
+
+The opening completes the product $V^{-1}AV=D$ and explains the general
+read-coordinates/scale/reconstruct route. The numeric input $[4,2]^\top$ and
+new oblique-coordinate exercises are not established as worked. The
+distinct-eigenvalue independence proof begins at 13:57; repeated-root
+examples at 20:42 compare $2I$ with the defective matrix. The board introduces
+a generalized eigenvector using $(J-2I)^2=0$, Jordan form and critically
+damped-system motivation, but the instructor excludes general Jordan
+construction. The diagonalization recipe is reviewed at 33:30. Later flashes
+of generalized-eigenvector and similarity slides do not establish coverage
+of their full-basis theorem or invariance proof. PageRank is a motivating
+aside, not a developed algorithm.
+
+Complex eigenvalues begin with the quarter turn at 38:09. The lecture works
+complex eigenvectors, their nonunique scalar multiples and conjugate pairs,
+then the rotation/scaling practice from 58:15. That practice remains visible
+at 1:16:02 and 1:17:53. The matrix rotates by 45° and scales lengths by
+$\sqrt{2}$; multiplying it by $\sqrt{2}$ doubles lengths, completed by
+1:17:03. At 1:18:23, matrix powers are only a preview for the remaining
+meetings. Resume Deck 09, Powers and Dynamics → “Powers act separately on
+eigenbasis coordinates.” The racket demonstration was explicitly deferred
+because the racket was not brought. No spoken condition-number correction
+was found; retain that brief reminder.
+
+On November 17, the already-existing November 19 occurrence was independently
+read back in Apple Calendar and Fantastical. Both show the powers pickup and
+preceding-lecture summary, November 19, 11:15 AM–12:45 PM CST, PH 109 and
+Illinois Tech Fred → Calendar. The note retains “Notebook for geometry,
+then determinants.” No calendar text, recurrence, date or time was changed
+in this reconciliation; no new save or Only This Event action was needed.
