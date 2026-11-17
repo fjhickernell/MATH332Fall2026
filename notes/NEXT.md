@@ -84,6 +84,12 @@ $\vct{x}=[4,2]^\top$. Briefly show the newly added
 then continue at
 [Distinct eigenvalues supply independent eigenvectors](../slides/09-eigenvalues-and-eigenvectors.qmd#distinct-eigenvalues-supply-independent-eigenvectors).
 
+The new change-of-coordinates box diagram has a worked oblique-eigenbasis
+example and a matching exercise immediately afterward. Use them to distinguish
+the vector from its eigenbasis column before the independence result;
+exercise answers are in presenter notes. Both are prepared, not established
+as taught.
+
 The November 12 recording recapped the eigenvalue recipe, worked eigenspaces
 for eigenvalues 0, 2 and 3 of a triangular 4×4 board example (−1 was skipped),
 and used the zero 2×2 matrix to illustrate its full eigenspace. Trace and
@@ -148,6 +154,28 @@ The restored monic companion passes all 14 cells; the deck renders and its
 new visible convention note passes 1280×720 layout review.
 
 ## Eigenvalue additions — November 12 review
+
+November 17 audit: Deck 09 now uses labeled map-and-box diagrams and makes
+the differential-system decoupling explicit. The Powers and Dynamics section
+connects initial data to whole solution functions, distinguishes their fixed
+coefficients from evolving state coordinates, and returns to the earlier
+spring in real and complex coordinates. Paired phase portraits use the
+diagonalization example's initial vector. Differentiation on the solution
+space is a conceptual extension that can be skipped on a first pass.
+The decoupling slide explicitly displays the full solution product, including
+the initial vector, alongside the change/evolve/reconstruct coordinate route.
+Action diagrams throughout the decks now put inputs on the right and outputs
+on the left to match column-vector multiplication; the ODE route reads
+right to left from initial state to reconstructed solution.
+The scalar field is explicitly $\mathbb{K}=\reals$ or $\mathbb{C}$; Eigenvector Bases
+and Diagonalization now has five main outline entries, with subordinate
+examples and results retained on their own continuation slides.
+Powers and Dynamics likewise has five main headings. The optional
+generalized-eigenvector topic uses algebraic multiplicity for the kernel
+power and states the full-basis result with its real/complex qualifications.
+These additions are prepared for instructor review, not established as
+taught; the November 17 pickup above and lecture ledger remain unchanged.
+Local validation and audit findings are recorded in `notes/DECK-AUDIT.md`.
 
 The concise spinning-tennis-racket example follows the eigenspace definition,
 with principal axes as inertia-tensor eigenvectors, moments as eigenvalues,
@@ -313,10 +341,12 @@ November 9; live-page verification and instructor review remain pending.
 Deck 09 and its companion now use $V$ for eigenvector matrices and retain
 $Q$ for orthonormal eigenvectors; $P$ remains the general change-of-basis
 matrix in the similarity discussion.
-An optional two-slide generalized-eigenvector topic follows the repeated-root
-practice, with a matching notebook example. It introduces a length-two chain
-and its coupled Jordan block; coverage is optional, and no general Jordan
-algorithm or defective-matrix power formula is planned.
+An optional three-slide generalized-eigenvector topic follows the repeated-root
+practice, with a matching notebook chain example. It introduces a length-two
+chain, its coupled Jordan block, and the full generalized-basis theorem.
+Coverage is optional; no general Jordan algorithm or defective-matrix power
+formula is planned. The newly added theorem is in the deck; the notebook's
+existing chain example is unchanged.
 
 ## Assignment 5 — released October 31; grading follow-up complete
 

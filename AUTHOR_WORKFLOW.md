@@ -594,6 +594,17 @@ calendar unchanged and check again later.
 - Typeset matrix symbols in sans serif. In RevealJS slides, use `\mat{A}` from
   the JavaScript-provided MathJax macros. JupyterLab does not load those
   macros, so use explicit `\mathsf{A}` in notebook Markdown.
+- Use `\mathbb{K}` for a generic scalar field and specify its allowed values
+  when the context requires them, such as `\reals` or `\mathbb{C}` for the
+  differential-system solution map. Retain `\mathbb{F}_2` for the specific
+  binary field.
+- In action diagrams accompanying column-vector products, put the input on
+  the right and the output on the left, with leftward map arrows. Match the
+  spatial order of factors in the formula: `y=ABCx` has
+  `y <-A- BCx <-B- Cx <-C- x`. Align corresponding panels, box labels and
+  captions, and explain that the diagram is read from right to left. Keep
+  conventional domain-to-codomain signatures and chronological procedures
+  such as elimination or forward/back substitution in their natural order.
 - Use the shared statistical notation macros in slides, including `\Norm` for
   the normal distribution and the lowercase Biometrika-style operators `\var`
   and `\cov`. Do not replace them with ad hoc `\mathcal{N}`, `\operatorname{Var}`,

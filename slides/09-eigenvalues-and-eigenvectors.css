@@ -1,0 +1,72 @@
+/* Deck 09: distinguish coordinate columns, state vectors, and functions. */
+.reveal .eigen-map {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 4.5em minmax(0, 1fr);
+  gap: 0.35em;
+  margin: 0.55em 0 0.7em;
+  align-items: stretch;
+}
+
+.reveal .eigen-map > .diagram-node {
+  grid-row: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.reveal .eigen-map-input { grid-column: 3; }
+.reveal .eigen-map-output { grid-column: 1; }
+
+.reveal .eigen-map-arrow {
+  grid-row: 1;
+  grid-column: 2;
+  align-self: center;
+  justify-self: center;
+}
+
+.reveal .eigen-map-line {
+  display: block;
+  margin: 0.2em 0;
+}
+
+/* A numerical example compares the two routes through the same action. */
+.reveal .eigen-map-square {
+  grid-template-rows: auto 1.2em auto;
+  row-gap: 0.12em;
+}
+
+.reveal .eigen-map-square > .diagram-node {
+  padding: 0.25em 0.5em;
+}
+
+.reveal .eigen-map-square .eigen-map-line { margin: 0.08em 0; }
+
+.reveal .eigen-map-square > .eigen-map-lower-input {
+  grid-row: 3;
+  grid-column: 3;
+}
+
+.reveal .eigen-map-square > .eigen-map-lower-output {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.reveal .eigen-map-lower-arrow {
+  grid-row: 3;
+  grid-column: 2;
+  align-self: center;
+  justify-self: center;
+}
+
+.reveal .eigen-map-coordinate-action,
+.reveal .eigen-map-vector-action {
+  grid-row: 2;
+  align-self: center;
+  justify-self: center;
+  font-size: 1.1em;
+}
+
+.reveal .eigen-map-coordinate-action { grid-column: 3; }
+.reveal .eigen-map-vector-action { grid-column: 1; }

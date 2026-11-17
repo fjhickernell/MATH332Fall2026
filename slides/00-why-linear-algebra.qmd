@@ -160,12 +160,12 @@ Numerical representations are models of objects that allow us to compute with th
 
 ## Act on these objects via transformations to obtain new objects
 
-::: {.diagram-flow}
-<div class="diagram-node">input object(s) or state(s)<br>$\vct{x}$<br>$\mat{X}$</div>
-<div class="diagram-arrow">→</div>
-<div class="diagram-node">action or relationships<br>$\mat{A}$</div>
-<div class="diagram-arrow">→</div>
+::: {.diagram-flow role="group" aria-label="Read right to left, matching multiplication: the input x or X in the right box passes through matrix A in the middle to the output Ax or AX in the left box."}
 <div class="diagram-node">output object(s) or state(s)<br>$\vct{y}=\mat{A}\vct{x}$<br>$\mat{Y}=\mat{A}\mat{X}$</div>
+<div class="diagram-arrow">←</div>
+<div class="diagram-node">action or relationships<br>$\mat{A}$</div>
+<div class="diagram-arrow">←</div>
+<div class="diagram-node">input object(s) or state(s)<br>$\vct{x}$<br>$\mat{X}$</div>
 :::
 
 ### Examples of actions
@@ -408,18 +408,18 @@ R rotates every vector counterclockwise through 90 degrees. Thus the input
 
 Linear coordinate maps with a shared origin; orthographic screen projection
 
-::: {.diagram-flow}
-<div class="diagram-node">object coordinates<br>$\vct{x}_{\text{object}}$</div><div class="diagram-arrow">$\xrightarrow{\mat{A}}$</div>
-<div class="diagram-node">world coordinates<br>$\vct{x}_{\text{world}}$</div><div class="diagram-arrow">$\xrightarrow{\mat{B}}$</div>
-<div class="diagram-node">camera coordinates<br>$\vct{x}_{\text{camera}}$</div><div class="diagram-arrow">$\xrightarrow{\mat{C}}$</div>
+::: {.diagram-flow role="group" aria-label="Read right to left: A maps object coordinates to world coordinates, B maps world to camera coordinates, and C maps camera to screen coordinates. The output on the left is CBA times the input on the right."}
 <div class="diagram-node">screen coordinates<br>$\vct{x}_{\text{screen}}$</div>
+<div class="diagram-arrow">$\xleftarrow{\mat{C}}$</div><div class="diagram-node">camera coordinates<br>$\vct{x}_{\text{camera}}$</div>
+<div class="diagram-arrow">$\xleftarrow{\mat{B}}$</div><div class="diagram-node">world coordinates<br>$\vct{x}_{\text{world}}$</div>
+<div class="diagram-arrow">$\xleftarrow{\mat{A}}$</div><div class="diagram-node">object coordinates<br>$\vct{x}_{\text{object}}$</div>
 :::
 
 ::: {.columns}
 ::: {.column width="13%"}
 :::
 ::: {.column width="20%" align="center"}
-orient the object relative to the world axes
+orthographically project onto the screen
 :::
 ::: {.column width="7%"}
 :::
@@ -429,7 +429,7 @@ express the world relative to the camera
 ::: {.column width="7%"}
 :::
 ::: {.column width="20%" align="center"}
-orthographically project onto the screen
+orient the object relative to the world axes
 :::
 ::: {.column width="13%"}
 :::
@@ -541,11 +541,11 @@ $$\mat{A}\vct{p}=\vct{p}$$
 
 ## Where machine learning fits
 
-::: {.diagram-flow}
-<div class="diagram-node">one example<br>$\vct{x}$</div><div class="diagram-arrow">→</div>
-<div class="diagram-node">$\mat{W}\vct{x}+\vct{b}$<br><span class="small">learned affine layer</span></div><div class="diagram-arrow">→</div>
-<div class="diagram-node">nonlinearity</div><div class="diagram-arrow">→</div>
-<div class="diagram-node">prediction</div>
+::: {.diagram-flow role="group" aria-label="Read right to left: input features x pass through the learned affine layer W x plus b, then a nonlinearity, to produce the prediction at the left."}
+<div class="diagram-node">prediction</div><div class="diagram-arrow">←</div>
+<div class="diagram-node">nonlinearity</div><div class="diagram-arrow">←</div>
+<div class="diagram-node">$\mat{W}\vct{x}+\vct{b}$<br><span class="small">learned affine layer</span></div><div class="diagram-arrow">←</div>
+<div class="diagram-node">one example<br>$\vct{x}$</div>
 :::
 
 ::: {.columns}
@@ -828,6 +828,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 ::: {.column width="50%"}
 - [Critical damping]({{< meta decks.d07.file >}}#a-critically-damped-spring-find-the-solution-map)
 - [Cross product]({{< meta decks.d05.file >}}#the-cross-product-combines-two-directions), $\vct{u}\times\vct{v}$
+- [Decoupling]({{< meta decks.d09.file >}}#eigenbasis-coordinates-decouple-a-differential-system), $\vct{c}'=\mat{D}\vct{c}$
 - [Design matrix]({{< meta decks.d07.file >}}#regression-chooses-the-closest-vector-we-can-build)
 - [Determinant]({{< meta decks.d04.file >}}#a-determinant-is-a-signed-scale-factor), $\det(\mat{A})$
 - [Diagonal matrix]({{< meta decks.d03.file >}}#diagonal-matrices-act-one-coordinate-at-a-time), $\mat{D}$
@@ -848,6 +849,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 ::: {.column width="50%"}
 - [Domain]({{< meta decks.d03.file >}}#input-domain)
 - [Dot product]({{< meta decks.d01.file >}}#combines-coefficients-and-unknowns), $\vct{u}^{\mathsf T}\vct{v}$
+- [Eigenfunction]({{< meta decks.d09.file >}}#differentiation-has-the-same-eigenvalues-on-the-solution-space), $\vct{\phi}'=\lambda\vct{\phi}$
 - [Eigenvalue]({{< meta decks.d09.file >}}#an-eigenvector-stays-on-its-own-line), $\lambda$
 - [Eigenvector]({{< meta decks.d09.file >}}#an-eigenvector-stays-on-its-own-line)
 - [Elementary matrix]({{< meta decks.d01.file >}}#start-with-one-row-replacement)
@@ -885,6 +887,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Function space]({{< meta decks.d06.file >}}#functions-can-be-vectors)
 - [Gauss–Jordan reduction]({{< meta decks.d02.file >}}#reduce-beside-the-identity)
 - [Gaussian elimination]({{< meta decks.d01.file >}}#elimination)
+- [Generalized eigenspace]({{< meta decks.d09.file >}}#optional-generalized-eigenvectors), $G_\lambda$
 - [Generalized eigenvector]({{< meta decks.d09.file >}}#optional-generalized-eigenvectors)
 - [Givens rotation]({{< meta decks.d03.file >}}#givens-rotations), $\mat{G}(i,j,\theta)$
 - [Gram–Schmidt process]({{< meta decks.d10.file >}}#build-perpendicular-directions-without-changing-the-span)
@@ -1053,6 +1056,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Skew-symmetric matrix]({{< meta decks.d07.file >}}#practice-bases-for-other-matrix-spaces), $\mat{A}^{\mathsf T}=-\mat{A}$
 - [Solution / solution set]({{< meta decks.d01.file >}}#from-one-equation-to-systems-of-equations)
 - [Solution map]({{< meta decks.d07.file >}}#initial-data-map-linearly-to-a-solution-function)
+- [Solution mode]({{< meta decks.d09.file >}}#an-eigenbasis-becomes-a-basis-of-solution-functions), $e^{\lambda_jt}\vct{v}_j$
 - [Span]({{< meta decks.d06.file >}}#span-is-the-subspace-generated-by-chosen-vectors), $\operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}$
 - [Spectral norm]({{< meta decks.d10.file >}}#the-best-low-rank-approximation-has-a-measurable-error)
 - [Spectral theorem (real symmetric)]({{< meta decks.d09.file >}}#the-spectral-theorem-supplies-an-orthonormal-eigenbasis)

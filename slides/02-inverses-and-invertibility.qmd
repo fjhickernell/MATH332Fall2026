@@ -129,15 +129,15 @@ For square $\mat{A}$
 
 $$
 \vct{x}
-\xrightarrow{\ \mat{A}\ }
+\xleftarrow{\ \mat{A}^{-1}\ }
 \mat{A}\vct{x}
-\xrightarrow{\ \mat{A}^{-1}\ }
+\xleftarrow{\ \mat{A}\ }
 \vct{x},
 \qquad
 \vct{x}
-\xrightarrow{\ \mat{A}^{-1}\ }
+\xleftarrow{\ \mat{A}\ }
 \mat{A}^{-1}\vct{x}
-\xrightarrow{\ \mat{A}\ }
+\xleftarrow{\ \mat{A}^{-1}\ }
 \vct{x}
 $$
 
@@ -894,8 +894,8 @@ every $\vct{b}$ has exactly one solution
 [Inverses]({{< meta decks.d02.file >}}) — undoing a matrix action
 
 $$
-\vct{x}\xrightarrow{\mat{A}}\mat{A}\vct{x}
-\xrightarrow{\mat{A}^{-1}}\vct{x}
+\vct{x}\xleftarrow{\mat{A}^{-1}}\mat{A}\vct{x}
+\xleftarrow{\mat{A}}\vct{x}
 $$
 
 [Matrix Transformations]({{< meta decks.d03.file >}}) — structure reveals the action

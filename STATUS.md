@@ -177,9 +177,21 @@ Mathematical content should be maintained only in the slides.
   - [x] Add practical eigensolver guidance, matrix functions and exponentials,
     a worked linear differential system and discrete/continuous practice;
     state the symmetric-matrix diagonalization guarantee explicitly.
+  - [x] Connect diagonalization to differential-system coordinates and the
+    initial-data isomorphism onto the solution space; add paired phase
+    portraits, corresponding eigenvector/solution-function bases, and the
+    earlier spring's real and complex descriptions. Keep classroom coverage
+    and instructor review separate from these prepared additions.
   - [x] Use V for eigenvector matrices and Q for orthonormal eigenvectors in
     Deck 09 and its companion; add an optional two-slide generalized-eigenvector
     chain example and matching locally executed notebook cell.
+  - [x] Add a worked coordinate-box example with an oblique eigenbasis and a
+    matching exercise; extend the optional generalized-eigenvector topic with
+    the algebraic-multiplicity kernel and full-basis theorem. Group the
+    Diagonalization and Powers/Dynamics sections into five main headings each.
+  - [x] Audit all twelve decks for map direction versus multiplication order;
+    align action diagrams, coordinate boxes and paired figures with inputs
+    on the right and outputs on the left, and record the authoring convention.
   - [x] Follow Anton's monic `det(lambda I-A)` characteristic polynomial in
     Deck 09 and its companion; note the alternative sign convention on the
     definition slide and explain the identical roots in presenter notes.

@@ -1554,14 +1554,13 @@ $$
 describes the action of $\mat{A}$ as a sequence:
 
 $$
-\vct{x}
-\xrightarrow{\ \mat{U}\ }
-\mat{U}\vct{x}
-\xrightarrow{\ \mat{L}\ }
+\mat{A}\vct{x}=\mat{P}\mat{L}\mat{U}\vct{x}
+\xleftarrow{\ \mat{P}\ }
 \mat{L}\mat{U}\vct{x}
-\xrightarrow{\ \mat{P}\ }
-\mat{P}\mat{L}\mat{U}\vct{x}
-=\mat{A}\vct{x}
+\xleftarrow{\ \mat{L}\ }
+\mat{U}\vct{x}
+\xleftarrow{\ \mat{U}\ }
+\vct{x}
 $$
 
 ::: {.key-point}

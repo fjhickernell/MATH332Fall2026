@@ -1,5 +1,118 @@
 # MATH 332 deck accuracy and clarity audit
 
+## November 17, 2026 — map direction and multiplication order
+
+Audited Decks 00–11 for action diagrams whose reading direction conflicts
+with adjacent column-vector products. Such diagrams now place the input on
+the right and output on the left, matching the factors in the product.
+Corrections cover introductory action/composition and affine-layer boxes,
+inverse round trips, PLU actions, determinant products, coordinate conversion,
+four-space maps, and the eigenbasis/ODE routes and paired figures. Labels,
+panel placement, captions, accessible descriptions and presenter notes agree
+with the reversed arrows. The author workflow records the convention.
+Conventional function signatures, basis-image definitions, row operations,
+solver procedures, chronological workflows and convergence arrows retain
+their usual directions.
+
+Validation: all twelve decks render successfully. The assembled site's 24
+primary outputs have 1,844 local references and 851 fragments, with no broken
+targets. Browser review verifies the revised composition, inverse, PLU,
+determinant, coordinate, four-space and solution-function diagrams at
+1600×1000; the ODE route and numerical commuting square also fit at
+1280×800. No console, MathJax or image-loading errors were found. SVG XML,
+geometry preservation and whitespace checks pass. These revisions are included
+in the November 17 checkpoint; remote deployment remains unverified.
+
+## November 17, 2026 — eigenbasis coordinates and solution spaces
+
+Audited all of Deck 09, including worked examples, exercise answers,
+multiplicities, complex pairs, matrix functions, population dynamics and the
+real symmetric spectral theorem. No arithmetic or theorem correction was
+needed. The exponential slide did need a visible distinction between the
+general matrix-exponential solution and the eigenbasis formula that requires
+diagonalizability; this condition is now explicit. Taylor-series examples
+have their own continuation slide to keep the exponential slide readable.
+
+Added labeled coordinate-to-vector and initial-data-to-function boxes, with
+the map on each connecting arrow, and an explicit derivation of the
+decoupled differential system. The full solution product includes its initial
+vector and is paired with the change/evolve/reconstruct coordinate route;
+notes distinguish the evolution matrix from a solution vector.
+The paired initial-vector and solution-function
+boxes display the same coordinate column. Paired phase
+portraits depict one trajectory in the eigenbasis and original coordinates,
+with matched time markers and a reproducible figure generator. The
+initial-data map now distinguishes a whole solution function from its value
+at one time. Corresponding initial-vector and solution-function bases share
+the same fixed coefficients, while current-state coordinates evolve.
+Differentiation on the finite-dimensional solution space provides an
+optional conceptual extension. The earlier undamped spring returns as a
+first-order system, reproducing the previous complex coefficient change and
+the real circular flow. Presenter notes distinguish the critically damped
+case, where the solution map still exists without an eigenbasis.
+
+The coordinate-box diagram is followed by a worked oblique-eigenbasis
+example, with a four-box comparison of the two routes through the action,
+and a matching starred exercise. The exercise distinguishes the input
+vector from its eigenbasis coordinate column and checks the reconstructed
+output against direct multiplication; complete answers are in presenter notes.
+
+The optional generalized-eigenvector definition now uses the algebraic
+multiplicity as a sufficient common kernel power, includes ordinary
+eigenvectors, and distinguishes a vector's potentially smaller minimal
+power. Its new third slide states the full generalized-basis theorem, with
+the real-matrix/real-roots condition for a real basis and the complex
+alternative. Generalized eigenspace is included in the terminology index.
+
+Use $\mathbb{K}$ for a generic scalar field, explicitly defined as $\reals$
+or $\mathbb{C}$ for the solution map. The same generic-field notation is
+used in Bases and Coordinates and recorded in the author workflow;
+the specific finite field $\mathbb{F}_2$ retains its notation.
+The eigenvalue-characterization
+equation explicitly includes nonzero membership in the shifted null space,
+with the nonzero-vector assumption stated before its equivalences.
+
+Reduced Eigenvector Bases and Diagonalization from ten main outline entries
+to five. The worked example, coordinate diagram and distinct-eigenvalue
+result are continuations of the eigenbasis heading; multiplicities continue
+the repeated-root heading; practice continues the recipe. All slide breaks,
+content and named anchors are preserved.
+Powers and Dynamics is also reduced to five main entries: powers, functions,
+the exponential/differential system, the initial-data solution map, and
+discrete/continuous comparison. Examples and supporting results are
+continuations under those umbrellas; the population-example anchor is retained.
+
+Updated the section outlines, Big Ideas, and Deck 00's alphabetical index.
+The current lecture pickup and coverage ledger are unchanged: these are
+prepared additions, not evidence of classroom coverage.
+
+Validation: the original 20 exact symbolic checks pass in `qmcpy`, including
+diagonalization, the exponential differential equation and initial data,
+derivative intertwining, oscillator eigenpairs, complex coefficients, and
+the real rotation formula. An additional 36 exact checks validate the new
+coordinate example/exercise and generalized-kernel dimensions, inclusion,
+exponent sufficiency and full bases for defective and semisimple examples.
+The root website and all twelve decks rendered earlier in this audit;
+modified Decks 00, 07 and 09 were rendered again after their final additions.
+Deck 09 now has 61 slides.
+Across 24 primary assembled outputs, all 1,904 local references and 851
+fragments resolve. Previous/next metadata passes for all twelve decks.
+Browser inspection at 1600×1000 and 1280×800 verifies the new figure's footer
+clearance; the other new/revised slides, outlines and index continuations
+pass visible review. The eigenfunction index link, solution-map section
+link and neighboring-deck navigation reach their intended destinations.
+The final assembled preview has no console warnings/errors or MathJax
+errors. The boxed diagrams, added null-space equivalence and reduced section
+outline also pass focused rendering and visible review. Visible-source
+bold/punctuation checks and `git diff --check` pass.
+The new worked square, exercise, generalized definition and full-basis
+statement, dynamics outline, comparison slide and terminology entry pass
+visible review. The dense new example and definition also fit at 1280×800.
+Blackboard-bold field notation in Decks 07/09 and the full ODE solution
+product also pass visible review; the solution product fits at both review sizes.
+These additions are included in the November 17 checkpoint; instructor content
+review remains open.
+
 ## November 12, 2026 — queued slide navigation and Taylor-series connection
 
 The shared navigation helper now reads the current hash rather than replaying

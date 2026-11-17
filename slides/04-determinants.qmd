@@ -460,8 +460,9 @@ The determinant summarizes a conclusion that elimination already reveals
 First $\mat{A}$ acts, then $\mat{B}$ acts:
 
 $$
-\vct{x}\longmapsto\mat{A}\vct{x}
-\longmapsto\mat{B}\mat{A}\vct{x}
+\mat{B}\mat{A}\vct{x}
+\xleftarrow{\mat{B}}\mat{A}\vct{x}
+\xleftarrow{\mat{A}}\vct{x}
 $$
 
 Their signed scale factors multiply:

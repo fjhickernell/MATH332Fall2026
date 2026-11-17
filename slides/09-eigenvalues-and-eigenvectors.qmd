@@ -19,6 +19,7 @@ format:
       - _partials/prayer-service/title-slide.html
     css:
       - _partials/prayer-service/prayer-service.css
+      - 09-eigenvalues-and-eigenvectors.css
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
   <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 5</span><br>
@@ -64,7 +65,7 @@ Choose directions that turn a matrix action into separate scalar actions
 &nbsp;
 
 $\mat{A}\mat{V}=\mat{V}\mat{D},\qquad
-\vct{x}=\mat{V}\vct{c}\longmapsto\mat{A}\vct{x}=\mat{V}\mat{D}\vct{c}$
+\mat{A}\vct{x}=\mat{V}\mat{D}\vct{c}\xleftarrow{\mat{A}}\vct{x}=\mat{V}\vct{c}$
 :::
 
 - [Preserved Directions](#preserved-directions)
@@ -195,11 +196,12 @@ Turn the preserved-direction question into a homogeneous system
 
 ## A nonzero null vector identifies an eigenvalue {#a-nonzero-null-vector-identifies-an-eigenvalue}
 
-For $\mat{A}\in\reals^{n\times n}$:
+For $\mat{A}\in\reals^{n\times n}$ and $\vct{v}\ne\vct{0}$:
 
 $$
 \mat{A}\vct{v}=\lambda\vct{v}
 \iff(\mat{A}-\lambda\mat{I}_n)\vct{v}=\vct{0}
+\iff\vct{0}\ne\vct{v}\in\nullspace(\mat{A}-\lambda\mat{I}_n)
 $$
 
 A nonzero solution exists exactly when the shifted matrix is singular:
@@ -415,12 +417,8 @@ The companion demonstrates eigh, residual checks and orthonormality.
 When do preserved directions provide enough coordinates for every vector?
 
 - [An eigenvector basis makes the matrix diagonal](#an-eigenvector-basis-makes-the-matrix-diagonal)
-- [Example: diagonalize and read the coordinates](#diagonalize-and-read-the-coordinates)
-- [Distinct eigenvalues supply independent eigenvectors](#distinct-eigenvalues-supply-independent-eigenvectors)
 - [Repeated roots may leave too few directions](#repeated-roots-may-leave-too-few-directions)
-- [Count eigenspace dimensions before building a basis](#count-eigenspace-dimensions-before-building-a-basis)
 - [A diagonalization recipe](#a-diagonalization-recipe)
-- [Practice deciding whether diagonalization is possible](#practice-deciding-whether-diagonalization-is-possible)
 - [Optional: generalized eigenvectors](#optional-generalized-eigenvectors)
 - [Similarity changes coordinates, not the operator](#similarity-changes-coordinates-not-the-operator)
 
@@ -460,7 +458,9 @@ by a nonzero constant gives another valid V with the same D. A matrix with
 an eigenvalue zero may still be diagonalizable; V, not D, must be invertible.
 :::
 
-## Example: diagonalize and read the coordinates {#diagonalize-and-read-the-coordinates}
+---
+
+### Example: diagonalize and read the coordinates {#diagonalize-and-read-the-coordinates}
 
 For $\mat{A}=\begin{bmatrix}2&1\\1&2\end{bmatrix}$, choose
 
@@ -473,12 +473,12 @@ $$
 For $\vct{x}=[4,2]^\top$:
 
 $$
+\mat{A}\vct{x}=\begin{bmatrix}10\\8\end{bmatrix}
+\quad\xleftarrow{\mat{V}}\quad
+\begin{bmatrix}9\\1\end{bmatrix}
+\quad\xleftarrow{\mat{D}}\quad
 \underbrace{\mat{V}^{-1}\vct{x}}_{\text{eigenbasis coordinates}}
 =\begin{bmatrix}3\\1\end{bmatrix}
-\quad\xrightarrow{\mat{D}}\quad
-\begin{bmatrix}9\\1\end{bmatrix}
-\quad\xrightarrow{\mat{V}}\quad
-\mat{A}\vct{x}=\begin{bmatrix}10\\8\end{bmatrix}
 $$
 
 ::: {.key-point}
@@ -492,7 +492,148 @@ coordinates to standard coordinates; V^{-1} goes the reverse way.
 This is the same coordinate route taught in Bases and Coordinates.
 :::
 
-## Distinct eigenvalues supply independent eigenvectors {#distinct-eigenvalues-supply-independent-eigenvectors}
+---
+
+### Diagonalization is a change of coordinates {#diagonalization-is-a-change-of-coordinates}
+
+For the eigenbasis $\mathcal{V}=\{\vct{v}_1,\ldots,\vct{v}_n\}$,
+$\vct{c}=[\vct{x}]_{\mathcal{V}}=\mat{V}^{-1}\vct{x}$
+
+::: {.eigen-map role="group" aria-label="Read from right to left: the basis matrix V maps the eigenbasis coordinate column c in the right box to the vector x in the left box. Its inverse reads those coordinates."}
+<div class="diagram-node eigen-map-input">
+<span class="diagram-label">Eigenbasis coordinates</span>
+<span class="eigen-map-line">$\vct{c}=\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix}$</span>
+</div>
+<div class="diagram-arrow eigen-map-arrow">$\xleftarrow{\quad\mat{V}\quad}$</div>
+<div class="diagram-node eigen-map-output">
+<span class="diagram-label">Vector</span>
+<span class="eigen-map-line">$\displaystyle\vct{x}=\sum_{j=1}^n c_j\vct{v}_j$</span>
+<span class="eigen-map-line">$\vct{x}=\mat{V}\vct{c}$</span>
+</div>
+:::
+
+Applying the operator in either description gives the same output:
+
+$$
+\mat{A}\vct{x}=\mat{A}(\mat{V}\vct{c})=\mat{V}(\mat{D}\vct{c}),
+\qquad\mat{A}\mat{V}=\mat{V}\mat{D}
+$$
+
+$\mat{V}^{-1}$ reads the coordinates; $\mat{D}$ scales them separately
+
+::: {.key-point}
+The operator is unchanged; the new coordinates separate its scalar actions
+:::
+
+::: {.notes}
+Recall the coordinate-to-vector boxes from Bases and Coordinates. The right
+box contains the eigenbasis coordinate column; the left box contains the
+vector described in standard coordinates. The scalar field is real or
+complex, as specified for the chosen eigenbasis. AV=VD says that building
+the vector then applying A agrees with applying D to its coordinates then
+building the output vector.
+The basis may be oblique or scaled; V need not preserve lengths or angles.
+For the preceding example, c=[3,1]^T and Dc=[9,1]^T; V sends these to
+x=[4,2]^T and Ax=[10,8]^T. Later replace the single action D by e^(tD):
+the same coordinate change will separate an entire differential system.
+:::
+
+---
+
+### Example: two descriptions of one action {#two-descriptions-of-one-action}
+
+Use an eigenbasis whose vectors are not perpendicular:
+
+$$
+\mat{B}=\begin{bmatrix}4&1\\0&2\end{bmatrix},\qquad
+\mat{V}=\begin{bmatrix}1&1\\0&-2\end{bmatrix},\qquad
+\mat{D}=\begin{bmatrix}4&0\\0&2\end{bmatrix}
+$$
+
+$\mat{B}\mat{V}=\mat{V}\mat{D}$; start with $\vct{x}=[3,-2]^\top$
+
+::: {.eigen-map .eigen-map-square role="group" aria-label="A commuting square with eigenbasis coordinate columns on the right and corresponding vectors on the left. Read horizontal arrows right to left: V maps c=(2,1) to x=(3,-2). Downward D on the right maps c to (8,2), while downward B on the left maps x to (10,-4). V also maps the lower coordinate column to the lower vector."}
+<div class="diagram-node eigen-map-input">
+<span class="diagram-label">Eigenbasis coordinates</span>
+<span class="eigen-map-line">$\vct{c}=\mat{V}^{-1}\vct{x}=\begin{bmatrix}2\\1\end{bmatrix}$</span>
+</div>
+<div class="diagram-arrow eigen-map-arrow">$\xleftarrow{\quad\mat{V}\quad}$</div>
+<div class="diagram-node eigen-map-output">
+<span class="diagram-label">Vector</span>
+<span class="eigen-map-line">$\vct{x}=\mat{V}\vct{c}=\begin{bmatrix}3\\-2\end{bmatrix}$</span>
+</div>
+<div class="diagram-arrow eigen-map-coordinate-action">$\mat{D}\big\downarrow$</div>
+<div class="diagram-arrow eigen-map-vector-action">$\mat{B}\big\downarrow$</div>
+<div class="diagram-node eigen-map-lower-input">
+<span class="diagram-label">Coordinates after the action</span>
+<span class="eigen-map-line">$\mat{D}\vct{c}=\begin{bmatrix}8\\2\end{bmatrix}$</span>
+</div>
+<div class="diagram-arrow eigen-map-lower-arrow">$\xleftarrow{\quad\mat{V}\quad}$</div>
+<div class="diagram-node eigen-map-lower-output">
+<span class="diagram-label">Output vector</span>
+<span class="eigen-map-line">$\mat{B}\vct{x}=\mat{V}\mat{D}\vct{c}=\begin{bmatrix}10\\-4\end{bmatrix}$</span>
+</div>
+:::
+
+::: {.key-point}
+Across then down equals down then across: $\mat{B}(\mat{V}\vct{c})=\mat{V}(\mat{D}\vct{c})$
+:::
+
+::: {.notes}
+The eigenbasis is v1=[1,0]^T for lambda1=4 and v2=[1,-2]^T for lambda2=2.
+These are the eigenvectors found in the earlier triangular-matrix exercise.
+They are independent but not perpendicular. Direct multiplication gives
+BV=VD=[[4,2],[0,-4]]. Solve Vc=x: -2c2=-2 gives c2=1, then
+c1+c2=3 gives c1=2. Equivalently V^{-1}=[[1,1/2],[0,-1/2]].
+The upper coordinate column builds x=2v1+v2=[3,-2]^T. D multiplies
+the two coefficients by 4 and 2, producing 8v1+2v2=[10,-4]^T.
+Directly Bx=[4*3-2,2*(-2)]^T=[10,-4]^T. The vertical arrows apply the
+same operator in the two coordinate systems; horizontal V changes the
+description. This is not an orthogonal coordinate change: V need not preserve
+Euclidean lengths or angles. Keep x distinct from its eigenbasis column c.
+:::
+
+---
+
+### Practice changing to eigenbasis coordinates {#practice-changing-to-eigenbasis-coordinates}
+
+Use the same $\mat{B},\mat{V},\mat{D}$, now with $\vct{x}=[1,2]^\top$
+
+::: {.eigen-map role="group" aria-label="Find the unknown eigenbasis coordinates c1 and c2 in the right box. Read the map V from right to left: it sends their column to x=(1,2) in the left box."}
+<div class="diagram-node eigen-map-input">
+<span class="diagram-label">Find these coordinates</span>
+<span class="eigen-map-line">$\vct{c}=[\vct{x}]_{\mathcal{V}}=\begin{bmatrix}c_1\\c_2\end{bmatrix}$</span>
+</div>
+<div class="diagram-arrow eigen-map-arrow">$\xleftarrow{\quad\mat{V}\quad}$</div>
+<div class="diagram-node eigen-map-output">
+<span class="diagram-label">Given vector</span>
+<span class="eigen-map-line">$\vct{x}=\begin{bmatrix}1\\2\end{bmatrix}$</span>
+</div>
+:::
+
+::: {.exitem .lettered}
+<span class="exbullet">$\exstar$</span>
+<span>Complete the coordinate route
+<span class="exsub">Find $\vct{c}$ and write $\vct{x}=c_1\vct{v}_1+c_2\vct{v}_2$</span>
+<span class="exsub">Compute $\mat{D}\vct{c}$ and $\mat{V}(\mat{D}\vct{c})$; check by computing $\mat{B}\vct{x}$ directly</span>
+<span class="exsub">Compute $\mat{D}\vct{x}$; does it equal $\mat{B}\vct{x}$? Which coordinate column should $\mat{D}$ act on?</span>
+</span>
+:::
+
+::: {.notes}
+Vc=x gives -2c2=2 and c1+c2=1, so c=[2,-1]^T.
+Thus x=2v1-v2. Dc=[8,-2]^T, and V(Dc)=8v1-2v2=[6,4]^T.
+Directly Bx=[4*1+2,2*2]^T=[6,4]^T. But Dx=[4,4]^T differs.
+Multiplying D by the standard-coordinate column x is a defined matrix
+product, but it does not represent B's action on that vector. D represents
+the operator on eigenbasis coordinates, so apply it to c=V^{-1}x and use V
+to reconstruct the output. The same matrices and eigenvalue-column order
+from the preceding example are used throughout this exercise.
+:::
+
+---
+
+### Distinct eigenvalues supply independent eigenvectors {#distinct-eigenvalues-supply-independent-eigenvectors}
 
 Eigenvectors belonging to distinct eigenvalues are linearly independent
 
@@ -555,7 +696,9 @@ $E_2=\operatorname{span}\{\vct{e}_1\}$: only one independent eigenvector
 Repeated roots permit diagonalization, but do not guarantee enough eigenvectors
 :::
 
-## Count eigenspace dimensions before building a basis {#count-eigenspace-dimensions-before-building-a-basis}
+---
+
+### Count eigenspace dimensions before building a basis {#count-eigenspace-dimensions-before-building-a-basis}
 
 For each eigenvalue $\lambda$:
 
@@ -611,7 +754,9 @@ If the characteristic polynomial does not split in the field, diagonalization th
 Verification by $\mat{A}\mat{V}=\mat{V}\mat{D}$ avoids computing an inverse
 :::
 
-## Practice deciding whether diagonalization is possible {#practice-deciding-whether-diagonalization-is-possible}
+---
+
+### Practice deciding whether diagonalization is possible {#practice-deciding-whether-diagonalization-is-possible}
 
 $$
 \mat{B}=\begin{bmatrix}4&1\\0&2\end{bmatrix},\qquad
@@ -665,14 +810,18 @@ these eigenspaces can increase their dimensions, so F is not diagonalizable.
 
 Optional enrichment; may be skipped
 
-For an eigenvalue $\lambda$, a [generalized eigenvector]{.alert} is a nonzero vector $\vct{w}$ satisfying
+Let $\lambda$ be a characteristic root of [algebraic multiplicity]{.alert} $k$
+
+Its [generalized eigenspace]{.alert} is
 
 $$
-(\mat{A}-\lambda\mat{I})^k\vct{w}=\vct{0}
-\qquad\text{for some integer }k\ge1
+G_\lambda=\nullspace\bigl((\mat{A}-\lambda\mat{I}_n)^k\bigr),\qquad
+E_\lambda=\nullspace(\mat{A}-\lambda\mat{I}_n)\subseteq G_\lambda
 $$
 
-The case $k=1$ gives an ordinary eigenvector
+A [generalized eigenvector]{.alert} is any nonzero vector in $G_\lambda$
+
+Ordinary eigenvectors are included; a new direction lies in $G_\lambda\setminus E_\lambda$
 
 A length-two [chain]{.alert} satisfies
 
@@ -688,14 +837,20 @@ The second direction feeds into the first instead of scaling independently
 :::
 
 ::: {.notes}
-This is optional enrichment, not a commitment to cover Jordan theory.
-The integer k need not be minimal in the definition. In the displayed
+This is optional enrichment, not a commitment to a Jordan algorithm.
+Here k is the algebraic multiplicity of this eigenvalue: it is a sufficient
+power for the whole generalized eigenspace, not necessarily the smallest
+power that kills a particular vector. The original definition using some
+positive integer power is equivalent to membership in this G_lambda.
+Ordinary eigenvectors satisfy every positive-power condition; taking a
+power greater than one alone does not exclude them. New generalized
+directions are the vectors in G_lambda outside E_lambda. In the displayed
 length-two chain, w is not an ordinary eigenvector because (A-lambda I)w
 is nonzero, but (A-lambda I)^2 w=0. The vectors v,w are independent:
 apply A-lambda I to av+bw=0 to obtain bv=0, hence b=0 and then a=0.
 Use G for this generalized basis, V for a basis of ordinary eigenvectors,
-and Q for an orthonormal eigenvector matrix. No general Jordan algorithm
-or existence theorem is required for the example.
+and Q for an orthonormal eigenvector matrix. The basis-existence statement
+below is a theorem; no general Jordan algorithm is required for the example.
 :::
 
 ---
@@ -736,6 +891,57 @@ eigenvector. A vector av+bw is sent to (2a+b)v+2bw. Thus the diagonal
 entries scale coefficients while the off-diagonal entry mixes them.
 The nonzero off-diagonal entry cannot be removed by choosing a different
 ordinary eigenvector basis, because the eigenspace has dimension one.
+:::
+
+---
+
+### Generalized eigenspaces supply a full basis {#generalized-eigenspaces-supply-a-full-basis}
+
+For $\mat{A}\in\reals^{n\times n}$, suppose all characteristic roots are real, with distinct roots
+$\lambda_1,\ldots,\lambda_s$ and algebraic multiplicities $k_1,\ldots,k_s$
+
+$$
+G_{\lambda_j}=\nullspace\bigl((\mat{A}-\lambda_j\mat{I}_n)^{k_j}\bigr),
+\qquad\dim G_{\lambda_j}=k_j,\qquad\sum_{j=1}^s k_j=n
+$$
+
+Choose a basis of each $G_{\lambda_j}$ and combine the lists
+
+The result is $n$ independent generalized eigenvectors $\vct{g}_1,\ldots,\vct{g}_n$:
+
+$$
+\boxed{\operatorname{span}\{\vct{g}_1,\ldots,\vct{g}_n\}=\reals^n}
+$$
+
+::: {.key-point}
+A generalized eigenvector basis gives coordinates even when an ordinary eigenvector basis is missing
+
+With nonreal roots, work over $\mathbb{C}$ instead: the span is $\mathbb{C}^n$
+:::
+
+::: {.notes}
+State the generalized-eigenspace decomposition as a theorem. When the
+characteristic polynomial splits over the scalar field, each generalized
+eigenspace has dimension equal to the corresponding algebraic multiplicity,
+and the generalized eigenspaces for distinct eigenvalues form a direct sum
+of the whole space. Hence their individual bases combine into a basis.
+Over C splitting always holds; over R the displayed real conclusion needs
+all roots real. An arbitrary independent subset does not necessarily span:
+we need n independent vectors in dimension n. Generalized eigenvectors
+include ordinary eigenvectors, so a complete list can contain both kinds.
+If the root has multiplicity one, its generalized eigenspace equals its
+ordinary eigenspace. A scalar matrix can have a repeated root with no new
+directions in higher kernels: its ordinary eigenspace already fills the
+corresponding generalized eigenspace. Thus a repeated root does not require
+a genuinely higher-order vector.
+For the preceding J, k=2, G_2=null((J-2I)^2)=R^2 and {v,w} is such a basis.
+For the earlier diag(J,3) example F, G_2=span{e1,e2} and G_3=span{e3}.
+Do not claim an arbitrary generalized basis gives canonical Jordan blocks;
+chain-adapted choices give that additional form. Coupling may remain, so this
+theorem does not assert diagonalizability or the ordinary eigenmode formula.
+
+Sources: [University of Lethbridge: generalized eigenvectors](https://opentext.uleth.ca/Math3410/sec-gen-eigen.html)
+and [Treil: advanced spectral theory](https://www.math.brown.edu/streil/papers/LADW/HTML_2026_08-31/Ch9.html).
 :::
 
 ## Similarity changes coordinates, not the operator {#similarity-changes-coordinates-not-the-operator}
@@ -917,10 +1123,8 @@ Powers and matrix functions become scalar actions in an eigenvector basis
 - [Powers act separately on eigenbasis coordinates](#powers-act-separately-on-eigenbasis-coordinates)
 - [Functions act separately on eigenbasis coordinates](#functions-act-separately-on-eigenbasis-coordinates)
 - [The matrix exponential solves a linear differential system](#the-matrix-exponential-solves-a-linear-differential-system)
-- [Example: two exponential modes](#example-two-exponential-modes)
-- [Example: a two-group population exchange](#a-two-group-population-exchange)
-- [Separate the equilibrium from the changing part](#separate-the-equilibrium-from-the-changing-part)
-- [Practice predicting discrete and continuous actions](#practice-predicting-repeated-actions)
+- [Initial data choose a whole solution](#initial-data-choose-a-whole-solution)
+- [Compare discrete steps and continuous time](#compare-discrete-steps-and-continuous-time)
 
 ## Powers act separately on eigenbasis coordinates {#powers-act-separately-on-eigenbasis-coordinates}
 
@@ -993,6 +1197,37 @@ For k=0, use the constant function f(z)=1, including at zero.
 The companion checks p(A)=A^2-2A for the running example.
 :::
 
+---
+
+### Taylor series give more matrix functions {#taylor-series-give-more-matrix-functions}
+
+For $\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}$, let the [Taylor series]{.alert}
+$f(z)=\sum_{k=0}^{\infty}a_kz^k$ converge at every eigenvalue
+
+\begin{equation*}
+f(\mat{A})=\sum_{k=0}^{\infty}a_k\mat{A}^k
+=\mat{V}\operatorname{diag}\bigl(f(\lambda_1),\ldots,f(\lambda_n)\bigr)\mat{V}^{-1}
+\end{equation*}
+
+For example,
+
+\begin{align*}
+\sin(\mat{A})&=\mat{A}-\frac{\mat{A}^3}{3!}+\frac{\mat{A}^5}{5!}-\cdots\\
+\cos(\mat{A})&=\mat{I}-\frac{\mat{A}^2}{2!}+\frac{\mat{A}^4}{4!}-\cdots
+\end{align*}
+
+::: {.key-point}
+The same series coefficients; matrix powers replace scalar powers
+:::
+
+::: {.notes}
+For a diagonalizable matrix, convergence at every eigenvalue gives convergence
+of the matrix series. For a Taylor series centered at a, replace scalar powers
+(z-a)^k by (A-aI)^k. The sine and cosine series converge for every square
+matrix, even without diagonalizability. These are matrix series, not
+entrywise sine and cosine. The exponential is the next example.
+:::
+
 ## The matrix exponential solves a linear differential system {#the-matrix-exponential-solves-a-linear-differential-system}
 
 For any square matrix, define the [matrix exponential]{.alert}
@@ -1002,45 +1237,99 @@ e^{t\mat{A}}=\sum_{k=0}^{\infty}\frac{t^k\mat{A}^k}{k!}
 =\mat{I}+t\mat{A}+\frac{t^2}{2}\mat{A}^2+\cdots
 \end{equation*}
 
-For a [Taylor series]{.alert} $f(z)=\sum_{k=0}^{\infty}a_kz^k$ converging at every eigenvalue, with $\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}$:
+For a constant matrix, the [linear differential system]({{< meta decks.d06.file >}}#homogeneous-linear-des-give-vector-spaces)
+has the unique solution
 
 \begin{equation*}
-f(\mat{A})=\sum_{k=0}^{\infty}a_k\mat{A}^k
-=\mat{V}\operatorname{diag}\bigl(f(\lambda_1),\ldots,f(\lambda_n)\bigr)\mat{V}^{-1}
+\vct{x}'=\mat{A}\vct{x},\quad\vct{x}(0)=\vct{x}_0
+\qquad\implies\qquad
+\vct{x}(t)=e^{t\mat{A}}\vct{x}_0
 \end{equation*}
 
-Other examples: $\sin(\mat{A})$ and $\cos(\mat{A})$
-
-For the [linear differential system]({{< meta decks.d06.file >}}#homogeneous-linear-des-give-vector-spaces) $\vct{x}'=\mat{A}\vct{x}$, $\vct{x}(0)=\vct{x}_0$:
+If $\mat{A}$ has an [eigenvector basis]{.alert},
 
 \begin{equation*}
-\vct{x}(t)=e^{t\mat{A}}\vct{x}_0
-=\sum_{j=1}^n c_j e^{t\lambda_j}\vct{v}_j,
-\qquad \vct{x}_0=\sum_{j=1}^n c_j\vct{v}_j
+e^{t\mat{A}}=\mat{V}e^{t\mat{D}}\mat{V}^{-1},\qquad
+e^{t\mat{D}}=\operatorname{diag}(e^{t\lambda_1},\ldots,e^{t\lambda_n})
 \end{equation*}
 
 ::: {.key-point}
-Discrete steps use $\lambda_j^k$; continuous time uses $e^{t\lambda_j}$
+The matrix exponential works for every square matrix; the diagonal formula needs an eigenbasis
 :::
 
 ::: {.notes}
 A is constant and t is real. The series converges for every finite square A
 and every finite t. Termwise differentiation gives E'(t)=A E(t) and E(0)=I,
 so E(t)x0 solves the initial-value problem, even if A is not diagonalizable.
-Only the eigenbasis formulas require diagonalizability. The coefficients c_j
-are the initial coordinates V^{-1}x0, and each scalar coordinate evolves by
-z_j'(t)=lambda_j z_j(t), z_j(0)=c_j. Real parts of eigenvalues determine
+Uniqueness follows, for example, by differentiating e^(-tA)x(t): the product
+is constant and equals x0. The derivative identity uses that A commutes
+with its exponential. Only the eigenbasis formulas require diagonalizability.
+Real parts of eigenvalues determine
 exponential growth/decay for complex modes; no general stability theory is
 required here. The identity at t=0 is I, not a matrix of entrywise exponentials.
-For a Taylor series centered at a, replace scalar powers (z-a)^k by
-(A-aI)^k and use the same coefficients. Respect its convergence domain;
-for a diagonalizable matrix it suffices that the scalar series converge
-at every eigenvalue. The exponential, sine and cosine series converge for
-every square matrix. For example, sin(A)=A-A^3/3!+A^5/5!-... and
-cos(A)=I-A^2/2!+A^4/4!-... . This is a matrix series, not entrywise evaluation.
+Unlike A itself, e^(tA) is always invertible, with inverse e^(-tA).
+A zero eigenvalue gives a constant ODE mode, not a collapsed solution:
+e^(t*0)=1. In discrete steps lambda=1 is fixed; in continuous time lambda=0
+is an equilibrium direction. Avoid interchanging multipliers and rates.
 :::
 
-## Example: two exponential modes {#example-two-exponential-modes}
+---
+
+### Eigenbasis coordinates decouple a differential system {#eigenbasis-coordinates-decouple-a-differential-system}
+
+Let $\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}$ and write
+$\vct{x}(t)=\mat{V}\vct{c}(t)$
+
+The basis matrix is constant, so
+
+\begin{equation*}
+\vct{x}'=\mat{A}\vct{x}
+\iff\mat{V}\vct{c}'=\mat{A}\mat{V}\vct{c}=\mat{V}\mat{D}\vct{c}
+\iff\boxed{\vct{c}'=\mat{D}\vct{c}}
+\end{equation*}
+
+Each coordinate solves its own scalar equation:
+
+\begin{equation*}
+c_j'(t)=\lambda_jc_j(t)
+\quad\implies\quad
+c_j(t)=e^{\lambda_jt}c_j(0)
+\end{equation*}
+
+\begin{equation*}
+\boxed{\vct{x}(t)=\mat{V}e^{t\mat{D}}\mat{V}^{-1}\vct{x}_0}
+\end{equation*}
+
+\begin{equation*}
+\vct{x}(t)
+\xleftarrow{\ \mat{V}\ }
+\vct{c}(t)
+\xleftarrow{\ e^{t\mat{D}}\ }
+\underbrace{\vct{c}_0}_{\text{initial coordinates}}
+\xleftarrow{\ \mat{V}^{-1}\ }
+\underbrace{\vct{x}_0}_{\text{initial state}}
+\end{equation*}
+
+::: {.key-point}
+Read right to left: change to the eigenbasis, evolve each coordinate, then reconstruct
+:::
+
+::: {.notes}
+Both the state and its velocity use the same constant basis. A time-dependent
+basis would contribute a V'(t)c(t) term and is not under discussion here.
+Define c0=c(0)=V^{-1}x0. The evolving c_j(t) is not a constant; its initial
+value c_j(0) is the fixed coefficient of the solution mode. For a complex
+eigenbasis of a real matrix, conjugate modes reconstruct real solutions.
+Read both the boxed product and the arrow line from right to left:
+V^{-1}x0 gives the initial
+eigenbasis coordinates, e^(tD) evolves them, and V reconstructs the current
+state. The factor x0 is essential for a solution vector. Without x0,
+V e^(tD) V^{-1}=e^(tA) is the evolution matrix, not the state vector.
+:::
+
+---
+
+### Example: two exponential modes {#example-two-exponential-modes}
 
 Return to $\mat{A}=\begin{bmatrix}2&1\\1&2\end{bmatrix}$ and $\vct{x}(0)=\begin{bmatrix}1\\0\end{bmatrix}$
 
@@ -1075,7 +1364,261 @@ Both modes grow for increasing t; the rate-3 mode dominates this initial
 condition. Do not infer every solution contains that mode.
 :::
 
-## Example: a two-group population exchange {#a-two-group-population-exchange}
+---
+
+### One trajectory in two coordinate systems {#one-trajectory-in-two-coordinate-systems}
+
+Use the earlier initial vector $\vct{x}_0=[4,2]^\top$, so
+$\vct{c}_0=\mat{V}^{-1}\vct{x}_0=[3,1]^\top$
+
+![](assets/eigenvalues/eigenbasis-flow.svg){fig-alt="The same differential-system trajectory in original coordinates on the left and eigenbasis coordinates on the right. Read the coordinate change right to left: the initial point (3,1) in the c plane maps through V to (4,2) in the x plane. Matching dots mark the same four times; coordinate axes in the c plane correspond to diagonal eigendirections in the x plane." width="82%" .nostretch .diagram-image}
+
+\begin{equation*}
+\vct{x}(t)=\begin{bmatrix}3e^{3t}+e^t\\3e^{3t}-e^t\end{bmatrix}
+\quad\xleftarrow{\quad\mat{V}\quad}\quad
+\vct{c}(t)=\begin{bmatrix}3e^{3t}\\e^t\end{bmatrix}
+\end{equation*}
+
+::: {.key-point}
+Same motion, different coordinates
+:::
+
+::: {.notes}
+This uses the diagonalization example's x0=[4,2]^T, not the preceding
+example's x0=e1. Both use the same A,V,D. Equal-time markers correspond
+under V; time itself is unchanged. The plot shows states in a plane, not
+individual component values plotted against time. The direction field is
+velocity, so diagonal D means c1'=3c1 and c2'=c2, not straight mixed-mode
+trajectories. Pure modes stay on invariant lines; a combination need not.
+V is sqrt(2) times an orthogonal matrix in this particular example; a general
+eigenbasis can be oblique. The plotting script verifies x=Vc and x'=Ax.
+:::
+
+## Initial data choose a whole solution {#initial-data-choose-a-whole-solution}
+
+Use $\mathbb{K}=\reals$ or $\mathbb{K}=\mathbb{C}$; $\mathbb{K}^n$ means columns of $n$ real or complex numbers
+
+For a constant $\mat{A}\in\mathbb{K}^{n\times n}$, let
+
+\begin{equation*}
+S_{\mat{A}}=\{\vct{x}:\reals\to\mathbb{K}^n:\vct{x}'=\mat{A}\vct{x}\}
+\end{equation*}
+
+The [solution map]{.alert} $T_{\mat{A}}:\mathbb{K}^n\to S_{\mat{A}}$ builds the whole function
+
+::: {.eigen-map role="group" aria-label="Read right to left: the solution map T sub A maps the initial state column in the right box to the whole solution function in the left box, whose value at time t is exp(tA) times that initial state."}
+<div class="diagram-node eigen-map-input">
+<span class="diagram-label">Initial state in $\mathbb{K}^n$</span>
+<span class="eigen-map-line">$\vct{x}_0=\begin{bmatrix}x_1(0)\\\vdots\\x_n(0)\end{bmatrix}$</span>
+</div>
+<div class="diagram-arrow eigen-map-arrow">$\xleftarrow{\quad T_{\mat{A}}\quad}$</div>
+<div class="diagram-node eigen-map-output">
+<span class="diagram-label">Whole solution in $S_{\mat{A}}$</span>
+<span class="eigen-map-line">$\vct{x}(\cdot):t\longmapsto e^{t\mat{A}}\vct{x}_0$</span>
+</div>
+:::
+
+Evaluation at one time: $\operatorname{ev}_t\circ T_{\mat{A}}=e^{t\mat{A}}$
+
+::: {.key-point}
+$T_{\mat{A}}$ is a linear isomorphism, with inverse $\vct{x}\mapsto\vct{x}(0)$
+
+$\dim S_{\mat{A}}=n$, even when $\mat{A}$ is not diagonalizable
+:::
+
+::: {.notes}
+S_A consists of continuously differentiable functions on all real t; the
+constant-coefficient equation makes them smooth. Addition and scalar
+multiplication are pointwise. Closure follows by differentiating linear
+combinations. T_A is linear because e^(tA) is linear at every t. Existence
+and uniqueness give a bijection: every initial vector gives exactly one
+solution, and evaluating that solution at zero returns the vector.
+T_A is a map into a function space, not the numerical matrix e^(tA) for one
+chosen t. This generalizes the earlier initial-data-to-spring-solution map
+in Bases and Coordinates. The zero vector of S_A is the zero function.
+Blackboard-bold K denotes specifically R or C in this differential-equation
+context; its nth power is the space of n-component columns. Choose one
+scalar field consistently for both boxes.
+:::
+
+---
+
+### An eigenbasis becomes a basis of solution functions {#an-eigenbasis-becomes-a-basis-of-solution-functions}
+
+If $\mathcal{V}=\{\vct{v}_1,\ldots,\vct{v}_n\}$ is an eigenvector basis,
+define the [solution modes]{.alert}
+
+\begin{equation*}
+\vct{\phi}_j=T_{\mat{A}}(\vct{v}_j),\qquad
+\vct{\phi}_j(t)=e^{\lambda_jt}\vct{v}_j
+\end{equation*}
+
+The isomorphism carries a basis to a basis:
+$\mathcal{F}=\{\vct{\phi}_1,\ldots,\vct{\phi}_n\}$ of $S_{\mat{A}}$
+
+::: {.eigen-map role="group" aria-label="Read right to left: the solution map T sub A takes the initial vector in the right box to the whole function in the left box. Both boxes contain the same coordinate column c zero, in the eigenvector and solution-mode bases respectively."}
+<div class="diagram-node eigen-map-input">
+<span class="diagram-label">Initial vector</span>
+<span class="eigen-map-line">$\displaystyle\vct{x}_0=\sum_{j=1}^n c_j(0)\vct{v}_j$</span>
+<span class="eigen-map-line">$[\vct{x}_0]_{\mathcal{V}}=\begin{bmatrix}c_1(0)\\\vdots\\c_n(0)\end{bmatrix}$</span>
+</div>
+<div class="diagram-arrow eigen-map-arrow">$\xleftarrow{\quad T_{\mat{A}}\quad}$</div>
+<div class="diagram-node eigen-map-output">
+<span class="diagram-label">Whole solution function</span>
+<span class="eigen-map-line">$\displaystyle\vct{x}(\cdot)=\sum_{j=1}^n c_j(0)\vct{\phi}_j$</span>
+<span class="eigen-map-line">$[\vct{x}(\cdot)]_{\mathcal{F}}=\begin{bmatrix}c_1(0)\\\vdots\\c_n(0)\end{bmatrix}$</span>
+</div>
+:::
+
+::: {.key-point}
+The same coordinate column in both boxes: $[\vct{x}(\cdot)]_{\mathcal{F}}=[\vct{x}_0]_{\mathcal{V}}=\vct{c}_0$
+:::
+
+::: {.notes}
+Independence can be seen without a new theorem: evaluate a zero combination
+of phi_j at zero to obtain the same zero combination of v_j, forcing all
+coefficients to vanish. Spanning follows by expanding any initial vector
+in V and applying T_A. This remains valid for repeated eigenvalues if there
+is a complete eigenbasis. The basis vectors of S_A are whole vector-valued
+functions, not their values at one t. The coordinates of that whole function
+are constant c_j(0); the coordinates of its current state are c_j(t).
+For x0=[4,2]^T, the whole solution is 3 phi1+phi2, whereas its state at time
+t has eigenbasis coordinates [3e^(3t),e^t]^T. This distinction is central.
+:::
+
+---
+
+### Differentiation has the same eigenvalues on the solution space {#differentiation-has-the-same-eigenvalues-on-the-solution-space}
+
+On $S_{\mat{A}}$, differentiation is a linear operator
+$\mathcal{L}:\vct{x}\mapsto\vct{x}'$
+
+Each solution mode is an [eigenfunction]{.alert} of differentiation:
+
+\begin{equation*}
+\mathcal{L}\vct{\phi}_j
+=\vct{\phi}_j'
+=\lambda_j\vct{\phi}_j
+\end{equation*}
+
+The solution map connects the two actions:
+
+\begin{equation*}
+\boxed{\mathcal{L}\circ T_{\mat{A}}=T_{\mat{A}}\circ\mat{A}}
+\qquad
+[\mathcal{L}]_{\mathcal{F}\leftarrow\mathcal{F}}=\mat{D}
+\end{equation*}
+
+::: {.key-point}
+In state space: eigenvectors of a matrix
+
+In solution space: eigenvectors are exponential solution functions
+:::
+
+::: {.notes}
+This is a conceptual extension connecting abstract linear operators and
+eigenvectors; it may be skipped on a first pass. Because A is constant,
+if x'=Ax, then (x')'=A x', so differentiation maps S_A into itself.
+For any u, (T_A u)'(t)=A e^(tA)u=e^(tA)Au=(T_A(Au))(t).
+Thus L=T_A A T_A^{-1}, a similarity of operators on different spaces.
+The matrix D represents A in the eigenbasis V and differentiation in the
+function basis F. Applying A to initial data is distinct from advancing
+time; time advancement is e^(tA). No spectrum of an infinite-dimensional
+function space is needed: S_A has dimension n.
+:::
+
+---
+
+### The earlier spring uses the same coordinate change {#the-earlier-spring-uses-the-same-coordinate-change}
+
+Recall [$y''+y=0$ in {{< meta decks.d07.short_title >}}]({{< meta decks.d07.file >}}#initial-data-map-linearly-to-a-solution-function)
+with $y(0)=a$, $y'(0)=b$
+
+\begin{equation*}
+\vct{x}=\begin{bmatrix}y\\y'\end{bmatrix}
+\quad\implies\quad
+\vct{x}'=\underbrace{\begin{bmatrix}0&1\\-1&0\end{bmatrix}}_{\mat{H}}\vct{x},
+\qquad\vct{x}_0=\begin{bmatrix}a\\b\end{bmatrix}
+\end{equation*}
+
+Over $\mathbb{C}$, choose an eigenbasis:
+
+\begin{equation*}
+\mat{V}=\begin{bmatrix}1&1\\i&-i\end{bmatrix},\qquad
+\mat{D}=\begin{bmatrix}i&0\\0&-i\end{bmatrix},\qquad
+\vct{c}_0=\mat{V}^{-1}\vct{x}_0
+=\frac12\begin{bmatrix}a-ib\\a+ib\end{bmatrix}
+\end{equation*}
+
+The first component of $\vct{x}(t)=\mat{V}e^{t\mat{D}}\vct{c}_0$ is
+
+\begin{equation*}
+y(t)=\frac{a-ib}{2}e^{it}+\frac{a+ib}{2}e^{-it}
+=a\cos(t)+b\sin(t)
+\end{equation*}
+
+::: {.key-point}
+The earlier change to exponential-function coordinates comes from an eigenbasis of the first-order system
+:::
+
+::: {.notes}
+H has eigenvalue i with vector [1,i]^T and eigenvalue -i with vector
+[1,-i]^T. H is the negative of the earlier quarter-turn matrix R; its real
+flow is clockwise in the (y,y') plane. Use the given signs, not those of R.
+The inverse V^{-1}=(1/2)[[1,-i],[1,i]] is exactly the earlier transition
+Q_(E<-B) from cos,sin coordinates to exp(it),exp(-it) coordinates.
+For real a,b, the coefficients and vector modes are conjugate pairs; their
+sum is real. The scalar spring solution and vector state solution determine
+each other by y -> (y,y'), so both solution spaces have dimension two.
+There is no real eigenbasis; complex coordinates are necessary for scalar
+decoupling, whereas a real rotation formula still describes the motion.
+For the earlier critically damped spring, the state matrix [[0,1],[-1,-2]]
+has a repeated eigenvalue -1 but only one eigendirection. Its solution map
+is still an isomorphism; the t exp(-t) term is a reminder that not every
+solution basis consists of ordinary eigenmodes. Do not imply otherwise.
+:::
+
+---
+
+### Real coordinates show the same oscillation {#real-coordinates-show-the-same-oscillation}
+
+Take real initial data $a,b\in\reals$
+
+For $\mat{H}=\begin{bmatrix}0&1\\-1&0\end{bmatrix}$, $\mat{H}^2=-\mat{I}$,
+so the exponential series gives
+
+\begin{equation*}
+e^{t\mat{H}}=\cos(t)\mat{I}+\sin(t)\mat{H}
+=\begin{bmatrix}\cos(t)&\sin(t)\\-\sin(t)&\cos(t)\end{bmatrix}
+\end{equation*}
+
+\begin{equation*}
+\begin{bmatrix}y(t)\\y'(t)\end{bmatrix}
+=\begin{bmatrix}a\cos(t)+b\sin(t)\\-a\sin(t)+b\cos(t)\end{bmatrix},
+\qquad y(t)^2+y'(t)^2=a^2+b^2
+\end{equation*}
+
+- Real state space: clockwise circles for nonzero initial data
+- Complex eigenbasis: independent factors $e^{it}$ and $e^{-it}$
+- Solution space: fixed coefficients of $\cos(t),\sin(t)$ or $e^{it},e^{-it}$
+
+::: {.key-point}
+One motion connects matrix geometry, coordinates, and a basis of functions
+:::
+
+::: {.notes}
+Collect even and odd powers in the exponential, using H^2=-I. The matrix
+is orthogonal, so it preserves the squared Euclidean length a^2+b^2.
+The zero initial state gives the stationary zero solution. Complex
+eigenvectors are not arrows in this real state plane. Euler's formula
+recombines the two complex modes into the real circular motion.
+An exercise extension: start from a=2,b=-1 and recover the previously
+computed coefficients 1+i/2 and 1-i/2; check y(0)=2 and y'(0)=-1.
+:::
+
+## Compare discrete steps and continuous time {#compare-discrete-steps-and-continuous-time}
+
+### Example: a two-group population exchange {#a-two-group-population-exchange}
 
 Each step: 20% of group 1 moves to group 2; 30% of group 2 moves to group 1
 
@@ -1110,7 +1653,9 @@ is conserved. The eigenvector v2 describes a signed perturbation, not
 itself a nonnegative population. A v1=v1, A v2=(1/2)v2.
 :::
 
-## Separate the equilibrium from the changing part {#separate-the-equilibrium-from-the-changing-part}
+---
+
+### Separate the equilibrium from the changing part {#separate-the-equilibrium-from-the-changing-part}
 
 Decompose the initial population into eigenvectors:
 
@@ -1139,7 +1684,9 @@ $$
 The eigenvalue 1 gives the equilibrium proportions; $1/2$ gives the decay factor per step
 :::
 
-## Practice predicting discrete and continuous actions {#practice-predicting-repeated-actions}
+---
+
+### Practice predicting discrete and continuous actions {#practice-predicting-repeated-actions}
 
 ::: {.exitem .lettered}
 <span class="exbullet">$\exstar$</span>
@@ -1311,6 +1858,7 @@ cannot change the nonzero angle between those lines to a right angle.
 - The scalar field matters: real matrices can have nonreal eigenvalues
 - Matrix functions apply $f(\lambda_j)$ to each eigenbasis component
 - Powers use $\lambda_j^k$; the differential system $\vct{x}'=\mat{A}\vct{x}$ uses $e^{t\lambda_j}$
+- Initial data and whole solutions have the same coordinates in corresponding eigenvector and solution-mode bases
 - Real symmetric matrices have real orthonormal eigenbases
 
 # How Far We Have Come

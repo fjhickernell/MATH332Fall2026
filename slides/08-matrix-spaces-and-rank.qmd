@@ -52,17 +52,17 @@ include-after-body:
 </style>
 ```
 
-::: {.four-space-preview role="group" aria-label="The input space R n splits into the row space of dimension r and its orthogonal null space of dimension n minus r. A maps the row space onto the column space, both of dimension r. The output space R m splits into the column space and its orthogonal left null space of dimension m minus r. Null-space vectors are sent to zero."}
-<div class="space-heading" style="grid-row:1;grid-column:1;">Input: $\reals^n$</div>
+::: {.four-space-preview role="group" aria-label="Read right to left: A maps the row space in the input space R n on the right onto the column space in the output space R m on the left, both of dimension r. The output space splits into the column space and its orthogonal left null space of dimension m minus r. The input space splits into the row space and its orthogonal null space of dimension n minus r. Null-space vectors are sent to the output zero."}
+<div class="space-heading" style="grid-row:1;grid-column:1;">Output: $\reals^m$</div>
 <div class="space-heading" style="grid-row:1;grid-column:2;">$r=\operatorname{rank}(\mat{A})$</div>
-<div class="space-heading" style="grid-row:1;grid-column:3;">Output: $\reals^m$</div>
-<div class="space-card" style="grid-row:2;grid-column:1;">$\operatorname{row}(\mat{A})$<br><span class="space-detail">$r$ independent directions</span></div>
-<div class="space-action" style="grid-row:2;grid-column:2;">$\xrightarrow{\mat{A}}$</div>
-<div class="space-card" style="grid-row:2;grid-column:3;">$\operatorname{col}(\mat{A})$<br><span class="space-detail">$r$ independent directions</span></div>
+<div class="space-heading" style="grid-row:1;grid-column:3;">Input: $\reals^n$</div>
+<div class="space-card" style="grid-row:2;grid-column:1;">$\operatorname{col}(\mat{A})$<br><span class="space-detail">$r$ independent directions</span></div>
+<div class="space-action" style="grid-row:2;grid-column:2;">$\xleftarrow{\mat{A}}$</div>
+<div class="space-card" style="grid-row:2;grid-column:3;">$\operatorname{row}(\mat{A})$<br><span class="space-detail">$r$ independent directions</span></div>
 <div class="space-detail" style="grid-row:3;grid-column:1;">$\perp$</div>
 <div class="space-detail" style="grid-row:3;grid-column:3;">$\perp$</div>
-<div class="space-card null-card" style="grid-row:4;grid-column:1;">$\operatorname{null}(\mat{A})$<br><span class="space-detail">$n-r$ directions<br>$\mat{A}\vct{x}=\vct{0}$</span></div>
-<div class="space-card null-card" style="grid-row:4;grid-column:3;">$\operatorname{null}(\mat{A}^\top)$<br><span class="space-detail">$m-r$ directions<br>$\mat{A}^\top\vct{y}=\vct{0}$</span></div>
+<div class="space-card null-card" style="grid-row:4;grid-column:1;">$\operatorname{null}(\mat{A}^\top)$<br><span class="space-detail">$m-r$ directions<br>$\mat{A}^\top\vct{y}=\vct{0}$</span></div>
+<div class="space-card null-card" style="grid-row:4;grid-column:3;">$\operatorname{null}(\mat{A})$<br><span class="space-detail">$n-r$ directions<br>$\mat{A}\vct{x}=\vct{0}$</span></div>
 :::
 
 
@@ -81,6 +81,7 @@ include-after-body:
 ::: {.notes}
 Preview for a real m-by-n matrix of rank r. The input splits orthogonally
 into Row(A) and Null(A); the output splits into Col(A) and Null(A^T).
+The input is on the right and the output on the left, matching Ax.
 The displayed arrow is A restricted to the row space: it maps that space
 one-to-one onto the column space. Both have dimension r. The n-r null-space
 directions collapse to zero; they are not mapped to the left null space.
@@ -366,7 +367,7 @@ so 2+2=4 columns. Row echelon form is sufficient; do not request RREF.
 
 For $\mat{A}\in\reals^{m\times n}$ of rank $r$
 
-![](assets/four-fundamental-subspaces.svg){fig-alt="A geometric schematic after Strang. In the input space R n, row space of dimension r and null space of dimension n minus r meet at zero and are perpendicular. In the output space R m, column space of dimension r and left null space of dimension m minus r meet at zero and are perpendicular. A maps the row space bijectively to the column space. Dimensions are given by the labels, not the drawn shapes." width="100%" .nostretch}
+![](assets/four-fundamental-subspaces.svg){fig-alt="A geometric schematic after Strang, read right to left. On the left, the output space R m contains column space of dimension r and left null space of dimension m minus r, meeting at zero and perpendicular. On the right, the input space R n contains row space of dimension r and null space of dimension n minus r, meeting at zero and perpendicular. A maps the row space on the right bijectively to the column space on the left. Dimensions are given by the labels, not the drawn shapes." width="100%" .nostretch}
 
 ::: {.key-point}
 Each perpendicular pair accounts for every direction in its own ambient space
@@ -382,7 +383,8 @@ Figure 1 of Gilbert Strang's essay. The subspaces share their ambient
 space's zero vector. Right-angle marks indicate orthogonality; the shapes
 are schematic and do not assert that every space has dimension two.
 The labels r, n-r, and m-r give the actual dimensions, including zero.
-The arrow denotes A restricted to Row(A), which maps bijectively onto Col(A).
+The input is on the right and the output on the left, matching Ax.
+The leftward arrow denotes A restricted to Row(A), which maps bijectively onto Col(A).
 Null(A) maps to the output zero, not to Null(A^top). The next continuation
 explains the one-to-one and onto claim; the following definition and proof
 explain the perpendicular pairing.

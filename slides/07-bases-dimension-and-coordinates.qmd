@@ -45,10 +45,10 @@ include-after-body:
 ::: {style="text-align:center;"}
 Basis (coordinates use the listed order): $\mathcal{B}=\{1,t,t^2\}$
 
-::: {.diagram-flow role="group" aria-label="The coordinates 2, minus 3, and 5 in the ordered basis 1, t, t squared determine the polynomial p of t equals 2 minus 3t plus 5t squared. The coordinate column and polynomial are different kinds of objects."}
-<div class="diagram-node"><span class="diagram-label">Coordinates in $\mathcal{B}$</span><br>$[p]_{\mathcal{B}}=\begin{bmatrix}2\\-3\\5\end{bmatrix}$</div>
-<div class="diagram-arrow">$\longrightarrow$</div>
+::: {.diagram-flow role="group" aria-label="Read right to left: the coordinates 2, minus 3, and 5 in the right box determine the polynomial p of t equals 2 minus 3t plus 5t squared in the left box. The coordinate column and polynomial are different kinds of objects."}
 <div class="diagram-node"><span class="diagram-label">Vector in $\mathbb{P}_2$</span><br>$p(t)=2\cdot1-3\cdot t+5\cdot t^2$</div>
+<div class="diagram-arrow">$\longleftarrow$</div>
+<div class="diagram-node"><span class="diagram-label">Coordinates in $\mathcal{B}$</span><br>$[p]_{\mathcal{B}}=\begin{bmatrix}2\\-3\\5\end{bmatrix}$</div>
 :::
 
 :::
@@ -189,18 +189,20 @@ Each example illustrates one of these questions; each proof explains why the met
 \vct{b}_2=\mat{A}\vct{e}_2=\begin{bmatrix}1\\1\end{bmatrix}
 \end{gather*}
 
-![](assets/bases-motivation/square-to-parallelogram.svg){fig-alt="The unit square with its standard basis and point c equals (one quarter, three quarters) maps under A to a parallelogram with edge vectors b1 equals (2,0) and b2 equals (1,1). The transformed grid locates v equals (five quarters, three quarters) using the same weights." width="86%" .nostretch}
+![](assets/bases-motivation/square-to-parallelogram.svg){fig-alt="Read right to left: the unit square in the right panel, with its standard basis and point c equals (one quarter, three quarters), maps under A to the parallelogram in the left panel, with edge vectors b1 equals (2,0) and b2 equals (1,1). The transformed grid locates v equals (five quarters, three quarters) using the same weights." width="86%" .nostretch}
 
 $$
-\vct{c}=\begin{bmatrix}1/4\\3/4\end{bmatrix}
-\quad\longmapsto\quad
 \vct{v}=\mat{A}\vct{c}=\tfrac14\vct{b}_1+\tfrac34\vct{b}_2
 =\begin{bmatrix}5/4\\3/4\end{bmatrix}
+\quad\xleftarrow{\mat{A}}\quad
+\vct{c}=\begin{bmatrix}1/4\\3/4\end{bmatrix}
 $$
 
 ::: {.notes}
 Recall the basis-image interpretation from Matrix Transformations. Both panels
-use the same scale in both coordinate directions. Grid lines and the
+use the same scale in both coordinate directions. Read the figure and equation
+from right to left: A sends the standard-coordinate input to the transformed
+vector. Grid lines and the
 highlighted point are transformed by the same A as the edge vectors. The
 square and parallelogram are bounded patches, not subspaces. Restricting the
 weights to [0,1] fills these patches; arbitrary real weights fill the plane.
@@ -827,13 +829,13 @@ Then either independence or spanning completes the basis test
 
 ### Why exactly n vectors make the two tests equivalent {#why-exactly-n-vectors-make-the-two-tests-equivalent}
 
-Fix a basis $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ of $V$, with scalar field $\mathbb{F}$<br>
+Fix a basis $\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}$ of $V$, with scalar field $\mathbb{K}$<br>
 Write the candidates using the basis vectors:
 
 $$
 [\vct{u}_1\ \cdots\ \vct{u}_n]
 =[\vct{b}_1\ \cdots\ \vct{b}_n]\mat{A},
-\qquad \mat{A}\in\mathbb{F}^{n\times n}
+\qquad \mat{A}\in\mathbb{K}^{n\times n}
 $$
 
 Uniqueness in $\mathcal{B}$ translates the two questions into systems:
@@ -841,7 +843,7 @@ Uniqueness in $\mathcal{B}$ translates the two questions into systems:
 | Question about the candidates | Equivalent question about $\mat{A}$ |
 |---|---|
 | Independent? | $\mat{A}\vct{c}=\vct{0}$ has only the zero solution: a pivot in every column |
-| Span $V$? | $\mat{A}\vct{c}=\vct{d}$ is solvable for every $\vct{d}\in\mathbb{F}^n$: a pivot in every row |
+| Span $V$? | $\mat{A}\vct{c}=\vct{d}$ is solvable for every $\vct{d}\in\mathbb{K}^n$: a pivot in every row |
 
 ::: {.key-point}
 For a square matrix, a pivot in every column means a pivot in every row, and conversely
@@ -853,7 +855,7 @@ A c=0, because B is independent. For spanning, an arbitrary v=[b1 ... bn]d
 has one coefficient list d in B; [u1 ... un]c=v exactly when A c=d. A square n-by-n
 matrix has a pivot in every column iff it has n pivots iff every row has a
 pivot. This proves both implications rather than assuming the basis-extension
-theorem. All scalar entries and right-hand sides belong to the same field F,
+theorem. All scalar entries and right-hand sides belong to the same field K,
 including the usual choices R and C.
 For n=0, the empty list is independent and spans the zero space.
 :::
@@ -1769,11 +1771,11 @@ Let $\mathcal{B}$ and $\mathcal{C}$ be ordered bases of $\reals^n$
 $\mat{P}_{\mathcal{B}}$ and $\mat{P}_{\mathcal{C}}$ contain their basis vectors as columns
 
 $$
-[\vct{x}]_{\mathcal{B}}
-\quad\xrightarrow{\mat{P}_{\mathcal{B}}}\quad
-\vct{x}=[\vct{x}]_{\mathcal{E}}
-\quad\xrightarrow{\mat{P}_{\mathcal{C}}^{-1}}\quad
 [\vct{x}]_{\mathcal{C}}
+\quad\xleftarrow{\mat{P}_{\mathcal{C}}^{-1}}\quad
+\vct{x}=[\vct{x}]_{\mathcal{E}}
+\quad\xleftarrow{\mat{P}_{\mathcal{B}}}\quad
+[\vct{x}]_{\mathcal{B}}
 $$
 
 [Change-of-basis matrix]{.alert}: first rebuild the vector, then read its new coordinates
@@ -2469,7 +2471,7 @@ $$
 $$
 
 For $y(t)=2\cos(t)-\sin(t)$:
-$[y]_{\mathcal{B}}=\begin{bmatrix}2\\-1\end{bmatrix}\longmapsto[y]_{\mathcal{E}}=\begin{bmatrix}1+i/2\\1-i/2\end{bmatrix}$
+$[y]_{\mathcal{E}}=\begin{bmatrix}1+i/2\\1-i/2\end{bmatrix}\longleftarrow[y]_{\mathcal{B}}=\begin{bmatrix}2\\-1\end{bmatrix}$
 
 ::: {.key-point}
 [Same function, different coefficients]{.alert}; real initial data give conjugate exponential coefficients
