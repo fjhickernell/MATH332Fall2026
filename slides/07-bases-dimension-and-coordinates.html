@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-16">
+  <meta name="dcterms.date" content="2026-11-17">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 16, 2026</p>
+  <p class="date">November 17, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -676,15 +676,15 @@ In this deck
 </h3>
 <div style="text-align:center;">
 <p>Basis (coordinates use the listed order): <span class="math inline">\(\mathcal{B}=\{1,t,t^2\}\)</span></p>
-<div class="diagram-flow" role="group" aria-label="The coordinates 2, minus 3, and 5 in the ordered basis 1, t, t squared determine the polynomial p of t equals 2 minus 3t plus 5t squared. The coordinate column and polynomial are different kinds of objects.">
-<div class="diagram-node">
-<span class="diagram-label">Coordinates in <span class="math inline">\(\mathcal{B}\)</span></span><br><span class="math inline">\([p]_{\mathcal{B}}=\begin{bmatrix}2\\-3\\5\end{bmatrix}\)</span>
-</div>
-<div class="diagram-arrow">
-<span class="math inline">\(\longrightarrow\)</span>
-</div>
+<div class="diagram-flow" role="group" aria-label="Read right to left: the coordinates 2, minus 3, and 5 in the right box determine the polynomial p of t equals 2 minus 3t plus 5t squared in the left box. The coordinate column and polynomial are different kinds of objects.">
 <div class="diagram-node">
 <span class="diagram-label">Vector in <span class="math inline">\(\mathbb{P}_2\)</span></span><br><span class="math inline">\(p(t)=2\cdot1-3\cdot t+5\cdot t^2\)</span>
+</div>
+<div class="diagram-arrow">
+<span class="math inline">\(\longleftarrow\)</span>
+</div>
+<div class="diagram-node">
+<span class="diagram-label">Coordinates in <span class="math inline">\(\mathcal{B}\)</span></span><br><span class="math inline">\([p]_{\mathcal{B}}=\begin{bmatrix}2\\-3\\5\end{bmatrix}\)</span>
 </div>
 </div>
 </div>
@@ -902,15 +902,15 @@ In this deck
 \vct{b}_1=\mat{A}\vct{e}_1=\begin{bmatrix}2\\0\end{bmatrix},\qquad
 \vct{b}_2=\mat{A}\vct{e}_2=\begin{bmatrix}1\\1\end{bmatrix}
 \end{gather*}\]</span></p>
-<p><img data-src="assets/bases-motivation/square-to-parallelogram.svg" class="" style="width:86.0%" alt="The unit square with its standard basis and point c equals (one quarter, three quarters) maps under A to a parallelogram with edge vectors b1 equals (2,0) and b2 equals (1,1). The transformed grid locates v equals (five quarters, three quarters) using the same weights."></p>
+<p><img data-src="assets/bases-motivation/square-to-parallelogram.svg" class="" style="width:86.0%" alt="Read right to left: the unit square in the right panel, with its standard basis and point c equals (one quarter, three quarters), maps under A to the parallelogram in the left panel, with edge vectors b1 equals (2,0) and b2 equals (1,1). The transformed grid locates v equals (five quarters, three quarters) using the same weights."></p>
 <p><span class="math display">\[
-\vct{c}=\begin{bmatrix}1/4\\3/4\end{bmatrix}
-\quad\longmapsto\quad
 \vct{v}=\mat{A}\vct{c}=\tfrac14\vct{b}_1+\tfrac34\vct{b}_2
 =\begin{bmatrix}5/4\\3/4\end{bmatrix}
+\quad\xleftarrow{\mat{A}}\quad
+\vct{c}=\begin{bmatrix}1/4\\3/4\end{bmatrix}
 \]</span></p>
 <aside class="notes">
-<p>Recall the basis-image interpretation from Matrix Transformations. Both panels use the same scale in both coordinate directions. Grid lines and the highlighted point are transformed by the same A as the edge vectors. The square and parallelogram are bounded patches, not subspaces. Restricting the weights to [0,1] fills these patches; arbitrary real weights fill the plane. A singular map may collapse a direction, so it need not preserve a basis.</p>
+<p>Recall the basis-image interpretation from Matrix Transformations. Both panels use the same scale in both coordinate directions. Read the figure and equation from right to left: A sends the standard-coordinate input to the transformed vector. Grid lines and the highlighted point are transformed by the same A as the edge vectors. The square and parallelogram are bounded patches, not subspaces. Restricting the weights to [0,1] fills these patches; arbitrary real weights fill the plane. A singular map may collapse a direction, so it need not preserve a basis.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1452,11 +1452,11 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 <section class="slide level2">
 
 <h3 id="why-exactly-n-vectors-make-the-two-tests-equivalent">Why exactly n vectors make the two tests equivalent</h3>
-<p>Fix a basis <span class="math inline">\(\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}\)</span> of <span class="math inline">\(V\)</span>, with scalar field <span class="math inline">\(\mathbb{F}\)</span><br> Write the candidates using the basis vectors:</p>
+<p>Fix a basis <span class="math inline">\(\mathcal{B}=\{\vct{b}_1,\ldots,\vct{b}_n\}\)</span> of <span class="math inline">\(V\)</span>, with scalar field <span class="math inline">\(\mathbb{K}\)</span><br> Write the candidates using the basis vectors:</p>
 <p><span class="math display">\[
 [\vct{u}_1\ \cdots\ \vct{u}_n]
 =[\vct{b}_1\ \cdots\ \vct{b}_n]\mat{A},
-\qquad \mat{A}\in\mathbb{F}^{n\times n}
+\qquad \mat{A}\in\mathbb{K}^{n\times n}
 \]</span></p>
 <p>Uniqueness in <span class="math inline">\(\mathcal{B}\)</span> translates the two questions into systems:</p>
 <table class="caption-top">
@@ -1477,7 +1477,7 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 </tr>
 <tr class="even">
 <td>Span <span class="math inline">\(V\)</span>?</td>
-<td><span class="math inline">\(\mat{A}\vct{c}=\vct{d}\)</span> is solvable for every <span class="math inline">\(\vct{d}\in\mathbb{F}^n\)</span>: a pivot in every row</td>
+<td><span class="math inline">\(\mat{A}\vct{c}=\vct{d}\)</span> is solvable for every <span class="math inline">\(\vct{d}\in\mathbb{K}^n\)</span>: a pivot in every row</td>
 </tr>
 </tbody>
 </table>
@@ -1485,7 +1485,7 @@ W=\operatorname{span}\{\vct{v}_1,\vct{v}_2,\vct{v}_3,\vct{v}_4\}
 <p>For a square matrix, a pivot in every column means a pivot in every row, and conversely</p>
 </div>
 <aside class="notes">
-<p>For independence, [u1 … un]c=[b1 … bn]A c is zero exactly when A c=0, because B is independent. For spanning, an arbitrary v=[b1 … bn]d has one coefficient list d in B; [u1 … un]c=v exactly when A c=d.&nbsp;A square n-by-n matrix has a pivot in every column iff it has n pivots iff every row has a pivot. This proves both implications rather than assuming the basis-extension theorem. All scalar entries and right-hand sides belong to the same field F, including the usual choices R and C. For n=0, the empty list is independent and spans the zero space.</p>
+<p>For independence, [u1 … un]c=[b1 … bn]A c is zero exactly when A c=0, because B is independent. For spanning, an arbitrary v=[b1 … bn]d has one coefficient list d in B; [u1 … un]c=v exactly when A c=d.&nbsp;A square n-by-n matrix has a pivot in every column iff it has n pivots iff every row has a pivot. This proves both implications rather than assuming the basis-extension theorem. All scalar entries and right-hand sides belong to the same field K, including the usual choices R and C. For n=0, the empty list is independent and spans the zero space.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -2269,11 +2269,11 @@ p=\begin{bmatrix}1&amp;1+t&amp;t^2\end{bmatrix}
 <p>Let <span class="math inline">\(\mathcal{B}\)</span> and <span class="math inline">\(\mathcal{C}\)</span> be ordered bases of <span class="math inline">\(\reals^n\)</span></p>
 <p><span class="math inline">\(\mat{P}_{\mathcal{B}}\)</span> and <span class="math inline">\(\mat{P}_{\mathcal{C}}\)</span> contain their basis vectors as columns</p>
 <p><span class="math display">\[
-[\vct{x}]_{\mathcal{B}}
-\quad\xrightarrow{\mat{P}_{\mathcal{B}}}\quad
-\vct{x}=[\vct{x}]_{\mathcal{E}}
-\quad\xrightarrow{\mat{P}_{\mathcal{C}}^{-1}}\quad
 [\vct{x}]_{\mathcal{C}}
+\quad\xleftarrow{\mat{P}_{\mathcal{C}}^{-1}}\quad
+\vct{x}=[\vct{x}]_{\mathcal{E}}
+\quad\xleftarrow{\mat{P}_{\mathcal{B}}}\quad
+[\vct{x}]_{\mathcal{B}}
 \]</span></p>
 <p><span class="alert">Change-of-basis matrix</span>: first rebuild the vector, then read its new coordinates</p>
 <p><span class="math display">\[
@@ -2913,7 +2913,7 @@ T^{-1}:y\longmapsto\begin{bmatrix}y(0)\\y'(0)\end{bmatrix},
 [y]_{\mathcal{E}},\qquad
 \mat{Q}_{\mathcal{B}\leftarrow\mathcal{E}}=\mat{Q}_{\mathcal{E}\leftarrow\mathcal{B}}^{-1}
 \]</span></p>
-<p>For <span class="math inline">\(y(t)=2\cos(t)-\sin(t)\)</span>: <span class="math inline">\([y]_{\mathcal{B}}=\begin{bmatrix}2\\-1\end{bmatrix}\longmapsto[y]_{\mathcal{E}}=\begin{bmatrix}1+i/2\\1-i/2\end{bmatrix}\)</span></p>
+<p>For <span class="math inline">\(y(t)=2\cos(t)-\sin(t)\)</span>: <span class="math inline">\([y]_{\mathcal{E}}=\begin{bmatrix}1+i/2\\1-i/2\end{bmatrix}\longleftarrow[y]_{\mathcal{B}}=\begin{bmatrix}2\\-1\end{bmatrix}\)</span></p>
 <div class="key-point">
 <p><span class="alert">Same function, different coefficients</span>; real initial data give conjugate exponential coefficients</p>
 </div>

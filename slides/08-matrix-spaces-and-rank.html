@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-16">
+  <meta name="dcterms.date" content="2026-11-17">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 16, 2026</p>
+  <p class="date">November 17, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -682,24 +682,24 @@ In this deck
 .reveal .four-space-preview .space-detail { font-size:0.72em; }
 .reveal .four-space-preview .space-action { color:#2e78b7; }
 </style>
-<div class="four-space-preview" role="group" aria-label="The input space R n splits into the row space of dimension r and its orthogonal null space of dimension n minus r. A maps the row space onto the column space, both of dimension r. The output space R m splits into the column space and its orthogonal left null space of dimension m minus r. Null-space vectors are sent to zero.">
+<div class="four-space-preview" role="group" aria-label="Read right to left: A maps the row space in the input space R n on the right onto the column space in the output space R m on the left, both of dimension r. The output space splits into the column space and its orthogonal left null space of dimension m minus r. The input space splits into the row space and its orthogonal null space of dimension n minus r. Null-space vectors are sent to the output zero.">
 <div class="space-heading" style="grid-row:1;grid-column:1;">
-Input: <span class="math inline">\(\reals^n\)</span>
+Output: <span class="math inline">\(\reals^m\)</span>
 </div>
 <div class="space-heading" style="grid-row:1;grid-column:2;">
 <span class="math inline">\(r=\operatorname{rank}(\mat{A})\)</span>
 </div>
 <div class="space-heading" style="grid-row:1;grid-column:3;">
-Output: <span class="math inline">\(\reals^m\)</span>
+Input: <span class="math inline">\(\reals^n\)</span>
 </div>
 <div class="space-card" style="grid-row:2;grid-column:1;">
-<span class="math inline">\(\operatorname{row}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(r\)</span> independent directions</span>
+<span class="math inline">\(\operatorname{col}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(r\)</span> independent directions</span>
 </div>
 <div class="space-action" style="grid-row:2;grid-column:2;">
-<span class="math inline">\(\xrightarrow{\mat{A}}\)</span>
+<span class="math inline">\(\xleftarrow{\mat{A}}\)</span>
 </div>
 <div class="space-card" style="grid-row:2;grid-column:3;">
-<span class="math inline">\(\operatorname{col}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(r\)</span> independent directions</span>
+<span class="math inline">\(\operatorname{row}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(r\)</span> independent directions</span>
 </div>
 <div class="space-detail" style="grid-row:3;grid-column:1;">
 <span class="math inline">\(\perp\)</span>
@@ -708,10 +708,10 @@ Output: <span class="math inline">\(\reals^m\)</span>
 <span class="math inline">\(\perp\)</span>
 </div>
 <div class="space-card null-card" style="grid-row:4;grid-column:1;">
-<span class="math inline">\(\operatorname{null}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(n-r\)</span> directions<br><span class="math inline">\(\mat{A}\vct{x}=\vct{0}\)</span></span>
+<span class="math inline">\(\operatorname{null}(\mat{A}^\top)\)</span><br><span class="space-detail"><span class="math inline">\(m-r\)</span> directions<br><span class="math inline">\(\mat{A}^\top\vct{y}=\vct{0}\)</span></span>
 </div>
 <div class="space-card null-card" style="grid-row:4;grid-column:3;">
-<span class="math inline">\(\operatorname{null}(\mat{A}^\top)\)</span><br><span class="space-detail"><span class="math inline">\(m-r\)</span> directions<br><span class="math inline">\(\mat{A}^\top\vct{y}=\vct{0}\)</span></span>
+<span class="math inline">\(\operatorname{null}(\mat{A})\)</span><br><span class="space-detail"><span class="math inline">\(n-r\)</span> directions<br><span class="math inline">\(\mat{A}\vct{x}=\vct{0}\)</span></span>
 </div>
 </div>
 <div style="font-size: 0.9em;">
@@ -727,7 +727,7 @@ Output: <span class="math inline">\(\reals^m\)</span>
 </div>
 </div></div>
 <aside class="notes">
-<p>Preview for a real m-by-n matrix of rank r. The input splits orthogonally into Row(A) and Null(A); the output splits into Col(A) and Null(A^T). The displayed arrow is A restricted to the row space: it maps that space one-to-one onto the column space. Both have dimension r. The n-r null-space directions collapse to zero; they are not mapped to the left null space. The output’s m-r left-null directions are perpendicular to every attainable output. Thus n=r+(n-r) and m=r+(m-r). The deck develops these claims after computing concrete bases and dimensions.</p>
+<p>Preview for a real m-by-n matrix of rank r. The input splits orthogonally into Row(A) and Null(A); the output splits into Col(A) and Null(A^T). The input is on the right and the output on the left, matching Ax. The displayed arrow is A restricted to the row space: it maps that space one-to-one onto the column space. Both have dimension r. The n-r null-space directions collapse to zero; they are not mapped to the left null space. The output’s m-r left-null directions are perpendicular to every attainable output. Thus n=r+(n-r) and m=r+(m-r). The deck develops these claims after computing concrete bases and dimensions.</p>
 <p>The four-space viewpoint is developed in <a href="https://math.mit.edu/~gs/linearalgebra/ila6/indexila6.html">G. Strang, <em>Introduction to Linear Algebra</em>, 6th ed., Wellesley-Cambridge Press (2023)</a>, §§3.5, 4.1.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -1042,7 +1042,7 @@ x_3=-x_4
 <section id="the-four-spaces-form-two-perpendicular-pairs" class="slide level2">
 <h2>The four spaces form two perpendicular pairs</h2>
 <p>For <span class="math inline">\(\mat{A}\in\reals^{m\times n}\)</span> of rank <span class="math inline">\(r\)</span></p>
-<p><img data-src="assets/four-fundamental-subspaces.svg" class="" style="width:100.0%" alt="A geometric schematic after Strang. In the input space R n, row space of dimension r and null space of dimension n minus r meet at zero and are perpendicular. In the output space R m, column space of dimension r and left null space of dimension m minus r meet at zero and are perpendicular. A maps the row space bijectively to the column space. Dimensions are given by the labels, not the drawn shapes."></p>
+<p><img data-src="assets/four-fundamental-subspaces.svg" class="" style="width:100.0%" alt="A geometric schematic after Strang, read right to left. On the left, the output space R m contains column space of dimension r and left null space of dimension m minus r, meeting at zero and perpendicular. On the right, the input space R n contains row space of dimension r and null space of dimension n minus r, meeting at zero and perpendicular. A maps the row space on the right bijectively to the column space on the left. Dimensions are given by the labels, not the drawn shapes."></p>
 <div class="key-point">
 <p>Each perpendicular pair accounts for every direction in its own ambient space</p>
 </div>
@@ -1050,7 +1050,7 @@ x_3=-x_4
 <p>Geometric arrangement after <a href="https://web.mit.edu/18.06/www/Essays/newpaper_ver3.pdf">G. Strang, “The Four Fundamental Subspaces: 4 Lines,” Fig. 1</a></p>
 </div>
 <aside class="notes">
-<p>This is an original course drawing of the four-space arrangement, after Figure 1 of Gilbert Strang’s essay. The subspaces share their ambient space’s zero vector. Right-angle marks indicate orthogonality; the shapes are schematic and do not assert that every space has dimension two. The labels r, n-r, and m-r give the actual dimensions, including zero. The arrow denotes A restricted to Row(A), which maps bijectively onto Col(A). Null(A) maps to the output zero, not to Null(A^top). The next continuation explains the one-to-one and onto claim; the following definition and proof explain the perpendicular pairing.</p>
+<p>This is an original course drawing of the four-space arrangement, after Figure 1 of Gilbert Strang’s essay. The subspaces share their ambient space’s zero vector. Right-angle marks indicate orthogonality; the shapes are schematic and do not assert that every space has dimension two. The labels r, n-r, and m-r give the actual dimensions, including zero. The input is on the right and the output on the left, matching Ax. The leftward arrow denotes A restricted to Row(A), which maps bijectively onto Col(A). Null(A) maps to the output zero, not to Null(A^top). The next continuation explains the one-to-one and onto claim; the following definition and proof explain the perpendicular pairing.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

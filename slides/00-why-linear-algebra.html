@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-16">
+  <meta name="dcterms.date" content="2026-11-17">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -644,7 +644,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 16, 2026</p>
+  <p class="date">November 17, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -905,21 +905,21 @@ In this deck
 </section>
 <section id="act-on-these-objects-via-transformations-to-obtain-new-objects" class="slide level2">
 <h2>Act on these objects via transformations to obtain new objects</h2>
-<div class="diagram-flow">
+<div class="diagram-flow" role="group" aria-label="Read right to left, matching multiplication: the input x or X in the right box passes through matrix A in the middle to the output Ax or AX in the left box.">
 <div class="diagram-node">
-input object(s) or state(s)<br><span class="math inline">\(\vct{x}\)</span><br><span class="math inline">\(\mat{X}\)</span>
+output object(s) or state(s)<br><span class="math inline">\(\vct{y}=\mat{A}\vct{x}\)</span><br><span class="math inline">\(\mat{Y}=\mat{A}\mat{X}\)</span>
 </div>
 <div class="diagram-arrow">
-→
+←
 </div>
 <div class="diagram-node">
 action or relationships<br><span class="math inline">\(\mat{A}\)</span>
 </div>
 <div class="diagram-arrow">
-→
+←
 </div>
 <div class="diagram-node">
-output object(s) or state(s)<br><span class="math inline">\(\vct{y}=\mat{A}\vct{x}\)</span><br><span class="math inline">\(\mat{Y}=\mat{A}\mat{X}\)</span>
+input object(s) or state(s)<br><span class="math inline">\(\vct{x}\)</span><br><span class="math inline">\(\mat{X}\)</span>
 </div>
 </div>
 <h3 id="examples-of-actions">Examples of actions</h3>
@@ -1164,34 +1164,34 @@ c_0+c_1x_n&amp;\approx y_n
 <section id="composition-is-multiplication" class="slide level2">
 <h2>Composition is multiplication</h2>
 <p>Linear coordinate maps with a shared origin; orthographic screen projection</p>
-<div class="diagram-flow">
+<div class="diagram-flow" role="group" aria-label="Read right to left: A maps object coordinates to world coordinates, B maps world to camera coordinates, and C maps camera to screen coordinates. The output on the left is CBA times the input on the right.">
 <div class="diagram-node">
-object coordinates<br><span class="math inline">\(\vct{x}_{\text{object}}\)</span>
+screen coordinates<br><span class="math inline">\(\vct{x}_{\text{screen}}\)</span>
 </div>
 <div class="diagram-arrow">
-<span class="math inline">\(\xrightarrow{\mat{A}}\)</span>
-</div>
-<div class="diagram-node">
-world coordinates<br><span class="math inline">\(\vct{x}_{\text{world}}\)</span>
-</div>
-<div class="diagram-arrow">
-<span class="math inline">\(\xrightarrow{\mat{B}}\)</span>
+<span class="math inline">\(\xleftarrow{\mat{C}}\)</span>
 </div>
 <div class="diagram-node">
 camera coordinates<br><span class="math inline">\(\vct{x}_{\text{camera}}\)</span>
 </div>
 <div class="diagram-arrow">
-<span class="math inline">\(\xrightarrow{\mat{C}}\)</span>
+<span class="math inline">\(\xleftarrow{\mat{B}}\)</span>
 </div>
 <div class="diagram-node">
-screen coordinates<br><span class="math inline">\(\vct{x}_{\text{screen}}\)</span>
+world coordinates<br><span class="math inline">\(\vct{x}_{\text{world}}\)</span>
+</div>
+<div class="diagram-arrow">
+<span class="math inline">\(\xleftarrow{\mat{A}}\)</span>
+</div>
+<div class="diagram-node">
+object coordinates<br><span class="math inline">\(\vct{x}_{\text{object}}\)</span>
 </div>
 </div>
 <div class="columns">
 <div class="column" style="width:13%;">
 
 </div><div class="column" data-align="center" style="width:20%;">
-<p>orient the object relative to the world axes</p>
+<p>orthographically project onto the screen</p>
 </div><div class="column" style="width:7%;">
 
 </div><div class="column" data-align="center" style="width:20%;">
@@ -1199,7 +1199,7 @@ screen coordinates<br><span class="math inline">\(\vct{x}_{\text{screen}}\)</spa
 </div><div class="column" style="width:7%;">
 
 </div><div class="column" data-align="center" style="width:20%;">
-<p>orthographically project onto the screen</p>
+<p>orient the object relative to the world axes</p>
 </div><div class="column" style="width:13%;">
 
 </div></div>
@@ -1308,27 +1308,27 @@ x+y&amp;=6 &amp;&amp;\text{sensor 1}\\
 </section>
 <section id="where-machine-learning-fits" class="slide level2">
 <h2>Where machine learning fits</h2>
-<div class="diagram-flow">
+<div class="diagram-flow" role="group" aria-label="Read right to left: input features x pass through the learned affine layer W x plus b, then a nonlinearity, to produce the prediction at the left.">
 <div class="diagram-node">
-one example<br><span class="math inline">\(\vct{x}\)</span>
+prediction
 </div>
 <div class="diagram-arrow">
-→
-</div>
-<div class="diagram-node">
-<span class="math inline">\(\mat{W}\vct{x}+\vct{b}\)</span><br><span class="small">learned affine layer</span>
-</div>
-<div class="diagram-arrow">
-→
+←
 </div>
 <div class="diagram-node">
 nonlinearity
 </div>
 <div class="diagram-arrow">
-→
+←
 </div>
 <div class="diagram-node">
-prediction
+<span class="math inline">\(\mat{W}\vct{x}+\vct{b}\)</span><br><span class="small">learned affine layer</span>
+</div>
+<div class="diagram-arrow">
+←
+</div>
+<div class="diagram-node">
+one example<br><span class="math inline">\(\vct{x}\)</span>
 </div>
 </div>
 <div class="columns">
@@ -1863,6 +1863,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <ul>
 <li><a href="07-bases-dimension-and-coordinates.html#a-critically-damped-spring-find-the-solution-map">Critical damping</a></li>
 <li><a href="05-euclidean-vector-spaces.html#the-cross-product-combines-two-directions">Cross product</a>, <span class="math inline">\(\vct{u}\times\vct{v}\)</span></li>
+<li><a href="09-eigenvalues-and-eigenvectors.html#eigenbasis-coordinates-decouple-a-differential-system">Decoupling</a>, <span class="math inline">\(\vct{c}'=\mat{D}\vct{c}\)</span></li>
 <li><a href="07-bases-dimension-and-coordinates.html#regression-chooses-the-closest-vector-we-can-build">Design matrix</a></li>
 <li><a href="04-determinants.html#a-determinant-is-a-signed-scale-factor">Determinant</a>, <span class="math inline">\(\det(\mat{A})\)</span></li>
 <li><a href="03-matrix-structure-and-transformations.html#diagonal-matrices-act-one-coordinate-at-a-time">Diagonal matrix</a>, <span class="math inline">\(\mat{D}\)</span></li>
@@ -1882,6 +1883,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <ul>
 <li><a href="03-matrix-structure-and-transformations.html#input-domain">Domain</a></li>
 <li><a href="01-systems-and-matrices.html#combines-coefficients-and-unknowns">Dot product</a>, <span class="math inline">\(\vct{u}^{\mathsf T}\vct{v}\)</span></li>
+<li><a href="09-eigenvalues-and-eigenvectors.html#differentiation-has-the-same-eigenvalues-on-the-solution-space">Eigenfunction</a>, <span class="math inline">\(\vct{\phi}'=\lambda\vct{\phi}\)</span></li>
 <li><a href="09-eigenvalues-and-eigenvectors.html#an-eigenvector-stays-on-its-own-line">Eigenvalue</a>, <span class="math inline">\(\lambda\)</span></li>
 <li><a href="09-eigenvalues-and-eigenvectors.html#an-eigenvector-stays-on-its-own-line">Eigenvector</a></li>
 <li><a href="01-systems-and-matrices.html#start-with-one-row-replacement">Elementary matrix</a></li>
@@ -1918,6 +1920,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <li><a href="06-general-vector-spaces.html#functions-can-be-vectors">Function space</a></li>
 <li><a href="02-inverses-and-invertibility.html#reduce-beside-the-identity">Gauss–Jordan reduction</a></li>
 <li><a href="01-systems-and-matrices.html#elimination">Gaussian elimination</a></li>
+<li><a href="09-eigenvalues-and-eigenvectors.html#optional-generalized-eigenvectors">Generalized eigenspace</a>, <span class="math inline">\(G_\lambda\)</span></li>
 <li><a href="09-eigenvalues-and-eigenvectors.html#optional-generalized-eigenvectors">Generalized eigenvector</a></li>
 <li><a href="03-matrix-structure-and-transformations.html#givens-rotations">Givens rotation</a>, <span class="math inline">\(\mat{G}(i,j,\theta)\)</span></li>
 <li><a href="10-inner-product-spaces.html#build-perpendicular-directions-without-changing-the-span">Gram–Schmidt process</a></li>
@@ -2081,6 +2084,7 @@ Dates mark representative introductions or inflection points; adoption overlappe
 <li><a href="07-bases-dimension-and-coordinates.html#practice-bases-for-other-matrix-spaces">Skew-symmetric matrix</a>, <span class="math inline">\(\mat{A}^{\mathsf T}=-\mat{A}\)</span></li>
 <li><a href="01-systems-and-matrices.html#from-one-equation-to-systems-of-equations">Solution / solution set</a></li>
 <li><a href="07-bases-dimension-and-coordinates.html#initial-data-map-linearly-to-a-solution-function">Solution map</a></li>
+<li><a href="09-eigenvalues-and-eigenvectors.html#an-eigenbasis-becomes-a-basis-of-solution-functions">Solution mode</a>, <span class="math inline">\(e^{\lambda_jt}\vct{v}_j\)</span></li>
 <li><a href="06-general-vector-spaces.html#span-is-the-subspace-generated-by-chosen-vectors">Span</a>, <span class="math inline">\(\operatorname{span}\{\vct{v}_1,\ldots,\vct{v}_k\}\)</span></li>
 <li><a href="10-inner-product-spaces.html#the-best-low-rank-approximation-has-a-measurable-error">Spectral norm</a></li>
 <li><a href="09-eigenvalues-and-eigenvectors.html#the-spectral-theorem-supplies-an-orthonormal-eigenbasis">Spectral theorem (real symmetric)</a></li>
