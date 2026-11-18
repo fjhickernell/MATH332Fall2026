@@ -1,5 +1,18 @@
 # Next task
 
+## Class schedule announcement — published November 17
+
+Fred published [Upcoming Class Schedule](https://iit.instructure.com/courses/23913/discussion_topics/110654)
+to **All Sections** on **November 17, 2026, 7:32 PM CST**. The saved body and
+audience are verified: no regular class meeting November 24 due to a schedule
+conflict, a recorded lecture will be provided, and December 1 and 3 are review.
+The [HTML reference](drafts/2026-11-17-class-schedule-announcement.html)
+preserves Fred's final text. Do not repost. Recording and sharing the
+November 24 lecture remain open and are tracked under Green T2 in the
+Dashboard; the completed notification task was removed. November 19 lecture
+preparation and grading remain open. Matching Academic reminder state remains
+unverified under the retained access restrictions; no reminder was changed.
+
 ## Assignment 6 — released November 14
 
 Fred selected five WileyPLUS questions and approved **4 points each, 20 total**.
