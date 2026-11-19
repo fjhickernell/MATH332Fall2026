@@ -889,6 +889,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Gaussian elimination]({{< meta decks.d01.file >}}#elimination)
 - [Generalized eigenspace]({{< meta decks.d09.file >}}#optional-generalized-eigenvectors), $G_\lambda$
 - [Generalized eigenvector]({{< meta decks.d09.file >}}#optional-generalized-eigenvectors)
+- [Geometric series, matrix]({{< meta decks.d09.file >}}#leontief-matrix-series-and-iteration)
 - [Givens rotation]({{< meta decks.d03.file >}}#givens-rotations), $\mat{G}(i,j,\theta)$
 - [Gram–Schmidt process]({{< meta decks.d10.file >}}#build-perpendicular-directions-without-changing-the-span)
 - [Graph Laplacian]({{< meta decks.d11.file >}}#a-graph-laplacian-measures-disagreement)
@@ -906,6 +907,7 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Ill-posed problem](#too-little-information-many-answers)
 - [Image / range of a linear map]({{< meta decks.d03.file >}}#a-matrix-maps-one-coordinate-space-into-another)
 - [Incidence matrix](#represent-a-network-by-an-incidence-matrix)
+- [Inertia tensor]({{< meta decks.d09.file >}}#a-spinning-tennis-racket), $\mat{J}$
 :::
 
 :::
@@ -1004,8 +1006,9 @@ Use this cumulative alphabetical index to revisit the first substantial treatmen
 - [Positive definite / semidefinite matrix]({{< meta decks.d11.file >}}#signs-distinguish-bowls-from-saddles)
 - [Power iteration]({{< meta decks.d11.file >}}#power-iteration-finds-a-dominant-direction)
 - [Precision matrix]({{< meta decks.d02.file >}}#precision-describes-conditional-structure), $\mat{\Sigma}^{-1}$
-- [Principal axes]({{< meta decks.d11.file >}}#symmetry-gives-orthogonal-eigenvectors)
+- [Principal axes]({{< meta decks.d09.file >}}#a-spinning-tennis-racket)
 - [Principal component analysis (PCA)]({{< meta decks.d07.file >}}#pca-chooses-coordinates-adapted-to-the-data)
+- [Principal moments of inertia]({{< meta decks.d09.file >}}#a-spinning-tennis-racket), $I_j$
 - [Projection]({{< meta decks.d03.file >}}#projections-discard-information), $\mat{Q}$
 - [Pseudoinverse]({{< meta decks.d10.file >}}#the-pseudoinverse-reverses-the-nonzero-stretches)
 :::

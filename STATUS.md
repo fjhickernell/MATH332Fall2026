@@ -46,6 +46,13 @@ Mathematical content should be maintained only in the slides.
 
 ## Later course construction
 
+- [x] Add a concise tennis-racket continuation distinguishing the inertia
+  tensor's positive moments from oscillating and growing small-wobble modes
+  (November 19).
+- [x] Expand Deck 09's Leontief example into an opening Powers and Dynamics
+  review: row echelon solve, input and net-output eigenpairs, economic
+  interpretation, basis coordinates, powers, successive input rounds,
+  iteration and the response as a matrix function (November 19).
 - [x] Audit all twelve existing decks for mathematical accuracy and clarity,
   including all 75 exercise sets and presenter answers (November 2).
   Corrections, computational checks, successful website/twelve-deck renders,

@@ -101,14 +101,25 @@ preserves the published text.
 
 ## Immediate next work — November 19
 
-Resume Deck 09, Powers and Dynamics, at
-[Powers act separately on eigenbasis coordinates](../slides/09-eigenvalues-and-eigenvectors.qmd#powers-act-separately-on-eigenbasis-coordinates).
-Follow it with the new [worked Leontief example](../slides/09-eigenvalues-and-eigenvectors.qmd#leontief-production-adds-successive-rounds-of-inputs),
-which reuses the Deck 02 matrix and sums the successive input requirements
-along an eigenvector to find gross production.
-Continue with matrix functions, exponentials and differential-system
-applications as time permits. Those topics and the symmetric-matrix results
-remain ahead; review the prepared additions before teaching them.
+Open Deck 09, Powers and Dynamics, with the
+[Leontief review](../slides/09-eigenvalues-and-eigenvectors.qmd#leontief-production-adds-successive-rounds-of-inputs),
+before the general powers and matrix-function formulas. Fred requested this
+sequence November 19: recap row echelon form and back substitution, find the
+input matrix's eigenpairs, explain the shared eigendirections of the net-output
+matrix, interpret them, and use the basis and coordinates to recover the same
+production plan. Continue through powers, successive input rounds, the iterative
+solve and the response as a matrix function. The input matrix is the same as
+Deck 02; the new demand forecast activates both modes with whole-number
+coordinates. Review the expanded example before teaching it.
+The local render, exact arithmetic, link and browser checks pass; see
+`notes/DECK-AUDIT.md`. Local validation is complete; live deployment remains to
+be verified after this Checkpoint.
+The deferred tennis-racket example now has a short continuation distinguishing
+positive inertia moments from the eigenvalues governing a small wobble;
+use it with the demonstration when revisiting that example.
+Then use the general powers/functions slides to summarize the example and
+continue to exponentials and differential systems as time permits. Those
+topics and the symmetric-matrix results remain ahead.
 
 The November 17 recording completed the diagonalization product check and
 general eigenbasis-coordinate interpretation, the distinct-eigenvalue
@@ -139,8 +150,10 @@ The welcome-page outline records about two 50-minute classroom hours:
 about 36.6 minutes on November 5 plus about 50 minutes on November 10,
 before the eigenvalue introduction at approximately 50:10–50:26.
 
-The Schedule and lecture ledger are reconciled through November 17, with the
-November 19 powers pickup above. The already-existing November 19 continuation
+The Schedule and lecture ledger are reconciled through November 17. The
+November 19 planned row now opens with the Leontief review above; this preparation
+does not establish that any of the new material was taught. The already-existing
+November 19 continuation
 and preceding-lecture summary were independently read back in Apple Calendar
 and Fantastical on November 17: Illinois Tech Fred → Calendar, PH 109,
 11:15 AM–12:45 PM CST. The note retains “Notebook for geometry, then

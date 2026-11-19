@@ -289,7 +289,7 @@ Eigenvectors exclude zero; the eigenspace includes zero
 
 ## Example: a spinning tennis racket {#a-spinning-tennis-racket}
 
-The [inertia tensor]{.alert} $\mat{J}=\mat{J}^\top\in\reals^{3\times3}$ describes rotation about the center of mass
+The [inertia tensor]{.alert} $\mat{J}=\mat{J}^\top\in\reals^{3\times3}$ describes rotational inertia about the center of mass
 
 \begin{equation*}
 \mat{J}\vct{v}_j=I_j\vct{v}_j,\qquad 0<I_1<I_2<I_3
@@ -323,6 +323,65 @@ dynamics, not a consequence of the eigenvalue definition alone.
 
 Sources: [UT Austin: principal axes of rotation](https://farside.ph.utexas.edu/teaching/336k/lectures/node67.html)
 and [Harvard: tennis racquet flip](https://sciencedemonstrations.fas.harvard.edu/presentations/tennis-racquet-flip).
+:::
+
+---
+
+### A small wobble may oscillate or grow {#tennis-racket-wobble-eigenvalues}
+
+Perfect spin about any principal axis is possible — test it with a tiny wobble
+
+Let $\vct{u}$ contain the two small angular-velocity components perpendicular to the spin axis
+
+The linear approximation uses a [different matrix]{.alert}, $\mat{B}$
+
+$$
+\vct{u}'=\mat{B}\vct{u},\qquad
+\mat{B}\vct{w}=\mu\vct{w}
+\implies \vct{u}(t)=e^{\mu t}\vct{w}
+$$
+
+| Steady spin axis | Wobble eigenvalues | Effect of a small disturbance |
+|---|---|---|
+| Smallest or largest moment | $\pm\sqrt{-1}\,\nu$ | Oscillation; wobble stays small |
+| Intermediate moment | $\pm\sigma$ | A growing component; onset of tumbling |
+
+$\nu,\sigma>0$ — imaginary rates oscillate; a positive real rate grows initially
+
+::: {.key-point}
+Inertia eigenvalues are principal moments; wobble eigenvalues govern growth or oscillation
+:::
+
+::: {.notes}
+Keep the distinction verbal and brief: the inertia eigenvectors are the
+natural spin axes, and the three positive inertia eigenvalues are the
+principal moments. Perfect torque-free spin about any one axis is possible.
+The new question is whether a tiny off-axis wobble stays small. The angular
+velocity components are measured in the body-fixed principal-axis frame.
+B is the two-dimensional transverse linearization about that chosen steady spin,
+not the inertia tensor J. An eigenvector mode in the linear model evolves
+as exp(mu t)w; its real and imaginary parts give real oscillatory solutions
+when mu is purely imaginary. The displayed mode has initial data w, and
+general small disturbances combine the two modes.
+For the smallest and largest moments the pair is purely imaginary, giving
+neutral oscillation, not decay back to the exact spin. For the middle moment
+there is one positive and one negative real rate; a generic perturbation
+contains the growing mode. The full three-component angular-velocity
+linearization also has a zero eigenvalue, corresponding to changing the
+steady spin speed along the same axis. It is omitted because u contains
+only the two perpendicular components.
+Assume a rigid body, no external torque, three distinct principal moments
+and nonzero spin. Conserved energy and angular-momentum magnitude support
+the bounded-wobble interpretation at the extreme axes; imaginary eigenvalues
+alone do not prove nonlinear stability for every system. Intermediate-axis
+growth describes the initial small disturbance; the full motion remains
+energy bounded and develops into tumbling rather than unbounded spin speed.
+Optional physical intuition: at fixed angular-momentum magnitude, the energy
+has extrema at the extreme-moment axes and a saddle at the middle axis.
+Nearby conserved-energy contours surround the extrema but allow departures
+near the saddle. No Euler-equation derivation is needed for this illustration.
+
+Source: [TU Delft: Euler's equations and the tennis racket theorem](https://interactivetextbooks.tudelft.nl/nb1140/content/generalrotationalmotion.html#euler-s-equations).
 :::
 
 ## Compute and check an eigenspace {#compute-and-check-an-eigenspace}
@@ -1125,12 +1184,441 @@ for every real vector, not just the axes.
 
 Powers and matrix functions become scalar actions in an eigenvector basis
 
+- [Leontief review: demand determines production](#leontief-production-adds-successive-rounds-of-inputs)
 - [Powers act separately on eigenbasis coordinates](#powers-act-separately-on-eigenbasis-coordinates)
-- [Leontief production adds successive rounds of inputs](#leontief-production-adds-successive-rounds-of-inputs)
 - [Functions act separately on eigenbasis coordinates](#functions-act-separately-on-eigenbasis-coordinates)
 - [The matrix exponential solves a linear differential system](#the-matrix-exponential-solves-a-linear-differential-system)
 - [Initial data choose a whole solution](#initial-data-choose-a-whole-solution)
 - [Compare discrete steps and continuous time](#compare-discrete-steps-and-continuous-time)
+
+## Leontief review: demand determines production {#leontief-production-adds-successive-rounds-of-inputs}
+
+[Two-sector model from {{< meta decks.d02.short_title >}}]({{< meta decks.d02.file >}}#production-creates-internal-demand): same input matrix, a new demand forecast
+
+$$
+\mat{C}=\begin{bmatrix}0.20&0.10\\0.30&0.25\end{bmatrix},\qquad
+\vct{d}=\underbrace{\begin{bmatrix}74\\15\end{bmatrix}}_{\text{external demand by sector}}
+$$
+
+$c_{ij}$ — sector $i$ input needed per unit of sector $j$ output
+
+Entry $i$ refers to sector $i$ in each vector
+
+\begin{align*}
+\underbrace{\vct{x}}_{\text{total production by sector}}
+&=\underbrace{\mat{C}\vct{x}}_{\text{internal demand}}
++\underbrace{\vct{d}}_{\text{external demand}}\\
+(\mat{I}-\mat{C})\vct{x}
+&=\begin{bmatrix}0.80&-0.10\\-0.30&0.75\end{bmatrix}\vct{x}
+=\begin{bmatrix}74\\15\end{bmatrix}
+\end{align*}
+
+::: {.key-point}
+Find production first by elimination, then explain it using an eigenvector basis
+:::
+
+::: {.notes}
+The input-requirements matrix is unchanged from Deck 02. That deck used
+external demand [72,30]^T and production [100,80]^T. This new forecast is
+chosen so both eigenbasis demand coordinates and production coordinates are
+whole numbers. All quantities use consistent sector-output units. Cx gives
+intermediate inputs; (I-C)x gives the external demand a production plan can
+meet. This is a static balance model. Successive input rounds below are
+layers of requirements, not observations at successive times.
+:::
+
+---
+
+### Row echelon form recovers gross production {#leontief-row-echelon-solve}
+
+Scale the first equation by $10$ and the second by $20$
+
+$$
+\left[\begin{array}{rr|r}8&-1&740\\-6&15&300\end{array}\right]
+\xrightarrow{\substack{R_2\leftarrow4R_2\\R_2\leftarrow R_2+3R_1}}
+\left[\begin{array}{rr|r}8&-1&740\\0&57&3420\end{array}\right]
+$$
+
+Back substitution gives
+
+\begin{align*}
+57x_2=3420&\implies x_2=60\\
+8x_1-x_2=740&\implies x_1=100
+\end{align*}
+
+Two [pivots]({{< meta decks.d01.file >}}#pivots-organize-elimination) — one unique production plan
+
+$$
+\vct{x}=\begin{bmatrix}100\\60\end{bmatrix},\qquad
+\underbrace{\begin{bmatrix}26\\45\end{bmatrix}}_{\mat{C}\vct{x}}
++\underbrace{\begin{bmatrix}74\\15\end{bmatrix}}_{\vct{d}}
+=\underbrace{\begin{bmatrix}100\\60\end{bmatrix}}_{\vct{x}}
+$$
+
+::: {.notes}
+The two arrow labels are successive elementary row operations: multiply
+row 2 by 4, then add 3 times row 1. The scaled system has the same solution
+as the original. Echelon form and back substitution suffice; no RREF or
+explicit inverse is needed. Both coefficient columns have pivots, so the
+square system has a unique solution for every demand. The final check
+also verifies the economic balance and nonnegative production.
+:::
+
+---
+
+### Find the eigenvalues and eigenvectors of the input matrix {#leontief-eigenpairs}
+
+Scaling preserves the eigendirections; use a trial vector $\vct{v}=[a,b]^\top$
+
+$$
+\mat{M}=20\mat{C}=\begin{bmatrix}4&2\\6&5\end{bmatrix}
+$$
+
+$$
+p_{\mat{M}}(\mu)=\det(\mu\mat{I}-\mat{M})
+=(\mu-4)(\mu-5)-12=(\mu-8)(\mu-1)
+$$
+
+::: {.columns}
+::: {.column width="47%"}
+$\mu_1=8$: $-4a+2b=0$
+
+$$
+\vct{v}_1=\begin{bmatrix}1\\2\end{bmatrix},\qquad
+\mat{C}\vct{v}_1=\frac25\vct{v}_1
+$$
+:::
+::: {.column width="6%"}
+:::
+::: {.column width="47%"}
+$\mu_2=1$: $3a+2b=0$
+
+$$
+\vct{v}_2=\begin{bmatrix}2\\-3\end{bmatrix},\qquad
+\mat{C}\vct{v}_2=\frac1{20}\vct{v}_2
+$$
+:::
+:::
+
+::: {.key-point}
+The eigenvalues of $\mat{C}$ are $2/5=0.4$ and $1/20=0.05$
+:::
+
+::: {.notes}
+Use scalar entries a,b in the trial vector; bold v_j names one of the two
+complete eigenvectors. An eigenvalue mu of M=20C corresponds to lambda=mu/20
+of C. The monic characteristic polynomial follows Anton. Each displayed
+linear equation comes from (M-mu I)v=0; the second row is dependent.
+Directly check Cv1=[0.4,0.8]^T and Cv2=[0.1,-0.15]^T. Distinct eigenvalues
+make these two eigenvectors independent, hence a basis of R^2.
+:::
+
+---
+
+### Subtracting from the identity preserves the eigenvectors {#leontief-shared-eigenvectors}
+
+For each eigenpair of $\mat{C}$,
+
+$$
+\mat{C}\vct{v}_j=\lambda_j\vct{v}_j
+\implies
+(\mat{I}-\mat{C})\vct{v}_j=(1-\lambda_j)\vct{v}_j
+$$
+
+Multipliers along each eigendirection
+
+| Direction | Internal requirements<br>$\mat{C}$: $\lambda_j$ | Net output<br>$\mat{I}-\mat{C}$: $1-\lambda_j$ | Total output<br>$\mat{I}$: $1$ |
+|---|---:|---:|---:|
+| $\vct{v}_1=[1,2]^\top$ | $2/5$ | $3/5$ | $1$ |
+| $\vct{v}_2=[2,-3]^\top$ | $1/20$ | $19/20$ | $1$ |
+
+Both net-output multipliers are nonzero — $\mat{I}-\mat{C}$ is invertible
+
+::: {.key-point}
+The same eigendirections describe total output, internal requirements and net output
+:::
+
+::: {.notes}
+The displayed implication works for every eigenvector without assuming
+diagonalizability. Here the two vectors form a basis, so the two nonzero
+multipliers prove invertibility. Conversely, if (I-C)v=eta v, then
+Cv=(1-eta)v; the eigenspaces are exactly the same, with shifted eigenvalues.
+The second line of each table header identifies the matrix and its scalar
+multiplier on v_j. Total output is the identity action, with multiplier 1;
+internal requirements use lambda_j and net output uses 1-lambda_j.
+Invertibility needs lambda not equal to 1. The stronger magnitude-below-1
+condition will justify the geometric series and iteration later.
+:::
+
+---
+
+### Interpret a production mix and a sector adjustment {#leontief-interpret-eigendirections}
+
+For total output in an eigendirection,
+
+$$
+\mat{C}\vct{x}=\lambda\vct{x},\qquad
+\vct{d}=\vct{x}-\mat{C}\vct{x}=(1-\lambda)\vct{x}
+$$
+
+::: {.columns}
+::: {.column width="47%"}
+$\vct{v}_1=[1,2]^\top$ — a feasible production mix in the ratio $1:2$
+
+- Internal inputs keep the same mix: $\mat{C}\vct{v}_1=0.4\vct{v}_1$
+- Net output for external demand: $0.6\vct{v}_1$
+- Demand in this direction needs $5/3$ times as much gross production
+:::
+::: {.column width="6%"}
+:::
+::: {.column width="47%"}
+$\vct{v}_2=[2,-3]^\top$ — increase sector 1, decrease sector 2
+
+- Internal-input change: $0.05\vct{v}_2$
+- External-demand change: $0.95\vct{v}_2$
+- A negative entry means a decrease from an existing production level
+:::
+:::
+
+::: {.key-point}
+Internal demand, external demand and total output are parallel in an eigendirection
+:::
+
+::: {.notes}
+A nonnegative multiple of v1 is a feasible gross-production profile; its
+internal requirements and net output have the same sector ratio. v2 has
+opposite signs, so it is not a feasible production plan by itself. By
+linearity it describes a small signed change around a baseline with enough
+production in both sectors: delta x=a v2 implies delta d=0.95a v2.
+This interprets a right eigenvector of C, not a left price eigenvector.
+Neither individual eigendirection represents the complete new forecast;
+both components contribute to d and x.
+The external output is the net output x-Cx that satisfies external demand d.
+Thus x, Cx and d are scalar multiples of one another along an eigendirection;
+for the signed second mode, interpret the relation as parallel changes in
+these three quantities. Both eigenvalues here lie strictly between 0 and 1,
+so neither internal demand nor net output vanishes along a nonzero mode.
+:::
+
+---
+
+### A basis turns the demand vector into coordinates {#leontief-basis-and-coordinates}
+
+Use the ordered eigenbasis $\mathcal{V}=\{\vct{v}_1,\vct{v}_2\}$
+
+$$
+\mat{V}=[\vct{v}_1\ \vct{v}_2]
+=\begin{bmatrix}1&2\\2&-3\end{bmatrix},\qquad
+\mat{V}^{-1}=\frac17\begin{bmatrix}3&2\\2&-1\end{bmatrix}
+$$
+
+Read the coordinates, then reconstruct the same demand
+
+\begin{align*}
+[\vct{d}]_{\mathcal{V}}
+&=\mat{V}^{-1}\begin{bmatrix}74\\15\end{bmatrix}
+=\begin{bmatrix}36\\19\end{bmatrix}\\
+\vct{d}&=36\vct{v}_1+19\vct{v}_2
+=[\vct{v}_1\ \vct{v}_2]\begin{bmatrix}36\\19\end{bmatrix}
+=\begin{bmatrix}74\\15\end{bmatrix}
+\end{align*}
+
+::: {.key-point}
+The entries $36,19$ describe demand in the eigenbasis; $74,15$ describe sector demand
+:::
+
+::: {.notes}
+The basis is a set listed in a specified order; coordinate entry j multiplies
+v_j, and V uses that same column order. det(V)=-7, so the representation is
+unique. V maps eigenbasis coordinate columns to standard sector vectors;
+V^-1 reads eigenbasis coordinates. These eigenvectors are not perpendicular:
+v1^T v2=-4, which reinforces that a basis need not be orthogonal. The numbers
+36 and 19 are coordinates, not the individual sectors' external demands.
+:::
+
+---
+
+### Solve the same system in eigenbasis coordinates {#leontief-solve-in-eigenbasis}
+
+Let $\vct{c}=[\vct{x}]_{\mathcal{V}}$ and $\mat{D}=\operatorname{diag}(2/5,1/20)$
+
+$$
+\mat{C}=\mat{V}\mat{D}\mat{V}^{-1},\qquad
+(\mat{I}-\mat{C})\mat{V}\vct{c}=\vct{d}
+$$
+
+Change coordinates to separate the two equations
+
+$$
+\underbrace{\begin{bmatrix}3/5&0\\0&19/20\end{bmatrix}}_{\mat{I}-\mat{D}}
+\begin{bmatrix}c_1\\c_2\end{bmatrix}
+=\underbrace{\begin{bmatrix}36\\19\end{bmatrix}}_{[\vct{d}]_{\mathcal{V}}}
+\implies \vct{c}=\begin{bmatrix}60\\20\end{bmatrix}
+$$
+
+$$
+\vct{x}=\mat{V}\vct{c}
+=60\vct{v}_1+20\vct{v}_2
+=\begin{bmatrix}100\\60\end{bmatrix}
+$$
+
+::: {.key-point}
+Read demand coordinates, divide by $1-\lambda_j$, then reconstruct production
+:::
+
+::: {.notes}
+Multiplying the standard-coordinate system by V^-1 gives (I-D)c=V^-1d.
+Thus c1=36/(3/5)=60 and c2=19/(19/20)=20. This reproduces the elimination
+answer. The complete map is x=V(I-D)^-1 V^-1 d. Eigenvectors describe whole
+production directions; c is the coordinate column of the unknown vector.
+Diagonalizing is a conceptual/reusable description, not a claim that it is
+the fastest way to solve every numerical system.
+:::
+
+---
+
+### Decompose production into a mix and an adjustment {#leontief-production-decomposition}
+
+The production coordinates $[\vct{x}]_{\mathcal{V}}=[60,20]^\top$ give
+
+\begin{align*}
+\vct{x}&=60\vct{v}_1+20\vct{v}_2\\
+&=\underbrace{\begin{bmatrix}60\\120\end{bmatrix}}_{\text{baseline production}}
++\underbrace{\begin{bmatrix}40\\-60\end{bmatrix}}_{\text{signed adjustment}}
+=\begin{bmatrix}100\\60\end{bmatrix}
+\end{align*}
+
+Increase sector 1 by $40$; decrease sector 2 by $60$ — both final outputs remain nonnegative
+
+| Quantity | Baseline | Adjustment | Result |
+|---|---:|---:|---:|
+| Internal demand $\mat{C}\vct{x}$ | $[24,48]^\top$ | $[2,-3]^\top$ | $[26,45]^\top$ |
+| External demand $\vct{d}$ | $[36,72]^\top$ | $[38,-57]^\top$ | $[74,15]^\top$ |
+
+::: {.key-point}
+One eigenvector describes a production mix; the other describes a sector adjustment
+:::
+
+::: {.notes}
+Place this worked economic interpretation after the eigenbasis solve so the
+coordinates 60 and 20 have already been derived. The baseline 60v1 is a
+feasible production plan with its own nonnegative external demand [36,72]^T.
+The adjustment 20v2 raises sector 1 by 40 and lowers sector 2 by 60, yielding
+the new feasible plan [100,60]^T. A negative adjustment entry represents a
+decrease from the baseline, not a negative final production level.
+By linearity, C(20v2)=0.05(20v2)=[2,-3]^T and
+(I-C)(20v2)=0.95(20v2)=[38,-57]^T. Adding these to the baseline's
+internal requirements [24,48]^T and external demand [36,72]^T gives the
+original checked totals. The table therefore applies the same decomposition
+to total production, internal demand and external demand; the table's
+entries are sector vectors, not eigenvalues. These are static comparisons
+between production plans, not a time-dependent adjustment model.
+:::
+
+---
+
+### Powers add successive rounds of input requirements {#leontief-input-rounds}
+
+External demand $\vct{d}$ needs inputs $\mat{C}\vct{d}$, which need $\mat{C}^2\vct{d}$, and so on
+
+Since $\vct{d}=36\vct{v}_1+19\vct{v}_2$,
+
+$$
+\mat{C}^k\vct{d}
+=36\left(\frac25\right)^k\vct{v}_1
++19\left(\frac1{20}\right)^k\vct{v}_2,\qquad k\ge0
+$$
+
+Both eigenvalues have magnitude below $1$ — the input-round vectors tend to zero
+
+\begin{align*}
+\vct{x}
+&=\vct{d}+\mat{C}\vct{d}+\mat{C}^2\vct{d}+\cdots\\
+&=\frac{36}{1-2/5}\vct{v}_1+\frac{19}{1-1/20}\vct{v}_2\\
+&=60\vct{v}_1+20\vct{v}_2=\begin{bmatrix}100\\60\end{bmatrix}
+\end{align*}
+
+::: {.notes}
+Each round is another layer of intermediate inputs in the static model.
+Apply C repeatedly to each eigenvector to obtain the scalar powers; at k=0
+both scalar powers equal 1. The mixed demand does not shrink by one common
+factor each round. The earlier special demand [3,6]^T was 3v1 and therefore
+had only the 0.4 mode; retain that as an optional spoken simplification.
+Here Cd=[16.3,25.95]^T: sector 2's first input requirement exceeds its
+external demand 15. Convergence to zero does not mean every sector decreases
+at every round. The identity x-Cx=[74,15]^T checks the sum. The general
+powers formula follows immediately after this worked review.
+:::
+
+---
+
+### A matrix geometric series gives an iterative solve {#leontief-matrix-series-and-iteration}
+
+For this model, every eigenvalue of $\mat{C}$ has magnitude below $1$
+
+$$
+(\mat{I}-\mat{C})^{-1}=\mat{I}+\mat{C}+\mat{C}^2+\cdots
+$$
+
+Start with $\vct{x}^{(0)}=\vct{0}$ and add one layer of inputs per step
+
+\begin{align*}
+\vct{x}^{(k+1)}&=\mat{C}\vct{x}^{(k)}+\vct{d}\\
+\vct{x}^{(1)}&=\vct{d},\qquad
+\vct{x}^{(2)}=\vct{d}+\mat{C}\vct{d}\\
+\vct{x}^{(k)}&=\sum_{j=0}^{k-1}\mat{C}^j\vct{d}
+\longrightarrow(\mat{I}-\mat{C})^{-1}\vct{d}
+\end{align*}
+
+::: {.key-point}
+Repeated matrix–vector products approach the same production plan without forming an inverse
+:::
+
+::: {.notes}
+This preserves the earlier iterative-solve addition. It is fixed-point
+iteration for x=Cx+d, equivalently a stationary iterative method for (I-C)x=d.
+For any initial guess, e^(k+1)=C e^(k), where e^(k)=x-x^(k), so e^(k)=C^k e^(0).
+The finite identity (I-C)(I+C+...+C^m)=I-C^(m+1) proves the inverse formula
+when C^k tends to zero. For any square matrix, eigenvalues of magnitude below
+1 suffice; diagonalizability is not required. Invertibility alone does not
+guarantee convergence of this particular iteration. For a sparse C with s
+nonzero entries, a step costs O(s+n) and stores C, d and the current iterate.
+This may help large sparse systems but is not always better than a direct
+solve. Eigenvalues near the unit circle give slow asymptotic convergence;
+a nonnormal matrix can also show transient error growth.
+:::
+
+---
+
+### The production response is a matrix function {#leontief-response-matrix-function}
+
+The scalar response $f(z)=1/(1-z)$ acts on each eigendirection
+
+$$
+f(\mat{C})=(\mat{I}-\mat{C})^{-1}
+=\mat{V}\begin{bmatrix}5/3&0\\0&20/19\end{bmatrix}\mat{V}^{-1},\qquad
+\vct{x}=f(\mat{C})\vct{d}
+$$
+
+| Action in the same eigenbasis | Scalar multiplier on $\vct{v}_j$ |
+|---|---:|
+| Internal inputs $\mat{C}$ | $\lambda_j$ |
+| Net output $\mat{I}-\mat{C}$ | $1-\lambda_j$ |
+| Input round $\mat{C}^k$ | $\lambda_j^k$ |
+| Production response $(\mat{I}-\mat{C})^{-1}$ | $1/(1-\lambda_j)$ |
+
+::: {.key-point}
+One eigenvector basis connects linear systems, coordinates, powers and matrix functions
+:::
+
+::: {.notes}
+The response is the matrix function f(C), not entrywise application of
+1/(1-z) to the four entries of C. The basis vectors are unchanged while
+the scalar multipliers change. The rational response only needs 1 not to
+be an eigenvalue; representing it by the displayed geometric series also
+needs all eigenvalues to have magnitude below 1. The general powers and
+matrix-function formulas now summarize what this practical example earned.
+:::
 
 ## Powers act separately on eigenbasis coordinates {#powers-act-separately-on-eigenbasis-coordinates}
 
@@ -1165,42 +1653,6 @@ block; powers of defective matrices and a general Jordan algorithm are not
 developed here.
 :::
 
-## Leontief production adds successive rounds of inputs {#leontief-production-adds-successive-rounds-of-inputs}
-
-[Two-sector Leontief model from {{< meta decks.d02.short_title >}}]({{< meta decks.d02.file >}}#one-forecast-or-a-response-map) with gross production $\vct{x}=\mat{C}\vct{x}+\vct{d}$
-
-$$
-\mat{C}=\begin{bmatrix}0.20&0.10\\0.30&0.25\end{bmatrix},\qquad
-\text{external demand}\;\vct{d}=\begin{bmatrix}3\\6\end{bmatrix}
-$$
-
-Each round requires [40% as much]{.alert} from both sectors as the preceding round
-
-$$
-\mat{C}\vct{d}=\begin{bmatrix}1.2\\2.4\end{bmatrix}=0.4\vct{d}
-\quad\implies\quad \mat{C}^{k}\vct{d}=0.4^{k}\vct{d}
-$$
-
-Add the original demand and every round of internal requirements
-
-\begin{align*}
-\vct{x}
-&=\vct{d}+\mat{C}\vct{d}+\mat{C}^2\vct{d}+\cdots\\
-&=\frac{1}{1-0.4}\begin{bmatrix}3\\6\end{bmatrix}
-=\begin{bmatrix}5\\10\end{bmatrix}
-\end{align*}
-
-::: {.notes}
-Use the earlier input matrix with a demand that is three times the eigenvector
-[1,2]ᵀ. Its eigenvalue 0.4 gives the scalar geometric series.
-The rounds account for successive layers of inputs in the static model.
-Check that C[5,10]ᵀ=[2,4]ᵀ, and adding [3,6]ᵀ recovers gross production.
-The other eigenpair is 0.05 with [2,−3]ᵀ. For general demand, add both
-eigenbasis components with multipliers 1/(1−0.4) and 1/(1−0.05).
-These are the eigenvalues of the response matrix (I−C)⁻¹. If C instead
-had eigenvalue 1, the corresponding direction would make I−C singular.
-:::
-
 ## Functions act separately on eigenbasis coordinates {#functions-act-separately-on-eigenbasis-coordinates}
 
 If $\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}$ and $f$ is defined at every eigenvalue, define
@@ -1219,6 +1671,7 @@ f(\mat{A})\vct{v}_j=f(\lambda_j)\vct{v}_j
 |---|---|
 | $f(z)=z^k$, integer $k\ge0$ | $\mat{A}^k$ |
 | $f(z)=1/z$, no zero eigenvalue | $\mat{A}^{-1}$ |
+| $f(z)=1/(1-z)$, no eigenvalue $1$ | $(\mat{I}-\mat{A})^{-1}$ |
 | $f(z)=e^{tz}$ | $e^{t\mat{A}}$ |
 
 ::: {.key-point}

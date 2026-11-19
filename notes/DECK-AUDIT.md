@@ -1,5 +1,58 @@
 # MATH 332 deck accuracy and clarity audit
 
+## November 19, 2026 — tennis-racket wobble explanation
+
+Added a short continuation immediately after the racket example. It separates
+the inertia tensor's three positive principal moments from the eigenvalues
+of the two-component small-wobble linearization: an imaginary pair at the
+extreme-moment axes and a positive/negative real pair at the middle axis.
+Presenter notes retain the rigid, torque-free assumptions, the omitted neutral
+spin-speed direction, the initial-growth qualification and the distinction
+between oscillation and decay. The continuation previews the exponential
+mode without deriving Euler's equations. Terminology links now point to the
+racket example's first substantial treatment.
+
+Independent mechanics review and the primary university mechanics references
+support the explanation. Both affected decks render; the two racket slides
+fit at 1280×720, and the new continuation and revised index also pass
+inspection at the standard 1600×1000 size, with no MathJax errors or browser
+console warnings/errors. Source prose and whitespace
+checks pass. The new explanation is slide 14, after the original example on
+slide 13; the deck has 73 slides. The demonstration remains deferred until
+the instructor presents it.
+
+## November 19, 2026 — Leontief review and transition
+
+Expanded the original input-matrix example into the opening topic of Powers
+and Dynamics, before its general powers and matrix-function formulas. The new
+demand forecast activates both eigenmodes with whole-number coordinates.
+The worked sequence covers echelon form and back substitution, eigenpairs,
+shared net-output eigendirections and their economic interpretation, basis
+coordinates, powers, successive input requirements, iteration and the response
+as a matrix function. Preserved the earlier iteration explanation and existing
+Leontief anchors. The signed adjustment direction is distinguished from a
+feasible production profile, and invertibility from series convergence.
+The interpretation explicitly identifies parallel total output, internal
+demand and net output available for external demand along an eigendirection.
+The coordinate solve is followed by a worked baseline-plus-adjustment
+decomposition of production and the corresponding internal/external demand
+changes, with negative entries explicitly interpreted as decreases.
+The final classroom-use audit found no mathematical or economic errors.
+It clarified the scalar component notation in the eigenspace calculations
+and distinguished convergence of input-round vectors from componentwise
+monotonic decrease. Independent exact-arithmetic review confirmed every
+displayed numerical value and both feasible production plans.
+
+Exact symbolic checks and independent source review passed. The website and
+all twelve decks render without warnings; 477 local references in the changed
+outputs and all twelve decks' navigation targets pass. Visible slide checks at
+1600×1000 and 1280×720 verify the review and general-function transition, with
+no MathJax errors or browser console warnings/errors. The revised Terms index
+and overview links navigate to the intended slides. The planned Schedule row
+fits desktop and phone widths; all six monthly tables fit at 390 pixels.
+Source prose and whitespace checks pass. Instructor review, teaching and
+publication remain separate; no coverage ledger or calendar occurrence changed.
+
 ## November 17, 2026 — map direction and multiplication order
 
 Audited Decks 00–11 for action diagrams whose reading direction conflicts
