@@ -71,7 +71,7 @@ assignments, quizzes, holidays, and examination details are finalized.
 
 | Week | Date | Topic | Slides / Materials |
 |---:|---|---|---|
-| 16 | Tue Dec 1 | Review, bring your questions (tentative)<span class="assessment-divider" aria-hidden="true"></span>**Quiz 5** | Coverage TBD |
+| 16 | Tue Dec 1 | Review, bring your questions (tentative)<span class="assessment-divider" aria-hidden="true"></span>**Quiz 5** | <span class="assessment-divider" aria-hidden="true"></span>Covers<br>&nbsp;&nbsp;&nbsp;&nbsp;[Matrix Spaces and Rank](../slides/08-matrix-spaces-and-rank.html)<br>&nbsp;&nbsp;&nbsp;&nbsp;[Eigenvalues and Eigenvectors](../slides/09-eigenvalues-and-eigenvectors.html) |
 | | Thu Dec 3 | Review, bring your questions (tentative) | |
 
 ### Final examinations

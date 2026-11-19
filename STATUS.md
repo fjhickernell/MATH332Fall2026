@@ -344,12 +344,20 @@ Mathematical content should be maintained only in the slides.
   - [x] Publish and verify Quizzes 3–5 for their announced October 15,
     November 12, and December 1 dates. Quiz 4 covers the full Bases, Dimension,
     and Coordinates deck (Deck 07), announced November 6 and verified in
-    Canvas announcement `109873`; Quiz 5 coverage remains TBD. Both tests are
-    published. Grades remain for later entry.
+    Canvas announcement `109873`. Both tests are published. Grades remain for
+    later entry.
+  - [x] Finalize December 1 Quiz 5 coverage as Matrix Spaces and Rank and
+    Eigenvalues and Eigenvectors in the local assessment page, Schedule, and
+    Deck 09 title notice.
   - [x] Prepare and validate the private Quiz 4 draft for November 12;
     instructor review is not separately recorded.
   - [x] Print Quiz 4 and send it to the Center for Disability Resources,
     confirmed November 11 in the Dashboard; retain confidentiality through grading.
+  - [x] Post Quiz 4 grades and publish the answer PDF with the anonymous
+    score distribution and instructor feedback in the course and archive
+    (November 18, 2026).
+  - [x] Publish and verify the all-sections Quiz 4 grades announcement
+    (`110760`, November 18, 2026).
   - [x] Narrow Test 2 coverage through dimension; exclude coordinates and
     transformations; correct the Canvas assignment and prior notice, and
     publish the all-sections correction announcement `108764` (October 22).

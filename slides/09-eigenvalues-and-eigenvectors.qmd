@@ -23,7 +23,7 @@ format:
 subtitle: |
   <span class="deck-title">{{< meta deck_title >}}</span><br>
   <span class="deck-meta">{{< meta texts.anton.short >}} Ch. 5</span><br>
-  <span class="deck-meta">[Assignment 6](../assignments/assignment_6.html) due November 23</span>
+  <span class="deck-meta">[Assignment 6](../assignments/assignment_6.html) due November 23<br>Quiz 5 · December 1</span>
 include-after-body:
   - text: |
       <script id="deck-nav-meta" type="application/json">
@@ -424,7 +424,8 @@ When do preserved directions provide enough coordinates for every vector?
 
 ## An eigenvector basis makes the matrix diagonal {#an-eigenvector-basis-makes-the-matrix-diagonal}
 
-Put $n$ independent eigenvectors into $\mat{V}$, with matching eigenvalues in $\mat{D}$:
+For the ordered eigenbasis $\mathcal{V}=\{\vct{v}_1,\ldots,\vct{v}_n\}$,
+match each column to its eigenvalue
 
 $$
 \mat{V}=[\vct{v}_1\ \cdots\ \vct{v}_n],\qquad
@@ -470,15 +471,14 @@ $$
 \mat{D}=\begin{bmatrix}3&0\\0&1\end{bmatrix}
 $$
 
-For $\vct{x}=[4,2]^\top$:
+For $\vct{x}=[4,2]^\top$, write $\vct{c}=[\vct{x}]_{\mathcal{V}}=\mat{V}^{-1}\vct{x}$
 
 $$
 \mat{A}\vct{x}=\begin{bmatrix}10\\8\end{bmatrix}
 \quad\xleftarrow{\mat{V}}\quad
-\begin{bmatrix}9\\1\end{bmatrix}
+\underbrace{\begin{bmatrix}9\\1\end{bmatrix}}_{[\mat{A}\vct{x}]_{\mathcal{V}}}
 \quad\xleftarrow{\mat{D}}\quad
-\underbrace{\mat{V}^{-1}\vct{x}}_{\text{eigenbasis coordinates}}
-=\begin{bmatrix}3\\1\end{bmatrix}
+\underbrace{\begin{bmatrix}3\\1\end{bmatrix}}_{[\vct{x}]_{\mathcal{V}}}
 $$
 
 ::: {.key-point}
@@ -496,13 +496,13 @@ This is the same coordinate route taught in Bases and Coordinates.
 
 ### Diagonalization is a change of coordinates {#diagonalization-is-a-change-of-coordinates}
 
-For the eigenbasis $\mathcal{V}=\{\vct{v}_1,\ldots,\vct{v}_n\}$,
-$\vct{c}=[\vct{x}]_{\mathcal{V}}=\mat{V}^{-1}\vct{x}$
+Use the inverse basis matrix as in
+[{{< meta decks.d07.short_title >}}]({{< meta decks.d07.file >}}#a-basis-matrix-converts-coordinates-to-standard-form)
 
 ::: {.eigen-map role="group" aria-label="Read from right to left: the basis matrix V maps the eigenbasis coordinate column c in the right box to the vector x in the left box. Its inverse reads those coordinates."}
 <div class="diagram-node eigen-map-input">
 <span class="diagram-label">Eigenbasis coordinates</span>
-<span class="eigen-map-line">$\vct{c}=\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix}$</span>
+<span class="eigen-map-line">$[\vct{x}]_{\mathcal{V}}=\vct{c}=\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix}$</span>
 </div>
 <div class="diagram-arrow eigen-map-arrow">$\xleftarrow{\quad\mat{V}\quad}$</div>
 <div class="diagram-node eigen-map-output">
@@ -512,11 +512,11 @@ $\vct{c}=[\vct{x}]_{\mathcal{V}}=\mat{V}^{-1}\vct{x}$
 </div>
 :::
 
-Applying the operator in either description gives the same output:
+Apply $\mat{A}$ to the vector or $\mat{D}$ to its eigenbasis coordinates
 
 $$
 \mat{A}\vct{x}=\mat{A}(\mat{V}\vct{c})=\mat{V}(\mat{D}\vct{c}),
-\qquad\mat{A}\mat{V}=\mat{V}\mat{D}
+\qquad [\mat{A}\vct{x}]_{\mathcal{V}}=\mat{D}[\vct{x}]_{\mathcal{V}}
 $$
 
 $\mat{V}^{-1}$ reads the coordinates; $\mat{D}$ scales them separately
@@ -555,7 +555,7 @@ $\mat{B}\mat{V}=\mat{V}\mat{D}$; start with $\vct{x}=[3,-2]^\top$
 ::: {.eigen-map .eigen-map-square role="group" aria-label="A commuting square with eigenbasis coordinate columns on the right and corresponding vectors on the left. Read horizontal arrows right to left: V maps c=(2,1) to x=(3,-2). Downward D on the right maps c to (8,2), while downward B on the left maps x to (10,-4). V also maps the lower coordinate column to the lower vector."}
 <div class="diagram-node eigen-map-input">
 <span class="diagram-label">Eigenbasis coordinates</span>
-<span class="eigen-map-line">$\vct{c}=\mat{V}^{-1}\vct{x}=\begin{bmatrix}2\\1\end{bmatrix}$</span>
+<span class="eigen-map-line">$[\vct{x}]_{\mathcal{V}}=\vct{c}=\begin{bmatrix}2\\1\end{bmatrix}$</span>
 </div>
 <div class="diagram-arrow eigen-map-arrow">$\xleftarrow{\quad\mat{V}\quad}$</div>
 <div class="diagram-node eigen-map-output">
@@ -566,7 +566,7 @@ $\mat{B}\mat{V}=\mat{V}\mat{D}$; start with $\vct{x}=[3,-2]^\top$
 <div class="diagram-arrow eigen-map-vector-action">$\mat{B}\big\downarrow$</div>
 <div class="diagram-node eigen-map-lower-input">
 <span class="diagram-label">Coordinates after the action</span>
-<span class="eigen-map-line">$\mat{D}\vct{c}=\begin{bmatrix}8\\2\end{bmatrix}$</span>
+<span class="eigen-map-line">$[\mat{B}\vct{x}]_{\mathcal{V}}=\mat{D}\vct{c}=\begin{bmatrix}8\\2\end{bmatrix}$</span>
 </div>
 <div class="diagram-arrow eigen-map-lower-arrow">$\xleftarrow{\quad\mat{V}\quad}$</div>
 <div class="diagram-node eigen-map-lower-output">
@@ -615,7 +615,7 @@ Use the same $\mat{B},\mat{V},\mat{D}$, now with $\vct{x}=[1,2]^\top$
 <span class="exbullet">$\exstar$</span>
 <span>Complete the coordinate route
 <span class="exsub">Find $\vct{c}$ and write $\vct{x}=c_1\vct{v}_1+c_2\vct{v}_2$</span>
-<span class="exsub">Compute $\mat{D}\vct{c}$ and $\mat{V}(\mat{D}\vct{c})$; check by computing $\mat{B}\vct{x}$ directly</span>
+<span class="exsub">Use $\mat{D}\vct{c}$ to find $[\mat{B}\vct{x}]_{\mathcal{V}}$, then reconstruct $\mat{B}\vct{x}$ and check by direct multiplication</span>
 <span class="exsub">Compute $\mat{D}\vct{x}$; does it equal $\mat{B}\vct{x}$? Which coordinate column should $\mat{D}$ act on?</span>
 </span>
 :::
@@ -639,26 +639,31 @@ Eigenvectors belonging to distinct eigenvalues are linearly independent
 
 For two eigenvectors, suppose $c_1\vct{v}_1+c_2\vct{v}_2=\vct{0}$
 
-Apply $\mat{A}$, then subtract $\lambda_2$ times the original relation:
+Apply $\mat{A}$, then substitute $c_2\vct{v}_2=-c_1\vct{v}_1$ from the original relation
 
-$$
-c_1\lambda_1\vct{v}_1+c_2\lambda_2\vct{v}_2=\vct{0}
-\quad\implies\quad c_1(\lambda_1-\lambda_2)\vct{v}_1=\vct{0}
-$$
+\begin{align*}
+\vct{0}&=c_1\lambda_1\vct{v}_1+\lambda_2(c_2\vct{v}_2)\\
+&=c_1\lambda_1\vct{v}_1-\lambda_2 c_1\vct{v}_1\\
+&=c_1(\lambda_1-\lambda_2)\vct{v}_1
+\end{align*}
 
 Since $\lambda_1\ne\lambda_2$ and $\vct{v}_1\ne\vct{0}$, $c_1=0$, then $c_2=0$
+
+For $k$ eigenvectors, eliminate the last term as above and apply induction to the first $k-1$
 
 ::: {.key-point}
 An $n\times n$ matrix with $n$ distinct eigenvalues in the chosen field is diagonalizable there
 :::
 
 ::: {.notes}
-For k distinct eigenvalues, induction proves the same statement. Apply
-A-lambda_k I to a zero relation among v1,...,vk. The first k-1 terms
-have coefficients c_j(lambda_j-lambda_k); the inductive hypothesis forces
-them all to zero. Distinct eigenvalues give c_j=0 for j<k; the original
-relation gives c_k=0. Existence of n distinct roots is sufficient, not
-necessary: the identity matrix is a counterexample to necessity.
+The one-vector case holds because an eigenvector is nonzero. For k distinct
+eigenvalues, start with a zero relation among v1,...,vk, apply A, and use the
+original relation to substitute for c_k v_k in the term lambda_k(c_k v_k).
+The remaining k-1 terms have coefficients c_j(lambda_j-lambda_k). By
+induction the first k-1 vectors are independent, so those coefficients vanish.
+Distinct eigenvalues give c_j=0 for j<k. The original relation then gives
+c_k=0 since v_k is nonzero. The identity matrix shows that diagonalizability
+can also hold with repeated eigenvalues.
 :::
 
 ## Repeated roots may leave too few directions {#repeated-roots-may-leave-too-few-directions}
@@ -1161,12 +1166,10 @@ developed here.
 
 ## Functions act separately on eigenbasis coordinates {#functions-act-separately-on-eigenbasis-coordinates}
 
-Suppose $\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}$ and $f$ is defined at every eigenvalue
+If $\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}$ and $f$ is defined at every eigenvalue, define
 
 \begin{equation*}
-f(\mat{A})=\mat{V}f(\mat{D})\mat{V}^{-1},
-\qquad
-f(\mat{D})=\operatorname{diag}\bigl(f(\lambda_1),\ldots,f(\lambda_n)\bigr)
+f(\mat{A})=\mat{V}\,\operatorname{diag}\bigl(f(\lambda_1),\ldots,f(\lambda_n)\bigr)\,\mat{V}^{-1}
 \end{equation*}
 
 Each eigenvector is scaled by the corresponding scalar value:

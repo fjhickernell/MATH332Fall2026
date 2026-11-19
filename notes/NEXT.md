@@ -1,5 +1,17 @@
 # Next task
 
+## Quiz 5 coverage — December 1
+
+Quiz 5 covers **Matrix Spaces and Rank** and **Eigenvalues and Eigenvectors**.
+It is Tuesday, December 1, in PH 109, during the last 15 minutes of class,
+and is worth 20 points. The assessment page, Schedule, and Deck 09 title
+notice reflect the finalized coverage. Verify the live Pages deployment before
+using the updated coverage page in a student announcement.
+After the Illinois Tech sign-in, update the existing Canvas On Paper assignment
+and post **Quiz 5 coverage for Tuesday, December 1** to All Sections with links
+to the two live decks.
+The Dashboard already records the December 7 grading deadline.
+
 ## Class schedule announcement — published November 17
 
 Fred published [Upcoming Class Schedule](https://iit.instructure.com/courses/23913/discussion_topics/110654)
@@ -296,8 +308,20 @@ overflow, and the Deck 07 title notice fits at 1280×900. `git diff --check`
 passes. Shared slide-resource warnings concern optional files; required
 assembled shared pages and all linked assets are present. The latest prior
 course publishing and Pages deployment runs succeeded.
-The Dashboard already records the November 18 Quiz 4 grading task and the
-November 12 lecture preparation. No duplicate scan is needed.
+### Quiz 4 grading and answer release — November 18
+
+Canvas reports all Quiz 4 grades posted, including the zeroes for the two
+nonparticipants. The corrected anonymous distribution uses the complete roster
+of 17 quiz takers, including seven perfect scores and two earned zeros.
+The [Quizzes and Tests page](https://fjhickernell.github.io/MATH332Fall2026/pages/quizzes-and-tests.html)
+links the corrected PDF with the instructor feedback. Archive correction
+`bc5e2d6` and course correction `27e8eca` are published. Both public
+PDFs match the inspected copy byte for byte.
+
+[Quiz 4 grades are posted](https://iit.instructure.com/courses/23913/discussion_topics/110760)
+was published and verified for **All Sections** on November 18, 2026 at
+6:28 PM CST. The saved announcement links to Quizzes and Tests and repeats
+the instructor feedback printed below the distribution. Do not repost.
 
 ## Thanksgiving invitation — completed reference
 
@@ -931,8 +955,7 @@ address reported Colab problems.
   in Quizzes, with an October 1 at 12:40 PM deadline. Quizzes 3–5 are also
   published for their announced October 15, November 12, and December 1 dates;
   Quiz 3 covers Euclidean Vector Spaces and Vector Spaces, Subspaces, and Span.
-  Quiz 4 and Quiz 5 coverage remains TBD. Both tests are published. Grades
-  remain for later entry.
+  Quiz 4 and Quiz 5 coverage was still TBD at setup. Both tests were published.
 - All-sections Canvas announcement `106298` posts the remaining quiz dates:
   Quiz 3 on October 15, Quiz 4 on November 12, and Quiz 5 on December 1. The
   same dates are recorded in the Schedule and Quizzes and Tests page. Quiz 3
@@ -940,12 +963,12 @@ address reported Colab problems.
   Spaces, Subspaces, and Span decks. The October 8 coverage announcement
   [107573](https://iit.instructure.com/courses/23913/discussion_topics/107573),
   “Quiz 3: Coverage for Thursday, October 15,” is published and verified for
-  All Sections. Quiz 4 and Quiz 5 coverage remains TBD. Quiz 3 grading is
-  complete; all 20 Canvas scores are posted. The answer PDF includes the
-  anonymous distribution, including both earned zeros, and is released in the
-  current-assessment folder and canonical archive commit `bc6be6c`. The course
-  release is commit `f60d12b`; Quarto publication and GitHub Pages deployment
-  succeeded, and both live PDFs match the inspected release byte for byte.
+  All Sections. Quiz 3 grading is complete; all 20 Canvas scores are posted.
+  The answer PDF includes the anonymous distribution, including both earned
+  zeros, and is released in the current-assessment folder and canonical
+  archive commit `bc6be6c`. Course release `f60d12b` passed Quarto publication
+  and GitHub Pages deployment. Both live PDFs match the inspected release
+  byte for byte.
   The All Sections [Quiz 3 grades and answers are posted announcement](https://iit.instructure.com/courses/23913/discussion_topics/108704)
   was published and verified October 22. The grading Dashboard task and
   matching Academic reminder are complete. Mixed lecture/quiz schedule rows now separate the
