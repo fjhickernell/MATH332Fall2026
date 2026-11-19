@@ -964,7 +964,7 @@ E_\lambda=\operatorname{null}(\mat{A}-\lambda\mat{I})
 </section>
 <section id="a-spinning-tennis-racket" class="slide level2">
 <h2>Example: a spinning tennis racket</h2>
-<p>The <span class="alert">inertia tensor</span> <span class="math inline">\(\mat{J}=\mat{J}^\top\in\reals^{3\times3}\)</span> describes rotation about the center of mass</p>
+<p>The <span class="alert">inertia tensor</span> <span class="math inline">\(\mat{J}=\mat{J}^\top\in\reals^{3\times3}\)</span> describes rotational inertia about the center of mass</p>
 <p><span class="math display">\[\begin{equation*}
 \mat{J}\vct{v}_j=I_j\vct{v}_j,\qquad 0&lt;I_1&lt;I_2&lt;I_3
 \end{equation*}\]</span></p>
@@ -1009,6 +1009,62 @@ E_\lambda=\operatorname{null}(\mat{A}-\lambda\mat{I})
 <aside class="notes">
 <p>Demonstration: mark one face of the racket, compare tosses about the three principal axes, and watch the extra face flip for the intermediate-axis toss. Treat the racket as a rigid, approximately symmetric flat body. All axes pass through its center of mass, and external torque about that point is neglected. The tensor maps angular velocity to angular momentum; principal-axis rotation makes those vectors parallel. The tensor is not the matrix of a spatial rotation. Its three distinct principal moments make these eigenspaces one-dimensional. Exact steady rotation about the intermediate axis is a valid motion; instability means small off-axis disturbances grow, not that the motion is impossible. The stability assertion is a result of rigid-body dynamics, not a consequence of the eigenvalue definition alone.</p>
 <p>Sources: <a href="https://farside.ph.utexas.edu/teaching/336k/lectures/node67.html">UT Austin: principal axes of rotation</a> and <a href="https://sciencedemonstrations.fas.harvard.edu/presentations/tennis-racquet-flip">Harvard: tennis racquet flip</a>.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="tennis-racket-wobble-eigenvalues">A small wobble may oscillate or grow</h3>
+<p>Perfect spin about any principal axis is possible — test it with a tiny wobble</p>
+<p>Let <span class="math inline">\(\vct{u}\)</span> contain the two small angular-velocity components perpendicular to the spin axis</p>
+<p>The linear approximation uses a <span class="alert">different matrix</span>, <span class="math inline">\(\mat{B}\)</span></p>
+<p><span class="math display">\[
+\vct{u}'=\mat{B}\vct{u},\qquad
+\mat{B}\vct{w}=\mu\vct{w}
+\implies \vct{u}(t)=e^{\mu t}\vct{w}
+\]</span></p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Steady spin axis</th>
+<th>Wobble eigenvalues</th>
+<th>Effect of a small disturbance</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Smallest or largest moment</td>
+<td><span class="math inline">\(\pm\sqrt{-1}\,\nu\)</span></td>
+<td>Oscillation; wobble stays small</td>
+</tr>
+<tr class="even">
+<td>Intermediate moment</td>
+<td><span class="math inline">\(\pm\sigma\)</span></td>
+<td>A growing component; onset of tumbling</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(\nu,\sigma&gt;0\)</span> — imaginary rates oscillate; a positive real rate grows initially</p>
+<div class="key-point">
+<p>Inertia eigenvalues are principal moments; wobble eigenvalues govern growth or oscillation</p>
+</div>
+<aside class="notes">
+<p>Keep the distinction verbal and brief: the inertia eigenvectors are the natural spin axes, and the three positive inertia eigenvalues are the principal moments. Perfect torque-free spin about any one axis is possible. The new question is whether a tiny off-axis wobble stays small. The angular velocity components are measured in the body-fixed principal-axis frame. B is the two-dimensional transverse linearization about that chosen steady spin, not the inertia tensor J. An eigenvector mode in the linear model evolves as exp(mu t)w; its real and imaginary parts give real oscillatory solutions when mu is purely imaginary. The displayed mode has initial data w, and general small disturbances combine the two modes. For the smallest and largest moments the pair is purely imaginary, giving neutral oscillation, not decay back to the exact spin. For the middle moment there is one positive and one negative real rate; a generic perturbation contains the growing mode. The full three-component angular-velocity linearization also has a zero eigenvalue, corresponding to changing the steady spin speed along the same axis. It is omitted because u contains only the two perpendicular components. Assume a rigid body, no external torque, three distinct principal moments and nonzero spin. Conserved energy and angular-momentum magnitude support the bounded-wobble interpretation at the extreme axes; imaginary eigenvalues alone do not prove nonlinear stability for every system. Intermediate-axis growth describes the initial small disturbance; the full motion remains energy bounded and develops into tumbling rather than unbounded spin speed. Optional physical intuition: at fixed angular-momentum magnitude, the energy has extrema at the extreme-moment axes and a saddle at the middle axis. Nearby conserved-energy contours surround the extrema but allow departures near the saddle. No Euler-equation derivation is needed for this illustration.</p>
+<p>Source: <a href="https://interactivetextbooks.tudelft.nl/nb1140/content/generalrotationalmotion.html#euler-s-equations">TU Delft: Euler’s equations and the tennis racket theorem</a>.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1751,13 +1807,472 @@ p_{\mat{R}}(\lambda)=\lambda^2+1
 <h1>Powers and Dynamics</h1>
 <p>Powers and matrix functions become scalar actions in an eigenvector basis</p>
 <ul>
+<li><a href="#/leontief-production-adds-successive-rounds-of-inputs">Leontief review: demand determines production</a></li>
 <li><a href="#/powers-act-separately-on-eigenbasis-coordinates">Powers act separately on eigenbasis coordinates</a></li>
-<li><a href="#/leontief-production-adds-successive-rounds-of-inputs">Leontief production adds successive rounds of inputs</a></li>
 <li><a href="#/functions-act-separately-on-eigenbasis-coordinates">Functions act separately on eigenbasis coordinates</a></li>
 <li><a href="#/the-matrix-exponential-solves-a-linear-differential-system">The matrix exponential solves a linear differential system</a></li>
 <li><a href="#/initial-data-choose-a-whole-solution">Initial data choose a whole solution</a></li>
 <li><a href="#/compare-discrete-steps-and-continuous-time">Compare discrete steps and continuous time</a></li>
 </ul>
+</section>
+<section id="leontief-production-adds-successive-rounds-of-inputs" class="slide level2">
+<h2>Leontief review: demand determines production</h2>
+<p><a href="02-inverses-and-invertibility.html#production-creates-internal-demand">Two-sector model from Inverses</a>: same input matrix, a new demand forecast</p>
+<p><span class="math display">\[
+\mat{C}=\begin{bmatrix}0.20&amp;0.10\\0.30&amp;0.25\end{bmatrix},\qquad
+\vct{d}=\underbrace{\begin{bmatrix}74\\15\end{bmatrix}}_{\text{external demand by sector}}
+\]</span></p>
+<p><span class="math inline">\(c_{ij}\)</span> — sector <span class="math inline">\(i\)</span> input needed per unit of sector <span class="math inline">\(j\)</span> output</p>
+<p>Entry <span class="math inline">\(i\)</span> refers to sector <span class="math inline">\(i\)</span> in each vector</p>
+<p><span class="math display">\[\begin{align*}
+\underbrace{\vct{x}}_{\text{total production by sector}}
+&amp;=\underbrace{\mat{C}\vct{x}}_{\text{internal demand}}
++\underbrace{\vct{d}}_{\text{external demand}}\\
+(\mat{I}-\mat{C})\vct{x}
+&amp;=\begin{bmatrix}0.80&amp;-0.10\\-0.30&amp;0.75\end{bmatrix}\vct{x}
+=\begin{bmatrix}74\\15\end{bmatrix}
+\end{align*}\]</span></p>
+<div class="key-point">
+<p>Find production first by elimination, then explain it using an eigenvector basis</p>
+</div>
+<aside class="notes">
+<p>The input-requirements matrix is unchanged from Deck 02. That deck used external demand [72,30]^T and production [100,80]^T. This new forecast is chosen so both eigenbasis demand coordinates and production coordinates are whole numbers. All quantities use consistent sector-output units. Cx gives intermediate inputs; (I-C)x gives the external demand a production plan can meet. This is a static balance model. Successive input rounds below are layers of requirements, not observations at successive times.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="leontief-row-echelon-solve">Row echelon form recovers gross production</h3>
+<p>Scale the first equation by <span class="math inline">\(10\)</span> and the second by <span class="math inline">\(20\)</span></p>
+<p><span class="math display">\[
+\left[\begin{array}{rr|r}8&amp;-1&amp;740\\-6&amp;15&amp;300\end{array}\right]
+\xrightarrow{\substack{R_2\leftarrow4R_2\\R_2\leftarrow R_2+3R_1}}
+\left[\begin{array}{rr|r}8&amp;-1&amp;740\\0&amp;57&amp;3420\end{array}\right]
+\]</span></p>
+<p>Back substitution gives</p>
+<p><span class="math display">\[\begin{align*}
+57x_2=3420&amp;\implies x_2=60\\
+8x_1-x_2=740&amp;\implies x_1=100
+\end{align*}\]</span></p>
+<p>Two <a href="01-systems-and-matrices.html#pivots-organize-elimination">pivots</a> — one unique production plan</p>
+<p><span class="math display">\[
+\vct{x}=\begin{bmatrix}100\\60\end{bmatrix},\qquad
+\underbrace{\begin{bmatrix}26\\45\end{bmatrix}}_{\mat{C}\vct{x}}
++\underbrace{\begin{bmatrix}74\\15\end{bmatrix}}_{\vct{d}}
+=\underbrace{\begin{bmatrix}100\\60\end{bmatrix}}_{\vct{x}}
+\]</span></p>
+<aside class="notes">
+<p>The two arrow labels are successive elementary row operations: multiply row 2 by 4, then add 3 times row 1. The scaled system has the same solution as the original. Echelon form and back substitution suffice; no RREF or explicit inverse is needed. Both coefficient columns have pivots, so the square system has a unique solution for every demand. The final check also verifies the economic balance and nonnegative production.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="leontief-eigenpairs">Find the eigenvalues and eigenvectors of the input matrix</h3>
+<p>Scaling preserves the eigendirections; use a trial vector <span class="math inline">\(\vct{v}=[a,b]^\top\)</span></p>
+<p><span class="math display">\[
+\mat{M}=20\mat{C}=\begin{bmatrix}4&amp;2\\6&amp;5\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+p_{\mat{M}}(\mu)=\det(\mu\mat{I}-\mat{M})
+=(\mu-4)(\mu-5)-12=(\mu-8)(\mu-1)
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><span class="math inline">\(\mu_1=8\)</span>: <span class="math inline">\(-4a+2b=0\)</span></p>
+<p><span class="math display">\[
+\vct{v}_1=\begin{bmatrix}1\\2\end{bmatrix},\qquad
+\mat{C}\vct{v}_1=\frac25\vct{v}_1
+\]</span></p>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><span class="math inline">\(\mu_2=1\)</span>: <span class="math inline">\(3a+2b=0\)</span></p>
+<p><span class="math display">\[
+\vct{v}_2=\begin{bmatrix}2\\-3\end{bmatrix},\qquad
+\mat{C}\vct{v}_2=\frac1{20}\vct{v}_2
+\]</span></p>
+</div></div>
+<div class="key-point">
+<p>The eigenvalues of <span class="math inline">\(\mat{C}\)</span> are <span class="math inline">\(2/5=0.4\)</span> and <span class="math inline">\(1/20=0.05\)</span></p>
+</div>
+<aside class="notes">
+<p>Use scalar entries a,b in the trial vector; bold v_j names one of the two complete eigenvectors. An eigenvalue mu of M=20C corresponds to lambda=mu/20 of C. The monic characteristic polynomial follows Anton. Each displayed linear equation comes from (M-mu I)v=0; the second row is dependent. Directly check Cv1=[0.4,0.8]^T and Cv2=[0.1,-0.15]^T. Distinct eigenvalues make these two eigenvectors independent, hence a basis of R^2.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="leontief-shared-eigenvectors">Subtracting from the identity preserves the eigenvectors</h3>
+<p>For each eigenpair of <span class="math inline">\(\mat{C}\)</span>,</p>
+<p><span class="math display">\[
+\mat{C}\vct{v}_j=\lambda_j\vct{v}_j
+\implies
+(\mat{I}-\mat{C})\vct{v}_j=(1-\lambda_j)\vct{v}_j
+\]</span></p>
+<p>Multipliers along each eigendirection</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Direction</th>
+<th style="text-align: right;">Internal requirements<br><span class="math inline">\(\mat{C}\)</span>: <span class="math inline">\(\lambda_j\)</span></th>
+<th style="text-align: right;">Net output<br><span class="math inline">\(\mat{I}-\mat{C}\)</span>: <span class="math inline">\(1-\lambda_j\)</span></th>
+<th style="text-align: right;">Total output<br><span class="math inline">\(\mat{I}\)</span>: <span class="math inline">\(1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\vct{v}_1=[1,2]^\top\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(2/5\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(3/5\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\vct{v}_2=[2,-3]^\top\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1/20\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(19/20\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Both net-output multipliers are nonzero — <span class="math inline">\(\mat{I}-\mat{C}\)</span> is invertible</p>
+<div class="key-point">
+<p>The same eigendirections describe total output, internal requirements and net output</p>
+</div>
+<aside class="notes">
+<p>The displayed implication works for every eigenvector without assuming diagonalizability. Here the two vectors form a basis, so the two nonzero multipliers prove invertibility. Conversely, if (I-C)v=eta v, then Cv=(1-eta)v; the eigenspaces are exactly the same, with shifted eigenvalues. The second line of each table header identifies the matrix and its scalar multiplier on v_j. Total output is the identity action, with multiplier 1; internal requirements use lambda_j and net output uses 1-lambda_j. Invertibility needs lambda not equal to 1. The stronger magnitude-below-1 condition will justify the geometric series and iteration later.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="leontief-interpret-eigendirections">Interpret a production mix and a sector adjustment</h3>
+<p>For total output in an eigendirection,</p>
+<p><span class="math display">\[
+\mat{C}\vct{x}=\lambda\vct{x},\qquad
+\vct{d}=\vct{x}-\mat{C}\vct{x}=(1-\lambda)\vct{x}
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:47%;">
+<p><span class="math inline">\(\vct{v}_1=[1,2]^\top\)</span> — a feasible production mix in the ratio <span class="math inline">\(1:2\)</span></p>
+<ul>
+<li>Internal inputs keep the same mix: <span class="math inline">\(\mat{C}\vct{v}_1=0.4\vct{v}_1\)</span></li>
+<li>Net output for external demand: <span class="math inline">\(0.6\vct{v}_1\)</span></li>
+<li>Demand in this direction needs <span class="math inline">\(5/3\)</span> times as much gross production</li>
+</ul>
+</div><div class="column" style="width:6%;">
+
+</div><div class="column" style="width:47%;">
+<p><span class="math inline">\(\vct{v}_2=[2,-3]^\top\)</span> — increase sector 1, decrease sector 2</p>
+<ul>
+<li>Internal-input change: <span class="math inline">\(0.05\vct{v}_2\)</span></li>
+<li>External-demand change: <span class="math inline">\(0.95\vct{v}_2\)</span></li>
+<li>A negative entry means a decrease from an existing production level</li>
+</ul>
+</div></div>
+<div class="key-point">
+<p>Internal demand, external demand and total output are parallel in an eigendirection</p>
+</div>
+<aside class="notes">
+<p>A nonnegative multiple of v1 is a feasible gross-production profile; its internal requirements and net output have the same sector ratio. v2 has opposite signs, so it is not a feasible production plan by itself. By linearity it describes a small signed change around a baseline with enough production in both sectors: delta x=a v2 implies delta d=0.95a v2. This interprets a right eigenvector of C, not a left price eigenvector. Neither individual eigendirection represents the complete new forecast; both components contribute to d and x. The external output is the net output x-Cx that satisfies external demand d. Thus x, Cx and d are scalar multiples of one another along an eigendirection; for the signed second mode, interpret the relation as parallel changes in these three quantities. Both eigenvalues here lie strictly between 0 and 1, so neither internal demand nor net output vanishes along a nonzero mode.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="leontief-basis-and-coordinates">A basis turns the demand vector into coordinates</h3>
+<p>Use the ordered eigenbasis <span class="math inline">\(\mathcal{V}=\{\vct{v}_1,\vct{v}_2\}\)</span></p>
+<p><span class="math display">\[
+\mat{V}=[\vct{v}_1\ \vct{v}_2]
+=\begin{bmatrix}1&amp;2\\2&amp;-3\end{bmatrix},\qquad
+\mat{V}^{-1}=\frac17\begin{bmatrix}3&amp;2\\2&amp;-1\end{bmatrix}
+\]</span></p>
+<p>Read the coordinates, then reconstruct the same demand</p>
+<p><span class="math display">\[\begin{align*}
+[\vct{d}]_{\mathcal{V}}
+&amp;=\mat{V}^{-1}\begin{bmatrix}74\\15\end{bmatrix}
+=\begin{bmatrix}36\\19\end{bmatrix}\\
+\vct{d}&amp;=36\vct{v}_1+19\vct{v}_2
+=[\vct{v}_1\ \vct{v}_2]\begin{bmatrix}36\\19\end{bmatrix}
+=\begin{bmatrix}74\\15\end{bmatrix}
+\end{align*}\]</span></p>
+<div class="key-point">
+<p>The entries <span class="math inline">\(36,19\)</span> describe demand in the eigenbasis; <span class="math inline">\(74,15\)</span> describe sector demand</p>
+</div>
+<aside class="notes">
+<p>The basis is a set listed in a specified order; coordinate entry j multiplies v_j, and V uses that same column order. det(V)=-7, so the representation is unique. V maps eigenbasis coordinate columns to standard sector vectors; V^-1 reads eigenbasis coordinates. These eigenvectors are not perpendicular: v1^T v2=-4, which reinforces that a basis need not be orthogonal. The numbers 36 and 19 are coordinates, not the individual sectors’ external demands.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="leontief-solve-in-eigenbasis">Solve the same system in eigenbasis coordinates</h3>
+<p>Let <span class="math inline">\(\vct{c}=[\vct{x}]_{\mathcal{V}}\)</span> and <span class="math inline">\(\mat{D}=\operatorname{diag}(2/5,1/20)\)</span></p>
+<p><span class="math display">\[
+\mat{C}=\mat{V}\mat{D}\mat{V}^{-1},\qquad
+(\mat{I}-\mat{C})\mat{V}\vct{c}=\vct{d}
+\]</span></p>
+<p>Change coordinates to separate the two equations</p>
+<p><span class="math display">\[
+\underbrace{\begin{bmatrix}3/5&amp;0\\0&amp;19/20\end{bmatrix}}_{\mat{I}-\mat{D}}
+\begin{bmatrix}c_1\\c_2\end{bmatrix}
+=\underbrace{\begin{bmatrix}36\\19\end{bmatrix}}_{[\vct{d}]_{\mathcal{V}}}
+\implies \vct{c}=\begin{bmatrix}60\\20\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\vct{x}=\mat{V}\vct{c}
+=60\vct{v}_1+20\vct{v}_2
+=\begin{bmatrix}100\\60\end{bmatrix}
+\]</span></p>
+<div class="key-point">
+<p>Read demand coordinates, divide by <span class="math inline">\(1-\lambda_j\)</span>, then reconstruct production</p>
+</div>
+<aside class="notes">
+<p>Multiplying the standard-coordinate system by V^-1 gives (I-D)c=V^-1d. Thus c1=36/(3/5)=60 and c2=19/(19/20)=20. This reproduces the elimination answer. The complete map is x=V(I-D)^-1 V^-1 d.&nbsp;Eigenvectors describe whole production directions; c is the coordinate column of the unknown vector. Diagonalizing is a conceptual/reusable description, not a claim that it is the fastest way to solve every numerical system.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="leontief-production-decomposition">Decompose production into a mix and an adjustment</h3>
+<p>The production coordinates <span class="math inline">\([\vct{x}]_{\mathcal{V}}=[60,20]^\top\)</span> give</p>
+<p><span class="math display">\[\begin{align*}
+\vct{x}&amp;=60\vct{v}_1+20\vct{v}_2\\
+&amp;=\underbrace{\begin{bmatrix}60\\120\end{bmatrix}}_{\text{baseline production}}
++\underbrace{\begin{bmatrix}40\\-60\end{bmatrix}}_{\text{signed adjustment}}
+=\begin{bmatrix}100\\60\end{bmatrix}
+\end{align*}\]</span></p>
+<p>Increase sector 1 by <span class="math inline">\(40\)</span>; decrease sector 2 by <span class="math inline">\(60\)</span> — both final outputs remain nonnegative</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 26%">
+<col style="width: 26%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th style="text-align: right;">Baseline</th>
+<th style="text-align: right;">Adjustment</th>
+<th style="text-align: right;">Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Internal demand <span class="math inline">\(\mat{C}\vct{x}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\([24,48]^\top\)</span></td>
+<td style="text-align: right;"><span class="math inline">\([2,-3]^\top\)</span></td>
+<td style="text-align: right;"><span class="math inline">\([26,45]^\top\)</span></td>
+</tr>
+<tr class="even">
+<td>External demand <span class="math inline">\(\vct{d}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\([36,72]^\top\)</span></td>
+<td style="text-align: right;"><span class="math inline">\([38,-57]^\top\)</span></td>
+<td style="text-align: right;"><span class="math inline">\([74,15]^\top\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="key-point">
+<p>One eigenvector describes a production mix; the other describes a sector adjustment</p>
+</div>
+<aside class="notes">
+<p>Place this worked economic interpretation after the eigenbasis solve so the coordinates 60 and 20 have already been derived. The baseline 60v1 is a feasible production plan with its own nonnegative external demand [36,72]^T. The adjustment 20v2 raises sector 1 by 40 and lowers sector 2 by 60, yielding the new feasible plan [100,60]^T. A negative adjustment entry represents a decrease from the baseline, not a negative final production level. By linearity, C(20v2)=0.05(20v2)=[2,-3]^T and (I-C)(20v2)=0.95(20v2)=[38,-57]^T. Adding these to the baseline’s internal requirements [24,48]^T and external demand [36,72]^T gives the original checked totals. The table therefore applies the same decomposition to total production, internal demand and external demand; the table’s entries are sector vectors, not eigenvalues. These are static comparisons between production plans, not a time-dependent adjustment model.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="leontief-input-rounds">Powers add successive rounds of input requirements</h3>
+<p>External demand <span class="math inline">\(\vct{d}\)</span> needs inputs <span class="math inline">\(\mat{C}\vct{d}\)</span>, which need <span class="math inline">\(\mat{C}^2\vct{d}\)</span>, and so on</p>
+<p>Since <span class="math inline">\(\vct{d}=36\vct{v}_1+19\vct{v}_2\)</span>,</p>
+<p><span class="math display">\[
+\mat{C}^k\vct{d}
+=36\left(\frac25\right)^k\vct{v}_1
++19\left(\frac1{20}\right)^k\vct{v}_2,\qquad k\ge0
+\]</span></p>
+<p>Both eigenvalues have magnitude below <span class="math inline">\(1\)</span> — the input-round vectors tend to zero</p>
+<p><span class="math display">\[\begin{align*}
+\vct{x}
+&amp;=\vct{d}+\mat{C}\vct{d}+\mat{C}^2\vct{d}+\cdots\\
+&amp;=\frac{36}{1-2/5}\vct{v}_1+\frac{19}{1-1/20}\vct{v}_2\\
+&amp;=60\vct{v}_1+20\vct{v}_2=\begin{bmatrix}100\\60\end{bmatrix}
+\end{align*}\]</span></p>
+<aside class="notes">
+<p>Each round is another layer of intermediate inputs in the static model. Apply C repeatedly to each eigenvector to obtain the scalar powers; at k=0 both scalar powers equal 1. The mixed demand does not shrink by one common factor each round. The earlier special demand [3,6]^T was 3v1 and therefore had only the 0.4 mode; retain that as an optional spoken simplification. Here Cd=[16.3,25.95]^T: sector 2’s first input requirement exceeds its external demand 15. Convergence to zero does not mean every sector decreases at every round. The identity x-Cx=[74,15]^T checks the sum. The general powers formula follows immediately after this worked review.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="leontief-matrix-series-and-iteration">A matrix geometric series gives an iterative solve</h3>
+<p>For this model, every eigenvalue of <span class="math inline">\(\mat{C}\)</span> has magnitude below <span class="math inline">\(1\)</span></p>
+<p><span class="math display">\[
+(\mat{I}-\mat{C})^{-1}=\mat{I}+\mat{C}+\mat{C}^2+\cdots
+\]</span></p>
+<p>Start with <span class="math inline">\(\vct{x}^{(0)}=\vct{0}\)</span> and add one layer of inputs per step</p>
+<p><span class="math display">\[\begin{align*}
+\vct{x}^{(k+1)}&amp;=\mat{C}\vct{x}^{(k)}+\vct{d}\\
+\vct{x}^{(1)}&amp;=\vct{d},\qquad
+\vct{x}^{(2)}=\vct{d}+\mat{C}\vct{d}\\
+\vct{x}^{(k)}&amp;=\sum_{j=0}^{k-1}\mat{C}^j\vct{d}
+\longrightarrow(\mat{I}-\mat{C})^{-1}\vct{d}
+\end{align*}\]</span></p>
+<div class="key-point">
+<p>Repeated matrix–vector products approach the same production plan without forming an inverse</p>
+</div>
+<aside class="notes">
+<p>This preserves the earlier iterative-solve addition. It is fixed-point iteration for x=Cx+d, equivalently a stationary iterative method for (I-C)x=d. For any initial guess, e^(k+1)=C e^(k), where e<sup>(k)=x-x</sup>(k), so e<sup>(k)=C</sup>k e^(0). The finite identity (I-C)(I+C+…+C<sup>m)=I-C</sup>(m+1) proves the inverse formula when C^k tends to zero. For any square matrix, eigenvalues of magnitude below 1 suffice; diagonalizability is not required. Invertibility alone does not guarantee convergence of this particular iteration. For a sparse C with s nonzero entries, a step costs O(s+n) and stores C, d and the current iterate. This may help large sparse systems but is not always better than a direct solve. Eigenvalues near the unit circle give slow asymptotic convergence; a nonnormal matrix can also show transient error growth.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="leontief-response-matrix-function">The production response is a matrix function</h3>
+<p>The scalar response <span class="math inline">\(f(z)=1/(1-z)\)</span> acts on each eigendirection</p>
+<p><span class="math display">\[
+f(\mat{C})=(\mat{I}-\mat{C})^{-1}
+=\mat{V}\begin{bmatrix}5/3&amp;0\\0&amp;20/19\end{bmatrix}\mat{V}^{-1},\qquad
+\vct{x}=f(\mat{C})\vct{d}
+\]</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>Action in the same eigenbasis</th>
+<th style="text-align: right;">Scalar multiplier on <span class="math inline">\(\vct{v}_j\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Internal inputs <span class="math inline">\(\mat{C}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\lambda_j\)</span></td>
+</tr>
+<tr class="even">
+<td>Net output <span class="math inline">\(\mat{I}-\mat{C}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1-\lambda_j\)</span></td>
+</tr>
+<tr class="odd">
+<td>Input round <span class="math inline">\(\mat{C}^k\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(\lambda_j^k\)</span></td>
+</tr>
+<tr class="even">
+<td>Production response <span class="math inline">\((\mat{I}-\mat{C})^{-1}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(1/(1-\lambda_j)\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="key-point">
+<p>One eigenvector basis connects linear systems, coordinates, powers and matrix functions</p>
+</div>
+<aside class="notes">
+<p>The response is the matrix function f(C), not entrywise application of 1/(1-z) to the four entries of C. The basis vectors are unchanged while the scalar multipliers change. The rational response only needs 1 not to be an eigenvalue; representing it by the displayed geometric series also needs all eigenvalues to have magnitude below 1. The general powers and matrix-function formulas now summarize what this practical example earned.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="powers-act-separately-on-eigenbasis-coordinates" class="slide level2">
 <h2>Powers act separately on eigenbasis coordinates</h2>
@@ -1779,39 +2294,6 @@ p_{\mat{R}}(\lambda)=\lambda^2+1
 </ul>
 <aside class="notes">
 <p>A^0=I and D^0=I by definition, including when an eigenvalue is zero; avoid interpreting the k=0 case as a scalar 0^0 limit. For k&gt;=1 the powers are ordinary scalar powers. Negative powers require A invertible. Complex components include phase changes; their magnitudes scale by |lambda|^k. This formula assumes an eigenvector basis. A missing initial component c_j=0 stays absent, so a large eigenvalue does not make every initial vector grow. The optional generalized-eigenvector topic introduces a coupled Jordan block; powers of defective matrices and a general Jordan algorithm are not developed here.</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="leontief-production-adds-successive-rounds-of-inputs" class="slide level2">
-<h2>Leontief production adds successive rounds of inputs</h2>
-<p><a href="02-inverses-and-invertibility.html#one-forecast-or-a-response-map">Two-sector Leontief model from Inverses</a> with gross production <span class="math inline">\(\vct{x}=\mat{C}\vct{x}+\vct{d}\)</span></p>
-<p><span class="math display">\[
-\mat{C}=\begin{bmatrix}0.20&amp;0.10\\0.30&amp;0.25\end{bmatrix},\qquad
-\text{external demand}\;\vct{d}=\begin{bmatrix}3\\6\end{bmatrix}
-\]</span></p>
-<p>Each round requires <span class="alert">40% as much</span> from both sectors as the preceding round</p>
-<p><span class="math display">\[
-\mat{C}\vct{d}=\begin{bmatrix}1.2\\2.4\end{bmatrix}=0.4\vct{d}
-\quad\implies\quad \mat{C}^{k}\vct{d}=0.4^{k}\vct{d}
-\]</span></p>
-<p>Add the original demand and every round of internal requirements</p>
-<p><span class="math display">\[\begin{align*}
-\vct{x}
-&amp;=\vct{d}+\mat{C}\vct{d}+\mat{C}^2\vct{d}+\cdots\\
-&amp;=\frac{1}{1-0.4}\begin{bmatrix}3\\6\end{bmatrix}
-=\begin{bmatrix}5\\10\end{bmatrix}
-\end{align*}\]</span></p>
-<aside class="notes">
-<p>Use the earlier input matrix with a demand that is three times the eigenvector [1,2]ᵀ. Its eigenvalue 0.4 gives the scalar geometric series. The rounds account for successive layers of inputs in the static model. Check that C[5,10]ᵀ=[2,4]ᵀ, and adding [3,6]ᵀ recovers gross production. The other eigenpair is 0.05 with [2,−3]ᵀ. For general demand, add both eigenbasis components with multipliers 1/(1−0.4) and 1/(1−0.05). These are the eigenvalues of the response matrix (I−C)⁻¹. If C instead had eigenvalue 1, the corresponding direction would make I−C singular.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1851,6 +2333,10 @@ f(\mat{A})\vct{v}_j=f(\lambda_j)\vct{v}_j
 <td><span class="math inline">\(\mat{A}^{-1}\)</span></td>
 </tr>
 <tr class="odd">
+<td><span class="math inline">\(f(z)=1/(1-z)\)</span>, no eigenvalue <span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\((\mat{I}-\mat{A})^{-1}\)</span></td>
+</tr>
+<tr class="even">
 <td><span class="math inline">\(f(z)=e^{tz}\)</span></td>
 <td><span class="math inline">\(e^{t\mat{A}}\)</span></td>
 </tr>
