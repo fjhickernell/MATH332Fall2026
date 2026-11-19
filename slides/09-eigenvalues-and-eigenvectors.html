@@ -657,7 +657,7 @@
 
 <section id="title-slide" data-background-color="#f5f7fb" data-background-image="https://fjhickernell.github.io/MATH332Fall2026/classlib/classlib/quarto/assets/images/normal-scatter.png" data-background-position="top left" data-background-size="55%" class="quarto-title-block center">
   <h1 class="title">MATH 332 — Fall 2026</h1>
-  <p class="subtitle"><span class="deck-title">Eigenvalues and Eigenvectors</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul Ch. 5</span><br> <span class="deck-meta"><a href="../assignments/assignment_6.html">Assignment 6</a> due November 23</span></p>
+  <p class="subtitle"><span class="deck-title">Eigenvalues and Eigenvectors</span><br> <span class="deck-meta">Anton, Rorres, &amp; Kaul Ch. 5</span><br> <span class="deck-meta"><a href="../assignments/assignment_6.html">Assignment 6</a> due November 23<br>Quiz 5 · December 1</span></p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -1116,7 +1116,7 @@ p_{\mat{U}}(\lambda)=\prod_{j=1}^n(\lambda-u_{jj})
 </section>
 <section id="an-eigenvector-basis-makes-the-matrix-diagonal" class="slide level2">
 <h2>An eigenvector basis makes the matrix diagonal</h2>
-<p>Put <span class="math inline">\(n\)</span> independent eigenvectors into <span class="math inline">\(\mat{V}\)</span>, with matching eigenvalues in <span class="math inline">\(\mat{D}\)</span>:</p>
+<p>For the ordered eigenbasis <span class="math inline">\(\mathcal{V}=\{\vct{v}_1,\ldots,\vct{v}_n\}\)</span>, match each column to its eigenvalue</p>
 <p><span class="math display">\[
 \mat{V}=[\vct{v}_1\ \cdots\ \vct{v}_n],\qquad
 \mat{D}=\operatorname{diag}(\lambda_1,\ldots,\lambda_n)
@@ -1157,14 +1157,13 @@ p_{\mat{U}}(\lambda)=\prod_{j=1}^n(\lambda-u_{jj})
 \mat{V}^{-1}=\tfrac12\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix},\qquad
 \mat{D}=\begin{bmatrix}3&amp;0\\0&amp;1\end{bmatrix}
 \]</span></p>
-<p>For <span class="math inline">\(\vct{x}=[4,2]^\top\)</span>:</p>
+<p>For <span class="math inline">\(\vct{x}=[4,2]^\top\)</span>, write <span class="math inline">\(\vct{c}=[\vct{x}]_{\mathcal{V}}=\mat{V}^{-1}\vct{x}\)</span></p>
 <p><span class="math display">\[
 \mat{A}\vct{x}=\begin{bmatrix}10\\8\end{bmatrix}
 \quad\xleftarrow{\mat{V}}\quad
-\begin{bmatrix}9\\1\end{bmatrix}
+\underbrace{\begin{bmatrix}9\\1\end{bmatrix}}_{[\mat{A}\vct{x}]_{\mathcal{V}}}
 \quad\xleftarrow{\mat{D}}\quad
-\underbrace{\mat{V}^{-1}\vct{x}}_{\text{eigenbasis coordinates}}
-=\begin{bmatrix}3\\1\end{bmatrix}
+\underbrace{\begin{bmatrix}3\\1\end{bmatrix}}_{[\vct{x}]_{\mathcal{V}}}
 \]</span></p>
 <div class="key-point">
 <p>Read coordinates, scale them separately, then reconstruct the output</p>
@@ -1186,10 +1185,10 @@ p_{\mat{U}}(\lambda)=\prod_{j=1}^n(\lambda-u_{jj})
 <section class="slide level2">
 
 <h3 id="diagonalization-is-a-change-of-coordinates">Diagonalization is a change of coordinates</h3>
-<p>For the eigenbasis <span class="math inline">\(\mathcal{V}=\{\vct{v}_1,\ldots,\vct{v}_n\}\)</span>, <span class="math inline">\(\vct{c}=[\vct{x}]_{\mathcal{V}}=\mat{V}^{-1}\vct{x}\)</span></p>
+<p>Use the inverse basis matrix as in <a href="07-bases-dimension-and-coordinates.html#a-basis-matrix-converts-coordinates-to-standard-form">Bases and Coordinates</a></p>
 <div class="eigen-map" role="group" aria-label="Read from right to left: the basis matrix V maps the eigenbasis coordinate column c in the right box to the vector x in the left box. Its inverse reads those coordinates.">
 <div class="diagram-node eigen-map-input">
-<p><span class="diagram-label">Eigenbasis coordinates</span> <span class="eigen-map-line"><span class="math inline">\(\vct{c}=\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix}\)</span></span></p>
+<p><span class="diagram-label">Eigenbasis coordinates</span> <span class="eigen-map-line"><span class="math inline">\([\vct{x}]_{\mathcal{V}}=\vct{c}=\begin{bmatrix}c_1\\\vdots\\c_n\end{bmatrix}\)</span></span></p>
 </div>
 <div class="diagram-arrow eigen-map-arrow">
 <span class="math inline">\(\xleftarrow{\quad\mat{V}\quad}\)</span>
@@ -1198,10 +1197,10 @@ p_{\mat{U}}(\lambda)=\prod_{j=1}^n(\lambda-u_{jj})
 <p><span class="diagram-label">Vector</span> <span class="eigen-map-line"><span class="math inline">\(\displaystyle\vct{x}=\sum_{j=1}^n c_j\vct{v}_j\)</span></span> <span class="eigen-map-line"><span class="math inline">\(\vct{x}=\mat{V}\vct{c}\)</span></span></p>
 </div>
 </div>
-<p>Applying the operator in either description gives the same output:</p>
+<p>Apply <span class="math inline">\(\mat{A}\)</span> to the vector or <span class="math inline">\(\mat{D}\)</span> to its eigenbasis coordinates</p>
 <p><span class="math display">\[
 \mat{A}\vct{x}=\mat{A}(\mat{V}\vct{c})=\mat{V}(\mat{D}\vct{c}),
-\qquad\mat{A}\mat{V}=\mat{V}\mat{D}
+\qquad [\mat{A}\vct{x}]_{\mathcal{V}}=\mat{D}[\vct{x}]_{\mathcal{V}}
 \]</span></p>
 <p><span class="math inline">\(\mat{V}^{-1}\)</span> reads the coordinates; <span class="math inline">\(\mat{D}\)</span> scales them separately</p>
 <div class="key-point">
@@ -1233,7 +1232,7 @@ p_{\mat{U}}(\lambda)=\prod_{j=1}^n(\lambda-u_{jj})
 <p><span class="math inline">\(\mat{B}\mat{V}=\mat{V}\mat{D}\)</span>; start with <span class="math inline">\(\vct{x}=[3,-2]^\top\)</span></p>
 <div class="eigen-map eigen-map-square" role="group" aria-label="A commuting square with eigenbasis coordinate columns on the right and corresponding vectors on the left. Read horizontal arrows right to left: V maps c=(2,1) to x=(3,-2). Downward D on the right maps c to (8,2), while downward B on the left maps x to (10,-4). V also maps the lower coordinate column to the lower vector.">
 <div class="diagram-node eigen-map-input">
-<p><span class="diagram-label">Eigenbasis coordinates</span> <span class="eigen-map-line"><span class="math inline">\(\vct{c}=\mat{V}^{-1}\vct{x}=\begin{bmatrix}2\\1\end{bmatrix}\)</span></span></p>
+<p><span class="diagram-label">Eigenbasis coordinates</span> <span class="eigen-map-line"><span class="math inline">\([\vct{x}]_{\mathcal{V}}=\vct{c}=\begin{bmatrix}2\\1\end{bmatrix}\)</span></span></p>
 </div>
 <div class="diagram-arrow eigen-map-arrow">
 <span class="math inline">\(\xleftarrow{\quad\mat{V}\quad}\)</span>
@@ -1248,7 +1247,7 @@ p_{\mat{U}}(\lambda)=\prod_{j=1}^n(\lambda-u_{jj})
 <span class="math inline">\(\mat{B}\big\downarrow\)</span>
 </div>
 <div class="diagram-node eigen-map-lower-input">
-<p><span class="diagram-label">Coordinates after the action</span> <span class="eigen-map-line"><span class="math inline">\(\mat{D}\vct{c}=\begin{bmatrix}8\\2\end{bmatrix}\)</span></span></p>
+<p><span class="diagram-label">Coordinates after the action</span> <span class="eigen-map-line"><span class="math inline">\([\mat{B}\vct{x}]_{\mathcal{V}}=\mat{D}\vct{c}=\begin{bmatrix}8\\2\end{bmatrix}\)</span></span></p>
 </div>
 <div class="diagram-arrow eigen-map-lower-arrow">
 <span class="math inline">\(\xleftarrow{\quad\mat{V}\quad}\)</span>
@@ -1290,7 +1289,7 @@ p_{\mat{U}}(\lambda)=\prod_{j=1}^n(\lambda-u_{jj})
 </div>
 </div>
 <div class="exitem lettered">
-<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Complete the coordinate route <span class="exsub">Find <span class="math inline">\(\vct{c}\)</span> and write <span class="math inline">\(\vct{x}=c_1\vct{v}_1+c_2\vct{v}_2\)</span></span> <span class="exsub">Compute <span class="math inline">\(\mat{D}\vct{c}\)</span> and <span class="math inline">\(\mat{V}(\mat{D}\vct{c})\)</span>; check by computing <span class="math inline">\(\mat{B}\vct{x}\)</span> directly</span> <span class="exsub">Compute <span class="math inline">\(\mat{D}\vct{x}\)</span>; does it equal <span class="math inline">\(\mat{B}\vct{x}\)</span>? Which coordinate column should <span class="math inline">\(\mat{D}\)</span> act on?</span> </span></p>
+<p><span class="exbullet"><span class="math inline">\(\exstar\)</span></span> <span>Complete the coordinate route <span class="exsub">Find <span class="math inline">\(\vct{c}\)</span> and write <span class="math inline">\(\vct{x}=c_1\vct{v}_1+c_2\vct{v}_2\)</span></span> <span class="exsub">Use <span class="math inline">\(\mat{D}\vct{c}\)</span> to find <span class="math inline">\([\mat{B}\vct{x}]_{\mathcal{V}}\)</span>, then reconstruct <span class="math inline">\(\mat{B}\vct{x}\)</span> and check by direct multiplication</span> <span class="exsub">Compute <span class="math inline">\(\mat{D}\vct{x}\)</span>; does it equal <span class="math inline">\(\mat{B}\vct{x}\)</span>? Which coordinate column should <span class="math inline">\(\mat{D}\)</span> act on?</span> </span></p>
 </div>
 <aside class="notes">
 <p>Vc=x gives -2c2=2 and c1+c2=1, so c=[2,-1]^T. Thus x=2v1-v2. Dc=[8,-2]^T, and V(Dc)=8v1-2v2=[6,4]^T. Directly Bx=[4<em>1+2,2</em>2]<sup>T=[6,4]</sup>T. But Dx=[4,4]^T differs. Multiplying D by the standard-coordinate column x is a defined matrix product, but it does not represent B’s action on that vector. D represents the operator on eigenbasis coordinates, so apply it to c=V^{-1}x and use V to reconstruct the output. The same matrices and eigenvalue-column order from the preceding example are used throughout this exercise.</p>
@@ -1311,17 +1310,19 @@ p_{\mat{U}}(\lambda)=\prod_{j=1}^n(\lambda-u_{jj})
 <h3 id="distinct-eigenvalues-supply-independent-eigenvectors">Distinct eigenvalues supply independent eigenvectors</h3>
 <p>Eigenvectors belonging to distinct eigenvalues are linearly independent</p>
 <p>For two eigenvectors, suppose <span class="math inline">\(c_1\vct{v}_1+c_2\vct{v}_2=\vct{0}\)</span></p>
-<p>Apply <span class="math inline">\(\mat{A}\)</span>, then subtract <span class="math inline">\(\lambda_2\)</span> times the original relation:</p>
-<p><span class="math display">\[
-c_1\lambda_1\vct{v}_1+c_2\lambda_2\vct{v}_2=\vct{0}
-\quad\implies\quad c_1(\lambda_1-\lambda_2)\vct{v}_1=\vct{0}
-\]</span></p>
+<p>Apply <span class="math inline">\(\mat{A}\)</span>, then substitute <span class="math inline">\(c_2\vct{v}_2=-c_1\vct{v}_1\)</span> from the original relation</p>
+<p><span class="math display">\[\begin{align*}
+\vct{0}&amp;=c_1\lambda_1\vct{v}_1+\lambda_2(c_2\vct{v}_2)\\
+&amp;=c_1\lambda_1\vct{v}_1-\lambda_2 c_1\vct{v}_1\\
+&amp;=c_1(\lambda_1-\lambda_2)\vct{v}_1
+\end{align*}\]</span></p>
 <p>Since <span class="math inline">\(\lambda_1\ne\lambda_2\)</span> and <span class="math inline">\(\vct{v}_1\ne\vct{0}\)</span>, <span class="math inline">\(c_1=0\)</span>, then <span class="math inline">\(c_2=0\)</span></p>
+<p>For <span class="math inline">\(k\)</span> eigenvectors, eliminate the last term as above and apply induction to the first <span class="math inline">\(k-1\)</span></p>
 <div class="key-point">
 <p>An <span class="math inline">\(n\times n\)</span> matrix with <span class="math inline">\(n\)</span> distinct eigenvalues in the chosen field is diagonalizable there</p>
 </div>
 <aside class="notes">
-<p>For k distinct eigenvalues, induction proves the same statement. Apply A-lambda_k I to a zero relation among v1,…,vk. The first k-1 terms have coefficients c_j(lambda_j-lambda_k); the inductive hypothesis forces them all to zero. Distinct eigenvalues give c_j=0 for j&lt;k; the original relation gives c_k=0. Existence of n distinct roots is sufficient, not necessary: the identity matrix is a counterexample to necessity.</p>
+<p>The one-vector case holds because an eigenvector is nonzero. For k distinct eigenvalues, start with a zero relation among v1,…,vk, apply A, and use the original relation to substitute for c_k v_k in the term lambda_k(c_k v_k). The remaining k-1 terms have coefficients c_j(lambda_j-lambda_k). By induction the first k-1 vectors are independent, so those coefficients vanish. Distinct eigenvalues give c_j=0 for j&lt;k. The original relation then gives c_k=0 since v_k is nonzero. The identity matrix shows that diagonalizability can also hold with repeated eigenvalues.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1791,11 +1792,9 @@ p_{\mat{R}}(\lambda)=\lambda^2+1
 </section>
 <section id="functions-act-separately-on-eigenbasis-coordinates" class="slide level2">
 <h2>Functions act separately on eigenbasis coordinates</h2>
-<p>Suppose <span class="math inline">\(\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}\)</span> and <span class="math inline">\(f\)</span> is defined at every eigenvalue</p>
+<p>If <span class="math inline">\(\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}\)</span> and <span class="math inline">\(f\)</span> is defined at every eigenvalue, define</p>
 <p><span class="math display">\[\begin{equation*}
-f(\mat{A})=\mat{V}f(\mat{D})\mat{V}^{-1},
-\qquad
-f(\mat{D})=\operatorname{diag}\bigl(f(\lambda_1),\ldots,f(\lambda_n)\bigr)
+f(\mat{A})=\mat{V}\,\operatorname{diag}\bigl(f(\lambda_1),\ldots,f(\lambda_n)\bigr)\,\mat{V}^{-1}
 \end{equation*}\]</span></p>
 <p>Each eigenvector is scaled by the corresponding scalar value:</p>
 <p><span class="math display">\[\begin{equation*}
