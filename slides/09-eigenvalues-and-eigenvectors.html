@@ -1752,6 +1752,7 @@ p_{\mat{R}}(\lambda)=\lambda^2+1
 <p>Powers and matrix functions become scalar actions in an eigenvector basis</p>
 <ul>
 <li><a href="#/powers-act-separately-on-eigenbasis-coordinates">Powers act separately on eigenbasis coordinates</a></li>
+<li><a href="#/leontief-production-adds-successive-rounds-of-inputs">Leontief production adds successive rounds of inputs</a></li>
 <li><a href="#/functions-act-separately-on-eigenbasis-coordinates">Functions act separately on eigenbasis coordinates</a></li>
 <li><a href="#/the-matrix-exponential-solves-a-linear-differential-system">The matrix exponential solves a linear differential system</a></li>
 <li><a href="#/initial-data-choose-a-whole-solution">Initial data choose a whole solution</a></li>
@@ -1778,6 +1779,39 @@ p_{\mat{R}}(\lambda)=\lambda^2+1
 </ul>
 <aside class="notes">
 <p>A^0=I and D^0=I by definition, including when an eigenvalue is zero; avoid interpreting the k=0 case as a scalar 0^0 limit. For k&gt;=1 the powers are ordinary scalar powers. Negative powers require A invertible. Complex components include phase changes; their magnitudes scale by |lambda|^k. This formula assumes an eigenvector basis. A missing initial component c_j=0 stays absent, so a large eigenvalue does not make every initial vector grow. The optional generalized-eigenvector topic introduces a coupled Jordan block; powers of defective matrices and a general Jordan algorithm are not developed here.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="leontief-production-adds-successive-rounds-of-inputs" class="slide level2">
+<h2>Leontief production adds successive rounds of inputs</h2>
+<p><a href="02-inverses-and-invertibility.html#one-forecast-or-a-response-map">Two-sector Leontief model from Inverses</a> with gross production <span class="math inline">\(\vct{x}=\mat{C}\vct{x}+\vct{d}\)</span></p>
+<p><span class="math display">\[
+\mat{C}=\begin{bmatrix}0.20&amp;0.10\\0.30&amp;0.25\end{bmatrix},\qquad
+\text{external demand}\;\vct{d}=\begin{bmatrix}3\\6\end{bmatrix}
+\]</span></p>
+<p>Each round requires <span class="alert">40% as much</span> from both sectors as the preceding round</p>
+<p><span class="math display">\[
+\mat{C}\vct{d}=\begin{bmatrix}1.2\\2.4\end{bmatrix}=0.4\vct{d}
+\quad\implies\quad \mat{C}^{k}\vct{d}=0.4^{k}\vct{d}
+\]</span></p>
+<p>Add the original demand and every round of internal requirements</p>
+<p><span class="math display">\[\begin{align*}
+\vct{x}
+&amp;=\vct{d}+\mat{C}\vct{d}+\mat{C}^2\vct{d}+\cdots\\
+&amp;=\frac{1}{1-0.4}\begin{bmatrix}3\\6\end{bmatrix}
+=\begin{bmatrix}5\\10\end{bmatrix}
+\end{align*}\]</span></p>
+<aside class="notes">
+<p>Use the earlier input matrix with a demand that is three times the eigenvector [1,2]ᵀ. Its eigenvalue 0.4 gives the scalar geometric series. The rounds account for successive layers of inputs in the static model. Check that C[5,10]ᵀ=[2,4]ᵀ, and adding [3,6]ᵀ recovers gross production. The other eigenpair is 0.05 with [2,−3]ᵀ. For general demand, add both eigenbasis components with multipliers 1/(1−0.4) and 1/(1−0.05). These are the eigenvalues of the response matrix (I−C)⁻¹. If C instead had eigenvalue 1, the corresponding direction would make I−C singular.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
