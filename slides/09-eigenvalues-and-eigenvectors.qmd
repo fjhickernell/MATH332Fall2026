@@ -1126,6 +1126,7 @@ for every real vector, not just the axes.
 Powers and matrix functions become scalar actions in an eigenvector basis
 
 - [Powers act separately on eigenbasis coordinates](#powers-act-separately-on-eigenbasis-coordinates)
+- [Leontief production adds successive rounds of inputs](#leontief-production-adds-successive-rounds-of-inputs)
 - [Functions act separately on eigenbasis coordinates](#functions-act-separately-on-eigenbasis-coordinates)
 - [The matrix exponential solves a linear differential system](#the-matrix-exponential-solves-a-linear-differential-system)
 - [Initial data choose a whole solution](#initial-data-choose-a-whole-solution)
@@ -1162,6 +1163,42 @@ c_j=0 stays absent, so a large eigenvalue does not make every initial vector
 grow. The optional generalized-eigenvector topic introduces a coupled Jordan
 block; powers of defective matrices and a general Jordan algorithm are not
 developed here.
+:::
+
+## Leontief production adds successive rounds of inputs {#leontief-production-adds-successive-rounds-of-inputs}
+
+[Two-sector Leontief model from {{< meta decks.d02.short_title >}}]({{< meta decks.d02.file >}}#one-forecast-or-a-response-map) with gross production $\vct{x}=\mat{C}\vct{x}+\vct{d}$
+
+$$
+\mat{C}=\begin{bmatrix}0.20&0.10\\0.30&0.25\end{bmatrix},\qquad
+\text{external demand}\;\vct{d}=\begin{bmatrix}3\\6\end{bmatrix}
+$$
+
+Each round requires [40% as much]{.alert} from both sectors as the preceding round
+
+$$
+\mat{C}\vct{d}=\begin{bmatrix}1.2\\2.4\end{bmatrix}=0.4\vct{d}
+\quad\implies\quad \mat{C}^{k}\vct{d}=0.4^{k}\vct{d}
+$$
+
+Add the original demand and every round of internal requirements
+
+\begin{align*}
+\vct{x}
+&=\vct{d}+\mat{C}\vct{d}+\mat{C}^2\vct{d}+\cdots\\
+&=\frac{1}{1-0.4}\begin{bmatrix}3\\6\end{bmatrix}
+=\begin{bmatrix}5\\10\end{bmatrix}
+\end{align*}
+
+::: {.notes}
+Use the earlier input matrix with a demand that is three times the eigenvector
+[1,2]ᵀ. Its eigenvalue 0.4 gives the scalar geometric series.
+The rounds account for successive layers of inputs in the static model.
+Check that C[5,10]ᵀ=[2,4]ᵀ, and adding [3,6]ᵀ recovers gross production.
+The other eigenpair is 0.05 with [2,−3]ᵀ. For general demand, add both
+eigenbasis components with multipliers 1/(1−0.4) and 1/(1−0.05).
+These are the eigenvalues of the response matrix (I−C)⁻¹. If C instead
+had eigenvalue 1, the corresponding direction would make I−C singular.
 :::
 
 ## Functions act separately on eigenbasis coordinates {#functions-act-separately-on-eigenbasis-coordinates}

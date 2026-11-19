@@ -103,6 +103,9 @@ preserves the published text.
 
 Resume Deck 09, Powers and Dynamics, at
 [Powers act separately on eigenbasis coordinates](../slides/09-eigenvalues-and-eigenvectors.qmd#powers-act-separately-on-eigenbasis-coordinates).
+Follow it with the new [worked Leontief example](../slides/09-eigenvalues-and-eigenvectors.qmd#leontief-production-adds-successive-rounds-of-inputs),
+which reuses the Deck 02 matrix and sums the successive input requirements
+along an eigenvector to find gross production.
 Continue with matrix functions, exponentials and differential-system
 applications as time permits. Those topics and the symmetric-matrix results
 remain ahead; review the prepared additions before teaching them.
