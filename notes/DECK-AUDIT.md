@@ -18,8 +18,8 @@ fit at 1280×720, and the new continuation and revised index also pass
 inspection at the standard 1600×1000 size, with no MathJax errors or browser
 console warnings/errors. Source prose and whitespace
 checks pass. The new explanation is slide 14, after the original example on
-slide 13; the deck has 73 slides. The demonstration remains deferred until
-the instructor presents it.
+slide 13. The deck has 73 slides. The instructor gave the demonstration in
+the [November 19 lecture](LECTURE-UPDATES.md#november-19-recording-evidence-and-continuation).
 
 ## November 19, 2026 — Leontief review and transition
 

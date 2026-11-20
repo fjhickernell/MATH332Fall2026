@@ -2,10 +2,10 @@
 
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
-- Latest fully reconciled instructional meeting: November 17, 2026
-- November 17 coverage and schedule: recording-audited; existing November 19
-  calendar continuation independently verified in Apple Calendar and
-  Fantastical November 17; no calendar edit needed
+- Latest fully reconciled instructional meeting: November 19, 2026
+- November 19 coverage and schedule: recording-audited; November 24
+  continuation planned for the replacement recording. The December 1 review
+  occurrence was annotated and verified in Apple Calendar and Fantastical.
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -26,6 +26,7 @@
 | November 10, 2026 | Reconciled: four-space bases and dimensions, orthogonal-pair examples, regression residual geometry, and existence/uniqueness; selected Deck 08 coverage concluded with omitted slides optional. Deck 09 introduced eigenvalues/eigenvectors and completed the determinant/null-space worked example; repeated eigenvalues only previewed | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5e553d20-166c-403a-af1f-b4fe01387557) | November 12, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; briefly recap the eigenvalue recipe/worked example, then “An eigenspace includes all vectors for one eigenvalue,” followed by diagonalization as time permits; Quiz 4 remains in the last 15 minutes with unchanged coverage. Saved with Only This Event, reopened in Apple Calendar and independently verified in Fantastical | November 10, 2026 |
 | November 12, 2026 | Reconciled: eigenvalue recipe, triangular eigenspace calculations, eigenspaces, trace/determinant and software; introduced AV=VD and diagonalization; final worked example begun before Quiz 4. Independent Fantastical read-back completed November 16 | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e7c27e84-3dfc-4d8f-95c7-b5000137a6b3) | November 17, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; finish “Example: diagonalize and read the coordinates,” including product verification and the coordinate route, show the racket example, then “Distinct eigenvalues supply independent eigenvectors”; retain the condition-number reminder. Continuation restored November 16 with Only This Event and reopened in Apple Calendar; complete note and retained earlier planning text independently verified in Fantastical | November 16, 2026 |
 | November 17, 2026 | Reconciled: diagonalization product and coordinate interpretation; distinct-eigenvalue independence; repeated roots, diagonalization criteria and a brief generalized-eigenvector introduction; complex eigenvalues, conjugate pairs and rotation/scaling practice. Powers previewed only; racket demonstration deferred | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d7309470-7c79-4ab3-b0d8-b505013e4a77) | November 19, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; resume Deck 09, Powers and Dynamics → “Powers act separately on eigenbasis coordinates.” Existing continuation and preceding-lecture summary independently verified in Apple Calendar and Fantastical; retained earlier planning text; no calendar edit needed | November 17, 2026 |
+| November 19, 2026 | Reconciled the Leontief production solve by elimination and in eigenbasis coordinates, the tennis-racket instability demonstration, matrix powers and geometric series, and matrix functions and exponentials. The lecture began the quarter-turn exponential and deferred simplifying it to a real rotation. | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=244c0a53-c7f0-46dd-b331-b507013e5558) | December 1, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109, Illinois Tech Fred → Calendar. Take questions from the planned November 24 recording before Quiz 5 and revisit the quarter-turn exponential as needed. Saved with Only This Event, reopened in Apple Calendar, and verified in Fantastical. | November 19, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -502,3 +503,37 @@ preceding-lecture summary, November 19, 11:15 AM–12:45 PM CST, PH 109 and
 Illinois Tech Fred → Calendar. The note retains “Notebook for geometry,
 then determinants.” No calendar text, recurrence, date or time was changed
 in this reconciliation; no new save or Only This Event action was needed.
+
+## November 19 recording evidence and continuation
+
+The Illinois Tech readiness notice arrived at 1:22 PM CST. The recording
+starts at 11:24 AM and lasts 1:19:40. The auto-generated transcript, slide
+index, and visible closing playback were checked.
+
+The class solved the two-sector Leontief system by elimination and used the
+input matrix's eigenbasis to recover the inverse. The slide index marks the
+row-echelon calculation at 7:39, the input-matrix eigenpairs at 14:54, and the
+eigenbasis solve at 39:24. The lecture connects successive production rounds
+to powers of the input matrix and explains convergence of the matrix geometric
+series when the eigenvalues have modulus less than one. The tennis-racket
+demonstration illustrated the unstable intermediate axis. The underlying
+perturbation model was mentioned briefly. A spoken condition-number correction
+was not found in the transcript.
+
+Deck 09's “Powers act separately on eigenbasis coordinates” appears at 1:01:09.
+The lecture introduces matrix functions and exponentials, then sets up
+$e^{tA}$ for the quarter-turn matrix using the conjugate eigenvalues $i$ and
+$-i$. At 1:17:14 the recording still shows the “Example: two exponential
+modes” slide while the captions and board work concern the quarter turn.
+The board calculation starts to simplify the product, and the instructor
+explicitly defers finishing it. Begin the November 24 replacement recording
+by obtaining the real rotation matrix, then connect it to
+$x(t)=e^{tA}x(0)$ for $x'=Ax$. The recording also confirms that December 1 is
+for questions after the Thanksgiving break.
+
+November 24 has no regular class or separate recording event on the calendar.
+The December 1 review note preserves the original planning text and gives
+the November 19 summary and replacement-recording pickup. The saved
+occurrence was reopened in Apple Calendar and independently verified in
+Fantastical at 11:15 AM–12:45 PM CST in PH 109. Quiz 5 remains in the last
+15 minutes of the December 1 meeting, with its existing coverage.

@@ -21,9 +21,9 @@ conflict, a recorded lecture will be provided, and December 1 and 3 are review.
 The [HTML reference](drafts/2026-11-17-class-schedule-announcement.html)
 preserves Fred's final text. Do not repost. Recording and sharing the
 November 24 lecture remain open and are tracked under Green T2 in the
-Dashboard; the completed notification task was removed. November 19 lecture
-preparation and grading remain open. Matching Academic reminder state remains
-unverified under the retained access restrictions; no reminder was changed.
+Dashboard. November 19 lecture coverage has been reconciled. Assignment 6
+grading and Canvas transfer remain open. Matching Academic reminder state
+remains unverified under the retained access restrictions.
 
 ## Assignment 6 — released November 14
 
@@ -99,27 +99,31 @@ instructor review and student release remain open. The
 [HTML reference](drafts/2026-11-30-sample-exam-announcement.html)
 preserves the published text.
 
-## Immediate next work — November 19
+## Immediate next work — November 24 replacement recording
 
-Open Deck 09, Powers and Dynamics, with the
-[Leontief review](../slides/09-eigenvalues-and-eigenvectors.qmd#leontief-production-adds-successive-rounds-of-inputs),
-before the general powers and matrix-function formulas. Fred requested this
-sequence November 19: recap row echelon form and back substitution, find the
-input matrix's eigenpairs, explain the shared eigendirections of the net-output
-matrix, interpret them, and use the basis and coordinates to recover the same
-production plan. Continue through powers, successive input rounds, the iterative
-solve and the response as a matrix function. The input matrix is the same as
-Deck 02; the new demand forecast activates both modes with whole-number
-coordinates. Review the expanded example before teaching it.
-The local render, exact arithmetic, link and browser checks pass; see
-`notes/DECK-AUDIT.md`. Local validation is complete; live deployment remains to
-be verified after this Checkpoint.
-The deferred tennis-racket example now has a short continuation distinguishing
-positive inertia moments from the eigenvalues governing a small wobble;
-use it with the demonstration when revisiting that example.
-Then use the general powers/functions slides to summarize the example and
-continue to exponentials and differential systems as time permits. Those
-topics and the symmetric-matrix results remain ahead.
+Record and share the replacement lecture announced November 17. Resume
+Deck 09, Powers and Dynamics, at
+[The matrix exponential solves a linear differential system](../slides/09-eigenvalues-and-eigenvectors.qmd#the-matrix-exponential-solves-a-linear-differential-system).
+Finish simplifying the quarter-turn exponential to a real rotation and
+connect it to $x(t)=e^{tA}x(0)$ for $x'=Ax$. The December 1 review will take
+questions about the recording before Quiz 5.
+
+The November 19 recording verifies the Leontief production solve by
+elimination and in eigenbasis coordinates, the tennis-racket instability
+demonstration, matrix powers and geometric series, and matrix functions and
+the matrix exponential. The quarter-turn exponential was set up and its
+simplification began. The Schedule and [lecture ledger](LECTURE-UPDATES.md#november-19-recording-evidence-and-continuation)
+are reconciled through November 19. The December 1 occurrence was saved with
+Only This Event and read back in Apple Calendar and Fantastical.
+
+The expanded [Leontief review](../slides/09-eigenvalues-and-eigenvectors.qmd#leontief-production-adds-successive-rounds-of-inputs)
+uses Deck 02's input matrix and a demand forecast that activates both
+eigenbasis modes. The [racket continuation](../slides/09-eigenvalues-and-eigenvectors.qmd#tennis-racket-wobble-eigenvalues)
+distinguishes the positive inertia moments from the eigenvalues that govern
+a small wobble. See [Deck 09 validation](DECK-AUDIT.md) for the slide checks
+and the lecture ledger for actual classroom coverage.
+
+### Earlier classroom coverage
 
 The November 17 recording completed the diagonalization product check and
 general eigenbasis-coordinate interpretation, the distinct-eigenvalue
@@ -136,9 +140,9 @@ example and matching coordinate exercise are prepared, not established as
 taught. Neither the general generalized-eigenbasis theorem nor the similarity
 invariance proof is established as covered. The
 [spinning-tennis-racket example](../slides/09-eigenvalues-and-eigenvectors.qmd#a-spinning-tennis-racket)
-was deferred because the racket was not brought; do not count its demonstration
-as taught. Exercise answers remain in presenter notes. Quiz 4's announced
-full-Deck-07 coverage is unchanged.
+was deferred on November 17 and demonstrated on November 19. Exercise answers
+remain in presenter notes. Quiz 4's announced full-Deck-07 coverage is
+unchanged.
 
 Selected Deck 08 classroom coverage concluded November 10: four-space bases
 and dimensions, orthogonal-pair examples, regression fitted responses and
@@ -150,20 +154,9 @@ The welcome-page outline records about two 50-minute classroom hours:
 about 36.6 minutes on November 5 plus about 50 minutes on November 10,
 before the eigenvalue introduction at approximately 50:10–50:26.
 
-The Schedule and lecture ledger are reconciled through November 17. The
-November 19 planned row now opens with the Leontief review above; this preparation
-does not establish that any of the new material was taught. The already-existing
-November 19 continuation
-and preceding-lecture summary were independently read back in Apple Calendar
-and Fantastical on November 17: Illinois Tech Fred → Calendar, PH 109,
-11:15 AM–12:45 PM CST. The note retains “Notebook for geometry, then
-determinants.” No calendar edit was needed in this reconciliation. These
-reconciliations are included in this Checkpoint; live deployment remains to
-be verified.
-
-Keep a brief spoken condition-number reminder for November 19; it was not
-found in the November 12 or November 17 transcript. During
-the November 5 discussion
+Keep a brief spoken condition-number reminder for the replacement recording
+or the next relevant review. No correction was found in the November 12, 17,
+or 19 transcripts. During the November 5 discussion
 of nearly dependent regression columns, the square-matrix condition number
 was described as an eigenvalue ratio. The 2-norm condition number is the
 largest/smallest singular-value ratio, including for square matrices; an
@@ -208,20 +201,18 @@ examples and results retained on their own continuation slides.
 Powers and Dynamics likewise has five main headings. The optional
 generalized-eigenvector topic uses algebraic multiplicity for the kernel
 power and states the full-basis result with its real/complex qualifications.
-The differential-system additions and full generalized-basis theorem remain
-prepared for instructor review, not established as taught; the November 17
-board introduction to generalized eigenvectors does not complete this material.
-The November 19 powers pickup above determines the current lecture plan.
+The November 19 class introduced the matrix exponential and began the
+quarter-turn calculation. The later differential-system examples and the
+full generalized-basis theorem remain prepared for instructor review.
 Local validation and audit findings are recorded in `notes/DECK-AUDIT.md`.
 
 The concise spinning-tennis-racket example follows the eigenspace definition,
 with principal axes as inertia-tensor eigenvectors, moments as eigenvalues,
 three one-dimensional eigenspaces and the stable/unstable rotation distinction.
-It includes a marked-face toss demonstration in presenter notes. It was added
-after the November 12 class and has not been taught. The deck renders without
-warnings, its source-text checks pass, and visible layout/navigation review is
-complete. Its November 17 demonstration was deferred because the racket was
-not brought; retain it as an untaught illustration.
+It includes a marked-face toss demonstration in presenter notes. The
+November 19 demonstration illustrated intermediate-axis instability. The
+deck renders without warnings, its source-text checks pass, and visible
+layout/navigation review is complete.
 
 The matrix-exponential slide also connects other convergent Taylor series
 with matrix functions, using sine and cosine as examples.
@@ -229,11 +220,11 @@ with matrix functions, using sine and cosine as examples.
 Deck 09 now includes practical eigensolver guidance, general matrix functions,
 the matrix exponential and a worked linear differential system after matrix
 powers. Its spectral theorem explicitly guarantees orthogonal diagonalization
-for every real symmetric matrix. Review these additions before teaching them;
-the November 19 powers pickup above is the current lecture plan. The companion's
-16 code cells pass in qmcpy with saved outputs, including symbolic checks of
-the exponential, derivative and initial conditions. Deck 00's terminology index
-and the course/notebook descriptions link to the new material.
+for every real symmetric matrix. Review the remaining material before teaching
+it. The companion's 16 code cells pass in qmcpy with saved outputs, including
+symbolic checks of the exponential, derivative and initial conditions.
+Deck 00's terminology index and the course/notebook descriptions link to the
+new material.
 
 ## Slide navigation — deployed November 12
 
@@ -252,8 +243,7 @@ regularization material as part of Deck 10. Both existing Inner Products and
 SVD/Regression companions are linked there; their filenames are preserved.
 **Deck 11 remains entirely optional:** quadratic forms, FFT, networks and
 the single two-minute product-bases/frames slide. Preserve it even if skipped.
-The SVD existence argument uses Deck 09's spectral theorem; Deck 11 is not
-a prerequisite. The November 19 powers pickup above is the current lecture plan.
+The SVD existence argument uses Deck 09's spectral theorem.
 
 The website and all twelve decks render; 1,311 assembled local links/assets
 pass. Revised deck layouts, cross-deck SVD navigation and both rendered
@@ -356,8 +346,8 @@ near the top of that QMD to revise the invitation. Original PDF/PNG assets are i
 
 ## Remaining-material readiness — November 9
 
-Selected Deck 08 classroom coverage concluded November 10; the November 19
-Deck 09 powers pickup above is the immediate teaching preparation. Decks 09 (Eigenvalues), 10 (Inner Products,
+Selected Deck 08 classroom coverage concluded November 10.
+Decks 09 (Eigenvalues), 10 (Inner Products,
 QR, least squares and SVD/regression), and 11 (optional Special Topics)
 are substantive mathematically audited drafts, with instructor and visible
 review still open. Their companion notebooks 09–11 are now implemented and
