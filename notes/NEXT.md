@@ -89,15 +89,16 @@ The posted body, link and saved audience are verified; the
 Do not repost. The Dashboard has no outstanding seminar-announcement action;
 existing lecture preparation, grading and talk preparation remain open.
 
-## Review Questions — announced November 12
+## Review Questions — release approved November 22
 
-The [Canvas announcement](https://iit.instructure.com/courses/23913/discussion_topics/110261)
-is published to All Sections, November 12 at 7:54 AM CST. Prepare and provide
-sample exam questions covering the whole course by Monday, November 30
-(planned target). The private review-material draft is complete and validated;
-instructor review and student release remain open. The
-[HTML reference](drafts/2026-11-30-sample-exam-announcement.html)
-preserves the published text.
+The [advance announcement](https://iit.instructure.com/courses/23913/discussion_topics/110261)
+went to All Sections on November 12. It set November 30 as the target for
+whole-course practice questions.
+
+Fred approved release on November 22. The student practice packet is linked
+under [Final exam review](../pages/quizzes-and-tests.qmd#final-exam-review).
+Verify the public page and PDF before posting the availability announcement
+to All Sections in Canvas.
 
 ## Immediate next work — November 24 replacement recording
 
