@@ -393,8 +393,10 @@ Mathematical content should be maintained only in the slides.
     America/Chicago (CST), PH 109, confirmed by the Registrar.
   - [x] Prepare and validate the private Review Questions draft for the
     announced whole-course review materials.
-  - [ ] Complete instructor review and release the Review Questions to
-    students; planned target November 30.
+  - [x] Complete instructor review and publish the student Review Questions on
+    the course website; verified November 22.
+  - [x] Announce the live Review Questions to All Sections in Canvas
+    on November 22. [Posted announcement](https://iit.instructure.com/courses/23913/discussion_topics/111026).
   - [x] Announce and add to the course website the remaining quiz dates—Quiz 3
     on October 15, Quiz 4 on November 12, and Quiz 5 on December 1—with
     coverage TBD.

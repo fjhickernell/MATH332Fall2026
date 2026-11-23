@@ -89,16 +89,18 @@ The posted body, link and saved audience are verified; the
 Do not repost. The Dashboard has no outstanding seminar-announcement action;
 existing lecture preparation, grading and talk preparation remain open.
 
-## Review Questions — release approved November 22
+## Review Questions — published November 22
 
 The [advance announcement](https://iit.instructure.com/courses/23913/discussion_topics/110261)
-went to All Sections on November 12. It set November 30 as the target for
-whole-course practice questions.
+went to All Sections on November 12 and gave November 30 as the
+target for whole-course practice questions.
 
-Fred approved release on November 22. The student practice packet is linked
-under [Final exam review](../pages/quizzes-and-tests.qmd#final-exam-review).
-Verify the public page and PDF before posting the availability announcement
-to All Sections in Canvas.
+The student practice packet is live under [Final exam review](https://fjhickernell.github.io/MATH332Fall2026/pages/quizzes-and-tests.html#final-exam-review)
+on Quizzes and Tests. The public download matches the reviewed student PDF.
+Website deployment is verified for Checkpoint 8ba08af. The
+[availability announcement](https://iit.instructure.com/courses/23913/discussion_topics/111026)
+was posted to All Sections on November 22, 2026. The saved link and audience
+are verified.
 
 ## Immediate next work — November 24 replacement recording
 
