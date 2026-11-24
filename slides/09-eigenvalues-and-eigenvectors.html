@@ -2426,6 +2426,73 @@ e^{t\mat{D}}=\operatorname{diag}(e^{t\lambda_1},\ldots,e^{t\lambda_n})
 </section>
 <section class="slide level2">
 
+<h3 id="diagonalize-the-clockwise-quarter-turn">Diagonalize the clockwise quarter turn</h3>
+<p>Here <span class="math inline">\(\mat{A}=-\mat{R}\)</span> turns clockwise, reversing the <a href="#/a-quarter-turn-has-no-real-eigendirection">earlier quarter turn</a></p>
+<p><span class="math display">\[\begin{equation*}
+\mat{A}=\begin{bmatrix}0&amp;1\\-1&amp;0\end{bmatrix},\qquad
+p_{\mat{A}}(\lambda)=\lambda^2+1,\qquad \lambda=i,-i
+\end{equation*}\]</span></p>
+<p>For either eigenvalue, <span class="math inline">\(\lambda^2=-1\)</span> gives</p>
+<p><span class="math display">\[\begin{equation*}
+\mat{A}\begin{bmatrix}1\\\lambda\end{bmatrix}
+=\begin{bmatrix}\lambda\\-1\end{bmatrix}
+=\lambda\begin{bmatrix}1\\\lambda\end{bmatrix}
+\end{equation*}\]</span></p>
+<p>Over <span class="math inline">\(\mathbb C\)</span>, the diagonalization <span class="math inline">\(\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}\)</span> uses</p>
+<p><span class="math display">\[\begin{equation*}
+\mat{V}=\begin{bmatrix}1&amp;1\\i&amp;-i\end{bmatrix},\qquad
+\mat{D}=\begin{bmatrix}i&amp;0\\0&amp;-i\end{bmatrix},\qquad
+\mat{V}^{-1}=\frac12\begin{bmatrix}1&amp;-i\\1&amp;i\end{bmatrix}
+\end{equation*}\]</span></p>
+<aside class="notes">
+<p>Point to the first column of A: it sends the positive horizontal unit vector straight down. The first column of V belongs to i and the second to -i. Multiplying V by the displayed inverse gives the identity.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="the-complex-exponentials-give-a-real-rotation">The complex exponentials give a real rotation</h3>
+<p>For real <span class="math inline">\(t\)</span>, write <span class="math inline">\(z=e^{it}\)</span> and <span class="math inline">\(\bar z=e^{-it}\)</span>, so <span class="math inline">\(e^{t\mat{D}}=\operatorname{diag}(z,\bar z)\)</span></p>
+<p><span class="math display">\[\begin{align*}
+e^{t\mat{A}}=\mat{V}e^{t\mat{D}}\mat{V}^{-1}
+&amp;=\frac12\begin{bmatrix}z&amp;\bar z\\iz&amp;-i\bar z\end{bmatrix}
+         \begin{bmatrix}1&amp;-i\\1&amp;i\end{bmatrix}\\
+&amp;=\frac12\begin{bmatrix}
+z+\bar z&amp;-i(z-\bar z)\\i(z-\bar z)&amp;z+\bar z
+\end{bmatrix}
+\end{align*}\]</span></p>
+<p>Euler’s formula gives <span class="math inline">\(z+\bar z=2\cos t\)</span> and <span class="math inline">\(z-\bar z=2i\sin t\)</span></p>
+<p><span class="math display">\[\begin{equation*}
+\boxed{e^{t\mat{A}}=\begin{bmatrix}\cos t&amp;\sin t\\-\sin t&amp;\cos t\end{bmatrix}}
+\end{equation*}\]</span></p>
+<div class="key-point">
+<p>At <span class="math inline">\(t=\pi/2\)</span>, <span class="math inline">\(e^{t\mat{A}}\)</span> sends <span class="math inline">\([1,0]^\top\)</span> to <span class="math inline">\([0,-1]^\top\)</span>, a clockwise quarter turn</p>
+</div>
+<aside class="notes">
+<p>In the upper right, (-i)(2i sin t)/2 gives +sin t. In the lower left, i(2i sin t)/2 gives -sin t. At t=0 the result is I, and its derivative there is A. The first column is the solution with initial state [1,0]^T.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section class="slide level2">
+
 <h3 id="eigenbasis-coordinates-decouple-a-differential-system">Eigenbasis coordinates decouple a differential system</h3>
 <p>Let <span class="math inline">\(\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}\)</span> and write <span class="math inline">\(\vct{x}(t)=\mat{V}\vct{c}(t)\)</span></p>
 <p>The basis matrix is constant, so</p>
@@ -2650,7 +2717,7 @@ S_{\mat{A}}=\{\vct{x}:\reals\to\mathbb{K}^n:\vct{x}'=\mat{A}\vct{x}\}
 \vct{x}'=\underbrace{\begin{bmatrix}0&amp;1\\-1&amp;0\end{bmatrix}}_{\mat{H}}\vct{x},
 \qquad\vct{x}_0=\begin{bmatrix}a\\b\end{bmatrix}
 \end{equation*}\]</span></p>
-<p>Over <span class="math inline">\(\mathbb{C}\)</span>, choose an eigenbasis:</p>
+<p>Use the <a href="#/diagonalize-the-clockwise-quarter-turn">clockwise quarter-turn eigenbasis</a> for <span class="math inline">\(\mat{H}\)</span></p>
 <p><span class="math display">\[\begin{equation*}
 \mat{V}=\begin{bmatrix}1&amp;1\\i&amp;-i\end{bmatrix},\qquad
 \mat{D}=\begin{bmatrix}i&amp;0\\0&amp;-i\end{bmatrix},\qquad
