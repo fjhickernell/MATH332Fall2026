@@ -1768,6 +1768,70 @@ is an equilibrium direction. Avoid interchanging multipliers and rates.
 
 ---
 
+### Diagonalize the clockwise quarter turn {#diagonalize-the-clockwise-quarter-turn}
+
+Here $\mat{A}=-\mat{R}$ turns clockwise, reversing the [earlier quarter turn](#a-quarter-turn-has-no-real-eigendirection)
+
+\begin{equation*}
+\mat{A}=\begin{bmatrix}0&1\\-1&0\end{bmatrix},\qquad
+p_{\mat{A}}(\lambda)=\lambda^2+1,\qquad \lambda=i,-i
+\end{equation*}
+
+For either eigenvalue, $\lambda^2=-1$ gives
+
+\begin{equation*}
+\mat{A}\begin{bmatrix}1\\\lambda\end{bmatrix}
+=\begin{bmatrix}\lambda\\-1\end{bmatrix}
+=\lambda\begin{bmatrix}1\\\lambda\end{bmatrix}
+\end{equation*}
+
+Over $\mathbb C$, the diagonalization $\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}$ uses
+
+\begin{equation*}
+\mat{V}=\begin{bmatrix}1&1\\i&-i\end{bmatrix},\qquad
+\mat{D}=\begin{bmatrix}i&0\\0&-i\end{bmatrix},\qquad
+\mat{V}^{-1}=\frac12\begin{bmatrix}1&-i\\1&i\end{bmatrix}
+\end{equation*}
+
+::: {.notes}
+Point to the first column of A: it sends the positive horizontal unit vector
+straight down. The first column of V belongs to i and the second to -i.
+Multiplying V by the displayed inverse gives the identity.
+:::
+
+---
+
+### The complex exponentials give a real rotation {#the-complex-exponentials-give-a-real-rotation}
+
+For real $t$, write $z=e^{it}$ and $\bar z=e^{-it}$, so $e^{t\mat{D}}=\operatorname{diag}(z,\bar z)$
+
+\begin{align*}
+e^{t\mat{A}}=\mat{V}e^{t\mat{D}}\mat{V}^{-1}
+&=\frac12\begin{bmatrix}z&\bar z\\iz&-i\bar z\end{bmatrix}
+         \begin{bmatrix}1&-i\\1&i\end{bmatrix}\\
+&=\frac12\begin{bmatrix}
+z+\bar z&-i(z-\bar z)\\i(z-\bar z)&z+\bar z
+\end{bmatrix}
+\end{align*}
+
+Euler's formula gives $z+\bar z=2\cos t$ and $z-\bar z=2i\sin t$
+
+\begin{equation*}
+\boxed{e^{t\mat{A}}=\begin{bmatrix}\cos t&\sin t\\-\sin t&\cos t\end{bmatrix}}
+\end{equation*}
+
+::: {.key-point}
+At $t=\pi/2$, $e^{t\mat{A}}$ sends $[1,0]^\top$ to $[0,-1]^\top$, a clockwise quarter turn
+:::
+
+::: {.notes}
+In the upper right, (-i)(2i sin t)/2 gives +sin t. In the lower left,
+i(2i sin t)/2 gives -sin t. At t=0 the result is I, and its derivative
+there is A. The first column is the solution with initial state [1,0]^T.
+:::
+
+---
+
 ### Eigenbasis coordinates decouple a differential system {#eigenbasis-coordinates-decouple-a-differential-system}
 
 Let $\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}$ and write
@@ -2034,7 +2098,7 @@ with $y(0)=a$, $y'(0)=b$
 \qquad\vct{x}_0=\begin{bmatrix}a\\b\end{bmatrix}
 \end{equation*}
 
-Over $\mathbb{C}$, choose an eigenbasis:
+Use the [clockwise quarter-turn eigenbasis](#diagonalize-the-clockwise-quarter-turn) for $\mat{H}$
 
 \begin{equation*}
 \mat{V}=\begin{bmatrix}1&1\\i&-i\end{bmatrix},\qquad

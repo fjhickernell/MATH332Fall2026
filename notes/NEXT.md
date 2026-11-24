@@ -107,12 +107,31 @@ original numbering, and the November 22 announcement links to the same review pa
 
 ## Immediate next work — November 24 replacement recording
 
-Record and share the replacement lecture announced November 17. Resume
-Deck 09, Powers and Dynamics, at
-[The matrix exponential solves a linear differential system](../slides/09-eigenvalues-and-eigenvectors.qmd#the-matrix-exponential-solves-a-linear-differential-system).
-Finish simplifying the quarter-turn exponential to a real rotation and
-connect it to $x(t)=e^{tA}x(0)$ for $x'=Ax$. The December 1 review will take
-questions about the recording before Quiz 5.
+Record and share one slides-only lecture. Open with the promised clockwise
+quarter-turn correction, then spend the recording on inner product spaces.
+Use the worked examples already on screen. Save the whiteboard exercises for
+the December 1 and 3 review meetings.
+
+Suggested recording route (82 minutes, optional finish at 88). Slide numbers
+are the displayed numbers in [Deck 09](../slides/09-eigenvalues-and-eigenvectors.qmd#diagonalize-the-clockwise-quarter-turn)
+and [Deck 10](../slides/10-inner-product-spaces.qmd#inner-products-and-geometry).
+
+| Elapsed minutes | Slides | What to show |
+|---|---|---|
+| 0–6 | 09 · 55–56 | Finish the complex product. At a quarter period the first column points straight down. |
+| 6–17 | 10 · 5–8 | Give the real axioms briefly. Use the weighted example to show that changing the inner product changes perpendicularity. Introduce the integral as a second example. |
+| 17–29 | 10 · 12–14 | Go from projection onto a line to an orthonormal basis. The fitted vector lies in the subspace and the residual is perpendicular to it. |
+| 29–44 | 10 · 17–20 | Work through the two-column Gram–Schmidt example. Read off the triangular coordinates in the displayed QR factorization. |
+| 44–58 | 10 · 24–28 | Use the orthogonal residual to motivate the QR solve. Follow the three-point line fit through its residual plot. |
+| 58–70 | 10 · 35–38, 41–42 | Use the ellipse with semiaxes 3 and 2. Keeping the first singular direction gives a rank-one approximation with spectral error 2. |
+| 70–82 | 10 · 47–50 | Use the duplicate-feature example for minimum-norm coefficients. Close with sensitivity and the correction that the 2-norm condition number for full column rank is the largest singular value divided by the smallest. |
+| 82–88, optional | 10 · 55–57 | If on time, reuse projection to find the best linear approximation to $t^2$ on $[0,1]$. Otherwise stop at slide 50. |
+
+Skip numerical QR variants, the SVD existence proof, the second QR
+derivation, ridge and truncation, the Fourier sequence, and Deck 11.
+For review week, prioritize Deck 10 slide 15 (plane projection), 22 (QR)
+and 53 (minimum-norm fit). The December 1 review also takes questions about
+the recording before Quiz 5.
 
 The November 19 recording verifies the Leontief production solve by
 elimination and in eigenbasis coordinates, the tennis-racket instability
