@@ -102,6 +102,9 @@ Website deployment is verified for Checkpoint 8ba08af. The
 was posted to All Sections on November 22, 2026. The saved link and audience
 are verified.
 
+The November 24 revision adds Question 37 on page 10. Questions 1–36 keep their
+original numbering, and the November 22 announcement links to the same review page.
+
 ## Immediate next work — November 24 replacement recording
 
 Record and share the replacement lecture announced November 17. Resume

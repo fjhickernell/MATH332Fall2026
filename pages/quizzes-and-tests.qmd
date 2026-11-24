@@ -41,7 +41,7 @@ resource, or assistance—will be handled under the course
 
 ## Final exam review {#final-exam-review}
 
-The review packet contains 36 practice questions covering the whole course.
+The review packet contains 37 practice questions covering the whole course.
 
 [Download the MATH 332 review questions (PDF)](../assets/review/MATH332-Fall2026-Review-Questions.pdf)
 
