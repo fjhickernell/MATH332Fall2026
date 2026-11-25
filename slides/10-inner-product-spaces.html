@@ -687,6 +687,7 @@ In this deck
 <li><a href="#/regression-through-qr-and-svd">Regression Through QR and SVD</a></li>
 <li><a href="#/function-approximation-and-fourier-coordinates">Function Approximation and Fourier Coordinates</a></li>
 <li><a href="#/big-ideas">Big Ideas</a></li>
+<li><a href="#/course-recap">What Can We Do with Vectors and Matrices?</a></li>
 </ul>
 </div></div>
 </section>
@@ -2250,6 +2251,75 @@ c_k=\langle q_k,f\rangle
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section></section>
+<section>
+<section id="course-recap" class="title-slide slide level1 center">
+<h1>What Can We Do with Vectors and Matrices?</h1>
+<p>* Optional</p>
+<ul>
+<li>Solve <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> — <span class="math inline">\([\mat{A}\mid\vct{b}]\xrightarrow{\text{swap, scale, add}}\text{echelon form}\)</span>, then back-substitute or continue to RREF</li>
+<li>Classify — <a href="01-systems-and-matrices.html#pivots-organize-elimination">augmented-column pivot</a> <span class="math inline">\(\implies\)</span> none. Otherwise <span class="math inline">\(\vct{x}=\vct{x}_p+\vct{z}\)</span>, <span class="math inline">\(\vct{z}\in\operatorname{null}(\mat{A})\)</span> (unique if no free variables)</li>
+<li>Invert by Gauss–Jordan — <span class="math inline">\([\mat{A}\mid\mat{I}]\longrightarrow[\mat{I}\mid\mat{A}^{-1}]\)</span> for nonsingular <span class="math inline">\(\mat{A}\)</span></li>
+<li>Add, scale, multiply, transpose — <span class="math inline">\(\alpha\vct{u}+\beta\vct{v}\)</span>, <span class="math inline">\(\alpha\mat{A}+\beta\mat{B}\)</span>, <span class="math inline">\(\mat{A}\mat{B}\)</span>, <span class="math inline">\(\mat{A}^\top\)</span></li>
+<li>Apply a map — <span class="math inline">\(\mat{A}\vct{x}=\sum_j x_j\vct{A}_j\)</span>, with <span class="math inline">\((\mat{A}\vct{x})_i=\vct{a}_i^\top\vct{x}\)</span></li>
+<li>Build maps from basis images — <span class="math inline">\(\mat{A}=[T(\vct{e}_1)\ \cdots\ T(\vct{e}_n)]\)</span> for rotations, reflections, stretches, projections</li>
+<li>Compose and undo — <span class="math inline">\((\mat{B}\mat{A})\vct{x}=\mat{B}(\mat{A}\vct{x})\)</span>, <span class="math inline">\((\mat{B}\mat{A})^{-1}=\mat{A}^{-1}\mat{B}^{-1}\)</span></li>
+<li>Determinant — <span class="math inline">\(\det(\mat{A})=(-1)^s\prod_i u_{ii}\)</span> after <span class="math inline">\(s\)</span> swaps and elimination without row scaling</li>
+<li>Signed scale — <span class="math inline">\(\det(\mat{A}\mat{B})=\det(\mat{A})\det(\mat{B})\)</span>, <span class="math inline">\(\det(\mat{A})\ne0\iff\mat{A}\)</span> invertible</li>
+<li>Local scale <span class="math inline">\(\lvert\det(\mat{J})\rvert\)</span>, Wronskian <span class="math inline">\(W(t)\ne0\implies\)</span> independent functions</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h2>
+What Can We Do with Vectors and Matrices?
+</h2>
+<ul>
+<li>Subspace test — <span class="math inline">\(\vct{0}\in S\)</span>, <span class="math inline">\(\alpha\vct{u}+\beta\vct{v}\in S\)</span> for <span class="math inline">\(\vct{u},\vct{v}\in S\)</span></li>
+<li>Span — <span class="math inline">\(\mat{A}\vct{c}=\vct{b}\)</span> solvable · Independence — <span class="math inline">\(\operatorname{null}(\mat{A})=\{\vct{0}\}\)</span></li>
+<li>Basis — independent + spanning, <span class="math inline">\(\dim V=\#\text{ basis vectors}\)</span> for vectors, polynomials, functions, matrices</li>
+<li>Four spaces — original pivot columns, nonzero echelon rows, <span class="math inline">\(\mat{A}\vct{x}=\vct{0}\)</span>, <span class="math inline">\(\mat{A}^\top\vct{y}=\vct{0}\)</span></li>
+<li>Rank and compatibility — <span class="math inline">\(\operatorname{rank}(\mat{A})+\operatorname{nullity}(\mat{A})=n\)</span>, <span class="math inline">\(\vct{b}\in\operatorname{col}(\mat{A})\iff\vct{b}\perp\operatorname{null}(\mat{A}^\top)\)</span></li>
+<li>Change coordinates — <span class="math inline">\([\vct{x}]_{\mathcal C}=\mat{P}_{\mathcal C}^{-1}\mat{P}_{\mathcal B}[\vct{x}]_{\mathcal B}\)</span>, map matrix <span class="math inline">\(\mat{P}_{\mathcal C}^{-1}\mat{A}\mat{P}_{\mathcal B}\)</span></li>
+<li>Eigenvalues and eigenspaces — <span class="math inline">\(\det(\lambda\mat{I}-\mat{A})=0\)</span>, <span class="math inline">\(\operatorname{null}(\mat{A}-\lambda\mat{I})\)</span></li>
+<li>Diagonalize if <span class="math inline">\(\sum_\lambda\dim\operatorname{null}(\mat{A}-\lambda\mat{I})=n\)</span> over the chosen field</li>
+<li>Check the spectrum — <span class="math inline">\(\operatorname{tr}(\mat{A})=\sum_j\lambda_j\)</span>, <span class="math inline">\(\det(\mat{A})=\prod_j\lambda_j\)</span>, conjugate pairs for real <span class="math inline">\(\mat{A}\)</span></li>
+<li>Powers and functions — <span class="math inline">\(f(\mat{A})=\mat{V}f(\mat{D})\mat{V}^{-1}\)</span> in an eigenbasis, <span class="math inline">\(\vct{x}_k=\mat{A}^k\vct{x}_0\)</span>, <span class="math inline">\(\vct{x}(t)=e^{t\mat{A}}\vct{x}(0)\)</span></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h2>
+What Can We Do with Vectors and Matrices?
+</h2>
+<ul>
+<li><span class="math inline">\(\mat{A}=\mat{P}\mat{L}\mat{U}\)</span> — <span class="math inline">\(\mat{P}\)</span> restores row order, <span class="math inline">\(\mat{L}\)</span> unit lower triangular, <span class="math inline">\(\mat{U}\)</span> upper triangular for square <span class="math inline">\(\mat{A}\)</span></li>
+<li>* <span class="math inline">\(\mat{A}=\mat{C}\mat{R}\)</span> — <span class="math inline">\(\mat{C}\)</span> original pivot columns, <span class="math inline">\(\mat{R}\)</span> nonzero RREF rows</li>
+<li><span class="math inline">\(\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}\)</span> — <span class="math inline">\(\mat{V}\)</span> eigenbasis, <span class="math inline">\(\mat{D}=\operatorname{diag}(\lambda_j)\)</span>, <span class="math inline">\(\mat{V}^{-1}=\mat{V}^\top\)</span> for an orthonormal eigenbasis</li>
+<li><span class="math inline">\(\mat{A}=\mat{Q}\mat{R}\)</span> — full column rank, <span class="math inline">\(\mat{Q}^\top\mat{Q}=\mat{I}\)</span>, <span class="math inline">\(\mat{R}\)</span> upper triangular</li>
+<li>* <span class="math inline">\(\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^\top\)</span> — SVD, orthonormal columns in <span class="math inline">\(\mat{U}_r,\mat{V}_r\)</span>, positive diagonal <span class="math inline">\(\mat{\Sigma}_r\)</span></li>
+<li>Inner products — <span class="math inline">\(\vct{u}^\top\vct{v}\)</span>, <span class="math inline">\(\vct{u}^\top\mat{W}\vct{v}\)</span> (<span class="math inline">\(\mat{W}\succ0\)</span>), <span class="math inline">\(\int fg\)</span></li>
+<li>Length, distance, angle — <span class="math inline">\(\|\vct{u}\|^2=\langle\vct{u},\vct{u}\rangle\)</span>, <span class="math inline">\(\|\vct{u}-\vct{v}\|\)</span>, <span class="math inline">\(\cos\theta=\langle\vct{u},\vct{v}\rangle/(\|\vct{u}\|\|\vct{v}\|)\)</span></li>
+<li>Cross and triple products — <span class="math inline">\(\vct{u}\times\vct{v}\)</span> normal, <span class="math inline">\(\|\vct{u}\times\vct{v}\|\)</span> area, <span class="math inline">\(\vct{w}^\top(\vct{u}\times\vct{v})\)</span> signed volume</li>
+<li>Gram–Schmidt and projection — orthonormal columns in <span class="math inline">\(\mat{Q}\)</span>, <span class="math inline">\(\vct{p}=\mat{Q}\mat{Q}^\top\vct{b}\)</span></li>
+<li><a href="#/fit-a-line-to-three-observations">Least squares</a> — <span class="math inline">\(\mat{A}^\top(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}\)</span>, solve <span class="math inline">\(\mat{R}\widehat{\vct{x}}=\mat{Q}^\top\vct{b}\)</span> using reduced QR</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h2>
+What Can We Do with Vectors and Matrices?
+</h2>
+<ul>
+<li>PCA — covariance eigenvectors, variance along direction <span class="math inline">\(j\)</span> given by <span class="math inline">\(\lambda_j\)</span></li>
+<li>Matrix series — <span class="math inline">\(\sum_{k=0}^\infty\mat{A}^k=(\mat{I}-\mat{A})^{-1}\)</span> if every <span class="math inline">\(|\lambda_j|&lt;1\)</span></li>
+<li>* Frames, infinite bases, abstract kernels and ranges, generalized eigenvector chains</li>
+<li>* Weighted least squares — <span class="math inline">\(\min_{\vct{x}}\|\mat{W}^{1/2}(\mat{A}\vct{x}-\vct{b})\|^2\)</span></li>
+<li>* SVD tools — rank-<span class="math inline">\(k\)</span> truncation, <span class="math inline">\(\widehat{\vct{x}}=\mat{A}^+\vct{b}\)</span> (minimum norm), <span class="math inline">\(\kappa(\mat{A})=\sigma_{\max}/\sigma_{\min}\)</span> (full column rank), ridge</li>
+<li>* Function approximation — complex inner products, Fourier coefficients <span class="math inline">\(c_k=\langle q_k,f\rangle\)</span></li>
+<li>* Principal axes and tensors — <span class="math inline">\(\vct{x}^\top\mat{A}\vct{x}=\sum_j\lambda_j y_j^2\)</span> in an orthonormal eigenbasis, product bases <span class="math inline">\(\vct{u}_i\otimes\vct{v}_j\)</span></li>
+<li>* Signals and networks — DFT/FFT, convolution, power iteration, PageRank, graph Laplacians, left-null compatibility</li>
+</ul>
 
 </section></section>
     </div>
