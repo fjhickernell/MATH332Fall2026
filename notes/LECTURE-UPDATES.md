@@ -3,9 +3,10 @@
 - Course: MATH 332
 - Meeting time: Tuesday and Thursday, 11:15 AM–12:45 PM America/Chicago
 - Latest fully reconciled instructional meeting: November 19, 2026
-- November 19 coverage and schedule: recording-audited; November 24
-  continuation planned for the replacement recording. The December 1 review
-  occurrence was annotated and verified in Apple Calendar and Fantastical.
+- November 24 recording and course schedule checked against the recording.
+  December 1 continuation was saved and reopened in Apple Calendar.
+  Fantastical read-back is unavailable on this Mac because the Illinois Tech
+  account is not connected there.
 
 | Instructional meeting | Status | Panopto recording | Next instructional event annotated | Checked |
 |---|---|---|---|---|
@@ -27,6 +28,7 @@
 | November 12, 2026 | Reconciled: eigenvalue recipe, triangular eigenspace calculations, eigenspaces, trace/determinant and software; introduced AV=VD and diagonalization; final worked example begun before Quiz 4. Independent Fantastical read-back completed November 16 | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=e7c27e84-3dfc-4d8f-95c7-b5000137a6b3) | November 17, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; finish “Example: diagonalize and read the coordinates,” including product verification and the coordinate route, show the racket example, then “Distinct eigenvalues supply independent eigenvectors”; retain the condition-number reminder. Continuation restored November 16 with Only This Event and reopened in Apple Calendar; complete note and retained earlier planning text independently verified in Fantastical | November 16, 2026 |
 | November 17, 2026 | Reconciled: diagonalization product and coordinate interpretation; distinct-eigenvalue independence; repeated roots, diagonalization criteria and a brief generalized-eigenvector introduction; complex eigenvalues, conjugate pairs and rotation/scaling practice. Powers previewed only; racket demonstration deferred | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=d7309470-7c79-4ab3-b0d8-b505013e4a77) | November 19, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109; Illinois Tech Fred → Calendar occurrence only; resume Deck 09, Powers and Dynamics → “Powers act separately on eigenbasis coordinates.” Existing continuation and preceding-lecture summary independently verified in Apple Calendar and Fantastical; retained earlier planning text; no calendar edit needed | November 17, 2026 |
 | November 19, 2026 | Reconciled the Leontief production solve by elimination and in eigenbasis coordinates, the tennis-racket instability demonstration, matrix powers and geometric series, and matrix functions and exponentials. The lecture began the quarter-turn exponential and deferred simplifying it to a real rotation. | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=244c0a53-c7f0-46dd-b331-b507013e5558) | December 1, 2026, 11:15 AM–12:45 PM America/Chicago (CST), PH 109, Illinois Tech Fred → Calendar. Take questions from the planned November 24 recording before Quiz 5 and revisit the quarter-turn exponential as needed. Saved with Only This Event, reopened in Apple Calendar, and verified in Fantastical. | November 19, 2026 |
+| November 24, 2026 | Recording and schedule verified through QR least squares. SVD and later extensions are outside assessment coverage. | [Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=eda3771e-75eb-4b1f-8034-b50d003a6c48) | December 1, 11:15 AM–12:45 PM CST, PH 109. Saved and reopened the Illinois Tech Calendar occurrence using Only This Event. Fantastical could not verify it because the Illinois Tech account is not connected on this Mac. | November 24, 2026 |
 
 Assessment-only meetings do not require lecture reconciliation and are not
 continuation-note destinations. Compare this ledger with
@@ -537,3 +539,30 @@ the November 19 summary and replacement-recording pickup. The saved
 occurrence was reopened in Apple Calendar and independently verified in
 Fantastical at 11:15 AM–12:45 PM CST in PH 109. Quiz 5 remains in the last
 15 minutes of the December 1 meeting, with its existing coverage.
+
+## November 24 recording evidence
+
+[Panopto](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=eda3771e-75eb-4b1f-8034-b50d003a6c48)
+lists a November 24 recording start of 8:41 PM CST and a duration of 38 minutes.
+The direct course-folder listing, playback, visible slide index, and captions
+verify the date, audience and stopping point.
+
+- Deck 09: the clockwise quarter-turn example produces a real matrix
+  exponential (3:48–6:18). The lecture then treats perpendicular eigenspaces,
+  the real symmetric spectral theorem and a normalization example
+  (6:27–10:21). The differential-system formula is briefly recalled in the
+  synthesis. The orthogonal-diagonalization exercise is left for practice.
+- Deck 10 begins at 11:21. It covers real inner products, weighted and integral
+  examples, norm and angle, and projections through 26:18. The worked
+  Gram–Schmidt and reduced QR sequence follows (26:27–32:18).
+- Normal equations, the QR triangular solve and fitted-vector/residual split
+  are discussed from 32:22 to 36:03. The three-observation line fit is left for
+  practice. Weighted least squares, SVD and the later extensions receive no
+  substantive development. The closing captions explicitly defer SVD and later
+  extensions and exclude them from assessment coverage.
+- December 1 pickup: bring questions about the recording, then work through
+  Deck 10’s [three-observation line fit](../slides/10-inner-product-spaces.qmd#fit-a-line-to-three-observations)
+  using QR and check the residual before Quiz 5.
+
+The [Canvas announcement](https://iit.instructure.com/courses/23913/discussion_topics/111188)
+includes the link and the reduced-QR clarification. The saved audience is All Sections.

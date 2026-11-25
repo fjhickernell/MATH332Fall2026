@@ -1,29 +1,39 @@
 # Next task
 
-## Quiz 5 coverage — December 1
+## Immediate next work — December 1 review and Quiz 5
 
-Quiz 5 covers **Matrix Spaces and Rank** and **Eigenvalues and Eigenvectors**.
-It is Tuesday, December 1, in PH 109, during the last 15 minutes of class,
-and is worth 20 points. The assessment page, Schedule, and Deck 09 title
-notice reflect the finalized coverage. Verify the live Pages deployment before
-using the updated coverage page in a student announcement.
-After the Illinois Tech sign-in, update the existing Canvas On Paper assignment
-and post **Quiz 5 coverage for Tuesday, December 1** to All Sections with links
-to the two live decks.
-The Dashboard already records the December 7 grading deadline.
+Take questions from the November 24 recording and work through the
+[three-observation line fit](../slides/10-inner-product-spaces.qmd#fit-a-line-to-three-observations)
+using QR before the quiz. Finish the calculation and verify the residual.
+SVD and the later extensions are optional reading outside assessment coverage.
+
+Quiz 5 is Tuesday, December 1, during the last 15 minutes in PH 109. The
+20-point quiz covers **Matrix Spaces and Rank** and **Eigenvalues and
+Eigenvectors**. Canvas already lists [Quiz 5 Coverage](https://iit.instructure.com/courses/23913/discussion_topics/110773).
+Review the existing On Paper assignment and announcement settings before making
+any further Canvas changes. The Dashboard records the December 7 grading deadline.
+
+## November 24 makeup lecture — posted to All Sections
+
+The [Canvas announcement](https://iit.instructure.com/courses/23913/discussion_topics/111188)
+was posted November 24 at 9:52 PM CST. The saved audience and link were verified.
+The [38-minute Panopto recording](https://iit.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=eda3771e-75eb-4b1f-8034-b50d003a6c48)
+inherits the course viewer permissions. It covers the clockwise rotation
+example and orthogonal diagonalization, then inner products through the QR
+least-squares solve. The announcement clarifies reduced QR and the residual.
+See the [recording evidence](LECTURE-UPDATES.md#november-24-recording-evidence).
+
+Deck 10 now derives the results in order, with column vectors in the worked
+Gram–Schmidt example and explicit dimensions for reduced QR. See
+[the slide audit](DECK-AUDIT.md#november-24-2026--inner-product-spaces-derivation-audit).
 
 ## Class schedule announcement — published November 17
 
 Fred published [Upcoming Class Schedule](https://iit.instructure.com/courses/23913/discussion_topics/110654)
-to **All Sections** on **November 17, 2026, 7:32 PM CST**. The saved body and
-audience are verified: no regular class meeting November 24 due to a schedule
-conflict, a recorded lecture will be provided, and December 1 and 3 are review.
-The [HTML reference](drafts/2026-11-17-class-schedule-announcement.html)
-preserves Fred's final text. Do not repost. Recording and sharing the
-November 24 lecture remain open and are tracked under Green T2 in the
-Dashboard. November 19 lecture coverage has been reconciled. Assignment 6
-grading and Canvas transfer remain open. Matching Academic reminder state
-remains unverified under the retained access restrictions.
+to All Sections on November 17 at 7:32 PM CST. It announced the replacement
+recording and December 1 and 3 review meetings. The
+[HTML reference](drafts/2026-11-17-class-schedule-announcement.html)
+preserves the original announcement.
 
 ## Assignment 6 — released November 14
 
@@ -105,41 +115,12 @@ are verified.
 The November 24 revision adds Question 37 on page 10. Questions 1–36 keep their
 original numbering, and the November 22 announcement links to the same review page.
 
-## Immediate next work — November 24 replacement recording
+## November 19 lecture — reconciled
 
-Record and share one slides-only lecture. Open with the promised clockwise
-quarter-turn correction, then spend the recording on inner product spaces.
-Use the worked examples already on screen. Save the whiteboard exercises for
-the December 1 and 3 review meetings.
-
-Suggested recording route (82 minutes, optional finish at 88). Slide numbers
-are the displayed numbers in [Deck 09](../slides/09-eigenvalues-and-eigenvectors.qmd#diagonalize-the-clockwise-quarter-turn)
-and [Deck 10](../slides/10-inner-product-spaces.qmd#inner-products-and-geometry).
-
-| Elapsed minutes | Slides | What to show |
-|---|---|---|
-| 0–6 | 09 · 55–56 | Finish the complex product. At a quarter period the first column points straight down. |
-| 6–17 | 10 · 5–8 | Give the real axioms briefly. Use the weighted example to show that changing the inner product changes perpendicularity. Introduce the integral as a second example. |
-| 17–29 | 10 · 12–14 | Go from projection onto a line to an orthonormal basis. The fitted vector lies in the subspace and the residual is perpendicular to it. |
-| 29–44 | 10 · 17–20 | Work through the two-column Gram–Schmidt example. Read off the triangular coordinates in the displayed QR factorization. |
-| 44–58 | 10 · 24–28 | Use the orthogonal residual to motivate the QR solve. Follow the three-point line fit through its residual plot. |
-| 58–70 | 10 · 35–38, 41–42 | Use the ellipse with semiaxes 3 and 2. Keeping the first singular direction gives a rank-one approximation with spectral error 2. |
-| 70–82 | 10 · 47–50 | Use the duplicate-feature example for minimum-norm coefficients. Close with sensitivity and the correction that the 2-norm condition number for full column rank is the largest singular value divided by the smallest. |
-| 82–88, optional | 10 · 55–57 | If on time, reuse projection to find the best linear approximation to $t^2$ on $[0,1]$. Otherwise stop at slide 50. |
-
-Skip numerical QR variants, the SVD existence proof, the second QR
-derivation, ridge and truncation, the Fourier sequence, and Deck 11.
-For review week, prioritize Deck 10 slide 15 (plane projection), 22 (QR)
-and 53 (minimum-norm fit). The December 1 review also takes questions about
-the recording before Quiz 5.
-
-The November 19 recording verifies the Leontief production solve by
-elimination and in eigenbasis coordinates, the tennis-racket instability
-demonstration, matrix powers and geometric series, and matrix functions and
-the matrix exponential. The quarter-turn exponential was set up and its
-simplification began. The Schedule and [lecture ledger](LECTURE-UPDATES.md#november-19-recording-evidence-and-continuation)
-are reconciled through November 19. The December 1 occurrence was saved with
-Only This Event and read back in Apple Calendar and Fantastical.
+The [lecture ledger](LECTURE-UPDATES.md#november-19-recording-evidence-and-continuation)
+records the Leontief production solve, tennis-racket instability, matrix powers
+and geometric series, and the start of the quarter-turn matrix exponential.
+The November 24 recording completes that example.
 
 The expanded [Leontief review](../slides/09-eigenvalues-and-eigenvectors.qmd#leontief-production-adds-successive-rounds-of-inputs)
 uses Deck 02's input matrix and a demand forecast that activates both

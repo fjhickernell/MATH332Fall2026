@@ -190,24 +190,30 @@ and abstract linear-map examples that preview §§8.1 and 8.4.
 </details>
 
 <details>
-<summary><strong>Eigenvalues and Eigenvectors</strong></summary>
+<summary><strong>Eigenvalues and Eigenvectors</strong> — 5 hours</summary>
 
 [Lecture slides](slides/09-eigenvalues-and-eigenvectors.html). Anton, Chapter 5:
 eigenvalues and eigenspaces, diagonalization, complex eigenvalues, matrix
-functions and exponentials, discrete and continuous dynamics, and orthogonal
-diagonalization of real symmetric matrices.
-Detailed pacing is **TBD**.
+powers and functions, and orthogonal diagonalization of real symmetric
+matrices. The November 24 recording concluded this deck with the clockwise
+quarter-turn exponential and the spectral theorem. Approximately five
+50-minute classroom hours across the November 10–24 lectures, excluding quiz
+time and time on other decks.
 
 </details>
 
 <details>
-<summary><strong>Inner Product Spaces</strong></summary>
+<summary><strong>Inner Product Spaces</strong> — 1 hour</summary>
 
-[Lecture slides](slides/10-inner-product-spaces.html). Anton, Chapter 6 and §§9.4–9.5:
-inner products, orthogonal projection, Gram–Schmidt and QR, least squares and
-regression, SVD, low-rank approximation, pseudoinverses, and sensitivity.
-Function approximation with Fourier coordinates follows as an extension.
-Detailed pacing is **TBD**.
+[Lecture slides](slides/10-inner-product-spaces.html). Anton §§6.1–6.5:
+real inner products, norms, orthogonality and projection, Gram–Schmidt and
+reduced QR, normal equations and the QR least-squares solve. The November 24
+recording covers about 25 minutes of this deck, rounded to one 50-minute
+classroom hour. Review week picks up with the worked line fit.
+
+SVD, low-rank approximation, pseudoinverses, sensitivity, and function and
+Fourier approximation remain optional reading. Final exam coverage ends with
+the taught material through the QR least-squares solve.
 
 </details>
 
@@ -218,8 +224,7 @@ Detailed pacing is **TBD**.
 quadratic forms, FFT, and network applications.
 Selected Anton Chapters 7–10, optional Fourier enrichment, and a single brief
 tensor connection to product bases and frames.
-Topics and pacing will be selected as time permits; this deck may be skipped
-without omitting the SVD and regression core in Inner Product Spaces.
+These slides are optional enrichment this semester.
 
 </details>
 

@@ -111,6 +111,26 @@ The weighted unit circle is an ellipse in standard coordinates
 For $\vct{u}=[1,1]^\top$ and $\vct{v}=[4,-1]^\top$:
 $\langle\vct{u},\vct{v}\rangle_{\mat{W}}=0$ but $\vct{u}^\top\vct{v}=3$
 
+---
+
+### Check the weighted inner-product axioms {#check-the-weighted-inner-product-axioms}
+
+For symmetric positive-definite $\mat{W}$:
+\begin{align*}
+\langle\vct{v},\vct{u}\rangle_{\mat{W}}
+&=(\vct{v}^\top\mat{W}\vct{u})^\top
+=\vct{u}^\top\mat{W}^\top\vct{v}
+=\langle\vct{u},\vct{v}\rangle_{\mat{W}}\\
+\langle a\vct{u}+b\vct{v},\vct{w}\rangle_{\mat{W}}
+&=a\vct{u}^\top\mat{W}\vct{w}+b\vct{v}^\top\mat{W}\vct{w}\\
+\langle\vct{v},\vct{v}\rangle_{\mat{W}}
+&=\vct{v}^\top\mat{W}\vct{v}>0\quad(\vct{v}\ne\vct{0})
+\end{align*}
+
+In the example: $1\cdot4+4\cdot1\cdot(-1)=0$
+
+The same vectors need not be perpendicular under two different inner products
+
 
 ## Continuous functions also have geometry {#continuous-functions-also-have-geometry}
 
@@ -129,6 +149,24 @@ For $f(t)=1$, $g(t)=t$: $\langle f,g\rangle=1/2$
 Continuity guarantees positive definiteness for actual functions. For general square-integrable functions, use equivalence classes modulo equality almost everywhere to obtain an inner-product space. Completeness and Hilbert spaces are later-course context.
 :::
 
+---
+
+### Why a zero integral forces a continuous function to vanish {#continuous-function-positive-definiteness}
+
+Suppose $f$ is continuous and $f(t_0)\ne0$ at some $t_0\in[0,1]$
+
+Continuity supplies an interval $J\subseteq[0,1]$ of positive length with
+\begin{gather*}
+|f(t)|\ge\frac{|f(t_0)|}{2}\quad(t\in J)\\
+\int_0^1f(t)^2\,\dif t
+\ge\int_Jf(t)^2\,\dif t
+\ge\frac{|f(t_0)|^2}{4}\operatorname{length}(J)>0
+\end{gather*}
+
+Therefore $\langle f,f\rangle=0$ only for the zero continuous function
+
+The integral adds squared values; positive and negative values cannot cancel
+
 
 ## Norms, distances, and angles follow {#norms-distances-and-angles-follow}
 
@@ -146,6 +184,57 @@ Triangle inequality: $\|\vct{u}+\vct{v}\|\le\|\vct{u}\|+\|\vct{v}\|$
 ::: {.notes}
 Cauchy–Schwarz follows by minimizing ||u-tv||^2 over real t when v is nonzero. Equality occurs exactly for linearly dependent vectors. Expand the squared norm and apply the inequality to obtain the triangle inequality.
 :::
+
+---
+
+### The angle between the functions $1$ and $t$ {#angle-between-one-and-t}
+
+On $[0,1]$, let $f(t)=1$, $g(t)=t$, and $\langle f,g\rangle=\int_0^1f(t)g(t)\,\dif t$
+\begin{align*}
+\langle f,g\rangle&=\int_0^1t\,\dif t=\left[\frac{t^2}{2}\right]_0^1=\frac12\\
+\|f\|_{L^2}&=\left(\int_0^1 1^2\,\dif t\right)^{1/2}=1\\
+\|g\|_{L^2}&=\left(\int_0^1t^2\,\dif t\right)^{1/2}
+=\sqrt{\left[\frac{t^3}{3}\right]_0^1}=\frac1{\sqrt3}\\
+\cos\theta&=\frac{\langle f,g\rangle}{\|f\|_{L^2}\|g\|_{L^2}}
+=\frac{1/2}{1\cdot(1/\sqrt3)}=\frac{\sqrt3}{2}
+\end{align*}
+
+::: {.key-point}
+$\theta=\arccos(\sqrt3/2)=\pi/6=30^\circ$ — the angle between functions, not their plotted graphs
+:::
+
+---
+
+### Derive Cauchy–Schwarz from a nonnegative square {#derive-cauchy-schwarz}
+
+For $\vct{v}\ne\vct{0}$, choose $c=\langle\vct{u},\vct{v}\rangle/\|\vct{v}\|^2$
+\begin{align*}
+0\le\|\vct{u}-c\vct{v}\|^2
+&=\|\vct{u}\|^2-2c\langle\vct{u},\vct{v}\rangle+c^2\|\vct{v}\|^2\\
+&=\|\vct{u}\|^2-\frac{\langle\vct{u},\vct{v}\rangle^2}{\|\vct{v}\|^2}\\
+\langle\vct{u},\vct{v}\rangle^2
+&\le\|\vct{u}\|^2\|\vct{v}\|^2
+\end{align*}
+
+Take square roots; if $\vct{v}=\vct{0}$, both sides are zero
+
+Equality holds exactly when the two vectors are linearly dependent
+
+---
+
+### Derive the triangle inequality {#derive-the-triangle-inequality}
+
+Expand the square, then apply Cauchy–Schwarz:
+\begin{align*}
+\|\vct{u}+\vct{v}\|^2
+&=\|\vct{u}\|^2+2\langle\vct{u},\vct{v}\rangle+\|\vct{v}\|^2\\
+&\le\|\vct{u}\|^2+2\|\vct{u}\|\|\vct{v}\|+\|\vct{v}\|^2\\
+&=(\|\vct{u}\|+\|\vct{v}\|)^2
+\end{align*}
+
+Both sides are nonnegative, so take square roots
+
+Cauchy–Schwarz also puts the real angle formula's cosine in $[-1,1]$
 
 
 ## Practice testing an inner product {#practice-testing-an-inner-product}
@@ -184,35 +273,121 @@ An orthonormal list is pairwise orthogonal with each vector of norm one
 For independence, take the inner product of a zero linear combination with each list vector. Its coefficient times the positive squared norm must vanish. The zero vector is perpendicular to every vector but cannot belong to an orthonormal list.
 :::
 
+---
+
+### Expand the square and isolate each coefficient {#orthogonal-length-and-independence}
+
+When $\langle\vct{u},\vct{v}\rangle=0$:
+\begin{equation*}
+\|\vct{u}+\vct{v}\|^2
+=\|\vct{u}\|^2+2\langle\vct{u},\vct{v}\rangle+\|\vct{v}\|^2
+=\|\vct{u}\|^2+\|\vct{v}\|^2
+\end{equation*}
+
+For nonzero pairwise orthogonal $\vct{u}_1,\ldots,\vct{u}_k$:
+\begin{gather*}
+\sum_{j=1}^k c_j\vct{u}_j=\vct{0}
+\implies
+0=\left\langle\vct{u}_i,\sum_{j=1}^kc_j\vct{u}_j\right\rangle
+=c_i\|\vct{u}_i\|^2\\
+\|\vct{u}_i\|^2>0\implies c_i=0\quad\text{for every }i
+\end{gather*}
+
 
 ## Projection onto one direction {#projection-onto-one-direction}
 
-For $\vct{u}\ne\vct{0}$:
+Project the vector $\vct{v}$ onto the line through the origin in direction $\vct{u}\ne\vct{0}$
+\begin{equation*}
+L=\operatorname{span}\{\vct{u}\}=\{c\vct{u}:c\in\reals\}
+\end{equation*}
+
+The projection $\vct{p}$ lies on $L$; the residual $\vct{r}$ is perpendicular to $L$
 \begin{gather*}
 \vct{p}=\frac{\langle\vct{u},\vct{v}\rangle}{\langle\vct{u},\vct{u}\rangle}\vct{u},\qquad
 \vct{r}=\vct{v}-\vct{p}\\
 \vct{p}\in\operatorname{span}\{\vct{u}\},\qquad \vct{r}\perp\vct{u}
 \end{gather*}
 
-For every $\vct{w}$ on that line:
+For every candidate $\vct{w}\in L$:
 \begin{equation*}
 \|\vct{v}-\vct{w}\|^2=\|\vct{r}\|^2+\|\vct{p}-\vct{w}\|^2
 \end{equation*}
 
-$\vct{p}$ is the unique closest vector on the line
+$\vct{p}$ is the unique vector in $L$ closest to $\vct{v}$
 
+---
+
+### Orthogonality determines the projection coefficient {#derive-the-line-projection}
+
+Write $\vct{p}=c\vct{u}$ and require $\vct{r}=\vct{v}-c\vct{u}\perp\vct{u}$
+\begin{align*}
+0&=\langle\vct{u},\vct{v}-c\vct{u}\rangle
+=\langle\vct{u},\vct{v}\rangle-c\langle\vct{u},\vct{u}\rangle\\
+c&=\frac{\langle\vct{u},\vct{v}\rangle}{\langle\vct{u},\vct{u}\rangle}
+\end{align*}
+
+For any other $\vct{w}\in L$, the difference $\vct{p}-\vct{w}$ also lies in $L$
+\begin{gather*}
+\vct{v}-\vct{w}=\vct{r}+(\vct{p}-\vct{w}),\qquad
+\vct{r}\perp(\vct{p}-\vct{w})\\
+\|\vct{v}-\vct{w}\|^2=\|\vct{r}\|^2+\|\vct{p}-\vct{w}\|^2\ge\|\vct{r}\|^2
+\end{gather*}
+
+Equality holds only for $\vct{w}=\vct{p}$
+
+
+
+---
+
+### Example: project onto the line $x_2=x_1$ {#line-projection-worked-example}
+
+Use the standard dot product, $\vct{u}=[1,1]^\top$, and $\vct{v}=[3,1]^\top$
+\begin{gather*}
+L=\{c[1,1]^\top:c\in\reals\}=\{[c,c]^\top:c\in\reals\}\\
+c=\frac{\vct{u}^\top\vct{v}}{\vct{u}^\top\vct{u}}
+=\frac{1\cdot3+1\cdot1}{1^2+1^2}=2\\
+\vct{p}=2\vct{u}=[2,2]^\top,\qquad
+\vct{r}=\vct{v}-\vct{p}=[1,-1]^\top\\
+\vct{u}^\top\vct{r}=1-1=0,\qquad d(\vct{v},L)=\|\vct{r}\|=\sqrt2
+\end{gather*}
+
+The closest point to $(3,1)$ on $x_2=x_1$ is $(2,2)$
 
 ## Projection onto an orthonormal basis {#projection-onto-an-orthonormal-basis}
 
-Let $\{\vct{q}_1,\ldots,\vct{q}_k\}$ be an orthonormal basis of a subspace $S$
+Let $V$ be a real inner-product space and $S\subseteq V$ a finite-dimensional subspace
+
+Let $\{\vct{q}_1,\ldots,\vct{q}_k\}$ be an orthonormal basis of $S$
+
+For any $\vct{v}\in V$, its projection onto $S$ is
 \begin{gather*}
-\operatorname{proj}_S\vct{v}=\sum_{j=1}^k\langle\vct{q}_j,\vct{v}\rangle\vct{q}_j\\
+\vct{p}=\operatorname{proj}_S\vct{v}=\sum_{j=1}^k\langle\vct{q}_j,\vct{v}\rangle\vct{q}_j\\
 \vct{v}=\vct{p}+\vct{r},\qquad \vct{p}\in S,\quad \vct{r}\in S^\perp
 \end{gather*}
 
-Here $S^\perp=\{\vct{r}:\langle\vct{r},\vct{s}\rangle=0\text{ for every }\vct{s}\in S\}$
+Here $S^\perp=\{\vct{r}\in V:\langle\vct{r},\vct{s}\rangle=0\text{ for every }\vct{s}\in S\}$
 
 Orthonormal coordinates require inner products instead of solving a new system
+
+---
+
+### Extract the coefficients and verify the residual {#derive-the-subspace-projection}
+
+For $\vct{v}\in V$, seek $\vct{p}\in S$: write $\vct{p}=\sum_jc_j\vct{q}_j$ and impose $\vct{v}-\vct{p}\perp S$
+\begin{align*}
+0&=\left\langle\vct{q}_i,\vct{v}-\sum_jc_j\vct{q}_j\right\rangle
+=\langle\vct{q}_i,\vct{v}\rangle-c_i\\
+c_i&=\langle\vct{q}_i,\vct{v}\rangle,\qquad
+\langle\vct{q}_i,\vct{r}\rangle=0\quad\text{for every }i
+\end{align*}
+
+Every vector in $S$ is a combination of the $\vct{q}_i$, so $\vct{r}\perp S$
+\begin{equation*}
+\|\vct{v}-\vct{w}\|^2
+=\|\vct{r}\|^2+\|\vct{p}-\vct{w}\|^2\quad(\vct{w}\in S)
+\end{equation*}
+
+The same closest-point argument works for the whole subspace
 
 
 ## An orthogonal projector has two signatures {#an-orthogonal-projector-has-two-signatures}
@@ -231,6 +406,26 @@ Idempotence alone characterizes a projection; symmetry additionally makes it ort
 ::: {.notes}
 The symmetry criterion assumes the standard dot product. In a W inner product, the corresponding criterion is P^T W = W P together with idempotence. Finite-dimensional subspaces admit the orthogonal decomposition used here.
 :::
+
+---
+
+### Verify the projector identities {#verify-the-projector-identities}
+
+Since $\mat{Q}^\top\mat{Q}=\mat{I}_k$:
+\begin{align*}
+\mat{P}^\top&=(\mat{Q}\mat{Q}^\top)^\top=\mat{Q}\mat{Q}^\top=\mat{P}\\
+\mat{P}^2&=\mat{Q}(\mat{Q}^\top\mat{Q})\mat{Q}^\top=\mat{Q}\mat{Q}^\top=\mat{P}\\
+\mat{Q}^\top(\mat{I}-\mat{P})\vct{v}
+&=\mat{Q}^\top\vct{v}-(\mat{Q}^\top\mat{Q})\mat{Q}^\top\vct{v}=\vct{0}
+\end{align*}
+
+Conversely, if $\mat{P}^2=\mat{P}=\mat{P}^\top$, then
+\begin{equation*}
+(\mat{P}\vct{x})^\top(\mat{I}-\mat{P})\vct{y}
+=\vct{x}^\top(\mat{P}-\mat{P}^2)\vct{y}=0
+\end{equation*}
+
+Its range and residual directions are perpendicular
 
 
 ## Practice projecting onto a plane {#practice-projecting-onto-a-plane}
@@ -268,18 +463,66 @@ At each step, remove directions already represented, then normalize
 
 $\operatorname{span}\{\vct{q}_1,\ldots,\vct{q}_j\}=\operatorname{span}\{\vct{A}_1,\ldots,\vct{A}_j\}$
 
+---
+
+### Why the Gram–Schmidt step works {#why-the-gram-schmidt-step-works}
+
+For $\ell<j$, orthonormality cancels all but one term:
+\begin{equation*}
+\langle\vct{q}_\ell,\vct{w}_j\rangle
+=\langle\vct{q}_\ell,\vct{A}_j\rangle
+-\sum_{i<j}\langle\vct{q}_i,\vct{A}_j\rangle
+\langle\vct{q}_\ell,\vct{q}_i\rangle=0
+\end{equation*}
+
+If $\vct{w}_j=\vct{0}$, then $\vct{A}_j$ lies in the preceding span
+
+Independence rules this out, so normalization is possible
+\begin{equation*}
+\vct{A}_j=\sum_{i<j}\langle\vct{q}_i,\vct{A}_j\rangle\vct{q}_i
++\|\vct{w}_j\|\vct{q}_j
+\end{equation*}
+
+Each old vector uses only the new directions through its own step
+
 
 ## A worked Gram–Schmidt calculation {#a-worked-gram-schmidt-calculation}
 
-In $\reals^3$, take $\vct{A}_1=[1,1,0]^\top$ and $\vct{A}_2=[1,0,1]^\top$
+In $\reals^3$, normalize the first column
+\begin{equation*}
+\vct{A}_1=\begin{bmatrix}1\\1\\0\end{bmatrix},\qquad
+\vct{A}_2=\begin{bmatrix}1\\0\\1\end{bmatrix},\qquad
+\vct{q}_1=\frac{\vct{A}_1}{\|\vct{A}_1\|}
+=\frac1{\sqrt2}\begin{bmatrix}1\\1\\0\end{bmatrix}
+\end{equation*}
+
+Remove its component from the second column
 \begin{align*}
-\vct{q}_1&=\frac1{\sqrt2}[1,1,0]^\top\\
-\langle\vct{q}_1,\vct{A}_2\rangle&=1/\sqrt2\\
-\vct{w}_2&=[1/2,-1/2,1]^\top\\
-\vct{q}_2&=\frac1{\sqrt6}[1,-1,2]^\top
+\langle\vct{q}_1,\vct{A}_2\rangle
+&=\frac{1\cdot1+1\cdot0+0\cdot1}{\sqrt2}=\frac1{\sqrt2}\\
+\vct{w}_2&=\vct{A}_2-\langle\vct{q}_1,\vct{A}_2\rangle\vct{q}_1\\
+&=\begin{bmatrix}1\\0\\1\end{bmatrix}
+-\frac12\begin{bmatrix}1\\1\\0\end{bmatrix}
+=\begin{bmatrix}1-1/2\\0-1/2\\1-0\end{bmatrix}
+=\begin{bmatrix}1/2\\-1/2\\1\end{bmatrix}
 \end{align*}
 
-Check $\vct{q}_1^\top\vct{q}_2=0$ and both squared norms equal one
+---
+
+### Normalize the remainder and check orthonormality {#gram-schmidt-example-arithmetic}
+
+Continue by normalizing the remainder $\vct{w}_2$ from the preceding slide
+\begin{align*}
+\|\vct{w}_2\|^2&=\frac14+\frac14+1=\frac32\\
+\vct{q}_2&=\frac{\vct{w}_2}{\|\vct{w}_2\|}
+=\sqrt{\frac23}\begin{bmatrix}1/2\\-1/2\\1\end{bmatrix}
+=\frac1{\sqrt6}\begin{bmatrix}1\\-1\\2\end{bmatrix}\\
+\vct{q}_1^\top\vct{q}_2&=\frac{1-1+0}{\sqrt{12}}=0\\
+\|\vct{q}_1\|^2&=\frac{1+1+0}{2}=1,\qquad
+\|\vct{q}_2\|^2=\frac{1+1+4}{6}=1
+\end{align*}
+
+The two directions are perpendicular and each has length one
 
 
 ## The coefficients form a triangular matrix {#the-coefficients-form-a-triangular-matrix}
@@ -315,6 +558,22 @@ This is reduced QR. Here R denotes the triangular QR factor, not the row-space f
 Column 1 uses only $\vct{q}_1$; column 2 uses $\vct{q}_1$ and $\vct{q}_2$
 
 Verify $\mat{Q}\mat{R}=\mat{A}$
+
+---
+
+### Recover each original column {#verify-the-worked-qr}
+
+The Gram–Schmidt coefficients give
+\begin{align*}
+\vct{A}_1&=\sqrt2\vct{q}_1=[1,1,0]^\top\\
+\vct{A}_2&=\frac1{\sqrt2}\vct{q}_1+\sqrt{\frac32}\vct{q}_2\\
+&=\frac12[1,1,0]^\top+\frac12[1,-1,2]^\top
+=[1,0,1]^\top
+\end{align*}
+
+These are exactly the columns of $\mat{Q}\mat{R}$
+
+Multiplying $\mat{A}=\mat{Q}\mat{R}$ by $\mat{Q}^\top$ gives $\mat{R}=\mat{Q}^\top\mat{A}$
 
 
 ## Exact construction and numerical computation differ {#exact-construction-and-numerical-computation-differ}
@@ -356,74 +615,104 @@ q_1=[1,0,1]^T/sqrt(2), q_2=[1,2,-1]^T/sqrt(6), R=[[sqrt(2),1/sqrt(2)],[0,sqrt(3/
 - [Inspect the fit and residual](#inspect-the-fit-and-residual)
 - [A line fit leaves vertical residuals](#regression-residual-figure)
 - [General features keep the model linear in coefficients](#general-features-keep-the-model-linear-in-coefficients)
-- [The projection formula reconnects earlier geometry](#the-projection-formula-reconnects-earlier-geometry)
-- [Weights and rank deficiency change the calculation](#weights-and-rank-deficiency-change-the-calculation)
+- [Weighted least squares rescales the rows](#weights-and-rank-deficiency-change-the-calculation)
 - [Practice checking a regression fit](#practice-checking-a-regression-fit)
 
 ## Inconsistent systems still have a best fit {#inconsistent-systems-still-have-a-best-fit}
 
-For $\mat{A}\vct{x}\approx\vct{b}$, minimize $\|\mat{A}\vct{x}-\vct{b}\|^2$
+Minimize $\|\vct{b}-\mat{A}\vct{x}\|^2$ over coefficient vectors $\vct{x}$
 
-The best fitted vector lies in $\operatorname{col}(\mat{A})$ and leaves an orthogonal residual
-\begin{gather*}
-\mat{A}^\top(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}\\
+Let $\vct{p}=\operatorname{proj}_{\operatorname{col}(\mat{A})}\vct{b}$ and $\vct{r}=\vct{b}-\vct{p}$
+
+Write $\vct{b}-\mat{A}\vct{x}=\vct{r}+(\vct{p}-\mat{A}\vct{x})$
+
+The last term is in $\operatorname{col}(\mat{A})$ and $\vct{r}$ is perpendicular to that space
+\begin{equation*}
+\|\vct{b}-\mat{A}\vct{x}\|^2
+=\|\vct{r}\|^2+\|\vct{p}-\mat{A}\vct{x}\|^2
+\end{equation*}
+
+The minimum occurs exactly when $\mat{A}\widehat{\vct{x}}=\vct{p}$
+
+Each column of $\mat{A}$ is perpendicular to $\vct{r}$, giving the [normal equations]{.alert}
+\begin{equation*}
+\mat{A}^\top\vct{r}=\vct{0}
+\implies
+\mat{A}^\top(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}
+\implies
 \mat{A}^\top\mat{A}\widehat{\vct{x}}=\mat{A}^\top\vct{b}
-\end{gather*}
+\end{equation*}
 
-These are the [normal equations]{.alert}
-
-The fitted vector is unique; coefficients are unique exactly when columns are independent
+Unique fitted vector, with unique coefficients exactly when the columns are independent
 
 
 ## QR turns least squares into a triangular solve {#qr-turns-least-squares-into-a-triangular-solve}
 
-With reduced QR and full column rank:
-\begin{gather*}
-\|\mat{A}\vct{x}-\vct{b}\|^2
-=\|\mat{R}\vct{x}-\mat{Q}^\top\vct{b}\|^2
-+\|(\mat{I}-\mat{Q}\mat{Q}^\top)\vct{b}\|^2\\
-\mat{R}\widehat{\vct{x}}=\mat{Q}^\top\vct{b}\\
-\widehat{\vct{b}}=\mat{Q}\mat{Q}^\top\vct{b}
-\end{gather*}
+For $\mat{A}$ with independent columns, reduced QR has $m\ge n$ and
+\begin{equation*}
+\underset{m\times n}{\mat{A}}=\underset{m\times n}{\mat{Q}}\,\underset{n\times n}{\mat{R}},
+\qquad \mat{Q}^\top\mat{Q}=\mat{I}_n
+\end{equation*}
 
-Compute coordinates with $\mat{Q}^\top$, then back substitute
+When $m>n$, both $\mat{A}$ and $\mat{Q}$ are rectangular. Then $\mat{Q}^\top$ is a left inverse, and $\mat{Q}^{-1}$ does not exist
 
-The perpendicular part cannot be fitted by any coefficient vector
+$\mat{Q}\mat{Q}^\top$ projects onto $\operatorname{col}(\mat{A})$. Only in the square case is $\mat{Q}^\top=\mat{Q}^{-1}$
+
+[The projection coordinates are $\vct{c}=\mat{Q}^\top\vct{b}$, so $\vct{p}=\mat{Q}\vct{c}$]{#the-projection-formula-reconnects-earlier-geometry}
+\begin{align*}
+\mat{A}\widehat{\vct{x}}&=\vct{p}\\
+\mat{Q}\mat{R}\widehat{\vct{x}}&=\mat{Q}\vct{c}\\
+(\mat{Q}^\top\mat{Q})\mat{R}\widehat{\vct{x}}&=(\mat{Q}^\top\mat{Q})\vct{c}\\
+\mat{R}\widehat{\vct{x}}&=\vct{c}=\mat{Q}^\top\vct{b}
+\end{align*}
+
+$\mat{R}$ is upper triangular with nonzero diagonal, so solve from the last row upward
+
+::: {.notes}
+This calculation solves for the coefficients that produce the best fitted vector established on the previous slide. The projection matrix is QQ^T. Solving the normal equations symbolically and multiplying the result by A gives the equivalent projector A(A^T A)^{-1}A^T. QR uses only the projection coordinates and a triangular solve.
+:::
 
 
 ## Fit a line to three observations {#fit-a-line-to-three-observations}
 
-Data: $(t,b)=(-1,1),(0,0),(1,2)$
+Fit $b\approx x_1+x_2t$ to $(t,b)=(-1,1),(0,0),(1,2)$
+\begin{equation*}
+\mat{A}=\begin{bmatrix}1&-1\\1&0\\1&1\end{bmatrix},\qquad
+\vct{b}=\begin{bmatrix}1\\0\\2\end{bmatrix}
+\end{equation*}
 
-Model $b\approx x_1+x_2t$
-\begin{gather*}
-\mat{A}=\begin{bmatrix}1&-1\\1&0\\1&1\end{bmatrix},\quad
-\vct{b}=\begin{bmatrix}1\\0\\2\end{bmatrix},\quad
-\mat{A}^\top\mat{A}=\begin{bmatrix}3&0\\0&2\end{bmatrix},\quad
-\mat{A}^\top\vct{b}=\begin{bmatrix}3\\1\end{bmatrix}\\
-\widehat{\vct{x}}=\begin{bmatrix}1\\1/2\end{bmatrix},\qquad
-\widehat b(t)=1+t/2
-\end{gather*}
+The column dot product is $-1+0+1=0$
 
-The feature columns happen to be orthogonal
+Divide the columns by their lengths $\sqrt3$ and $\sqrt2$ to form $\mat{Q}$
+\begin{equation*}
+\mat{R}=\begin{bmatrix}\sqrt3&0\\0&\sqrt2\end{bmatrix},\qquad
+\mat{Q}^\top\vct{b}
+=\begin{bmatrix}(1+0+2)/\sqrt3\\(-1+0+2)/\sqrt2\end{bmatrix}
+=\begin{bmatrix}\sqrt3\\1/\sqrt2\end{bmatrix}
+\end{equation*}
+
+Solve the bottom row first: $\sqrt2\,\widehat{x}_2=1/\sqrt2$, then $\sqrt3\,\widehat{x}_1=\sqrt3$
+
+The fitted line is $\widehat b(t)=1+t/2$
 
 
 ## Inspect the fit and residual {#inspect-the-fit-and-residual}
 
-For the line fit:
-\begin{gather*}
-\widehat{\vct{b}}=\begin{bmatrix}1/2\\1\\3/2\end{bmatrix},\quad
-\vct{r}=\vct{b}-\widehat{\vct{b}}=\begin{bmatrix}1/2\\-1\\1/2\end{bmatrix}\\
-\mat{A}^\top\vct{r}=\begin{bmatrix}0\\0\end{bmatrix},\quad \|\vct{r}\|^2=3/2
-\end{gather*}
+Evaluate the fitted line at $t=-1,0,1$ and subtract from the observations
+\begin{align*}
+\widehat{\vct{b}}
+&=\begin{bmatrix}1-1/2\\1\\1+1/2\end{bmatrix}
+=\begin{bmatrix}1/2\\1\\3/2\end{bmatrix}\\
+\vct{r}
+&=\begin{bmatrix}1\\0\\2\end{bmatrix}-\widehat{\vct{b}}
+=\begin{bmatrix}1/2\\-1\\1/2\end{bmatrix}\\
+\mat{A}^\top\vct{r}
+&=\begin{bmatrix}1/2-1+1/2\\-1/2+0+1/2\end{bmatrix}
+=\begin{bmatrix}0\\0\end{bmatrix},\qquad
+\|\vct{r}\|^2=1/4+1+1/4=3/2
+\end{align*}
 
-The residual sums to zero because the model includes a column of ones
-
-Residuals are also perpendicular to the sampled $t$ values
-
-::: {.notes}
-Least squares minimizes vertical response errors at fixed predictor values, not perpendicular geometric distances to the plotted line. The zero-sum claim assumes ordinary unweighted least squares with an intercept.
-:::
+The residual is perpendicular to both feature columns: the ones and the sampled $t$ values
 
 
 ## A line fit leaves vertical residuals {#regression-residual-figure}
@@ -455,33 +744,25 @@ A feature may be nonlinear in t. Least squares alone does not establish causatio
 :::
 
 
-## The projection formula reconnects earlier geometry {#the-projection-formula-reconnects-earlier-geometry}
+## Weighted least squares rescales the rows {#weights-and-rank-deficiency-change-the-calculation}
 
-For independent columns:
-\begin{gather*}
-\mat{P}=\mat{A}(\mat{A}^\top\mat{A})^{-1}\mat{A}^\top
-=\mat{Q}\mat{Q}^\top\\
-\mat{P}^2=\mat{P},\quad\mat{P}^\top=\mat{P},\qquad
-\widehat{\vct{b}}=\mat{P}\vct{b},\quad\vct{r}=(\mat{I}-\mat{P})\vct{b}
-\end{gather*}
+Give observation $i$ weight $w_i>0$ and set $\mat{W}=\operatorname{diag}(w_1,\ldots,w_m)$
 
-$\mat{P}$ preserves the column space; $\mat{I}-\mat{P}$ preserves its orthogonal complement
+Multiply row $i$ of $\mat{A}$ and entry $i$ of $\vct{b}$ by $\sqrt{w_i}$
+\begin{align*}
+\widetilde{\mat{A}}&=\mat{W}^{1/2}\mat{A},\qquad
+\widetilde{\vct{b}}=\mat{W}^{1/2}\vct{b}\\
+\sum_i w_i\bigl((\mat{A}\vct{x})_i-b_i\bigr)^2
+&=\|\widetilde{\mat{A}}\vct{x}-\widetilde{\vct{b}}\|^2
+\end{align*}
 
-The inverse formula describes the geometry; QR computes the fit without explicitly forming that inverse
+Use ordinary least squares on the rescaled data. The residual condition becomes
+\begin{equation*}
+\widetilde{\mat{A}}^\top(\widetilde{\vct{b}}-\widetilde{\mat{A}}\widehat{\vct{x}})
+=\mat{A}^\top\mat{W}(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}
+\end{equation*}
 
-
-## Weights and rank deficiency change the calculation {#weights-and-rank-deficiency-change-the-calculation}
-
-Positive observation weights $w_i$ and $\mat{W}=\operatorname{diag}(w_1,\ldots,w_m)$ give
-\begin{gather*}
-\min_{\vct{x}}\sum_iw_i((\mat{A}\vct{x})_i-b_i)^2
-=\min_{\vct{x}}\|\mat{W}^{1/2}(\mat{A}\vct{x}-\vct{b})\|^2\\
-\mat{A}^\top\mat{W}(\mat{A}\widehat{\vct{x}}-\vct{b})=\vct{0}
-\end{gather*}
-
-Apply QR to the weighted design matrix when it has full column rank
-
-Dependent or nearly dependent features motivate [SVD and regularization]({{< meta decks.d10.file >}}#regression-through-qr-and-svd)
+Dependent or nearly dependent features motivate [SVD and regularization](#regression-through-qr-and-svd)
 
 
 ## Practice checking a regression fit {#practice-checking-a-regression-fit}
@@ -601,6 +882,27 @@ Orthonormal eigenvectors on the input side produce orthonormal output vectors
 For positive singular values, U_i^T U_j = V_i^T A^T A V_j/(sigma_i sigma_j) = delta_ij. Use the real symmetric spectral theorem from Eigenvalues and Eigenvectors; the optional quadratic-forms section is not a prerequisite. This is an existence argument, not a recommended numerical algorithm: forming A^T A squares the full-column-rank condition number.
 :::
 
+---
+
+### Verify orthonormality and reconstruct the map {#complete-the-svd-existence-argument}
+
+Choose an orthonormal eigenbasis of $\mat{A}^\top\mat{A}$
+
+For positive eigenvalues $\sigma_j^2$, set $\vct{U}_j=\mat{A}\vct{V}_j/\sigma_j$
+\begin{equation*}
+\vct{U}_i^\top\vct{U}_j
+=\frac{\vct{V}_i^\top\mat{A}^\top\mat{A}\vct{V}_j}{\sigma_i\sigma_j}
+=\frac{\sigma_j^2\vct{V}_i^\top\vct{V}_j}{\sigma_i\sigma_j}
+=\begin{cases}1,&i=j\\0,&i\ne j\end{cases}
+\end{equation*}
+
+A zero eigenvalue gives $\|\mat{A}\vct{V}_j\|^2=0$, hence $\mat{A}\vct{V}_j=\vct{0}$
+\begin{equation*}
+\mat{A}\vct{x}
+=\mat{A}\sum_{j=1}^n\vct{V}_j(\vct{V}_j^\top\vct{x})
+=\sum_{j=1}^r\sigma_j\vct{U}_j(\vct{V}_j^\top\vct{x})
+\end{equation*}
+
 
 ## The four spaces reappear in orthonormal coordinates {#the-four-spaces-reappear-in-orthonormal-coordinates}
 
@@ -648,8 +950,49 @@ Choose the rank by the accuracy needed, not only by the appearance of the image
 :::
 
 ::: {.notes}
-Eckart–Young–Mirsky theorem; statement without proof. Approximation need not be unique when singular values tie. For an m-by-n grayscale image, storing compact factors uses k(m+n+1) scalar entries instead of mn, before file-format overhead or quantization.
+The continuation derives both tail-error formulas and spectral optimality; Frobenius optimality is stated without proof (Eckart–Young–Mirsky). Approximation need not be unique when singular values tie. For an m-by-n grayscale image, storing compact factors uses k(m+n+1) scalar entries instead of mn, before file-format overhead or quantization.
 :::
+
+---
+
+### Compute the discarded-tail errors {#derive-the-svd-tail-errors}
+
+Let $\mat{E}=\mat{A}-\mat{A}_k=\sum_{j>k}\sigma_j\vct{U}_j\vct{V}_j^\top$
+\begin{align*}
+\|\mat{E}\vct{x}\|^2
+&=\sum_{j>k}\sigma_j^2|\vct{V}_j^\top\vct{x}|^2
+\le\sigma_{k+1}^2\|\vct{x}\|^2\\
+\|\mat{E}\vct{V}_{k+1}\|&=\sigma_{k+1}
+\end{align*}
+
+Thus $\|\mat{E}\|_2=\sigma_{k+1}$
+
+The rank-one terms are orthonormal in the Frobenius inner product:
+\begin{gather*}
+\sum_{a,b}(U_{ai}V_{bi})(U_{aj}V_{bj})
+=(\vct{U}_i^\top\vct{U}_j)(\vct{V}_i^\top\vct{V}_j)\\
+\|\mat{E}\|_F^2=\sum_{j>k}\sigma_j^2
+\end{gather*}
+
+---
+
+### Why no rank-$k$ matrix improves the spectral error {#why-the-svd-spectral-approximation-is-best}
+
+Let $\operatorname{rank}(\mat{B})\le k$ and $T=\operatorname{span}\{\vct{V}_1,\ldots,\vct{V}_{k+1}\}$
+
+A map of rank at most $k$ cannot be one-to-one on this $(k+1)$-dimensional space
+
+Choose $\vct{x}\in T$ with $\|\vct{x}\|=1$ and $\mat{B}\vct{x}=\vct{0}$
+\begin{align*}
+\|\mat{A}-\mat{B}\|_2^2
+&\ge\|(\mat{A}-\mat{B})\vct{x}\|^2=\|\mat{A}\vct{x}\|^2\\
+&=\sum_{j=1}^{k+1}\sigma_j^2|\vct{V}_j^\top\vct{x}|^2
+\ge\sigma_{k+1}^2
+\end{align*}
+
+The truncated SVD attains this lower bound
+
+Frobenius optimality is the companion Eckart–Young–Mirsky theorem; its proof is omitted
 
 
 ## Practice reading singular values {#practice-reading-singular-values}
@@ -729,6 +1072,25 @@ Works for rectangular and rank-deficient matrices
 The pseudoinverse selects the least-squares solution with smallest Euclidean norm
 :::
 
+---
+
+### Minimize one singular coordinate at a time {#derive-the-pseudoinverse-fit}
+
+Split $\vct{b}=\sum_{j=1}^r\beta_j\vct{U}_j+\vct{b}_\perp$, where $\beta_j=\vct{U}_j^\top\vct{b}$
+
+Write $\vct{x}=\sum_{j=1}^r\alpha_j\vct{V}_j+\vct{z}$ with $\vct{z}\in\operatorname{null}(\mat{A})$
+\begin{equation*}
+\|\mat{A}\vct{x}-\vct{b}\|^2
+=\sum_{j=1}^r(\sigma_j\alpha_j-\beta_j)^2+\|\vct{b}_\perp\|^2
+\end{equation*}
+
+Each square vanishes at $\alpha_j=\beta_j/\sigma_j$; $\vct{z}$ cannot change the fit
+\begin{gather*}
+\widehat{\vct{x}}=\sum_{j=1}^r\frac{\beta_j}{\sigma_j}\vct{V}_j
+=\mat{V}_r\mat{\Sigma}_r^{-1}\mat{U}_r^\top\vct{b}\\
+\mat{A}\widehat{\vct{x}}=\sum_{j=1}^r\beta_j\vct{U}_j=\mat{U}_r\mat{U}_r^\top\vct{b}
+\end{gather*}
+
 
 ## Rank deficiency changes coefficients, not the fitted vector {#rank-deficiency-changes-coefficients-not-the-fitted-vector}
 
@@ -746,6 +1108,24 @@ Every least-squares minimizer has the form
 Use the orthogonal splitting R^n = row(A) plus null(A). The minimizer is unique exactly when A has full column rank. This also covers underdetermined consistent systems.
 :::
 
+---
+
+### Separate coefficient freedom from the minimum norm {#derive-the-minimum-norm-property}
+
+For $\vct{x}_*=\mat{A}^{\dagger}\vct{b}\in\operatorname{row}(\mat{A})$ and
+$\vct{z}\in\operatorname{null}(\mat{A})$:
+\begin{gather*}
+\mat{A}(\vct{x}_*+\vct{z})=\mat{A}\vct{x}_*,\qquad \vct{x}_*\perp\vct{z}\\
+\|\vct{x}_*+\vct{z}\|^2=\|\vct{x}_*\|^2+\|\vct{z}\|^2\ge\|\vct{x}_*\|^2
+\end{gather*}
+
+Equality holds only when $\vct{z}=\vct{0}$
+
+Conversely, all minimizers share the unique projected fitted vector
+\begin{equation*}
+\mat{A}\vct{x}=\mat{A}\vct{x}_*\implies\vct{x}-\vct{x}_*\in\operatorname{null}(\mat{A})
+\end{equation*}
+
 
 ## A regression example with a redundant feature {#a-regression-example-with-a-redundant-feature}
 
@@ -761,6 +1141,25 @@ Use the orthogonal splitting R^n = row(A) plus null(A). The minimizer is unique 
 Both features are identical: only $x_1+x_2=3$ is identifiable
 
 The smallest-norm solution divides the total equally
+
+---
+
+### Compute the identifiable sum and its split {#redundant-feature-example-arithmetic}
+
+The single nonzero singular coordinate is
+\begin{gather*}
+\beta_1=\vct{U}_1^\top\vct{b}=\frac{2+4}{\sqrt2}=3\sqrt2\\
+\widehat{\vct{x}}=\frac{\beta_1}{\sigma_1}\vct{V}_1
+=\frac{3\sqrt2}{2}\frac1{\sqrt2}\begin{bmatrix}1\\1\end{bmatrix}
+=\begin{bmatrix}3/2\\3/2\end{bmatrix}
+\end{gather*}
+
+Equivalently, put $s=x_1+x_2$ and complete the square:
+\begin{equation*}
+\|\mat{A}\vct{x}-\vct{b}\|^2=(s-2)^2+(s-4)^2=2(s-3)^2+2
+\end{equation*}
+
+Only the sum $s=3$ is determined by the data
 
 
 ## Small singular values amplify data perturbations {#small-singular-values-amplify-data-perturbations}
@@ -805,6 +1204,27 @@ Truncation discards directions; ridge shrinks their contributions
 This ridge formula penalizes every coefficient, including an intercept if present. In typical regression, center features and response or explicitly exempt the intercept; then the formula must be applied to the corresponding centered or weighted-penalty problem. Parameter choice requires a noise model or validation data; this deck introduces the algebra only.
 :::
 
+---
+
+### Derive the ridge shrinkage factor {#derive-the-ridge-shrinkage-factor}
+
+Use the same singular coordinates $\alpha_j,\beta_j$ and null-space part $\vct{z}$
+\begin{equation*}
+\|\mat{A}\vct{x}-\vct{b}\|^2+\lambda\|\vct{x}\|^2
+=\sum_{j=1}^r\bigl[(\sigma_j\alpha_j-\beta_j)^2+\lambda\alpha_j^2\bigr]
++\|\vct{b}_\perp\|^2+\lambda\|\vct{z}\|^2
+\end{equation*}
+
+For each coordinate, complete the square:
+\begin{align*}
+(\sigma\alpha-\beta)^2+\lambda\alpha^2
+&=(\sigma^2+\lambda)\left(\alpha-\frac{\sigma\beta}{\sigma^2+\lambda}\right)^2
++\frac{\lambda\beta^2}{\sigma^2+\lambda}\\
+\alpha_j&=\frac{\sigma_j\beta_j}{\sigma_j^2+\lambda},\qquad\vct{z}=\vct{0}
+\end{align*}
+
+Each pseudoinverse coordinate is multiplied by $\sigma_j^2/(\sigma_j^2+\lambda)$
+
 
 ## Which factorization serves the regression question? {#which-factorization-serves-the-regression-question}
 
@@ -818,6 +1238,22 @@ This ridge formula penalizes every coefficient, including an intercept if presen
 Forming $\mat{A}^\top\mat{A}$ squares $\kappa(\mat{A})$ when $\mat{A}$ has full column rank
 
 Prefer an orthogonal factorization to explicitly inverting the normal-equation matrix
+
+---
+
+### Why normal equations square the condition number {#derive-the-normal-equation-condition-number}
+
+For full column rank, every $\sigma_j>0$ and
+\begin{gather*}
+\mat{A}^\top\mat{A}=\mat{V}\mat{\Sigma}^2\mat{V}^\top\\
+\|\mat{A}\|_2=\sigma_1,\qquad\|\mat{A}^{\dagger}\|_2=1/\sigma_n\\
+\kappa_2(\mat{A})=\frac{\sigma_1}{\sigma_n},\qquad
+\kappa_2(\mat{A}^\top\mat{A})=\frac{\sigma_1^2}{\sigma_n^2}=\kappa_2(\mat{A})^2
+\end{gather*}
+
+The normal-equation matrix has eigenvalues $\sigma_j^2$
+
+This explains a numerical cost of forming $\mat{A}^\top\mat{A}$ explicitly
 
 
 ## Practice separating fit from coefficients {#practice-separating-fit-from-coefficients}
@@ -862,6 +1298,25 @@ $p_n$ is the unique best approximation in their span
 
 This is the same projection geometry used in regression
 
+---
+
+### Derive the projection error identity {#derive-the-function-projection-error}
+
+Put $c_j=\langle q_j,f\rangle$ and $p_n=\sum_jc_jq_j$
+\begin{gather*}
+\langle q_i,f-p_n\rangle=c_i-\sum_jc_j\langle q_i,q_j\rangle=0\\
+\|p_n\|^2=\sum_j|c_j|^2,\qquad
+\|f\|^2=\|p_n\|^2+\|f-p_n\|^2\\
+\|f-p_n\|^2=\|f\|^2-\sum_j|c_j|^2
+\end{gather*}
+
+For any other $g$ in the chosen span:
+\begin{equation*}
+\|f-g\|^2=\|f-p_n\|^2+\|p_n-g\|^2
+\end{equation*}
+
+Orthogonality proves both the error formula and unique best approximation
+
 
 ## Orthogonalize the first two polynomial directions {#orthogonalize-the-first-two-polynomial-directions}
 
@@ -878,6 +1333,20 @@ Gram–Schmidt works on functions as well as coordinate vectors
 This is the beginning of shifted, normalized Legendre polynomials. Higher-degree formulas are optional; retain the same interval and weight when using orthogonality.
 :::
 
+---
+
+### Evaluate the polynomial normalization integral {#polynomial-normalization-arithmetic}
+
+\begin{align*}
+\langle 1,t\rangle&=\int_0^1t\,\dif t=[t^2/2]_0^1=1/2\\
+\|t-1/2\|^2
+&=\int_0^1(t^2-t+1/4)\,\dif t\\
+&=[t^3/3-t^2/2+t/4]_0^1=\frac13-\frac12+\frac14=\frac1{12}\\
+q_2(t)&=\frac{t-1/2}{\sqrt{1/12}}=\sqrt{12}(t-1/2)
+\end{align*}
+
+$\langle q_1,q_2\rangle=\sqrt{12}(1/2-1/2)=0$ and $\|q_2\|^2=12/12=1$
+
 
 ## A best linear approximation to a quadratic function {#a-best-linear-approximation-to-a-quadratic-function}
 
@@ -892,6 +1361,21 @@ p(t)=\frac13+\frac{\sqrt{12}}{12}\sqrt{12}(t-1/2)=t-1/6\\
 Continuous least squares minimizes an integral of squared error
 
 It need not interpolate either endpoint
+
+---
+
+### Integrate the coefficients and the squared error {#quadratic-function-projection-arithmetic}
+
+\begin{align*}
+\langle q_1,f\rangle&=\int_0^1t^2\,\dif t=1/3\\
+\langle q_2,f\rangle&=\sqrt{12}\int_0^1(t^3-t^2/2)\,\dif t
+=\sqrt{12}\left(\frac14-\frac16\right)=\frac{\sqrt{12}}{12}\\
+\|f\|^2&=\int_0^1t^4\,\dif t=1/5\\
+\|f-p\|^2&=\frac15-\left(\frac13\right)^2-\left(\frac{\sqrt{12}}{12}\right)^2
+=\frac{36-20-15}{180}=\frac1{180}
+\end{align*}
+
+The error subtracts squared coefficients in an orthonormal basis
 
 
 ## Sines and cosines form orthogonal directions {#sines-and-cosines-form-orthogonal-directions}
@@ -910,6 +1394,25 @@ The constant coefficient is the mean $\int_0^1f(t)\,\dif t$
 ::: {.notes}
 Use 1-periodic extension. Orthogonality follows from trigonometric product identities. Finite truncations are projections; do not assert pointwise convergence of every Fourier series. The infinite completeness statement is in the L2 sense.
 :::
+
+---
+
+### Use product identities to check the Fourier normalization {#derive-real-fourier-orthogonality}
+
+For each nonzero integer $h$:
+$\int_0^1\cos(2\pi ht)\,\dif t=\int_0^1\sin(2\pi ht)\,\dif t=0$
+\begin{align*}
+2\cos(2\pi kt)\cos(2\pi\ell t)
+&=\cos(2\pi(k-\ell)t)+\cos(2\pi(k+\ell)t)\\
+2\sin(2\pi kt)\sin(2\pi\ell t)
+&=\cos(2\pi(k-\ell)t)-\cos(2\pi(k+\ell)t)
+\end{align*}
+
+For $k,\ell\ge1$, integration gives zero when $k\ne\ell$, and $1/2$ when $k=\ell$
+
+Sine–cosine products integrate to zero by the corresponding sine-sum identity
+
+Multiplication by $\sqrt2$ changes squared norm $1/2$ to $1$
 
 
 ## Complex inner products use conjugation {#complex-inner-products-use-conjugation}
@@ -944,6 +1447,27 @@ c_k=\langle q_k,f\rangle
 For real $f$, $c_{-k}=\overline{c_k}$
 
 [Fourier matrices and FFT]({{< meta decks.d11.file >}}#fourier-coordinates-and-the-fft) turn sampled versions into fast coordinate calculations
+
+---
+
+### Integrate a nonzero frequency difference {#derive-complex-fourier-orthogonality}
+
+Write $\mathrm{i}=\sqrt{-1}$ and $h=\ell-k\in\mathbb{Z}$
+\begin{equation*}
+\int_0^1e^{2\pi\mathrm{i}ht}\,\dif t
+=\begin{cases}
+1,&h=0\\
+\displaystyle\left[\frac{e^{2\pi\mathrm{i}ht}}{2\pi\mathrm{i}h}\right]_0^1
+=\frac{e^{2\pi\mathrm{i}h}-1}{2\pi\mathrm{i}h}=0,&h\ne0
+\end{cases}
+\end{equation*}
+
+For real $f$, conjugation passes through the integral:
+\begin{equation*}
+\overline{c_k}
+=\overline{\int_0^1e^{-2\pi\mathrm{i}kt}f(t)\,\dif t}
+=\int_0^1e^{2\pi\mathrm{i}kt}f(t)\,\dif t=c_{-k}
+\end{equation*}
 
 
 ## Finite projections and infinite expansions have different meanings {#finite-projections-and-infinite-expansions-have-different-meanings}

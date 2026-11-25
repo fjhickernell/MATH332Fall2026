@@ -420,6 +420,9 @@ Mathematical content should be maintained only in the slides.
   tensor module and its demonstration plan.
 - [x] Draft QR, least squares, and Fourier prerequisites in Deck 10.
 - [ ] Complete instructor content and visible-layout review of Deck 10.
+- [x] Share the November 24 makeup lecture in Canvas and reconcile the course
+  schedule and outline. Recorded coverage ends with QR least squares. SVD and
+  subsequent extensions remain optional enrichment outside assessment coverage.
 - [x] Build and locally execute the Eigenvalues, Inner Products/QR and
   SVD/regression companion notebooks (09–11); all 38 code cells pass in the
   qmcpy kernel, with eleven inspected plots and saved outputs. Link them from

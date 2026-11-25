@@ -5,7 +5,7 @@ css: schedule.css
 
 Classes normally meet Tuesdays and Thursdays at 11:25 AM in **PH 109**.
 
-Completed lecture topics through November 19 have been checked against the
+Completed lecture topics through November 24 have been checked against the
 Panopto recordings. Future topics are provisional and will be updated as
 assignments, quizzes, holidays, and examination details are finalized.
 
@@ -64,14 +64,14 @@ assignments, quizzes, holidays, and examination details are finalized.
 | 14 | Tue Nov 17 | Diagonalization as a change of coordinates; independence for distinct eigenvalues; repeated roots, eigenspace dimensions and a generalized-eigenvector example; complex eigenvalues, conjugate pairs and rotation/scaling practice | [Eigenvector bases and diagonalization](../slides/09-eigenvalues-and-eigenvectors.html#diagonalize-and-read-the-coordinates)<br>[Repeated eigenvalues](../slides/09-eigenvalues-and-eigenvectors.html#repeated-roots-may-leave-too-few-directions)<br>[Complex eigenvalues](../slides/09-eigenvalues-and-eigenvectors.html#a-quarter-turn-has-no-real-eigendirection)<br>[Rotation and scaling](../slides/09-eigenvalues-and-eigenvectors.html#practice-interpreting-a-rotation-and-scaling) |
 | | Thu Nov 19 | Elimination and an eigenbasis formula for the inverse in the Leontief production model, the tennis-racket instability demonstration, matrix powers and geometric series, and matrix functions. Began the quarter-turn matrix exponential. | [Leontief review](../slides/09-eigenvalues-and-eigenvectors.html#leontief-production-adds-successive-rounds-of-inputs)<br>[Spinning tennis racket](../slides/09-eigenvalues-and-eigenvectors.html#a-spinning-tennis-racket)<br>[Matrix powers](../slides/09-eigenvalues-and-eigenvectors.html#powers-act-separately-on-eigenbasis-coordinates)<br>[Matrix functions](../slides/09-eigenvalues-and-eigenvectors.html#functions-act-separately-on-eigenbasis-coordinates) |
 | 15 | Mon Nov 23 | **Assignment 6 due** | [WileyPLUS: Matrix Spaces, Rank, and Eigenvalues](../assignments/assignment_6.qmd) |
-| | Tue Nov 24 | **No in-person class.** The planned recording will finish the quarter-turn matrix exponential and then focus on inner product spaces. We’ll work through exercises together during review week. | [Worked example: clockwise quarter-turn exponential](../slides/09-eigenvalues-and-eigenvectors.html#diagonalize-the-clockwise-quarter-turn)<br>[Inner Product Spaces](../slides/10-inner-product-spaces.html#inner-products-and-geometry) |
+| | Tue Nov 24 | **Recorded lecture.** Clockwise quarter-turn exponential; orthogonal diagonalization of real symmetric matrices; real inner products, norms, orthogonality and projection; Gram–Schmidt and reduced QR; normal equations and the QR least-squares solve. SVD and the later Inner Product Spaces extensions are optional reading and outside assessment coverage. | [Clockwise quarter-turn exponential](../slides/09-eigenvalues-and-eigenvectors.html#diagonalize-the-clockwise-quarter-turn)<br>[Symmetric matrices](../slides/09-eigenvalues-and-eigenvectors.html#symmetric-matrices)<br>[Inner Product Spaces](../slides/10-inner-product-spaces.html#inner-products-and-geometry)<br>[QR least squares](../slides/10-inner-product-spaces.html#qr-turns-least-squares-into-a-triangular-solve) |
 | | Thu Nov 26 | **No Class — Thanksgiving holiday** | |
 
 ### December
 
 | Week | Date | Topic | Slides / Materials |
 |---:|---|---|---|
-| 16 | Tue Dec 1 | Review, bring your questions (tentative)<span class="assessment-divider" aria-hidden="true"></span>**Quiz 5** | <span class="assessment-divider" aria-hidden="true"></span>Covers<br>&nbsp;&nbsp;&nbsp;&nbsp;[Matrix Spaces and Rank](../slides/08-matrix-spaces-and-rank.html)<br>&nbsp;&nbsp;&nbsp;&nbsp;[Eigenvalues and Eigenvectors](../slides/09-eigenvalues-and-eigenvectors.html) |
+| 16 | Tue Dec 1 | Review: bring questions from the recording and work through the three-observation line fit using QR before the quiz<span class="assessment-divider" aria-hidden="true"></span>**Quiz 5** | [Worked line fit](../slides/10-inner-product-spaces.html#fit-a-line-to-three-observations)<span class="assessment-divider" aria-hidden="true"></span>Covers<br>&nbsp;&nbsp;&nbsp;&nbsp;[Matrix Spaces and Rank](../slides/08-matrix-spaces-and-rank.html)<br>&nbsp;&nbsp;&nbsp;&nbsp;[Eigenvalues and Eigenvectors](../slides/09-eigenvalues-and-eigenvectors.html) |
 | | Thu Dec 3 | Review, bring your questions (tentative) | |
 
 ### Final examinations

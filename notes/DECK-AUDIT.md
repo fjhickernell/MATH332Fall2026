@@ -1,5 +1,46 @@
 # MATH 332 deck accuracy and clarity audit
 
+## November 24, 2026 — Inner Product Spaces derivation audit
+
+Audited Deck 10 from inner-product axioms through Fourier coordinates and
+added 26 continuation slides using the established `---` / `###` pattern.
+The deck now has 93 slides. Section outlines and exercises are current, and
+exercise answers remain in presenter notes.
+
+Visible steps now cover weighted-inner-product axioms and continuous-function
+positive definiteness; Cauchy–Schwarz and the triangle inequality; orthogonal
+lengths and independence; line/subspace projection and projector identities;
+Gram–Schmidt subtraction, normalization, span preservation and QR reconstruction;
+the worked example uses column vectors, with subtraction shown once and
+normalization on its continuation; normal equations, QR, line-fit arithmetic
+and weighted least squares; SVD existence, discarded-tail errors and
+spectral optimality; pseudoinverse coordinates, minimum norm, redundant
+features, ridge square completion and the squared condition number; polynomial
+projection integrals and real/complex Fourier orthogonality. Frobenius
+optimality remains explicitly identified as a theorem whose proof is omitted.
+
+Instructor-requested clarifications: the integral-inner-product angle between
+1 and t on [0,1] is derived as pi/6 (30 degrees); projection onto one direction
+names L=span{u}, the line through the origin, and works the projection of
+(3,1) onto x2=x1. Subspace projection explicitly specifies a real inner-product
+space V, a finite-dimensional S contained in V, v in V, p in S and the
+residual in the orthogonal complement within V.
+
+The Least Squares and Regression section went from 15 to eight topic slides.
+A single projection argument gives the best fit and normal equations. The
+QR slide labels the dimensions, distinguishes the rectangular left inverse
+from the square inverse, and derives the triangular system from the fitted
+projection coordinates. The worked line fit continues through the residual. Row scaling
+and the weighted normal equations share one slide. The inverse projector is
+available in speaker notes alongside the QR construction.
+
+Validation: complete website and twelve-deck project render during the initial
+audit, followed by a render of the revised Deck 10. Independent arithmetic
+checks cover the angle, polynomial integrals, worked QR reconstruction, line
+fit and ridge identity. Layout checks cover the added derivations and the
+revised least-squares sequence. Source prose and whitespace checks pass.
+Included in the November 24 Checkpoint. Live deployment is verified separately.
+
 ## November 19, 2026 — tennis-racket wobble explanation
 
 Added a short continuation immediately after the racket example. It separates
