@@ -2,7 +2,9 @@
 
 ## Immediate next work — December 1 review and Quiz 5
 
-Take questions from the November 24 recording and work through the
+Revise the [course recap](../slides/10-inner-product-spaces.qmd#course-recap)
+in Inner Product Spaces before showing it on December 1. Asterisks mark optional topics.
+Take questions from the November 24 recording, then work through the
 [three-observation line fit](../slides/10-inner-product-spaces.qmd#fit-a-line-to-three-observations)
 using QR before the quiz. Finish the calculation and verify the residual.
 SVD and the later extensions are optional reading outside assessment coverage.

@@ -55,6 +55,7 @@ $\mat{A}=\mat{Q}\mat{R}\qquad\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^\top$
 - [Regression Through QR and SVD](#regression-through-qr-and-svd)
 - [Function Approximation and Fourier Coordinates](#function-approximation-and-fourier-coordinates)
 - [Big Ideas](#big-ideas)
+- [What Can We Do with Vectors and Matrices?](#course-recap)
 
 :::
 :::
@@ -1595,3 +1596,61 @@ linked above; the latter retains its existing filename to preserve notebook
 links. Student-facing mathematical exposition remains in this deck.
 Instructor review remains open.
 :::
+
+# What Can We Do with Vectors and Matrices? {#course-recap}
+
+\* Optional
+
+- Solve $\mat{A}\vct{x}=\vct{b}$ — $[\mat{A}\mid\vct{b}]\xrightarrow{\text{swap, scale, add}}\text{echelon form}$, then back-substitute or continue to RREF
+- Classify — [augmented-column pivot]({{< meta decks.d01.file >}}#pivots-organize-elimination) $\implies$ none. Otherwise $\vct{x}=\vct{x}_p+\vct{z}$, $\vct{z}\in\operatorname{null}(\mat{A})$ (unique if no free variables)
+- Invert by Gauss–Jordan — $[\mat{A}\mid\mat{I}]\longrightarrow[\mat{I}\mid\mat{A}^{-1}]$ for nonsingular $\mat{A}$
+- Add, scale, multiply, transpose — $\alpha\vct{u}+\beta\vct{v}$, $\alpha\mat{A}+\beta\mat{B}$, $\mat{A}\mat{B}$, $\mat{A}^\top$
+- Apply a map — $\mat{A}\vct{x}=\sum_j x_j\vct{A}_j$, with $(\mat{A}\vct{x})_i=\vct{a}_i^\top\vct{x}$
+- Build maps from basis images — $\mat{A}=[T(\vct{e}_1)\ \cdots\ T(\vct{e}_n)]$ for rotations, reflections, stretches, projections
+- Compose and undo — $(\mat{B}\mat{A})\vct{x}=\mat{B}(\mat{A}\vct{x})$, $(\mat{B}\mat{A})^{-1}=\mat{A}^{-1}\mat{B}^{-1}$
+- Determinant — $\det(\mat{A})=(-1)^s\prod_i u_{ii}$ after $s$ swaps and elimination without row scaling
+- Signed scale — $\det(\mat{A}\mat{B})=\det(\mat{A})\det(\mat{B})$, $\det(\mat{A})\ne0\iff\mat{A}$ invertible
+- Local scale $\lvert\det(\mat{J})\rvert$, Wronskian $W(t)\ne0\implies$ independent functions
+
+---
+
+<h2>What Can We Do with Vectors and Matrices?</h2>
+
+- Subspace test — $\vct{0}\in S$, $\alpha\vct{u}+\beta\vct{v}\in S$ for $\vct{u},\vct{v}\in S$
+- Span — $\mat{A}\vct{c}=\vct{b}$ solvable · Independence — $\operatorname{null}(\mat{A})=\{\vct{0}\}$
+- Basis — independent + spanning, $\dim V=\#\text{ basis vectors}$ for vectors, polynomials, functions, matrices
+- Four spaces — original pivot columns, nonzero echelon rows, $\mat{A}\vct{x}=\vct{0}$, $\mat{A}^\top\vct{y}=\vct{0}$
+- Rank and compatibility — $\operatorname{rank}(\mat{A})+\operatorname{nullity}(\mat{A})=n$, $\vct{b}\in\operatorname{col}(\mat{A})\iff\vct{b}\perp\operatorname{null}(\mat{A}^\top)$
+- Change coordinates — $[\vct{x}]_{\mathcal C}=\mat{P}_{\mathcal C}^{-1}\mat{P}_{\mathcal B}[\vct{x}]_{\mathcal B}$, map matrix $\mat{P}_{\mathcal C}^{-1}\mat{A}\mat{P}_{\mathcal B}$
+- Eigenvalues and eigenspaces — $\det(\lambda\mat{I}-\mat{A})=0$, $\operatorname{null}(\mat{A}-\lambda\mat{I})$
+- Diagonalize if $\sum_\lambda\dim\operatorname{null}(\mat{A}-\lambda\mat{I})=n$ over the chosen field
+- Check the spectrum — $\operatorname{tr}(\mat{A})=\sum_j\lambda_j$, $\det(\mat{A})=\prod_j\lambda_j$, conjugate pairs for real $\mat{A}$
+- Powers and functions — $f(\mat{A})=\mat{V}f(\mat{D})\mat{V}^{-1}$ in an eigenbasis, $\vct{x}_k=\mat{A}^k\vct{x}_0$, $\vct{x}(t)=e^{t\mat{A}}\vct{x}(0)$
+
+---
+
+<h2>What Can We Do with Vectors and Matrices?</h2>
+
+- $\mat{A}=\mat{P}\mat{L}\mat{U}$ — $\mat{P}$ restores row order, $\mat{L}$ unit lower triangular, $\mat{U}$ upper triangular for square $\mat{A}$
+- \* $\mat{A}=\mat{C}\mat{R}$ — $\mat{C}$ original pivot columns, $\mat{R}$ nonzero RREF rows
+- $\mat{A}=\mat{V}\mat{D}\mat{V}^{-1}$ — $\mat{V}$ eigenbasis, $\mat{D}=\operatorname{diag}(\lambda_j)$, $\mat{V}^{-1}=\mat{V}^\top$ for an orthonormal eigenbasis
+- $\mat{A}=\mat{Q}\mat{R}$ — full column rank, $\mat{Q}^\top\mat{Q}=\mat{I}$, $\mat{R}$ upper triangular
+- \* $\mat{A}=\mat{U}_r\mat{\Sigma}_r\mat{V}_r^\top$ — SVD, orthonormal columns in $\mat{U}_r,\mat{V}_r$, positive diagonal $\mat{\Sigma}_r$
+- Inner products — $\vct{u}^\top\vct{v}$, $\vct{u}^\top\mat{W}\vct{v}$ ($\mat{W}\succ0$), $\int fg$
+- Length, distance, angle — $\|\vct{u}\|^2=\langle\vct{u},\vct{u}\rangle$, $\|\vct{u}-\vct{v}\|$, $\cos\theta=\langle\vct{u},\vct{v}\rangle/(\|\vct{u}\|\|\vct{v}\|)$
+- Cross and triple products — $\vct{u}\times\vct{v}$ normal, $\|\vct{u}\times\vct{v}\|$ area, $\vct{w}^\top(\vct{u}\times\vct{v})$ signed volume
+- Gram–Schmidt and projection — orthonormal columns in $\mat{Q}$, $\vct{p}=\mat{Q}\mat{Q}^\top\vct{b}$
+- [Least squares](#fit-a-line-to-three-observations) — $\mat{A}^\top(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}$, solve $\mat{R}\widehat{\vct{x}}=\mat{Q}^\top\vct{b}$ using reduced QR
+
+---
+
+<h2>What Can We Do with Vectors and Matrices?</h2>
+
+- PCA — covariance eigenvectors, variance along direction $j$ given by $\lambda_j$
+- Matrix series — $\sum_{k=0}^\infty\mat{A}^k=(\mat{I}-\mat{A})^{-1}$ if every $|\lambda_j|<1$
+- \* Frames, infinite bases, abstract kernels and ranges, generalized eigenvector chains
+- \* Weighted least squares — $\min_{\vct{x}}\|\mat{W}^{1/2}(\mat{A}\vct{x}-\vct{b})\|^2$
+- \* SVD tools — rank-$k$ truncation, $\widehat{\vct{x}}=\mat{A}^+\vct{b}$ (minimum norm), $\kappa(\mat{A})=\sigma_{\max}/\sigma_{\min}$ (full column rank), ridge
+- \* Function approximation — complex inner products, Fourier coefficients $c_k=\langle q_k,f\rangle$
+- \* Principal axes and tensors — $\vct{x}^\top\mat{A}\vct{x}=\sum_j\lambda_j y_j^2$ in an orthonormal eigenbasis, product bases $\vct{u}_i\otimes\vct{v}_j$
+- \* Signals and networks — DFT/FFT, convolution, power iteration, PageRank, graph Laplacians, left-null compatibility
