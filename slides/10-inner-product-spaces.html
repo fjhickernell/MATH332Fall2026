@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-24">
+  <meta name="dcterms.date" content="2026-11-25">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 24, 2026</p>
+  <p class="date">November 25, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -738,6 +738,22 @@ In this deck
 <p>The weighted unit circle is an ellipse in standard coordinates</p>
 <p>For <span class="math inline">\(\vct{u}=[1,1]^\top\)</span> and <span class="math inline">\(\vct{v}=[4,-1]^\top\)</span>: <span class="math inline">\(\langle\vct{u},\vct{v}\rangle_{\mat{W}}=0\)</span> but <span class="math inline">\(\vct{u}^\top\vct{v}=3\)</span></p>
 </section>
+<section class="slide level2">
+
+<h3 id="check-the-weighted-inner-product-axioms">Check the weighted inner-product axioms</h3>
+<p>For symmetric positive-definite <span class="math inline">\(\mat{W}\)</span>: <span class="math display">\[\begin{align*}
+\langle\vct{v},\vct{u}\rangle_{\mat{W}}
+&amp;=(\vct{v}^\top\mat{W}\vct{u})^\top
+=\vct{u}^\top\mat{W}^\top\vct{v}
+=\langle\vct{u},\vct{v}\rangle_{\mat{W}}\\
+\langle a\vct{u}+b\vct{v},\vct{w}\rangle_{\mat{W}}
+&amp;=a\vct{u}^\top\mat{W}\vct{w}+b\vct{v}^\top\mat{W}\vct{w}\\
+\langle\vct{v},\vct{v}\rangle_{\mat{W}}
+&amp;=\vct{v}^\top\mat{W}\vct{v}&gt;0\quad(\vct{v}\ne\vct{0})
+\end{align*}\]</span></p>
+<p>In the example: <span class="math inline">\(1\cdot4+4\cdot1\cdot(-1)=0\)</span></p>
+<p>The same vectors need not be perpendicular under two different inner products</p>
+</section>
 <section id="continuous-functions-also-have-geometry" class="slide level2">
 <h2>Continuous functions also have geometry</h2>
 <p>On <span class="math inline">\(C([0,1])\)</span>, define <span class="math display">\[\begin{equation*}
@@ -763,6 +779,19 @@ In this deck
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
+
+<h3 id="continuous-function-positive-definiteness">Why a zero integral forces a continuous function to vanish</h3>
+<p>Suppose <span class="math inline">\(f\)</span> is continuous and <span class="math inline">\(f(t_0)\ne0\)</span> at some <span class="math inline">\(t_0\in[0,1]\)</span></p>
+<p>Continuity supplies an interval <span class="math inline">\(J\subseteq[0,1]\)</span> of positive length with <span class="math display">\[\begin{gather*}
+|f(t)|\ge\frac{|f(t_0)|}{2}\quad(t\in J)\\
+\int_0^1f(t)^2\,\dif t
+\ge\int_Jf(t)^2\,\dif t
+\ge\frac{|f(t_0)|^2}{4}\operatorname{length}(J)&gt;0
+\end{gather*}\]</span></p>
+<p>Therefore <span class="math inline">\(\langle f,f\rangle=0\)</span> only for the zero continuous function</p>
+<p>The integral adds squared values; positive and negative values cannot cancel</p>
+</section>
 <section id="norms-distances-and-angles-follow" class="slide level2">
 <h2>Norms, distances, and angles follow</h2>
 <p><span class="math display">\[\begin{gather*}
@@ -786,6 +815,46 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="angle-between-one-and-t">The angle between the functions <span class="math inline">\(1\)</span> and <span class="math inline">\(t\)</span></h3>
+<p>On <span class="math inline">\([0,1]\)</span>, let <span class="math inline">\(f(t)=1\)</span>, <span class="math inline">\(g(t)=t\)</span>, and <span class="math inline">\(\langle f,g\rangle=\int_0^1f(t)g(t)\,\dif t\)</span> <span class="math display">\[\begin{align*}
+\langle f,g\rangle&amp;=\int_0^1t\,\dif t=\left[\frac{t^2}{2}\right]_0^1=\frac12\\
+\|f\|_{L^2}&amp;=\left(\int_0^1 1^2\,\dif t\right)^{1/2}=1\\
+\|g\|_{L^2}&amp;=\left(\int_0^1t^2\,\dif t\right)^{1/2}
+=\sqrt{\left[\frac{t^3}{3}\right]_0^1}=\frac1{\sqrt3}\\
+\cos\theta&amp;=\frac{\langle f,g\rangle}{\|f\|_{L^2}\|g\|_{L^2}}
+=\frac{1/2}{1\cdot(1/\sqrt3)}=\frac{\sqrt3}{2}
+\end{align*}\]</span></p>
+<div class="key-point">
+<p><span class="math inline">\(\theta=\arccos(\sqrt3/2)=\pi/6=30^\circ\)</span> — the angle between functions, not their plotted graphs</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="derive-cauchy-schwarz">Derive Cauchy–Schwarz from a nonnegative square</h3>
+<p>For <span class="math inline">\(\vct{v}\ne\vct{0}\)</span>, choose <span class="math inline">\(c=\langle\vct{u},\vct{v}\rangle/\|\vct{v}\|^2\)</span> <span class="math display">\[\begin{align*}
+0\le\|\vct{u}-c\vct{v}\|^2
+&amp;=\|\vct{u}\|^2-2c\langle\vct{u},\vct{v}\rangle+c^2\|\vct{v}\|^2\\
+&amp;=\|\vct{u}\|^2-\frac{\langle\vct{u},\vct{v}\rangle^2}{\|\vct{v}\|^2}\\
+\langle\vct{u},\vct{v}\rangle^2
+&amp;\le\|\vct{u}\|^2\|\vct{v}\|^2
+\end{align*}\]</span></p>
+<p>Take square roots; if <span class="math inline">\(\vct{v}=\vct{0}\)</span>, both sides are zero</p>
+<p>Equality holds exactly when the two vectors are linearly dependent</p>
+</section>
+<section class="slide level2">
+
+<h3 id="derive-the-triangle-inequality">Derive the triangle inequality</h3>
+<p>Expand the square, then apply Cauchy–Schwarz: <span class="math display">\[\begin{align*}
+\|\vct{u}+\vct{v}\|^2
+&amp;=\|\vct{u}\|^2+2\langle\vct{u},\vct{v}\rangle+\|\vct{v}\|^2\\
+&amp;\le\|\vct{u}\|^2+2\|\vct{u}\|\|\vct{v}\|+\|\vct{v}\|^2\\
+&amp;=(\|\vct{u}\|+\|\vct{v}\|)^2
+\end{align*}\]</span></p>
+<p>Both sides are nonnegative, so take square roots</p>
+<p>Cauchy–Schwarz also puts the real angle formula’s cosine in <span class="math inline">\([-1,1]\)</span></p>
 </section>
 <section id="practice-testing-an-inner-product" class="slide level2">
 <h2>Practice testing an inner product</h2>
@@ -838,26 +907,90 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
+
+<h3 id="orthogonal-length-and-independence">Expand the square and isolate each coefficient</h3>
+<p>When <span class="math inline">\(\langle\vct{u},\vct{v}\rangle=0\)</span>: <span class="math display">\[\begin{equation*}
+\|\vct{u}+\vct{v}\|^2
+=\|\vct{u}\|^2+2\langle\vct{u},\vct{v}\rangle+\|\vct{v}\|^2
+=\|\vct{u}\|^2+\|\vct{v}\|^2
+\end{equation*}\]</span></p>
+<p>For nonzero pairwise orthogonal <span class="math inline">\(\vct{u}_1,\ldots,\vct{u}_k\)</span>: <span class="math display">\[\begin{gather*}
+\sum_{j=1}^k c_j\vct{u}_j=\vct{0}
+\implies
+0=\left\langle\vct{u}_i,\sum_{j=1}^kc_j\vct{u}_j\right\rangle
+=c_i\|\vct{u}_i\|^2\\
+\|\vct{u}_i\|^2&gt;0\implies c_i=0\quad\text{for every }i
+\end{gather*}\]</span></p>
+</section>
 <section id="projection-onto-one-direction" class="slide level2">
 <h2>Projection onto one direction</h2>
-<p>For <span class="math inline">\(\vct{u}\ne\vct{0}\)</span>: <span class="math display">\[\begin{gather*}
+<p>Project the vector <span class="math inline">\(\vct{v}\)</span> onto the line through the origin in direction <span class="math inline">\(\vct{u}\ne\vct{0}\)</span> <span class="math display">\[\begin{equation*}
+L=\operatorname{span}\{\vct{u}\}=\{c\vct{u}:c\in\reals\}
+\end{equation*}\]</span></p>
+<p>The projection <span class="math inline">\(\vct{p}\)</span> lies on <span class="math inline">\(L\)</span>; the residual <span class="math inline">\(\vct{r}\)</span> is perpendicular to <span class="math inline">\(L\)</span> <span class="math display">\[\begin{gather*}
 \vct{p}=\frac{\langle\vct{u},\vct{v}\rangle}{\langle\vct{u},\vct{u}\rangle}\vct{u},\qquad
 \vct{r}=\vct{v}-\vct{p}\\
 \vct{p}\in\operatorname{span}\{\vct{u}\},\qquad \vct{r}\perp\vct{u}
 \end{gather*}\]</span></p>
-<p>For every <span class="math inline">\(\vct{w}\)</span> on that line: <span class="math display">\[\begin{equation*}
+<p>For every candidate <span class="math inline">\(\vct{w}\in L\)</span>: <span class="math display">\[\begin{equation*}
 \|\vct{v}-\vct{w}\|^2=\|\vct{r}\|^2+\|\vct{p}-\vct{w}\|^2
 \end{equation*}\]</span></p>
-<p><span class="math inline">\(\vct{p}\)</span> is the unique closest vector on the line</p>
+<p><span class="math inline">\(\vct{p}\)</span> is the unique vector in <span class="math inline">\(L\)</span> closest to <span class="math inline">\(\vct{v}\)</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="derive-the-line-projection">Orthogonality determines the projection coefficient</h3>
+<p>Write <span class="math inline">\(\vct{p}=c\vct{u}\)</span> and require <span class="math inline">\(\vct{r}=\vct{v}-c\vct{u}\perp\vct{u}\)</span> <span class="math display">\[\begin{align*}
+0&amp;=\langle\vct{u},\vct{v}-c\vct{u}\rangle
+=\langle\vct{u},\vct{v}\rangle-c\langle\vct{u},\vct{u}\rangle\\
+c&amp;=\frac{\langle\vct{u},\vct{v}\rangle}{\langle\vct{u},\vct{u}\rangle}
+\end{align*}\]</span></p>
+<p>For any other <span class="math inline">\(\vct{w}\in L\)</span>, the difference <span class="math inline">\(\vct{p}-\vct{w}\)</span> also lies in <span class="math inline">\(L\)</span> <span class="math display">\[\begin{gather*}
+\vct{v}-\vct{w}=\vct{r}+(\vct{p}-\vct{w}),\qquad
+\vct{r}\perp(\vct{p}-\vct{w})\\
+\|\vct{v}-\vct{w}\|^2=\|\vct{r}\|^2+\|\vct{p}-\vct{w}\|^2\ge\|\vct{r}\|^2
+\end{gather*}\]</span></p>
+<p>Equality holds only for <span class="math inline">\(\vct{w}=\vct{p}\)</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="line-projection-worked-example">Example: project onto the line <span class="math inline">\(x_2=x_1\)</span></h3>
+<p>Use the standard dot product, <span class="math inline">\(\vct{u}=[1,1]^\top\)</span>, and <span class="math inline">\(\vct{v}=[3,1]^\top\)</span> <span class="math display">\[\begin{gather*}
+L=\{c[1,1]^\top:c\in\reals\}=\{[c,c]^\top:c\in\reals\}\\
+c=\frac{\vct{u}^\top\vct{v}}{\vct{u}^\top\vct{u}}
+=\frac{1\cdot3+1\cdot1}{1^2+1^2}=2\\
+\vct{p}=2\vct{u}=[2,2]^\top,\qquad
+\vct{r}=\vct{v}-\vct{p}=[1,-1]^\top\\
+\vct{u}^\top\vct{r}=1-1=0,\qquad d(\vct{v},L)=\|\vct{r}\|=\sqrt2
+\end{gather*}\]</span></p>
+<p>The closest point to <span class="math inline">\((3,1)\)</span> on <span class="math inline">\(x_2=x_1\)</span> is <span class="math inline">\((2,2)\)</span></p>
 </section>
 <section id="projection-onto-an-orthonormal-basis" class="slide level2">
 <h2>Projection onto an orthonormal basis</h2>
-<p>Let <span class="math inline">\(\{\vct{q}_1,\ldots,\vct{q}_k\}\)</span> be an orthonormal basis of a subspace <span class="math inline">\(S\)</span> <span class="math display">\[\begin{gather*}
-\operatorname{proj}_S\vct{v}=\sum_{j=1}^k\langle\vct{q}_j,\vct{v}\rangle\vct{q}_j\\
+<p>Let <span class="math inline">\(V\)</span> be a real inner-product space and <span class="math inline">\(S\subseteq V\)</span> a finite-dimensional subspace</p>
+<p>Let <span class="math inline">\(\{\vct{q}_1,\ldots,\vct{q}_k\}\)</span> be an orthonormal basis of <span class="math inline">\(S\)</span></p>
+<p>For any <span class="math inline">\(\vct{v}\in V\)</span>, its projection onto <span class="math inline">\(S\)</span> is <span class="math display">\[\begin{gather*}
+\vct{p}=\operatorname{proj}_S\vct{v}=\sum_{j=1}^k\langle\vct{q}_j,\vct{v}\rangle\vct{q}_j\\
 \vct{v}=\vct{p}+\vct{r},\qquad \vct{p}\in S,\quad \vct{r}\in S^\perp
 \end{gather*}\]</span></p>
-<p>Here <span class="math inline">\(S^\perp=\{\vct{r}:\langle\vct{r},\vct{s}\rangle=0\text{ for every }\vct{s}\in S\}\)</span></p>
+<p>Here <span class="math inline">\(S^\perp=\{\vct{r}\in V:\langle\vct{r},\vct{s}\rangle=0\text{ for every }\vct{s}\in S\}\)</span></p>
 <p>Orthonormal coordinates require inner products instead of solving a new system</p>
+</section>
+<section class="slide level2">
+
+<h3 id="derive-the-subspace-projection">Extract the coefficients and verify the residual</h3>
+<p>For <span class="math inline">\(\vct{v}\in V\)</span>, seek <span class="math inline">\(\vct{p}\in S\)</span>: write <span class="math inline">\(\vct{p}=\sum_jc_j\vct{q}_j\)</span> and impose <span class="math inline">\(\vct{v}-\vct{p}\perp S\)</span> <span class="math display">\[\begin{align*}
+0&amp;=\left\langle\vct{q}_i,\vct{v}-\sum_jc_j\vct{q}_j\right\rangle
+=\langle\vct{q}_i,\vct{v}\rangle-c_i\\
+c_i&amp;=\langle\vct{q}_i,\vct{v}\rangle,\qquad
+\langle\vct{q}_i,\vct{r}\rangle=0\quad\text{for every }i
+\end{align*}\]</span></p>
+<p>Every vector in <span class="math inline">\(S\)</span> is a combination of the <span class="math inline">\(\vct{q}_i\)</span>, so <span class="math inline">\(\vct{r}\perp S\)</span> <span class="math display">\[\begin{equation*}
+\|\vct{v}-\vct{w}\|^2
+=\|\vct{r}\|^2+\|\vct{p}-\vct{w}\|^2\quad(\vct{w}\in S)
+\end{equation*}\]</span></p>
+<p>The same closest-point argument works for the whole subspace</p>
 </section>
 <section id="an-orthogonal-projector-has-two-signatures" class="slide level2">
 <h2>An orthogonal projector has two signatures</h2>
@@ -881,6 +1014,21 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="verify-the-projector-identities">Verify the projector identities</h3>
+<p>Since <span class="math inline">\(\mat{Q}^\top\mat{Q}=\mat{I}_k\)</span>: <span class="math display">\[\begin{align*}
+\mat{P}^\top&amp;=(\mat{Q}\mat{Q}^\top)^\top=\mat{Q}\mat{Q}^\top=\mat{P}\\
+\mat{P}^2&amp;=\mat{Q}(\mat{Q}^\top\mat{Q})\mat{Q}^\top=\mat{Q}\mat{Q}^\top=\mat{P}\\
+\mat{Q}^\top(\mat{I}-\mat{P})\vct{v}
+&amp;=\mat{Q}^\top\vct{v}-(\mat{Q}^\top\mat{Q})\mat{Q}^\top\vct{v}=\vct{0}
+\end{align*}\]</span></p>
+<p>Conversely, if <span class="math inline">\(\mat{P}^2=\mat{P}=\mat{P}^\top\)</span>, then <span class="math display">\[\begin{equation*}
+(\mat{P}\vct{x})^\top(\mat{I}-\mat{P})\vct{y}
+=\vct{x}^\top(\mat{P}-\mat{P}^2)\vct{y}=0
+\end{equation*}\]</span></p>
+<p>Its range and residual directions are perpendicular</p>
 </section>
 <section id="practice-projecting-onto-a-plane" class="slide level2">
 <h2>Practice projecting onto a plane</h2>
@@ -923,15 +1071,53 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <p>At each step, remove directions already represented, then normalize</p>
 <p><span class="math inline">\(\operatorname{span}\{\vct{q}_1,\ldots,\vct{q}_j\}=\operatorname{span}\{\vct{A}_1,\ldots,\vct{A}_j\}\)</span></p>
 </section>
+<section class="slide level2">
+
+<h3 id="why-the-gram-schmidt-step-works">Why the Gram–Schmidt step works</h3>
+<p>For <span class="math inline">\(\ell&lt;j\)</span>, orthonormality cancels all but one term: <span class="math display">\[\begin{equation*}
+\langle\vct{q}_\ell,\vct{w}_j\rangle
+=\langle\vct{q}_\ell,\vct{A}_j\rangle
+-\sum_{i&lt;j}\langle\vct{q}_i,\vct{A}_j\rangle
+\langle\vct{q}_\ell,\vct{q}_i\rangle=0
+\end{equation*}\]</span></p>
+<p>If <span class="math inline">\(\vct{w}_j=\vct{0}\)</span>, then <span class="math inline">\(\vct{A}_j\)</span> lies in the preceding span</p>
+<p>Independence rules this out, so normalization is possible <span class="math display">\[\begin{equation*}
+\vct{A}_j=\sum_{i&lt;j}\langle\vct{q}_i,\vct{A}_j\rangle\vct{q}_i
++\|\vct{w}_j\|\vct{q}_j
+\end{equation*}\]</span></p>
+<p>Each old vector uses only the new directions through its own step</p>
+</section>
 <section id="a-worked-gram-schmidt-calculation" class="slide level2">
 <h2>A worked Gram–Schmidt calculation</h2>
-<p>In <span class="math inline">\(\reals^3\)</span>, take <span class="math inline">\(\vct{A}_1=[1,1,0]^\top\)</span> and <span class="math inline">\(\vct{A}_2=[1,0,1]^\top\)</span> <span class="math display">\[\begin{align*}
-\vct{q}_1&amp;=\frac1{\sqrt2}[1,1,0]^\top\\
-\langle\vct{q}_1,\vct{A}_2\rangle&amp;=1/\sqrt2\\
-\vct{w}_2&amp;=[1/2,-1/2,1]^\top\\
-\vct{q}_2&amp;=\frac1{\sqrt6}[1,-1,2]^\top
+<p>In <span class="math inline">\(\reals^3\)</span>, normalize the first column <span class="math display">\[\begin{equation*}
+\vct{A}_1=\begin{bmatrix}1\\1\\0\end{bmatrix},\qquad
+\vct{A}_2=\begin{bmatrix}1\\0\\1\end{bmatrix},\qquad
+\vct{q}_1=\frac{\vct{A}_1}{\|\vct{A}_1\|}
+=\frac1{\sqrt2}\begin{bmatrix}1\\1\\0\end{bmatrix}
+\end{equation*}\]</span></p>
+<p>Remove its component from the second column <span class="math display">\[\begin{align*}
+\langle\vct{q}_1,\vct{A}_2\rangle
+&amp;=\frac{1\cdot1+1\cdot0+0\cdot1}{\sqrt2}=\frac1{\sqrt2}\\
+\vct{w}_2&amp;=\vct{A}_2-\langle\vct{q}_1,\vct{A}_2\rangle\vct{q}_1\\
+&amp;=\begin{bmatrix}1\\0\\1\end{bmatrix}
+-\frac12\begin{bmatrix}1\\1\\0\end{bmatrix}
+=\begin{bmatrix}1-1/2\\0-1/2\\1-0\end{bmatrix}
+=\begin{bmatrix}1/2\\-1/2\\1\end{bmatrix}
 \end{align*}\]</span></p>
-<p>Check <span class="math inline">\(\vct{q}_1^\top\vct{q}_2=0\)</span> and both squared norms equal one</p>
+</section>
+<section class="slide level2">
+
+<h3 id="gram-schmidt-example-arithmetic">Normalize the remainder and check orthonormality</h3>
+<p>Continue by normalizing the remainder <span class="math inline">\(\vct{w}_2\)</span> from the preceding slide <span class="math display">\[\begin{align*}
+\|\vct{w}_2\|^2&amp;=\frac14+\frac14+1=\frac32\\
+\vct{q}_2&amp;=\frac{\vct{w}_2}{\|\vct{w}_2\|}
+=\sqrt{\frac23}\begin{bmatrix}1/2\\-1/2\\1\end{bmatrix}
+=\frac1{\sqrt6}\begin{bmatrix}1\\-1\\2\end{bmatrix}\\
+\vct{q}_1^\top\vct{q}_2&amp;=\frac{1-1+0}{\sqrt{12}}=0\\
+\|\vct{q}_1\|^2&amp;=\frac{1+1+0}{2}=1,\qquad
+\|\vct{q}_2\|^2=\frac{1+1+4}{6}=1
+\end{align*}\]</span></p>
+<p>The two directions are perpendicular and each has length one</p>
 </section>
 <section id="the-coefficients-form-a-triangular-matrix" class="slide level2">
 <h2>The coefficients form a triangular matrix</h2>
@@ -968,6 +1154,18 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 \end{gather*}\]</span></p>
 <p>Column 1 uses only <span class="math inline">\(\vct{q}_1\)</span>; column 2 uses <span class="math inline">\(\vct{q}_1\)</span> and <span class="math inline">\(\vct{q}_2\)</span></p>
 <p>Verify <span class="math inline">\(\mat{Q}\mat{R}=\mat{A}\)</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="verify-the-worked-qr">Recover each original column</h3>
+<p>The Gram–Schmidt coefficients give <span class="math display">\[\begin{align*}
+\vct{A}_1&amp;=\sqrt2\vct{q}_1=[1,1,0]^\top\\
+\vct{A}_2&amp;=\frac1{\sqrt2}\vct{q}_1+\sqrt{\frac32}\vct{q}_2\\
+&amp;=\frac12[1,1,0]^\top+\frac12[1,-1,2]^\top
+=[1,0,1]^\top
+\end{align*}\]</span></p>
+<p>These are exactly the columns of <span class="math inline">\(\mat{Q}\mat{R}\)</span></p>
+<p>Multiplying <span class="math inline">\(\mat{A}=\mat{Q}\mat{R}\)</span> by <span class="math inline">\(\mat{Q}^\top\)</span> gives <span class="math inline">\(\mat{R}=\mat{Q}^\top\mat{A}\)</span></p>
 </section>
 <section id="exact-construction-and-numerical-computation-differ" class="slide level2">
 <h2>Exact construction and numerical computation differ</h2>
@@ -1024,57 +1222,46 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <li><a href="#/inspect-the-fit-and-residual">Inspect the fit and residual</a></li>
 <li><a href="#/regression-residual-figure">A line fit leaves vertical residuals</a></li>
 <li><a href="#/general-features-keep-the-model-linear-in-coefficients">General features keep the model linear in coefficients</a></li>
-<li><a href="#/the-projection-formula-reconnects-earlier-geometry">The projection formula reconnects earlier geometry</a></li>
-<li><a href="#/weights-and-rank-deficiency-change-the-calculation">Weights and rank deficiency change the calculation</a></li>
+<li><a href="#/weights-and-rank-deficiency-change-the-calculation">Weighted least squares rescales the rows</a></li>
 <li><a href="#/practice-checking-a-regression-fit">Practice checking a regression fit</a></li>
 </ul>
 </section>
 <section id="inconsistent-systems-still-have-a-best-fit" class="slide level2">
 <h2>Inconsistent systems still have a best fit</h2>
-<p>For <span class="math inline">\(\mat{A}\vct{x}\approx\vct{b}\)</span>, minimize <span class="math inline">\(\|\mat{A}\vct{x}-\vct{b}\|^2\)</span></p>
-<p>The best fitted vector lies in <span class="math inline">\(\operatorname{col}(\mat{A})\)</span> and leaves an orthogonal residual <span class="math display">\[\begin{gather*}
-\mat{A}^\top(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}\\
+<p>Minimize <span class="math inline">\(\|\vct{b}-\mat{A}\vct{x}\|^2\)</span> over coefficient vectors <span class="math inline">\(\vct{x}\)</span></p>
+<p>Let <span class="math inline">\(\vct{p}=\operatorname{proj}_{\operatorname{col}(\mat{A})}\vct{b}\)</span> and <span class="math inline">\(\vct{r}=\vct{b}-\vct{p}\)</span></p>
+<p>Write <span class="math inline">\(\vct{b}-\mat{A}\vct{x}=\vct{r}+(\vct{p}-\mat{A}\vct{x})\)</span></p>
+<p>The last term is in <span class="math inline">\(\operatorname{col}(\mat{A})\)</span> and <span class="math inline">\(\vct{r}\)</span> is perpendicular to that space <span class="math display">\[\begin{equation*}
+\|\vct{b}-\mat{A}\vct{x}\|^2
+=\|\vct{r}\|^2+\|\vct{p}-\mat{A}\vct{x}\|^2
+\end{equation*}\]</span></p>
+<p>The minimum occurs exactly when <span class="math inline">\(\mat{A}\widehat{\vct{x}}=\vct{p}\)</span></p>
+<p>Each column of <span class="math inline">\(\mat{A}\)</span> is perpendicular to <span class="math inline">\(\vct{r}\)</span>, giving the <span class="alert">normal equations</span> <span class="math display">\[\begin{equation*}
+\mat{A}^\top\vct{r}=\vct{0}
+\implies
+\mat{A}^\top(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}
+\implies
 \mat{A}^\top\mat{A}\widehat{\vct{x}}=\mat{A}^\top\vct{b}
-\end{gather*}\]</span></p>
-<p>These are the <span class="alert">normal equations</span></p>
-<p>The fitted vector is unique; coefficients are unique exactly when columns are independent</p>
+\end{equation*}\]</span></p>
+<p>Unique fitted vector, with unique coefficients exactly when the columns are independent</p>
 </section>
 <section id="qr-turns-least-squares-into-a-triangular-solve" class="slide level2">
 <h2>QR turns least squares into a triangular solve</h2>
-<p>With reduced QR and full column rank: <span class="math display">\[\begin{gather*}
-\|\mat{A}\vct{x}-\vct{b}\|^2
-=\|\mat{R}\vct{x}-\mat{Q}^\top\vct{b}\|^2
-+\|(\mat{I}-\mat{Q}\mat{Q}^\top)\vct{b}\|^2\\
-\mat{R}\widehat{\vct{x}}=\mat{Q}^\top\vct{b}\\
-\widehat{\vct{b}}=\mat{Q}\mat{Q}^\top\vct{b}
-\end{gather*}\]</span></p>
-<p>Compute coordinates with <span class="math inline">\(\mat{Q}^\top\)</span>, then back substitute</p>
-<p>The perpendicular part cannot be fitted by any coefficient vector</p>
-</section>
-<section id="fit-a-line-to-three-observations" class="slide level2">
-<h2>Fit a line to three observations</h2>
-<p>Data: <span class="math inline">\((t,b)=(-1,1),(0,0),(1,2)\)</span></p>
-<p>Model <span class="math inline">\(b\approx x_1+x_2t\)</span> <span class="math display">\[\begin{gather*}
-\mat{A}=\begin{bmatrix}1&amp;-1\\1&amp;0\\1&amp;1\end{bmatrix},\quad
-\vct{b}=\begin{bmatrix}1\\0\\2\end{bmatrix},\quad
-\mat{A}^\top\mat{A}=\begin{bmatrix}3&amp;0\\0&amp;2\end{bmatrix},\quad
-\mat{A}^\top\vct{b}=\begin{bmatrix}3\\1\end{bmatrix}\\
-\widehat{\vct{x}}=\begin{bmatrix}1\\1/2\end{bmatrix},\qquad
-\widehat b(t)=1+t/2
-\end{gather*}\]</span></p>
-<p>The feature columns happen to be orthogonal</p>
-</section>
-<section id="inspect-the-fit-and-residual" class="slide level2">
-<h2>Inspect the fit and residual</h2>
-<p>For the line fit: <span class="math display">\[\begin{gather*}
-\widehat{\vct{b}}=\begin{bmatrix}1/2\\1\\3/2\end{bmatrix},\quad
-\vct{r}=\vct{b}-\widehat{\vct{b}}=\begin{bmatrix}1/2\\-1\\1/2\end{bmatrix}\\
-\mat{A}^\top\vct{r}=\begin{bmatrix}0\\0\end{bmatrix},\quad \|\vct{r}\|^2=3/2
-\end{gather*}\]</span></p>
-<p>The residual sums to zero because the model includes a column of ones</p>
-<p>Residuals are also perpendicular to the sampled <span class="math inline">\(t\)</span> values</p>
+<p>For <span class="math inline">\(\mat{A}\)</span> with independent columns, reduced QR has <span class="math inline">\(m\ge n\)</span> and <span class="math display">\[\begin{equation*}
+\underset{m\times n}{\mat{A}}=\underset{m\times n}{\mat{Q}}\,\underset{n\times n}{\mat{R}},
+\qquad \mat{Q}^\top\mat{Q}=\mat{I}_n
+\end{equation*}\]</span></p>
+<p>When <span class="math inline">\(m&gt;n\)</span>, both <span class="math inline">\(\mat{A}\)</span> and <span class="math inline">\(\mat{Q}\)</span> are rectangular. Then <span class="math inline">\(\mat{Q}^\top\)</span> is a left inverse, and <span class="math inline">\(\mat{Q}^{-1}\)</span> does not exist</p>
+<p><span class="math inline">\(\mat{Q}\mat{Q}^\top\)</span> projects onto <span class="math inline">\(\operatorname{col}(\mat{A})\)</span>. Only in the square case is <span class="math inline">\(\mat{Q}^\top=\mat{Q}^{-1}\)</span></p>
+<p><span id="the-projection-formula-reconnects-earlier-geometry">The projection coordinates are <span class="math inline">\(\vct{c}=\mat{Q}^\top\vct{b}\)</span>, so <span class="math inline">\(\vct{p}=\mat{Q}\vct{c}\)</span></span> <span class="math display">\[\begin{align*}
+\mat{A}\widehat{\vct{x}}&amp;=\vct{p}\\
+\mat{Q}\mat{R}\widehat{\vct{x}}&amp;=\mat{Q}\vct{c}\\
+(\mat{Q}^\top\mat{Q})\mat{R}\widehat{\vct{x}}&amp;=(\mat{Q}^\top\mat{Q})\vct{c}\\
+\mat{R}\widehat{\vct{x}}&amp;=\vct{c}=\mat{Q}^\top\vct{b}
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\mat{R}\)</span> is upper triangular with nonzero diagonal, so solve from the last row upward</p>
 <aside class="notes">
-<p>Least squares minimizes vertical response errors at fixed predictor values, not perpendicular geometric distances to the plotted line. The zero-sum claim assumes ordinary unweighted least squares with an intercept.</p>
+<p>This calculation solves for the coefficients that produce the best fitted vector established on the previous slide. The projection matrix is QQ^T. Solving the normal equations symbolically and multiplying the result by A gives the equivalent projector A(A^T A)<sup>{-1}A</sup>T. QR uses only the projection coordinates and a triangular solve.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1086,6 +1273,38 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section id="fit-a-line-to-three-observations" class="slide level2">
+<h2>Fit a line to three observations</h2>
+<p>Fit <span class="math inline">\(b\approx x_1+x_2t\)</span> to <span class="math inline">\((t,b)=(-1,1),(0,0),(1,2)\)</span> <span class="math display">\[\begin{equation*}
+\mat{A}=\begin{bmatrix}1&amp;-1\\1&amp;0\\1&amp;1\end{bmatrix},\qquad
+\vct{b}=\begin{bmatrix}1\\0\\2\end{bmatrix}
+\end{equation*}\]</span></p>
+<p>The column dot product is <span class="math inline">\(-1+0+1=0\)</span></p>
+<p>Divide the columns by their lengths <span class="math inline">\(\sqrt3\)</span> and <span class="math inline">\(\sqrt2\)</span> to form <span class="math inline">\(\mat{Q}\)</span> <span class="math display">\[\begin{equation*}
+\mat{R}=\begin{bmatrix}\sqrt3&amp;0\\0&amp;\sqrt2\end{bmatrix},\qquad
+\mat{Q}^\top\vct{b}
+=\begin{bmatrix}(1+0+2)/\sqrt3\\(-1+0+2)/\sqrt2\end{bmatrix}
+=\begin{bmatrix}\sqrt3\\1/\sqrt2\end{bmatrix}
+\end{equation*}\]</span></p>
+<p>Solve the bottom row first: <span class="math inline">\(\sqrt2\,\widehat{x}_2=1/\sqrt2\)</span>, then <span class="math inline">\(\sqrt3\,\widehat{x}_1=\sqrt3\)</span></p>
+<p>The fitted line is <span class="math inline">\(\widehat b(t)=1+t/2\)</span></p>
+</section>
+<section id="inspect-the-fit-and-residual" class="slide level2">
+<h2>Inspect the fit and residual</h2>
+<p>Evaluate the fitted line at <span class="math inline">\(t=-1,0,1\)</span> and subtract from the observations <span class="math display">\[\begin{align*}
+\widehat{\vct{b}}
+&amp;=\begin{bmatrix}1-1/2\\1\\1+1/2\end{bmatrix}
+=\begin{bmatrix}1/2\\1\\3/2\end{bmatrix}\\
+\vct{r}
+&amp;=\begin{bmatrix}1\\0\\2\end{bmatrix}-\widehat{\vct{b}}
+=\begin{bmatrix}1/2\\-1\\1/2\end{bmatrix}\\
+\mat{A}^\top\vct{r}
+&amp;=\begin{bmatrix}1/2-1+1/2\\-1/2+0+1/2\end{bmatrix}
+=\begin{bmatrix}0\\0\end{bmatrix},\qquad
+\|\vct{r}\|^2=1/4+1+1/4=3/2
+\end{align*}\]</span></p>
+<p>The residual is perpendicular to both feature columns: the ones and the sampled <span class="math inline">\(t\)</span> values</p>
 </section>
 <section id="regression-residual-figure" class="slide level2">
 <h2>A line fit leaves vertical residuals</h2>
@@ -1121,26 +1340,20 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
           display:block!important;
       }</style></aside>
 </section>
-<section id="the-projection-formula-reconnects-earlier-geometry" class="slide level2">
-<h2>The projection formula reconnects earlier geometry</h2>
-<p>For independent columns: <span class="math display">\[\begin{gather*}
-\mat{P}=\mat{A}(\mat{A}^\top\mat{A})^{-1}\mat{A}^\top
-=\mat{Q}\mat{Q}^\top\\
-\mat{P}^2=\mat{P},\quad\mat{P}^\top=\mat{P},\qquad
-\widehat{\vct{b}}=\mat{P}\vct{b},\quad\vct{r}=(\mat{I}-\mat{P})\vct{b}
-\end{gather*}\]</span></p>
-<p><span class="math inline">\(\mat{P}\)</span> preserves the column space; <span class="math inline">\(\mat{I}-\mat{P}\)</span> preserves its orthogonal complement</p>
-<p>The inverse formula describes the geometry; QR computes the fit without explicitly forming that inverse</p>
-</section>
 <section id="weights-and-rank-deficiency-change-the-calculation" class="slide level2">
-<h2>Weights and rank deficiency change the calculation</h2>
-<p>Positive observation weights <span class="math inline">\(w_i\)</span> and <span class="math inline">\(\mat{W}=\operatorname{diag}(w_1,\ldots,w_m)\)</span> give <span class="math display">\[\begin{gather*}
-\min_{\vct{x}}\sum_iw_i((\mat{A}\vct{x})_i-b_i)^2
-=\min_{\vct{x}}\|\mat{W}^{1/2}(\mat{A}\vct{x}-\vct{b})\|^2\\
-\mat{A}^\top\mat{W}(\mat{A}\widehat{\vct{x}}-\vct{b})=\vct{0}
-\end{gather*}\]</span></p>
-<p>Apply QR to the weighted design matrix when it has full column rank</p>
-<p>Dependent or nearly dependent features motivate <a href="10-inner-product-spaces.html#regression-through-qr-and-svd">SVD and regularization</a></p>
+<h2>Weighted least squares rescales the rows</h2>
+<p>Give observation <span class="math inline">\(i\)</span> weight <span class="math inline">\(w_i&gt;0\)</span> and set <span class="math inline">\(\mat{W}=\operatorname{diag}(w_1,\ldots,w_m)\)</span></p>
+<p>Multiply row <span class="math inline">\(i\)</span> of <span class="math inline">\(\mat{A}\)</span> and entry <span class="math inline">\(i\)</span> of <span class="math inline">\(\vct{b}\)</span> by <span class="math inline">\(\sqrt{w_i}\)</span> <span class="math display">\[\begin{align*}
+\widetilde{\mat{A}}&amp;=\mat{W}^{1/2}\mat{A},\qquad
+\widetilde{\vct{b}}=\mat{W}^{1/2}\vct{b}\\
+\sum_i w_i\bigl((\mat{A}\vct{x})_i-b_i\bigr)^2
+&amp;=\|\widetilde{\mat{A}}\vct{x}-\widetilde{\vct{b}}\|^2
+\end{align*}\]</span></p>
+<p>Use ordinary least squares on the rescaled data. The residual condition becomes <span class="math display">\[\begin{equation*}
+\widetilde{\mat{A}}^\top(\widetilde{\vct{b}}-\widetilde{\mat{A}}\widehat{\vct{x}})
+=\mat{A}^\top\mat{W}(\vct{b}-\mat{A}\widehat{\vct{x}})=\vct{0}
+\end{equation*}\]</span></p>
+<p>Dependent or nearly dependent features motivate <a href="#/regression-through-qr-and-svd">SVD and regularization</a></p>
 </section>
 <section id="practice-checking-a-regression-fit" class="slide level2">
 <h2>Practice checking a regression fit</h2>
@@ -1291,6 +1504,22 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
+
+<h3 id="complete-the-svd-existence-argument">Verify orthonormality and reconstruct the map</h3>
+<p>Choose an orthonormal eigenbasis of <span class="math inline">\(\mat{A}^\top\mat{A}\)</span></p>
+<p>For positive eigenvalues <span class="math inline">\(\sigma_j^2\)</span>, set <span class="math inline">\(\vct{U}_j=\mat{A}\vct{V}_j/\sigma_j\)</span> <span class="math display">\[\begin{equation*}
+\vct{U}_i^\top\vct{U}_j
+=\frac{\vct{V}_i^\top\mat{A}^\top\mat{A}\vct{V}_j}{\sigma_i\sigma_j}
+=\frac{\sigma_j^2\vct{V}_i^\top\vct{V}_j}{\sigma_i\sigma_j}
+=\begin{cases}1,&amp;i=j\\0,&amp;i\ne j\end{cases}
+\end{equation*}\]</span></p>
+<p>A zero eigenvalue gives <span class="math inline">\(\|\mat{A}\vct{V}_j\|^2=0\)</span>, hence <span class="math inline">\(\mat{A}\vct{V}_j=\vct{0}\)</span> <span class="math display">\[\begin{equation*}
+\mat{A}\vct{x}
+=\mat{A}\sum_{j=1}^n\vct{V}_j(\vct{V}_j^\top\vct{x})
+=\sum_{j=1}^r\sigma_j\vct{U}_j(\vct{V}_j^\top\vct{x})
+\end{equation*}\]</span></p>
+</section>
 <section id="the-four-spaces-reappear-in-orthonormal-coordinates" class="slide level2">
 <h2>The four spaces reappear in orthonormal coordinates</h2>
 <table class="caption-top">
@@ -1348,7 +1577,7 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <p>Choose the rank by the accuracy needed, not only by the appearance of the image</p>
 </div>
 <aside class="notes">
-<p>Eckart–Young–Mirsky theorem; statement without proof. Approximation need not be unique when singular values tie. For an m-by-n grayscale image, storing compact factors uses k(m+n+1) scalar entries instead of mn, before file-format overhead or quantization.</p>
+<p>The continuation derives both tail-error formulas and spectral optimality; Frobenius optimality is stated without proof (Eckart–Young–Mirsky). Approximation need not be unique when singular values tie. For an m-by-n grayscale image, storing compact factors uses k(m+n+1) scalar entries instead of mn, before file-format overhead or quantization.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -1360,6 +1589,36 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="derive-the-svd-tail-errors">Compute the discarded-tail errors</h3>
+<p>Let <span class="math inline">\(\mat{E}=\mat{A}-\mat{A}_k=\sum_{j&gt;k}\sigma_j\vct{U}_j\vct{V}_j^\top\)</span> <span class="math display">\[\begin{align*}
+\|\mat{E}\vct{x}\|^2
+&amp;=\sum_{j&gt;k}\sigma_j^2|\vct{V}_j^\top\vct{x}|^2
+\le\sigma_{k+1}^2\|\vct{x}\|^2\\
+\|\mat{E}\vct{V}_{k+1}\|&amp;=\sigma_{k+1}
+\end{align*}\]</span></p>
+<p>Thus <span class="math inline">\(\|\mat{E}\|_2=\sigma_{k+1}\)</span></p>
+<p>The rank-one terms are orthonormal in the Frobenius inner product: <span class="math display">\[\begin{gather*}
+\sum_{a,b}(U_{ai}V_{bi})(U_{aj}V_{bj})
+=(\vct{U}_i^\top\vct{U}_j)(\vct{V}_i^\top\vct{V}_j)\\
+\|\mat{E}\|_F^2=\sum_{j&gt;k}\sigma_j^2
+\end{gather*}\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="why-the-svd-spectral-approximation-is-best">Why no rank-<span class="math inline">\(k\)</span> matrix improves the spectral error</h3>
+<p>Let <span class="math inline">\(\operatorname{rank}(\mat{B})\le k\)</span> and <span class="math inline">\(T=\operatorname{span}\{\vct{V}_1,\ldots,\vct{V}_{k+1}\}\)</span></p>
+<p>A map of rank at most <span class="math inline">\(k\)</span> cannot be one-to-one on this <span class="math inline">\((k+1)\)</span>-dimensional space</p>
+<p>Choose <span class="math inline">\(\vct{x}\in T\)</span> with <span class="math inline">\(\|\vct{x}\|=1\)</span> and <span class="math inline">\(\mat{B}\vct{x}=\vct{0}\)</span> <span class="math display">\[\begin{align*}
+\|\mat{A}-\mat{B}\|_2^2
+&amp;\ge\|(\mat{A}-\mat{B})\vct{x}\|^2=\|\mat{A}\vct{x}\|^2\\
+&amp;=\sum_{j=1}^{k+1}\sigma_j^2|\vct{V}_j^\top\vct{x}|^2
+\ge\sigma_{k+1}^2
+\end{align*}\]</span></p>
+<p>The truncated SVD attains this lower bound</p>
+<p>Frobenius optimality is the companion Eckart–Young–Mirsky theorem; its proof is omitted</p>
 </section>
 <section id="practice-reading-singular-values" class="slide level2">
 <h2>Practice reading singular values</h2>
@@ -1446,6 +1705,20 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 <p>The pseudoinverse selects the least-squares solution with smallest Euclidean norm</p>
 </div>
 </section>
+<section class="slide level2">
+
+<h3 id="derive-the-pseudoinverse-fit">Minimize one singular coordinate at a time</h3>
+<p>Split <span class="math inline">\(\vct{b}=\sum_{j=1}^r\beta_j\vct{U}_j+\vct{b}_\perp\)</span>, where <span class="math inline">\(\beta_j=\vct{U}_j^\top\vct{b}\)</span></p>
+<p>Write <span class="math inline">\(\vct{x}=\sum_{j=1}^r\alpha_j\vct{V}_j+\vct{z}\)</span> with <span class="math inline">\(\vct{z}\in\operatorname{null}(\mat{A})\)</span> <span class="math display">\[\begin{equation*}
+\|\mat{A}\vct{x}-\vct{b}\|^2
+=\sum_{j=1}^r(\sigma_j\alpha_j-\beta_j)^2+\|\vct{b}_\perp\|^2
+\end{equation*}\]</span></p>
+<p>Each square vanishes at <span class="math inline">\(\alpha_j=\beta_j/\sigma_j\)</span>; <span class="math inline">\(\vct{z}\)</span> cannot change the fit <span class="math display">\[\begin{gather*}
+\widehat{\vct{x}}=\sum_{j=1}^r\frac{\beta_j}{\sigma_j}\vct{V}_j
+=\mat{V}_r\mat{\Sigma}_r^{-1}\mat{U}_r^\top\vct{b}\\
+\mat{A}\widehat{\vct{x}}=\sum_{j=1}^r\beta_j\vct{U}_j=\mat{U}_r\mat{U}_r^\top\vct{b}
+\end{gather*}\]</span></p>
+</section>
 <section id="rank-deficiency-changes-coefficients-not-the-fitted-vector" class="slide level2">
 <h2>Rank deficiency changes coefficients, not the fitted vector</h2>
 <p>Every least-squares minimizer has the form <span class="math display">\[\begin{equation*}
@@ -1471,6 +1744,18 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
+
+<h3 id="derive-the-minimum-norm-property">Separate coefficient freedom from the minimum norm</h3>
+<p>For <span class="math inline">\(\vct{x}_*=\mat{A}^{\dagger}\vct{b}\in\operatorname{row}(\mat{A})\)</span> and <span class="math inline">\(\vct{z}\in\operatorname{null}(\mat{A})\)</span>: <span class="math display">\[\begin{gather*}
+\mat{A}(\vct{x}_*+\vct{z})=\mat{A}\vct{x}_*,\qquad \vct{x}_*\perp\vct{z}\\
+\|\vct{x}_*+\vct{z}\|^2=\|\vct{x}_*\|^2+\|\vct{z}\|^2\ge\|\vct{x}_*\|^2
+\end{gather*}\]</span></p>
+<p>Equality holds only when <span class="math inline">\(\vct{z}=\vct{0}\)</span></p>
+<p>Conversely, all minimizers share the unique projected fitted vector <span class="math display">\[\begin{equation*}
+\mat{A}\vct{x}=\mat{A}\vct{x}_*\implies\vct{x}-\vct{x}_*\in\operatorname{null}(\mat{A})
+\end{equation*}\]</span></p>
+</section>
 <section id="a-regression-example-with-a-redundant-feature" class="slide level2">
 <h2>A regression example with a redundant feature</h2>
 <p><span class="math display">\[\begin{gather*}
@@ -1483,6 +1768,20 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 \end{gather*}\]</span></p>
 <p>Both features are identical: only <span class="math inline">\(x_1+x_2=3\)</span> is identifiable</p>
 <p>The smallest-norm solution divides the total equally</p>
+</section>
+<section class="slide level2">
+
+<h3 id="redundant-feature-example-arithmetic">Compute the identifiable sum and its split</h3>
+<p>The single nonzero singular coordinate is <span class="math display">\[\begin{gather*}
+\beta_1=\vct{U}_1^\top\vct{b}=\frac{2+4}{\sqrt2}=3\sqrt2\\
+\widehat{\vct{x}}=\frac{\beta_1}{\sigma_1}\vct{V}_1
+=\frac{3\sqrt2}{2}\frac1{\sqrt2}\begin{bmatrix}1\\1\end{bmatrix}
+=\begin{bmatrix}3/2\\3/2\end{bmatrix}
+\end{gather*}\]</span></p>
+<p>Equivalently, put <span class="math inline">\(s=x_1+x_2\)</span> and complete the square: <span class="math display">\[\begin{equation*}
+\|\mat{A}\vct{x}-\vct{b}\|^2=(s-2)^2+(s-4)^2=2(s-3)^2+2
+\end{equation*}\]</span></p>
+<p>Only the sum <span class="math inline">\(s=3\)</span> is determined by the data</p>
 </section>
 <section id="small-singular-values-amplify-data-perturbations" class="slide level2">
 <h2>Small singular values amplify data perturbations</h2>
@@ -1535,6 +1834,22 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
+
+<h3 id="derive-the-ridge-shrinkage-factor">Derive the ridge shrinkage factor</h3>
+<p>Use the same singular coordinates <span class="math inline">\(\alpha_j,\beta_j\)</span> and null-space part <span class="math inline">\(\vct{z}\)</span> <span class="math display">\[\begin{equation*}
+\|\mat{A}\vct{x}-\vct{b}\|^2+\lambda\|\vct{x}\|^2
+=\sum_{j=1}^r\bigl[(\sigma_j\alpha_j-\beta_j)^2+\lambda\alpha_j^2\bigr]
++\|\vct{b}_\perp\|^2+\lambda\|\vct{z}\|^2
+\end{equation*}\]</span></p>
+<p>For each coordinate, complete the square: <span class="math display">\[\begin{align*}
+(\sigma\alpha-\beta)^2+\lambda\alpha^2
+&amp;=(\sigma^2+\lambda)\left(\alpha-\frac{\sigma\beta}{\sigma^2+\lambda}\right)^2
++\frac{\lambda\beta^2}{\sigma^2+\lambda}\\
+\alpha_j&amp;=\frac{\sigma_j\beta_j}{\sigma_j^2+\lambda},\qquad\vct{z}=\vct{0}
+\end{align*}\]</span></p>
+<p>Each pseudoinverse coordinate is multiplied by <span class="math inline">\(\sigma_j^2/(\sigma_j^2+\lambda)\)</span></p>
+</section>
 <section id="which-factorization-serves-the-regression-question" class="slide level2">
 <h2>Which factorization serves the regression question?</h2>
 <table class="caption-top">
@@ -1569,6 +1884,18 @@ d(\vct{u},\vct{v})=\|\vct{u}-\vct{v}\|\\
 </table>
 <p>Forming <span class="math inline">\(\mat{A}^\top\mat{A}\)</span> squares <span class="math inline">\(\kappa(\mat{A})\)</span> when <span class="math inline">\(\mat{A}\)</span> has full column rank</p>
 <p>Prefer an orthogonal factorization to explicitly inverting the normal-equation matrix</p>
+</section>
+<section class="slide level2">
+
+<h3 id="derive-the-normal-equation-condition-number">Why normal equations square the condition number</h3>
+<p>For full column rank, every <span class="math inline">\(\sigma_j&gt;0\)</span> and <span class="math display">\[\begin{gather*}
+\mat{A}^\top\mat{A}=\mat{V}\mat{\Sigma}^2\mat{V}^\top\\
+\|\mat{A}\|_2=\sigma_1,\qquad\|\mat{A}^{\dagger}\|_2=1/\sigma_n\\
+\kappa_2(\mat{A})=\frac{\sigma_1}{\sigma_n},\qquad
+\kappa_2(\mat{A}^\top\mat{A})=\frac{\sigma_1^2}{\sigma_n^2}=\kappa_2(\mat{A})^2
+\end{gather*}\]</span></p>
+<p>The normal-equation matrix has eigenvalues <span class="math inline">\(\sigma_j^2\)</span></p>
+<p>This explains a numerical cost of forming <span class="math inline">\(\mat{A}^\top\mat{A}\)</span> explicitly</p>
 </section>
 <section id="practice-separating-fit-from-coefficients" class="slide level2">
 <h2>Practice separating fit from coefficients</h2>
@@ -1625,6 +1952,20 @@ p_n=\sum_{j=1}^n\langle q_j,f\rangle q_j\\
 <p><span class="math inline">\(p_n\)</span> is the unique best approximation in their span</p>
 <p>This is the same projection geometry used in regression</p>
 </section>
+<section class="slide level2">
+
+<h3 id="derive-the-function-projection-error">Derive the projection error identity</h3>
+<p>Put <span class="math inline">\(c_j=\langle q_j,f\rangle\)</span> and <span class="math inline">\(p_n=\sum_jc_jq_j\)</span> <span class="math display">\[\begin{gather*}
+\langle q_i,f-p_n\rangle=c_i-\sum_jc_j\langle q_i,q_j\rangle=0\\
+\|p_n\|^2=\sum_j|c_j|^2,\qquad
+\|f\|^2=\|p_n\|^2+\|f-p_n\|^2\\
+\|f-p_n\|^2=\|f\|^2-\sum_j|c_j|^2
+\end{gather*}\]</span></p>
+<p>For any other <span class="math inline">\(g\)</span> in the chosen span: <span class="math display">\[\begin{equation*}
+\|f-g\|^2=\|f-p_n\|^2+\|p_n-g\|^2
+\end{equation*}\]</span></p>
+<p>Orthogonality proves both the error formula and unique best approximation</p>
+</section>
 <section id="orthogonalize-the-first-two-polynomial-directions" class="slide level2">
 <h2>Orthogonalize the first two polynomial directions</h2>
 <p>On <span class="math inline">\([0,1]\)</span>, begin with <span class="math inline">\(1\)</span> and <span class="math inline">\(t\)</span> <span class="math display">\[\begin{gather*}
@@ -1647,6 +1988,18 @@ q_2(t)=\sqrt{12}(t-1/2)
           display:block!important;
       }</style></aside>
 </section>
+<section class="slide level2">
+
+<h3 id="polynomial-normalization-arithmetic">Evaluate the polynomial normalization integral</h3>
+<p><span class="math display">\[\begin{align*}
+\langle 1,t\rangle&amp;=\int_0^1t\,\dif t=[t^2/2]_0^1=1/2\\
+\|t-1/2\|^2
+&amp;=\int_0^1(t^2-t+1/4)\,\dif t\\
+&amp;=[t^3/3-t^2/2+t/4]_0^1=\frac13-\frac12+\frac14=\frac1{12}\\
+q_2(t)&amp;=\frac{t-1/2}{\sqrt{1/12}}=\sqrt{12}(t-1/2)
+\end{align*}\]</span></p>
+<p><span class="math inline">\(\langle q_1,q_2\rangle=\sqrt{12}(1/2-1/2)=0\)</span> and <span class="math inline">\(\|q_2\|^2=12/12=1\)</span></p>
+</section>
 <section id="a-best-linear-approximation-to-a-quadratic-function" class="slide level2">
 <h2>A best linear approximation to a quadratic function</h2>
 <p>For <span class="math inline">\(f(t)=t^2\)</span> on <span class="math inline">\([0,1]\)</span>: <span class="math display">\[\begin{gather*}
@@ -1657,6 +2010,19 @@ p(t)=\frac13+\frac{\sqrt{12}}{12}\sqrt{12}(t-1/2)=t-1/6\\
 \end{gather*}\]</span></p>
 <p>Continuous least squares minimizes an integral of squared error</p>
 <p>It need not interpolate either endpoint</p>
+</section>
+<section class="slide level2">
+
+<h3 id="quadratic-function-projection-arithmetic">Integrate the coefficients and the squared error</h3>
+<p><span class="math display">\[\begin{align*}
+\langle q_1,f\rangle&amp;=\int_0^1t^2\,\dif t=1/3\\
+\langle q_2,f\rangle&amp;=\sqrt{12}\int_0^1(t^3-t^2/2)\,\dif t
+=\sqrt{12}\left(\frac14-\frac16\right)=\frac{\sqrt{12}}{12}\\
+\|f\|^2&amp;=\int_0^1t^4\,\dif t=1/5\\
+\|f-p\|^2&amp;=\frac15-\left(\frac13\right)^2-\left(\frac{\sqrt{12}}{12}\right)^2
+=\frac{36-20-15}{180}=\frac1{180}
+\end{align*}\]</span></p>
+<p>The error subtracts squared coefficients in an orthonormal basis</p>
 </section>
 <section id="sines-and-cosines-form-orthogonal-directions" class="slide level2">
 <h2>Sines and cosines form orthogonal directions</h2>
@@ -1679,6 +2045,19 @@ p(t)=\frac13+\frac{\sqrt{12}}{12}\sqrt{12}(t-1/2)=t-1/6\\
           overflow: hidden!important;
           display:block!important;
       }</style></aside>
+</section>
+<section class="slide level2">
+
+<h3 id="derive-real-fourier-orthogonality">Use product identities to check the Fourier normalization</h3>
+<p>For each nonzero integer <span class="math inline">\(h\)</span>: <span class="math inline">\(\int_0^1\cos(2\pi ht)\,\dif t=\int_0^1\sin(2\pi ht)\,\dif t=0\)</span> <span class="math display">\[\begin{align*}
+2\cos(2\pi kt)\cos(2\pi\ell t)
+&amp;=\cos(2\pi(k-\ell)t)+\cos(2\pi(k+\ell)t)\\
+2\sin(2\pi kt)\sin(2\pi\ell t)
+&amp;=\cos(2\pi(k-\ell)t)-\cos(2\pi(k+\ell)t)
+\end{align*}\]</span></p>
+<p>For <span class="math inline">\(k,\ell\ge1\)</span>, integration gives zero when <span class="math inline">\(k\ne\ell\)</span>, and <span class="math inline">\(1/2\)</span> when <span class="math inline">\(k=\ell\)</span></p>
+<p>Sine–cosine products integrate to zero by the corresponding sine-sum identity</p>
+<p>Multiplication by <span class="math inline">\(\sqrt2\)</span> changes squared norm <span class="math inline">\(1/2\)</span> to <span class="math inline">\(1\)</span></p>
 </section>
 <section id="complex-inner-products-use-conjugation" class="slide level2">
 <h2>Complex inner products use conjugation</h2>
@@ -1714,6 +2093,23 @@ c_k=\langle q_k,f\rangle
 \end{gather*}\]</span></p>
 <p>For real <span class="math inline">\(f\)</span>, <span class="math inline">\(c_{-k}=\overline{c_k}\)</span></p>
 <p><a href="11-special-topics.html#fourier-coordinates-and-the-fft">Fourier matrices and FFT</a> turn sampled versions into fast coordinate calculations</p>
+</section>
+<section class="slide level2">
+
+<h3 id="derive-complex-fourier-orthogonality">Integrate a nonzero frequency difference</h3>
+<p>Write <span class="math inline">\(\mathrm{i}=\sqrt{-1}\)</span> and <span class="math inline">\(h=\ell-k\in\mathbb{Z}\)</span> <span class="math display">\[\begin{equation*}
+\int_0^1e^{2\pi\mathrm{i}ht}\,\dif t
+=\begin{cases}
+1,&amp;h=0\\
+\displaystyle\left[\frac{e^{2\pi\mathrm{i}ht}}{2\pi\mathrm{i}h}\right]_0^1
+=\frac{e^{2\pi\mathrm{i}h}-1}{2\pi\mathrm{i}h}=0,&amp;h\ne0
+\end{cases}
+\end{equation*}\]</span></p>
+<p>For real <span class="math inline">\(f\)</span>, conjugation passes through the integral: <span class="math display">\[\begin{equation*}
+\overline{c_k}
+=\overline{\int_0^1e^{-2\pi\mathrm{i}kt}f(t)\,\dif t}
+=\int_0^1e^{2\pi\mathrm{i}kt}f(t)\,\dif t=c_{-k}
+\end{equation*}\]</span></p>
 </section>
 <section id="finite-projections-and-infinite-expansions-have-different-meanings" class="slide level2">
 <h2>Finite projections and infinite expansions have different meanings</h2>
