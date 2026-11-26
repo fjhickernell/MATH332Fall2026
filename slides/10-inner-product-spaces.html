@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.11.9">
 
   <meta name="author" content="Fred J. Hickernell">
-  <meta name="dcterms.date" content="2026-11-25">
+  <meta name="dcterms.date" content="2026-11-26">
   <title>MATH 332 — Fall 2026</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -643,7 +643,7 @@ Fred J. Hickernell
 </div>
 </div>
 
-  <p class="date">November 25, 2026</p>
+  <p class="date">November 26, 2026</p>
 </section>
 <section id="course-map" class="title-slide slide level1 deck-course-map center">
 <h1>Course Map</h1>
@@ -2256,10 +2256,30 @@ c_k=\langle q_k,f\rangle
 <section id="course-recap" class="title-slide slide level1 center">
 <h1>What Can We Do with Vectors and Matrices?</h1>
 <p>* Optional</p>
+<h3>
+Solve
+</h3>
 <ul>
-<li>Solve <span class="math inline">\(\mat{A}\vct{x}=\vct{b}\)</span> — <span class="math inline">\([\mat{A}\mid\vct{b}]\xrightarrow{\text{swap, scale, add}}\text{echelon form}\)</span>, then back-substitute or continue to RREF</li>
+<li>Systems of equations <span class="math inline">\(\mat{A}\vct{x}=\vct{b} \xrightarrow{\text{augmented matrix}} [\mat{A} \mid \vct{b}] \xrightarrow[\text{get echelon form}]{\text{row operations}} [\mat{U} \mid \vct{c}] \xrightarrow{\text{back substitution}} \vct{x}\)</span></li>
+<li>Matrix inversion <span class="math inline">\([\mat{A}\mid\mat{I}]\longrightarrow[\mat{I}\mid\mat{A}^{-1}]\)</span> for nonsingular (square) <span class="math inline">\(\mat{A}\)</span></li>
 <li>Classify — <a href="01-systems-and-matrices.html#pivots-organize-elimination">augmented-column pivot</a> <span class="math inline">\(\implies\)</span> none. Otherwise <span class="math inline">\(\vct{x}=\vct{x}_p+\vct{z}\)</span>, <span class="math inline">\(\vct{z}\in\operatorname{null}(\mat{A})\)</span> (unique if no free variables)</li>
-<li>Invert by Gauss–Jordan — <span class="math inline">\([\mat{A}\mid\mat{I}]\longrightarrow[\mat{I}\mid\mat{A}^{-1}]\)</span> for nonsingular <span class="math inline">\(\mat{A}\)</span></li>
+</ul>
+<h3>
+Represent
+</h3>
+<h3>
+Decompose or factor
+</h3>
+<h3>
+Length and angles
+</h3>
+<h3>
+Area and volume
+</h3>
+<h3>
+Transform
+</h3>
+<ul>
 <li>Add, scale, multiply, transpose — <span class="math inline">\(\alpha\vct{u}+\beta\vct{v}\)</span>, <span class="math inline">\(\alpha\mat{A}+\beta\mat{B}\)</span>, <span class="math inline">\(\mat{A}\mat{B}\)</span>, <span class="math inline">\(\mat{A}^\top\)</span></li>
 <li>Apply a map — <span class="math inline">\(\mat{A}\vct{x}=\sum_j x_j\vct{A}_j\)</span>, with <span class="math inline">\((\mat{A}\vct{x})_i=\vct{a}_i^\top\vct{x}\)</span></li>
 <li>Build maps from basis images — <span class="math inline">\(\mat{A}=[T(\vct{e}_1)\ \cdots\ T(\vct{e}_n)]\)</span> for rotations, reflections, stretches, projections</li>
