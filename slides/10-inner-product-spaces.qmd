@@ -1601,9 +1601,27 @@ Instructor review remains open.
 
 \* Optional
 
-- Solve $\mat{A}\vct{x}=\vct{b}$ — $[\mat{A}\mid\vct{b}]\xrightarrow{\text{swap, scale, add}}\text{echelon form}$, then back-substitute or continue to RREF
+<h3>Solve</h3> 
+- Systems of equations $\mat{A}\vct{x}=\vct{b} \xrightarrow{\text{augmented matrix}} [\mat{A} \mid \vct{b}] \xrightarrow[\text{get echelon form}]{\text{row operations}} [\mat{U} \mid \vct{c}] \xrightarrow{\text{back substitution}} \vct{x}$
+- Matrix inversion  $[\mat{A}\mid\mat{I}]\longrightarrow[\mat{I}\mid\mat{A}^{-1}]$ for nonsingular (square) $\mat{A}$
 - Classify — [augmented-column pivot]({{< meta decks.d01.file >}}#pivots-organize-elimination) $\implies$ none. Otherwise $\vct{x}=\vct{x}_p+\vct{z}$, $\vct{z}\in\operatorname{null}(\mat{A})$ (unique if no free variables)
-- Invert by Gauss–Jordan — $[\mat{A}\mid\mat{I}]\longrightarrow[\mat{I}\mid\mat{A}^{-1}]$ for nonsingular $\mat{A}$
+
+<h3>Represent</h3>
+
+<h3>Decompose or factor</h3>
+
+<h3>Length and angles</h3>
+
+<h3>Area and volume</h3>
+
+<h3>Transform</h3>
+
+
+
+
+
+
+
 - Add, scale, multiply, transpose — $\alpha\vct{u}+\beta\vct{v}$, $\alpha\mat{A}+\beta\mat{B}$, $\mat{A}\mat{B}$, $\mat{A}^\top$
 - Apply a map — $\mat{A}\vct{x}=\sum_j x_j\vct{A}_j$, with $(\mat{A}\vct{x})_i=\vct{a}_i^\top\vct{x}$
 - Build maps from basis images — $\mat{A}=[T(\vct{e}_1)\ \cdots\ T(\vct{e}_n)]$ for rotations, reflections, stretches, projections
