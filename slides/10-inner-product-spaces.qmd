@@ -1603,8 +1603,12 @@ Instructor review remains open.
 
 <h3>Solve</h3> 
 - Systems of equations $\mat{A}\vct{x}=\vct{b} \xrightarrow{\text{augmented matrix}} [\mat{A} \mid \vct{b}] \xrightarrow[\text{get echelon form}]{\text{row operations}} [\mat{U} \mid \vct{c}] \xrightarrow{\text{back substitution}} \vct{x}$
-- Matrix inversion  $[\mat{A}\mid\mat{I}]\longrightarrow[\mat{I}\mid\mat{A}^{-1}]$ for nonsingular (square) $\mat{A}$
-- Classify — [augmented-column pivot]({{< meta decks.d01.file >}}#pivots-organize-elimination) $\implies$ none. Otherwise $\vct{x}=\vct{x}_p+\vct{z}$, $\vct{z}\in\operatorname{null}(\mat{A})$ (unique if no free variables)
+  - One solutions if every row has a [pivot]{.alert}
+  - Otherwise, zero or infinitely many solutions, depending on $\vct{b}$
+- Matrix [inversion]{.alert}  $[\mat{A}\mid\mat{I}]\longrightarrow[\mat{I}\mid\mat{A}^{-1}]$ for nonsingular (square) $\mat{A}$
+- Regression finds $\displaystyle \widehat{\vct{x}} := \argmin_{\vct{x}} \lVert \mat{A} \vct{x} - \vct{b} \rVert = (\mat{A}^\top\mat{A})^{-1} \mat{A}^\top \vct{b} = \mat{R}^{-1} \mat{Q}^\top \vct{b}$
+
+---
 
 <h3>Represent</h3>
 
